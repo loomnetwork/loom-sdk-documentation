@@ -1,0 +1,118 @@
+/* your custom css */
+
+/* global */
+
+body {
+  background-color: #F5F7F9;
+}
+
+.fixedHeaderContainer {
+  background-image: #4187c6;
+}
+
+.headerWrapper h2 {
+  visibility: hidden;
+}
+
+.homeContainer .homeWrapper {
+  padding: 10em 24px;
+}
+
+.nav-home img {
+  visibility: hidden;
+}
+
+nav.toc .toggleNav .navGroup.navGroupActive h3, nav.toc .toggleNav .navGroup.navGroupActive, nav.toc .toggleNav {
+  background: transparent;
+}
+
+nav.toc .toggleNav .navGroup.navGroupActive h3 {
+  color: #393939;
+}
+
+.productShowcaseSection .logos {
+  padding: 0px;
+}
+
+.productShowcaseSection .logos img {
+  max-height: initial;
+}
+
+/* doc */
+
+.doc .toc {
+  position: fixed;
+}
+
+.doc .mainContainer {
+  background-color: #FFFFFF;
+  border: 1px solid #EDF0F2;
+}
+
+/* banner  */
+
+.banner {
+  height: 50vh;
+  display: flex;
+}
+
+.banner-copy, .banner-graphic {
+  width: 50%;
+}
+
+.banner-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 24px 48px;
+  background-color: #E0EEF6;
+}
+
+.banner-copy h2 {
+  font-size: 26px;
+  margin-bottom: 24px;
+}
+
+.banner-graphic {
+  background-image: url('../img/banner.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+/* features  */
+
+.features-container {
+  background-color: #FFFFFF;
+}
+
+/* showcase */
+
+.productShowcaseSection {
+  padding: 48px 0;
+}
+
+.productShowcaseSection h2 {
+  margin-top: 0px;
+}
+
+.productShowcaseSection.paddingBottom {
+  margin-bottom: 0px;
+}
+
+@media only screen and (min-device-width: 360px) and (max-device-width: 736px) {
+}
+
+@media only screen and (min-width: 1024px) {
+}
+
+@media only screen and (max-width: 1023px) {
+}
+
+@media only screen and (min-width: 1400px) {
+}
+
+@media only screen and (min-width: 1500px) {
+}

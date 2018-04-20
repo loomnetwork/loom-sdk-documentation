@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="70px" height="70px" viewBox="0 0 70 70" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 43.1 (39012) - http://www.bohemiancoding.com/sketch -->
+    <title>Artboard</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="0%" y1="49.9908408%" x2="100%" y2="49.9908408%" id="linearGradient-1">
+            <stop stop-color="#1FD5D9" offset="0%"></stop>
+            <stop stop-color="#00F2D3" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard" fill-rule="nonzero">
+            <g id="artifact-2" transform="translate(2.000000, 0.000000)">
+                <polygon id="Shape" fill="url(#linearGradient-1)" points="0 28.7035714 45.5932258 0 26.3148387 58.4892857"></polygon>
+                <polygon id="Shape" fill="#11C1C1" points="26.3148387 58.4892857 65.1058065 50.4428571 45.5932258 0"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>
