@@ -136,21 +136,158 @@ const FeatureCallout = props => (
 
 
 const Banner = props => (
-  <div className="banner">
-    <div className="banner-copy">
-      <h2>Blah wow tsar!</h2>
-      <p>
-        lorem doc nad rasputing dis elba anno torka durka
-        defros svari nuk tri diem kniez trasu ork na du
-        mgnasium terra vita delault knovik zmarfurin fraznak
-        snigara tas de mara lark knut seri panwa taliman haha
-        razkre heya nakji di di selax rity hymn delio monoto
-      </p>
-    </div>
-    <div className="banner-graphic">
+  <div className="banner tile-bg">
+    <div className="wrapper">
+      <div className="banner-copy">
+        <h1>
+          Loom SDK
+        </h1>
+        <h3>Build decentralized worlds</h3>
+        <p>
+          This is an intro to building your first DAppChain using Go on the DAppchain and Solidity on Mainnet.
+        </p>
+      </div>
+      <div className="banner-form">
+        <div className="form-container">
+          <h3 className="mb-3">
+            SIGN UP FOR BETA ACCESS <br />
+          </h3>
+           <input type="email" className="email-input mb-3" name="email" placeholder="Email" />
+           <a className="sign-up-btn">Sign up</a>
+        </div>
+      </div>
     </div>
   </div>
 );
+
+const Prereqs = props => (
+  <div className="prereqs custom-section">
+    <div className="header-content">
+      <h3>
+        Prerequisites
+      </h3>
+      <p>
+        Golang for directions on how to set it up
+      </p>
+    </div>
+    <pre>
+      <code className="dark-code">
+        wget go1.1.0.1.darwin-amd64.tar.gz <br />
+        tar -C /usr/local -xzf go1.1.0.1.darwin-amd64.tar.gz
+      </code>
+    </pre>
+    <p>
+        *Add GOPATH to your bashrc <br />
+        Protobufs https://github.com/google/protobuf/releases/tag/v3.5.1
+    </p>
+    <pre>
+      <code className="dark-code">
+        wget go1.1.0.1.darwin-amd64.tar.gz <br />
+        tar -C /usr/local -xzf go1.1.0.1.darwin-amd64.tar.gz
+      </code>
+    </pre>
+  </div>
+);
+
+const Instructions = props => (
+  <div className="instructions custom-section">
+    <div className="grid-container">
+      <div className="wrapper">
+        <div className="grid-col grid-col-2">
+          <h3>
+            Step 1. Setup the dependencies
+          </h3>
+          <pre>
+            <code className="light-code">
+              wget go1.1.0.1.darwin-amd64.tar.gz <br />
+              tar -C /usr/local -xzf go1.1.0.1.darwin-amd64.tar.gz
+            </code>
+          </pre>
+        </div>
+        <div className="grid-col grid-col-2">
+          <h3>
+            Step 2. Create a project
+          </h3>
+          <pre>
+            <code className="light-code">
+              wget go1.1.0.1.darwin-amd64.tar.gz <br />
+              tar -C /usr/local -xzf go1.1.0.1.darwin-amd64.tar.gz
+            </code>
+          </pre>
+          <p>
+            Loom Platform has generators for a default project
+          </p>
+        </div>
+      </div>
+    </div>
+    <div className="grid-container">
+      <div className="wrapper">
+        <div className="grid-col grid-col-2">
+          <h3>
+            Step 3. Setup a new transaction
+          </h3>
+          <pre>
+            <code className="light-code">
+              wget go1.1.0.1.darwin-amd64.tar.gz <br />
+              tar -C /usr/local -xzf go1.1.0.1.darwin-amd64.tar.gz
+            </code>
+          </pre>
+        </div>
+        <div className="grid-col grid-col-2">
+          <h3>
+            Step 4. Startup the blockchain
+          </h3>
+          <pre>
+            <code className="light-code">
+              wget go1.1.0.1.darwin-amd64.tar.gz <br />
+              tar -C /usr/local -xzf go1.1.0.1.darwin-amd64.tar.gz
+            </code>
+          </pre>
+          <p>
+            Loom Platform has generators for a default project
+          </p>
+        </div>
+      </div>
+    </div>
+    <div className="grid-container">
+      <div className="wrapper">
+        <div className="grid-col grid-col-2">
+          <h3>
+            Step 5. Generate JS client
+          </h3>
+          <pre>
+            <code className="light-code">
+              wget go1.1.0.1.darwin-amd64.tar.gz <br />
+              tar -C /usr/local -xzf go1.1.0.1.darwin-amd64.tar.gz
+            </code>
+          </pre>
+        </div>
+        <div className="grid-col grid-col-2">
+          <h3>
+            Step 6. Interact with the Blockchain
+          </h3>
+          <pre>
+            <code className="light-code">
+              wget go1.1.0.1.darwin-amd64.tar.gz <br />
+              tar -C /usr/local -xzf go1.1.0.1.darwin-amd64.tar.gz
+            </code>
+          </pre>
+          <p>
+            Loom Platform has generators for a default project
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+);
+
+const Suggestions = props => (
+  <div className="suggestions custom-section">
+    <h3>
+      What should we be building?
+    </h3>
+  </div>
+)
 
 const LearnHow = props => (
   <Block background="light">
@@ -226,12 +363,13 @@ class Index extends React.Component {
     let language = this.props.language || '';
 
     return (
-      <div>
-        <HomeSplash language={language} />
+      <div className="landing-page">
         <div className="mainContainer">
           <Banner />
+          <Prereqs />
+          <Instructions />
+          <Suggestions />
           <Features />
-          <Showcase language={language} />
         </div>
       </div>
     );
@@ -239,3 +377,7 @@ class Index extends React.Component {
 }
 
 module.exports = Index;
+
+// Unused components
+// <HomeSplash language={language} />
+// <Showcase language={language} />
