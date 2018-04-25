@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="56" height="68" viewBox="0 0 56 68">
+    <defs>
+        <filter id="a" width="342%" height="173.7%" x="-121%" y="-36.9%" filterUnits="objectBoundingBox">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="5.407"/>
+        </filter>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+        <path fill="#EF476F" d="M10.102 6.404h13.406v44H10.102z" filter="url(#a)" transform="rotate(-30 33.501 10.878)"/>
+        <path fill="#F34213" d="M12 12.703L23.61 6l22 38.105L34 50.808z"/>
+    </g>
+</svg>

@@ -98,30 +98,88 @@ const Block = props => (
   </Container>
 );
 
+// const Features = props => (
+//   <div className="features-container">
+//     <Block layout="fourColumn">
+//       {[
+//         {
+//           content: 'This is the content of my feature. This is another description of how this project is useful',
+//           image: imgUrl('artifact-1.svg'),
+//           imageAlign: 'top',
+//           title: 'Feature One',
+//         },
+//         {
+//           content: 'The content of my second feature. This is another description of how this project is useful',
+//           image: imgUrl('artifact-2.svg'),
+//           imageAlign: 'top',
+//           title: 'Feature Two',
+//         },
+//         {
+//           content: 'The content of my third feature. This is another description of how this project is useful',
+//           image: imgUrl('artifact-3.svg'),
+//           imageAlign: 'top',
+//           title: 'Feature Three',
+//         },
+//       ]}
+//     </Block>
+//   </div>
+// );
+
 const Features = props => (
-  <div className="features-container">
-    <Block layout="fourColumn">
-      {[
-        {
-          content: 'This is the content of my feature. This is another description of how this project is useful',
-          image: imgUrl('artifact-1.svg'),
-          imageAlign: 'top',
-          title: 'Feature One',
-        },
-        {
-          content: 'The content of my second feature. This is another description of how this project is useful',
-          image: imgUrl('artifact-2.svg'),
-          imageAlign: 'top',
-          title: 'Feature Two',
-        },
-        {
-          content: 'The content of my third feature. This is another description of how this project is useful',
-          image: imgUrl('artifact-3.svg'),
-          imageAlign: 'top',
-          title: 'Feature Three',
-        },
-      ]}
-    </Block>
+  <div className="wrapper">
+    <div className="features-container">
+      <div className="feature-element">
+        <div className="feature-element-content">
+          <h2>
+            Plasma on Loom Network DAppChains
+          </h2>
+        </div>
+        <hr />
+        <div className="feature-element-content">
+          <p>
+            This is the content of my feature. This is another description of how this project is useful.
+            How useful? So useful that the use cases are virtually unlimited. As vast as stars in the galaxy.
+          </p>
+          <a className="feature-btn">
+            Read more
+          </a>
+        </div>
+      </div>
+      <div className="feature-element">
+        <div className="feature-element-content">
+          <h2>
+            Plasma on Loom Network DAppChains
+          </h2>
+        </div>
+        <hr />
+        <div className="feature-element-content">
+          <p>
+            This is the content of my feature. This is another description of how this project is useful.
+            How useful? So useful that the use cases are virtually unlimited. As vast as stars in the galaxy.
+          </p>
+          <a className="feature-btn">
+            Read more
+          </a>
+        </div>
+      </div>
+      <div className="feature-element">
+        <div className="feature-element-content">
+          <h2>
+            Plasma on Loom Network DAppChains
+          </h2>
+        </div>
+        <hr />
+        <div className="feature-element-content">
+          <p>
+            This is the content of my feature. This is another description of how this project is useful.
+            How useful? So useful that the use cases are virtually unlimited. As vast as stars in the galaxy.
+          </p>
+          <a className="feature-btn">
+            Read more
+          </a>
+        </div>
+      </div>
+    </div>
   </div>
 );
 
@@ -135,9 +193,17 @@ const FeatureCallout = props => (
 );
 
 
+
 const Banner = props => (
-  <div className="banner tile-bg">
+  <div className="banner dark-bg">
     <div className="wrapper">
+      <div className="artifact-container">
+        <img src={imgUrl("oval-white-artifact.svg")} className="artifact artifact-5" />
+        <img src={imgUrl("square-artifact.svg")} className="artifact artifact-4" />
+        <img src={imgUrl("triangle-artifact.svg")} className="artifact artifact-3" />
+        <img src={imgUrl("circle-green-artifact.svg")} className="artifact artifact-2" />
+        <img src={imgUrl("square-yellow-artifact.svg")} className="artifact artifact-1" />
+      </div>
       <div className="banner-copy">
         <h1>
           Loom SDK
@@ -147,45 +213,70 @@ const Banner = props => (
           This is an intro to building your first DAppChain using Go on the DAppchain and Solidity on Mainnet.
         </p>
       </div>
-      <div className="banner-form">
-        <div className="form-container">
-          <h3 className="mb-3">
-            SIGN UP FOR BETA ACCESS <br />
-          </h3>
-           <input type="email" className="email-input mb-3" name="email" placeholder="Email" />
-           <a className="sign-up-btn">Sign up</a>
-        </div>
+      <div className="banner-mascot-container">
+        <div className="banner-mascot-container-decal decal-4"></div>
+        <div className="banner-mascot-container-decal decal-3"></div>
+        <div className="banner-mascot-container-decal decal-2"></div>
+        <div className="banner-mascot-container-decal"></div>
+        <img src={imgUrl("zombie-mascot.png")} />
       </div>
     </div>
   </div>
 );
 
+// const Banner = props => (
+//   <div className="banner tile-bg">
+//     <div className="wrapper">
+//       <div className="banner-copy">
+//         <h1>
+//           Loom SDK
+//         </h1>
+//         <h3>Build decentralized worlds</h3>
+//         <p>
+//           This is an intro to building your first DAppChain using Go on the DAppchain and Solidity on Mainnet.
+//         </p>
+//       </div>
+//       <div className="banner-form">
+//         <div className="form-container">
+//           <h3 className="mb-3">
+//             SIGN UP FOR BETA ACCESS <br />
+//           </h3>
+//            <input type="email" className="email-input mb-3" name="email" placeholder="Email" />
+//            <a className="sign-up-btn">Sign up</a>
+//         </div>
+//       </div>
+//     </div>
+//   </div>
+// );
+
 const Prereqs = props => (
-  <div className="prereqs custom-section">
-    <div className="header-content">
-      <h3>
-        Prerequisites
-      </h3>
+  <div className="prereqs-container">
+    <div className="prereqs custom-section">
+      <div className="header-content">
+        <h3>
+          Prerequisites
+        </h3>
+        <p>
+          Golang for directions on how to set it up
+        </p>
+      </div>
+      <pre>
+        <code className="dark-code">
+          wget go1.1.0.1.darwin-amd64.tar.gz <br />
+          tar -C /usr/local -xzf go1.1.0.1.darwin-amd64.tar.gz
+        </code>
+      </pre>
       <p>
-        Golang for directions on how to set it up
+          *Add GOPATH to your bashrc <br />
+          Protobufs https://github.com/google/protobuf/releases/tag/v3.5.1
       </p>
+      <pre>
+        <code className="dark-code">
+          wget go1.1.0.1.darwin-amd64.tar.gz <br />
+          tar -C /usr/local -xzf go1.1.0.1.darwin-amd64.tar.gz
+        </code>
+      </pre>
     </div>
-    <pre>
-      <code className="dark-code">
-        wget go1.1.0.1.darwin-amd64.tar.gz <br />
-        tar -C /usr/local -xzf go1.1.0.1.darwin-amd64.tar.gz
-      </code>
-    </pre>
-    <p>
-        *Add GOPATH to your bashrc <br />
-        Protobufs https://github.com/google/protobuf/releases/tag/v3.5.1
-    </p>
-    <pre>
-      <code className="dark-code">
-        wget go1.1.0.1.darwin-amd64.tar.gz <br />
-        tar -C /usr/local -xzf go1.1.0.1.darwin-amd64.tar.gz
-      </code>
-    </pre>
   </div>
 );
 
@@ -281,6 +372,25 @@ const Instructions = props => (
   </div>
 );
 
+
+const Download = props => (
+  <div className="download custom-section">
+    <ul className="download-btn-container">
+      <li className="border-right">
+        <span>
+          SDK
+        </span>
+      </li>
+      <li>
+        <span>1.0.0</span>
+      </li>
+      <li className="border-left">
+        <a className="download-btn">Download</a>
+      </li>
+    </ul>
+  </div>
+)
+
 const Suggestions = props => (
   <div className="suggestions custom-section">
     <h3>
@@ -366,10 +476,10 @@ class Index extends React.Component {
       <div className="landing-page">
         <div className="mainContainer">
           <Banner />
+          <Download />
+          <Features />
           <Prereqs />
           <Instructions />
-          <Suggestions />
-          <Features />
         </div>
       </div>
     );
@@ -381,3 +491,4 @@ module.exports = Index;
 // Unused components
 // <HomeSplash language={language} />
 // <Showcase language={language} />
+// <Suggestions />
