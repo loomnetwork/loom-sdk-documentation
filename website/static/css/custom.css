@@ -16,7 +16,7 @@ body {
 }
 
 .dark-bg {
-  background: linear-gradient(rgba(0, 0, 0, .2), rgba(0, 0, 0, .2)), url('../img/future-bg-without.png'), url('../img/stars.svg'), #0b0033;
+  background: linear-gradient(rgba(0, 0, 0, .2), rgba(0, 0, 0, .2)), url('../img/future-bg.png'), url('../img/stars.svg'), #0b0033;
   background-repeat: no-repeat, no-repeat, no-repeat, repeat;
   background-position: center, bottom, top, center;
   background-size: contain;
