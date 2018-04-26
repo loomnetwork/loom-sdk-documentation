@@ -93,6 +93,37 @@ nav.toc .toggleNav .navGroup.navGroupActive h3 {
   max-height: initial;
 }
 
+
+/* footer */
+
+footer.nav-footer {
+  background: #0b0033;
+}
+
+footer .sitemap {
+  position: relative;
+}
+
+footer .zombie-mascot {
+  height: 300px;
+  position: absolute;
+  right: 0px;
+}
+
+.fbOpenSource {
+  width: initial !important;
+  height: 100px;
+  opacity: 1 !important;
+}
+
+.fbOpenSource img {
+  width: 750px;
+  position: relative;
+  margin: 0 auto;
+  top: -60px;
+  display: block;
+}
+
 /* doc */
 
 .doc .toc {

@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="647" height="135" viewBox="0 0 647 135">
+    <defs>
+        <filter id="a" width="245.1%" height="245.4%" x="-72.5%" y="-72.7%" filterUnits="objectBoundingBox">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="7.667"/>
+        </filter>
+        <filter id="b" width="495.2%" height="220.7%" x="-197.6%" y="-60.3%" filterUnits="objectBoundingBox">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="5.407"/>
+        </filter>
+        <filter id="c" width="275%" height="275.3%" x="-87.5%" y="-87.7%" filterUnits="objectBoundingBox">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="10"/>
+        </filter>
+        <filter id="d" width="225.3%" height="196.5%" x="-62.7%" y="-48.3%" filterUnits="objectBoundingBox">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="10"/>
+        </filter>
+        <filter id="e" width="245.1%" height="245.4%" x="-72.5%" y="-72.7%" filterUnits="objectBoundingBox">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="7.667"/>
+        </filter>
+        <filter id="f" width="495.2%" height="220.7%" x="-197.6%" y="-60.3%" filterUnits="objectBoundingBox">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="5.407"/>
+        </filter>
+        <filter id="g" width="275%" height="275.3%" x="-87.5%" y="-87.7%" filterUnits="objectBoundingBox">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="10"/>
+        </filter>
+        <filter id="h" width="225.3%" height="196.5%" x="-62.7%" y="-48.3%" filterUnits="objectBoundingBox">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="10"/>
+        </filter>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+        <g transform="rotate(11 84.688 71.77)">
+            <g fill="#FDFFFC" opacity=".595">
+                <path d="M27.792 14.651l15.854 31.645H11.938z" filter="url(#a)" transform="scale(1 -1) rotate(-44 -32.375 -91.005)"/>
+                <path d="M77.562 57.056l37.646-13.25L89.49 18.972z"/>
+            </g>
+            <g fill="#F34213">
+                <path d="M6.896 4.914h8.209v26.891H6.896z" filter="url(#b)" transform="scale(-1 1) rotate(74 -48.164 3.151)"/>
+                <path d="M31.272 58.045l-2.263 7.891 25.85 7.412 2.262-7.89z"/>
+            </g>
+            <ellipse cx="5.188" cy="84.194" fill="#FFF" opacity=".697" rx="4.287" ry="4.278" transform="scale(1 -1) rotate(-76 -102.576 0)"/>
+            <g fill="#44FFD1" transform="scale(1 -1) rotate(-76 63.113 -95.073)">
+                <ellipse cx="23.27" cy="23.835" filter="url(#c)" rx="17.146" ry="17.112"/>
+                <ellipse cx="19.596" cy="19.557" rx="19.596" ry="19.557"/>
+            </g>
+            <g fill="#F1D302">
+                <path d="M20.154.885l36.97 10.474-8.98 51.682-38.89-26.223z" filter="url(#d)" transform="scale(1 -1) rotate(-76 84.342 -148.824)"/>
+                <path d="M213.897 40.868l20.067 35.103 50.91-21.685-36.83-33.202z"/>
+            </g>
+        </g>
+        <g transform="rotate(-178 323.175 51.893)">
+            <g fill="#FDFFFC" opacity=".595">
+                <path d="M27.792 14.651l15.854 31.645H11.938z" filter="url(#e)" transform="scale(1 -1) rotate(-44 -32.375 -91.005)"/>
+                <path d="M77.562 57.056l37.646-13.25L89.49 18.972z"/>
+            </g>
+            <g fill="#F34213">
+                <path d="M6.896 4.914h8.209v26.891H6.896z" filter="url(#f)" transform="scale(-1 1) rotate(74 -48.164 3.151)"/>
+                <path d="M31.272 58.045l-2.263 7.891 25.85 7.412 2.262-7.89z"/>
+            </g>
+            <ellipse cx="5.188" cy="84.194" fill="#FFF" opacity=".697" rx="4.287" ry="4.278" transform="scale(1 -1) rotate(-76 -102.576 0)"/>
+            <g fill="#44FFD1" transform="scale(1 -1) rotate(-76 63.113 -95.073)">
+                <ellipse cx="23.27" cy="23.835" filter="url(#g)" rx="17.146" ry="17.112"/>
+                <ellipse cx="19.596" cy="19.557" rx="19.596" ry="19.557"/>
+            </g>
+            <g fill="#F1D302">
+                <path d="M20.154.885l36.97 10.474-8.98 51.682-38.89-26.223z" filter="url(#h)" transform="scale(1 -1) rotate(-76 84.342 -148.824)"/>
+                <path d="M213.897 40.868l20.067 35.103 50.91-21.685-36.83-33.202z"/>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -79,6 +79,7 @@ class Footer extends React.Component {
               Star
             </a>
           </div>
+          <img src={this.props.config.baseUrl + 'img/zombie-mascot.png'} className="zombie-mascot" />
         </section>
 
         <a
@@ -87,7 +88,7 @@ class Footer extends React.Component {
           rel="noreferrer noopener"
           className="fbOpenSource">
           <img
-            src={this.props.config.baseUrl + 'img/loom-logo.svg'}
+            src={this.props.config.baseUrl + 'img/footer-decal.svg'}
             alt="Facebook Open Source"
             width="170"
             height="45"
