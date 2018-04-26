@@ -12,14 +12,13 @@ gulp.task('css', function(){
     .pipe(gulp.dest('build/developers/css/main.min.css'))
 });
 
-
 gulp.task('hash', function(){
   return gulp.src('build/developers/css/main.css')
     .pipe(hash())
     .pipe(gulp.dest('build/developers/css'))
     .pipe(hash.manifest('static/assets.json', {
     	  deleteOld: true,
-    	  sourceDir: __dirname + '/static'
+    	  sourceDir: __dirname
     	}))
     .pipe(gulp.dest('.'));
 });
