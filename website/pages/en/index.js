@@ -138,7 +138,7 @@ const Features = props => (
         <div className="feature-element-content">
           <p>
             This is the content of my feature. This is another description of how this project is useful.
-            How useful? So useful that the use cases are virtually unlimited. As vast as stars in the galaxy.
+            How useful? So useful that the use cases are virtually unlimited. As vast as stars in the universe.
           </p>
           <a className="feature-btn">
             Read more
@@ -155,7 +155,7 @@ const Features = props => (
         <div className="feature-element-content">
           <p>
             This is the content of my feature. This is another description of how this project is useful.
-            How useful? So useful that the use cases are virtually unlimited. As vast as stars in the galaxy.
+            How useful? So useful that the use cases are virtually unlimited. As vast as stars in the universe.
           </p>
           <a className="feature-btn">
             Read more
@@ -172,7 +172,7 @@ const Features = props => (
         <div className="feature-element-content">
           <p>
             This is the content of my feature. This is another description of how this project is useful.
-            How useful? So useful that the use cases are virtually unlimited. As vast as stars in the galaxy.
+            How useful? So useful that the use cases are virtually unlimited. As vast as stars in the universe.
           </p>
           <a className="feature-btn">
             Read more
