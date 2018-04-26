@@ -8,3 +8,8 @@ cd website
 yarn
 yarn run build
 ```
+
+To serve
+```
+yarn run start
+```
