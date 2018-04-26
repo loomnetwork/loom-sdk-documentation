@@ -1,13 +1,36 @@
+var fs = require("fs");
 var gulp = require('gulp');
 var minifyCSS = require('gulp-csso');
 var concat = require('gulp-concat');
 var sourcemaps = require('gulp-sourcemaps');
+var hash = require('gulp-hash');
+var replace = require('gulp-replace');
 
 gulp.task('css', function(){
   return gulp.src('build/developers/css/main.css')
     .pipe(minifyCSS())
-    .pipe(gulp.dest('build/developers/css'))
+    .pipe(gulp.dest('build/developers/css/main.min.css'))
 });
+
+
+gulp.task('hash', function(){
+  return gulp.src('build/developers/css/main.css')
+    .pipe(hash())
+    .pipe(gulp.dest('build/developers/css'))
+    .pipe(hash.manifest('static/assets.json', { // Generate the manifest file
+    	  deleteOld: true,
+    	  sourceDir: __dirname + '/static/js'
+    	}))
+    .pipe(gulp.dest('.'));
+});
+
+gulp.task('replace', function(){
+  var manifest = JSON.parse(fs.readFileSync(__dirname + '/static/assets.json', 'utf8'));
+  gulp.src(['build/developers/index.html'])
+    .pipe(replace('main.css', manifest['main.css']))
+    .pipe(gulp.dest('build/developers'));
+});
+
 
 gulp.task('js', function(){
   return gulp.src('client/javascript/*.js')
@@ -17,4 +40,4 @@ gulp.task('js', function(){
     .pipe(gulp.dest('build/js'))
 });
 
-gulp.task('default', [ 'css' ]);
+gulp.task('default', [ 'css', 'hash', 'replace' ]);
