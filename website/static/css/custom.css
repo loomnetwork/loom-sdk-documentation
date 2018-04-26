@@ -16,7 +16,10 @@ body {
 }
 
 .dark-bg {
-  background: #0b0033;
+  background: linear-gradient(rgba(0, 0, 0, .2), rgba(0, 0, 0, .2)), url('../img/future-bg-without.png'), url('../img/stars.svg'), #0b0033;
+  background-repeat: no-repeat, no-repeat, no-repeat, repeat;
+  background-position: center, bottom, top, center;
+  background-size: contain;
 }
 
 .landing-page h2 {
@@ -130,7 +133,6 @@ nav.toc .toggleNav .navGroup.navGroupActive h3 {
   max-height: 100vh;
   display: flex;
   align-items: center;
-  background-attachment: fixed;
   box-shadow: inset 0 -10px 10px -5px rgba(0,0,0,0.2);
   overflow: hidden;
 }
@@ -223,7 +225,7 @@ nav.toc .toggleNav .navGroup.navGroupActive h3 {
 .banner-mascot-container-decal {
   display: block;
   position: absolute;
-  background-color: #004EEE;
+  /* background-color: #004EEE; */
   /* background: #004eee;
   background: -moz-radial-gradient(center, ellipse cover, #004eee 0%, #081356 100%);
   background: -webkit-radial-gradient(center, ellipse cover, #004eee 0%,#081356 100%);

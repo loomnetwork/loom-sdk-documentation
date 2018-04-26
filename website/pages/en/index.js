@@ -11,6 +11,7 @@ const CompLibrary = require('../../core/CompLibrary.js');
 const MarkdownBlock = CompLibrary.MarkdownBlock; /* Used to read markdown */
 const Container = CompLibrary.Container;
 const GridBlock = CompLibrary.GridBlock;
+import $ from "jquery";
 
 const siteConfig = require(process.cwd() + '/siteConfig.js');
 
@@ -25,6 +26,11 @@ function docUrl(doc, language) {
 function pageUrl(page, language) {
   return siteConfig.baseUrl + (language ? language + '/' : '') + page;
 }
+
+$(window).on('mousemove click', function(e) {
+  console.log("Thanos has arrived");
+});
+
 
 class Button extends React.Component {
   render() {
@@ -214,9 +220,6 @@ const Banner = props => (
         </p>
       </div>
       <div className="banner-mascot-container">
-        <div className="banner-mascot-container-decal decal-4"></div>
-        <div className="banner-mascot-container-decal decal-3"></div>
-        <div className="banner-mascot-container-decal decal-2"></div>
         <div className="banner-mascot-container-decal"></div>
         <img src={imgUrl("zombie-mascot.png")} />
       </div>
