@@ -68,6 +68,8 @@ const siteConfig = {
     ]
   },*/
 
+  gaTrackingId: "UA-108071653-1",
+
   // This copyright info is used in /core/Footer.js and blog rss/atom feeds.
   copyright:
     'Copyright © ' +
