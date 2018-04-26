@@ -57,12 +57,20 @@ body {
 }
 
 .navPusher {
-  padding-top: 0px !important;
+  padding-top: 0px;
 }
 
 .fixedHeaderContainer {
   position: absolute;
   background: transparent;
+}
+
+.doc .fixedHeaderContainer {
+  background: #004bcc;
+}
+
+.doc .navPusher {
+  padding-top: 50px;
 }
 
 .headerWrapper h2 {
@@ -77,13 +85,13 @@ body {
   visibility: hidden;
 }
 
-nav.toc .toggleNav .navGroup.navGroupActive h3, nav.toc .toggleNav .navGroup.navGroupActive, nav.toc .toggleNav {
+/* nav.toc .toggleNav .navGroup.navGroupActive h3, nav.toc .toggleNav .navGroup.navGroupActive, nav.toc .toggleNav {
   background: transparent;
-}
+} */
 
-nav.toc .toggleNav .navGroup.navGroupActive h3 {
+/* nav.toc .toggleNav .navGroup.navGroupActive h3 {
   color: #393939;
-}
+} */
 
 .productShowcaseSection .logos {
   padding: 0px;
@@ -126,9 +134,9 @@ footer .zombie-mascot {
 
 /* doc */
 
-.doc .toc {
+/* .doc .toc {
   position: fixed;
-}
+} */
 
 .doc .mainContainer {
   background-color: #FFFFFF;
