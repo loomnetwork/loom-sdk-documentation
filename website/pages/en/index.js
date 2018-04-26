@@ -27,11 +27,6 @@ function pageUrl(page, language) {
   return siteConfig.baseUrl + (language ? language + '/' : '') + page;
 }
 
-$(window).on('mousemove click', function(e) {
-  console.log("Thanos has arrived");
-});
-
-
 class Button extends React.Component {
   render() {
     return (
