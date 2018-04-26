@@ -17,9 +17,9 @@ gulp.task('hash', function(){
   return gulp.src('build/developers/css/main.css')
     .pipe(hash())
     .pipe(gulp.dest('build/developers/css'))
-    .pipe(hash.manifest('static/assets.json', { // Generate the manifest file
+    .pipe(hash.manifest('static/assets.json', {
     	  deleteOld: true,
-    	  sourceDir: __dirname + '/static/js'
+    	  sourceDir: __dirname + '/static'
     	}))
     .pipe(gulp.dest('.'));
 });
