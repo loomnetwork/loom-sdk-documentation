@@ -94,9 +94,9 @@ body {
   background: transparent;
 } */
 
-/* nav.toc .toggleNav .navGroup.navGroupActive h3 {
-  color: #393939;
-} */
+.navGroup.navGroupActive h3 {
+  background-color: #004bcc !important;
+}
 
 .productShowcaseSection .logos {
   padding: 0px;
@@ -527,9 +527,9 @@ footer .zombie-mascot {
 @media screen and (max-width: 1020px) {
 
   .fixedHeaderContainer {
-    position: relative;
+    position: fixed;
     background: #184bcc;
-  }  
+  }
 
   .artifact-container {
     display: none;
@@ -552,7 +552,7 @@ footer .zombie-mascot {
 @media screen and (max-width: 600px) {
 
   .fixedHeaderContainer {
-    position: relative;
+    position: fixed;
     background: #184bcc;
   }
 
@@ -620,7 +620,7 @@ footer .zombie-mascot {
 @media screen and (max-width: 360px) {
 
   .fixedHeaderContainer {
-    position: relative;
+    position: fixed;
     background: #184bcc;
   }
 
