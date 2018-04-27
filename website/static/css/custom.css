@@ -556,6 +556,10 @@ footer .zombie-mascot {
 
 @media screen and (max-width: 600px) {
 
+  .navPusher {
+    padding-top: 50px;
+  }    
+
   .fixedHeaderContainer {
     position: fixed;
     background: #184bcc;
@@ -623,6 +627,10 @@ footer .zombie-mascot {
 }
 
 @media screen and (max-width: 360px) {
+
+  .navPusher {
+    padding-top: 50px;
+  }
 
   .fixedHeaderContainer {
     position: fixed;
