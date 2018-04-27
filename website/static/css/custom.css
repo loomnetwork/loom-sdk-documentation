@@ -85,6 +85,11 @@ body {
   visibility: hidden;
 }
 
+.global-padding {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
 /* nav.toc .toggleNav .navGroup.navGroupActive h3, nav.toc .toggleNav .navGroup.navGroupActive, nav.toc .toggleNav {
   background: transparent;
 } */
@@ -463,6 +468,10 @@ footer .zombie-mascot {
   margin: 0 auto;
 }
 
+.prereqs p {
+  word-wrap: break-word;
+}
+
 .prereqs pre code {
   text-align: initial;
   margin: 36px 0;
@@ -489,7 +498,8 @@ footer .zombie-mascot {
 /* utilities */
 
 .custom-section {
-  padding: 60px 0;
+  padding-top: 60px;
+  padding-bottom: 60px;
 }
 
 .mb-3 {
@@ -513,8 +523,155 @@ footer .zombie-mascot {
 
 /* responsive */
 
-@media only screen and (min-device-width: 360px) and (max-device-width: 736px) {
+
+@media screen and (max-width: 1020px) {
+
+  .artifact-container {
+    display: none;
+  }
+
+  .banner-mascot-container {
+    padding: 20px;
+  }
+
+  .banner-copy h1 {
+    font-size: 48px;
+  }
+
+  .feature-element-content {
+    padding: 12px;
+  }
+
 }
+
+@media screen and (max-width: 600px) {
+
+  .features-container {
+    flex-direction: column;
+  }
+
+  .features-container .feature-element {
+    margin: 0 12px 24px 12px;
+  }
+
+  .feature-element-content {
+    padding: 12px;
+  }
+
+  .artifact-container {
+    display: none;
+  }
+
+  .banner-mascot-container {
+    display: none;
+  }
+
+  .banner-copy {
+    width: 100%;
+  }
+
+  .banner-copy h1 {
+    font-size: 48px;
+  }
+
+  .banner-copy h3 {
+    font-size: 24px;
+  }
+
+  .grid-container .wrapper {
+    flex-direction: column;
+  }
+
+  .grid-col-2 {
+    width: 100%;
+  }
+
+  .grid-col {
+    margin: 0px;
+  }
+
+  .instructions h3 {
+    height: initial;
+    font-size: 24px;
+  }
+
+
+  footer .zombie-mascot {
+    height: 270px;
+    bottom: 0px;
+  }
+
+  .fbOpenSource img {
+    top: -10px;
+  }
+
+}
+
+@media screen and (max-width: 360px) {
+
+  .features-container {
+    flex-direction: column;
+  }
+
+  .features-container .feature-element {
+    margin: 0 12px 24px 12px;
+  }
+
+  .feature-element-content {
+    padding: 12px;
+  }
+
+  .artifact-container {
+    display: none;
+  }
+
+  .banner-mascot-container {
+    display: none;
+  }
+
+  .banner-copy {
+    width: 100%;
+  }
+
+  .banner-copy h1 {
+    font-size: 48px;
+  }
+
+  .banner-copy h3 {
+    font-size: 24px;
+  }
+
+  .grid-container .wrapper {
+    flex-direction: column;
+  }
+
+  .grid-col-2 {
+    width: 100%;
+  }
+
+  .grid-col {
+    margin: 0px;
+  }
+
+  .instructions h3 {
+    height: initial;
+    font-size: 24px;
+  }
+
+
+  footer .zombie-mascot {
+    height: 200px;
+    bottom: 0px;
+  }
+
+  .fbOpenSource img {
+    top: -10px;
+  }
+
+}
+
+/* @media only screen and (min-device-width: 360px) and (max-device-width: 736px) {
+} */
 
 @media only screen and (min-width: 1024px) {
 }

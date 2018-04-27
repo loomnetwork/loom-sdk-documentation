@@ -247,7 +247,7 @@ const Banner = props => (
 // );
 
 const Prereqs = props => (
-  <div className="prereqs-container">
+  <div className="prereqs-container global-padding">
     <div className="prereqs custom-section">
       <div className="header-content">
         <h3>
@@ -371,7 +371,7 @@ const Instructions = props => (
 
 
 const Download = props => (
-  <div className="download custom-section">
+  <div className="download custom-section global-padding">
     <ul className="download-btn-container">
       <li className="border-right">
         <span>
