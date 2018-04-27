@@ -10,7 +10,7 @@ var replace = require('gulp-replace');
 gulp.task('viewPort', function() {
   return gulp.src('build/developers/index.html')
     .pipe(dom(function(){
-        return this.querySelectorAll('[name="viewport"]')[0].setAttribute('initial-scale', '1');
+        return this.querySelectorAll('[name="viewport"]')[0].setAttribute('content', 'width=device-width, initial-scale=1.0');
     }))
     .pipe(gulp.dest('build/developers'));
 });
