@@ -7,6 +7,8 @@ var sourcemaps = require('gulp-sourcemaps');
 var hash = require('gulp-hash');
 var replace = require('gulp-replace');
 
+var manifest = JSON.parse(fs.readFileSync(__dirname + 'build/assets.json', 'utf8'));
+
 gulp.task('viewPort', function() {
   return gulp.src('build/developers/index.html')
     .pipe(dom(function(){
@@ -33,42 +35,30 @@ gulp.task('hash', function(){
   return gulp.src('build/developers/css/main.css')
     .pipe(hash())
     .pipe(gulp.dest('build/developers/css'))
-    .pipe(hash.manifest('static/assets.json', {
+    .pipe(hash.manifest('build/assets.json', {
     	  deleteOld: true,
-    	  sourceDir: __dirname
+    	  sourceDir: __dirname + '/build/developers/css'
     	}))
     .pipe(gulp.dest('.'));
 });
 
 gulp.task('replace', function(){
-  var manifest = JSON.parse(fs.readFileSync(__dirname + '/static/assets.json', 'utf8'));
   gulp.src(['build/developers/*.html'])
     .pipe(replace('main.css', manifest['main.css']))
     .pipe(gulp.dest('build/developers'));
 });
 
 gulp.task('replaceDocs', function(){
-  var manifest = JSON.parse(fs.readFileSync(__dirname + '/static/assets.json', 'utf8'));
   gulp.src(['build/developers/docs/*.html'])
     .pipe(replace('main.css', manifest['main.css']))
     .pipe(gulp.dest('build/developers/docs'));
 });
 
 gulp.task('replaceDocsEn', function(){
-  var manifest = JSON.parse(fs.readFileSync(__dirname + '/static/assets.json', 'utf8'));
   gulp.src(['build/developers/docs/en/*.html'])
     .pipe(replace('main.css', manifest['main.css']))
     .pipe(gulp.dest('build/developers/docs/en'));
 });
 
-// <meta name="viewport" content="width=device-width, initial-scale=1">
-
-gulp.task('js', function(){
-  return gulp.src('client/javascript/*.js')
-    .pipe(sourcemaps.init())
-    .pipe(concat('app.min.js'))
-    .pipe(sourcemaps.write())
-    .pipe(gulp.dest('build/js'))
-});
 
 gulp.task('default', [ 'viewPort', 'viewPortEn', 'css', 'hash', 'replace', 'replaceDocs', 'replaceDocsEn' ]);
