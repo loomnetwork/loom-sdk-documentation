@@ -526,6 +526,11 @@ footer .zombie-mascot {
 
 @media screen and (max-width: 1020px) {
 
+  .fixedHeaderContainer {
+    position: relative;
+    background: #184bcc;
+  }  
+
   .artifact-container {
     display: none;
   }
@@ -545,6 +550,11 @@ footer .zombie-mascot {
 }
 
 @media screen and (max-width: 600px) {
+
+  .fixedHeaderContainer {
+    position: relative;
+    background: #184bcc;
+  }
 
   .features-container {
     flex-direction: column;
@@ -608,6 +618,11 @@ footer .zombie-mascot {
 }
 
 @media screen and (max-width: 360px) {
+
+  .fixedHeaderContainer {
+    position: relative;
+    background: #184bcc;
+  }
 
   .features-container {
     flex-direction: column;
