@@ -15,6 +15,14 @@ gulp.task('viewPort', function() {
     .pipe(gulp.dest('build/developers'));
 });
 
+gulp.task('viewPortEn', function() {
+  return gulp.src('build/developers/en/index.html')
+    .pipe(dom(function(){
+        return this.querySelectorAll('[name="viewport"]')[0].setAttribute('content', 'width=device-width, initial-scale=1.0');
+    }))
+    .pipe(gulp.dest('build/developers/en'));
+});
+
 gulp.task('css', function(){
   return gulp.src('build/developers/css/main.css')
     .pipe(minifyCSS())
@@ -63,4 +71,4 @@ gulp.task('js', function(){
     .pipe(gulp.dest('build/js'))
 });
 
-gulp.task('default', [ 'viewPort', 'css', 'hash', 'replace', 'replaceDocs', 'replaceDocsEn' ]);
+gulp.task('default', [ 'viewPort', 'viewPortEn', 'css', 'hash', 'replace', 'replaceDocs', 'replaceDocsEn' ]);
