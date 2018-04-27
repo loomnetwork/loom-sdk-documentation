@@ -25,11 +25,24 @@ gulp.task('hash', function(){
 
 gulp.task('replace', function(){
   var manifest = JSON.parse(fs.readFileSync(__dirname + '/static/assets.json', 'utf8'));
-  gulp.src(['build/developers/index.html'])
+  gulp.src(['build/developers/*.html'])
     .pipe(replace('main.css', manifest['main.css']))
     .pipe(gulp.dest('build/developers'));
 });
 
+gulp.task('replaceDocs', function(){
+  var manifest = JSON.parse(fs.readFileSync(__dirname + '/static/assets.json', 'utf8'));
+  gulp.src(['build/developers/docs/*.html'])
+    .pipe(replace('main.css', manifest['main.css']))
+    .pipe(gulp.dest('build/developers/docs'));
+});
+
+gulp.task('replaceDocsEn', function(){
+  var manifest = JSON.parse(fs.readFileSync(__dirname + '/static/assets.json', 'utf8'));
+  gulp.src(['build/developers/docs/en/*.html'])
+    .pipe(replace('main.css', manifest['main.css']))
+    .pipe(gulp.dest('build/developers/docs/en'));
+});
 
 gulp.task('js', function(){
   return gulp.src('client/javascript/*.js')
@@ -39,4 +52,4 @@ gulp.task('js', function(){
     .pipe(gulp.dest('build/js'))
 });
 
-gulp.task('default', [ 'css', 'hash', 'replace' ]);
+gulp.task('default', [ 'css', 'hash', 'replace', 'replaceDocs', 'replaceDocsEn' ]);
