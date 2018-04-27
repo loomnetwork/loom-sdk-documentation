@@ -14,6 +14,7 @@
     "gulp-concat": "^2.6.1",
     "gulp-csso": "^3.0.1",
     "gulp-hash": "^4.2.2",
+    "gulp-jsdom": "^1.0.1",
     "gulp-replace": "^0.6.1",
     "gulp-sourcemaps": "^2.6.4"
   }

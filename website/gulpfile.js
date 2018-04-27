@@ -1,10 +1,19 @@
 var fs = require("fs");
 var gulp = require('gulp');
 var minifyCSS = require('gulp-csso');
+var dom = require('gulp-jsdom');
 var concat = require('gulp-concat');
 var sourcemaps = require('gulp-sourcemaps');
 var hash = require('gulp-hash');
 var replace = require('gulp-replace');
+
+gulp.task('viewPort', function() {
+  return gulp.src('build/developers/index.html')
+    .pipe(dom(function(){
+        return this.querySelectorAll('[name="viewport"]')[0].setAttribute('initial-scale', '1');
+    }))
+    .pipe(gulp.dest('build/developers'));
+});
 
 gulp.task('css', function(){
   return gulp.src('build/developers/css/main.css')
@@ -44,6 +53,8 @@ gulp.task('replaceDocsEn', function(){
     .pipe(gulp.dest('build/developers/docs/en'));
 });
 
+// <meta name="viewport" content="width=device-width, initial-scale=1">
+
 gulp.task('js', function(){
   return gulp.src('client/javascript/*.js')
     .pipe(sourcemaps.init())
@@ -52,4 +63,4 @@ gulp.task('js', function(){
     .pipe(gulp.dest('build/js'))
 });
 
-gulp.task('default', [ 'css', 'hash', 'replace', 'replaceDocs', 'replaceDocsEn' ]);
+gulp.task('default', [ 'viewPort', 'css', 'hash', 'replace', 'replaceDocs', 'replaceDocsEn' ]);
