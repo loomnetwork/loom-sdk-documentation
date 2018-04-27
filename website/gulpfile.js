@@ -7,8 +7,6 @@ var sourcemaps = require('gulp-sourcemaps');
 var hash = require('gulp-hash');
 var replace = require('gulp-replace');
 
-var manifest = JSON.parse(fs.readFileSync(__dirname + 'build/assets.json', 'utf8'));
-
 gulp.task('viewPort', function() {
   return gulp.src('build/developers/index.html')
     .pipe(dom(function(){
@@ -35,30 +33,27 @@ gulp.task('hash', function(){
   return gulp.src('build/developers/css/main.css')
     .pipe(hash())
     .pipe(gulp.dest('build/developers/css'))
-    .pipe(hash.manifest('build/assets.json', {
+    .pipe(hash.manifest('build/developers/assets.json', {
     	  deleteOld: true,
-    	  sourceDir: __dirname + '/build/developers/css'
+    	  sourceDir: __dirname + '/build/developers'
     	}))
     .pipe(gulp.dest('.'));
-});
 
-gulp.task('replace', function(){
-  gulp.src(['build/developers/*.html'])
-    .pipe(replace('main.css', manifest['main.css']))
-    .pipe(gulp.dest('build/developers'));
-});
+    var manifest = JSON.parse(fs.readFileSync(__dirname + '/build/developers/assets.json', 'utf8'));
 
-gulp.task('replaceDocs', function(){
-  gulp.src(['build/developers/docs/*.html'])
-    .pipe(replace('main.css', manifest['main.css']))
-    .pipe(gulp.dest('build/developers/docs'));
-});
+    gulp.src(['build/developers/*.html'])
+      .pipe(replace('main.css', manifest['main.css']))
+      .pipe(gulp.dest('build/developers'));
 
-gulp.task('replaceDocsEn', function(){
-  gulp.src(['build/developers/docs/en/*.html'])
-    .pipe(replace('main.css', manifest['main.css']))
-    .pipe(gulp.dest('build/developers/docs/en'));
+    gulp.src(['build/developers/docs/*.html'])
+      .pipe(replace('main.css', manifest['main.css']))
+      .pipe(gulp.dest('build/developers/docs'));
+
+    gulp.src(['build/developers/docs/en/*.html'])
+      .pipe(replace('main.css', manifest['main.css']))
+      .pipe(gulp.dest('build/developers/docs/en'));
+
 });
 
 
-gulp.task('default', [ 'viewPort', 'viewPortEn', 'css', 'hash', 'replace', 'replaceDocs', 'replaceDocsEn' ]);
+gulp.task('default', [ 'css', 'hash', 'viewPort', 'viewPortEn' ]);
