@@ -3,6 +3,11 @@
 
 /* global */
 
+
+.logo {
+  display: block !important;
+}
+
 body {
   background-color: #F5F7F9;
 }
