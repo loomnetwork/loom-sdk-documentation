@@ -209,9 +209,6 @@ const Banner = props => (
           Loom SDK
         </h1>
         <h3>Build decentralized worlds</h3>
-        <p>
-          This is an intro to building your first DAppChain using Go on the DAppchain and Solidity on Mainnet.
-        </p>
       </div>
       <div className="banner-mascot-container">
         <div className="banner-mascot-container-decal"></div>
@@ -379,13 +376,14 @@ const Download = props => (
         </span>
       </li>
       <li>
-        <span>1.0.0</span>
+        <span>0.1.23</span>
       </li>
       <li className="border-left">
-        <a className="download-btn">Download</a>
+        <a className="download-btn">Download OSX</a>
       </li>
     </ul>
   </div>
+
 )
 
 const Suggestions = props => (
