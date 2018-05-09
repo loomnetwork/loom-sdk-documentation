@@ -1,6 +1,6 @@
 ---
 id: builtin 
-title: Builtin Smart Contracts
+title: Built-in Smart Contracts
 ---
 
 Loom contains a few built-in smart contracts that you can utilize in your sidechain.
