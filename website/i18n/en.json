@@ -10,13 +10,16 @@
     "doc3": "This is document number 3",
     "doc4": "Other Document",
     "doc5": "Fifth Document",
+    "loomjsquickstart": "NodeJS & Browser Quick Start",
+    "NodeJS & Browser Quick Start": "NodeJS & Browser Quick Start",
     "Docs": "Docs",
     "API": "API",
     "Help": "Help",
     "Blog": "Blog",
     "Docusaurus": "Docusaurus",
     "First Category": "First Category",
-    "Second Category": "Second Category"
+    "Second Category": "Second Category",
+    "Loom JS SDK": "Loom JS SDK"
   },
   "pages-strings": {
     "Learn more using the [documentation on this site.](/test-site/docs/en/doc1.html)|no description given": "Learn more using the [documentation on this site.](/test-site/docs/en/doc1.html)",
