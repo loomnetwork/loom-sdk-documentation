@@ -1,18 +1,14 @@
-Loom SDK Docs site
-------------------
+# Loom SDK Docs site
 
 Files to file generate the Loom SDK doc site at https://loomx.io/developers
 
-To Run
-```
-yarn
-yarn run
-```
-
-
-To build 
+## Usage
 ```
 cd website
+# first time setup
 yarn
-yarn run build
+# rebuild site after changing docs/*.md
+yarn build
+# run locally
+yarn start
 ```
