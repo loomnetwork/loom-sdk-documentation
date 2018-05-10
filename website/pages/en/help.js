@@ -29,12 +29,12 @@ class Help extends React.Component {
         title: 'Browse Docs',
       },
       {
-        content: 'Ask questions about the documentation and project',
+        content: 'Ask questions about the documentation and project <br> Ask questions on <a href="https://t.me/????">Join our SDK Telegram Room </a>   <br>  <a href="https://delegatecall.com">DelegateCall</a>   ',
         title: 'Join the community',
       },
       {
-        content: "Find out what's new with this project",
-        title: 'Stay up to date',
+        content: "Find out what's new with this project. <br> Join our <a href='https://www.getdrip.com/forms/816334931/submissions/new'>SDK Mailing list</a>",
+        title: 'Stay up to date. ',
       },
     ];
 
@@ -45,7 +45,6 @@ class Help extends React.Component {
             <header className="postHeader">
               <h2>Need help?</h2>
             </header>
-            <p>This project is maintained by a dedicated group of people.</p>
             <GridBlock contents={supportLinks} layout="threeColumn" />
           </div>
         </Container>

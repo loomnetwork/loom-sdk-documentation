@@ -131,7 +131,23 @@ const Features = props => (
       <div className="feature-element">
         <div className="feature-element-content">
           <h2>
-            Plasma on Loom Network DAppChains
+             <a href="https://medium.com/loom-network/dappchains-scaling-ethereum-dapps-through-sidechains-f99e51fff447">What is a DAppChain?</a>
+          </h2>
+        </div>
+        <hr />
+        <div className="feature-element-content">
+          <p>
+Loom Network allows developers to build large-scale games and social apps by using DAppChains — DApps running as their own sidechains.
+More specifically, a DAppChain is an Application Specific Sidechain, that runs parallel to a mainchain, Ethereum in this case. 
+          </p>
+          <a className="feature-btn" href="https://medium.com/loom-network/dappchains-scaling-ethereum-dapps-through-sidechains-f99e51fff447">Read more
+          </a>
+        </div>
+      </div>
+      <div className="feature-element">
+        <div className="feature-element-content">
+          <h2>
+            Building your First DappChain
           </h2>
         </div>
         <hr />
@@ -148,24 +164,7 @@ const Features = props => (
       <div className="feature-element">
         <div className="feature-element-content">
           <h2>
-            Plasma on Loom Network DAppChains
-          </h2>
-        </div>
-        <hr />
-        <div className="feature-element-content">
-          <p>
-            This is the content of my feature. This is another description of how this project is useful.
-            How useful? So useful that the use cases are virtually unlimited. As vast as stars in the universe.
-          </p>
-          <a className="feature-btn">
-            Read more
-          </a>
-        </div>
-      </div>
-      <div className="feature-element">
-        <div className="feature-element-content">
-          <h2>
-            Plasma on Loom Network DAppChains
+            UnitySDK  for DAppchains
           </h2>
         </div>
         <hr />
@@ -256,8 +255,12 @@ const Prereqs = props => (
       </div>
       <pre>
         <code className="dark-code">
-          wget go1.1.0.1.darwin-amd64.tar.gz <br />
-          tar -C /usr/local -xzf go1.1.0.1.darwin-amd64.tar.gz
+        brew install wget
+        wget https://dl.google.com/go/go1.10.2.darwin-amd64.tar.gz
+        sudo tar -C /usr/local -xzf go1.10.2.darwin-amd64.tar.gz
+        sudo ln -s /usr/local/go/bin/go /usr/local/bin/go
+        mkdir ~/gopath
+        export GOPATH=~/gopath
         </code>
       </pre>
       <p>
@@ -284,8 +287,12 @@ const Instructions = props => (
           </h3>
           <pre>
             <code className="light-code">
-              wget go1.1.0.1.darwin-amd64.tar.gz <br />
-              tar -C /usr/local -xzf go1.1.0.1.darwin-amd64.tar.gz
+            brew install wget <br />
+        wget https://dl.google.com/go/go1.10.2.darwin-amd64.tar.gz
+        sudo tar -C /usr/local -xzf go1.10.2.darwin-amd64.tar.gz
+        sudo ln -s /usr/local/go/bin/go /usr/local/bin/go
+        mkdir ~/gopath
+        export GOPATH=~/gopath
             </code>
           </pre>
         </div>
