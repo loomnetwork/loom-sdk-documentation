@@ -23,9 +23,9 @@ class Platforms extends React.Component {
         <Container padding={['bottom', 'top']}>
           <h1>Other platforms</h1>
           <ul>
-            <li>Platform 1</li>
-            <li>Platform 2</li>
-            <li>Platform 3</li>
+            <li>OSX</li>
+            <li>Linux (Coming soon)</li>
+            <li>Windows</li>
           </ul>
         </Container>
       </div>
