@@ -53,7 +53,11 @@ Protobufs https://github.com/google/protobuf/releases/tag/v3.5.1
 
 ## Send transactions
 
-open second console
+Open a second console   
+  
+This will generate a private key. Create an account. Then set a value, and then read the value from the blockchain.
+
+You can read the source of the [blueprint contract here](https://github.com/loomnetwork/weave-blueprint)
 
     cd blueprint
     build/blueprint genkey
