@@ -4,7 +4,8 @@
     "First Category": ["doc2"],
     "Second Category": ["doc3"],
     "Loom JS SDK": ["loomjsquickstart"],
-    "Consensus": ["delegated-proof-of-stake"]
+    "Consensus": ["delegated-proof-of-stake"],
+    "Loom State": ["goloomstate"]
   },
   "docs-other": {
     "First Category": ["doc4", "doc5"]
