@@ -77,15 +77,14 @@ const PromoSection = props => (
 
 class HomeSplash extends React.Component {
   render() {
-    let language = this.props.language || '';
     return (
       <SplashContainer>
         <div className="inner">
           <ProjectTitle />
           <PromoSection>
             <Button href="#try">Try It Out</Button>
-            <Button href={docUrl('doc1.html', language)}>Example Link</Button>
-            <Button href={docUrl('doc2.html', language)}>Example Link 2</Button>
+            <Button href={docUrl('doc1.html', 'en')}>Example Link</Button>
+            <Button href={docUrl('doc2.html', 'en')}>Example Link 2</Button>
           </PromoSection>
         </div>
       </SplashContainer>
@@ -175,7 +174,7 @@ More specifically, a DAppChain is an Application Specific Sidechain, that runs p
           <p>
               Loom uses Unity for all of its Games. We have also published a <a href="https://github.com/loomnetwork/unity3d-sdk">Unity Sdk here</a>. We will have up 
           </p>
-          <a className="feature-btn" href={docUrl('unity-sdk.html', props.language)}>
+          <a className="feature-btn" href={docUrl('unity-sdk.html', 'en')}>
             Read More
           </a>
         </div>
@@ -388,12 +387,13 @@ const Download = props => (
         <span>0.1.94</span>
       </li>
       <li className="border-left">
-        <a className="download-btn" href="https://storage.googleapis.com/private.delegatecall.com/loom/osx/build-94/loom">Download OSX</a>
+      <a className="download-btn" href={docUrl('prereqs.html', 'en')}>Get Started!</a>
+              {/* <a className="download-btn" href="https://storage.googleapis.com/private.delegatecall.com/loom/osx/build-94/loom">Download OSX</a> */}
       </li>
     </ul>
-    <div className="link-container center-text">
+    {/* <div className="link-container center-text">
       <a href={pageUrl('platforms.html', props.language)}>Other platforms</a>
-    </div>
+    </div> */}
   </div>
 
 )
@@ -477,7 +477,7 @@ const Showcase = props => {
 
 class Index extends React.Component {
   render() {
-    let language = this.props.language || '';
+    let language = this.props.language || 'en';
 
     return (
       <div className="landing-page">
