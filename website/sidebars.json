@@ -1,8 +1,9 @@
 {
   "docs": {
     "Prerequisites": ["prereqs"],
-    "Loom JS Client SDK": ["loom-js-quickstart"],
-    "Loom Go SDK": ["go-loom-clients", "goloomstate", "builtin"],
+    "Javascript Client SDK": ["loom-js-quickstart"],
+    "Go Contract SDK": ["go-loom-clients", "goloomstate", "builtin"],
+    "Unity SDK": ["unity-sdk"],
     "Consensus": ["delegated-proof-of-stake"],
     "Mornitoring": ["metrics", "logging"], 
     "Solidity & EVM": ["evm"]

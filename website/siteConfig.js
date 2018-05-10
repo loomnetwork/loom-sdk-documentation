@@ -45,7 +45,6 @@ const siteConfig = {
     {doc: 'prereqs', label: 'Docs'},
   //  {doc: 'doc4', label: 'API'},
     {page: 'help', label: 'Help'},
-    {page: 'Platforms', label: 'Platforms'},
     {href: 'https://medium.com/loom-network', label: 'Blog'}
 //    {blog: true, label: 'Blog'},
   ],
