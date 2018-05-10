@@ -1,29 +1,72 @@
 ---
 id: prereqs
 title: Prerequisites
-sidebar_label: Prerequisites
+sidebar_label: Installation
 ---
 
-Check the [documentation](https://docusaurus.io) for how to use Docusaurus.
 
-## Lorem
+Wget
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus elementum massa eget nulla aliquet sagittis. Proin odio tortor, vulputate ut odio in, ultrices ultricies augue. Cras ornare ultrices lorem malesuada iaculis. Etiam sit amet libero tempor, pulvinar mauris sed, sollicitudin sapien.
+```brew install wget```
 
-## Mauris In Code
+Golang
+
 
 ```
-Mauris vestibulum ullamcorper nibh, ut semper purus pulvinar ut. Donec volutpat orci sit amet mauris malesuada, non pulvinar augue aliquam. Vestibulum ultricies at urna ut suscipit. Morbi iaculis, erat at imperdiet semper, ipsum nulla sodales erat, eget tincidunt justo dui quis justo. Pellentesque dictum bibendum diam at aliquet. Sed pulvinar, dolor quis finibus ornare, eros odio facilisis erat, eu rhoncus nunc dui sed ex. Nunc gravida dui massa, sed ornare arcu tincidunt sit amet. Maecenas efficitur sapien neque, a laoreet libero feugiat ut.
+wget https://dl.google.com/go/go1.10.2.darwin-amd64.tar.gz
+sudo tar -C /usr/local -xzf go1.10.2.darwin-amd64.tar.gz
+sudo ln -s /usr/local/go/bin/go /usr/local/bin/go
+mkdir ~/gopath
+export GOPATH=~/gopath
+*Add GOPATH to your bashrc  or zshrc
 ```
 
-## Nulla
 
-Nulla facilisi. Maecenas sodales nec purus eget posuere. Sed sapien quam, pretium a risus in, porttitor dapibus erat. Sed sit amet fringilla ipsum, eget iaculis augue. Integer sollicitudin tortor quis ultricies aliquam. Suspendisse fringilla nunc in tellus cursus, at placerat tellus scelerisque. Sed tempus elit a sollicitudin rhoncus. Nulla facilisi. Morbi nec dolor dolor. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras et aliquet lectus. Pellentesque sit amet eros nisi. Quisque ac sapien in sapien congue accumsan. Nullam in posuere ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Proin lacinia leo a nibh fringilla pharetra.
+Protobufs https://github.com/google/protobuf/releases/tag/v3.5.1
 
-## Orci
+```
+wget https://github.com/google/protobuf/releases/download/v3.5.1/protoc-3.5.1-osx-x86_64.zip
+unzip protoc-3.5.1-osx-x86_64.zip
+sudo unzip protoc-3.5.1-osx-x86_64.zip -d /usr/local
+sudo chmod +X /usr/local/bin/protoc
+export GOPATH=~/gopath 
+go get -u github.com/golang/protobuf/protoc-gen-go
+```
 
-Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin venenatis lectus dui, vel ultrices ante bibendum hendrerit. Aenean egestas feugiat dui id hendrerit. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur in tellus laoreet, eleifend nunc id, viverra leo. Proin vulputate non dolor vel vulputate. Curabitur pretium lobortis felis, sit amet finibus lorem suscipit ut. Sed non mollis risus. Duis sagittis, mi in euismod tincidunt, nunc mauris vestibulum urna, at euismod est elit quis erat. Phasellus accumsan vitae neque eu placerat. In elementum arcu nec tellus imperdiet, eget maximus nulla sodales. Curabitur eu sapien eget nisl sodales fermentum.
 
-## Phasellus
+## Installation
 
-Phasellus pulvinar ex id commodo imperdiet. Praesent odio nibh, sollicitudin sit amet faucibus id, placerat at metus. Donec vitae eros vitae tortor hendrerit finibus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Quisque vitae purus dolor. Duis suscipit ac nulla et finibus. Phasellus ac sem sed dui dictum gravida. Phasellus eleifend vestibulum facilisis. Integer pharetra nec enim vitae mattis. Duis auctor, lectus quis condimentum bibendum, nunc dolor aliquam massa, id bibendum orci velit quis magna. Ut volutpat nulla nunc, sed interdum magna condimentum non. Sed urna metus, scelerisque vitae consectetur a, feugiat quis magna. Donec dignissim ornare nisl, eget tempor risus malesuada quis.
+```
+wget https://storage.googleapis.com/private.delegatecall.com/loom/osx/build-79/loom 
+chmod +x loom 
+
+mkdir tmpgopath
+export GOPATH=`pwd`/tmpgopath
+./loom spin weave-blueprint
+cd blueprint
+export GOPATH=$GOPATH:`pwd`
+make deps
+make
+make cli
+cd build
+cp ../genesis.example.json genesis.json
+
+../../loom init
+```
+
+## Run Blockchain
+```
+../../loom run
+```
+
+## Send transactions
+
+open second console
+
+```
+cd blueprint
+build/blueprint genkey
+build/blueprint create-acct
+build/blueprint set -v 1
+build/blueprint get
+```
