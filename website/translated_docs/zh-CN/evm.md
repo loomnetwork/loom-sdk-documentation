@@ -1,6 +1,6 @@
 ---
 id: evm
-title: ethereum virtual machine
+title: Ethereum Virtual Machine
 sidebar_label: EVM page
 ---
 ## Overview
