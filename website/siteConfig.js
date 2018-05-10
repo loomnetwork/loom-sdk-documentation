@@ -39,7 +39,8 @@ const siteConfig = {
     {doc: 'doc1', label: 'Docs'},
     {doc: 'doc4', label: 'API'},
     {page: 'help', label: 'Help'},
-    {blog: true, label: 'Blog'},
+    {href: 'https://medium.com/loom-network', label: 'Blog'}
+//    {blog: true, label: 'Blog'},
   ],
 
   // If you have users set above, you add it here:
