@@ -1,5 +1,5 @@
 ---
-id: dpos
+id: delegated-proof-of-stake
 title: Delegated Proof of Stake
 ---
 
