@@ -6,7 +6,7 @@
     "Loom JS SDK": ["loom-js-quickstart"],
     "Consensus": ["delegated-proof-of-stake"],
     "Loom State": ["goloomstate"],
-    "Mornitoring": ["metrics"]
+    "Monitoring": ["metrics"]
   },
   "docs-other": {
     "First Category": ["doc4", "doc5"]
