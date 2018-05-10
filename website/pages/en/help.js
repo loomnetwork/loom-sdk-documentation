@@ -17,6 +17,10 @@ function docUrl(doc, language) {
   return siteConfig.baseUrl + 'docs/' + (language ? language + '/' : '') + doc;
 }
 
+function imgUrl(img) {
+  return siteConfig.baseUrl + img;
+}
+
 function pageUrl(page, language) {
   return siteConfig.baseUrl + (language ? language + '/' : '') + page;
 }
@@ -32,7 +36,7 @@ const Showcase = props => {
     .map((user, i) => {
       return (
         <a href={user.infoLink} key={i}>
-          <img src={user.image} alt={user.caption} title={user.caption} />
+          <img src={imgUrl(user.image)} alt={user.caption} title={user.caption} />
         </a>
       );
     });

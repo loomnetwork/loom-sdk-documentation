@@ -12,6 +12,10 @@ const Container = CompLibrary.Container;
 
 const siteConfig = require(process.cwd() + '/siteConfig.js');
 
+function imgUrl(img) {
+  return siteConfig.baseUrl + img;
+}
+
 class Users extends React.Component {
   render() {
     if ((siteConfig.users || []).length === 0) {
@@ -21,7 +25,7 @@ class Users extends React.Component {
     const showcase = siteConfig.users.map((user, i) => {
       return (
         <a href={user.infoLink} key={i}>
-          <img src={user.image} alt={user.caption} title={user.caption} />
+          <img src={imgUrl(user.image)} alt={user.caption} title={user.caption} />
         </a>
       );
     });

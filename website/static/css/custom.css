@@ -385,6 +385,7 @@ footer .zombie-mascot {
 }
 
 .features-container .feature-element {
+  flex: 1;
   background-color: #FFFFFF;
   padding: 12px 0;
   margin: 0 12px;
