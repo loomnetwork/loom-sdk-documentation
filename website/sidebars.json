@@ -4,8 +4,8 @@
     "First Category": ["doc2"],
     "Second Category": ["doc3"],
     "Loom JS SDK": ["loom-js-quickstart"],
+    "Loom Go SDK": ["go-loom-clients", "goloomstate"],
     "Consensus": ["delegated-proof-of-stake"],
-    "Loom State": ["goloomstate"],
     "Monitoring": ["metrics"]
   },
   "docs-other": {
