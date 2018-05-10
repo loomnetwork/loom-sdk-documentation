@@ -61,7 +61,12 @@ cp ../genesis.example.json genesis.json
 
 ## Send transactions
 
-open second console
+Open a second console 
+<br/>
+<br/>
+This will generate a private key. Create an account. Then set a value, and then read the value from the blockchain.
+
+You can read the source of the <a href="https://github.com/loomnetwork/weave-blueprint">blueprint contract here</a>
 
 ```
 cd blueprint

@@ -147,17 +147,16 @@ More specifically, a DAppChain is an Application Specific Sidechain, that runs p
       <div className="feature-element">
         <div className="feature-element-content">
           <h2>
-            Building your First DappChain
+            Building your First DappChain. 
           </h2>
         </div>
         <hr />
         <div className="feature-element-content">
           <p>
-            This is the content of my feature. This is another description of how this project is useful.
-            How useful? So useful that the use cases are virtually unlimited. As vast as stars in the universe.
+            Building Dappchains is easy and fun, this tutorial will prepare you to build your first smart contract. Then deploy it on a DappChain.
           </p>
           <a className="feature-btn">
-            Read more
+          Coming Soon
           </a>
         </div>
       </div>
@@ -170,11 +169,10 @@ More specifically, a DAppChain is an Application Specific Sidechain, that runs p
         <hr />
         <div className="feature-element-content">
           <p>
-            This is the content of my feature. This is another description of how this project is useful.
-            How useful? So useful that the use cases are virtually unlimited. As vast as stars in the universe.
+              Loom uses Unity for all of its Games. We have also published a <a href="https://github.com/loomnetwork/unity3d-sdk">Unity Sdk here</a>. We will have up 
           </p>
-          <a className="feature-btn">
-            Read more
+          <a className="feature-btn" href={docUrl('unity-sdk.html', props.language)}>
+            Read More
           </a>
         </div>
       </div>
@@ -383,10 +381,10 @@ const Download = props => (
         </span>
       </li>
       <li>
-        <span>0.1.23</span>
+        <span>0.1.94</span>
       </li>
       <li className="border-left">
-        <a className="download-btn">Download OSX</a>
+        <a className="download-btn" href="https://storage.googleapis.com/private.delegatecall.com/loom/osx/build-94/loom">Download OSX</a>
       </li>
     </ul>
   </div>
