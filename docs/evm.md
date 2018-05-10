@@ -459,7 +459,7 @@ interface. Here is the ABI for our SimpleStore
     }
   ]
 ```
-We can use "github.com/obscuren/go-ethereum/accounts/abi" and this ABI string to
+We can use "github.com/ethereum/go-ethereum/accounts/abi" and this ABI string to
 encode our input. The key function is [abi.JSON](https://godoc.org/github.com/obscuren/go-ethereum/accounts/abi#JSON)
 ```go
 	abiSimpleStore, err := abi.JSON(strings.NewReader(SimpleStoreABI))
@@ -500,6 +500,18 @@ The GetValue function now works in a similar fashion. The only difference is
 that we now have to unwrap the output from the solidity contract and return 
 it in a WrapValue message.
 ```go
+import (
+	"github.com/ethereum/go-ethereum/accounts/abi"
+	"github.com/ethereum/go-ethereum/common"
+	"github.com/loomnetwork/go-loom/examples/plugins/wrapstore/types"
+	"github.com/loomnetwork/go-loom/plugin"
+	"github.com/loomnetwork/go-loom/plugin/contractpb"	
+	"math/big"
+	"strings"
+	"strconv"
+)
+
+func (c *WrapStore) GetValue(ctx contractpb.Context, req *types.Dummy) (*types.WrapValue, error) {
 	ssAddr, err := ctx.Resolve("SimpleStore")
 	if err != nil {
 		return nil, err
@@ -524,6 +536,7 @@ it in a WrapValue message.
 	return &types.WrapValue{
 		Value: value,
 	}, nil
+}
 ```
 
 
