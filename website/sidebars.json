@@ -5,8 +5,7 @@
     "Second Category": ["doc3"],
     "Loom JS SDK": ["loomjsquickstart"],
     "Consensus": ["delegated-proof-of-stake"],
-    "Metrics": ["metrics"],
-    "Monitoring": ["monitoring"]
+    "Metrics": ["metrics"]
   },
   "docs-other": {
     "First Category": ["doc4", "doc5"]
