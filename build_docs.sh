@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/sh -e
 # Note this is for a CI server
 
 cd website
