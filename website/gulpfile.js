@@ -24,7 +24,6 @@ gulp.task('hash', function(cb){
     .pipe(gulp.dest('.'));
 });
 
-
 gulp.task('replace', ['hash'], function(){
   var manifest = JSON.parse(fs.readFileSync(__dirname + '/build/developers/assets.json', 'utf8'));
   gulp.src(['build/developers/*.html'])
@@ -52,7 +51,6 @@ gulp.task('replaceDocsEn', ['hash'], function(){
     .pipe(replace('main.css', manifest['main.css']))
     .pipe(gulp.dest('build/developers/docs/en'));
 });
-
 
 gulp.task('viewPort', function() {
   return gulp.src('build/developers/index.html')
