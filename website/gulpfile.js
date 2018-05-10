@@ -70,4 +70,4 @@ gulp.task('viewPortEn', function() {
     .pipe(gulp.dest('build/developers/en'));
 });
 
-gulp.task('default', [ 'css', 'hash', 'viewPort', 'viewPortEn', 'replace', 'replaceDocs', 'replaceDocsEn' ]);
+gulp.task('default', [ 'css', 'hash', 'viewPort', 'viewPortEn', 'replace', 'replaceDocs', 'replacePages', 'replaceDocsEn' ]);
