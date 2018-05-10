@@ -15,6 +15,8 @@
     "EVM page": "EVM page",
     "doc4": "Other Document",
     "doc5": "Fifth Document",
+    "go-loom-clients": "Building DAppChain clients in Golang",
+    "Building DAppChain Clients": "Building DAppChain Clients",
     "loom-js-quickstart": "NodeJS & Browser Quick Start",
     "NodeJS & Browser Quick Start": "NodeJS & Browser Quick Start",
     "metrics": "Metrics",
@@ -30,9 +32,9 @@
     "First Category": "First Category",
     "Second Category": "Second Category",
     "Loom JS SDK": "Loom JS SDK",
+    "Loom Go SDK": "Loom Go SDK",
     "Consensus": "Consensus",
-    "Loom State": "Loom State",
-    "Mornitoring": "Mornitoring"
+    "Monitoring": "Monitoring"
   },
   "pages-strings": {
     "Learn more using the [documentation on this site.](/test-site/docs/en/doc1.html)|no description given": "Learn more using the [documentation on this site.](/test-site/docs/en/doc1.html)",
