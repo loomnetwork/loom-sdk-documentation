@@ -118,6 +118,16 @@ navigationSlider .slidingNav ul li.siteNavItemActive a, .navigationSlider .slidi
   border-radius: 6px;
 }
 
+nav.toc .toggleNav ul li a {
+  color: #717171;
+}
+
+nav.toc .toggleNav .navGroup.navGroupActive h3 {
+  color: #393939;
+  background: transparent;
+  padding-bottom: 0px;
+}
+
 .productShowcaseSection .logos {
   padding: 0px;
 }
@@ -129,6 +139,15 @@ navigationSlider .slidingNav ul li.siteNavItemActive a, .navigationSlider .slidi
 .productShowcaseSection .logos img {
   width: auto;
   max-height: 168px;
+}
+
+.link-container {
+  padding: 24px 0;
+}
+
+.link-container a {
+  color: #0b0033;
+  text-decoration: underline;
 }
 
 /* footer */
