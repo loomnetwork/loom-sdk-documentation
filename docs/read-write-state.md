@@ -1,7 +1,7 @@
 ---
 id: goloomstate
-title: Saving and reading from the state in go-loom contracts
-sidebar_label: Saving and reading from state
+title: Saving and reading state in go-loom contracts
+sidebar_label: Saving and reading state
 ---
 
 ## The contract state
