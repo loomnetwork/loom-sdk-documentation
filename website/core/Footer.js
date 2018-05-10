@@ -36,13 +36,13 @@ class Footer extends React.Component {
           <div>
             <h5>Docs</h5>
             <a href={this.docUrl('doc1.html', this.props.language)}>
-              Getting Started (or other categories)
+              Getting Started
             </a>
             <a href={this.docUrl('doc2.html', this.props.language)}>
-              Guides (or other categories)
+              Guides
             </a>
             <a href={this.docUrl('doc3.html', this.props.language)}>
-              API Reference (or other categories)
+              API Reference
             </a>
           </div>
           <div>
@@ -51,14 +51,14 @@ class Footer extends React.Component {
               User Showcase
             </a>
             <a
-              href="http://stackoverflow.com/questions/tagged/"
+              href="http://delegatecall.com/"
               target="_blank"
               rel="noreferrer noopener">
-              Stack Overflow
+              Message Board
             </a>
-            <a href="https://discordapp.com/">Project Chat</a>
+            <a href="https://t.me/joinchat/EH7c0BFclZFfWOqw_gjzZw">Project Chat</a>
             <a
-              href="https://twitter.com/"
+              href="https://twitter.com/loomnetwork"
               target="_blank"
               rel="noreferrer noopener">
               Twitter
@@ -66,30 +66,20 @@ class Footer extends React.Component {
           </div>
           <div>
             <h5>More</h5>
-            <a href={this.props.config.baseUrl + 'blog'}>Blog</a>
-            <a href="https://github.com/">GitHub</a>
-            <a
-              className="github-button"
-              href={this.props.config.repoUrl}
-              data-icon="octicon-star"
-              data-count-href="/facebook/docusaurus/stargazers"
-              data-show-count={true}
-              data-count-aria-label="# stargazers on GitHub"
-              aria-label="Star this project on GitHub">
-              Star
-            </a>
+            <a href="https://medium.com/loom-network">Blog</a>
+            <a href="https://github.com/loomnetwork">GitHub</a>
           </div>
           <img src={this.props.config.baseUrl + 'img/zombie-mascot.png'} className="zombie-mascot" />
         </section>
 
         <a
-          href="https://code.facebook.com/projects/"
+          href="https://loomx.io"
           target="_blank"
           rel="noreferrer noopener"
           className="fbOpenSource">
           <img
             src={this.props.config.baseUrl + 'img/footer-decal.svg'}
-            alt="Facebook Open Source"
+            alt="Loom Network"
             width="170"
             height="45"
           />
