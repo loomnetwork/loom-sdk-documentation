@@ -42,6 +42,11 @@ body {
   margin-bottom: 24px;
 }
 
+.headerContainer {
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
 .light-code, .dark-code {
   font-family: monospace;
 }
@@ -61,17 +66,23 @@ body {
   border-left: 4px solid #0C29D8;
 }
 
+.mainContainer .wrapper p {
+  max-width: 100%;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
 .navPusher {
   padding-top: 0px;
 }
 
-.fixedHeaderContainer {
-  position: absolute;
-  background: transparent;
+.docsNavContainer {
+  margin: 24px 0 !important;
+  width: 100% !important;
 }
 
-.doc .fixedHeaderContainer {
-  background: #004bcc;
+.fixedHeaderContainer {
+  position: absolute;
 }
 
 .doc .navPusher {
@@ -95,22 +106,31 @@ body {
   padding-right: 20px;
 }
 
-/* nav.toc .toggleNav .navGroup.navGroupActive h3, nav.toc .toggleNav .navGroup.navGroupActive, nav.toc .toggleNav {
+nav.toc .toggleNav .navGroup.navGroupActive {
   background: transparent;
-} */
+}
 
-.navGroup.navGroupActive h3 {
-  background-color: #004bcc !important;
+nav.toc .toggleNav {
+  background: transparent;
+}
+
+navigationSlider .slidingNav ul li.siteNavItemActive a, .navigationSlider .slidingNav ul li.siteNavGroupActive a {
+  background: #f9a82f;
+  border-radius: 6px;
 }
 
 .productShowcaseSection .logos {
   padding: 0px;
 }
 
-.productShowcaseSection .logos img {
-  max-height: initial;
+.showcaseSection .logos img {
+  width: auto;
 }
 
+.productShowcaseSection .logos img {
+  width: auto;
+  max-height: 168px;
+}
 
 /* footer */
 
@@ -151,6 +171,7 @@ footer .zombie-mascot {
 .doc .mainContainer {
   background-color: #FFFFFF;
   border: 1px solid #EDF0F2;
+  padding: 0 24px;
 }
 
 /* grid */
@@ -385,7 +406,7 @@ footer .zombie-mascot {
   font-size: 16px;
   padding: 6px 24px;
   border-radius: 24px;
-  background-color: #004EEE;
+  background-color: #f9a830;
 }
 
 .feature-element-content {
@@ -427,7 +448,7 @@ footer .zombie-mascot {
   justify-content: center;
   max-width: 600px;
   margin: 0 auto;
-  border: 2px solid #004BCC;
+  border: 2px solid #f9a830;
   border-radius: 12px;
 }
 
@@ -445,16 +466,16 @@ footer .zombie-mascot {
 }
 
 .download-btn-container li.border-left {
-  border-left: 2px solid #004BCC;
+  border-left: 2px solid #f9a830;
 }
 
 .download-btn-container li.border-right {
-  border-right: 2px solid #004BCC;
+  border-right: 2px solid #f9a830;
 }
 
 .download-btn-container .download-btn {
   color: #FFFFFF;
-  background-color: #004BCC;
+  background-color: #f9a830;
   display: block;
   padding-top: 12px;
   padding-bottom: 12px;
@@ -512,6 +533,18 @@ footer .zombie-mascot {
   margin-bottom: 36px !important;
 }
 
+.center-text {
+  text-align: center !important;
+}
+
+.spacer {
+  padding: 48px 24px 240px 24px !important;
+}
+
+.remove-margin {
+  margin: 0px !important;
+}
+
 /* animations */
 
 @keyframes float {
@@ -526,14 +559,60 @@ footer .zombie-mascot {
   }
 }
 
+/* Help page  */
+
+.helpContainer {
+  background: transparent;
+}
+
+.helpContainer h1 {
+  color: #fff;
+}
+
+.helpContainer p {
+  color: #fff;
+}
+
+.helpContainer a {
+  color: #f9a830;
+}
+
+.showcase-container {
+  padding-top: 24px;
+}
+
+.showcase-container .productShowcaseSection h1 {
+  font-size: 36px;
+  margin-bottom: 24px;
+}
+
 /* responsive */
 
+@media screen and (max-width: 736px) {
+
+  .helpContainer .postHeader h1 {
+    font-size: 48px !important;
+  }
+
+  .helpContainer .blockContent h2 span p {
+    font-size: 24px !important;
+  }
+
+  .spacer {
+    padding: 48px 24px 60px 24px !important;
+  }
+}
+
+@media screen and (max-width: 736px) {
+  navigationSlider .slidingNav ul li.siteNavItemActive a, .navigationSlider .slidingNav ul li.siteNavGroupActive a {
+    background: #f9a830;
+  }
+}
 
 @media screen and (max-width: 1020px) {
 
   .fixedHeaderContainer {
     position: fixed;
-    background: #184bcc;
   }
 
   .artifact-container {
@@ -562,7 +641,6 @@ footer .zombie-mascot {
 
   .fixedHeaderContainer {
     position: fixed;
-    background: #184bcc;
   }
 
   .features-container {

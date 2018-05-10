@@ -11,9 +11,15 @@
 /* List of projects/orgs using your project for the users page */
 const users = [
   {
-    caption: 'User1',
-    image: 'img/zombie-dude.png',
-    infoLink: 'https://loomx.io/',
+    caption: 'Pixiecoin',
+    image: 'img/pixie-coin-icon.png',
+    infoLink: 'http://www.pixiecoin.io/',
+    pinned: true,
+  },
+  {
+    caption: 'Neondistrict',
+    image: 'img/neon-district-icon.png',
+    infoLink: 'https://neondistrict.io/',
     pinned: true,
   },
 ];
@@ -54,7 +60,7 @@ const siteConfig = {
   /* colors for website */
   colors: {
     primaryColor: '#0b0033',
-    secondaryColor: '#004BCC',
+    secondaryColor: '#f9a830',
   },
 
   /* custom fonts for website */
@@ -83,7 +89,7 @@ const siteConfig = {
   },
 
   // Add custom scripts here that would be placed in <script> tags
-  scripts: ['https://buttons.github.io/buttons.js'],
+  scripts: ['https://buttons.github.io/buttons.js', '/developers/js/drip.js'],
 
   /* On page navigation for the current documentation page */
   onPageNav: 'separate',

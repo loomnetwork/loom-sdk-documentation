@@ -451,7 +451,7 @@ const Showcase = props => {
 
   return (
     <div className="productShowcaseSection paddingBottom">
-      <h2>{"Who's Using This?"}</h2>
+      <h3>{"Who's Using This?"}</h3>
       <p>This project is used by all these people</p>
       <div className="logos">{showcase}</div>
       <div className="more-users">
@@ -475,6 +475,7 @@ class Index extends React.Component {
           <Features />
           <Prereqs />
           <Instructions />
+          <Showcase language={language} />
         </div>
       </div>
     );
