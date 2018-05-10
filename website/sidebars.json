@@ -3,7 +3,7 @@
     "Docusaurus": ["doc1"],
     "First Category": ["doc2"],
     "Second Category": ["doc3"],
-    "Loom JS SDK": ["loomjsquickstart"],
+    "Loom JS SDK": ["loom-js-quickstart"],
     "Consensus": ["delegated-proof-of-stake"],
     "Metrics": ["metrics"],
     "Loom State": ["goloomstate"]
