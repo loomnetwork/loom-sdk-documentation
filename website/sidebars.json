@@ -2,10 +2,10 @@
   "docs": {
     "Prerequisites": ["prereqs"],
     "Javascript Client SDK": ["loom-js-quickstart"],
-    "Go Contract SDK": ["go-loom-clients", "goloomstate", "builtin"],
+    "Go Contract SDK": ["go-loom-clients", "goloomstate", "goloomevents", "goloompermissions"],
     "Unity SDK": ["unity-sdk"],
     "Consensus": ["delegated-proof-of-stake"],
-    "Mornitoring": ["metrics", "logging"], 
+    "Mornitoring": ["metrics", "logging"],
     "Solidity & EVM": ["evm"]
   }
 }
