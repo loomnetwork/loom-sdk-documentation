@@ -17,6 +17,8 @@
     "doc5": "Fifth Document",
     "loom-js-quickstart": "NodeJS & Browser Quick Start",
     "NodeJS & Browser Quick Start": "NodeJS & Browser Quick Start",
+    "goloomstate": "Saving and reading from the state in go-loom contracts",
+    "Saving and reading from state": "Saving and reading from state",
     "what-is-dappchain": "what-is-dappchain",
     "Docs": "Docs",
     "API": "API",
