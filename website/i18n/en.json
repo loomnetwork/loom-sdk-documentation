@@ -17,6 +17,8 @@
     "doc5": "Fifth Document",
     "loom-js-quickstart": "NodeJS & Browser Quick Start",
     "NodeJS & Browser Quick Start": "NodeJS & Browser Quick Start",
+    "metrics": "Metrics",
+    "Metrics": "Metrics",
     "goloomstate": "Saving and reading from the state in go-loom contracts",
     "Saving and reading from state": "Saving and reading from state",
     "what-is-dappchain": "what-is-dappchain",
@@ -29,7 +31,8 @@
     "Second Category": "Second Category",
     "Loom JS SDK": "Loom JS SDK",
     "Consensus": "Consensus",
-    "Loom State": "Loom State"
+    "Loom State": "Loom State",
+    "Mornitoring": "Mornitoring"
   },
   "pages-strings": {
     "Learn more using the [documentation on this site.](/test-site/docs/en/doc1.html)|no description given": "Learn more using the [documentation on this site.](/test-site/docs/en/doc1.html)",
