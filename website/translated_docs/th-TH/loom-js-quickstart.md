@@ -1,5 +1,5 @@
 ---
-id: loomjsquickstart
+id: loom-js-quickstart
 title: NodeJS & Browser Quick Start
 sidebar_label: NodeJS & Browser Quick Start
 ---
@@ -93,7 +93,7 @@ async function load(contract, key) {
   const params = new Dummy()
   // The smart contract will look up the value stored under this key.
   params.setKey(key)
-  const result = await contract.staticCallAsync('GetMsg', msg, new Dummy())
+  const result = await contract.staticCallAsync('GetMsg', params, new Dummy())
   return result.getValue()
 }
 ```
