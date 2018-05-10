@@ -98,7 +98,7 @@ The `helloworld` smart contract has a public `SetMsg` method that can be called 
 association between a key and a value. Let's write a function that calls this method...
 
 ```go
-func store(contract *client.Contract, key, value string, signer) error {
+func store(contract *client.Contract, key, value string, signer auth.Signer) error {
   params := types.Dummy{
     Key: key,
     Value: value,
@@ -140,10 +140,10 @@ run the following code, you should see `Value: hello!` printed to the console.
 ```go
 func main() {
   _, privateKey, err := ed25519.GenerateKey(nil)
-	if err != nil {
-		return err
-	}
-	signer := auth.NewEd25519Signer(privateKey)
+  if err != nil {
+    return err
+  }
+  signer := auth.NewEd25519Signer(privateKey)
   contract := getContract("0x005B17864f3adbF53b1384F2E6f2120c6652F779", "helloworld")
   store(contract, "123", "hello!", signer)
   value, err := load(contract, "123")
