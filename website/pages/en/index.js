@@ -18,6 +18,10 @@ function imgUrl(img) {
   return siteConfig.baseUrl + 'img/' + img;
 }
 
+function userImgUrl(img) {
+  return siteConfig.baseUrl + img;
+}
+
 function docUrl(doc, language) {
   return siteConfig.baseUrl + 'docs/' + (language ? language + '/' : '') + doc;
 }
@@ -138,7 +142,7 @@ const Features = props => (
         <div className="feature-element-content">
           <p>
 Loom Network allows developers to build large-scale games and social apps by using DAppChains — DApps running as their own sidechains.
-More specifically, a DAppChain is an Application Specific Sidechain, that runs parallel to a mainchain, Ethereum in this case. 
+More specifically, a DAppChain is an Application Specific Sidechain, that runs parallel to a mainchain, Ethereum in this case.
           </p>
           <a className="feature-btn" href="https://medium.com/loom-network/dappchains-scaling-ethereum-dapps-through-sidechains-f99e51fff447">Read more
           </a>
@@ -387,6 +391,9 @@ const Download = props => (
         <a className="download-btn" href="https://storage.googleapis.com/private.delegatecall.com/loom/osx/build-94/loom">Download OSX</a>
       </li>
     </ul>
+    <div className="link-container center-text">
+      <a href={pageUrl('platforms.html', props.language)}>Other platforms</a>
+    </div>
   </div>
 
 )
@@ -449,7 +456,7 @@ const Showcase = props => {
     .map((user, i) => {
       return (
         <a href={user.infoLink} key={i}>
-          <img src={user.image} alt={user.caption} title={user.caption} />
+          <img src={userImgUrl(user.image)} alt={user.caption} title={user.caption} />
         </a>
       );
     });
