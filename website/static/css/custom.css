@@ -266,6 +266,7 @@ footer .zombie-mascot {
 }
 
 .banner-form .form-container, .banner-mascot-container {
+  left: 80px;
   max-width: 420px;
   margin: 0 auto;
   padding: 48px 60px;
@@ -626,6 +627,7 @@ footer .zombie-mascot {
   navigationSlider .slidingNav ul li.siteNavItemActive a, .navigationSlider .slidingNav ul li.siteNavGroupActive a {
     background: #f9a830;
   }
+
 }
 
 @media screen and (max-width: 1020px) {
@@ -640,6 +642,7 @@ footer .zombie-mascot {
 
   .banner-mascot-container {
     padding: 20px;
+    left: 0px;
   }
 
   .banner-copy h1 {
@@ -664,6 +667,10 @@ footer .zombie-mascot {
 
   .features-container {
     flex-direction: column;
+  }
+
+  .banner-mascot-container {
+    left: initial;
   }
 
   .features-container .feature-element {
