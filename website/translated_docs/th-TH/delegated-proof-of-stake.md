@@ -1,5 +1,5 @@
 ---
-id: dpos
+id: delegated-proof-of-stake
 title: Delegated Proof of Stake
 ---
 The delegated proof of stake algorithm allows token holders to elect validators. These validators serve a term before being subject to elections.
