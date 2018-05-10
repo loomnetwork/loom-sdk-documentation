@@ -6,7 +6,7 @@ The loom blockchain allows a pluggable backend for consensus. Any [ABCI](https:/
 
 ## Selecting Validators
 
-If the consensus algorithm chosen is BFT style, then validators must be chosen. By default validators are set in the genesis config of the consensus backend. Privileged smart contracts can also modify the validator list by using the `SetValidatorPower` API to modify a validator's power.
+If the consensus algorithm chosen is BFT style, then validators must be chosen. Validators are responsible for ensuring the correctness of the Blockchain state. They do this by proposing and voting on blocks. By default validators are set in the genesis config of the consensus backend. Privileged smart contracts can also modify the validator list by using the `SetValidatorPower` API to modify a validator's power.
 
 ### Delegated Proof of Stake
 
