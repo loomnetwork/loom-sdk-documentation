@@ -8,11 +8,15 @@ These validators serve a standard term length before being subject to elections 
 
 ## Parameters
 
-*Coin contract address* - Specifies which ERC20-like coin contract to use to calculate the power of a vote.
-*Validator count* - The number of validators that can be elected.
-*Vote allocation* - Number of votes each coin account gets.  By default this is equal to the number of validators.
-*Term length* - How long validators serve before elections are held and votes are recounted.
-*Minimum power fraction* - How much of the coin supply needs to have voted for elections to be considered valid.
+**Coin contract address** - Specifies which ERC20-like coin contract to use to calculate the power of a vote.
+
+**Validator count** - The number of validators that can be elected.
+
+**Vote allocation** - Number of votes each coin account gets.  By default this is equal to the number of validators.
+
+**Term length** - How long validators serve before elections are held and votes are recounted.
+
+**Minimum power fraction** - How much of the coin supply needs to have voted for elections to be considered valid.
 For example, a value of 5 corresponds to 20% of the coin supply needing to have voted.
 
 ## Candidate Registration
