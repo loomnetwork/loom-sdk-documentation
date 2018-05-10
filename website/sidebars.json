@@ -1,14 +1,10 @@
 {
   "docs": {
-    "Prerequisites": ["prereqs", "what-are-dappchains"],
-    "Go Smart Contracts": ["goloomstate", "builtin"],
-    "Loom JS SDK": ["loom-js-quickstart"],
-    "Loom Go SDK": ["go-loom-clients", "goloomstate"],
+    "Prerequisites": ["prereqs"],
+    "Loom JS Client SDK": ["loom-js-quickstart"],
+    "Loom Go SDK": ["go-loom-clients", "goloomstate", "builtin"],
     "Consensus": ["delegated-proof-of-stake"],
     "Mornitoring": ["metrics", "logging"], 
     "Solidity & EVM": ["evm"]
-  },
-  "docs-other": {
-    "First Category": ["doc4", "doc5"]
   }
 }

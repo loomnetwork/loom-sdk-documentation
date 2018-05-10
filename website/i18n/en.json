@@ -7,6 +7,8 @@
     "builtin": "Built-in Smart Contracts",
     "consensus": "Blockchain Censensus",
     "delegated-proof-of-stake": "Delegated Proof of Stake",
+    "doc1": "Welcome",
+    "Welcome": "Welcome",
     "evm": "ethereum virtual machine",
     "EVM page": "EVM page",
     "go-loom-clients": "Building DAppChain clients in Golang",
@@ -27,12 +29,11 @@
     "Help": "Help",
     "Blog": "Blog",
     "Go Smart Contracts": "Go Smart Contracts",
-    "Loom JS SDK": "Loom JS SDK",
+    "Loom JS Client SDK": "Loom JS Client SDK",
     "Loom Go SDK": "Loom Go SDK",
     "Consensus": "Consensus",
     "Mornitoring": "Mornitoring",
-    "Solidity & EVM": "Solidity & EVM",
-    "First Category": "First Category"
+    "Solidity & EVM": "Solidity & EVM"
   },
   "pages-strings": {
     "Learn more using the [documentation on this site.](/test-site/docs/en/doc1.html)|no description given": "Learn more using the [documentation on this site.](/test-site/docs/en/doc1.html)",
