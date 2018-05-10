@@ -4,10 +4,15 @@
     "next": "Next",
     "previous": "Previous",
     "tagline": "Build decentralized worlds",
+    "builtin": "Built-in Smart Contracts",
+    "consensus": "Blockchain Censensus",
+    "delegated-proof-of-stake": "Delegated Proof of Stake",
     "doc1": "Latin-ish",
     "Example Page": "Example Page",
     "doc2": "document number 2",
     "doc3": "This is document number 3",
+    "evm": "ethereum virtual machine",
+    "EVM page": "EVM page",
     "doc4": "Other Document",
     "doc5": "Fifth Document",
     "loomjsquickstart": "NodeJS & Browser Quick Start",
@@ -19,7 +24,8 @@
     "Docusaurus": "Docusaurus",
     "First Category": "First Category",
     "Second Category": "Second Category",
-    "Loom JS SDK": "Loom JS SDK"
+    "Loom JS SDK": "Loom JS SDK",
+    "Consensus": "Consensus"
   },
   "pages-strings": {
     "Learn more using the [documentation on this site.](/test-site/docs/en/doc1.html)|no description given": "Learn more using the [documentation on this site.](/test-site/docs/en/doc1.html)",
