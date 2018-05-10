@@ -68,9 +68,7 @@ Currently votes never expire, however, one can imagine a scenario in which votes
 prevent lost or stolen accounts from having undue influence in elections.  This can be done either by looking at the time the vote
 was cast or by looking at the last activity on the account.
 
-## Contract Interface
-
-`init`
+## Contract Transactions
 
 `registerCandidate`
 
