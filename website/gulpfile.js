@@ -39,6 +39,13 @@ gulp.task('replaceDocs', ['hash'], function(){
     .pipe(gulp.dest('build/developers/docs'));
 });
 
+gulp.task('replacePages', ['hash'], function(){
+  var manifest = JSON.parse(fs.readFileSync(__dirname + '/build/developers/assets.json', 'utf8'));
+  gulp.src(['build/developers/en/*.html'])
+    .pipe(replace('main.css', manifest['main.css']))
+    .pipe(gulp.dest('build/developers/docs/en'));
+});
+
 gulp.task('replaceDocsEn', ['hash'], function(){
   var manifest = JSON.parse(fs.readFileSync(__dirname + '/build/developers/assets.json', 'utf8'));
   gulp.src(['build/developers/docs/en/*.html'])
