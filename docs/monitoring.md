@@ -1,6 +1,7 @@
 ---
 id: monitoring
 title: Monitoring
+sidebar_label: Monitoring
 ---
 
 ## Overview
