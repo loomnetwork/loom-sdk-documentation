@@ -1,5 +1,7 @@
-#!/bin/sh
+#!/bin/bash
 # Note this is for a CI server
+
+set -ex
 
 cd website
 yarn
