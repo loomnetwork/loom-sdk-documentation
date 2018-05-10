@@ -3,6 +3,7 @@
     "Prerequisites": ["prereqs", "what-are-dappchains"],
     "Go Smart Contracts": ["goloomstate", "builtin"],
     "Loom JS SDK": ["loom-js-quickstart"],
+    "Loom Go SDK": ["go-loom-clients", "goloomstate"],
     "Consensus": ["delegated-proof-of-stake"],
     "Mornitoring": ["metrics", "logging"], 
     "Solidity & EVM": ["evm"]
