@@ -27,13 +27,13 @@ make example-cmds
 The `helloworld` smart contract has a public `SetMsg` method that can be called to store an association between a key and a value.
 
 ```shell
-./example-cli call --method SetMsg --input "MapEntry: { Key: '123', Value: '456' }"
+./example-cli call --method SetMsg -k 123 -v 456
 ```
 
 The smart contract also has a public read-only `GetMsg` method that can be called to look up an association between a key and a value.
 
 ```shell
-./example-cli static-call --method GetMsg --input "MapEntry: { Key: '123' }" --output MapEntry
+./example-cli static-call --method GetMsg -k 123
 ```
 
 You should see the following response:
@@ -62,7 +62,7 @@ import (
 )
 
 // getContract creates a new `Contract` instance that can be used to interact with a smart contract.
-func getContract(contractHexAddr, contractName string) *client.Contract {
+func getContract(contractHexAddr, contractName string) (*client.Contract, error) {
   rpcClient := client.NewDAppChainRPCClient(
     "default",
     "ws://127.0.0.1:46657/websocket",
@@ -70,9 +70,9 @@ func getContract(contractHexAddr, contractName string) *client.Contract {
   )
   contractAddr, err := loom.LocalAddressFromHexString(contractHexAddr)
   if err != nil {
-    return err
+    return nil, err
   }
-  return client.NewContract(rpcClient, contractAddr, contractName)
+  return client.NewContract(rpcClient, contractAddr, contractName), nil
 }
 ```
 
@@ -123,10 +123,13 @@ Now that we have all the pieces in place make sure that you have the DAppChain r
 func main() {
   _, privateKey, err := ed25519.GenerateKey(nil)
   if err != nil {
-    return err
+    panic(err)
   }
   signer := auth.NewEd25519Signer(privateKey)
-  contract := getContract("0x005B17864f3adbF53b1384F2E6f2120c6652F779", "helloworld")
+  contract, err := getContract("0x005B17864f3adbF53b1384F2E6f2120c6652F779", "helloworld")
+  if err != nil {
+    panic(err)
+  }
   store(contract, "123", "hello!", signer)
   value, err := load(contract, "123")
   if err != nil {
