@@ -1,12 +1,11 @@
 {
   "docs": {
-    "Docusaurus": ["doc1"],
-    "First Category": ["doc2"],
-    "Second Category": ["doc3"],
+    "Prerequisites": ["prereqs", "what-are-dappchains"],
+    "Go Smart Contracts": ["goloomstate", "builtin"],
     "Loom JS SDK": ["loom-js-quickstart"],
     "Consensus": ["delegated-proof-of-stake"],
-    "Loom State": ["goloomstate"],
-    "Mornitoring": ["metrics"]
+    "Mornitoring": ["metrics", "logging"], 
+    "Solidity & EVM": ["evm"]
   },
   "docs-other": {
     "First Category": ["doc4", "doc5"]
