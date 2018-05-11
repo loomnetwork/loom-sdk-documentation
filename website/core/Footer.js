@@ -34,6 +34,22 @@ class Footer extends React.Component {
             )}
           </a>
           <div>
+            <h5>Network</h5>
+            <a href="https://loomx.io">
+              Loom Network
+            </a>
+            <a href="https://cryptozombies.io">
+              CryptoZombies
+            </a>
+            <a href="https://delegatecall.com">
+              DelegateCall
+            </a>
+            <a href="https://delegatecall.com/what-is-blockchain">
+              What is Blockchain
+            </a>
+
+          </div>
+          <div>
             <h5>Docs</h5>
             <a href={this.docUrl('prereqs.html', this.props.language)}>
               Getting Started
