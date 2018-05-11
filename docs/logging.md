@@ -17,3 +17,4 @@ ContractLogLevel: debug # sets log level for events emitted from the contract
 BlockchainLogLevel: error # sets log level for the blockchain logs
 ```
 
+
