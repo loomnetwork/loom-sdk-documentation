@@ -50,6 +50,8 @@
     "Stay up to date|no description given": "Stay up to date",
     "Need help?|no description given": "Need help?",
     "This project is maintained by a dedicated group of people.|statement made to reader": "This project is maintained by a dedicated group of people.",
+    "Who's Using This?|no description given": "Who's Using This?",
+    "This project is used by all these people|no description given": "This project is used by all these people",
     "What is a Loom DAppChain?|no description given": "What is a Loom DAppChain?",
     "Loom Network allows developers to build large-scale games and social apps by using DAppChains — DApps running as their own sidechains. More specifically, a DAppChain is an Application Specific Sidechain, that runs parallel to a mainchain, Ethereum in this case.|no description given": "Loom Network allows developers to build large-scale games and social apps by using DAppChains — DApps running as their own sidechains. More specifically, a DAppChain is an Application Specific Sidechain, that runs parallel to a mainchain, Ethereum in this case.",
     "Read more|no description given": "Read more",
@@ -63,8 +65,6 @@
     "Loom Platform has generators for a default project|no description given": "Loom Platform has generators for a default project",
     "Get Started!|no description given": "Get Started!",
     "What should we be building?|no description given": "What should we be building?",
-    "Who's Using This?|no description given": "Who's Using This?",
-    "This project is used by all these people|no description given": "This project is used by all these people",
     "Help Translate|recruit community translators for your project": "Help Translate",
     "Edit this Doc|recruitment message asking to edit the doc source": "Edit",
     "Translate this Doc|recruitment message asking to translate the docs": "Translate"
