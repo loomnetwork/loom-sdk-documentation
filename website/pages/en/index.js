@@ -13,6 +13,8 @@ const Container = CompLibrary.Container;
 const GridBlock = CompLibrary.GridBlock;
 
 const siteConfig = require(process.cwd() + '/siteConfig.js');
+const translate = require('../../server/translate.js').translate;
+
 
 function imgUrl(img) {
   return siteConfig.baseUrl + 'img/' + img;
@@ -134,48 +136,62 @@ const Features = props => (
       <div className="feature-element">
         <div className="feature-element-content">
           <h2>
-             <a href="https://medium.com/loom-network/dappchains-scaling-ethereum-dapps-through-sidechains-f99e51fff447">What is a Loom DAppChain?</a>
+             <a href="https://medium.com/loom-network/dappchains-scaling-ethereum-dapps-through-sidechains-f99e51fff447"><translate>What is a Loom DAppChain?</translate></a>
           </h2>
         </div>
         <hr />
         <div className="feature-element-content">
           <p>
+            <translate>
 Loom Network allows developers to build large-scale games and social apps by using DAppChains — DApps running as their own sidechains.
 More specifically, a DAppChain is an Application Specific Sidechain, that runs parallel to a mainchain, Ethereum in this case.
+            </translate>
           </p>
-          <a className="feature-btn" href="https://medium.com/loom-network/dappchains-scaling-ethereum-dapps-through-sidechains-f99e51fff447">Read more
+          <a className="feature-btn" href="https://medium.com/loom-network/dappchains-scaling-ethereum-dapps-through-sidechains-f99e51fff447"><translate>Read more</translate>
           </a>
         </div>
       </div>
       <div className="feature-element">
         <div className="feature-element-content">
           <h2>
-            Building your First DappChain. 
+            <translate>
+              Building your First DappChain. 
+            </translate> 
           </h2>
         </div>
         <hr />
         <div className="feature-element-content">
           <p>
-            Building Dappchains is easy and fun, this tutorial will prepare you to build your first smart contract. Then deploy it on a DappChain.
+            <translate>
+              Building Dappchains is easy and fun, this tutorial will prepare you to build your first smart contract. Then deploy it on a DappChain.
+            </translate>
           </p>
           <a className="feature-btn">
-          Coming Soon
+            <translate>
+              Coming Soon
+            </translate>
           </a>
         </div>
       </div>
       <div className="feature-element">
         <div className="feature-element-content">
           <h2>
-            UnitySDK  for DAppchains
+            <translate>
+              UnitySDK  for DAppchains
+            </translate>  
           </h2>
         </div>
         <hr />
         <div className="feature-element-content">
           <p>
+            <translate>
               Loom uses Unity for all of its Games. We have also published a <a href="https://github.com/loomnetwork/unity3d-sdk">Unity Sdk here</a>. We will have up 
+            </translate>
           </p>
           <a className="feature-btn" href={docUrl('unity-sdk.html', props.language)}>
-            Read More
+            <translate>
+              Read More
+            </translate>              
           </a>
         </div>
       </div>
@@ -208,7 +224,7 @@ const Banner = props => (
         <h1>
           Loom SDK
         </h1>
-        <h3>Build decentralized worlds</h3>
+        <h3><translate>Build decentralized worlds</translate></h3>
       </div>
       <div className="banner-mascot-container">
         <div className="banner-mascot-container-decal"></div>
@@ -366,7 +382,9 @@ const Instructions = props => (
             </code>
           </pre>
           <p>
-            Loom Platform has generators for a default project
+            <translate>
+              Loom Platform has generators for a default project
+            </translate>
           </p>
         </div>
       </div>
@@ -387,12 +405,12 @@ const Download = props => (
         <span>0.1.94</span>
       </li>
       <li className="border-left">
-      <a className="download-btn" href={docUrl('prereqs.html', props.language)}>Get Started!</a>
+      <a className="download-btn" href={docUrl('prereqs.html', props.language)}><translate>Get Started!</translate></a>
               {/* <a className="download-btn" href="https://storage.googleapis.com/private.delegatecall.com/loom/osx/build-94/loom">Download OSX</a> */}
       </li>
     </ul>
     {/* <div className="link-container center-text">
-      <a href={pageUrl('platforms.html', props.language)}>Other platforms</a>
+      <a href={pageUrl('platforms.html', props.language)}><translate>Other platforms</translate></a>
     </div> */}
   </div>
 
@@ -401,7 +419,9 @@ const Download = props => (
 const Suggestions = props => (
   <div className="suggestions custom-section">
     <h3>
-      What should we be building?
+      <translate>
+          What should we be building?
+      </translate>
     </h3>
   </div>
 )
@@ -463,8 +483,8 @@ const Showcase = props => {
 
   return (
     <div className="productShowcaseSection paddingBottom">
-      <h3>{"Who's Using This?"}</h3>
-      <p>This project is used by all these people</p>
+      <h3><translate>Who's Using This?</translate></h3>
+      <p><translate>This project is used by all these people</translate></p>
       <div className="logos">{showcase}</div>
       <div className="more-users">
         <a className="button" href={pageUrl('users.html', props.language)}>

@@ -12,6 +12,7 @@ const Container = CompLibrary.Container;
 const GridBlock = CompLibrary.GridBlock;
 
 const siteConfig = require(process.cwd() + '/siteConfig.js');
+const translate = require('../../server/translate.js').translate;
 
 function docUrl(doc, language) {
   return siteConfig.baseUrl + 'docs/' + (language ? language + '/' : '') + doc;
@@ -43,8 +44,8 @@ const Showcase = props => {
 
   return (
     <div className="productShowcaseSection paddingBottom">
-      <h1>{"Who's Using This?"}</h1>
-      <p>This project is used by all these people</p>
+      <h1><translate>Who's Using This?</translate></h1>
+      <p><translate>This project is used by all these people</translate></p>
       <div className="logos">{showcase}</div>
       <div className="more-users">
         <a className="button" href={pageUrl('users.html', props.language)}>
@@ -61,19 +62,19 @@ class Help extends React.Component {
     let language = this.props.language || '';
     const supportLinks = [
       {
-        content: `&#8226; Learn more using the [documentation on this site.](${docUrl(
+        content: `&#8226; <translate desc="followed by 'documentation on this site'">Learn more using the</translate> [<translate>documentation on this site.</translate>](${docUrl(
           'doc1.html',
           language
         )})`,
-        title: 'Browse Docs',
+        title: '<translate>Browse Docs</translate>',
       },
       {
-        content: '&#8226; Ask questions about the documentation and project: <a href="https://t.me/????">Join our SDK Telegram Room </a> <br> <br> &#8226; Ask questions on <a href="https://delegatecall.com">DelegateCall</a>   ',
-        title: 'Join the community',
+        content: '&#8226; <translate>Ask questions about the documentation and project: <a href="https://t.me/????">Join our SDK Telegram Room </a> <br> <br> &#8226; Ask questions on <a href="https://delegatecall.com">DelegateCall</translate></a>   ',
+        title: '<translate>Join the community</translate>',
       },
       {
-        content: "&#8226; Find out what's new with this project. <br> Join our <a href='https://www.getdrip.com/forms/816334931/submissions/new'>SDK Mailing list</a>",
-        title: 'Stay up to date. ',
+        content: '&#8226; <translate>Find out what\'s new with this project.</translate> <br> <translate desc="Followed by \'SDK Mailing list\'">Join our</translate> <a href=\'https://www.getdrip.com/forms/816334931/submissions/new\'><translate>SDK Mailing list</translate></a>',
+        title: '<translate>Stay up to date.</translate>',
       },
     ];
 
@@ -83,7 +84,7 @@ class Help extends React.Component {
           <Container className="mainContainer documentContainer postContainer helpContainer wrapper">
             <div className="post spacer">
               <header className="postHeader headerContainer">
-                <h1 className="center-text">Need help?</h1>
+                <h1 className="center-text"><translate>Need help?</translate></h1>
               </header>
               <GridBlock contents={supportLinks} layout="threeColumn" />
             </div>
