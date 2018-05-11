@@ -22,8 +22,7 @@ The `Contract` class provides a convenient way to interact with a smart contract
 ```js
 import {
   NonceTxMiddleware, SignedTxMiddleware, Client,
-  Contract, Address, LocalAddress,
-  generatePrivateKey, publicKeyFromPrivateKey
+  Contract, Address, LocalAddress, CryptoUtils
 } from 'loom-js'
 
 /**
@@ -47,7 +46,7 @@ function getContract(privateKey, publicKey) {
     client.chainId,
     LocalAddress.fromHexString('0x005B17864f3adbF53b1384F2E6f2120c6652F779')
   )
-  const callerAddr = new Address(client.chainId, LocalAddress.fromPublicKey(pubKey))
+  const callerAddr = new Address(client.chainId, LocalAddress.fromPublicKey(publicKey))
   return new Contract({
     contractAddr,
     // the name of the smart contract at `contractAddr`
@@ -71,8 +70,8 @@ The `helloworld` smart contract has a public `SetMsg` method that can be called 
  */
 async function store(contract, key, value) {
   const params = new Dummy()
-  params.setKey('hello')
-  params.setValue('world')
+  params.setKey(key)
+  params.setValue(value)
   await contract.callAsync('SetMsg', params)
 }
 
@@ -103,13 +102,13 @@ async function load(contract, key) {
 Now that we have all the pieces in place make sure that you have the DAppChain running and then run the following code, you should see `Value: hello!` printed to the console.
 
 ```js
-async function () {
-  const privateKey = generatePrivateKey()
-  const publicKey = publicKeyFromPrivateKey(privateKey)
+(async function () {
+  const privateKey = CryptoUtils.generatePrivateKey()
+  const publicKey = CryptoUtils.publicKeyFromPrivateKey(privateKey)
 
   const contract = getContract(privateKey, publicKey)
   await store(contract, '123', 'hello!')
   const value = await load(contract, '123')
   console.log('Value: ' + value)
-}()
+})()
 ```
