@@ -83,8 +83,8 @@ class HomeSplash extends React.Component {
           <ProjectTitle />
           <PromoSection>
             <Button href="#try">Try It Out</Button>
-            <Button href={docUrl('doc1.html', 'en')}>Example Link</Button>
-            <Button href={docUrl('doc2.html', 'en')}>Example Link 2</Button>
+            <Button href={docUrl('doc1.html', language)}>Example Link</Button>
+            <Button href={docUrl('doc2.html', language)}>Example Link 2</Button>
           </PromoSection>
         </div>
       </SplashContainer>
@@ -174,7 +174,7 @@ More specifically, a DAppChain is an Application Specific Sidechain, that runs p
           <p>
               Loom uses Unity for all of its Games. We have also published a <a href="https://github.com/loomnetwork/unity3d-sdk">Unity Sdk here</a>. We will have up 
           </p>
-          <a className="feature-btn" href={docUrl('unity-sdk.html', 'en')}>
+          <a className="feature-btn" href={docUrl('unity-sdk.html', props.language)}>
             Read More
           </a>
         </div>
@@ -243,136 +243,136 @@ const Banner = props => (
 //   </div>
 // );
 
-// const Prereqs = props => (
-//   <div className="prereqs-container global-padding">
-//     <div className="prereqs custom-section">
-//       <div className="header-content">
-//         <h3>
-//           Prerequisites
-//         </h3>
-//         <p>
-//           Golang for directions on how to set it up
-//         </p>
-//       </div>
-//       <pre>
-//         <code className="dark-code">
-//         brew install wget
-//         wget https://dl.google.com/go/go1.10.2.darwin-amd64.tar.gz
-//         sudo tar -C /usr/local -xzf go1.10.2.darwin-amd64.tar.gz
-//         sudo ln -s /usr/local/go/bin/go /usr/local/bin/go
-//         mkdir ~/gopath
-//         export GOPATH=~/gopath
-//         </code>
-//       </pre>
-//       <p>
-//           *Add GOPATH to your bashrc <br />
-//           Protobufs https://github.com/google/protobuf/releases/tag/v3.5.1
-//       </p>
-//       <pre>
-//         <code className="dark-code">
-//           wget go1.1.0.1.darwin-amd64.tar.gz <br />
-//           tar -C /usr/local -xzf go1.1.0.1.darwin-amd64.tar.gz
-//         </code>
-//       </pre>
-//     </div>
-//   </div>
-// );
+const Prereqs = props => (
+  <div className="prereqs-container global-padding">
+    <div className="prereqs custom-section">
+      <div className="header-content">
+        <h3>
+          Prerequisites
+        </h3>
+        <p>
+          Golang for directions on how to set it up
+        </p>
+      </div>
+      <pre>
+        <code className="dark-code">
+        brew install wget
+        wget https://dl.google.com/go/go1.10.2.darwin-amd64.tar.gz
+        sudo tar -C /usr/local -xzf go1.10.2.darwin-amd64.tar.gz
+        sudo ln -s /usr/local/go/bin/go /usr/local/bin/go
+        mkdir ~/gopath
+        export GOPATH=~/gopath
+        </code>
+      </pre>
+      <p>
+          *Add GOPATH to your bashrc <br />
+          Protobufs https://github.com/google/protobuf/releases/tag/v3.5.1
+      </p>
+      <pre>
+        <code className="dark-code">
+          wget go1.1.0.1.darwin-amd64.tar.gz <br />
+          tar -C /usr/local -xzf go1.1.0.1.darwin-amd64.tar.gz
+        </code>
+      </pre>
+    </div>
+  </div>
+);
 
-// const Instructions = props => (
-//   <div className="instructions custom-section">
-//     <div className="grid-container">
-//       <div className="wrapper">
-//         <div className="grid-col grid-col-2">
-//           <h3>
-//             Step 1. Setup the dependencies
-//           </h3>
-//           <pre>
-//             <code className="light-code">
-//             brew install wget <br />
-//         wget https://dl.google.com/go/go1.10.2.darwin-amd64.tar.gz
-//         sudo tar -C /usr/local -xzf go1.10.2.darwin-amd64.tar.gz
-//         sudo ln -s /usr/local/go/bin/go /usr/local/bin/go
-//         mkdir ~/gopath
-//         export GOPATH=~/gopath
-//             </code>
-//           </pre>
-//         </div>
-//         <div className="grid-col grid-col-2">
-//           <h3>
-//             Step 2. Create a project
-//           </h3>
-//           <pre>
-//             <code className="light-code">
-//               wget go1.1.0.1.darwin-amd64.tar.gz <br />
-//               tar -C /usr/local -xzf go1.1.0.1.darwin-amd64.tar.gz
-//             </code>
-//           </pre>
-//           <p>
-//             Loom Platform has generators for a default project
-//           </p>
-//         </div>
-//       </div>
-//     </div>
-//     <div className="grid-container">
-//       <div className="wrapper">
-//         <div className="grid-col grid-col-2">
-//           <h3>
-//             Step 3. Setup a new transaction
-//           </h3>
-//           <pre>
-//             <code className="light-code">
-//               wget go1.1.0.1.darwin-amd64.tar.gz <br />
-//               tar -C /usr/local -xzf go1.1.0.1.darwin-amd64.tar.gz
-//             </code>
-//           </pre>
-//         </div>
-//         <div className="grid-col grid-col-2">
-//           <h3>
-//             Step 4. Startup the blockchain
-//           </h3>
-//           <pre>
-//             <code className="light-code">
-//               wget go1.1.0.1.darwin-amd64.tar.gz <br />
-//               tar -C /usr/local -xzf go1.1.0.1.darwin-amd64.tar.gz
-//             </code>
-//           </pre>
-//           <p>
-//             Loom Platform has generators for a default project
-//           </p>
-//         </div>
-//       </div>
-//     </div>
-//     <div className="grid-container">
-//       <div className="wrapper">
-//         <div className="grid-col grid-col-2">
-//           <h3>
-//             Step 5. Generate JS client
-//           </h3>
-//           <pre>
-//             <code className="light-code">
-//               wget go1.1.0.1.darwin-amd64.tar.gz <br />
-//               tar -C /usr/local -xzf go1.1.0.1.darwin-amd64.tar.gz
-//             </code>
-//           </pre>
-//         </div>
-//         <div className="grid-col grid-col-2">
-//           <h3>
-//             Step 6. Interact with the Blockchain
-//           </h3>
-//           <pre>
-//             <code className="light-code">
-//               wget go1.1.0.1.darwin-amd64.tar.gz <br />
-//               tar -C /usr/local -xzf go1.1.0.1.darwin-amd64.tar.gz
-//             </code>
-//           </pre>
-//           <p>
-//             Loom Platform has generators for a default project
-//           </p>
-//         </div>
-//       </div>
-//     </div>
-//   </div>
-// );
+const Instructions = props => (
+  <div className="instructions custom-section">
+    <div className="grid-container">
+      <div className="wrapper">
+        <div className="grid-col grid-col-2">
+          <h3>
+            Step 1. Setup the dependencies
+          </h3>
+          <pre>
+            <code className="light-code">
+            brew install wget <br />
+        wget https://dl.google.com/go/go1.10.2.darwin-amd64.tar.gz
+        sudo tar -C /usr/local -xzf go1.10.2.darwin-amd64.tar.gz
+        sudo ln -s /usr/local/go/bin/go /usr/local/bin/go
+        mkdir ~/gopath
+        export GOPATH=~/gopath
+            </code>
+          </pre>
+        </div>
+        <div className="grid-col grid-col-2">
+          <h3>
+            Step 2. Create a project
+          </h3>
+          <pre>
+            <code className="light-code">
+              wget go1.1.0.1.darwin-amd64.tar.gz <br />
+              tar -C /usr/local -xzf go1.1.0.1.darwin-amd64.tar.gz
+            </code>
+          </pre>
+          <p>
+            Loom Platform has generators for a default project
+          </p>
+        </div>
+      </div>
+    </div>
+    <div className="grid-container">
+      <div className="wrapper">
+        <div className="grid-col grid-col-2">
+          <h3>
+            Step 3. Setup a new transaction
+          </h3>
+          <pre>
+            <code className="light-code">
+              wget go1.1.0.1.darwin-amd64.tar.gz <br />
+              tar -C /usr/local -xzf go1.1.0.1.darwin-amd64.tar.gz
+            </code>
+          </pre>
+        </div>
+        <div className="grid-col grid-col-2">
+          <h3>
+            Step 4. Startup the blockchain
+          </h3>
+          <pre>
+            <code className="light-code">
+              wget go1.1.0.1.darwin-amd64.tar.gz <br />
+              tar -C /usr/local -xzf go1.1.0.1.darwin-amd64.tar.gz
+            </code>
+          </pre>
+          <p>
+            Loom Platform has generators for a default project
+          </p>
+        </div>
+      </div>
+    </div>
+    <div className="grid-container">
+      <div className="wrapper">
+        <div className="grid-col grid-col-2">
+          <h3>
+            Step 5. Generate JS client
+          </h3>
+          <pre>
+            <code className="light-code">
+              wget go1.1.0.1.darwin-amd64.tar.gz <br />
+              tar -C /usr/local -xzf go1.1.0.1.darwin-amd64.tar.gz
+            </code>
+          </pre>
+        </div>
+        <div className="grid-col grid-col-2">
+          <h3>
+            Step 6. Interact with the Blockchain
+          </h3>
+          <pre>
+            <code className="light-code">
+              wget go1.1.0.1.darwin-amd64.tar.gz <br />
+              tar -C /usr/local -xzf go1.1.0.1.darwin-amd64.tar.gz
+            </code>
+          </pre>
+          <p>
+            Loom Platform has generators for a default project
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+);
 
 
 const Download = props => (
@@ -387,7 +387,7 @@ const Download = props => (
         <span>0.1.94</span>
       </li>
       <li className="border-left">
-      <a className="download-btn" href={docUrl('prereqs.html', 'en')}>Get Started!</a>
+      <a className="download-btn" href={docUrl('prereqs.html', props.language)}>Get Started!</a>
               {/* <a className="download-btn" href="https://storage.googleapis.com/private.delegatecall.com/loom/osx/build-94/loom">Download OSX</a> */}
       </li>
     </ul>
@@ -477,14 +477,14 @@ const Showcase = props => {
 
 class Index extends React.Component {
   render() {
-    let language = this.props.language || 'en';
+    let language = this.props.language;
 
     return (
       <div className="landing-page">
         <div className="mainContainer">
-          <Banner />
-          <Download />
-          <Features />
+          <Banner language={language}/>
+          <Download language={language} />
+          <Features language={language} />
           {/* <Prereqs />
           <Instructions /> */}
           <Showcase language={language} />
