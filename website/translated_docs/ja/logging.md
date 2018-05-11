@@ -4,7 +4,7 @@ id: logging title: Logging sidebar_label: Logging
 
 * * *
 
-## Overview
+## 概要
 
 Loom has built in logging, that can currently goes to stderr.
 
