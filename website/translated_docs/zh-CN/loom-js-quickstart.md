@@ -17,7 +17,7 @@ npm install loom-js
 
 ## Connecting to a DAppChain
 
-The `Contract` class provides a convenient way to interact with a smart contract running on a Loom DAppChain. Let's write a function that creates a `Contract` instance to interact with the sample `helloworld` smart contract from the Loom SDK...
+The `Contract` class provides a convenient way to interact with a smart contract running on a Loom DAppChain. Let's write a function that creates a `Contract` instance to interact with the sample [helloworld](https://github.com/loomnetwork/go-loom/blob/master/examples/plugins/helloworld/helloworld.go) smart contract from the Loom SDK...
 
 ```js
 import {
@@ -62,7 +62,7 @@ function getContract(privateKey, publicKey) {
 
 To mutate the state of a smart contract you need to call one of its public methods, to do so a signed transaction must be sent to and validated by the DAppChain. Fortunately the `Contract` class takes care of most of this when you use the `Contract.callAsync()` method.
 
-The `helloworld` smart contract has a public `SetMsg` method that can be called to store an association between a key and a value. Let's write a function that calls this method...
+The [helloworld](https://github.com/loomnetwork/go-loom/blob/master/examples/plugins/helloworld/helloworld.go) smart contract has a public `SetMsg` method that can be called to store an association between a key and a value. Let's write a function that calls this method...
 
 ```js
 /**
@@ -70,7 +70,7 @@ The `helloworld` smart contract has a public `SetMsg` method that can be called 
  * @param contract Contract instance returned from `getContract()`.
  */
 async function store(contract, key, value) {
-  const params = new Dummy()
+  const params = new MapEntry()
   params.setKey(key)
   params.setValue(value)
   await contract.callAsync('SetMsg', params)
@@ -82,7 +82,7 @@ async function store(contract, key, value) {
 
 To read the state of a smart contract you need to call one of its public read-only methods, you can do so by using the `Contract.staticCallAsync()` method.
 
-The `helloworld` smart contract has a public `GetMsg` method that can be called to look up an association between a key and a value. Let's write a function that calls this method...
+The [helloworld](https://github.com/loomnetwork/go-loom/blob/master/examples/plugins/helloworld/helloworld.go) smart contract has a public `GetMsg` method that can be called to look up an association between a key and a value. Let's write a function that calls this method...
 
 ```js
 /**
@@ -90,10 +90,10 @@ The `helloworld` smart contract has a public `GetMsg` method that can be called 
  * @param contract Contract instance returned from `getContract()`.
  */
 async function load(contract, key) {
-  const params = new Dummy()
+  const params = new MapEntry()
   // The smart contract will look up the value stored under this key.
   params.setKey(key)
-  const result = await contract.staticCallAsync('GetMsg', params, new Dummy())
+  const result = await contract.staticCallAsync('GetMsg', params, new MapEntry())
   return result.getValue()
 }
 ```
