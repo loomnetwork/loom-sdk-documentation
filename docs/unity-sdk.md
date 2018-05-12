@@ -31,7 +31,7 @@ using System;
 using System.Threading.Tasks;
 using UnityEngine;
 using Loom.Unity3d;
-using Google.Protobuf;
+using Loom.Unity3d.Samples;
 
 public class LoomQuickStartSample : MonoBehavior
 {
@@ -50,16 +50,8 @@ public class LoomQuickStartSample : MonoBehavior
             new SignedTxMiddleware(privateKey)
         });
         // address of the `helloworld` smart contract on the Loom DAppChain
-        var contractAddr = new Address
-        {
-            ChainId = "default",
-            Local = ByteString.CopyFrom(CryptoUtils.HexStringToBytes("0x005B17864f3adbF53b1384F2E6f2120c6652F779"))
-        };
-        var callerAddr = new Address
-        {
-            ChainId = "default",
-            Local = ByteString.CopyFrom(CryptoUtils.LocalAddressFromPublicKey(publicKey))
-        };
+        var contractAddr = Address.FromHexString("0x005B17864f3adbF53b1384F2E6f2120c6652F779");
+        var callerAddr = Address.FromPublicKey(publicKey);
         return new Contract(client, contractAddr, "helloworld", callerAddr);
     }
 }
