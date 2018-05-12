@@ -31,7 +31,7 @@ make example-cmds
 
 ## Example CLI app
 
-The `helloworld` smart contract has a public `SetMsg` method that can be called to store an
+The [helloworld][] smart contract has a public `SetMsg` method that can be called to store an
 association between a key and a value.
 
 ```shell
@@ -61,7 +61,7 @@ take a look at the parts of the `go-loom` API that were used to implement it.
 
 The `client.Contract` type provides a convenient way to interact with a smart contract running on a
 Loom DAppChain. Let's write a function that creates a `client.Contract` instance to interact with
-the sample `helloworld` smart contract from the Loom SDK...
+the sample [helloworld][] smart contract from the Loom SDK...
 
 ```go
 package main
@@ -94,12 +94,12 @@ To mutate the state of a smart contract you need to call one of its public metho
 signed transaction must be sent to and validated by the DAppChain. Fortunately the `client.Contract`
 type takes care of most of this when you use the `Contract.Call()` method.
 
-The `helloworld` smart contract has a public `SetMsg` method that can be called to store an
+The [helloworld][] smart contract has a public `SetMsg` method that can be called to store an
 association between a key and a value. Let's write a function that calls this method...
 
 ```go
 func store(contract *client.Contract, key, value string, signer auth.Signer) error {
-  params := types.Dummy{
+  params := types.MapEntry{
     Key: key,
     Value: value,
   }
@@ -116,15 +116,15 @@ func store(contract *client.Contract, key, value string, signer auth.Signer) err
 To read the state of a smart contract you need to call one of its public read-only methods, you can
 do so by using the `Contract.StaticCall()` method.
 
-The `helloworld` smart contract has a public `GetMsg` method that can be called to look up an
+The [helloworld][] smart contract has a public `GetMsg` method that can be called to look up an
 association between a key and a value. Let's write a function that calls this method...
 
 ```go
 func load(contract *client.Contract, key string) (string, error) {
-  params := types.Dummy{
+  params := types.MapEntry{
     Key: key, // The smart contract will look up the value stored under this key.
   }
-  var result types.Dummy
+  var result types.MapEntry
   if _, err = contract.StaticCall("GetMsg", params, &result); err != nil {
     return "", err
   }
@@ -156,3 +156,5 @@ func main() {
   fmt.Printf("Value: %s\n", value)
 }
 ```
+
+[helloworld]: https://github.com/loomnetwork/go-loom/blob/master/examples/plugins/helloworld/helloworld.go
