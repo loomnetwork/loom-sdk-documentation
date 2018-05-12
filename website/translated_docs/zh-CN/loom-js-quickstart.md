@@ -37,11 +37,12 @@ function getContract(privateKey, publicKey) {
     'ws://127.0.0.1:46657/websocket',
     'ws://127.0.0.1:47000/queryws'
   )
+  // required middleware
   client.txMiddleware = [
     new NonceTxMiddleware(publicKey, client),
     new SignedTxMiddleware(privateKey)
   ]
-  // address of the smart contract on the Loom DAppChain
+  // address of the `helloworld` smart contract on the Loom DAppChain
   const contractAddr = new Address(
     client.chainId,
     LocalAddress.fromHexString('0x005B17864f3adbF53b1384F2E6f2120c6652F779')
