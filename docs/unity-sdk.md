@@ -15,6 +15,10 @@ and asset transfers. The following Unity target platforms are currently supporte
 - iOS
 - WebGL
 
+## Sample Code
+
+You can find all the code on this page and a ready-to-go Unity scene in the Loom Unity SDK under [`Assets/Samples/QuickStart`](https://github.com/loomnetwork/unity3d-sdk/tree/master/Assets/Samples/QuickStart).
+
 ## Connecting to a DAppChain
 
 The `Contract` class provides a convenient way to interact with a smart contract running on a Loom
@@ -165,7 +169,3 @@ Now that we have all the code in place let's test it out:
 1. Create an empty `GameObject` in a Unity scene and attach the `LoomQuickStartSample` script to it.
 2. Deploy the `helloworld` smart contract on a local Loom DAppChain node.
 3. Hit `Play` in the Unity Editor.
-
-## Sample Code
-
-You can find all the code from this page in the Loom Unity SDK under `Assets/Samples/QuickStart`.
