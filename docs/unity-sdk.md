@@ -22,14 +22,14 @@ DAppChain. Let's write a method that creates a `Contract` instance to interact w
 `helloworld` smart contract provided in the Loom SDK...
 
 ```csharp
-// LoomSample.cs
+// LoomQuickStartSample.cs
 using System;
 using System.Threading.Tasks;
 using UnityEngine;
 using Loom.Unity3d;
 using Google.Protobuf;
 
-public class LoomSample : MonoBehavior
+public class LoomQuickStartSample : MonoBehavior
 {
     Contract GetContract(byte[] privateKey, byte[] publicKey)
     {
@@ -69,7 +69,7 @@ takes care of most of this when you use the `Contract.CallAsync()` method.
 
 The `helloworld` smart contract has a public `SetMsg` method that can be called to store an
 association between a key and a value, note that this method doesn't return anything. Let's add a
-method to the `LoomSample` class that calls `helloworld.SetMsg()`.
+method to the `LoomQuickStartSample` class that calls `helloworld.SetMsg()`.
 
 ```csharp
 async Task CallContract(Contract contract)
@@ -84,7 +84,7 @@ async Task CallContract(Contract contract)
 
 Smart contract methods that mutate state may return a value. The `helloworld` smart contract has
 a public `SetMsgEcho` method that will store a key/value and return the key/value it stored. Let's
-add another method to the `LoomSample` class to call `helloworld.SetMsgEcho`.
+add another method to the `LoomQuickStartSample` class to call `helloworld.SetMsgEcho`.
 
 ```csharp
 async Task CallContractWithResult(Contract contract)
@@ -114,8 +114,8 @@ a read-only method doesn't modify the smart contract state. You can call a read-
 smart contract by using the `Contract.StaticCallAsync()` method.
 
 The `helloworld` smart contract has a public `GetMsg` method that can be called to look up an
-association between a key and a value. Let's add a method to the `LoomSample` class to call
-`helloworld.GetMsg`.
+association between a key and a value. Let's add a method to the `LoomQuickStartSample` class to
+call `helloworld.GetMsg`.
 
 ```csharp
 async Task StaticCallContract(Contract contract)
@@ -128,7 +128,7 @@ async Task StaticCallContract(Contract contract)
     if (result != null)
     {
         // This should print: { "key": "123", "value": "hello!" } in the Unity console window
-        // provided `LoomSample.CallContract()` was called first.
+        // provided `LoomQuickStartSample.CallContract()` was called first.
         Debug.Log("Smart contract returned: " + result.ToString());
     }
     else
@@ -140,10 +140,10 @@ async Task StaticCallContract(Contract contract)
 
 ## Putting it all together
 
-Now that we have all the pieces in place, create a `GameObject` in a Unity scene and attach the
-`LoomSample` script to it, then hit `Play` in the Unity Editor.
+Add the following method to the `LoomQuickStartSample` class.
 
 ```csharp
+// Use this for initialization
 async void Start()
 {
     // The private key is used to sign transactions sent to the DAppChain.
@@ -160,3 +160,12 @@ async void Start()
     await CallContractWithResult(contract);
 }
 ```
+
+Now that we have all the code in place let's test it out:
+1. Create an empty `GameObject` in a Unity scene and attach the `LoomQuickStartSample` script to it.
+2. Deploy the `helloworld` smart contract on a local Loom DAppChain node.
+3. Hit `Play` in the Unity Editor.
+
+## Sample Code
+
+You can find all the code from this page in the Loom Unity SDK under `Assets/Samples/QuickStart`.
