@@ -155,7 +155,7 @@ More specifically, a DAppChain is an Application Specific Sidechain, that runs p
         <div className="feature-element-content">
           <h2>
             <translate>
-              Building your First DappChain. 
+              Loom Network SDK Roadmap
             </translate> 
           </h2>
         </div>
@@ -163,12 +163,12 @@ More specifically, a DAppChain is an Application Specific Sidechain, that runs p
         <div className="feature-element-content">
           <p>
             <translate>
-              Building Dappchains is easy and fun, this tutorial will prepare you to build your first smart contract. Then deploy it on a DappChain.
+              Overview of all the Loom SDK Features. What upcoming projects are running on DAppchains. Some of features like Ethereum Asset Transfers, Indexing and Consensus selection.
             </translate>
           </p>
-          <a className="feature-btn">
+          <a className="feature-btn" href="https://medium.com/loom-network/loom-network-sdk-alpha-release-first-5-dappchains-announced-sdk-roadmap-1dddec789004">
             <translate>
-              Coming Soon
+              Read More
             </translate>
           </a>
         </div>
@@ -185,7 +185,7 @@ More specifically, a DAppChain is an Application Specific Sidechain, that runs p
         <div className="feature-element-content">
           <p>
             <translate>
-              Loom uses Unity for all of its Games. We have also published a <a href="https://github.com/loomnetwork/unity3d-sdk">Unity Sdk here</a>. We will have up 
+              Loom uses Unity for all of its Games. We have also published a Unity Sdk. We will have updated source samples soon with a fullgame built on a DAppchain. Developers will be able to send and recieve transactions on a blockchain, including with a websocket realtime api. 
             </translate>
           </p>
           <a className="feature-btn" href={docUrl('unity-sdk.html', props.language)}>
