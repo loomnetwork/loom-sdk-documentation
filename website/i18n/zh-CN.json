@@ -9,6 +9,8 @@
     "delegated-proof-of-stake": "Delegated Proof of Stake",
     "doc1": "Welcome",
     "Welcome": "Welcome",
+    "etherboy-deployment": "Example Deployment",
+    "Etherboy Deployment": "Etherboy Deployment",
     "evm": "Ethereum Virtual Machine",
     "EVM page": "EVM page",
     "go-loom-clients": "Building DAppChain clients in Golang",
@@ -39,7 +41,8 @@
     "Go Contract SDK": "Go Contract SDK",
     "Consensus": "Consensus",
     "Monitoring": "Monitoring",
-    "Solidity & EVM": "Solidity & EVM"
+    "Solidity & EVM": "Solidity & EVM",
+    "Deployment": "Deployment"
   },
   "pages-strings": {
     "Learn more using the [documentation on this site.](/test-site/docs/en/doc1.html)|no description given": "Learn more using the [documentation on this site.](/test-site/docs/en/doc1.html)",
