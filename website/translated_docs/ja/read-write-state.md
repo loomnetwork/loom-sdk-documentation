@@ -14,23 +14,23 @@ sidebar_label: 状態の保存と読み取り
     Set(key []byte, pb proto.Message) error
     
 
-go-loom mandates that the data being saved is a protobuf object.
+go-loomは、 保存データがprotobufオブジェクトであるよう指定している。
 
-## Reading from the state
+## 状態の読み取り
 
-Use the `Has` operation to check whether a particular key exists in the state
+特定のキーが状態に存在するかチェックするには、`Has` オペレーションを使用する。
 
     Has(key []byte) bool
     
 
-To read the value saved at a key use the `Get` operation
+キーに保存されているバリューを読み取るには`Get` オペレーションを使用する。
 
     Get(key []byte, pb proto.Message) error
     
 
-Get will unmarshal the saved data into a protobuf struct
+Getは保存データをprotobuf構造体へとアンマーシャルする。
 
-## Deleting a key
+## キーの削除
 
 Data saved at a key can be delete with
 
