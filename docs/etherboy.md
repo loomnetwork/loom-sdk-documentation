@@ -47,12 +47,13 @@ There are two ways to run - directly, or via systemd (or any process control sys
 
 ### Direct execution
 
-1. Execute `loom run` in the working directory to run the service:
-    ```bash
-    ./loom run
-    I[05-16|06:06:16.970] Using simple log event dispatcher
-    I[05-16|06:06:19.999] Starting RPC HTTP server on tcp://127.0.0.1:9999 module=query-server
-    ```
+Execute `loom run` in the working directory to run the service:
+
+```bash
+./loom run
+I[05-16|06:06:16.970] Using simple log event dispatcher
+I[05-16|06:06:19.999] Starting RPC HTTP server on tcp://127.0.0.1:9999 module=query-server
+```
 
 This will run Etherboy in the foreground and print its output to the console. For better process management, look at the next section.
 
@@ -92,6 +93,12 @@ You may now inspect the output using:
 
 ```bash
 sudo journalctl -u etherboy.service
+```
+
+When satisfied everything is running as intended, executing the following will enable the service so that it is started at boot:
+
+```bash
+sudo systemctl enable etherboy.service
 ```
 
 ## Verifying
