@@ -1,13 +1,13 @@
 ---
 id: builtin
-title: Built-in Smart Contracts
+title: ビルトインのスマートコントラクト
 ---
-Loom contains a few built-in smart contracts that you can utilize in your sidechain.
+Loomにはビルトインのコントラクトがいくつかあり、サイドチェーン上で利用することができる。
 
-# Coin
+# コイン
 
-Coin implements an ERC20 style coin that can be used as a currency.
+コインはERC20スタイルのものとしてを実装されていて、通貨として使用することができる。
 
 # Delegated Proof of Stake
 
-The Delegated Proof of Stake (DPOS) smart contract implements validator elections. See [delegated-proof-of-stake](delegated-proof-of-stake.html).
+Delegated Proof of Stake (DPOS)のスマートコントラクトは、バリデーターの選出を実装している。 [delegated-proof-of-stake](delegated-proof-of-stake.html)を参照。

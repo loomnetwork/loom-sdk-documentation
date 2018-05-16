@@ -1,6 +1,6 @@
 ---
-id: loom-js-quickstart
-title: NodeJS & Browser Quick Start
+id: loom-jsクイックスタート
+title: NodeJSとブラウザのクイックスタート
 sidebar_label: NodeJS & Browser Quick Start
 ---
 ## Overview
@@ -17,7 +17,7 @@ npm install loom-js
 
 ## Connecting to a DAppChain
 
-The `Contract` class provides a convenient way to interact with a smart contract running on a Loom DAppChain. Let's write a function that creates a `Contract` instance to interact with the sample `helloworld` smart contract from the Loom SDK...
+The `Contract` class provides a convenient way to interact with a smart contract running on a Loom DAppChain. Let's write a function that creates a `Contract` instance to interact with the sample [helloworld](https://github.com/loomnetwork/go-loom/blob/master/examples/plugins/helloworld/helloworld.go) smart contract from the Loom SDK...
 
 ```js
 import {
@@ -37,11 +37,12 @@ function getContract(privateKey, publicKey) {
     'ws://127.0.0.1:46657/websocket',
     'ws://127.0.0.1:47000/queryws'
   )
+  // required middleware
   client.txMiddleware = [
     new NonceTxMiddleware(publicKey, client),
     new SignedTxMiddleware(privateKey)
   ]
-  // address of the smart contract on the Loom DAppChain
+  // address of the `helloworld` smart contract on the Loom DAppChain
   const contractAddr = new Address(
     client.chainId,
     LocalAddress.fromHexString('0x005B17864f3adbF53b1384F2E6f2120c6652F779')
@@ -59,9 +60,9 @@ function getContract(privateKey, publicKey) {
 
 ## Writing data to a DAppChain
 
-To mutate the state of a smart contract you need to call one of its public methods, to do so a signed transaction must be sent to and validated by the DAppChain. Fortunately the `Contract` class takes care of most of this when you use the `Contract.callAsync()` method.
+To mutate the state of a smart contract you need to call one of its public methods, to do so a signed transaction must be sent to and validated by the DAppChain. 幸いこれらのほとんどは、`Contract.CallAsync()` メソッドを使用すれば `Contract`クラスが処理を行う。
 
-The `helloworld` smart contract has a public `SetMsg` method that can be called to store an association between a key and a value. Let's write a function that calls this method...
+The [helloworld](https://github.com/loomnetwork/go-loom/blob/master/examples/plugins/helloworld/helloworld.go) smart contract has a public `SetMsg` method that can be called to store an association between a key and a value. Let's write a function that calls this method...
 
 ```js
 /**
@@ -69,7 +70,7 @@ The `helloworld` smart contract has a public `SetMsg` method that can be called 
  * @param contract Contract instance returned from `getContract()`.
  */
 async function store(contract, key, value) {
-  const params = new Dummy()
+  const params = new MapEntry()
   params.setKey(key)
   params.setValue(value)
   await contract.callAsync('SetMsg', params)
@@ -81,7 +82,7 @@ async function store(contract, key, value) {
 
 To read the state of a smart contract you need to call one of its public read-only methods, you can do so by using the `Contract.staticCallAsync()` method.
 
-The `helloworld` smart contract has a public `GetMsg` method that can be called to look up an association between a key and a value. Let's write a function that calls this method...
+The [helloworld](https://github.com/loomnetwork/go-loom/blob/master/examples/plugins/helloworld/helloworld.go) smart contract has a public `GetMsg` method that can be called to look up an association between a key and a value. Let's write a function that calls this method...
 
 ```js
 /**
@@ -89,10 +90,10 @@ The `helloworld` smart contract has a public `GetMsg` method that can be called 
  * @param contract Contract instance returned from `getContract()`.
  */
 async function load(contract, key) {
-  const params = new Dummy()
+  const params = new MapEntry()
   // The smart contract will look up the value stored under this key.
   params.setKey(key)
-  const result = await contract.staticCallAsync('GetMsg', params, new Dummy())
+  const result = await contract.staticCallAsync('GetMsg', params, new MapEntry())
   return result.getValue()
 }
 ```

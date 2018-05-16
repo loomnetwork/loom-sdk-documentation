@@ -1,42 +1,42 @@
 ---
-id: go-loom-clients
-title: Building DAppChain clients in Golang
-sidebar_label: Building DAppChain Clients
+id: go-loomクライアント
+title: GolangでのDAppチェーンクライアントの構築
+sidebar_label: DAppチェーンクライアントの構築
 ---
-## Overview
+## 概要
 
-The `go-loom` library contains everything you need to build Go apps & services that interact with Loom DAppChains, and to build the smart contracts that live on those DAppChains.
+`go-loom`ライブラリには、Goアプリ構築に必要な全てのもの、そしてLoom DAppチェーンと対話するためのサービスが含まれている。これらはDAppチェーン上で機能するスマートコントラクトの構築を可能にする。
 
-To get started install `go-loom`:
+`go-loom`のインストール:
 
 ```shell
 go get github.com/loomnetwork/go-loom
 ```
 
-In this section you'll be introduced to the `go-loom` API that you will use to write Go code that interacts with a Loom DAppChain, writing smart contracts in Go will be covered in a later section.
+このセクションでは`go-loom`の紹介を行なっていこう。go-loom APIは、Loom DAppチェーンと対話するGoのコードを書くために使用するものだ。Goでのスマートコントラクトのコーディングは、後のセクションで扱っていこう。
 
-In the `go-loom` package you will find a number of examples, `examples/cli` contains a CLI app that can be used to interact with the `examples/plugins/helloworld` smart contract. We'll start by building and test driving the CLI app, then we'll introduce you to the `go-loom` API that was used to build it.
+`go-loom`パッケージには多くのサンプルがある。`examples/cli`にはCLI アプリが含まれており、これはスマートコントラクト`examples/plugins/helloworld` と対話するために使用することができる。 まずはCLIアプリの構築及びテスト運用からスタートし、その後構築に使用した`go-loom` APIを紹介していこう。
 
 ```shell
-# this should generate the ./example-cli executable
+# これは実行可能な ./example-cli を生成する
 make example-cmds
 ```
 
-## Example CLI app
+## CLI アプリのサンプル
 
-The `helloworld` smart contract has a public `SetMsg` method that can be called to store an association between a key and a value.
+[helloworld](https://github.com/loomnetwork/go-loom/blob/master/examples/plugins/helloworld/helloworld.go)スマートコントラクトは、パブリックな`SetMsg`メソッドを持っており、これはキーとバリューの連想配列を保存するよう呼び出すことができる。
 
 ```shell
 ./example-cli call --method SetMsg -k 123 -v 456
 ```
 
-The smart contract also has a public read-only `GetMsg` method that can be called to look up an association between a key and a value.
+このスマートコントラクトは同じくパブリックな`GetMsg`メソッドを持っており、これはキーとバリューの連想配列を参照するために呼び出すことができる。
 
 ```shell
 ./example-cli static-call --method GetMsg -k 123
 ```
 
-You should see the following response:
+以下のレスポンスが見られるはずだ:
 
 ```js
 {
@@ -45,11 +45,11 @@ You should see the following response:
 }
 ```
 
-And that concludes our demonstration of the functionality of the example CLI app, now it's time to take a look at the parts of the `go-loom` API that were used to implement it.
+これでサンプルCLIアプリの機能のデモンストレーションが完了した。今度はこの実装に使用した`go-loom` APIについて見ていこう。
 
-## Connecting to a DAppChain
+## DAppチェーンへの接続
 
-The `client.Contract` type provides a convenient way to interact with a smart contract running on a Loom DAppChain. Let's write a function that creates a `client.Contract` instance to interact with the sample `helloworld` smart contract from the Loom SDK...
+`client.Contract`タイプは、Loom DAppチェーン上で実行されるスマートコントラクトと対話するための便利な方法を提供する。 Loom SDKのサンプルスマートコントラクト [helloworld](https://github.com/loomnetwork/go-loom/blob/master/examples/plugins/helloworld/helloworld.go) と対話する `client.Contract` インスタンスを作成する関数を書いてみよう。
 
 ```go
 package main
@@ -61,7 +61,7 @@ import (
   "golang.org/x/crypto/ed25519"
 )
 
-// getContract creates a new `Contract` instance that can be used to interact with a smart contract.
+// getContractは新しい`Contract`インスタンスを作成し、これを使ってスマートコントラクトとの対話が行える。
 func getContract(contractHexAddr, contractName string) (*client.Contract, error) {
   rpcClient := client.NewDAppChainRPCClient(
     "default",
@@ -76,15 +76,15 @@ func getContract(contractHexAddr, contractName string) (*client.Contract, error)
 }
 ```
 
-## Writing data to a DAppChain
+## DAppチェーンへのデータの書き込み
 
-To mutate the state of a smart contract you need to call one of its public methods, to do so a signed transaction must be sent to and validated by the DAppChain. Fortunately the `client.Contract` type takes care of most of this when you use the `Contract.Call()` method.
+スマートコントラクトの状態を変更するには、そのパブリックなメソッドのうちどれかを呼び出すことが必要であり、さらに署名済みのトランザクションが送信され、DAppチェーンによって検証されていなくてはならない。 幸いこれらのほとんどは、`Contract.Call()`メソッドを使用すれば `client.Contract`クラスが処理を行う。
 
-The `helloworld` smart contract has a public `SetMsg` method that can be called to store an association between a key and a value. Let's write a function that calls this method...
+[helloworld](https://github.com/loomnetwork/go-loom/blob/master/examples/plugins/helloworld/helloworld.go)スマートコントラクトは、パブリックな`SetMsg`メソッドを持っており、これはキーとバリューの連想配列を保存するよう呼び出すことができる。 このメソッドを呼び出す関数を書いてみよう。
 
 ```go
 func store(contract *client.Contract, key, value string, signer auth.Signer) error {
-  params := types.Dummy{
+  params := types.MapEntry{
     Key: key,
     Value: value,
   }
@@ -96,18 +96,18 @@ func store(contract *client.Contract, key, value string, signer auth.Signer) err
 
 ```
 
-## Reading data from a DAppChain
+## DAppチェーンからのデータの読み取り
 
-To read the state of a smart contract you need to call one of its public read-only methods, you can do so by using the `Contract.StaticCall()` method.
+スマートコントラクトの状態を読み取るためには、パブリックな読み取り専用メソッドのうちどれかを呼び出す必要があり、`Contract.StaticCall()`メソッドを使って行うことができる。
 
-The `helloworld` smart contract has a public `GetMsg` method that can be called to look up an association between a key and a value. Let's write a function that calls this method...
+[helloworld](https://github.com/loomnetwork/go-loom/blob/master/examples/plugins/helloworld/helloworld.go)スマートコントラクトは、パブリックな`GetMsg`メソッドを持っており、キーとバリューの連想配列を参照するようこれを呼び出すことができる。 このメソッドを呼び出す関数を書いてみよう。
 
 ```go
 func load(contract *client.Contract, key string) (string, error) {
-  params := types.Dummy{
+  params := types.MapEntry{
     Key: key, // The smart contract will look up the value stored under this key.
   }
-  var result types.Dummy
+  var result types.MapEntry
   if _, err = contract.StaticCall("GetMsg", params, &result); err != nil {
     return "", err
   }
@@ -115,9 +115,9 @@ func load(contract *client.Contract, key string) (string, error) {
 }
 ```
 
-## Putting it all together
+## まとめ
 
-Now that we have all the pieces in place make sure that you have the DAppChain running and then run the following code, you should see `Value: hello!` printed to the console.
+全て準備が整ったので、DAppチェーンが稼働していることを確認してから、次のコードを実行してみよう。`Value: hello!`とコンソールにプリントされるはずだ。
 
 ```go
 func main() {
