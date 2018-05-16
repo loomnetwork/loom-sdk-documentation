@@ -57,7 +57,7 @@ Protobufs https://github.com/google/protobuf/releases/tag/v3.5.1
   
 このようにして秘密鍵を生成し、アカウントを作成する。そしてバリューを設定し、そのバリューをブロックチェーンから読み取る。
 
-You can read the source of the [blueprint contract here](https://github.com/loomnetwork/weave-blueprint)
+Blueprint contract のソースは[こちら](https://github.com/loomnetwork/weave-blueprint)を参照
 
     cd blueprint
     build/blueprint genkey
