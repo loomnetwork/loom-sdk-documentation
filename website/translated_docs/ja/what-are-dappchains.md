@@ -1,5 +1,5 @@
 ---
-id: what-are-dappchains
+id: DAppチェーンとは
 title: Introduction to What DAppChains are
 sidebar_label: What are DAppChains
 ---
