@@ -1,15 +1,15 @@
 ---
 id: goloompermissions
-title: Working with permissions helpers in go-loom
-sidebar_label: Permission Helpers
+title: go-loomでの権限ヘルパーの使用
+sidebar_label: 権限ヘルパーの使用
 ---
-## Using permissions in contracts with go-loom
+## go-loomにおけるコントラクトでの権限の使用
 
 Contracts written with go-loom can use helper functions for setting and checking permissions on arbitrary tokens. Every permission has three attributes: 1. address 2. token 3. role
 
 The token can by any domain specific byte-array. A permission `role` is granted to an `address` on a `token`. For example, when creating an account, the `owner` permission can be given to the sender address on the `username` token.
 
-For example
+例えば
 
         ctx.GrantPermission([]byte(userName), []string{"owner"})
     
