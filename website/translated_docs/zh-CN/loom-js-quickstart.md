@@ -15,6 +15,10 @@ yarn add loom-js
 npm install loom-js
 ```
 
+## Sample Code
+
+You can find all the code on this page the [Loom JS samples repo](https://github.com/loomnetwork/loom-js-samples) in the `quickstart` directory.
+
 ## Connecting to a DAppChain
 
 The `Contract` class provides a convenient way to interact with a smart contract running on a Loom DAppChain. Let's write a function that creates a `Contract` instance to interact with the sample [helloworld](https://github.com/loomnetwork/go-loom/blob/master/examples/plugins/helloworld/helloworld.go) smart contract from the Loom SDK...
@@ -24,6 +28,8 @@ const {
   NonceTxMiddleware, SignedTxMiddleware, Client,
   Contract, Address, LocalAddress, CryptoUtils
 } = require('loom-js')
+
+const { MapEntry } = require('./helloworld_pb')
 
 /**
  * Creates a new `Contract` instance that can be used to interact with a smart contract.
