@@ -117,7 +117,7 @@ func load(contract *client.Contract, key string) (string, error) {
 
 ## まとめ
 
-Now that we have all the pieces in place make sure that you have the DAppChain running and then run the following code, you should see `Value: hello!` printed to the console.
+全て準備が整ったので、DAppチェーンが稼働していることを確認してから、次のコードを実行してみよう。`Value: hello!`とコンソールにプリントされるはずだ。
 
 ```go
 func main() {
