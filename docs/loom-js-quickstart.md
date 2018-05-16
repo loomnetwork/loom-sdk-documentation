@@ -24,10 +24,10 @@ DAppChain. Let's write a function that creates a `Contract` instance to interact
 [helloworld][] smart contract from the Loom SDK...
 
 ```js
-import {
+const {
   NonceTxMiddleware, SignedTxMiddleware, Client,
   Contract, Address, LocalAddress, CryptoUtils
-} from 'loom-js'
+} = require('loom-js')
 
 /**
  * Creates a new `Contract` instance that can be used to interact with a smart contract.
