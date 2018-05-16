@@ -2,7 +2,7 @@
 id: consensus
 title: ブロックチェーンのコンセンサス
 ---
-Loomのブロックチェーンでは、コンセンサスのためのプラグイン可能なバックエンドが実現される。 [ABCI](https://github.com/tendermint/abci) 互換性のあるコンセンサスエンジンはどれも、Loomアプリケーションを実行するために使用できる。 The backend is responsible for confirming blocks and maintaining the blockchain state, namely blocks and transactions. The default backend is [Tendermint](https://tendermint.com/), which implements a [BFT](https://en.wikipedia.org/wiki/Byzantine_fault_tolerance) style consensus algorithm requiring 2/3 + 1 votes by validators for a block to be confirmed. In the future we plan on supporting bitcoin style PoW/Longest chain consensus.
+Loomのブロックチェーンでは、コンセンサスのためのプラグイン可能なバックエンドが実現される。 [ABCI](https://github.com/tendermint/abci) 互換性のあるコンセンサスエンジンはどれも、Loomアプリケーションを実行するために使用できる。 バックエンドはブロック承認とブロックチェーンの状態、すなわちブロックとトランザクションの保持する役割を持つ。 デフォルトのバックエンドは [Tendermint](https://tendermint.com/)で、これはブロック承認に 2/3 + 1 のバリデーターからの票を必要とする、 [BFT](https://en.wikipedia.org/wiki/Byzantine_fault_tolerance)方式のコンセンサス アルゴリズムを実装している。 In the future we plan on supporting bitcoin style PoW/Longest chain consensus.
 
 ## Selecting Validators
 
