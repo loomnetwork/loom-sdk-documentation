@@ -15,14 +15,14 @@ go get github.com/loomnetwork/go-loom
 
 このセクションでは`go-loom`の紹介を行なっていこう。go-loom APIは、Loom DAppチェーンと対話するGoのコードを書くために使用するものだ。Goでのスマートコントラクトのコーディングは、後のセクションで扱っていこう。
 
-In the `go-loom` package you will find a number of examples, `examples/cli` contains a CLI app that can be used to interact with the `examples/plugins/helloworld` smart contract. We'll start by building and test driving the CLI app, then we'll introduce you to the `go-loom` API that was used to build it.
+`go-loom`パッケージには多くのサンプルがある。`examples/cli`にはCLI アプリが含まれており、これはスマートコントラクト`examples/plugins/helloworld` と対話するために使用することができる。 まずはCLIアプリの構築及びテスト運用からスタートし、その後構築に使用した`go-loom` APIを紹介していこう。
 
 ```shell
-# this should generate the ./example-cli executable
+# これは実行可能な ./example-cli を生成する
 make example-cmds
 ```
 
-## Example CLI app
+## CLI アプリのサンプル
 
 The [helloworld](https://github.com/loomnetwork/go-loom/blob/master/examples/plugins/helloworld/helloworld.go) smart contract has a public `SetMsg` method that can be called to store an association between a key and a value.
 
