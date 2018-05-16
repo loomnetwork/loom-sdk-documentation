@@ -7,6 +7,6 @@
     "Consensus": ["delegated-proof-of-stake"],
     "Monitoring": ["metrics", "logging"],
     "Solidity & EVM": ["evm"],
-    "Etherboy": ["etherboy"]
+    "Deployment": ["etherboy-deployment"]
   }
 }

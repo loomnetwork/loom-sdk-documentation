@@ -1,7 +1,7 @@
 ---
-id: etherboy
-title: Etherboy
-sidebar_label: Etherboy
+id: etherboy-deployment
+title: Example Deployment 
+sidebar_label: Etherboy Deployment 
 ---
 
 # Etherboy
