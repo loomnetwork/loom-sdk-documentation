@@ -1,14 +1,14 @@
 * * *
 
-id: logging title: Logging sidebar_label: Logging
+id: logging title: ロギング sidebar_label: ロギング
 
 * * *
 
 ## 概要
 
-Loom has built in configurable logging. The user can configure the log level and the log destination
+Loomには設定可能なロギング機能が組み込まれている。 ユーザーはログのレベルと出力先を設定できる。
 
-## Loom SDK Logging
+## Loom SDKのロギング
 
 ### Configuring the log level
 
