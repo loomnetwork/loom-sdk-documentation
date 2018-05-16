@@ -6,8 +6,8 @@ Loomのブロックチェーンでは、コンセンサスのためのプラグ�
 
 ## バリデーターの選択
 
-BFT方式のコンセンサス アルゴリズムを選択した場合、バリデーターを選ばれなければならない。 バリデーターは、ブロックチェーンの状態の正当性を保証する役割を持つ。 彼らはブロックに提案及び投票をすることでこれを行なっている。 デフォルトでは、バリデーターはコンセンサス バックエンドのgenesisコンフィグで設定される。 Privileged smart contracts can also modify the validator list by using the `SetValidatorPower` API to modify a validator's power.
+BFT方式のコンセンサス アルゴリズムを選択した場合、バリデーターを選ばれなければならない。 バリデーターは、ブロックチェーンの状態の正当性を保証する役割を持つ。 彼らはブロックに提案及び投票をすることでこれを行なっている。 デフォルトでは、バリデーターはコンセンサス バックエンドのgenesisコンフィグで設定される。 また特権的なスマートコントラクトも `SetValidatorPower` API を使用することで、バリデーターリストを修正しバリデーターの権限を変更することができる。
 
 ### Delegated Proof of Stake
 
-If using a BFT style backend the [delegated proof of stake smart contract](delegated-proof-of-stake.html) can be used.
+BFT 方式のバックエンドを使えば、 [delegated proof of stakeのスマートコントラクト](delegated-proof-of-stake.html)が使用できる。
