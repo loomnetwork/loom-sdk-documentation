@@ -32,6 +32,6 @@ Getは保存データをprotobuf構造体へとアンマーシャルする。
 
 ## キーの削除
 
-Data saved at a key can be delete with
+キーに保存されたデータは以下で削除できる。
 
     Delete(key []byte)
