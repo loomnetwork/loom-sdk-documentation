@@ -1,15 +1,15 @@
 ---
 id: goloomstate
-title: Saving and reading state in go-loom contracts
-sidebar_label: Saving and reading state
+title: go-loomコントラクトでの状態の保存と読み取り
+sidebar_label: 状態の保存と読み取り
 ---
-## The contract state
+## コントラクトの状態
 
-Each contract has access to a sandboxed state for storage of data. The write actions on the state are rolled back in case the contract operation returns an error. If a transaction is successfully commited, it contains the hash of the state root so that any given state is commited to the blockchain.
+各コントラクトは、データ格納のためにサンドボックス化された状態へアクセスすることができる。 コントラクト実行がエラーになると、状態を書き込むアクションは巻き戻される。 トランザクションが正常にコミットされるとそこにステートルートのハッシュ値が含まれるので、任意の状態がブロックチェーンへコミットされる。
 
-## Writing to the state
+## 状態の書き込み
 
-Use the `Set` operation on the contract context to save to the state.
+コントラクトのコンテキストで状態を保存するには、`Set`オペレーションを使用する。
 
     Set(key []byte, pb proto.Message) error
     
