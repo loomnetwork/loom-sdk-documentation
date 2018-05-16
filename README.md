@@ -1,6 +1,6 @@
 # Loom SDK Docs site
 
-Files to file generate the Loom SDK doc site at https://loomx.io/developers
+Files to file generate the *new* Loom SDK doc site at https://loomx.io/developers
 
 ## Usage
 ```
