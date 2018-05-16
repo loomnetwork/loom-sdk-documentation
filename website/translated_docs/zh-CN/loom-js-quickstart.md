@@ -20,10 +20,10 @@ npm install loom-js
 The `Contract` class provides a convenient way to interact with a smart contract running on a Loom DAppChain. Let's write a function that creates a `Contract` instance to interact with the sample [helloworld](https://github.com/loomnetwork/go-loom/blob/master/examples/plugins/helloworld/helloworld.go) smart contract from the Loom SDK...
 
 ```js
-import {
+const {
   NonceTxMiddleware, SignedTxMiddleware, Client,
   Contract, Address, LocalAddress, CryptoUtils
-} from 'loom-js'
+} = require('loom-js')
 
 /**
  * Creates a new `Contract` instance that can be used to interact with a smart contract.
