@@ -41,6 +41,8 @@ This documentation explains how to run Etherboy in a single server instance (any
     ```
 1. Execute `loom init` in the working directory to initialize config files.
 
+Note: `loom` and `etherboycli` can be placed anywhere in your `$PATH` so you don't have to always execute with `./`. However, `etherboycore.so` must always be placed in `$WORKING_DIRECTORY/contracts/etherboycore.so`.
+
 ## Running
 
 There are two ways to run - directly, or via systemd (or any process control system you prefer)
