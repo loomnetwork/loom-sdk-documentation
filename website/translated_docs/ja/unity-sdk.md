@@ -135,11 +135,11 @@ async void Start()
 
     var contract = GetContract(privateKey, publicKey);
     await CallContract(contract);
-    // This should print: { "key": "123", "value": "hello!" } in the Unity console window
+    // Unityコンソールウインドウにこのようにプリントされる: { "key": "123", "value": "hello!" } 
     await StaticCallContract(contract);
-    // This should print: { "key": "321", "value": "456" } in the Unity console window
+    // Unityコンソールウインドウにこのようにプリントされる: { "key": "321", "value": "456" }
     await CallContractWithResult(contract);
 }
 ```
 
-Now that we have all the code in place let's test it out: 1. Create an empty `GameObject` in a Unity scene and attach the `LoomQuickStartSample` script to it. 2. Deploy the [helloworld](https://github.com/loomnetwork/go-loom/blob/master/examples/plugins/helloworld/helloworld.go) smart contract on a local Loom DAppChain node. 3. Hit `Play` in the Unity Editor.
+全コードの用意ができたので、テストしてみよう: 1. Unityシーンに空の`GameObject`を作成し、そこに`LoomQuickStartSample`スクリプトを付け加えよう。 2. スマートコントラクト[helloworld](https://github.com/loomnetwork/go-loom/blob/master/examples/plugins/helloworld/helloworld.go)をローカルのLoom DAppチェーンノードにデプロイしよう。 3. Unityエディタの`Play`をクリックしよう。
