@@ -1,6 +1,6 @@
 ---
-id: loom-js-quickstart
-title: NodeJS & Browser Quick Start
+id: loom-jsクイックスタート
+title: NodeJSとブラウザのクイックスタート
 sidebar_label: NodeJS & Browser Quick Start
 ---
 ## Overview
