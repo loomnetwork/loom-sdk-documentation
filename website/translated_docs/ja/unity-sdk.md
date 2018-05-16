@@ -96,7 +96,7 @@ async Task CallContractWithResult(Contract contract)
 
 スマートコントラクトの状態を読み取るには、そのパブリックな読み取り専用メソッドのうちどれかを呼び出すことが必要だ。読み取り専用メソッドの呼び出しで、スマートコントラクトの状態が変更されることはない。 スマートコントラクト上の読み取り専用メソッドは、`Contract.StaticCallAsync()` メソッドを使用して呼び出すことができる。
 
-The [helloworld](https://github.com/loomnetwork/go-loom/blob/master/examples/plugins/helloworld/helloworld.go) smart contract has a public `GetMsg` method that can be called to look up an association between a key and a value. Let's add a method to the `LoomQuickStartSample` class to call `helloworld.GetMsg`.
+[helloworld](https://github.com/loomnetwork/go-loom/blob/master/examples/plugins/helloworld/helloworld.go)スマートコントラクトは、パブリックな`GetMsg`メソッドを持っており、キーとバリューの連想配列を参照するようこれを呼び出すことができる。 `LoomQuickStartSample`クラスに`helloworld.GetMsg`を呼び出すメソッドを追加しよう。
 
 ```csharp
 async Task StaticCallContract(Contract contract)
@@ -108,8 +108,8 @@ async Task StaticCallContract(Contract contract)
 
     if (result != null)
     {
-        // This should print: { "key": "123", "value": "hello!" } in the Unity console window
-        // provided `LoomQuickStartSample.CallContract()` was called first.
+        // Unityコンソールウインドウにこのようにプリントされる: { "key": "123", "value": "hello!" }
+        // 与えられた `LoomQuickStartSample.CallContract()` が初めに呼び出される。
         Debug.Log("Smart contract returned: " + result.ToString());
     }
     else
@@ -119,17 +119,17 @@ async Task StaticCallContract(Contract contract)
 }
 ```
 
-## Putting it all together
+## まとめ
 
-Add the following method to the `LoomQuickStartSample` class.
+`LoomQuickStartSample` クラスに次のメソッドを追加しよう。
 
 ```csharp
-// Use this for initialization
+// これで初期化する
 async void Start()
 {
-    // The private key is used to sign transactions sent to the DAppChain.
-    // Usually you'd generate one private key per player, or let them provide their own.
-    // In this sample we just generate a new key every time.
+    // 秘密鍵(privateKey)はDAppチェーンへ送られたトランザクションへ署名するために使われる。
+    // 通常プレイヤー1人につき1つの秘密鍵を生成するか、もしくはプレイヤーが自身の秘密鍵を提供する。
+    // このサンプルでは、毎回新しく鍵を生成している。
     var privateKey = CryptoUtils.GeneratePrivateKey();
     var publicKey = CryptoUtils.PublicKeyFromPrivateKey(privateKey);
 
