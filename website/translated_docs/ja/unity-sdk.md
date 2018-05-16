@@ -14,11 +14,11 @@ sidebar_label: Unity SDK
 
 ## サンプル コード
 
-You can find all the code on this page and a ready-to-go Unity scene in the Loom Unity SDK under [`Assets/Samples/QuickStart`](https://github.com/loomnetwork/unity3d-sdk/tree/master/Assets/Samples/QuickStart).
+[`Assets/Samples/QuickStart`](https://github.com/loomnetwork/unity3d-sdk/tree/master/Assets/Samples/QuickStart)に、このページの全コード及びLoom Unity SDK内で用意済みのUnityシーンがある。
 
-## Connecting to a DAppChain
+## DAppチェーンへの接続
 
-The `Contract` class provides a convenient way to interact with a smart contract running on a Loom DAppChain. Let's write a method that creates a `Contract` instance to interact with the sample [helloworld](https://github.com/loomnetwork/go-loom/blob/master/examples/plugins/helloworld/helloworld.go) smart contract provided in the Loom SDK...
+`Contract` クラスは、Loom DAppチェーンで実行されるスマートコントラクトと対話するための便利な方法を提供する。 Loom SDKのサンプルスマートコントラクト[helloworld](https://github.com/loomnetwork/go-loom/blob/master/examples/plugins/helloworld/helloworld.go) と対話する`Contract` インスタンスを作成する関数を書いてみよう。
 
 ```csharp
 // LoomQuickStartSample.cs
@@ -36,7 +36,7 @@ public class LoomQuickStartSample : MonoBehavior
         {
             Logger = Debug.unityLogger
         };
-        // required middleware
+        // ミドルウェアを要求
         client.TxMiddleware = new TxMiddleware(new ITxMiddlewareHandler[]{
             new NonceTxMiddleware{
                 PublicKey = publicKey,
@@ -44,7 +44,7 @@ public class LoomQuickStartSample : MonoBehavior
             },
             new SignedTxMiddleware(privateKey)
         });
-        // address of the `helloworld` smart contract on the Loom DAppChain
+        // Loom DAppチェーン上のスマートコントラクト`helloworld` のアドレス
         var contractAddr = Address.FromHexString("0x005B17864f3adbF53b1384F2E6f2120c6652F779");
         var callerAddr = Address.FromPublicKey(publicKey);
         return new Contract(client, contractAddr, "helloworld", callerAddr);
@@ -52,9 +52,9 @@ public class LoomQuickStartSample : MonoBehavior
 }
 ```
 
-## Writing data to a DAppChain
+## DAppチェーンへのデータの書き込み
 
-To mutate the state of a smart contract you need to call one of its public methods, to do so a signed transaction must be sent to and validated by the DAppChain. Fortunately the `Contract` class takes care of most of this when you use the `Contract.CallAsync()` method.
+スマートコントラクトの状態を変更するには、そのパブリックなメソッドのうちどれかを呼び出すことが必要であり、さらに署名済みのトランザクションが送信され、DAppチェーンによって検証されていなくてはならない。 Fortunately the `Contract` class takes care of most of this when you use the `Contract.CallAsync()` method.
 
 The [helloworld](https://github.com/loomnetwork/go-loom/blob/master/examples/plugins/helloworld/helloworld.go) smart contract has a public `SetMsg` method that can be called to store an association between a key and a value, note that this method doesn't return anything. Let's add a method to the `LoomQuickStartSample` class that calls `helloworld.SetMsg()`.
 
