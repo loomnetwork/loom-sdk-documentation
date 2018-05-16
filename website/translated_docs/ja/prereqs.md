@@ -1,7 +1,7 @@
 ---
 id: prereqs
-title: Prerequisites
-sidebar_label: Installation
+title: 前提条件
+sidebar_label: インストール
 ---
 Wget
 
@@ -27,7 +27,7 @@ Protobufs https://github.com/google/protobuf/releases/tag/v3.5.1
     go get -u github.com/golang/protobuf/protoc-gen-go
     
 
-## Installation
+## インストール
 
     wget https://storage.googleapis.com/private.delegatecall.com/loom/osx/build-94/loom
     chmod +x loom 
@@ -46,16 +46,16 @@ Protobufs https://github.com/google/protobuf/releases/tag/v3.5.1
     ../../loom init
     
 
-## Run Blockchain
+## ブロックチェーンの起動
 
     ../../loom run
     
 
-## Send transactions
+## トランザクションの送信
 
-Open a second console   
+2 番目のコンソール画面を開こう。   
   
-This will generate a private key. Create an account. Then set a value, and then read the value from the blockchain.
+このようにして秘密鍵を生成し、アカウントを作成する。そしてバリューを設定し、そのバリューをブロックチェーンから読み取る。
 
 You can read the source of the [blueprint contract here](https://github.com/loomnetwork/weave-blueprint)
 
