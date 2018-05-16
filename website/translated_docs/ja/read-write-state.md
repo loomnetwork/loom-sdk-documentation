@@ -1,5 +1,5 @@
 ---
-id: goloomstate
+id: go-loomの状態
 title: go-loomコントラクトでの状態の保存と読み取り
 sidebar_label: 状態の保存と読み取り
 ---
