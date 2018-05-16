@@ -2,11 +2,11 @@
 id: delegated-proof-of-stake
 title: Delegated Proof of Stake
 ---
-The delegated proof of stake algorithm allows token holders to elect validators. These validators serve a standard term length before being subject to elections again.
+Delegated proof of stake(DPoS)のアルゴリズムでは、トークン所有者がバリデーターを選出することができる。これらのバリデーターは、再選出が行われるまでの標準期間中その役割を務める。
 
-## Parameters
+## パラメーター
 
-**Coin contract address** - Specifies which ERC20-like coin contract to use to calculate the power of a vote.
+**コインのコントラクトアドレス** - 投票力の計算にどのERC-20風コインのコントラクトを使用するか指定する。
 
 **Validator count** - The number of validators that can be elected.
 
