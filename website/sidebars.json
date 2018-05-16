@@ -6,6 +6,7 @@
     "Unity SDK": ["unity-sdk"],
     "Consensus": ["delegated-proof-of-stake"],
     "Monitoring": ["metrics", "logging"],
-    "Solidity & EVM": ["evm"]
+    "Solidity & EVM": ["evm"],
+    "Etherboy": ["etherboy"]
   }
 }
