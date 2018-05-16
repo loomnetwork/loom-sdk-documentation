@@ -82,7 +82,7 @@ async Task CallContractWithResult(Contract contract)
 
     if (result != null)
     {
-        // This should print: { "key": "321", "value": "456" } in the Unity console window.
+        // Unityコンソールウインドウにこのようにプリントされる: { "key": "321", "value": "456" }
         Debug.Log("Smart contract returned: " + result.ToString());
     }
     else
@@ -92,7 +92,7 @@ async Task CallContractWithResult(Contract contract)
 }
 ```
 
-## Reading data from a DAppChain
+## DAppチェーンへのデータの読み取り
 
 To read the state of a smart contract you need to call one of its public read-only methods, calling a read-only method doesn't modify the smart contract state. You can call a read-only method on a smart contract by using the `Contract.StaticCallAsync()` method.
 
