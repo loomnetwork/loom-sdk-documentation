@@ -1,11 +1,11 @@
 ---
 id: prereqs-ubuntu
-title: Prerequisites
-sidebar_label: Installation (Ubuntu)
+title: 前提条件
+sidebar_label: インストール (Ubuntu)
 ---
-Installing and setting up Loom on Ubuntu
+UbuntuでのLoomのインストールとセットアップ
 
-## Ubuntu Packages
+## Ubuntuパッケージ
 
 ```bash
 sudo apt -y install curl unzip make git
