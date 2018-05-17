@@ -3,6 +3,8 @@ id: prereqs
 title: Prerequisites
 sidebar_label: Installation
 ---
+Installing and setting up Loom on OSX
+
 Wget
 
     brew install wget
@@ -29,7 +31,7 @@ Protobufs https://github.com/google/protobuf/releases/tag/v3.5.1
 
 ## Installation
 
-    wget https://storage.googleapis.com/private.delegatecall.com/loom/osx/build-94/loom
+    wget https://storage.googleapis.com/private.delegatecall.com/loom/osx/build-95/loom
     chmod +x loom 
     
     mkdir tmpgopath
@@ -41,9 +43,9 @@ Protobufs https://github.com/google/protobuf/releases/tag/v3.5.1
     make
     make cli
     cd build
-    cp ../genesis.example.json genesis.json
     
     ../../loom init
+    cp ../genesis.example.json genesis.json
     
 
 ## Run Blockchain
