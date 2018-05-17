@@ -37,7 +37,7 @@ loom-sdkは、デフォルトではログにイベントを出力するのみと
 
 上に示したイベントのJSONデータは、イベントストリームへ出力される前に、あるトランザクション固有のメタデータでラップされる。 メタデータの他のフィールドには、呼び出しアドレス、コントラクトアドレス、コントラクト名とトランザクションリクエストのローデータが含まれている。
 
-Below is an example of the full message that goes into redis -
+以下はRedisへ出力される完全なメッセージの例である -
 
 ```json
 {
@@ -55,11 +55,11 @@ Below is an example of the full message that goes into redis -
 }
 ```
 
-The `rawRequest` and the `encodedData` are base64 encoded with a standard encoding.
+`rawRequest`及び`encodedData`は標準エンコーディングを使用したBase64でエンコードされている。
 
-### Sample indexer
+### サンプルのインデクサー
 
-A sample tool which reads from the event stream and puts messages into elasticsearch can be written as below
+イベント ストリームからの読み取りとelasticsearchへのメッセージの記録を行うサンプルツールは、以下のように書くことができる。
 
 ```go
 package main
