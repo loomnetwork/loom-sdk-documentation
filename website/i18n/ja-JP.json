@@ -54,12 +54,12 @@
     "Ask questions about the documentation and project|no description given": "ドキュメンテーションやプロジェクトについて質問する",
     "Join the community|no description given": "コミュニティに参加",
     "Find out what's new with this project|no description given": "プロジェクトの最新情報を受け取りましょう。",
-    "Stay up to date|no description given": "Stay up to date",
+    "Stay up to date|no description given": "最新情報をゲット",
     "Need help?|no description given": "お困りですか？",
     "This project is maintained by a dedicated group of people.|statement made to reader": "This project is maintained by a dedicated group of people.",
-    "Who's Using This?|no description given": "Who's Using This?",
+    "Who's Using This?|no description given": "これを使用しているのは？",
     "This project is used by all these people|no description given": "This project is used by all these people",
-    "What is a Loom DAppChain?|no description given": "What is a Loom DAppChain?",
+    "What is a Loom DAppChain?|no description given": "Loom DAppチェーンとは？",
     "Loom Network allows developers to build large-scale games and social apps by using DAppChains — DApps running as their own sidechains. More specifically, a DAppChain is an Application Specific Sidechain, that runs parallel to a mainchain, Ethereum in this case.|no description given": "Loom Network allows developers to build large-scale games and social apps by using DAppChains — DApps running as their own sidechains. More specifically, a DAppChain is an Application Specific Sidechain, that runs parallel to a mainchain, Ethereum in this case.",
     "Read more|no description given": "もっと読む",
     "Loom Network SDK Roadmap|no description given": "Loom Network SDKのロードマップ",
@@ -71,8 +71,8 @@
     "Loom Platform has generators for a default project|no description given": "Loom Platform has generators for a default project",
     "Get Started!|no description given": "さあスタート！",
     "What should we be building?|no description given": "What should we be building?",
-    "Help Translate|recruit community translators for your project": "Help Translate",
-    "Edit this Doc|recruitment message asking to edit the doc source": "Edit",
-    "Translate this Doc|recruitment message asking to translate the docs": "Translate"
+    "Help Translate|recruit community translators for your project": "翻訳を手伝う",
+    "Edit this Doc|recruitment message asking to edit the doc source": "編集",
+    "Translate this Doc|recruitment message asking to translate the docs": "翻訳"
   }
 }
