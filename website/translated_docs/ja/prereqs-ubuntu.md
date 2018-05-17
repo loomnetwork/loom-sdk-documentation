@@ -13,20 +13,20 @@ sudo apt -y install curl unzip make git
 
 ## Golang
 
-### The official way
+### 正式な方法
 
 ```bash
 curl -O https://dl.google.com/go/go1.10.2.linux-amd64.tar.gz
 sudo tar -C /usr/local -xzf go1.10.2.linux-amd64.tar.gz
 ```
 
-Add the following to your `~/.bashrc` or `~/.zshrc`:
+`~/.bashrc`もしくは`~/.zshrc`に以下を追加しよう:
 
 ```bash
 export PATH=$PATH:/usr/local/go/bin
 ```
 
-### The "gimme" way
+### "gimme" の方法
 
 ```bash
 curl -sL -o /usr/local/bin/gimme https://raw.githubusercontent.com/travis-ci/gimme/master/gimme
@@ -35,7 +35,7 @@ chmod +x /usr/local/bin/gimme
 gimme 1.10.2
 ```
 
-Add the following to your `~/.bashrc` or `~/.zshrc`:
+`~/.bashrc`もしくは`~/.zshrc`に以下を追加しよう:
 
 ```bash
 unset GOOS;
@@ -57,7 +57,7 @@ curl -OL https://github.com/google/protobuf/releases/download/v${PROTOBUF_VERSIO
 sudo unzip protoc-${PROTOBUF_VERSION}-linux-x86_64.zip -d /usr/local
 ```
 
-## Installation
+## インストール
 
 ```bash
 curl -OL https://storage.googleapis.com/private.delegatecall.com/loom/linux/build-95/loom
@@ -76,19 +76,19 @@ cd build
 cp ../genesis.example.json genesis.json
 ```
 
-## Run Blockchain
+## ブロックチェーンの起動
 
 ```bash
 ../../loom run
 ```
 
-## Send transactions
+## トランザクションの送信
 
-Open a second console
+2 つ目のコンソールを開こう。
 
-This will generate a private key. Create an account. Then set a value, and then read the value from the blockchain.
+このようにして秘密鍵を生成し、アカウントを作成する。そしてバリューを設定し、そのバリューをブロックチェーンから読み取る。
 
-You can read the source of the [blueprint contract here](https://github.com/loomnetwork/weave-blueprint)
+Blueprint contract のソースは[こちら](https://github.com/loomnetwork/weave-blueprint)を参照
 
 ```bash
 cd blueprint/build
