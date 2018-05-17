@@ -5,18 +5,24 @@ sidebar_label: 権限ヘルパーの使用
 ---
 ## go-loomのコントラクトでの権限の使用
 
-go-loomを使って書かれたコントラクトは設定にヘルパー機能を使用でき、また任意のトークンに対する権限をチェックすることができる。 各権限は3つの属性を持つ: 1. アドレス 2. トークン 3. ロール
+Contracts written with go-loom can use helper functions for setting and checking permissions on arbitrary tokens.
 
-The token can by any domain specific byte-array. 権限 `role`は`token`の`address`に与えられる。 例えばアカウントを作成する際、`username` トークンの送信者のアドレスに`owner`の権限を与えることができる。
+This is somewhat similiar to in Solidity the Ownable concept from [OpenZeppelin](https://github.com/OpenZeppelin/openzeppelin-solidity/blob/master/contracts/ownership/Ownable.sol).
 
-例えば
+Every permission has three attributes: 1. address 2. token 3. role
+
+A token can be any string or byte sequence, which represents an object to be owned. For example a persons username can be a token, that they have ownership over. Other things like tokens could also have ownership.
+
+A permission `role` is granted to an `address` on a `token`. For example, when creating an account, the `owner` permission can be given to the sender address on the `username` token.
+
+For example
 
         ctx.GrantPermission([]byte(userName), []string{"owner"})
     
 
-この例では、`userName`への`owner`の権限をトランザクション送信者アドレスに与えている。 ロールとは、複数の権限を1つのコールで与えるための配列である。
+will grant a `owner` permission on a `userName` (token) to the sender address of the transaction. The roles is an array to grant multiple permissions in a single call.
 
-トランザクションの送信者のアクセス権限をチェックするには、
+To check for a permission for the sender of a transaction,
 
         if ok, _ := ctx.HasPermission([]byte(userName), []string{"owner"}); !ok {
             return errors.New("User unverified")
