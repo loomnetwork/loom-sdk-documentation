@@ -31,13 +31,13 @@ Currently a file target is supported for the loom logs.
 
 To log to stderr, specify the destination as `file://-`
 
-## Contract logging
+## コントラクトのロギング
 
 Configurations like log level and destination are seperate for contracts. These are set using environment variables. Example: `CONTRACT_LOG_LEVEL=debug CONTRACT_LOG_DESTINATION="file://-" $LOOM_EXE run`
 
 This will set the contract log level to `debug` and the destination to stderr. The default for log level and destination are `info` and `file://contract.log` respectively.
 
-### Logging from the contract
+### コントラクトからのロギング
 
 The contract context has a pre-configured logger that can be used for structured logging. For example
 
