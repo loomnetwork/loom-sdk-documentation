@@ -20,10 +20,10 @@ EVMを構成するのは、データベース及びEVMバイトコードイン�
 DAppチェーンのEVMと対話するには、現在3つの方法がある。
 
 1. スマートコントラクトは、ブロックチェーンの初期起動時にデプロイできる。
-2. The loom command line tool allows deploying a smart contract or calling a method on an already deployed contract.
-3. Another smart contract, either an EVM contract or a plugin contract, can call methods on an already deployed EVM contract.
+2. Loomのコマンドラインツールは、スマートコントラクトのデプロイ、またはすでにデプロイ済みのコントラクト上のメソッドの呼び出しを可能にする。
+3. EVMコントラクトもしくはプラグインコントラクトのどちらからでも、既にデプロイ済みの別のEVMコントラクト上のメソッドを呼び出すことができる。
     
-    An EVM smart contract is deployed to a DAppChain in the form of compiled bytecode. Which makes the chain unaware of the parent language. Parameters to solidity smart contract method calls are encoded with the Application Binary Interface (ABI) [documented on the solidity website](https://solidity.readthedocs.io/en/develop/abi-spec.html). The ABI can get quite complex, however ethereum implementations should, as we see later, give function to support parameter generation.
+    EVMスマートコントラクトは、コンパイルされたバイトコード形式でDAppチェーンにデプロイされる。 Which makes the chain unaware of the parent language. Parameters to solidity smart contract method calls are encoded with the Application Binary Interface (ABI) [documented on the solidity website](https://solidity.readthedocs.io/en/develop/abi-spec.html). The ABI can get quite complex, however ethereum implementations should, as we see later, give function to support parameter generation.
     
     ## Deploy on Boot up.
     
