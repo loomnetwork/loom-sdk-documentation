@@ -48,11 +48,11 @@ sidebar_label: Etherboyのデプロイ
 
 ## 起動
 
-There are two ways to run - directly, or via systemd (or any process control system you prefer)
+起動するには、直接的なやり方、もしくはsystemd(またはお好きなプロセス制御システム)を通して行うやり方の2つの方法がある。
 
 ### 直接的な実行
 
-Execute `loom run` in the working directory to run the service:
+ワーキングディレクトリで`loom run`を実行し、サービスを起動しよう:
 
 ```bash
 ./loom run
