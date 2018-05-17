@@ -8,13 +8,13 @@ These validators serve a standard term length before being subject to elections 
 
 ## Parameters
 
-**Coin contract address** - Specifies which ERC20-like coin contract to use to calculate the power of a vote.
+**Coin contract address** - Specifies which ERC20-like coin contract to use to calculate the power of a vote. By default this is resolved to the address at `coin`.
 
 **Validator count** - The number of validators that can be elected.
 
-**Vote allocation** - Number of votes each coin account gets.  By default this is equal to the number of validators.
+**Vote allocation** - Number of votes each coin account gets. By default this is equal to the number of validators.
 
-**Term length** - How long validators serve before elections are held and votes are recounted.
+**Cycle length** - How long the election cycle is. By default this is 1 week.
 
 **Minimum power fraction** - How much of the coin supply needs to have voted for elections to be considered valid.
 For example, a value of 5 corresponds to 20% of the coin supply needing to have voted.
@@ -72,12 +72,88 @@ was cast or by looking at the last activity on the account.
 
 `registerCandidate`
 
+Register a candidate to be a validator.
+
 `unregisterCandidate`
+
+Unregister a candidate to be a validator.
 
 `vote`
 
+Vote for a particular candidate.
+
 `proxyVote`
+
+Proxy your votes to another account.
 
 `unproxyVote`
 
+Unproxy your votes.
+
 `elect`
+
+Run the election.
+
+## Example CLI Usage
+
+First we need to initialize the blockchain. The DPOS smart contract will automatically be added into `genesis.json`.
+```shell
+loom init
+```
+
+Next we generate public/private keys for an example account.
+```shell
+loom genkey -a pubkey -k privkey
+```
+
+Then we need to make sure some initial coins on the blockchain are given out so that we have some voting power. To do this we need to modify
+`genesis.json` and change the `init` section of the coin contract.
+```json
+{
+    "vm": "plugin",
+    "format": "plugin",
+    "name": "coin",
+    "location": "coin:1.0.0",
+    "init": {
+        "accounts": [
+            {
+                "owner": {
+                    "chain_id": "local",
+                    "local": "<local address in base64 from genkey>",
+                },
+                "balance": 10
+            }
+        ]
+    }
+},
+```
+
+We then boot the blockchain which will initialize the coin and DPOS smart contracts.
+```shell
+loom run
+```
+
+We can check the witness list at any time by running the `list_validators` subcommand.
+```shell
+loom dpos list_validators
+```
+
+In order to run for a validator seat we need to register. For this example, we'll just register ourselves.
+```shell
+loom dpos register_candidate <public key>
+```
+
+Then we'll vote for ourselves giving all of our vote allocation, which is 21 votes.
+```shell
+loom dpos vote <local address> 21
+```
+
+Finally we'll run the election, which we've rigged :).
+```shell
+loom dpos elect
+```
+
+To verify this we can check the validator list again to see that it's changed.
+```shell
+loom dpos list_validators
+```
