@@ -5,6 +5,7 @@
     "previous": "Previous",
     "tagline": "Build decentralized worlds",
     "builtin": "Built-in Smart Contracts",
+    "common-issues": "Common Issues",
     "consensus": "Blockchain Censensus",
     "delegated-proof-of-stake": "Delegated Proof of Stake",
     "doc1": "Welcome",
@@ -42,7 +43,8 @@
     "Consensus": "Consensus",
     "Monitoring": "Monitoring",
     "Solidity & EVM": "Solidity & EVM",
-    "Deployment": "Deployment"
+    "Deployment": "Deployment",
+    "Frequently Asked Questions": "Frequently Asked Questions"
   },
   "pages-strings": {
     "Learn more using the [documentation on this site.](/test-site/docs/en/doc1.html)|no description given": "Learn more using the [documentation on this site.](/test-site/docs/en/doc1.html)",
