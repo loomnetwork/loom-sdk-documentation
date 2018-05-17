@@ -32,7 +32,7 @@ public class LoomQuickStartSample : MonoBehavior
 {
     Contract GetContract(byte[] privateKey, byte[] publicKey)
     {
-        var client = new DAppChainClient("http://localhost:46658", "http://localhost:47000")
+        var client = new DAppChainClient("http://localhost:46658", "http://localhost:9999")
         {
             Logger = Debug.unityLogger
         };
