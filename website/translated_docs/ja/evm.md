@@ -5,21 +5,21 @@ sidebar_label: EVMページ
 ---
 ## 概要
 
-Loom DAppチェーンはイーサリアム仮想マシン(EVM)を含み、EVMバイトコードへコンパイルを行うスマートコントラクトのデプロイと実行が可能となる。
+Loom DAppチェーンはイーサリアム仮想マシン(EVM)を含み、EVMバイトコードへコンパイルされるスマートコントラクトのデプロイと実行が可能となる。
 
 ### イーサリアム仮想マシン
 
 EVMを構成するのは、データベース及びEVMバイトコードインタプリタである。
 
-The interpreter runs EVM bytecode and is specially designed for creating secure deterministic programs suitable for blockchains. The most popular language for coding EVM smart contracts is Solidity, however any language that compiles to EVM bytecode can be run by the EVM interpreter.
+このインタプリタはEVMのバイトコードを実行し、ブロックチェーンに適した安全な決定的プログラムを作るために特別に設計されている。 EVMスマートコントラクトをコーディングするのに最も人気のある言語はSolidityであるが、EVMバイトコードにコンパイルされる言語ならどれでも、EVMインタプリタによって実行可能だ。
 
-The database is keyed by addresses for each of the programs that have been deployed on the EVM. The value contains the program's bytecode and any associated data.
+このデータベースは、EVMにデプロイされた各プログラムのアドレスをキーとしている。そのバリューは、プログラムのバイトコードと関連データを含む。
 
-### DAppChains and EVM
+### DAppチェーンとEVM
 
-There are currently three ways to interact with the DAppChain's EVM.
+DAppチェーンのEVMと対話するには、現在3つの方法がある。
 
-1. A smart contact can be deployed on initial startup of the blockchain.
+1. スマートコントラクトは、ブロックチェーンの初期起動時にデプロイできる。
 2. The loom command line tool allows deploying a smart contract or calling a method on an already deployed contract.
 3. Another smart contract, either an EVM contract or a plugin contract, can call methods on an already deployed EVM contract.
     
