@@ -1,19 +1,19 @@
 ---
 id: etherboy-deployment
-title: Example Deployment
-sidebar_label: Etherboy Deployment
+title: サンプルのデプロイ
+sidebar_label: Etherboyのデプロイ
 ---
 # Etherboy
 
-This documentation explains how to run Etherboy in a single server instance (any 64-bit Linux instance).
+このドキュメンテーションでは、Etherboyを単一サーバーインスタンス(64ビットのLinuxインスタンス)で稼働させる方法を説明する。
 
-## Installation
+## インストール
 
-1. Choose a working directory of your choice. In this example we are using `/home/ubuntu` 
+1. ワーキングディレクトリを自分で選択しよう。この例で使っているのは: `/home/ubuntu` 
         bash
         cd /home/ubuntu
 
-2. Download the binaries:
+2. バイナリをダウンロード
     
     ```bash
     wget https://storage.googleapis.com/private.delegatecall.com/loom/linux/build-94/loom
@@ -24,7 +24,7 @@ This documentation explains how to run Etherboy in a single server instance (any
     wget -O contracts/etherboycore.so https://storage.googleapis.com/private.delegatecall.com/etherboy/linux/build-53/etherboycore.so
     ```
 
-3. Create `genesis.json` in the working directory:
+3. ワーキングディレクトリに`genesis.json`を作成しよう。
     
     ```json
     {
@@ -106,11 +106,11 @@ When satisfied everything is running as intended, executing the following will e
 sudo systemctl enable etherboy.service
 ```
 
-## Verifying
+## 検証
 
-### Listening ports
+### ポートのリッスン
 
-If all is well, you will be able to see these ports opened in your server.
+全てうまくいくと、あなたのサーバーに開かれたこれらのポートを見ることができる。
 
 ```bash
 $ sudo netstat -tpnl
@@ -122,7 +122,7 @@ tcp6       0      0 :::46658                :::*                    LISTEN      
 tcp6       0      0 :::9999                 :::*                    LISTEN      14327/loom
 ```
 
-### The CLI - etherboycli
+### CLI - etherboycli
 
 ```bash
 $ pwd
