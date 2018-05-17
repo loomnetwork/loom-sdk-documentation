@@ -5,7 +5,7 @@ sidebar_label: メトリクス
 ---
 ## Overview
 
-Loom instruments metrics and exposes the values of the metrics to external monitoring services. Middleware layer is introduced to enable separation of concern between application services and instrumenting. Loom SDK utilizes go-kit's `metrics` package to instrument metrics.
+Loomはメトリクスを備えており、外部のモニタリングサービスにメトリクス値を公開している。 Middleware layer is introduced to enable separation of concern between application services and instrumenting. Loom SDK utilizes go-kit's `metrics` package to instrument metrics.
 
 ## Loom SDKのメトリクス
 
