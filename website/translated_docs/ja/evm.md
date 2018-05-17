@@ -1,15 +1,15 @@
 ---
 id: evm
-title: Ethereum Virtual Machine
+title: イーサリアム仮想マシン
 sidebar_label: EVMページ
 ---
 ## 概要
 
-loom DAppChains contain an ethereum virtual machine (EVM) and allows you to deploy and run smart contracts that compile to EVM bytecode.
+Loom DAppチェーンはイーサリアム仮想マシン(EVM)を含み、EVMバイトコードへコンパイルを行うスマートコントラクトのデプロイと実行が可能となる。
 
-### Ethereum virtual machine
+### イーサリアム仮想マシン
 
-An EVM consist of a database and the interpreter for EVM bytecode.
+EVMを構成するのは、データベース及びEVMバイトコードインタプリタである。
 
 The interpreter runs EVM bytecode and is specially designed for creating secure deterministic programs suitable for blockchains. The most popular language for coding EVM smart contracts is Solidity, however any language that compiles to EVM bytecode can be run by the EVM interpreter.
 
