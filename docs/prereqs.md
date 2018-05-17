@@ -37,7 +37,7 @@ go get -u github.com/golang/protobuf/protoc-gen-go
 ## Installation
 
 ```
-wget https://storage.googleapis.com/private.delegatecall.com/loom/osx/build-95/loom
+wget https://storage.googleapis.com/private.delegatecall.com/loom/osx/build-116/loom
 chmod +x loom
 
 mkdir tmpgopath
