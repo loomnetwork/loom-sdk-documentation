@@ -18,7 +18,7 @@ npm install loom-js
 
 # Setting the Web3 provider
 
-First let's connect with the DAppChain and obtain the function `getContract` as shown on [Loom.js quickstart](loom-js-quickstart), the main difference is that now we'll interact with the smart contract [evmproxy][] smart contract from Loom SDK. And the next step is instantiate of the `LoomProvider`:
+First let's connect with the DAppChain and obtain the function `getContract` as shown on [Loom.js quickstart](loom-js-quickstart), the main difference is that now we'll interact with the smart contract [evmproxy][] smart contract from Loom SDK or you can direct deploy on DAppChain by using the commands for deploy as shown on [EVM page](evm) which will not require any Go code. And the next step is instantiate of the `LoomProvider`:
 
 ```js
 const privateKey = CryptoUtils.generatePrivateKey()
