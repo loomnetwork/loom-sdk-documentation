@@ -3,6 +3,8 @@ id: prereqs
 title: 前提条件
 sidebar_label: インストール
 ---
+Installing and setting up Loom on OSX
+
 Wget
 
     brew install wget
@@ -29,7 +31,7 @@ Protobufs https://github.com/google/protobuf/releases/tag/v3.5.1
 
 ## インストール
 
-    wget https://storage.googleapis.com/private.delegatecall.com/loom/osx/build-94/loom
+    wget https://storage.googleapis.com/private.delegatecall.com/loom/osx/build-95/loom
     chmod +x loom 
     
     mkdir tmpgopath
@@ -41,9 +43,9 @@ Protobufs https://github.com/google/protobuf/releases/tag/v3.5.1
     make
     make cli
     cd build
-    cp ../genesis.example.json genesis.json
     
     ../../loom init
+    cp ../genesis.example.json genesis.json
     
 
 ## ブロックチェーンの起動
@@ -53,11 +55,11 @@ Protobufs https://github.com/google/protobuf/releases/tag/v3.5.1
 
 ## トランザクションの送信
 
-2 番目のコンソール画面を開こう。   
+Open a second console   
   
-このようにして秘密鍵を生成し、アカウントを作成する。そしてバリューを設定し、そのバリューをブロックチェーンから読み取る。
+This will generate a private key. Create an account. Then set a value, and then read the value from the blockchain.
 
-Blueprint contract のソースは[こちら](https://github.com/loomnetwork/weave-blueprint)を参照
+You can read the source of the [blueprint contract here](https://github.com/loomnetwork/weave-blueprint)
 
     cd blueprint
     build/blueprint genkey
