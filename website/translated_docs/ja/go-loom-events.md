@@ -5,11 +5,11 @@ sidebar_label: イベントの発生
 ---
 ## go-pluginsからのイベントの発生
 
-The loom sdk gives gives a facility for the contracts to emit events that can be used for multiple purposes such as indexng. Currently the loom sdk supports emitting events into a Redis sorted set.
+Loom SDKはコントラクトにイベントを発生させる機能を提供しており、これはインデックスなどの複数の目的で使用することができる。 現在Loom SDKは、Redisのソート済みセットへのイベント発生をサポートしている。
 
-### Configuring the loom sdk
+### Loom SDKの設定
 
-By default the loom-sdk will only emit events to the log. To configure it to send it to a redis sorted set, add the following line to the loom.yaml config file.
+デフォルトではloom-sdkはログにイベントを出力するだけである。
 
     EventDispatcherURI: "redis://localhost:6379"
     
