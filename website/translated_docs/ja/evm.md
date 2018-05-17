@@ -37,20 +37,16 @@ DAppチェーンのEVMと対話するには、現在3つの方法がある。
     
     ] }
 
-    There are two contracts in the top array. The first is an EVM contract, and 
-    the second one is a plugin.
-    * `vm:` The virtual machine used to run the contract. Currently there are two 
-    options.
-      1. `plugin`   User created contracts.
-      2. `EVM`      contract run on DAppChains EVM.
-    * `format` The nature of the smart contract's input file in the contracts 
-    directory.
-      1. `plugin`   User plugin, can be produced by `go-loom`.
-      2. `truffle`  Solidity program, compiled using truffles compiler.
-      3. `solidity` Solidity program, compiled using solc.
+    配列の先頭に2つのコントラクトがある。 1つ目はEVMコントラクトで、2つ目はプラグインコントラクトだ。
+    * `vm:`コントラクト実行に使用する仮想マシン。 現在2つのオプションがある。
+      1. `plugin`   ユーザーがコントラクトを作成。
+      2. `EVM`      コントラクトは、DAppチェーンEVM上で実行される。
+    * `format` コントラクトディレクトリ内にあるスマートコントラクトのインプットファイルの性質。
+      1. `plugin`   ユーザープラグイン。`go-loom`で作成可能。
+      2. `truffle`  truffleのコンパイラを使用してコンパイルされたSolidityプログラム。
+      3. `solidity` solcを使用してコンパイルされたSolidityプログラム。
       4. `hex`
-    * `name` This name can be used to retrieve the address of the contract 
-    assigned by loom or the EVM.
+    * `name` これはLoomもしくはEVMから割り当てられたコントラクトアドレスを取得するのに使用される。
     * `location` Versioned name of the file binary file located in the contracts 
     directory. For truffle and solidity it might be necessary to give the full path.
     
