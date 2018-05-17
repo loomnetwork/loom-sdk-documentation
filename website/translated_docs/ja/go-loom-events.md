@@ -1,9 +1,9 @@
 ---
 id: goloomevents
-title: Emitting events from go-loom contracts
-sidebar_label: Emitting events
+title: go-loomコントラクトからのイベントの発生
+sidebar_label: イベントの発生
 ---
-## Emitting events from go-plugins
+## go-pluginsからのイベントの発生
 
 The loom sdk gives gives a facility for the contracts to emit events that can be used for multiple purposes such as indexng. Currently the loom sdk supports emitting events into a Redis sorted set.
 
