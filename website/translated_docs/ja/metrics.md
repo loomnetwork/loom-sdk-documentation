@@ -36,7 +36,7 @@ requestLatency := kitprometheus.NewSummaryFrom(stdprometheus.SummaryOpts{
 }, fieldKeys)
 ```
 
-Loom also provides the two different field names for each metrics to create variation of metric values. The first one is `method` which is the name of the method call. The second one is `error` which will be true if the method call returns an error.
+またLoomはメトリック値のバリエーションを作成するために、各メトリックに2つの異なるフィールド名も提供する。 1つ目は`method`で、これはメソッドコールの名称だ。 2つ目の`error`は、メソッドコールがエラーを返す場合にtrueとなる。
 
 The followings are the example of the exposed metrics with different fields.
 
