@@ -3,7 +3,7 @@ id: prereqs
 title: Prerequisites
 sidebar_label: Installation
 ---
-
+Installing and setting up Loom on OSX 
 
 Wget
 
@@ -37,7 +37,7 @@ go get -u github.com/golang/protobuf/protoc-gen-go
 ## Installation
 
 ```
-wget https://storage.googleapis.com/private.delegatecall.com/loom/osx/build-94/loom
+wget https://storage.googleapis.com/private.delegatecall.com/loom/osx/build-95/loom
 chmod +x loom 
 
 mkdir tmpgopath
@@ -49,9 +49,9 @@ make deps
 make
 make cli
 cd build
-cp ../genesis.example.json genesis.json
 
 ../../loom init
+cp ../genesis.example.json genesis.json
 ```
 
 ## Run Blockchain
