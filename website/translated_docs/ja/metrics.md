@@ -7,7 +7,7 @@ sidebar_label: メトリクス
 
 Loom instruments metrics and exposes the values of the metrics to external monitoring services. Middleware layer is introduced to enable separation of concern between application services and instrumenting. Loom SDK utilizes go-kit's `metrics` package to instrument metrics.
 
-## Loom SDK Metrics
+## Loom SDKのメトリクス
 
 Loom captures and exposes 4 different types of metrics:
 
@@ -94,7 +94,7 @@ scrape_configs:
       - 127.0.0.1:9999 # The IP address to the query server host
 ```
 
-## List of All Metrics
+## 全メトリクスのリスト
 
 The following are the list of metrics exposed by Loom SDK:
 
