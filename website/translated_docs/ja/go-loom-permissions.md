@@ -14,9 +14,9 @@ The token can by any domain specific byte-array. 権限 `role`は`token`の`addr
         ctx.GrantPermission([]byte(userName), []string{"owner"})
     
 
-will grant a `owner` permission on a `userName` to the sender address of the transaction. The roles is an array to grant multiple permissions in a single call.
+この例では、`userName`への`owner`の権限をトランザクション送信者アドレスに与えている。 ロールとは、複数の権限を1つのコールで与えるための配列である。
 
-To check for a permission for the sender of a transaction,
+トランザクションの送信者のアクセス権限をチェックするには、
 
         if ok, _ := ctx.HasPermission([]byte(userName), []string{"owner"}); !ok {
             return errors.New("User unverified")
