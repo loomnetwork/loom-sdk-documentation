@@ -87,14 +87,14 @@ StandardError=syslog
 WantedBy=multi-user.target
 ```
 
-Save it to `/etc/systemd/system/etherboy.service`. Run these to activate it:
+これを`/etc/systemd/system/etherboy.service`に保存しよう。そしてアクティベートするために以下を実行しよう:
 
 ```bash
 sudo systemctl daemon-reload
 sudo systemctl start etherboy.service
 ```
 
-You may now inspect the output using:
+以下を使ってアウトプットをチェック可能だ:
 
 ```bash
 sudo journalctl -u etherboy.service
