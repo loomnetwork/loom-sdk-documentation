@@ -42,15 +42,15 @@ sidebar_label: Etherboyのデプロイ
     }
     ```
 
-4. Execute `loom init` in the working directory to initialize config files.
+4. ワーキングディレクトリで`loom init`を実行し、設定ファイルを初期化しよう。
 
-Note: `loom` and `etherboycli` can be placed anywhere in your `$PATH` so you don't have to always execute with `./`. However, `etherboycore.so` must always be placed in `$WORKING_DIRECTORY/contracts/etherboycore.so`.
+注: `loom`と`etherboycli`は`$PATH`をどこにでも通すことができるので、常に`./`で実行する必要はない。 しかしながら、`etherboycore.so`は常に`$WORKING_DIRECTORY/contracts/etherboycore.so`に置かれていなくてはならない。
 
-## Running
+## 起動
 
 There are two ways to run - directly, or via systemd (or any process control system you prefer)
 
-### Direct execution
+### 直接的な実行
 
 Execute `loom run` in the working directory to run the service:
 
