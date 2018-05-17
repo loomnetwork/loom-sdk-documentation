@@ -16,7 +16,7 @@ Loomは4つの異なるタイプのメトリクスをキャプチャ及び公開
 - `Histogram` スライディングタイムウインドウのバケットにグループ分けされた観察サンプル。
 - `Summary` スライディングタイムウインドウのバケットに、分位点でグループ分けされた観察サンプル。
 
-以下のGoコードは、`go-kit`を用いたLoomのメトリクス作成方法の例を示している。 The `Namespace` is prefixed with *loomchain*. The `Subsystem` can be either *query_service or *backend_service*.
+以下のGoコードは、`go-kit`を用いたLoomのメトリクス作成方法の例を示している。 `Namespace`は*loomchain*の前に書かれている。 `Subsystem`は*query_serviceもしくは*backend_service*のどちらも可能だ。
 
 For example, the requestCounter metric key is referred as `loomchain_query_service_request_count` and the requestLatency metric key is `loomchain_query_service_request_latency_microseconds`. All the keys are unique.
 
