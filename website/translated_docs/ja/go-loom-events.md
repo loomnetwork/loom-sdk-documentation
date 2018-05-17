@@ -9,14 +9,14 @@ Loom SDKはコントラクトにイベントを発生させる機能を提供し
 
 ### Loom SDKの設定
 
-デフォルトではloom-sdkはログにイベントを出力するだけである。
+loom-sdkは、デフォルトではログにイベントを出力するのみとなっている。これを設定してRedisのソート済みセットへ送信するには、次の１行を設定ファイルloom.yamlに追加しよう。
 
     EventDispatcherURI: "redis://localhost:6379"
     
 
-This will start emitting events to the redis server in a sorted set called `loomevents`. Each event is added to the sorted set with the score being the blockchain height.
+こうして、Redisサーバーへ`loomevents`というソート済みセットにてイベントが出力されるようになる。 各イベントは、ブロックの高さのスコアでソートされたセットへと追加される。
 
-### Emitting events
+### イベントの発生
 
 The code snippet below shows sample code for emitting events from the contract.
 
