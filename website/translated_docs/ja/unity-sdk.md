@@ -32,11 +32,11 @@ public class LoomQuickStartSample : MonoBehavior
 {
     Contract GetContract(byte[] privateKey, byte[] publicKey)
     {
-        var client = new DAppChainClient("http://localhost:46658", "http://localhost:47000")
+        var client = new DAppChainClient("http://localhost:46658", "http://localhost:9999")
         {
             Logger = Debug.unityLogger
         };
-        // ミドルウェアを要求
+        // required middleware
         client.TxMiddleware = new TxMiddleware(new ITxMiddlewareHandler[]{
             new NonceTxMiddleware{
                 PublicKey = publicKey,
@@ -44,7 +44,7 @@ public class LoomQuickStartSample : MonoBehavior
             },
             new SignedTxMiddleware(privateKey)
         });
-        // Loom DAppチェーン上のスマートコントラクト`helloworld` のアドレス
+        // address of the `helloworld` smart contract on the Loom DAppChain
         var contractAddr = Address.FromHexString("0x005B17864f3adbF53b1384F2E6f2120c6652F779");
         var callerAddr = Address.FromPublicKey(publicKey);
         return new Contract(client, contractAddr, "helloworld", callerAddr);
