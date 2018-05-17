@@ -9,10 +9,10 @@ Loomはメトリクスを備えており、外部のモニタリングサービ�
 
 ## Loom SDKのメトリクス
 
-Loom captures and exposes 4 different types of metrics:
+Loomは4つの異なるタイプのメトリクスをキャプチャ及び公開している:
 
-- `Counter` a single numerical value that goes up only
-- `Gauge` a single numerical value that goes up and down
+- `Counter` 単一の数値。増えることだけ可能。
+- `Gauge` 単一の数値で増減が可能。
 - `Histogram` a sample of observation grouped into buckets over a sliding time window
 - `Summary` a sample of observation grouped into buckets with quantiles over a sliding time window
 
