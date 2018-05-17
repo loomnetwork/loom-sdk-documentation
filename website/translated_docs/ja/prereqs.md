@@ -31,7 +31,7 @@ Protobufs https://github.com/google/protobuf/releases/tag/v3.5.1
 
 ## インストール
 
-    wget https://storage.googleapis.com/private.delegatecall.com/loom/osx/build-95/loom
+    wget https://storage.googleapis.com/private.delegatecall.com/loom/osx/build-116/loom
     chmod +x loom
     
     mkdir tmpgopath
