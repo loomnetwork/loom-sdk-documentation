@@ -3,9 +3,9 @@ id: goloompermissions
 title: go-loomでの権限ヘルパーの使用
 sidebar_label: 権限ヘルパーの使用
 ---
-## go-loomにおけるコントラクトでの権限の使用
+## go-loomのコントラクトでの権限の使用
 
-Contracts written with go-loom can use helper functions for setting and checking permissions on arbitrary tokens. Every permission has three attributes: 1. address 2. token 3. role
+go-loomを使って書かれたコントラクトは設定にヘルパー機能を使用でき、また任意のトークンに対する権限をチェックすることができる。 各権限は3つの属性を持つ: 1. アドレス 2. トークン 3. ロール
 
 The token can by any domain specific byte-array. A permission `role` is granted to an `address` on a `token`. For example, when creating an account, the `owner` permission can be given to the sender address on the `username` token.
 
