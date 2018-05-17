@@ -1,5 +1,5 @@
 ---
-id: prereqs
+id: prereqs-ubuntu
 title: Prerequisites
 sidebar_label: Installation (Ubuntu)
 ---
