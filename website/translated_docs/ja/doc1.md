@@ -1,9 +1,9 @@
 ---
 id: prereqs
-title: 前提条件
-sidebar_label: 前提条件
+title: Prerequisites
+sidebar_label: Prerequisites
 ---
-Docusaurusの使用方法については、[ドキュメンテーション](https://docusaurus.io)をチェックすること。
+Check the [documentation](https://docusaurus.io) for how to use Docusaurus.
 
 ## Lorem
 
