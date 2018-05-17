@@ -50,12 +50,12 @@ requestLatency := kitprometheus.NewSummaryFrom(stdprometheus.SummaryOpts{
 
 `loom run`コマンドを使用してスマートコントラクトを実行する際、デフォルトのメトリクスのエンドポイントは`127.0.0.1:9999/metrics`である。 このエンドポイントは、設定ファイル中の設定キー`QueryServerHost`を使って設定可能だ。
 
-You can poll the the metrics from the endpoint using http clients or web browsers. The server running on `127.0.0.1:9999` will show the request count and latency metrics as followed.
+httpクライアントやwebブラウザを使用して、エンドポイントからメトリクスをポーリングすることが可能だ。`127.0.0.1:9999`で動いているサーバーは、リクエストのカウントとレイテンシーのメトリクスを以下のように示す。
 
 ```sh
 curl 127.0.0.1:9999/metrics
 
-# HELP loomchain_query_service_request_count Number of requests received.
+# HELP loomchain_query_service_request_count 受け取ったリクエスト数。
 # TYPE loomchain_query_service_request_count counter
 loomchain_query_service_request_count{error="false",method="Nonce"} 2
 loomchain_query_service_request_count{error="true",method="Query"} 2
