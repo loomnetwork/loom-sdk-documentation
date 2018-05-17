@@ -18,7 +18,7 @@ Loom captures and exposes 4 different types of metrics:
 
 The following Go code shows an example of how Loom creates metrics with `go-kit`. The `Namespace` is prefixed with *loomchain*. The `Subsystem` can be either *query_service or *backend_service*.
 
-For example, the requestCounter metric key is referred as `loomchain_query_service_request_count` and the requestLatency metric key is `loomchain_query_service_request_latency_microseconds`. All the keys are unique.
+For example, the requestCounte metric key is referred as `loomchain_query_service_request_count` and the requestLatency metric key is `loomchain_query_service_request_latency_microseconds`. All the keys are unique.
 
 ```Go
 fieldKeys := []string{"method", "error"}
@@ -40,8 +40,8 @@ Loom also provides the two different field names for each metrics to create vari
 
 The followings are the example of the exposed metrics with different fields.
 
-    loomchain_query_service_request_count{error="false",method="Nonce"} 
-    loomchain_query_service_request_count{error="true",method="Nonce"} 
+    loomchain_query_service_request_count{error="false",method="Nonce"}
+    loomchain_query_service_request_count{error="true",method="Nonce"}
     loomchain_query_service_request_count{error="false",method="Query"}
     loomchain_query_service_request_count{error="true",method="Query"}
     
