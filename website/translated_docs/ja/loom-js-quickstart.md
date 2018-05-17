@@ -73,7 +73,7 @@ function getContract(privateKey, publicKey) {
 ```js
 /**
  * スマートコントラクト内のキーとバリューの連想配列を格納
- * @param contract Contract instance returned from `getContract()`.
+ * @param contract コントラクトのインスタンスが`getContract()`から返す
  */
 async function store(contract, key, value) {
   const params = new MapEntry()
@@ -84,16 +84,16 @@ async function store(contract, key, value) {
 
 ```
 
-## Reading data from a DAppChain
+## DAppチェーンからのデータの読み取り
 
-To read the state of a smart contract you need to call one of its public read-only methods, you can do so by using the `Contract.staticCallAsync()` method.
+スマートコントラクトの状態を読み取るためには、パブリックな読み取り専用メソッドのうちどれかを呼び出す必要があり、`Contract.StaticCallAsync()`メソッドを使って行うことができる。
 
-The [helloworld](https://github.com/loomnetwork/go-loom/blob/master/examples/plugins/helloworld/helloworld.go) smart contract has a public `GetMsg` method that can be called to look up an association between a key and a value. Let's write a function that calls this method...
+[helloworld](https://github.com/loomnetwork/go-loom/blob/master/examples/plugins/helloworld/helloworld.go)スマートコントラクトは、パブリックな`GetMsg`メソッドを持っており、キーとバリューの連想配列を参照するようこれを呼び出すことができる。 このメソッドを呼び出す関数を書いてみよう。
 
 ```js
 /**
- * Loads the value associated with a key in a smart contract.
- * @param contract Contract instance returned from `getContract()`.
+ * スマートコントラクト内にあるキーと結び付けられたバリューをロードする。
+ * @param contract コントラクトのインスタンスが`getContract()`から返す
  */
 async function load(contract, key) {
   const params = new MapEntry()
@@ -104,9 +104,9 @@ async function load(contract, key) {
 }
 ```
 
-## Putting it all together
+## まとめ
 
-Now that we have all the pieces in place make sure that you have the DAppChain running and then run the following code, you should see `Value: hello!` printed to the console.
+全て準備が整ったので、DAppチェーンが稼働していることを確認してから、次のコードを実行してみよう。`Value: hello!`とコンソールにプリントされるはずだ。
 
 ```js
 (async function () {
