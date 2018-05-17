@@ -17,11 +17,11 @@ npm install loom-js
 
 ## サンプル コード
 
-You can find all the code on this page the [Loom JS samples repo](https://github.com/loomnetwork/loom-js-samples) in the `quickstart` directory.
+このページの全コードは、[Loom JS samples repo](https://github.com/loomnetwork/loom-js-samples) の `quickstart`ディレクトリにある。
 
-## Connecting to a DAppChain
+## DAppチェーンへの接続
 
-The `Contract` class provides a convenient way to interact with a smart contract running on a Loom DAppChain. Let's write a function that creates a `Contract` instance to interact with the sample [helloworld](https://github.com/loomnetwork/go-loom/blob/master/examples/plugins/helloworld/helloworld.go) smart contract from the Loom SDK...
+`Contract` クラスは、Loom DAppチェーンで実行されるスマートコントラクトと対話するための便利な方法を提供する。 Loom SDKのサンプルスマートコントラクト [helloworld](https://github.com/loomnetwork/go-loom/blob/master/examples/plugins/helloworld/helloworld.go) と対話する `Contract` インスタンスを作成する関数を書いてみよう。
 
 ```js
 const {
@@ -32,10 +32,10 @@ const {
 const { MapEntry } = require('./helloworld_pb')
 
 /**
- * Creates a new `Contract` instance that can be used to interact with a smart contract.
- * @param privateKey Private key that will be used to sign transactions sent to the contract.
- * @param publicKey Public key that corresponds to the private key.
- * @returns `Contract` instance.
+ * 新たな`Contract`インスタンスを作成し、スマートコントラクトとの対話に使えるようにする。
+ * @param privateKey(秘密鍵)はコントラクトに送信されたトランザクションに署名するために使われる。
+ * @param publicKey(公開鍵)は秘密鍵に対応するものである。
+ * @returns `Contract`のインスタンス
  */
 function getContract(privateKey, publicKey) {
   const client = new Client(
@@ -64,15 +64,15 @@ function getContract(privateKey, publicKey) {
 }
 ```
 
-## Writing data to a DAppChain
+## DAppチェーンへのデータの書き込み
 
-To mutate the state of a smart contract you need to call one of its public methods, to do so a signed transaction must be sent to and validated by the DAppChain. Fortunately the `Contract` class takes care of most of this when you use the `Contract.callAsync()` method.
+スマートコントラクトの状態を変更するには、そのパブリックなメソッドのうちどれかを呼び出すことが必要であり、さらに署名済みのトランザクションが送信され、DAppチェーンによって検証されていなくてはならない。 幸いこれらのほとんどは、`Contract.CallAsync()` メソッドを使用すれば `Contract`クラスが処理を行う。
 
-The [helloworld](https://github.com/loomnetwork/go-loom/blob/master/examples/plugins/helloworld/helloworld.go) smart contract has a public `SetMsg` method that can be called to store an association between a key and a value. Let's write a function that calls this method...
+[helloworld](https://github.com/loomnetwork/go-loom/blob/master/examples/plugins/helloworld/helloworld.go)スマートコントラクトは、パブリックな`SetMsg`メソッドを持っており、これはキーとバリューの連想配列を保存するよう呼び出すことができる。 このメソッドを呼び出す関数を書いてみよう。
 
 ```js
 /**
- * Stores an association between a key and a value in a smart contract.
+ * スマートコントラクト内のキーとバリューの連想配列を格納
  * @param contract Contract instance returned from `getContract()`.
  */
 async function store(contract, key, value) {
