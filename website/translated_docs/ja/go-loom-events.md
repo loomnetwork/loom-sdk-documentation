@@ -18,7 +18,7 @@ loom-sdkは、デフォルトではログにイベントを出力するのみと
 
 ### イベントの発生
 
-The code snippet below shows sample code for emitting events from the contract.
+以下のコードスニペットは、コントラクトからイベントを発生させるサンプルコードである。
 
 ```go
     emitMsg := struct {
@@ -33,9 +33,9 @@ The code snippet below shows sample code for emitting events from the contract.
     ctx.Emit(emitMsgJSON)
 ```
 
-### Event structure
+### イベントの構造
 
-The event JSON shown above is wrapped in some transaction specific metadata before being emitted to the event stream. The other fields in the metadata include Called address, the contract address, the contract name and the raw transaction request data.
+上に示したイベントのJSONデータは、イベントストリームへ出力される前に、あるトランザクション固有のメタデータでラップされる。 メタデータの他のフィールドには、呼び出しアドレス、コントラクトアドレス、コントラクト名とトランザクションリクエストのローデータが含まれている。
 
 Below is an example of the full message that goes into redis -
 
