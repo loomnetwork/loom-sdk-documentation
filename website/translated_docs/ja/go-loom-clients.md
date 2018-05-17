@@ -66,7 +66,7 @@ func getContract(contractHexAddr, contractName string) (*client.Contract, error)
   rpcClient := client.NewDAppChainRPCClient(
     "default",
     "ws://127.0.0.1:46657/websocket",
-    "ws://127.0.0.1:47000/queryws",
+    "ws://127.0.0.1:9999/queryws",
   )
   contractAddr, err := loom.LocalAddressFromHexString(contractHexAddr)
   if err != nil {
