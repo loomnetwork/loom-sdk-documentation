@@ -14,9 +14,9 @@ Loomは4つの異なるタイプのメトリクスをキャプチャ及び公開
 - `Counter` 単一の数値。増えることだけ可能。
 - `Gauge` 単一の数値で増減が可能。
 - `Histogram` スライディングタイムウインドウのバケットにグループ分けされた観察サンプル。
-- `Summary` a sample of observation grouped into buckets with quantiles over a sliding time window
+- `Summary` スライディングタイムウインドウのバケットに、分位点でグループ分けされた観察サンプル。
 
-The following Go code shows an example of how Loom creates metrics with `go-kit`. The `Namespace` is prefixed with *loomchain*. The `Subsystem` can be either *query_service or *backend_service*.
+以下のGoコードは、`go-kit`を用いたLoomのメトリクス作成方法の例を示している。 The `Namespace` is prefixed with *loomchain*. The `Subsystem` can be either *query_service or *backend_service*.
 
 For example, the requestCounter metric key is referred as `loomchain_query_service_request_count` and the requestLatency metric key is `loomchain_query_service_request_latency_microseconds`. All the keys are unique.
 
