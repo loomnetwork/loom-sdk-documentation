@@ -47,7 +47,8 @@ DAppチェーンのEVMと対話するには、現在3つの方法がある。
       3. `solidity` solcを使用してコンパイルされたSolidityプログラム。
       4. `hex`
     * `name` これはLoomもしくはEVMから割り当てられたコントラクトアドレスを取得するのに使用される。
-    * `location`コントラクトディレクトリ内に配置されたバイナリファイルのバージョン名。 For truffle and solidity it might be necessary to give the full path.
+    * `location`コントラクトディレクトリ内に配置されたバージョン化されたバイナリファイル名。
+     truffleとsolidityには完全なpathを与えなければならない可能性がある。
     
     So in this example the loom DAppChain will take the bytecode from the truffle
     compilation of our SimpleStore solidity contract. It will then deploy it on 
