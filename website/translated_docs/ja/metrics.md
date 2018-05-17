@@ -13,7 +13,7 @@ Loomは4つの異なるタイプのメトリクスをキャプチャ及び公開
 
 - `Counter` 単一の数値。増えることだけ可能。
 - `Gauge` 単一の数値で増減が可能。
-- `Histogram` a sample of observation grouped into buckets over a sliding time window
+- `Histogram` スライディングタイムウインドウのバケットにグループ分けされた観察サンプル。
 - `Summary` a sample of observation grouped into buckets with quantiles over a sliding time window
 
 The following Go code shows an example of how Loom creates metrics with `go-kit`. The `Namespace` is prefixed with *loomchain*. The `Subsystem` can be either *query_service or *backend_service*.
