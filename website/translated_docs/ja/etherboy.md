@@ -100,7 +100,7 @@ sudo systemctl start etherboy.service
 sudo journalctl -u etherboy.service
 ```
 
-When satisfied everything is running as intended, executing the following will enable the service so that it is started at boot:
+すべてが思った通りに動いていれば、以下を実行することでブート時にサービスが開始されるようになる。
 
 ```bash
 sudo systemctl enable etherboy.service
