@@ -60,11 +60,11 @@ I[05-16|06:06:16.970] Using simple log event dispatcher
 I[05-16|06:06:19.999] Starting RPC HTTP server on tcp://127.0.0.1:9999 module=query-server
 ```
 
-This will run Etherboy in the foreground and print its output to the console. For better process management, look at the next section.
+これはフォア グラウンドで Etherboy を実行し、そのアウトプットをコンソールにプリントする。プロセスマネジメントをより良く行うには、次のセクションを見てみよう。
 
-### systemd Startup Script
+### systemdスタートアップスクリプト
 
-The following startup script can be used to control the service using systemd. Make changes to `WorkingDirectory` and/or `ExecStart` to reflect your setup.
+次のスタートアップスクリプトは、systmdを使ったサービスをコントロールするために使用することができる。 `WorkingDirectory`及び/又は`ExecStart`を変更して、あなたのセットアップを反映させよう。
 
 ```ini
 [Unit]
