@@ -61,8 +61,6 @@ function getContract(privateKey, publicKey) {
   const callerAddr = new Address(client.chainId, LocalAddress.fromPublicKey(publicKey))
   return new Contract({
     contractAddr,
-    // the name of the smart contract at `contractAddr`
-    contractName: 'BluePrint',
     callerAddr,
     client
   })
