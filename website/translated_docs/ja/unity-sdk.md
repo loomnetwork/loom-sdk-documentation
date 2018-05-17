@@ -36,7 +36,7 @@ public class LoomQuickStartSample : MonoBehavior
         {
             Logger = Debug.unityLogger
         };
-        // required middleware
+        // ミドルウェアを要求
         client.TxMiddleware = new TxMiddleware(new ITxMiddlewareHandler[]{
             new NonceTxMiddleware{
                 PublicKey = publicKey,
@@ -44,7 +44,7 @@ public class LoomQuickStartSample : MonoBehavior
             },
             new SignedTxMiddleware(privateKey)
         });
-        // address of the `helloworld` smart contract on the Loom DAppChain
+        // スマートコントラクト`helloworld`のLoom DAppチェーン上のアドレス
         var contractAddr = Address.FromHexString("0x005B17864f3adbF53b1384F2E6f2120c6652F779");
         var callerAddr = Address.FromPublicKey(publicKey);
         return new Contract(client, contractAddr, "helloworld", callerAddr);
