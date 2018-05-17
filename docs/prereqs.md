@@ -1,9 +1,9 @@
 ---
 id: prereqs
 title: Prerequisites
-sidebar_label: Installation
+sidebar_label: Installation (OSX)
 ---
-Installing and setting up Loom on OSX 
+Installing and setting up Loom on OSX
 
 Wget
 
@@ -29,7 +29,7 @@ wget https://github.com/google/protobuf/releases/download/v3.5.1/protoc-3.5.1-os
 unzip protoc-3.5.1-osx-x86_64.zip
 sudo unzip protoc-3.5.1-osx-x86_64.zip -d /usr/local
 sudo chmod +X /usr/local/bin/protoc
-export GOPATH=~/gopath 
+export GOPATH=~/gopath
 go get -u github.com/golang/protobuf/protoc-gen-go
 ```
 
@@ -38,7 +38,7 @@ go get -u github.com/golang/protobuf/protoc-gen-go
 
 ```
 wget https://storage.googleapis.com/private.delegatecall.com/loom/osx/build-95/loom
-chmod +x loom 
+chmod +x loom
 
 mkdir tmpgopath
 export GOPATH=`pwd`/tmpgopath
@@ -61,7 +61,7 @@ cp ../genesis.example.json genesis.json
 
 ## Send transactions
 
-Open a second console 
+Open a second console
 <br/>
 <br/>
 This will generate a private key. Create an account. Then set a value, and then read the value from the blockchain.

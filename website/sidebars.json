@@ -1,6 +1,6 @@
 {
   "docs": {
-    "Prerequisites": ["prereqs"],
+    "Prerequisites": ["prereqs", "prereqs-ubuntu"],
     "Javascript Client SDK": ["loom-js-quickstart"],
     "Go Contract SDK": ["go-loom-clients", "goloomstate", "goloomevents", "goloompermissions", "builtin"],
     "Unity SDK": ["unity-sdk"],
