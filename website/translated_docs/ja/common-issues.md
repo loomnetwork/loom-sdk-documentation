@@ -16,4 +16,4 @@ title: 共通課題
 
 ps -ef | grep blueprint kill -9 xxxx ```
 
-Change blueprint to whatever the name of the contract is, and then the xxx is the process id
+blueprintをコントラクトの名前であるものに変更しよう。xxxxはプロセスidだ。
