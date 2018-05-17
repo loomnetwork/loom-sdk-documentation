@@ -1,8 +1,10 @@
 ---
 id: prereqs
 title: Prerequisites
-sidebar_label: Installation
+sidebar_label: Installation (OSX)
 ---
+Installing and setting up Loom on OSX
+
 Wget
 
     brew install wget
@@ -23,14 +25,14 @@ Protobufs https://github.com/google/protobuf/releases/tag/v3.5.1
     unzip protoc-3.5.1-osx-x86_64.zip
     sudo unzip protoc-3.5.1-osx-x86_64.zip -d /usr/local
     sudo chmod +X /usr/local/bin/protoc
-    export GOPATH=~/gopath 
+    export GOPATH=~/gopath
     go get -u github.com/golang/protobuf/protoc-gen-go
     
 
 ## Installation
 
-    wget https://storage.googleapis.com/private.delegatecall.com/loom/osx/build-94/loom
-    chmod +x loom 
+    wget https://storage.googleapis.com/private.delegatecall.com/loom/osx/build-95/loom
+    chmod +x loom
     
     mkdir tmpgopath
     export GOPATH=`pwd`/tmpgopath
@@ -39,11 +41,10 @@ Protobufs https://github.com/google/protobuf/releases/tag/v3.5.1
     export GOPATH=$GOPATH:`pwd`
     make deps
     make
-    make cli
     cd build
-    cp ../genesis.example.json genesis.json
     
     ../../loom init
+    cp ../genesis.example.json genesis.json
     
 
 ## Run Blockchain
@@ -59,8 +60,8 @@ This will generate a private key. Create an account. Then set a value, and then 
 
 You can read the source of the [blueprint contract here](https://github.com/loomnetwork/weave-blueprint)
 
-    cd blueprint
-    build/blueprint genkey
-    build/blueprint create-acct
-    build/blueprint set -v 1
-    build/blueprint get
+    cd blueprint/build
+    ./blueprint genkey
+    ./blueprint create-acct
+    ./blueprint set -v 1
+    ./blueprint get

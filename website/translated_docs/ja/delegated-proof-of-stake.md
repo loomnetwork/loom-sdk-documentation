@@ -2,17 +2,17 @@
 id: delegated-proof-of-stake
 title: Delegated Proof of Stake
 ---
-The delegated proof of stake algorithm allows token holders to elect validators. These validators serve a standard term length before being subject to elections again.
+Delegated proof of stake(DPoS)のアルゴリズムでは、トークン所有者がバリデーターを選出することができる。これらのバリデーターは、再選出が行われるまでの標準期間中その役割を務める。
 
-## Parameters
+## パラメーター
 
-**Coin contract address** - Specifies which ERC20-like coin contract to use to calculate the power of a vote.
+**Coin contract address** - Specifies which ERC20-like coin contract to use to calculate the power of a vote. By default this is resolved to the address at `coin`.
 
-**Validator count** - The number of validators that can be elected.
+**バリデーターカウント** - 選出可能なバリデーター数。
 
 **Vote allocation** - Number of votes each coin account gets. By default this is equal to the number of validators.
 
-**Term length** - How long validators serve before elections are held and votes are recounted.
+**Cycle length** - How long the election cycle is. By default this is 1 week.
 
 **Minimum power fraction** - How much of the coin supply needs to have voted for elections to be considered valid. For example, a value of 5 corresponds to 20% of the coin supply needing to have voted.
 
@@ -20,7 +20,7 @@ The delegated proof of stake algorithm allows token holders to elect validators.
 
 All candidates must register by specifying the public key matching their address.
 
-## Voting
+## 投票
 
 Each coin account has up to a specified number of votes, generally equal to the number of validators. However, the power of each vote is proportional to the balance of coins the account holds. This ensures that accounts with more at stake have a greater voice in how the network is run. In the current implementation votes do not expire. This means that unless a vote is explicitly changed it is assumed that the account holder is satisfied with the job of the validator and will get receive the account holder's vote again in the next election. Unlike traditional elections, voting can be done any time so there is no "election day", however votes are not counted until the election time.
 
@@ -54,12 +54,96 @@ Currently votes never expire, however, one can imagine a scenario in which votes
 
 `registerCandidate`
 
+Register a candidate to be a validator.
+
 `unregisterCandidate`
+
+Unregister a candidate to be a validator.
 
 `vote`
 
+Vote for a particular candidate.
+
 `proxyVote`
+
+Proxy your votes to another account.
 
 `unproxyVote`
 
+Unproxy your votes.
+
 `elect`
+
+Run the election.
+
+## Example CLI Usage
+
+To get started we first need to initialize the blockchain. The DPOS and Coin smart contracts will automatically be added into `genesis.json`.
+
+```shell
+loom init
+```
+
+Next we generate public/private keys for an example account.
+
+```shell
+loom genkey -a pubkey -k privkey
+```
+
+Then we need to make sure some initial coins on the blockchain are given out so that we have some voting power. To do this we need to modify `genesis.json` and change the `init` section of the Coin contract configuration.
+
+```json
+{
+    "vm": "plugin",
+    "format": "plugin",
+    "name": "coin",
+    "location": "coin:1.0.0",
+    "init": {
+        "accounts": [
+            {
+                "owner": {
+                    "chain_id": "local",
+                    "local": "<local address in base64 from genkey>",
+                },
+                "balance": 10
+            }
+        ]
+    }
+},
+```
+
+We then boot the blockchain which will initialize the coin and DPOS smart contracts.
+
+```shell
+loom run
+```
+
+We can check the witness list at any time by running the `list_validators` subcommand.
+
+```shell
+loom dpos list_validators
+```
+
+In order to run for a validator seat we need to register. For this example we'll just register ourselves.
+
+```shell
+loom dpos register_candidate <public key>
+```
+
+Then we'll vote for ourselves, giving all of our vote allocation, which is 21 votes.
+
+```shell
+loom dpos vote <local address> 21
+```
+
+Finally we'll run the election, which we've rigged :).
+
+```shell
+loom dpos elect
+```
+
+To verify that we've been elected we can check the validator list again to see that it's changed.
+
+```shell
+loom dpos list_validators
+```

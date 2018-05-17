@@ -1,13 +1,13 @@
 ---
-id: loom-jsクイックスタート
+id: loom-js-quickstart
 title: NodeJSとブラウザのクイックスタート
-sidebar_label: NodeJS & Browser Quick Start
+sidebar_label: NodeJSとブラウザのクイックスタート
 ---
-## Overview
+## 概要
 
-The `loom-js` library contains everything you need to build web apps and NodeJS services that interact with smart contracts running on Loom DAppChains.
+`loom-js`ライブラリには、Webアプリ構築に必要となる全てのもの、さらにNodeJSサービスが含まれている。NodeJSサービスは、Loom DAppチェーン上で実行されるスマートコントラクトと対話するためのものである。
 
-To get started install `loom-js` from NPM:
+NPMで`loom-js`をインストール
 
 ```shell
 yarn add loom-js
@@ -15,27 +15,33 @@ yarn add loom-js
 npm install loom-js
 ```
 
-## Connecting to a DAppChain
+## サンプル コード
 
-The `Contract` class provides a convenient way to interact with a smart contract running on a Loom DAppChain. Let's write a function that creates a `Contract` instance to interact with the sample [helloworld](https://github.com/loomnetwork/go-loom/blob/master/examples/plugins/helloworld/helloworld.go) smart contract from the Loom SDK...
+このページの全コードは、[Loom JS samples repo](https://github.com/loomnetwork/loom-js-samples) の `quickstart`ディレクトリにある。
+
+## DAppチェーンへの接続
+
+`Contract` クラスは、Loom DAppチェーンで実行されるスマートコントラクトと対話するための便利な方法を提供する。 Loom SDKのサンプルスマートコントラクト [helloworld](https://github.com/loomnetwork/go-loom/blob/master/examples/plugins/helloworld/helloworld.go) と対話する `Contract` インスタンスを作成する関数を書いてみよう。
 
 ```js
-import {
+const {
   NonceTxMiddleware, SignedTxMiddleware, Client,
   Contract, Address, LocalAddress, CryptoUtils
-} from 'loom-js'
+} = require('loom-js')
+
+const { MapEntry } = require('./helloworld_pb')
 
 /**
- * Creates a new `Contract` instance that can be used to interact with a smart contract.
- * @param privateKey Private key that will be used to sign transactions sent to the contract.
- * @param publicKey Public key that corresponds to the private key.
- * @returns `Contract` instance.
+ * 新たな`Contract`インスタンスを作成し、スマートコントラクトとの対話に使えるようにする。
+ * @param privateKey(秘密鍵)はコントラクトに送信されたトランザクションに署名するために使われる。
+ * @param publicKey(公開鍵)は秘密鍵に対応するものである。
+ * @returns `Contract`のインスタンス
  */
 function getContract(privateKey, publicKey) {
   const client = new Client(
     'default',
     'ws://127.0.0.1:46657/websocket',
-    'ws://127.0.0.1:47000/queryws'
+    'ws://127.0.0.1:9999/queryws'
   )
   // required middleware
   client.txMiddleware = [
@@ -51,23 +57,23 @@ function getContract(privateKey, publicKey) {
   return new Contract({
     contractAddr,
     // the name of the smart contract at `contractAddr`
-    contractName: 'helloworld',
+    contractName: 'BluePrint',
     callerAddr,
     client
   })
 }
 ```
 
-## Writing data to a DAppChain
+## DAppチェーンへのデータの書き込み
 
-To mutate the state of a smart contract you need to call one of its public methods, to do so a signed transaction must be sent to and validated by the DAppChain. 幸いこれらのほとんどは、`Contract.CallAsync()` メソッドを使用すれば `Contract`クラスが処理を行う。
+スマートコントラクトの状態を変更するには、そのパブリックなメソッドのうちどれかを呼び出すことが必要であり、さらに署名済みのトランザクションが送信され、DAppチェーンによって検証されていなくてはならない。 幸いこれらのほとんどは、`Contract.CallAsync()` メソッドを使用すれば `Contract`クラスが処理を行う。
 
-The [helloworld](https://github.com/loomnetwork/go-loom/blob/master/examples/plugins/helloworld/helloworld.go) smart contract has a public `SetMsg` method that can be called to store an association between a key and a value. Let's write a function that calls this method...
+[helloworld](https://github.com/loomnetwork/go-loom/blob/master/examples/plugins/helloworld/helloworld.go)スマートコントラクトは、パブリックな`SetMsg`メソッドを持っており、これはキーとバリューの連想配列を保存するよう呼び出すことができる。 このメソッドを呼び出す関数を書いてみよう。
 
 ```js
 /**
- * Stores an association between a key and a value in a smart contract.
- * @param contract Contract instance returned from `getContract()`.
+ * スマートコントラクト内のキーとバリューの連想配列を格納
+ * @param contract コントラクトのインスタンスが`getContract()`から返す
  */
 async function store(contract, key, value) {
   const params = new MapEntry()
@@ -78,16 +84,16 @@ async function store(contract, key, value) {
 
 ```
 
-## Reading data from a DAppChain
+## DAppチェーンからのデータの読み取り
 
-To read the state of a smart contract you need to call one of its public read-only methods, you can do so by using the `Contract.staticCallAsync()` method.
+スマートコントラクトの状態を読み取るためには、パブリックな読み取り専用メソッドのうちどれかを呼び出す必要があり、`Contract.StaticCallAsync()`メソッドを使って行うことができる。
 
-The [helloworld](https://github.com/loomnetwork/go-loom/blob/master/examples/plugins/helloworld/helloworld.go) smart contract has a public `GetMsg` method that can be called to look up an association between a key and a value. Let's write a function that calls this method...
+[helloworld](https://github.com/loomnetwork/go-loom/blob/master/examples/plugins/helloworld/helloworld.go)スマートコントラクトは、パブリックな`GetMsg`メソッドを持っており、キーとバリューの連想配列を参照するようこれを呼び出すことができる。 このメソッドを呼び出す関数を書いてみよう。
 
 ```js
 /**
- * Loads the value associated with a key in a smart contract.
- * @param contract Contract instance returned from `getContract()`.
+ * スマートコントラクト内にあるキーと結び付けられたバリューをロードする。
+ * @param contract コントラクトのインスタンスが`getContract()`から返す
  */
 async function load(contract, key) {
   const params = new MapEntry()
@@ -98,9 +104,9 @@ async function load(contract, key) {
 }
 ```
 
-## Putting it all together
+## まとめ
 
-Now that we have all the pieces in place make sure that you have the DAppChain running and then run the following code, you should see `Value: hello!` printed to the console.
+全て準備が整ったので、DAppチェーンが稼働していることを確認してから、次のコードを実行してみよう。`Value: hello!`とコンソールにプリントされるはずだ。
 
 ```js
 (async function () {
