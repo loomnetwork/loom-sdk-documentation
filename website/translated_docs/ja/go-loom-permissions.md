@@ -5,13 +5,13 @@ sidebar_label: 権限ヘルパーの使用
 ---
 ## go-loomのコントラクトでの権限の使用
 
-Contracts written with go-loom can use helper functions for setting and checking permissions on arbitrary tokens.
+go-loomを使って書かれたコントラクトは、任意のトークンに対する権限の設定とチェックをするためのヘルパー関数を使用することができる。
 
-This is somewhat similiar to in Solidity the Ownable concept from [OpenZeppelin](https://github.com/OpenZeppelin/openzeppelin-solidity/blob/master/contracts/ownership/Ownable.sol).
+これはSolidityだと[OpenZeppelin](https://github.com/OpenZeppelin/openzeppelin-solidity/blob/master/contracts/ownership/Ownable.sol) のOwnableのコンセプトに少し似ている。
 
-Every permission has three attributes: 1. address 2. token 3. role
+各権限には3つの属性がある: 1. アドレス 2. トークン 3. ロール
 
-A token can be any string or byte sequence, which represents an object to be owned. For example a persons username can be a token, that they have ownership over. Other things like tokens could also have ownership.
+トークンは、オブジェクトが所有されていることを表す何かしらの文字列、もしくはバイトシーケンスとすることが可能だ。 For example a persons username can be a token, that they have ownership over. Other things like tokens could also have ownership.
 
 A permission `role` is granted to an `address` on a `token`. For example, when creating an account, the `owner` permission can be given to the sender address on the `username` token.
 
