@@ -10,7 +10,7 @@ title: 共通課題
 
 ```plugin: plugin process exited: path=/bin/sh panic: plugin exited before we could connect
 
-    <br />This usually means there is a process hanging around that needs to be killed
+    <br />これは通常、killする必要がある無意味に稼働しているがあるということを意味する。
     
     
 
