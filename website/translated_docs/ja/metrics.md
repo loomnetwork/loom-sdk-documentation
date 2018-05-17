@@ -36,9 +36,9 @@ requestLatency := kitprometheus.NewSummaryFrom(stdprometheus.SummaryOpts{
 }, fieldKeys)
 ```
 
-またLoomはメトリック値のバリエーションを作成するために、各メトリックに2つの異なるフィールド名も提供する。 1つ目は`method`で、これはメソッドコールの名称だ。 2つ目の`error`は、メソッドコールがエラーを返す場合にtrueとなる。
+またLoomはメトリック値のバリエーションを作成するために、各メトリックに2つの異なるフィールド名も提供する。 まず`method`だが、これはメソッドコールの名称だ。 次に`error`だが、これはメソッドコールがエラーを返す場合にtrueとなる。
 
-The followings are the example of the exposed metrics with different fields.
+以下は異なるフィールドで公開されているメトリクスの例である。
 
     loomchain_query_service_request_count{error="false",method="Nonce"}
     loomchain_query_service_request_count{error="true",method="Nonce"}
@@ -46,9 +46,9 @@ The followings are the example of the exposed metrics with different fields.
     loomchain_query_service_request_count{error="true",method="Query"}
     
 
-## Metric Endpoint
+## メトリックのエンドポイント
 
-When running a smart contract using `loom run` command, the default metrics endpoint is `127.0.0.1:9999/metrics`. The endpoint is configurable using the configuration key `QueryServerHost` in the configuration file.
+`loom run`コマンドを使用してスマートコントラクトを実行する際、デフォルトのメトリクスのエンドポイントは`127.0.0.1:9999/metrics`である。 このエンドポイントは、設定ファイル中の設定キー`QueryServerHost`を使って設定可能だ。
 
 You can poll the the metrics from the endpoint using http clients or web browsers. The server running on `127.0.0.1:9999` will show the request count and latency metrics as followed.
 
