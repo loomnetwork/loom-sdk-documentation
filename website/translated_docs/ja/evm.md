@@ -1,9 +1,9 @@
 ---
 id: evm
 title: Ethereum Virtual Machine
-sidebar_label: EVM page
+sidebar_label: EVMページ
 ---
-## Overview
+## 概要
 
 loom DAppChains contain an ethereum virtual machine (EVM) and allows you to deploy and run smart contracts that compile to EVM bytecode.
 
