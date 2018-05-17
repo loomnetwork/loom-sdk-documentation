@@ -7,7 +7,7 @@ sidebar_label: 権限ヘルパーの使用
 
 go-loomを使って書かれたコントラクトは設定にヘルパー機能を使用でき、また任意のトークンに対する権限をチェックすることができる。 各権限は3つの属性を持つ: 1. アドレス 2. トークン 3. ロール
 
-The token can by any domain specific byte-array. A permission `role` is granted to an `address` on a `token`. For example, when creating an account, the `owner` permission can be given to the sender address on the `username` token.
+The token can by any domain specific byte-array. 権限 `role`は`token`の`address`に与えられる。 例えばアカウントを作成する際、`username` トークンの送信者のアドレスに`owner`の権限を与えることができる。
 
 例えば
 
