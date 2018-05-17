@@ -1,7 +1,7 @@
 ---
 id: metrics
-title: Metrics
-sidebar_label: Metrics
+title: メトリクス
+sidebar_label: メトリクス
 ---
 ## Overview
 
