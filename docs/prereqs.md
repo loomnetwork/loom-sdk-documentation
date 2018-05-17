@@ -47,7 +47,6 @@ cd blueprint
 export GOPATH=$GOPATH:`pwd`
 make deps
 make
-make cli
 cd build
 
 ../../loom init
@@ -69,9 +68,9 @@ This will generate a private key. Create an account. Then set a value, and then 
 You can read the source of the <a href="https://github.com/loomnetwork/weave-blueprint">blueprint contract here</a>
 
 ```
-cd blueprint
-build/blueprint genkey
-build/blueprint create-acct
-build/blueprint set -v 1
-build/blueprint get
+cd blueprint/build
+./blueprint genkey
+./blueprint create-acct
+./blueprint set -v 1
+./blueprint get
 ```
