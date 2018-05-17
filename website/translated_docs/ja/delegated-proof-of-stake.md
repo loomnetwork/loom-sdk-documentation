@@ -78,7 +78,7 @@ Run the election.
 
 ## Example CLI Usage
 
-First we need to initialize the blockchain. The DPOS smart contract will automatically be added into `genesis.json`.
+To get started we first need to initialize the blockchain. The DPOS and Coin smart contracts will automatically be added into `genesis.json`.
 
 ```shell
 loom init
@@ -90,7 +90,7 @@ Next we generate public/private keys for an example account.
 loom genkey -a pubkey -k privkey
 ```
 
-Then we need to make sure some initial coins on the blockchain are given out so that we have some voting power. To do this we need to modify `genesis.json` and change the `init` section of the coin contract.
+Then we need to make sure some initial coins on the blockchain are given out so that we have some voting power. To do this we need to modify `genesis.json` and change the `init` section of the Coin contract configuration.
 
 ```json
 {
@@ -124,13 +124,13 @@ We can check the witness list at any time by running the `list_validators` subco
 loom dpos list_validators
 ```
 
-In order to run for a validator seat we need to register. For this example, we'll just register ourselves.
+In order to run for a validator seat we need to register. For this example we'll just register ourselves.
 
 ```shell
 loom dpos register_candidate <public key>
 ```
 
-Then we'll vote for ourselves giving all of our vote allocation, which is 21 votes.
+Then we'll vote for ourselves, giving all of our vote allocation, which is 21 votes.
 
 ```shell
 loom dpos vote <local address> 21
@@ -142,7 +142,7 @@ Finally we'll run the election, which we've rigged :).
 loom dpos elect
 ```
 
-To verify this we can check the validator list again to see that it's changed.
+To verify that we've been elected we can check the validator list again to see that it's changed.
 
 ```shell
 loom dpos list_validators
