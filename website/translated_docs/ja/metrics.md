@@ -59,7 +59,7 @@ curl 127.0.0.1:9999/metrics
 # TYPE loomchain_query_service_request_count counter
 loomchain_query_service_request_count{error="false",method="Nonce"} 2
 loomchain_query_service_request_count{error="true",method="Query"} 2
-# HELP loomchain_query_service_request_latency_microseconds Total duration of requests in microseconds.
+# HELP loomchain_query_service_request_latency_microseconds ミリ秒単位での全リクエストの合計時間。
 # TYPE loomchain_query_service_request_latency_microseconds summary
 loomchain_query_service_request_latency_microseconds{error="false",method="Nonce",quantile="0.5"} 1.0352e-05
 loomchain_query_service_request_latency_microseconds{error="false",method="Nonce",quantile="0.9"} 2.4728e-05
@@ -74,15 +74,15 @@ loomchain_query_service_request_latency_microseconds_count{error="true",method="
 
 ```
 
-## Monitoring Metrics
+## メトリクスのモニタリング
 
-Loom does not store the metrics but only exposes the metric values at the moment. To get metrics, you can either poll the metrics from the endpoint to your monitoring system or you can use [Prometheus](https://prometheus.io/docs/prometheus/latest/installation/).
+Loomはメトリクスを格納しないのだが、その時点でのメトリック値の公開のみ行なっている。 メトリクスの取得には、エンドポイントからモニタリングシステムへメトリクスのポーリングを行うか、もしくは[Prometheus](https://prometheus.io/docs/prometheus/latest/installation/)を使用することもできる。
 
-You can also visualize the metrics using tools like [Grafana](https://grafana.com/) or [Kibana](https://www.elastic.co/products/kibana).
+また[Grafana](https://grafana.com/)や[Kibana](https://www.elastic.co/products/kibana)のようなツールを使用して、メトリクスを可視化することもできる。
 
 ### Prometheus
 
-To configure prometheus server, add the following to your config file:
+Prometheusサーバーを設定するために、以下を設定ファイルに追加しよう:
 
 ```yaml
 scrape_configs:
@@ -91,14 +91,14 @@ scrape_configs:
     scrape_interval: "2s"
     static_configs:
     - targets:
-      - 127.0.0.1:9999 # The IP address to the query server host
+      - 127.0.0.1:9999 # クエリサーバーホストへのIPアドレス
 ```
 
 ## 全メトリクスのリスト
 
-The following are the list of metrics exposed by Loom SDK:
+以下はLoom SDKによって公開されるメトリクスのリストだ:
 
-| Metrics                                                  | Type    | Description                                      |
-| -------------------------------------------------------- | ------- | ------------------------------------------------ |
-| loomchain_query_service_request_count                | Counter | Number of query requests received                |
-| loomchain_query_service_request_latency_microseconds | Summary | Total duration of query requests in microseconds |
+| メトリクス                                                    | タイプ     | 説明                   |
+| -------------------------------------------------------- | ------- | -------------------- |
+| loomchain_query_service_request_count                | Counter | 受け取ったクエリリクエスト数       |
+| loomchain_query_service_request_latency_microseconds | Summary | ミリ秒単位でのクエリリクエストの合計時間 |
