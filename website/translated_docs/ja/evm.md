@@ -299,7 +299,7 @@ func main() {
 }
 ```
 
-The .proto file for generating the message declarations looks like
+メッセージの宣言を生成する .protoファイルはこのようになる。
 
 ```proto
 syntax = "proto3";
@@ -312,10 +312,9 @@ message WrapValue {
 }
 ```
 
-Lets look at the SetValue function first. The function to call to run a smart contract on the EVM is ```go contractpb.CallEVM(ctx Context, addr loom.Address, input []byte, output *[]byte) error
+まずSetValue関数を見ていこう。EVM上のスマートコントラクトを実行するよう呼び出す関数は ```go contractpb.CallEVM(ctx Context, addr loom.Address, input []byte, output *[]byte) error
 
-    The context is just passed though, for setting the output can just be a dummy
-    object. We need to the address of the solidity contract, and the correct
+    このコンテキストは単純に渡されているが、出力を設定するにはダミーオブジェクトとなりうるものだ。 We need to the address of the solidity contract, and the correct
     input.
     
     The Context contains a Registry that allows us to get the address of a
