@@ -54,19 +54,19 @@ Currently votes never expire, however, one can imagine a scenario in which votes
 
 `registerCandidate`
 
-Register a candidate to be a validator.
+バリデーター候補者の登録
 
 `unregisterCandidate`
 
-Unregister a candidate to be a validator.
+バリデーター候補者の登録削除
 
 `vote`
 
-Vote for a particular candidate.
+ある特定の候補者へ投票
 
 `proxyVote`
 
-Proxy your votes to another account.
+自分の投票権を別のアカウントに委任する
 
 `unproxyVote`
 
