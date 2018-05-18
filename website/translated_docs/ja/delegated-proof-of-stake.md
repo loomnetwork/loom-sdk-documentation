@@ -30,11 +30,11 @@ Delegated proof of stake(DPoS)のアルゴリズムでは、トークン所有�
 
 ## 選挙
 
-十分な時間が経過していれば、ネットワークへトランザクションを送信することでどのアカウントも選挙をトリガすることができる。 バリデーターは、投票された票の力を合計した上位N人の候補者を取り上げることで選出される。Nは初期パラメーターで指定されたバリデーターカウントである。 これはつまり、結局のところ得票数に関係なく、全バリデーターがブロック提案の機会を等しく持つということだ。 If the mininum number of power required specified by the minimum power fraction is not reached then the validator set does not change.
+十分な時間が経過していれば、ネットワークへトランザクションを送信することでどのアカウントも選挙をトリガすることができる。 バリデーターは、投票された票の力を合計した上位N人の候補者を取り上げることで選出される。Nは初期パラメーターで指定されたバリデーターカウントである。 これはつまり、結局のところ得票数に関係なく、全バリデーターがブロック提案の機会を等しく持つということだ。 もし最小の投票割合によって指定された必要投票力の最小値に達しなかった場合、バリデーターセットは変更されない。
 
 ## 今後の改善
 
-### Validator Rewards
+### バリデーターの報酬
 
 Validators are not directly paid for their work now. In the future a scheme could be developed to allow validators to be paid out for proposing and/or validating blocks.
 
