@@ -10,7 +10,7 @@ Delegated proof of stake(DPoS)のアルゴリズムでは、トークン所有�
 
 **バリデーターカウント** - 選出可能なバリデーター数。
 
-**Vote allocation** - Number of votes each coin account gets. By default this is equal to the number of validators.
+**票の割り当て** - 各コインアカウントに与えられる票の数。デフォルトではバリデーター数に等しい。
 
 **Cycle length** - How long the election cycle is. By default this is 1 week.
 
