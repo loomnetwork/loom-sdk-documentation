@@ -115,15 +115,13 @@ DAppチェーンのEVMと対話するには、現在3つの方法がある。
     これは完了時にデプロイ済みコントラクトよりレスポンスを返すこととなる。
     
     ## ユーザープラグインから
-    DAppチェーンのEVMにデプロイされたコントラクトは、ユーザーが作成したプラグインから呼び出すことができる。 The wrapstore example in go-loom gives and example of 
-    how to achieve this. 
+    DAppチェーンのEVMにデプロイされたコントラクトは、ユーザーが作成したプラグインから呼び出すことができる。 go-loomでラップされたストアの例は、これを実現する方法の例となる。 
     
-    Before continuing let's consider the various modules involved.
+    続きをやる前に、関連する様々なモジュールについて考えてみよう。
     
-    * User application. This is the end user application that initiates 
-    transactions on the DAppChain. 
+    * ユーザーアプリケーション。 これはエンド ユーザーのアプリケーションで、DAppチェーン上でのトランザクションを引き起こす。 
     
-    * DAppChain. Receives transactions from the user application and forwards to 
+    * DAppチェーン。 Receives transactions from the user application and forwards to 
     the appropriate contract to run. Also commits results to the 
     blockchain.
     
