@@ -145,13 +145,13 @@ loom genkey -a pubkey -k privkey
 loom run
 ```
 
-To send transactions to the network we can use the example-cli from the [go-loom project](https://github.com/loomnetwork/go-loom). This can be built by running
+ネットワークへトランザクションを送信するために、[go-loom project](https://github.com/loomnetwork/go-loom)よりexample-cliを使用することができる。これは以下を実行することで構築可能だ:
 
 ```shell
 make example-cli
 ```
 
-We can check the witness list at any time by running the `list_witnesses` subcommand.
+`list_witnesses`サブコマンドを実行することで、いつでも証人リストをチェックすることができる。
 
 ```shell
 ./example-cli call list_witnesses
@@ -170,19 +170,19 @@ We can also check our balance and the balance of the dpos contract at any time.
 ./example-cli call balance dpos
 ```
 
-In order to run for a witness seat we need to register on the blockchain. For this example we'll just register ourselves.
+証人に立候補するには、ブロックチェーン上での登録が必要となる。この例では、単に自分自身を登録しよう。
 
 ```shell
 ./example-cli call register_candidate <public key> -k privkey
 ```
 
-Then we'll vote for ourselves, giving all of our vote allocation, which is 21 votes.
+そうしたら自分自身に投票してみよう。21の割り当て票全てを投票する。
 
 ```shell
 ./example-cli call vote <your address> 21 -k privkey
 ```
 
-Finally we'll run the election, which we've rigged :).
+最後に自分で仕組んだ選挙を実行する ^o^
 
 ```shell
 ./example-cli call elect -k privkey
