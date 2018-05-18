@@ -112,6 +112,30 @@ Then we need to make sure some initial coins on the blockchain are given out so 
         },
 ```
 
+We also need to tweak the DPOS settings for this example so we can run an election right now instead of waiting a full election cycle for votes to come in. We do this by changing the `electionCycleLength` in `genesis.json` to ``.
+
+```json
+        {
+            "vm": "plugin",
+            "format": "plugin",
+            "name": "dpos",
+            "location": "dpos:1.0.0",
+            "init": {
+                "params": {
+                    "witnessCount": "21",
+                    "electionCycleLength": "0",
+                    "minPowerFraction": "5"
+                },
+                "validators": [
+                    {
+                        "pubKey": "<your validator public key>",
+                        "power": "10"
+                    }
+                ]
+            }
+        }
+```
+
 We then boot the blockchain which will initialize the Coin and DPOS smart contracts.
 
 ```shell
