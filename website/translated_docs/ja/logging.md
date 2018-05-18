@@ -24,12 +24,12 @@ Loom SDKには2タイプのログがある。 1つ目は、ブロックチェー
 
 ### ログ出力先の設定
 
-Currently a file target is supported for the loom logs.
+現在Loomログ用にファイルターゲットがサポートされてている。
 
-    LogDestination: "file://loom.log" # loom.log is also the default target
+    LogDestination: "file://loom.log" # loom.log は同じくデフォルトターゲット
     
 
-To log to stderr, specify the destination as `file://-`
+ログを標準エラー出力するには、出力先を`file://-`と指定しよう。
 
 ## コントラクトのロギング
 
