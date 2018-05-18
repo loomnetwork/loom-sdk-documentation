@@ -2,148 +2,178 @@
 id: delegated-proof-of-stake
 title: Delegated Proof of Stake
 ---
-Delegated proof of stake(DPoS)のアルゴリズムでは、トークン所有者がバリデーターを選出することができる。これらのバリデーターは、再選出が行われるまでの標準期間中その役割を務める。
+Delegated proof of stake(DPoS)のアルゴリズムでは、トークン所有者が証人を選出することができる。 証人はバリデーターとして、ブロックの提案とトランザクションが正当であるかの検証を行う。 これらの証人は、再選出が行われるまでの標準期間中その役割を務める。
 
 ## パラメーター
 
-**Coin contract address** - Specifies which ERC20-like coin contract to use to calculate the power of a vote. By default this is resolved to the address at `coin`.
+**Coin contract address** - ERC-20のようなコインのコントラクトを指定し、一票の力を計算するのに使用する。デフォルトではこれは`coin`のアドレスがリゾルブされる。
 
-**バリデーターカウント** - 選出可能なバリデーター数。
+**Witness count** - 選出可能な証人数。
 
-**Vote allocation** - Number of votes each coin account gets. By default this is equal to the number of validators.
+<**Vote allocation** - 各コインアカウントに与えられる票の数。デフォルトでは証人数に等しい。
 
-**Cycle length** - How long the election cycle is. By default this is 1 week.
+**Election cycle length** - 選挙期間の長さ。デフォルトでは１週間。
 
-**Minimum power fraction** - How much of the coin supply needs to have voted for elections to be considered valid. For example, a value of 5 corresponds to 20% of the coin supply needing to have voted.
+**Minimum power fraction** - 選挙を有効とみなすには、コイン供給量のうちどれくらい投票される必要があるか。 例えば、5 の値は投票に必要なコイン供給の20%に相当する。
 
-## Candidate Registration
+## 候補者登録
 
-All candidates must register by specifying the public key matching their address.
+すべての候補者は、自分のアドレスに一致する公開鍵を指定して登録を行わなくてはならない。
 
 ## 投票
 
-Each coin account has up to a specified number of votes, generally equal to the number of validators. However, the power of each vote is proportional to the balance of coins the account holds. This ensures that accounts with more at stake have a greater voice in how the network is run. In the current implementation votes do not expire. This means that unless a vote is explicitly changed it is assumed that the account holder is satisfied with the job of the validator and will get receive the account holder's vote again in the next election. Unlike traditional elections, voting can be done any time so there is no "election day", however votes are not counted until the election time.
+各コインのアカウントは、ある決まった票数を持っており、通常これは証人数に等しい。 しかし各票の持つ力は、そのアカウントが保有しているコイン残高に比例する。 こうしてより多くのステイクを持つアカウントが、ネットワーク運営についてより大きな発言権を持つことが保証される。 現在の実装では、投票に有効期限はない。 つまり投票が明らかに変更されない限り、アカウント所有者は証人の仕事に満足していると想定し、次の選挙でも再びアカウント所有者からの投票がを受け取ることとなる。 従来の選挙とは違っていつでも投票が行えるため「投票日」というものはないのだが、選挙時まで投票がカウントされることはない。
 
-### Proxying Votes
+### 投票の委任
 
-In addition to voting directly for validator candidates, accounts can also proxy their vote to a trusted party. This means the proxy ends up with a vote power proportional to `proxy balance + sum(balance of principals)`.
+証人候補者への直接投票に加え、アカウントはさらに自分の票を信頼された者に委任することが可能だ。 これは結局のところ、委任票は`proxy balance + sum(balance of principals)`に比例する一票の力を持つことになるという意味だ。
 
-## Elections
+## 選挙
 
-Any account can trigger an election if enough time has passed by sending a transaction to the network. Validators are elected by summing up the total voting power given to them and taking the top N candidates where N is the validator count specified in the initial parameters. This means that all validators end up with an equal chance of proposing a block no matter how many votes they received. If the mininum number of power required specified by the minimum power fraction is not reached then the validator set does not change.
+十分な時間が経過していれば、ネットワークへトランザクションを送信することでどのアカウントも選挙をトリガすることができる。 証人は、投票された票の力を合計した上位N人の候補者を取り上げることで選出される。Nは初期パラメーターで指定された証人数である。 これはつまり、結局のところ得票数に関係なく、全証人がブロック提案の機会を等しく持つということだ。 もし最小の投票割合によって指定された必要投票力の最小値に達しなかった場合、証人セットは変更されない。
 
-## Future Improvements
+## 今後の改善
 
-### Validator Rewards
+### 証人の報酬
 
-Validators are not directly paid for their work now. In the future a scheme could be developed to allow validators to be paid out for proposing and/or validating blocks.
+現在証人に直接仕事の対価が支払われることはない。将来ブロックの提案や検証に対して証人に支払いができるよう、スキームを発展させて行く可能性がある。
 
-### Proof of Authority
+### 認証の証明
 
-Right now candidates do not have to proof their identity, but in the future it may be useful to enable on-chain notarization to verify candidates' identities.
+今現在、候補者は彼らのアイデンティティを証明する必要はない。だが候補者のアイデンティティを検証するよう、オンチェーンのノータリゼーションを可能にすると、将来役立つかもしれない。
 
-### Alternating Election Cycle
+### 選挙周期の変更
 
-Currently all validators are up for reelection at every election. It may be better to have an election cycle that differs from the term length.
+現在全ての証人は毎回選挙時に再選出候補となっている。選挙期間の長さとは異なる選挙周期がある方が良いかもしれない。
 
-### Vote Expiration
+### 投票の有効期限
 
-Currently votes never expire, however, one can imagine a scenario in which votes expire after a certain time period. This would prevent lost or stolen accounts from having undue influence in elections. This can be done either by looking at the time the vote was cast or by looking at the last activity on the account.
+現在投票に有効期限はないが、ただし投票が一定期間後に期限切れとなるシナリオを想像することができる。 こうすることで、紛失もしくは盗まれたアカウントが選挙に過度の影響力を持つようになるのを防げる。 これは投票がなされた時間のチェック、もしくはアカウントの最後のアクティビティのチェックのどちらでも行うことができる。
 
-## Contract Transactions
+## コントラクトのトランザクション
 
 `registerCandidate`
 
-Register a candidate to be a validator.
+証人候補者の登録
 
 `unregisterCandidate`
 
-Unregister a candidate to be a validator.
+証人候補者の登録取り消し
 
 `vote`
 
-Vote for a particular candidate.
+ある特定の候補者へ投票
 
 `proxyVote`
 
-Proxy your votes to another account.
+自分の投票権を別のアカウントに委任する
 
 `unproxyVote`
 
-Unproxy your votes.
+投票委任の取り消し
 
 `elect`
 
-Run the election.
+選挙の実行
 
-## Example CLI Usage
+## CLI 活用サンプル
 
-To get started we first need to initialize the blockchain. The DPOS and Coin smart contracts will automatically be added into `genesis.json`.
+スタートするには、まずブロックチェーンを初期化することが必要だ。DPoSとコインのスマートコントラクトは自動的に`genesis.json`へと追加される。
 
 ```shell
 loom init
 ```
 
-Next we generate public/private keys for an example account.
+次にサンプルアカウントに公開/秘密鍵を生成しよう。
 
 ```shell
 loom genkey -a pubkey -k privkey
 ```
 
-Then we need to make sure some initial coins on the blockchain are given out so that we have some voting power. To do this we need to modify `genesis.json` and change the `init` section of the Coin contract configuration.
+そしたら、ブロックチェーン上の初期コインが我々が投票力を持てるように分配されているか、確認する必要がある。 これを行うには、`genesis.json`の修正と、コインコントラクト設定の`init`セクションの変更が必要だ。
 
 ```json
-{
-    "vm": "plugin",
-    "format": "plugin",
-    "name": "coin",
-    "location": "coin:1.0.0",
-    "init": {
-        "accounts": [
-            {
-                "owner": {
-                    "chain_id": "local",
-                    "local": "<local address in base64 from genkey>",
-                },
-                "balance": 10
+        {
+            "vm": "plugin",
+            "format": "plugin",
+            "name": "coin",
+            "location": "coin:1.0.0",
+            "init": {
+                "accounts": [
+                    {
+                        "owner": {
+                            "chain_id": "default",
+                            "local": "<local address in base64 from genkey>"
+                        },
+                        "balance": 10
+                    }
+                ]
             }
-        ]
-    }
-},
+        },
 ```
 
-We then boot the blockchain which will initialize the coin and DPOS smart contracts.
+We also need to tweak the DPOS settings for this example so we can run an election right now instead of waiting a full election cycle for votes to come in. We do this by changing the `electionCycleLength` in `genesis.json` to ``.
+
+```json
+        {
+            "vm": "plugin",
+            "format": "plugin",
+            "name": "dpos",
+            "location": "dpos:1.0.0",
+            "init": {
+                "params": {
+                    "witnessCount": "21",
+                    "electionCycleLength": "0",
+                    "minPowerFraction": "5"
+                },
+                "validators": [
+                    {
+                        "pubKey": "<your validator public key>",
+                        "power": "10"
+                    }
+                ]
+            }
+        }
+```
+
+そうしたら、ブロックチェーンを起動してコインとDPoSのスマートコントラクトを初期化しよう。
 
 ```shell
 loom run
 ```
 
-We can check the witness list at any time by running the `list_validators` subcommand.
+ネットワークへトランザクションを送信するために、[go-loom project](https://github.com/loomnetwork/go-loom)よりexample-cliを使用することができる。これは以下を実行することで構築可能だ:
 
 ```shell
-loom dpos list_validators
+make example-cli
 ```
 
-In order to run for a validator seat we need to register. For this example we'll just register ourselves.
+`list_witnesses`サブコマンドを実行することで、いつでも証人リストをチェックすることができる。
 
 ```shell
-loom dpos register_candidate <public key>
+./example-cli call list_witnesses
 ```
 
-Then we'll vote for ourselves, giving all of our vote allocation, which is 21 votes.
+証人に立候補するには、ブロックチェーン上での登録が必要となる。この例では、単に自分自身を登録しよう。
 
 ```shell
-loom dpos vote <local address> 21
+./example-cli call register_candidate <public key> -k privkey
 ```
 
-Finally we'll run the election, which we've rigged :).
+そうしたら自分自身に投票してみよう。21の割り当て票全てを投票する。
 
 ```shell
-loom dpos elect
+./example-cli call vote <local address> 21 -k privkey
 ```
 
-To verify that we've been elected we can check the validator list again to see that it's changed.
+最後に自分で仕組んだ選挙を実行する ^o^
 
 ```shell
-loom dpos list_validators
+./example-cli call elect -k privkey
+```
+
+自分が選出されたことを検証するには、証人リストが変更されているか再度チェックすることが可能だ。
+
+```shell
+./example-cli call list_witnesses
 ```

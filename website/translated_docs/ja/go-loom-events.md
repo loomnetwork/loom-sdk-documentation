@@ -1,24 +1,24 @@
 ---
 id: goloomevents
-title: Emitting events from go-loom contracts
-sidebar_label: Emitting events
+title: go-loomコントラクトからのイベントの発生
+sidebar_label: イベントの発生
 ---
-## Emitting events from go-plugins
+## go-pluginsからのイベントの発生
 
-The loom sdk gives gives a facility for the contracts to emit events that can be used for multiple purposes such as indexng. Currently the loom sdk supports emitting events into a Redis sorted set.
+Loom SDKはコントラクトにイベントを発生させる機能を提供しており、これはインデックスなどの複数の目的で使用することができる。 現在Loom SDKは、Redisのソート済みセットへのイベント出力をサポートしている。
 
-### Configuring the loom sdk
+### Loom SDKの設定
 
-By default the loom-sdk will only emit events to the log. To configure it to send it to a redis sorted set, add the following line to the loom.yaml config file.
+loom-sdkは、デフォルトではログにイベントを出力するのみとなっている。これを設定してRedisのソート済みセットへ出力するには、次の１行を設定ファイルloom.yamlに追加しよう。
 
     EventDispatcherURI: "redis://localhost:6379"
     
 
-This will start emitting events to the redis server in a sorted set called `loomevents`. Each event is added to the sorted set with the score being the blockchain height.
+こうして、Redisサーバーへ`loomevents`というソート済みセットにてイベントが出力されるようになる。 各イベントは、ブロックの高さのスコアでソートされたセットへと追加される。
 
-### Emitting events
+### イベントの発生
 
-The code snippet below shows sample code for emitting events from the contract.
+以下のコードスニペットは、コントラクトからイベントを発生させるサンプルコードである。
 
 ```go
     emitMsg := struct {
@@ -33,11 +33,11 @@ The code snippet below shows sample code for emitting events from the contract.
     ctx.Emit(emitMsgJSON)
 ```
 
-### Event structure
+### イベントの構造
 
-The event JSON shown above is wrapped in some transaction specific metadata before being emitted to the event stream. The other fields in the metadata include Called address, the contract address, the contract name and the raw transaction request data.
+上に示したイベントのJSONデータは、イベントストリームへ出力される前に、あるトランザクション固有のメタデータでラップされる。 メタデータの他のフィールドには、呼び出しアドレス、コントラクトアドレス、コントラクト名とトランザクションリクエストのローデータが含まれている。
 
-Below is an example of the full message that goes into redis -
+以下はRedisへ出力される完全なメッセージの例である -
 
 ```json
 {
@@ -55,11 +55,11 @@ Below is an example of the full message that goes into redis -
 }
 ```
 
-The `rawRequest` and the `encodedData` are base64 encoded with a standard encoding.
+`rawRequest`及び`encodedData`は標準エンコーディングを使用したBase64でエンコードされている。
 
-### Sample indexer
+### サンプルのインデクサー
 
-A sample tool which reads from the event stream and puts messages into elasticsearch can be written as below
+イベント ストリームからの読み取りとelasticsearchへのメッセージの記録を行うサンプルツールは、以下のように書くことができる。
 
 ```go
 package main

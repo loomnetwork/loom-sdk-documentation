@@ -32,11 +32,21 @@ public class LoomQuickStartSample : MonoBehavior
 {
     Contract GetContract(byte[] privateKey, byte[] publicKey)
     {
-        var client = new DAppChainClient("http://localhost:46658", "http://localhost:9999")
+        var writer = RPCClientFactory.Configure()
+            .WithLogger(Debug.unityLogger)
+            .WithHTTP("http://127.0.0.1:46658/rpc")
+            .Create();
+
+        var reader = RPCClientFactory.Configure()
+            .WithLogger(Debug.unityLogger)
+            .WithHTTP("http://127.0.0.1:46658/query")
+            .Create();
+
+        var client = new DAppChainClient(writer, reader)
         {
             Logger = Debug.unityLogger
         };
-        // required middleware
+        // ミドルウェアを要求
         client.TxMiddleware = new TxMiddleware(new ITxMiddlewareHandler[]{
             new NonceTxMiddleware{
                 PublicKey = publicKey,
@@ -44,10 +54,10 @@ public class LoomQuickStartSample : MonoBehavior
             },
             new SignedTxMiddleware(privateKey)
         });
-        // address of the `helloworld` smart contract on the Loom DAppChain
+        // `helloworld`スマートコントラクトのDAppチェーン上のアドレス
         var contractAddr = Address.FromHexString("0x005B17864f3adbF53b1384F2E6f2120c6652F779");
         var callerAddr = Address.FromPublicKey(publicKey);
-        return new Contract(client, contractAddr, "helloworld", callerAddr);
+        return new Contract(client, contractAddr, callerAddr);
     }
 }
 ```

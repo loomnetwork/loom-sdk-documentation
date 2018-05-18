@@ -43,12 +43,12 @@ function getContract(privateKey, publicKey) {
     'ws://127.0.0.1:46657/websocket',
     'ws://127.0.0.1:9999/queryws'
   )
-  // required middleware
+  // ミドルウェアを要求
   client.txMiddleware = [
     new NonceTxMiddleware(publicKey, client),
     new SignedTxMiddleware(privateKey)
   ]
-  // address of the `helloworld` smart contract on the Loom DAppChain
+  // `helloworld`スマートコントラクトのLoom DAppチェーン上のアドレス
   const contractAddr = new Address(
     client.chainId,
     LocalAddress.fromHexString('0x005B17864f3adbF53b1384F2E6f2120c6652F779')
@@ -56,8 +56,6 @@ function getContract(privateKey, publicKey) {
   const callerAddr = new Address(client.chainId, LocalAddress.fromPublicKey(publicKey))
   return new Contract({
     contractAddr,
-    // the name of the smart contract at `contractAddr`
-    contractName: 'BluePrint',
     callerAddr,
     client
   })

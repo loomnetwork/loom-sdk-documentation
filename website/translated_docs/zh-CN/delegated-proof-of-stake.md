@@ -2,17 +2,17 @@
 id: delegated-proof-of-stake
 title: Delegated Proof of Stake
 ---
-The delegated proof of stake algorithm allows token holders to elect validators. These validators serve a standard term length before being subject to elections again.
+The delegated proof of stake algorithm allows token holders to elect witnesses. Witnesses act as validators of the blockchain, proposing blocks and verifying that transactions are correct. These witnesses serve a standard term length before being subject to elections again.
 
 ## Parameters
 
 **Coin contract address** - Specifies which ERC20-like coin contract to use to calculate the power of a vote. By default this is resolved to the address at `coin`.
 
-**Validator count** - The number of validators that can be elected.
+**Witness count** - The number of witnesses that can be elected.
 
-**Vote allocation** - Number of votes each coin account gets. By default this is equal to the number of validators.
+**Vote allocation** - Number of votes each coin account gets. By default this is equal to the number of witnesses.
 
-**Cycle length** - How long the election cycle is. By default this is 1 week.
+**Election cycle length** - How long the election cycle is. By default this is 1 week.
 
 **Minimum power fraction** - How much of the coin supply needs to have voted for elections to be considered valid. For example, a value of 5 corresponds to 20% of the coin supply needing to have voted.
 
@@ -22,21 +22,21 @@ All candidates must register by specifying the public key matching their address
 
 ## Voting
 
-Each coin account has up to a specified number of votes, generally equal to the number of validators. However, the power of each vote is proportional to the balance of coins the account holds. This ensures that accounts with more at stake have a greater voice in how the network is run. In the current implementation votes do not expire. This means that unless a vote is explicitly changed it is assumed that the account holder is satisfied with the job of the validator and will get receive the account holder's vote again in the next election. Unlike traditional elections, voting can be done any time so there is no "election day", however votes are not counted until the election time.
+Each coin account has up to a specified number of votes, generally equal to the number of witnesses. However, the power of each vote is proportional to the balance of coins the account holds. This ensures that accounts with more at stake have a greater voice in how the network is run. In the current implementation votes do not expire. This means that unless a vote is explicitly changed it is assumed that the account holder is satisfied with the job of the witness and will receive the account holder's vote again in the next election. Unlike traditional elections, voting can be done any time so there is no "election day", however votes are not counted until the election time.
 
 ### Proxying Votes
 
-In addition to voting directly for validator candidates, accounts can also proxy their vote to a trusted party. This means the proxy ends up with a vote power proportional to `proxy balance + sum(balance of principals)`.
+In addition to voting directly for witness candidates, accounts can also proxy their vote to a trusted party. This means the proxy ends up with a vote power proportional to `proxy balance + sum(balance of principals)`.
 
 ## Elections
 
-Any account can trigger an election if enough time has passed by sending a transaction to the network. Validators are elected by summing up the total voting power given to them and taking the top N candidates where N is the validator count specified in the initial parameters. This means that all validators end up with an equal chance of proposing a block no matter how many votes they received. If the mininum number of power required specified by the minimum power fraction is not reached then the validator set does not change.
+Any account can trigger an election if enough time has passed by sending a transaction to the network. Witnesses are elected by summing up the total voting power given to them and taking the top N candidates where N is the witness count specified in the initial parameters. This means that all witnesses end up with an equal chance of proposing a block no matter how many votes they received. If the mininum number of power required specified by the minimum power fraction is not reached then the witness set does not change.
 
 ## Future Improvements
 
-### Validator Rewards
+### Witness Rewards
 
-Validators are not directly paid for their work now. In the future a scheme could be developed to allow validators to be paid out for proposing and/or validating blocks.
+Witnesses are not directly paid for their work now. In the future a scheme could be developed to allow witnesses to be paid out for proposing and/or validating blocks.
 
 ### Proof of Authority
 
@@ -44,7 +44,7 @@ Right now candidates do not have to proof their identity, but in the future it m
 
 ### Alternating Election Cycle
 
-Currently all validators are up for reelection at every election. It may be better to have an election cycle that differs from the term length.
+Currently all witnesses are up for reelection at every election. It may be better to have an election cycle that differs from the term length.
 
 ### Vote Expiration
 
@@ -54,11 +54,11 @@ Currently votes never expire, however, one can imagine a scenario in which votes
 
 `registerCandidate`
 
-Register a candidate to be a validator.
+Register a candidate to be a witness.
 
 `unregisterCandidate`
 
-Unregister a candidate to be a validator.
+Unregister a candidate to be a witness.
 
 `vote`
 
@@ -93,57 +93,87 @@ loom genkey -a pubkey -k privkey
 Then we need to make sure some initial coins on the blockchain are given out so that we have some voting power. To do this we need to modify `genesis.json` and change the `init` section of the Coin contract configuration.
 
 ```json
-{
-    "vm": "plugin",
-    "format": "plugin",
-    "name": "coin",
-    "location": "coin:1.0.0",
-    "init": {
-        "accounts": [
-            {
-                "owner": {
-                    "chain_id": "local",
-                    "local": "<local address in base64 from genkey>",
-                },
-                "balance": 10
+        {
+            "vm": "plugin",
+            "format": "plugin",
+            "name": "coin",
+            "location": "coin:1.0.0",
+            "init": {
+                "accounts": [
+                    {
+                        "owner": {
+                            "chain_id": "default",
+                            "local": "<local address in base64 from genkey>"
+                        },
+                        "balance": 10
+                    }
+                ]
             }
-        ]
-    }
-},
+        },
 ```
 
-We then boot the blockchain which will initialize the coin and DPOS smart contracts.
+We also need to tweak the DPOS settings for this example so we can run an election right now instead of waiting a full election cycle for votes to come in. We do this by changing the `electionCycleLength` in `genesis.json` to ``.
+
+```json
+        {
+            "vm": "plugin",
+            "format": "plugin",
+            "name": "dpos",
+            "location": "dpos:1.0.0",
+            "init": {
+                "params": {
+                    "witnessCount": "21",
+                    "electionCycleLength": "0",
+                    "minPowerFraction": "5"
+                },
+                "validators": [
+                    {
+                        "pubKey": "<your validator public key>",
+                        "power": "10"
+                    }
+                ]
+            }
+        }
+```
+
+We then boot the blockchain which will initialize the Coin and DPOS smart contracts.
 
 ```shell
 loom run
 ```
 
-We can check the witness list at any time by running the `list_validators` subcommand.
+To send transactions to the network we can use the example-cli from the [go-loom project](https://github.com/loomnetwork/go-loom). This can be built by running
 
 ```shell
-loom dpos list_validators
+make example-cli
 ```
 
-In order to run for a validator seat we need to register. For this example we'll just register ourselves.
+We can check the witness list at any time by running the `list_witnesses` subcommand.
 
 ```shell
-loom dpos register_candidate <public key>
+./example-cli call list_witnesses
+```
+
+In order to run for a witness seat we need to register on the blockchain. For this example we'll just register ourselves.
+
+```shell
+./example-cli call register_candidate <public key> -k privkey
 ```
 
 Then we'll vote for ourselves, giving all of our vote allocation, which is 21 votes.
 
 ```shell
-loom dpos vote <local address> 21
+./example-cli call vote <local address> 21 -k privkey
 ```
 
 Finally we'll run the election, which we've rigged :).
 
 ```shell
-loom dpos elect
+./example-cli call elect -k privkey
 ```
 
-To verify that we've been elected we can check the validator list again to see that it's changed.
+To verify that we've been elected we can check the witness list again to see that it's changed.
 
 ```shell
-loom dpos list_validators
+./example-cli call list_witnesses
 ```
