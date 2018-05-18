@@ -157,13 +157,13 @@ make example-cli
 ./example-cli call list_witnesses
 ```
 
-First we'll fund the dpos contract so that witnesses can get paid. This is simply a transfer to the `dpos` contract.
+まずdposコントラクトに資金を提供して、証人が支払いを受け取れるようにしよう。単純に`dpos`コントラクトに送金をする。
 
 ```shell
 ./example-cli call transfer dpos 90 -k privkey
 ```
 
-We can also check our balance and the balance of the dpos contract at any time.
+またいつでも自分の残高およびdposコントラクトの残高をチェックすることができる。
 
 ```shell
 ./example-cli call balance <your address>
@@ -188,13 +188,13 @@ We can also check our balance and the balance of the dpos contract at any time.
 ./example-cli call elect -k privkey
 ```
 
-To verify that we've been elected we can check the witness list again to see that it's changed.
+自分が選出されたことを検証するには、証人リストが変更されているか再度チェックすることが可能だ。
 
 ```shell
 ./example-cli call list_witnesses
 ```
 
-We can run the election again and verify we were paid for our service.
+もう一度選挙を実行して、自分に支払いが行われたかを検証することができる。
 
 ```shell
 ./example-cli call elect -k privkey
