@@ -114,10 +114,8 @@ DAppチェーンのEVMと対話するには、現在3つの方法がある。
 
     これは完了時にデプロイ済みコントラクトよりレスポンスを返すこととなる。
     
-    ## From a user plugin
-    
-    Smart contracts deployed on a DAppChain's EVM can be called from 
-    user created plugins. The wrapstore example in go-loom gives and example of 
+    ## ユーザープラグインから
+    DAppチェーンのEVMにデプロイされたコントラクトは、ユーザーが作成したプラグインから呼び出すことができる。 The wrapstore example in go-loom gives and example of 
     how to achieve this. 
     
     Before continuing let's consider the various modules involved.
