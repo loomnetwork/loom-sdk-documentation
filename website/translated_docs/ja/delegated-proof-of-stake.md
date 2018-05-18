@@ -14,15 +14,15 @@ Delegated proof of stake(DPoS)のアルゴリズムでは、トークン所有�
 
 **サイクルレングス** - 選挙期間の長さ。デフォルトでは１週間。
 
-**最小の投票割合** - 選挙を有効とみなすには、コイン供給量のうちどれくらい投票される必要があるか。 For example, a value of 5 corresponds to 20% of the coin supply needing to have voted.
+**最小の投票割合** - 選挙を有効とみなすには、コイン供給量のうちどれくらい投票される必要があるか。 例えば、5 の値は投票に必要なコイン供給の20%に相当する。
 
-## Candidate Registration
+## 候補者登録
 
 All candidates must register by specifying the public key matching their address.
 
 ## 投票
 
-Each coin account has up to a specified number of votes, generally equal to the number of validators. However, the power of each vote is proportional to the balance of coins the account holds. This ensures that accounts with more at stake have a greater voice in how the network is run. In the current implementation votes do not expire. This means that unless a vote is explicitly changed it is assumed that the account holder is satisfied with the job of the validator and will get receive the account holder's vote again in the next election. Unlike traditional elections, voting can be done any time so there is no "election day", however votes are not counted until the election time.
+各コインのアカウントは、ある決まった票数を持っており、通常これはバリデーター数に等しい。 しかし各票の持つ力は、そのアカウントが保有しているコイン残高に比例する。 This ensures that accounts with more at stake have a greater voice in how the network is run. In the current implementation votes do not expire. This means that unless a vote is explicitly changed it is assumed that the account holder is satisfied with the job of the validator and will get receive the account holder's vote again in the next election. Unlike traditional elections, voting can be done any time so there is no "election day", however votes are not counted until the election time.
 
 ### Proxying Votes
 
