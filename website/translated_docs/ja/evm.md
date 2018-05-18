@@ -314,18 +314,16 @@ message WrapValue {
 
 まずSetValue関数を見ていこう。EVM上のスマートコントラクトを実行するよう呼び出す関数は ```go contractpb.CallEVM(ctx Context, addr loom.Address, input []byte, output *[]byte) error
 
-    このコンテキストは単純に渡されているが、出力を設定するにはダミーオブジェクトとなりうるものだ。 We need to the address of the solidity contract, and the correct
-    input.
+    ここではコンテキストが単に渡されているが、outputを設定するにはダミーとすることが可能だ。 またSolidityコントラクトとインプットを渡すことが必要だ。
     
-    The Context contains a Registry that allows us to get the address of a
-    contract from it's name.
+    このContextはレジストリを含み、コントラクトのアドレスをその名前から取得することを可能にする。
     ```go
     ssAddr, err := ctx.Resolve("SimpleStore")
     
 
-The input is passed straight though to the EVM and needs to be encoded as laid out in the [Solidity ABI documentation](https://solidity.readthedocs.io/en/develop/abi-spec.html).
+このインプットはEVMへ直接渡されているが、[Solidity ABIドキュメンテーション](https://solidity.readthedocs.io/en/develop/abi-spec.html)にあるようにエンコードされる必要がある。 
 
-### ABI encoding of parameters
+### パラメーターのABIエンコーディング
 
 So for our input we need to encode it to something like
 
