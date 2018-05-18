@@ -22,9 +22,9 @@ Delegated proof of stake(DPoS)のアルゴリズムでは、トークン所有�
 
 ## 投票
 
-各コインのアカウントは、ある決まった票数を持っており、通常これはバリデーター数に等しい。 しかし各票の持つ力は、そのアカウントが保有しているコイン残高に比例する。 こうしてより多くのステイクを持つアカウントが、ネットワーク運営についてより大きな発言権を持つことが保証される。 現在の実装では、投票に有効期限はない。 This means that unless a vote is explicitly changed it is assumed that the account holder is satisfied with the job of the validator and will get receive the account holder's vote again in the next election. Unlike traditional elections, voting can be done any time so there is no "election day", however votes are not counted until the election time.
+各コインのアカウントは、ある決まった票数を持っており、通常これはバリデーター数に等しい。 しかし各票の持つ力は、そのアカウントが保有しているコイン残高に比例する。 こうしてより多くのステイクを持つアカウントが、ネットワーク運営についてより大きな発言権を持つことが保証される。 現在の実装では、投票に有効期限はない。 つまり投票が明らかに変更されない限り、アカウント所有者はバリデーターの仕事に満足していると想定し、次の選挙でも再びアカウント所有者からの投票が受理されることとなる。 従来の選挙とは違っていつでも投票が行えるため「投票日」というものはないのだが、選挙時まで投票がカウントされることはない。
 
-### Proxying Votes
+### 投票の委任
 
 In addition to voting directly for validator candidates, accounts can also proxy their vote to a trusted party. This means the proxy ends up with a vote power proportional to `proxy balance + sum(balance of principals)`.
 
