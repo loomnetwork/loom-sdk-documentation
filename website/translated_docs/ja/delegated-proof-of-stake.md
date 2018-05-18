@@ -18,21 +18,21 @@ Delegated proof of stake(DPoS)のアルゴリズムでは、トークン所有�
 
 ## 候補者登録
 
-All candidates must register by specifying the public key matching their address.
+すべての候補者は、自分のアドレスに一致する公開鍵を指定して登録を行わなくてはならない。
 
 ## 投票
 
-各コインのアカウントは、ある決まった票数を持っており、通常これはバリデーター数に等しい。 しかし各票の持つ力は、そのアカウントが保有しているコイン残高に比例する。 This ensures that accounts with more at stake have a greater voice in how the network is run. In the current implementation votes do not expire. This means that unless a vote is explicitly changed it is assumed that the account holder is satisfied with the job of the validator and will get receive the account holder's vote again in the next election. Unlike traditional elections, voting can be done any time so there is no "election day", however votes are not counted until the election time.
+各コインのアカウントは、ある決まった票数を持っており、通常これはバリデーター数に等しい。 しかし各票の持つ力は、そのアカウントが保有しているコイン残高に比例する。 こうしてより多くのステイクを持つアカウントが、ネットワーク運営についてより大きな発言権を持つことが保証される。 現在の実装では、投票に有効期限はない。 This means that unless a vote is explicitly changed it is assumed that the account holder is satisfied with the job of the validator and will get receive the account holder's vote again in the next election. Unlike traditional elections, voting can be done any time so there is no "election day", however votes are not counted until the election time.
 
 ### Proxying Votes
 
 In addition to voting directly for validator candidates, accounts can also proxy their vote to a trusted party. This means the proxy ends up with a vote power proportional to `proxy balance + sum(balance of principals)`.
 
-## Elections
+## 選挙
 
 Any account can trigger an election if enough time has passed by sending a transaction to the network. Validators are elected by summing up the total voting power given to them and taking the top N candidates where N is the validator count specified in the initial parameters. This means that all validators end up with an equal chance of proposing a block no matter how many votes they received. If the mininum number of power required specified by the minimum power fraction is not reached then the validator set does not change.
 
-## Future Improvements
+## 今後の改善
 
 ### Validator Rewards
 
