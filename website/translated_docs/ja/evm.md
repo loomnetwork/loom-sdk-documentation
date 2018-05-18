@@ -368,20 +368,20 @@ Solidityをコンパイルすると、EVM上で動くバイトコードだけで
   ]
 ```
 
-"github.com/ethereum/go-ethereum/accounts/abi"とこのABI文字列を使って、インプットをエンコードすることができる。 The key function is [abi.JSON](https://godoc.org/github.com/obscuren/go-ethereum/accounts/abi#JSON)
+"github.com/ethereum/go-ethereum/accounts/abi"とこのABI文字列を使って、インプットをエンコードすることができる。 [abi.JSON](https://godoc.org/github.com/obscuren/go-ethereum/accounts/abi#JSON)はここでの重要な関数である。
 
 ```go
     abiSimpleStore, err := abi.JSON(strings.NewReader(SimpleStoreABI))
     input, err := abiSimpleStore.Pack("set", big.NewInt(value.Value))
 ```
 
-Here we have the SimpleContract ABI in the `SimpleStoreABI` variable. We could either read it in from a file, or hard code into the source.
+ここでは変数`SimpleStoreABI`の中にSimpleContract ABIがある。ファイルから読み取るのも、もしくはソース内にハードコードするのもどちらも可能だ。
 
-The Pack method takes the function signature and a list of the arguments and returns the encoded input.
+Packメソッドは関数シグネチャと引数リストを受け取り、エンコードされたインプットを返す。
 
-### Putting it together
+### まとめ
 
-Ok now we know how to get the input, and contact address we can give an example of our SetValue method. Error checking removed for clarity.
+これでインプットの取得方法とSetValueメソッドのサンプルに与えることができるコントラクトアドレスがわかった。エラーチェックはわかりやすさのため割愛した。
 
 ```go
 func (c *WrapStore) SetValue(ctx contractpb.Context, value *types.WrapValue) error {
@@ -395,7 +395,7 @@ func (c *WrapStore) SetValue(ctx contractpb.Context, value *types.WrapValue) err
 }
 ```
 
-The evmOut function is a dummy. This function could be called in Go using Go-loom with.
+evmOut関数はダミーである。この関数はGo-loomを使ってGoで呼び出すことができる。
 
 ```go
     rpcClient := client.NewDAppChainRPCClient(chainId, writeUri, readUri)
@@ -407,7 +407,7 @@ The evmOut function is a dummy. This function could be called in Go using Go-loo
 
 ```
 
-The GetValue function now works in a similar fashion. The only difference is that we now have to unwrap the output from the solidity contract and return it in a WrapValue message.
+GetValue関数も同じような方法で動くようになっている。唯一の違いは、今度はSolidityコントラクトからの出力をアンラップして、WrapValueメッセージ形式で返す必要があるということだ。
 
 ```go
 import (
