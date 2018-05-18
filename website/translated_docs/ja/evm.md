@@ -138,20 +138,18 @@ DAppチェーンのEVMと対話するには、現在3つの方法がある。
     
     ユーザーは2つのコードを提供する。 それはスマートコントラクトと、DAppチェーンを使用するエンドアプリケーションだ。
     
-    In the following we will assume that Go is being used for the end
-    application and the smart contracts are written either in Go for plugins or
-    solidity for EVM. Refer to loom-js-quickstart.md for a javascript solution.
+    以下では、Goがエンドアプリケーションに使用されていること、さらにスマートコントラクトがプラグイン用のGo、もしくはEVM用のSolidity、このどちらかで書かれていることと仮定していく。 javaScript向けのソリューションは、loom-js-quickstart.mdを参照のこと。
     
-    ### Minimal plugin
+    ### 最小限のプラグイン
     
-    First lets look at the definition of a contract in Go-loom.
+    まず、Go-loomでのコントラクト定義について見ていこう。
     ```go
     type Contract interface {
         Meta() (plugin.Meta, error)
     }
     
 
-and plugin.Meta is defined from a protobuf definition
+そしてplugin.Metaはprotobufにより定義されている。
 
 ```go
 type ContractMeta struct {
