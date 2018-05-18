@@ -240,11 +240,11 @@ message HelloResponse {
 3. ワイヤータイプのHelloRequestとHelloResponseは、呼び出し中のコントラクトメソッドの入力および出力パラメーターと一致しなくてはならない。
 4. `Hello`メソッドを呼び出す。Helloメソッドは静的コンテキストを持っているので、StaticCallを使っている。
 
-## Calling solidity contract
+## Solidityコントラクトの呼び出し
 
-Now we have had a quick review of implementing plugins we can look at accessing smart contracts deployed on the DAppChain's EVM from a plugin.
+プラグインの実装を簡単に見直したので、今度はプラグインからDAppチェーンのEVMにデプロイされたスマートコントラクトにアクセスすることについてやっていこう。
 
-First we we assume we have deployed this simple solidity contract on the DAppChain's EVM.
+最初に、この簡単なSolidityコントラクトをDAppチェーンのEVMにデプロイしたと仮定しよう。
 
 ```solidity
 pragma solidity ^0.4.18;
@@ -261,7 +261,7 @@ contract SimpleStore {
 }
 ```
 
-We will look at a simple plugin that wraps this solidity contract. So our plugin will have two functions SetValue and GetValue that will just pass data between the SimpleStore contract and the transaction initiator. As it wraps this SimpleStore we will call it WrapStore.
+このSolidityコントラクトをラップする簡単なプラグインを見ていこう。 So our plugin will have two functions SetValue and GetValue that will just pass data between the SimpleStore contract and the transaction initiator. As it wraps this SimpleStore we will call it WrapStore.
 
 Here is the outline as for the WrapStore contract, with stubs added for the SetValue and GetValue methods.
 
