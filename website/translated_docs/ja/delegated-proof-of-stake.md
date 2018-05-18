@@ -36,23 +36,23 @@ Delegated proof of stake(DPoS)のアルゴリズムでは、トークン所有�
 
 ## 今後の改善
 
-## Bonding
+## 保証金
 
 In the future witnesses may lock up a specified number of coins that can be seized for bad behavior. This adds an additional incentive for good behavior beyond the witness salary.
 
-### Proof of Authority
+### 認証の証明
 
 今現在、候補者は彼らのアイデンティティを証明する必要はない。だが候補者のアイデンティティを検証するよう、オンチェーンのノータリゼーションを可能にすると、将来役立つかもしれない。
 
-### Alternating Election Cycle
+### 選挙周期の変更
 
 現在全ての証人は毎回選挙時に再選出候補となっている。選挙期間の長さとは異なる選挙周期がある方が良いかもしれない。
 
-### Vote Expiration
+### 投票の有効期限
 
 現在投票に有効期限はないが、ただし投票が一定期間後に期限切れとなるシナリオを想像することができる。 こうすることで、紛失もしくは盗まれたアカウントが選挙に過度の影響力を持つようになるのを防げる。 これは投票がなされた時間のチェック、もしくはアカウントの最後のアクティビティのチェックのどちらでも行うことができる。
 
-## Contract Transactions
+## コントラクトのトランザクション
 
 `registerCandidate`
 
@@ -78,7 +78,7 @@ In the future witnesses may lock up a specified number of coins that can be seiz
 
 選挙の実行
 
-## Example CLI Usage
+## CLI 活用サンプル
 
 スタートするには、まずブロックチェーンを初期化することが必要だ。DPoSとコインのスマートコントラクトは自動的に`genesis.json`へと追加される。
 
