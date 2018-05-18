@@ -237,8 +237,8 @@ message HelloResponse {
 
 1. クライアントを作成し、そのURLでDAppチェーンへのアクセスできるようにする。
 2. 名前とアドレスからスマートコントラクトのハンドルを取得する。
-3. The wire type HelloRequest and HelloResponse have to match the input and output parameters of the contract's method we are calling.
-4. Call the `Hello` method. We sue StaticCall as the Hello method has a static context.
+3. ワイヤータイプのHelloRequestとHelloResponseは、呼び出し中のコントラクトメソッドの入力および出力パラメーターと一致しなくてはならない。
+4. `Hello`メソッドを呼び出す。Helloメソッドは静的コンテキストを持っているので、StaticCallを使っている。
 
 ## Calling solidity contract
 
