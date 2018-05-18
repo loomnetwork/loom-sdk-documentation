@@ -30,13 +30,13 @@ Delegated proof of stake(DPoS)のアルゴリズムでは、トークン所有�
 
 ## 選挙
 
-十分な時間が経過していれば、ネットワークへトランザクションを送信することでどのアカウントも選挙をトリガすることができる。 証人は、投票された票の力を合計した上位N人の候補者を取り上げることで選出される。Nは初期パラメーターで指定された証人数である。 これはつまり、結局のところ得票数に関係なく、全証人がブロック提案の機会を等しく持つということだ。 If the mininum number of power required specified by the minimum power fraction is not reached then the witness set does not change.
+十分な時間が経過していれば、ネットワークへトランザクションを送信することでどのアカウントも選挙をトリガすることができる。 証人は、投票された票の力を合計した上位N人の候補者を取り上げることで選出される。Nは初期パラメーターで指定された証人数である。 これはつまり、結局のところ得票数に関係なく、全証人がブロック提案の機会を等しく持つということだ。 もし最小の投票割合によって指定された必要投票力の最小値に達しなかった場合、証人セットは変更されない。
 
 ## 今後の改善
 
-### Witness Rewards
+### 証人の報酬
 
-Witnesses are not directly paid for their work now. In the future a scheme could be developed to allow witnesses to be paid out for proposing and/or validating blocks.
+現在証人に直接仕事の対価が支払われることはない。将来ブロックの提案や検証に対して証人に支払いができるよう、スキームを発展させて行く可能性がある。
 
 ### 認証の証明
 
@@ -44,7 +44,7 @@ Witnesses are not directly paid for their work now. In the future a scheme could
 
 ### 選挙周期の変更
 
-Currently all witnesses are up for reelection at every election. It may be better to have an election cycle that differs from the term length.
+現在全ての証人は毎回選挙時に再選出候補となっている。選挙期間の長さとは異なる選挙周期がある方が良いかもしれない。
 
 ### 投票の有効期限
 
@@ -54,11 +54,11 @@ Currently all witnesses are up for reelection at every election. It may be bette
 
 `registerCandidate`
 
-Register a candidate to be a witness.
+証人候補者の登録
 
 `unregisterCandidate`
 
-Unregister a candidate to be a witness.
+証人候補者の登録取り消し
 
 `vote`
 
@@ -118,37 +118,37 @@ loom genkey -a pubkey -k privkey
 loom run
 ```
 
-To send transactions to the network we can use the example-cli from the [go-loom project](https://github.com/loomnetwork/go-loom). This can be built by running
+ネットワークへトランザクションを送信するために、[go-loom project](https://github.com/loomnetwork/go-loom)よりexample-cliを使用することができる。これは以下を実行することで構築可能だ:
 
 ```shell
 make example-cli
 ```
 
-We can check the witness list at any time by running the `list_witnesses` subcommand.
+`list_witnesses`サブコマンドを実行することで、いつでも証人リストをチェックすることができる。
 
 ```shell
 ./example-cli call list_witnesses
 ```
 
-In order to run for a witness seat we need to register on the blockchain. For this example we'll just register ourselves.
+証人に立候補するには、ブロックチェーン上での登録が必要となる。この例では、単に自分自身を登録しよう。
 
 ```shell
 ./example-cli call register_candidate <public key> -k privkey
 ```
 
-Then we'll vote for ourselves, giving all of our vote allocation, which is 21 votes.
+そうしたら自分自身に投票してみよう。21の割り当て票全てを投票する。
 
 ```shell
 ./example-cli call vote <local address> 21 -k privkey
 ```
 
-Finally we'll run the election, which we've rigged :).
+最後に自分で仕組んだ選挙を実行する ^o^
 
 ```shell
 ./example-cli call elect -k privkey
 ```
 
-To verify that we've been elected we can check the witness list again to see that it's changed.
+自分が選出されたことを検証するには、証人リストが変更されているか再度チェックすることが可能だ。
 
 ```shell
 ./example-cli call list_witnesses
