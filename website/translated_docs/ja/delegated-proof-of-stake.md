@@ -124,25 +124,25 @@ loom run
 loom dpos list_validators
 ```
 
-バリデーターの立場で実行するには、登録が必要となる。この例では、単に自分自身を登録しよう。
+バリデーターに立候補するには、登録が必要となる。この例では、単に自分自身を登録しよう。
 
 ```shell
 loom dpos register_candidate <public key>
 ```
 
-Then we'll vote for ourselves, giving all of our vote allocation, which is 21 votes.
+そうしたら自分自身に投票してみよう。21の割り当て票全てを投票する。
 
 ```shell
 loom dpos vote <local address> 21
 ```
 
-Finally we'll run the election, which we've rigged :).
+最後に自分で仕組んだ選挙を実行する ^o^
 
 ```shell
 loom dpos elect
 ```
 
-To verify that we've been elected we can check the validator list again to see that it's changed.
+自分が選出されたことを検証するには、バリデーターリストが変更されているか再度チェックすることが可能だ。
 
 ```shell
 loom dpos list_validators
