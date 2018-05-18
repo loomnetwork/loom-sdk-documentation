@@ -158,7 +158,7 @@ type ContractMeta struct {
 }
 ```
 
-So all a contract needs is to implement the Meta function. However to be usable as a plugin in a DAppChain there are a few other bits. Here is a minimal example.
+なので全コントラクトに必要なのはメタ関数の実装だ。しかし、DAppチェーンでプラグインとして使用できるようにするにはその他もいくつか必要だ。ここにあるのは最小限の例である。
 
 ```go
 package main
@@ -185,7 +185,7 @@ func main() {
 }
 ```
 
-Here are some points of interest. 1. First the contract has to be package main. 2. Define our contract called HelloWorld as a struct. 3. Implement the `Meta()` function, returning the contracts name and version number. 4. The variable `Contract` needs to be defined. The function `contract
+ここにはいくつか興味深い点がある。 1. First the contract has to be package main. 2. Define our contract called HelloWorld as a struct. 3. Implement the `Meta()` function, returning the contracts name and version number. 4. The variable `Contract` needs to be defined. The function `contract
 .MakePluginContract` converts our simple outline into an object that a DAppChain can communicate with. 5. The main routine can then sets the contract up as a working server.
 
 Of course our contract has no functionality so can't do anything. The next step is to add some. The MakePluginContract function can then use reflection to learn any new methods we give to our contract.
