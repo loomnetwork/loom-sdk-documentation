@@ -37,33 +37,33 @@ There are currently three ways to interact with the DAppChain's EVM.
     
     ] }
 
-    There are two contracts in the top array. The first is an EVM contract, and 
+    There are two contracts in the top array. The first is an EVM contract, and
     the second one is a plugin.
-    * `vm:` The virtual machine used to run the contract. Currently there are two 
+    * `vm:` The virtual machine used to run the contract. Currently there are two
     options.
       1. `plugin`   User created contracts.
       2. `EVM`      contract run on DAppChains EVM.
-    * `format` The nature of the smart contract's input file in the contracts 
+    * `format` The nature of the smart contract's input file in the contracts
     directory.
       1. `plugin`   User plugin, can be produced by `go-loom`.
       2. `truffle`  Solidity program, compiled using truffles compiler.
       3. `solidity` Solidity program, compiled using solc.
       4. `hex`
-    * `name` This name can be used to retrieve the address of the contract 
+    * `name` This name can be used to retrieve the address of the contract
     assigned by loom or the EVM.
-    * `location` Versioned name of the file binary file located in the contracts 
+    * `location` Versioned name of the file binary file located in the contracts
     directory. For truffle and solidity it might be necessary to give the full path.
     
     So in this example the loom DAppChain will take the bytecode from the truffle
-    compilation of our SimpleStore solidity contract. It will then deploy it on 
-    the chain's EVM. Confirmation and the contracts address will be available in 
+    compilation of our SimpleStore solidity contract. It will then deploy it on
+    the chain's EVM. Confirmation and the contracts address will be available in
     loom's logging information.
     
     ## Deploy and run from command line
     
-    The loom command line tool has two commands for interacting with the 
+    The loom command line tool has two commands for interacting with the
     chains's EVM.
-    * `deploy` This will deploy a smart contract in EVM bytecode onto the chain's 
+    * `deploy` This will deploy a smart contract in EVM bytecode onto the chain's
     EVM.
     * `call` This will call a method on an already deployed EVM smart contract.
     
@@ -96,7 +96,7 @@ Example:
   
 If everything works you should see something like: ```text New contract deployed with address: default:0xB448D7db27192d54FeBdA458B81e7383F8641c8A Runtime bytecode: [96 96 96 64 82 96 .... ]
 
-    The output contract address can be used to call a method on the contract in 
+    The output contract address can be used to call a method on the contract in
     the call command.
     
     ### Call
@@ -126,40 +126,40 @@ Example ```text call -a ./data/pub -k ./data/pri -i ./cmd/loom/data/inputGet.bin
     
     ## From a user plugin
     
-    Smart contracts deployed on a DAppChain's EVM can be called from 
-    user created plugins. The wrapstore example in go-loom gives and example of 
-    how to achieve this. 
+    Smart contracts deployed on a DAppChain's EVM can be called from
+    user created plugins. The wrapstore example in go-loom gives and example of
+    how to achieve this.
     
     Before continuing let's consider the various modules involved.
     
-    * User application. This is the end user application that initiates 
-    transactions on the DAppChain. 
+    * User application. This is the end user application that initiates
+    transactions on the DAppChain.
     
-    * DAppChain. Receives transactions from the user application and forwards to 
-    the appropriate contract to run. Also commits results to the 
+    * DAppChain. Receives transactions from the user application and forwards to
+    the appropriate contract to run. Also commits results to the
     blockchain.
     
-    * Smart contracts. These are written by the user and deployed on the DAppChain. 
+    * Smart contracts. These are written by the user and deployed on the DAppChain.
     There are two main types.
-        1. Plugins. These can be written in any language supported by gRPC; 
-        go-loom allows easy use of contracts written in Go, and loom-js for 
-        javascript. The plugin is compiled into an executable that the DAppChain 
+        1. Plugins. These can be written in any language supported by gRPC;
+        go-loom allows easy use of contracts written in Go, and loom-js for
+        javascript. The plugin is compiled into an executable that the DAppChain
         calls using gRPC.
         2. EVM smart contracts. Solidity programs or any other code that compiles
          into EVM  bytecode can be run by the DAppChain using its EVM.
     
-    Plugins can run other contracts including ones deployed on the EVM by calling 
-    back to the DAppChain using gRPC. The reverse however is not true however, 
-    ECM deployed contracts can only interact within the EVM, this is to ensure that
+    Plugins can run other contracts including ones deployed on the EVM by calling
+    back to the DAppChain using gRPC. The reverse however is not true however,
+    EVM deployed contracts can only interact within the EVM, this is to ensure that
     the EVM's results are deterministic.
     
     ### User code
     
-    The user provides two items of code. The smart contracts and 
+    The user provides two items of code. The smart contracts and
     the end application that make use of the DAppChain.
     
-    In the following we will assume that Go is being used for the end 
-    application and the smart contracts are written either in Go for plugins or 
+    In the following we will assume that Go is being used for the end
+    application and the smart contracts are written either in Go for plugins or
     solidity for EVM. Refer to loom-js-quickstart.md for a javascript solution.
     
     ### Minimal plugin
@@ -259,7 +259,7 @@ The following code fragment shows how to call the Hello function of our Hello Wo
 
 1. Create a client that can talk to our DAppChain using its url.
 2. Get a handle to our smart contract, from its name and address.
-3. The wire type HelloRequest adn HelloResponse have to match the input and output parameters of the contract's method we are calling. 
+3. The wire type HelloRequest adn HelloResponse have to match the input and output parameters of the contract's method we are calling.
 4. Call the `Hello` method. We sue StaticCall as the Hello method has a static context.
 
 ## Calling solidity contract
@@ -336,11 +336,11 @@ message WrapValue {
 
 Lets look at the SetValue function first. The function to call to run a smart contract on the EVM is ```go contractpb.CallEVM(ctx Context, addr loom.Address, input []byte, output *[]byte) error
 
-    The context is just passed though, for setting the output can just be a dummy 
-    object. We need to the address of the solidity contract, and the correct 
+    The context is just passed though, for setting the output can just be a dummy
+    object. We need to the address of the solidity contract, and the correct
     input.
     
-    The Context contains a Registry that allows us to get the address of a 
+    The Context contains a Registry that allows us to get the address of a
     contract from it's name.
     ```go
     ssAddr, err := ctx.Resolve("SimpleStore")
@@ -440,7 +440,7 @@ import (
     "github.com/ethereum/go-ethereum/common"
     "github.com/loomnetwork/go-loom/examples/plugins/wrapstore/types"
     "github.com/loomnetwork/go-loom/plugin"
-    "github.com/loomnetwork/go-loom/plugin/contractpb"  
+    "github.com/loomnetwork/go-loom/plugin/contractpb"
     "math/big"
     "strings"
     "strconv"
