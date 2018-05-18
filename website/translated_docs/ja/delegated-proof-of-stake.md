@@ -26,7 +26,7 @@ Delegated proof of stake(DPoS)のアルゴリズムでは、トークン所有�
 
 ### 投票の委任
 
-In addition to voting directly for validator candidates, accounts can also proxy their vote to a trusted party. This means the proxy ends up with a vote power proportional to `proxy balance + sum(balance of principals)`.
+バリデーター候補者への直接投票に加え、アカウントはさらに自分の票を信頼された者に委任することが可能だ。 This means the proxy ends up with a vote power proportional to `proxy balance + sum(balance of principals)`.
 
 ## 選挙
 
