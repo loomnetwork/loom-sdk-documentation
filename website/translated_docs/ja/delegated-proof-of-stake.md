@@ -58,7 +58,7 @@ Currently votes never expire, however, one can imagine a scenario in which votes
 
 `unregisterCandidate`
 
-バリデーター候補者の登録削除
+バリデーター候補者の登録取り消し
 
 `vote`
 
@@ -70,13 +70,13 @@ Currently votes never expire, however, one can imagine a scenario in which votes
 
 `unproxyVote`
 
-Unproxy your votes.
+投票委任の取り消し
 
 `elect`
 
-Run the election.
+選挙の実行
 
-## Example CLI Usage
+## CLI 活用サンプル
 
 To get started we first need to initialize the blockchain. The DPOS and Coin smart contracts will automatically be added into `genesis.json`.
 
