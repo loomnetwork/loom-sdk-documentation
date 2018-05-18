@@ -112,43 +112,67 @@ loom genkey -a pubkey -k privkey
         },
 ```
 
-そうしたら、ブロックチェーンを起動してコインとDPoSのスマートコントラクトを初期化しよう。
+We also need to tweak the DPOS settings for this example so we can run an election right now instead of waiting a full election cycle for votes to come in. We do this by changing the `electionCycleLength` in `genesis.json` to ``.
+
+```json
+        {
+            "vm": "plugin",
+            "format": "plugin",
+            "name": "dpos",
+            "location": "dpos:1.0.0",
+            "init": {
+                "params": {
+                    "witnessCount": "21",
+                    "electionCycleLength": "0",
+                    "minPowerFraction": "5"
+                },
+                "validators": [
+                    {
+                        "pubKey": "<your validator public key>",
+                        "power": "10"
+                    }
+                ]
+            }
+        }
+```
+
+We then boot the blockchain which will initialize the Coin and DPOS smart contracts.
 
 ```shell
 loom run
 ```
 
-ネットワークへトランザクションを送信するために、[go-loom project](https://github.com/loomnetwork/go-loom)よりexample-cliを使用することができる。これは以下を実行することで構築可能だ:
+To send transactions to the network we can use the example-cli from the [go-loom project](https://github.com/loomnetwork/go-loom). This can be built by running
 
 ```shell
 make example-cli
 ```
 
-`list_witnesses`サブコマンドを実行することで、いつでも証人リストをチェックすることができる。
+We can check the witness list at any time by running the `list_witnesses` subcommand.
 
 ```shell
 ./example-cli call list_witnesses
 ```
 
-証人に立候補するには、ブロックチェーン上での登録が必要となる。この例では、単に自分自身を登録しよう。
+In order to run for a witness seat we need to register on the blockchain. For this example we'll just register ourselves.
 
 ```shell
 ./example-cli call register_candidate <public key> -k privkey
 ```
 
-そうしたら自分自身に投票してみよう。21の割り当て票全てを投票する。
+Then we'll vote for ourselves, giving all of our vote allocation, which is 21 votes.
 
 ```shell
 ./example-cli call vote <local address> 21 -k privkey
 ```
 
-最後に自分で仕組んだ選挙を実行する ^o^
+Finally we'll run the election, which we've rigged :).
 
 ```shell
 ./example-cli call elect -k privkey
 ```
 
-自分が選出されたことを検証するには、証人リストが変更されているか再度チェックすることが可能だ。
+To verify that we've been elected we can check the witness list again to see that it's changed.
 
 ```shell
 ./example-cli call list_witnesses
