@@ -36,9 +36,9 @@ Any account can trigger an election if enough time has passed by sending a trans
 
 ## Future Improvements
 
-### Witness Rewards
+## Bonding
 
-Witnesses are not directly paid for their work now. In the future a scheme could be developed to allow witnesses to be paid out for proposing and/or validating blocks.
+In the future witnesses may lock up a specified number of coins that can be seized for bad behavior. This adds an additional incentive for good behavior beyond the witness salary.
 
 ### Proof of Authority
 
