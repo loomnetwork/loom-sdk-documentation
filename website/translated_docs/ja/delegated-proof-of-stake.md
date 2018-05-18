@@ -6,7 +6,7 @@ Delegated proof of stake(DPoS)のアルゴリズムでは、トークン所有�
 
 ## パラメーター
 
-**Coin contract address** - Specifies which ERC20-like coin contract to use to calculate the power of a vote. By default this is resolved to the address at `coin`.
+**コインのコントラクトアドレス** - ERC-20のようなコインのコントラクトを指定し、一票の力を計算するのに使用する。デフォルトではこれは`coin`のアドレスがリゾルブされる。
 
 **バリデーターカウント** - 選出可能なバリデーター数。
 
