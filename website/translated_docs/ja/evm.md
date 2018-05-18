@@ -11,7 +11,7 @@ Loom DAppチェーンはイーサリアム仮想マシン(EVM)を含み、EVMバ
 
 EVMを構成するのは、データベース及びEVMバイトコードインタプリタである。
 
-The interpreter runs EVM bytecode and is specially designed for creating secure deterministic programs suitable for blockchains. The most popular language for coding EVM smart contracts is Solidity, however any language that compiles to EVM bytecode can be run by the EVM interpreter.
+このインタプリタはEVMのバイトコードを実行し、ブロックチェーンに適した安全な決定的プログラムを作るために特別に設計されている。 The most popular language for coding EVM smart contracts is Solidity, however any language that compiles to EVM bytecode can be run by the EVM interpreter.
 
 The database is keyed by addresses for each of the programs that have been deployed on the EVM. The value contains the program's bytecode and any associated data.
 
@@ -21,13 +21,13 @@ DAppチェーンのEVMと対話するには、現在3つの方法がある。
 
 1. スマートコントラクトは、ブロックチェーンの初期起動時にデプロイできる。
 2. Loomのコマンドラインツールは、スマートコントラクトのデプロイ、またはすでにデプロイ済みのコントラクト上のメソッドの呼び出しを可能にする。
-3. Another smart contract, either an EVM contract or a plugin contract, can call methods on an already deployed EVM contract.
+3. EVMコントラクトもしくはプラグインコントラクトのどちらからでも、既にデプロイ済みの別のEVMコントラクト上のメソッドを呼び出すことができる。
     
-    An EVM smart contract is deployed to a DAppChain in the form of compiled bytecode. このためチェーンは親言語を認識しない。 Parameters to solidity smart contract method calls are encoded with the Application Binary Interface (ABI) [documented on the solidity website](https://solidity.readthedocs.io/en/develop/abi-spec.html). The ABI can get quite complex, however ethereum implementations should, as we see later, give function to support parameter generation.
+    EVMスマートコントラクトは、コンパイルされたバイトコード形式でDAppチェーンにデプロイされる。 このためチェーンは親言語を認識しない。 Solidityのスマートコントラクトメソッドの呼び出しパラメーターは、[Solidityのウェブサイトに記載されている](https://solidity.readthedocs.io/en/develop/abi-spec.html)アプリケーションバイナリインターフェイス (ABI) でエンコードされる。 このABIは非常に複雑になるのだが、後ほど取り上げるように、イーサリアムの実装はパラメーター生成をサポートする関数を与えなくてはならない。
     
     ## 立ち上げ時のデプロイ
     
-    Contracts can be deployed on an DAppChain on boot up, by putting the compiled code in the contracts directory and linking the `genesis.json` file.
+    コンパイル済みのコードをコントラクトディレクトリ内に配置し`genesis.json` ファイルをリンクすることで、立ち上げ時のDAppチェーンにデプロイすることができる。
     
     これはジェネシス・ファイルのサンプルだ。 ```json { "contracts": [ { "vm": "EVM", "format": "truffle", "name": "SimpleStore", "location": "/path/to/loomchain/contracts/SimpleStore.json" }, { "vm": "plugin", "format": "plugin", "name": "wrapstore", "location": "wrapstore:1.0.0", "init": {
     
@@ -37,33 +37,25 @@ DAppチェーンのEVMと対話するには、現在3つの方法がある。
     
     ] }
 
-    配列の先頭に2つのコントラクトがある。 The first is an EVM contract, and
-    the second one is a plugin.
-    * `vm:`コントラクト実行に使用する仮想マシン。 Currently there are two
-    options.
+    配列の先頭に2つのコントラクトがある。 1つ目はEVMコントラクトで、2つ目はプラグインコントラクトだ。
+    * `vm:`コントラクト実行に使用する仮想マシン。 現在2つのオプションがある。
       1. `plugin`   ユーザーがコントラクトを作成。
       2. `EVM`      コントラクトは、DAppチェーンEVM上で実行される。
-    * `format` The nature of the smart contract's input file in the contracts
-    directory.
+    * `format` コントラクトディレクトリ内にあるスマートコントラクトのインプットファイルの性質。
       1. `plugin`   ユーザープラグイン。`go-loom`で作成可能。
       2. `truffle`  truffleのコンパイラを使用してコンパイルされたSolidityプログラム。
       3. `solidity` solcを使用してコンパイルされたSolidityプログラム。
       4. `hex`
-    * `name` This name can be used to retrieve the address of the contract
-    assigned by loom or the EVM.
-    * `location` Versioned name of the file binary file located in the contracts
-    directory. truffleとsolidityには完全なpathを与えなければならない可能性がある。
+    * `name` これはLoomもしくはEVMから割り当てられたコントラクトアドレスを取得するのに使用される。
+    * `location`コントラクトディレクトリ内に配置されたバージョン化されたバイナリファイル名。
+     truffleとsolidityには完全なpathを与えなければならない可能性がある。
     
-    そのためこの例では、Loom DAppチェーンはSolidityコントラクト・SimpleStoreのtruffleコンパイルからバイトコードを受け取ることとなる。 It will then deploy it on
-    the chain's EVM. Confirmation and the contracts address will be available in
-    loom's logging information.
+    そのためこの例では、Loom DAppチェーンはSolidityコントラクト・SimpleStoreのtruffleコンパイルからバイトコードを受け取ることとなる。 そうしてこれをチェーンのEVMにデプロイする。 Loomのログ情報でその確認とコントラクトアドレスが利用可能となる。
     
-    ## Deploy and run from command line
+    ## コマンドラインよりデプロイ及び実行する
     
-    The loom command line tool has two commands for interacting with the
-    chains's EVM.
-    * `deploy` This will deploy a smart contract in EVM bytecode onto the chain's
-    EVM.
+    Loomのコマンドラインツールには、チェーンのEVMと対話するための2つのコマンドがある。
+    * `deploy`チェーンのEVM上に、EVMバイトコードでスマートコントラクトをデプロイする。
     * `call` 既にデプロイ済みのEVMスマートコントラクトにあるメソッドを呼び出す。
     
     ### Deploy
@@ -84,7 +76,7 @@ DAppチェーンのEVMと対話するには、現在3つの方法がある。
       -w, --write string      URI for sending txs (default "http://localhost:46657")
     
 
-The -a and -k flags are used to identify the user with public and private key address files. -b は、コントラクトのEVMローバイトコードを保持しているファイルを提供する。 これは`solc -o outfile.bin myProgram.sol`などのSolidityコンパイラを使用することで生成することができる。
+-a 及び -k のフラグは、公開鍵および秘密鍵のアドレスファイルでユーザーを特定するのに使用される。 -b は、コントラクトのEVMローバイトコードを保持しているファイルを提供する。 これは`solc -o outfile.bin myProgram.sol`などのSolidityコンパイラを使用することで生成することができる。
 
 例: 
 
@@ -95,8 +87,7 @@ The -a and -k flags are used to identify the user with public and private key ad
   
 全てうまく動いていれば、以下が見られるはずだ: ```text New contract deployed with address: default:0xB448D7db27192d54FeBdA458B81e7383F8641c8A Runtime bytecode: [96 96 96 64 82 96 .... ]
 
-    The output contract address can be used to call a method on the contract in
-    the call command.
+    出力されたコントラクトアドレスは、callコマンドでコントラクトのメソッドを呼び出すのに使用できる。
     
     ### Call
     
@@ -117,45 +108,35 @@ The -a and -k flags are used to identify the user with public and private key ad
       -w, --write string           URI for sending txs (default "http://localhost:46657")
     
 
-The -a and -k flags are used to identify the user with public and private key address files. -c はコントラクトアドレスを要求する。 This could be one output from a previous call to `\loom deploy` or retrieved from the start up log. -i は入力文字列だ。 For a solidity contract this will be ABI encoded as described in the [Solidity ABI documentation](https://solidity.readthedocs.io/en/develop/abi-spec.html).
+-a 及び -k のフラグは、公開鍵および秘密鍵のアドレスファイルでユーザーを特定するのに使用される。 -c はコントラクトアドレスを要求する。 これは前述の`\loom deploy`へのコール結果、もしくは立ち上げ時のログから検索したものとなりうる。 -i は入力文字列だ。 Solidityのコントラクトでは、これは[Solidity ABI documentation](https://solidity.readthedocs.io/en/develop/abi-spec.html)で説明されているようにABIにエンコーディングされる。
 
 例 ```text call -a ./data/pub -k ./data/pri -i ./cmd/loom/data/inputGet.bin \ -c default:0xbD770416A3345f91E4b34576Cb804a576Fa48eB1 \ -w http://localhost:46657 -r http://localhost:9999
 
-    On completion this will return the response from the deployed contract,
+    これは完了時にデプロイ済みコントラクトよりレスポンスを返すこととなる。
     
-    ## From a user plugin
-    
-    Smart contracts deployed on a DAppChain's EVM can be called from
-    user created plugins. The wrapstore example in go-loom gives and example of
-    how to achieve this.
+    ## ユーザープラグインから
+    DAppチェーンのEVMにデプロイされたコントラクトは、ユーザーが作成したプラグインから呼び出すことができる。 go-loomでラップされたストアの例は、これを実現する方法の例となる。
     
     続きをやる前に、関連する様々なモジュールについて考えてみよう。
     
-    * ユーザーアプリケーション。 This is the end user application that initiates
-    transactions on the DAppChain.
+    * ユーザーアプリケーション。 これはエンド ユーザーのアプリケーションで、DAppチェーン上でのトランザクションを引き起こす。
     
-    * DAppチェーン。 Receives transactions from the user application and forwards to
-    the appropriate contract to run. Also commits results to the
-    blockchain.
+    * DAppチェーン。 ユーザーアプリケーションからトランザクションを受信し、適切なコントラクトへと転送し実行する。 またブロックチェーンに結果をコミットする。
     
     * スマートコントラクト。 ユーザーによって書かれ、DAppチェーン上にデプロイされる。
     これには2つの主なタイプがある。
-        1. プラグイン。 These can be written in any language supported by gRPC;
-        go-loom allows easy use of contracts written in Go, and loom-js for
-        javascript. The plugin is compiled into an executable that the DAppChain
-        calls using gRPC.
+        1. プラグイン。 RPCでサポートされていれば、どんな言語で書くことも可能だ; 
+        go-loom はGoで書かれたコントラクトの使用を簡単にし、またloom-jsは 
+        javascript向けのものである。 このプラグインはDAppチェーンがgRPCを使って
+        呼び出せるようなものへコンパイルされる。
         2. EVMスマートコントラクト SolidityのプログラムやEVMバイトコードにコンパイルされる
          何か他のコードはDAppチェーンでEVMを使って実行することができる。
     
-    Plugins can run other contracts including ones deployed on the EVM by calling
-    back to the DAppChain using gRPC. The reverse however is not true however,
-    EVM deployed contracts can only interact within the EVM, this is to ensure that
-    the EVM's results are deterministic.
+    プラグインは、EVM上にデプロイ済みのものも含めて他のコントラクトを実行することができる。これはgRPCを使ってDAppチェーンへコールバックするすることで行われる。 逆はしかし真ではない。だがEVMにデプロイされたコントラクトはEVM内でのみやり取りができるので、EVMの結果は決定論的なものとなる。
     
-    ### User code
+    ### ユーザーのコード
     
-    The user provides two items of code. The smart contracts and
-    the end application that make use of the DAppChain.
+    ユーザーは2つのコードを提供する。 それはスマートコントラクトと、DAppチェーンを使用するエンドアプリケーションだ。
     
     In the following we will assume that Go is being used for the end
     application and the smart contracts are written either in Go for plugins or
