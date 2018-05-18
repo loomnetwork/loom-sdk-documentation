@@ -127,9 +127,9 @@ DAppチェーンのEVMと対話するには、現在3つの方法がある。
     これには2つの主なタイプがある。
         1. プラグイン。 RPCでサポートされていれば、どんな言語で書くことも可能だ; 
         go-loom はGoで書かれたコントラクトの使用を簡単にし、またloom-jsは 
-        javascript向けのものである。 The plugin is compiled into an executable that the DAppChain 
-        calls using gRPC.
-        2. EVM smart contracts. Solidity programs or any other code that compiles
+        javascript向けのものである。 このプラグインはDAppチェーンがgRPCを使って
+        呼び出せるようなものへコンパイルされる。
+        2. EVMスマートコントラクト Solidity programs or any other code that compiles
          into EVM  bytecode can be run by the DAppChain using its EVM.
     
     Plugins can run other contracts including ones deployed on the EVM by calling 
