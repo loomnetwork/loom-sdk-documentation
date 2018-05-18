@@ -325,15 +325,15 @@ message WrapValue {
 
 ### パラメーターのABIエンコーディング
 
-So for our input we need to encode it to something like
+そのため、このインプットをこのようなものへエンコードしなくてはならない。
 
 ```text
 60fe47b100000000000000000000000000000000000000000000000000000000000003db
 ```
 
-Don't panic, go-ethereum can help us out.
+心配しなくても大丈夫。
 
-When you compile Solidity you not only get the bytecode that runs on the EVM, but you get a ABI. The ABI is a json object that describes the contracts interface. Here is the ABI for our SimpleStore
+Solidityをコンパイルすると、EVM上で動くバイトコードだけではなくABIも手に入る。ABIはJSONオブジェクトでコントラクトのインターフェースを記述している。これはSimpleStoreのABIだ。
 
 ```json
 [
@@ -368,7 +368,7 @@ When you compile Solidity you not only get the bytecode that runs on the EVM, bu
   ]
 ```
 
-We can use "github.com/ethereum/go-ethereum/accounts/abi" and this ABI string to encode our input. The key function is [abi.JSON](https://godoc.org/github.com/obscuren/go-ethereum/accounts/abi#JSON)
+"github.com/ethereum/go-ethereum/accounts/abi"とこのABI文字列を使って、インプットをエンコードすることができる。 The key function is [abi.JSON](https://godoc.org/github.com/obscuren/go-ethereum/accounts/abi#JSON)
 
 ```go
     abiSimpleStore, err := abi.JSON(strings.NewReader(SimpleStoreABI))
