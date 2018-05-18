@@ -12,7 +12,7 @@ Delegated proof of stake(DPoS)のアルゴリズムでは、トークン所有�
 
 **票の割り当て** - 各コインアカウントに与えられる票の数。デフォルトではバリデーター数に等しい。
 
-**Cycle length** - How long the election cycle is. By default this is 1 week.
+**サイクルレングス** - 選挙期間の長さ。デフォルトでは１週間。
 
 **Minimum power fraction** - How much of the coin supply needs to have voted for elections to be considered valid. For example, a value of 5 corresponds to 20% of the coin supply needing to have voted.
 
