@@ -26,11 +26,11 @@ Delegated proof of stake(DPoS)のアルゴリズムでは、トークン所有�
 
 ### 投票の委任
 
-バリデーター候補者への直接投票に加え、アカウントはさらに自分の票を信頼された者に委任することが可能だ。 This means the proxy ends up with a vote power proportional to `proxy balance + sum(balance of principals)`.
+バリデーター候補者への直接投票に加え、アカウントはさらに自分の票を信頼された者に委任することが可能だ。 これは結局のところ、委任票は`proxy balance + sum(balance of principals)`に比例する一票の力を持つことになるという意味だ。
 
 ## 選挙
 
-Any account can trigger an election if enough time has passed by sending a transaction to the network. Validators are elected by summing up the total voting power given to them and taking the top N candidates where N is the validator count specified in the initial parameters. This means that all validators end up with an equal chance of proposing a block no matter how many votes they received. If the mininum number of power required specified by the minimum power fraction is not reached then the validator set does not change.
+十分な時間が経過していれば、ネットワークへトランザクションを送信することでどのアカウントも選挙をトリガすることができる。 Validators are elected by summing up the total voting power given to them and taking the top N candidates where N is the validator count specified in the initial parameters. This means that all validators end up with an equal chance of proposing a block no matter how many votes they received. If the mininum number of power required specified by the minimum power fraction is not reached then the validator set does not change.
 
 ## 今後の改善
 
