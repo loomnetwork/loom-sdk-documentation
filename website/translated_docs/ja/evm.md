@@ -50,18 +50,15 @@ DAppチェーンのEVMと対話するには、現在3つの方法がある。
     * `location`コントラクトディレクトリ内に配置されたバージョン化されたバイナリファイル名。
      truffleとsolidityには完全なpathを与えなければならない可能性がある。
     
-    そのためこの例では、Loom DAppチェーンはSolidityコントラクト・SimpleStoreのtruffleコンパイルからバイトコードを受け取ることとなる。 そうしてこれをチェーンのEVMにデプロイする。 Confirmation and the contracts address will be available in 
-    loom's logging information.
+    そのためこの例では、Loom DAppチェーンはSolidityコントラクト・SimpleStoreのtruffleコンパイルからバイトコードを受け取ることとなる。 そうしてこれをチェーンのEVMにデプロイする。 Loomのログ情報でその確認とコントラクトアドレスが利用可能となる。
     
     ## コマンドラインよりデプロイ及び実行する
     
-    The loom command line tool has two commands for interacting with the 
-    chains's EVM.
-    * `deploy` This will deploy a smart contract in EVM bytecode onto the chain's 
-    EVM.
-    * `call` This will call a method on an already deployed EVM smart contract.
+    Loomのコマンドラインツールには、チェーンのEVMと対話するための2つのコマンドがある。
+    * `deploy`チェーンのEVM上に、EVMバイトコードでスマートコントラクトをデプロイする。
+    * `call` 既にデプロイ済みのEVMスマートコントラクトにあるメソッドを呼び出す。
     
-    ### Deploy
+    ### デプロイ
     
     ```text
     Deploy a contract
@@ -79,7 +76,7 @@ DAppチェーンのEVMと対話するには、現在3つの方法がある。
       -w, --write string      URI for sending txs (default "http://localhost:46657")
     
 
-The -a and -k flags are used to identify the user with public and private key address files. -b gives the file where the raw EVM bytecode for the contract is held. This could be generated using a solidity compiler such as `solc -o outfile.bin myProgram.sol`.
+-a 及び -k のフラグは、公開鍵および秘密鍵のアドレスファイルでユーザーを特定するのに使用される。 -b gives the file where the raw EVM bytecode for the contract is held. This could be generated using a solidity compiler such as `solc -o outfile.bin myProgram.sol`.
 
 Example: 
 
