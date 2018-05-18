@@ -112,7 +112,7 @@ loom genkey -a pubkey -k privkey
 },
 ```
 
-We then boot the blockchain which will initialize the Coin and DPOS smart contracts.
+そうしたら、ブロックチェーンを起動してコインとDPoSのスマートコントラクトを初期化しよう。
 
 ```shell
 loom run
