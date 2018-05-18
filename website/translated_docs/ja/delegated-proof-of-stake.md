@@ -36,13 +36,13 @@ Delegated proof of stake(DPoS)のアルゴリズムでは、トークン所有�
 
 ### バリデーターの報酬
 
-Validators are not directly paid for their work now. In the future a scheme could be developed to allow validators to be paid out for proposing and/or validating blocks.
+現在バリデーターに直接仕事の対価が支払われることはない。将来ブロックの提案や検証に対してバリデーターに支払いができるよう、スキームを発展させて行く可能性がある。
 
-### Proof of Authority
+### 認証の証明
 
-Right now candidates do not have to proof their identity, but in the future it may be useful to enable on-chain notarization to verify candidates' identities.
+今現在、候補者は彼らのアイデンティティを証明する必要はない。だが候補者のアイデンティティを検証するよう、オンチェーンのノータリゼーションを可能にすると、将来役立つかもしれない。
 
-### Alternating Election Cycle
+### 選挙サイクルの変更
 
 Currently all validators are up for reelection at every election. It may be better to have an election cycle that differs from the term length.
 
