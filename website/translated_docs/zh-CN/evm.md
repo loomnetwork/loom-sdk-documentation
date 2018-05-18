@@ -259,7 +259,7 @@ The following code fragment shows how to call the Hello function of our Hello Wo
 
 1. Create a client that can talk to our DAppChain using its url.
 2. Get a handle to our smart contract, from its name and address.
-3. The wire type HelloRequest adn HelloResponse have to match the input and output parameters of the contract's method we are calling.
+3. The wire type HelloRequest and HelloResponse have to match the input and output parameters of the contract's method we are calling.
 4. Call the `Hello` method. We sue StaticCall as the Hello method has a static context.
 
 ## Calling solidity contract
