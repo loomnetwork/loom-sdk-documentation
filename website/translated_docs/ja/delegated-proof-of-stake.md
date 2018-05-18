@@ -48,9 +48,9 @@ Delegated proof of stake(DPoS)のアルゴリズムでは、トークン所有�
 
 ### 投票の有効期限
 
-現在投票に有効期限はないが、ただし投票が一定期間後に期限切れとなるシナリオを想像することができる。 こうすることで、紛失もしくは盗まれたアカウントが選挙に過度の影響力を持つようになるのを防げる。 This can be done either by looking at the time the vote was cast or by looking at the last activity on the account.
+現在投票に有効期限はないが、ただし投票が一定期間後に期限切れとなるシナリオを想像することができる。 こうすることで、紛失もしくは盗まれたアカウントが選挙に過度の影響力を持つようになるのを防げる。 これは投票がなされた時間のチェック、もしくはアカウントの最後のアクティビティのチェックのどちらでも行うことができる。
 
-## Contract Transactions
+## コントラクトのトランザクション
 
 `registerCandidate`
 
@@ -78,19 +78,19 @@ Delegated proof of stake(DPoS)のアルゴリズムでは、トークン所有�
 
 ## CLI 活用サンプル
 
-To get started we first need to initialize the blockchain. The DPOS and Coin smart contracts will automatically be added into `genesis.json`.
+スタートするには、まずブロックチェーンを初期化することが必要だ。DPoSとコインのスマートコントラクトは自動的に`genesis.json`へと追加される。
 
 ```shell
 loom init
 ```
 
-Next we generate public/private keys for an example account.
+次にサンプルアカウントに公開/秘密鍵を生成しよう。
 
 ```shell
 loom genkey -a pubkey -k privkey
 ```
 
-Then we need to make sure some initial coins on the blockchain are given out so that we have some voting power. To do this we need to modify `genesis.json` and change the `init` section of the Coin contract configuration.
+そしたら、ブロックチェーン上の初期コインが我々が投票力を持てるように分配されているか、確認する必要がある。 To do this we need to modify `genesis.json` and change the `init` section of the Coin contract configuration.
 
 ```json
 {
