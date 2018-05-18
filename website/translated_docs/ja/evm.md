@@ -58,7 +58,7 @@ DAppチェーンのEVMと対話するには、現在3つの方法がある。
     * `deploy`チェーンのEVM上に、EVMバイトコードでスマートコントラクトをデプロイする。
     * `call` 既にデプロイ済みのEVMスマートコントラクトにあるメソッドを呼び出す。
     
-    ### デプロイ
+    ### Deploy
     
     ```text
     Deploy a contract
@@ -87,8 +87,7 @@ DAppチェーンのEVMと対話するには、現在3つの方法がある。
   
 全てうまく動いていれば、以下が見られるはずだ: ```text New contract deployed with address: default:0xB448D7db27192d54FeBdA458B81e7383F8641c8A Runtime bytecode: [96 96 96 64 82 96 .... ]
 
-    The output contract address can be used to call a method on the contract in 
-    the call command.
+    出力されたコントラクトアドレスは、callコマンドでコントラクトのメソッドを呼び出すのに使用できる。
     
     ### Call
     
@@ -109,7 +108,7 @@ DAppチェーンのEVMと対話するには、現在3つの方法がある。
       -w, --write string           URI for sending txs (default "http://localhost:46657")
     
 
-The -a and -k flags are used to identify the user with public and private key address files. -c requires the contract address. This could be one output from a previous call to `\loom deploy` or retrieved from the start up log. -i is the input string. For a solidity contract this will be ABI encoded as described in the [Solidity ABI documentation](https://solidity.readthedocs.io/en/develop/abi-spec.html).
+-a 及び -k のフラグは、公開鍵および秘密鍵のアドレスファイルでユーザーを特定するのに使用される。 -c はコントラクトアドレスを要求する。 これは前述の`\loom deploy`へのコール結果、もしくは立ち上げ時のログから検索したものとなりうる。 -i は入力文字列だ。 For a solidity contract this will be ABI encoded as described in the [Solidity ABI documentation](https://solidity.readthedocs.io/en/develop/abi-spec.html).
 
 Example ```text call -a ./data/pub -k ./data/pri -i ./cmd/loom/data/inputGet.bin \ -c default:0xbD770416A3345f91E4b34576Cb804a576Fa48eB1 \ -w http://localhost:46657 -r http://localhost:9999
 
