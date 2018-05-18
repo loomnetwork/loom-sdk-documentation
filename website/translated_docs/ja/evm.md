@@ -76,16 +76,16 @@ DAppチェーンのEVMと対話するには、現在3つの方法がある。
       -w, --write string      URI for sending txs (default "http://localhost:46657")
     
 
--a 及び -k のフラグは、公開鍵および秘密鍵のアドレスファイルでユーザーを特定するのに使用される。 -b gives the file where the raw EVM bytecode for the contract is held. This could be generated using a solidity compiler such as `solc -o outfile.bin myProgram.sol`.
+-a 及び -k のフラグは、公開鍵および秘密鍵のアドレスファイルでユーザーを特定するのに使用される。 -b は、コントラクトのEVMローバイトコードを保持しているファイルを提供する。 これは`solc -o outfile.bin myProgram.sol`などのSolidityコンパイラを使用することで生成することができる。
 
-Example: 
+例: 
 
     text
      ./loom deploy -a ./data/pub -k ./data/pri -b ./data/bytecode.bin  -w \
       http://localhost:46657 -r http://localhost:9999
 
   
-If everything works you should see something like: ```text New contract deployed with address: default:0xB448D7db27192d54FeBdA458B81e7383F8641c8A Runtime bytecode: [96 96 96 64 82 96 .... ]
+全てうまく動いていれば、以下が見られるはずだ: ```text New contract deployed with address: default:0xB448D7db27192d54FeBdA458B81e7383F8641c8A Runtime bytecode: [96 96 96 64 82 96 .... ]
 
     The output contract address can be used to call a method on the contract in 
     the call command.
