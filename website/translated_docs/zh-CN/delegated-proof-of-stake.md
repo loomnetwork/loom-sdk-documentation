@@ -10,11 +10,13 @@ The delegated proof of stake algorithm allows token holders to elect witnesses. 
 
 **Witness count** - The number of witnesses that can be elected.
 
+**Witness salary** - Optional. The amount that witnesses get paid for validating blocks.
+
 **Vote allocation** - Number of votes each coin account gets. By default this is equal to the number of witnesses.
 
 **Election cycle length** - How long the election cycle is. By default this is 1 week.
 
-**Minimum power fraction** - How much of the coin supply needs to have voted for elections to be considered valid. For example, a value of 5 corresponds to 20% of the coin supply needing to have voted.
+**Minimum power fraction** - Optional. How much of the coin supply needs to have voted for elections to be considered valid. For example, a value of 5 corresponds to 20% of the coin supply needing to have voted.
 
 ## Candidate Registration
 
@@ -90,7 +92,7 @@ Next we generate public/private keys for an example account.
 loom genkey -a pubkey -k privkey
 ```
 
-Then we need to make sure some initial coins on the blockchain are given out so that we have some voting power. To do this we need to modify `genesis.json` and change the `init` section of the Coin contract configuration.
+Then we need to make sure some initial coins on the blockchain are given out so that we have some voting power. To do this we need to modify `genesis.json` and change the `init` section of the Coin contract configuration. In this example we'll give ourselves 100 coins.
 
 ```json
         {
@@ -105,14 +107,14 @@ Then we need to make sure some initial coins on the blockchain are given out so 
                             "chain_id": "default",
                             "local": "<local address in base64 from genkey>"
                         },
-                        "balance": 10
+                        "balance": 100
                     }
                 ]
             }
         },
 ```
 
-We also need to tweak the DPOS settings for this example so we can run an election right now instead of waiting a full election cycle for votes to come in. We do this by changing the `electionCycleLength` in `genesis.json` to ``.
+We also need to tweak the DPOS settings for this example so we can run an election right now instead of waiting a full election cycle for votes to come in. We do this by changing the `electionCycleLength` in `genesis.json` to ``. We'll also add a salary of 10 coins for witnesses.
 
 ```json
         {
@@ -124,7 +126,8 @@ We also need to tweak the DPOS settings for this example so we can run an electi
                 "params": {
                     "witnessCount": "21",
                     "electionCycleLength": "0",
-                    "minPowerFraction": "5"
+                    "minPowerFraction": "5",
+                    "witnessSalary": "10"
                 },
                 "validators": [
                     {
@@ -154,6 +157,19 @@ We can check the witness list at any time by running the `list_witnesses` subcom
 ./example-cli call list_witnesses
 ```
 
+First we'll fund the dpos contract so that witnesses can get paid. This is simply a transfer to the `dpos` contract.
+
+```shell
+./example-cli call transfer dpos 90 -k privkey
+```
+
+We can also check our balance and the balance of the dpos contract at any time.
+
+```shell
+./example-cli call balance <your address>
+./example-cli call balance dpos
+```
+
 In order to run for a witness seat we need to register on the blockchain. For this example we'll just register ourselves.
 
 ```shell
@@ -163,7 +179,7 @@ In order to run for a witness seat we need to register on the blockchain. For th
 Then we'll vote for ourselves, giving all of our vote allocation, which is 21 votes.
 
 ```shell
-./example-cli call vote <local address> 21 -k privkey
+./example-cli call vote <your address> 21 -k privkey
 ```
 
 Finally we'll run the election, which we've rigged :).
@@ -176,4 +192,11 @@ To verify that we've been elected we can check the witness list again to see tha
 
 ```shell
 ./example-cli call list_witnesses
+```
+
+We can run the election again and verify we were paid for our service.
+
+```shell
+./example-cli call elect -k privkey
+./example-cli call balance <your address>
 ```
