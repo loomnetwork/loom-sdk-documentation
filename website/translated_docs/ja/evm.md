@@ -121,15 +121,13 @@ DAppチェーンのEVMと対話するには、現在3つの方法がある。
     
     * ユーザーアプリケーション。 これはエンド ユーザーのアプリケーションで、DAppチェーン上でのトランザクションを引き起こす。 
     
-    * DAppチェーン。 Receives transactions from the user application and forwards to 
-    the appropriate contract to run. Also commits results to the 
-    blockchain.
+    * DAppチェーン。 ユーザーアプリケーションからトランザクションを受信し、適切なコントラクトへと転送し実行する。 またブロックチェーンに結果をコミットする。
     
-    * Smart contracts. These are written by the user and deployed on the DAppChain. 
-    There are two main types.
-        1. Plugins. These can be written in any language supported by gRPC; 
-        go-loom allows easy use of contracts written in Go, and loom-js for 
-        javascript. The plugin is compiled into an executable that the DAppChain 
+    * スマートコントラクト。 ユーザーによって書かれ、DAppチェーン上にデプロイされる。 
+    これには2つの主なタイプがある。
+        1. プラグイン。 RPCでサポートされていれば、どんな言語で書くことも可能だ; 
+        go-loom はGoで書かれたコントラクトの使用を簡単にし、またloom-jsは 
+        javascript向けのものである。 The plugin is compiled into an executable that the DAppChain 
         calls using gRPC.
         2. EVM smart contracts. Solidity programs or any other code that compiles
          into EVM  bytecode can be run by the DAppChain using its EVM.
