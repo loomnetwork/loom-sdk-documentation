@@ -337,7 +337,7 @@ message WrapValue {
 Lets look at the SetValue function first. The function to call to run a smart contract on the EVM is ```go contractpb.CallEVM(ctx Context, addr loom.Address, input []byte, output *[]byte) error
 
     The context is just passed though, for setting the output can just be a dummy
-    object. We need to the address of the solidity contract, and the correct
+    object. We need to pass the address of the solidity contract, and the correct
     input.
     
     The Context contains a Registry that allows us to get the address of a
