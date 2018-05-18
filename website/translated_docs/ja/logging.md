@@ -33,20 +33,20 @@ Loom SDKには2タイプのログがある。 1つ目は、ブロックチェー
 
 ## コントラクトのロギング
 
-Configurations like log level and destination are seperate for contracts. These are set using environment variables. Example: `CONTRACT_LOG_LEVEL=debug CONTRACT_LOG_DESTINATION="file://-" $LOOM_EXE run`
+ログのレベルや出力先の設定は、コントラクト別に分かれている。 これらは環境変数を使用して設定される。 Example: `CONTRACT_LOG_LEVEL=debug CONTRACT_LOG_DESTINATION="file://-" $LOOM_EXE run`
 
-This will set the contract log level to `debug` and the destination to stderr. The default for log level and destination are `info` and `file://contract.log` respectively.
+これはコントラクトレベルを`debug`へ、そして出力先は標準エラー出力へと設定する。 ログレベルと出力先のデフォルトは、それぞれ`info`及び`file://contract.log`となっている。
 
 ### コントラクトからのロギング
 
-The contract context has a pre-configured logger that can be used for structured logging. For example
+コントラクトのコンテキストにはあらかじめ設定されたロガーがあり、これは構造化ロギングに使用することができる。 例えば
 
     ctx.Logger().Info("Created account", "owner", owner, "address", addr)
     
 
-will generate a log line like
+これは以下のようなログを生成する。
 
     ts=2018-05-13T02:06:49.817229589Z module=loom level=info _msg="Created account" owner=godbole4 address="\ufffd8\ufffd\ufffd\ufffd\ufffd\ufffd$Y+H\ufffd\u0012\u000c]\u001a\ufffd\ufffd\ufffd\ufffd"
     
 
-Available methods on the context logger are `Error`, `Warn`, `Info`, and `Debug`
+コンテキストロガーで利用可能なメソッドは、`Error`、`Warn`、`Info`そして`Debug`である。
