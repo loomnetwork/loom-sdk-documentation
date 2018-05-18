@@ -109,23 +109,23 @@ loom genkey -a pubkey -k privkey
 Then we need to make sure some initial coins on the blockchain are given out so that we have some voting power. To do this we need to modify
 `genesis.json` and change the `init` section of the Coin contract configuration.
 ```json
-{
-    "vm": "plugin",
-    "format": "plugin",
-    "name": "coin",
-    "location": "coin:1.0.0",
-    "init": {
-        "accounts": [
-            {
-                "owner": {
-                    "chain_id": "local",
-                    "local": "<local address in base64 from genkey>"
-                },
-                "balance": 10
+        {
+            "vm": "plugin",
+            "format": "plugin",
+            "name": "coin",
+            "location": "coin:1.0.0",
+            "init": {
+                "accounts": [
+                    {
+                        "owner": {
+                            "chain_id": "default",
+                            "local": "<local address in base64 from genkey>"
+                        },
+                        "balance": 10
+                    }
+                ]
             }
-        ]
-    }
-},
+        },
 ```
 
 We then boot the blockchain which will initialize the Coin and DPOS smart contracts.
