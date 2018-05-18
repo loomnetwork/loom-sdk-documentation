@@ -38,7 +38,7 @@ Delegated proof of stake(DPoS)のアルゴリズムでは、トークン所有�
 
 ## 保証金
 
-In the future witnesses may lock up a specified number of coins that can be seized for bad behavior. This adds an additional incentive for good behavior beyond the witness salary.
+今後、証人はある特定数のコインをロックされ、悪事を働いた際にはそれが押収されるようになるかもしれない。このことで、証人の給与を超える良い行いをしようというさらなるインセンティブが追加される。
 
 ### 認証の証明
 
