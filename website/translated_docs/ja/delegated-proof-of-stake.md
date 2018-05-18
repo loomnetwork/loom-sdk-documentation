@@ -42,13 +42,13 @@ Delegated proof of stake(DPoS)のアルゴリズムでは、トークン所有�
 
 今現在、候補者は彼らのアイデンティティを証明する必要はない。だが候補者のアイデンティティを検証するよう、オンチェーンのノータリゼーションを可能にすると、将来役立つかもしれない。
 
-### 選挙サイクルの変更
+### 選挙周期の変更
 
-Currently all validators are up for reelection at every election. It may be better to have an election cycle that differs from the term length.
+現在全てのバリデーターは毎回選挙時に再選出候補となっている。選挙期間の長さとは異なる選挙周期がある方が良いかもしれない。
 
-### Vote Expiration
+### 投票の有効期限
 
-Currently votes never expire, however, one can imagine a scenario in which votes expire after a certain time period. This would prevent lost or stolen accounts from having undue influence in elections. This can be done either by looking at the time the vote was cast or by looking at the last activity on the account.
+現在投票に有効期限はないが、ただし投票が一定期間後に期限切れとなるシナリオを想像することができる。 こうすることで、紛失もしくは盗まれたアカウントが選挙に過度の影響力を持つようになるのを防げる。 This can be done either by looking at the time the vote was cast or by looking at the last activity on the account.
 
 ## Contract Transactions
 
