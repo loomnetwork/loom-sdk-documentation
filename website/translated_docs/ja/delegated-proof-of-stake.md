@@ -14,7 +14,7 @@ Delegated proof of stake(DPoS)のアルゴリズムでは、トークン所有�
 
 **サイクルレングス** - 選挙期間の長さ。デフォルトでは１週間。
 
-**Minimum power fraction** - How much of the coin supply needs to have voted for elections to be considered valid. For example, a value of 5 corresponds to 20% of the coin supply needing to have voted.
+**最小の投票割合** - 選挙を有効とみなすには、コイン供給量のうちどれくらい投票される必要があるか。 For example, a value of 5 corresponds to 20% of the coin supply needing to have voted.
 
 ## Candidate Registration
 
