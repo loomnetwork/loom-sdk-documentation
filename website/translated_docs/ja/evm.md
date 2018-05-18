@@ -112,7 +112,7 @@ DAppチェーンのEVMと対話するには、現在3つの方法がある。
 
 例 ```text call -a ./data/pub -k ./data/pri -i ./cmd/loom/data/inputGet.bin \ -c default:0xbD770416A3345f91E4b34576Cb804a576Fa48eB1 \ -w http://localhost:46657 -r http://localhost:9999
 
-    On completion this will return the response from the deployed contract,
+    これは完了時にデプロイ済みコントラクトよりレスポンスを返すこととなる。
     
     ## From a user plugin
     
