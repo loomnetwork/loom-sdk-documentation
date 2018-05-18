@@ -90,7 +90,7 @@ loom init
 loom genkey -a pubkey -k privkey
 ```
 
-そしたら、ブロックチェーン上の初期コインが我々が投票力を持てるように分配されているか、確認する必要がある。 To do this we need to modify `genesis.json` and change the `init` section of the Coin contract configuration.
+そしたら、ブロックチェーン上の初期コインが我々が投票力を持てるように分配されているか、確認する必要がある。 これを行うには、`genesis.json`の修正と、コインコントラクト設定の`init`セクションの変更が必要だ。
 
 ```json
 {
@@ -112,19 +112,19 @@ loom genkey -a pubkey -k privkey
 },
 ```
 
-We then boot the blockchain which will initialize the coin and DPOS smart contracts.
+そうしたら、ブロックチェーンを起動してコインとDPoSのスマートコントラクトを初期化しよう。
 
 ```shell
 loom run
 ```
 
-We can check the witness list at any time by running the `list_validators` subcommand.
+`list_validators`サブコマンドを実行することで、いつでも証人リストをチェックすることができる。
 
 ```shell
 loom dpos list_validators
 ```
 
-In order to run for a validator seat we need to register. For this example we'll just register ourselves.
+バリデーターの立場で実行するには、登録が必要となる。この例では、単に自分自身を登録しよう。
 
 ```shell
 loom dpos register_candidate <public key>
