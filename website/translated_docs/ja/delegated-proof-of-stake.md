@@ -112,7 +112,7 @@ loom genkey -a pubkey -k privkey
         },
 ```
 
-We also need to tweak the DPOS settings for this example so we can run an election right now instead of waiting a full election cycle for votes to come in. We do this by changing the `electionCycleLength` in `genesis.json` to ``.
+また、完全な選挙サイクルを待って投票しなくても今すぐ選挙を実行できるように、このDPoSサンプルの設定を調整する必要がある。 こうするためには`genesis.json`内の`electionCycleLength`を``へ変更しよう。
 
 ```json
         {
