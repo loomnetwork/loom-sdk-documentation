@@ -115,7 +115,7 @@ DAppチェーンのEVMと対話するには、現在3つの方法がある。
     これは完了時にデプロイ済みコントラクトよりレスポンスを返すこととなる。
     
     ## ユーザープラグインから
-    DAppチェーンのEVMにデプロイされたコントラクトは、ユーザーが作成したプラグインから呼び出すことができる。 go-loomでラップされたストアの例は、これを実現する方法の例となる。
+    DAppチェーンのEVMにデプロイされたコントラクトは、ユーザーが作成したプラグインから呼び出すことができる。 go-loomのWrapStoreの例は、これを実現する方法の例となる。
     
     続きをやる前に、関連する様々なモジュールについて考えてみよう。
     
@@ -261,9 +261,9 @@ contract SimpleStore {
 }
 ```
 
-このSolidityコントラクトをラップする簡単なプラグインを見ていこう。 So our plugin will have two functions SetValue and GetValue that will just pass data between the SimpleStore contract and the transaction initiator. As it wraps this SimpleStore we will call it WrapStore.
+このSolidityコントラクトをラップする簡単なプラグインを見ていこう。 こうして我々のプラグインはSetValueとGetValueの2つの関数を持つことになり、これらはSimpleStoreコントラクトとトランザクション送信者の間でのデータ受け渡しを行う。 これはSimpleStoreをラップするので、我々はWrapStoreと呼ぶ。
 
-Here is the outline as for the WrapStore contract, with stubs added for the SetValue and GetValue methods.
+これはWrapStoreコントラクトに関するアウトラインで、SetValueおよびGetValueメソッドに追加されたスタブもある。
 
 ```go
 package main
