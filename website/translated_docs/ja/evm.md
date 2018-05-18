@@ -1,7 +1,7 @@
 ---
 id: evm
 title: イーサリアム仮想マシン
-sidebar_label: EVMページ
+sidebar_label: EVMのページ
 ---
 ## 概要
 
@@ -50,12 +50,10 @@ DAppチェーンのEVMと対話するには、現在3つの方法がある。
     * `location`コントラクトディレクトリ内に配置されたバージョン化されたバイナリファイル名。
      truffleとsolidityには完全なpathを与えなければならない可能性がある。
     
-    So in this example the loom DAppChain will take the bytecode from the truffle
-    compilation of our SimpleStore solidity contract. It will then deploy it on 
-    the chain's EVM. Confirmation and the contracts address will be available in 
+    そのためこの例では、Loom DAppチェーンはSolidityコントラクト・SimpleStoreのtruffleコンパイルからバイトコードを受け取ることとなる。 そうしてこれをチェーンのEVMにデプロイする。 Confirmation and the contracts address will be available in 
     loom's logging information.
     
-    ## Deploy and run from command line
+    ## コマンドラインよりデプロイ及び実行する
     
     The loom command line tool has two commands for interacting with the 
     chains's EVM.
