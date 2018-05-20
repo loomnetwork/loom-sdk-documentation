@@ -16,6 +16,10 @@ body {
   box-sizing: border-box;
 }
 
+.mainContainer .wrapper p a {
+  text-decoration: underline;
+}
+
 .tile-bg {
   background-image: url('../img/tile-pattern.png');
 }
