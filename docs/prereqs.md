@@ -1,6 +1,6 @@
 ---
 id: prereqs
-title: Prerequisites
+title: Prerequisites (OSX)
 sidebar_label: Installation (OSX)
 ---
 Installing and setting up Loom on OSX
