@@ -1,6 +1,6 @@
 ---
 id: prereqs-ubuntu
-title: Prerequisites
+title: Prerequisites (Ubuntu)
 sidebar_label: Installation (Ubuntu)
 ---
 Installing and setting up Loom on Ubuntu
