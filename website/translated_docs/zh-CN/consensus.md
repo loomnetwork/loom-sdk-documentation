@@ -6,8 +6,8 @@ Loom区块链允许可插入的后端作为共识。 任何[ABCI](https://github
 
 ## 选择验证者
 
-如果选择的共识算法是BFT风格，则验证者必须被选择出来。 验证者负责确保区块链状态的准确性。 他们通过提议并投票表决区块来做到这一点。 默认情况下，验证者被设置为共识后端的起源配置。 Privileged smart contracts can also modify the validator list by using the `SetValidatorPower` API to modify a validator's power.
+如果选择的共识算法是BFT风格，则验证者必须被选择出来。 验证者负责确保区块链状态的准确性。 他们通过提议并投票表决区块来做到这一点。 默认情况下，验证者被设置为共识后端的起源配置。 特权智能合约还可以通过使用`SetValidatorPower` API修改一个验证者的权利来修改验证者列表。
 
-### Delegated Proof of Stake
+### 委任股权证明
 
 If using a BFT style backend the [delegated proof of stake smart contract](delegated-proof-of-stake.html) can be used.
