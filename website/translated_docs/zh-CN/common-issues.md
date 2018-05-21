@@ -1,6 +1,6 @@
 ---
-id: common-issues
-title: Common Issues
+id: 常见问题
+title: 常见问题
 ---
 We strive to resolve common issues and make them better with each release.
 
