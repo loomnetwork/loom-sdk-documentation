@@ -259,7 +259,7 @@ The following code fragment shows how to call the Hello function of our Hello Wo
 
 1. Create a client that can talk to our DAppChain using its url.
 2. Get a handle to our smart contract, from its name and address.
-3. The wire type HelloRequest adn HelloResponse have to match the input and output parameters of the contract's method we are calling.
+3. The wire type HelloRequest and HelloResponse have to match the input and output parameters of the contract's method we are calling.
 4. Call the `Hello` method. We sue StaticCall as the Hello method has a static context.
 
 ## Calling solidity contract
@@ -337,7 +337,7 @@ message WrapValue {
 Lets look at the SetValue function first. The function to call to run a smart contract on the EVM is ```go contractpb.CallEVM(ctx Context, addr loom.Address, input []byte, output *[]byte) error
 
     The context is just passed though, for setting the output can just be a dummy
-    object. We need to the address of the solidity contract, and the correct
+    object. We need to pass the address of the solidity contract, and the correct
     input.
     
     The Context contains a Registry that allows us to get the address of a

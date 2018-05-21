@@ -10,11 +10,13 @@ Delegated proof of stake(DPoS)のアルゴリズムでは、トークン所有�
 
 **Witness count** - 選出可能な証人数。
 
+**証人の給与** - オプション。ブロック検証に対し証人に支払われる額。
+
 <**Vote allocation** - 各コインアカウントに与えられる票の数。デフォルトでは証人数に等しい。
 
 **Election cycle length** - 選挙期間の長さ。デフォルトでは１週間。
 
-**Minimum power fraction** - 選挙を有効とみなすには、コイン供給量のうちどれくらい投票される必要があるか。 例えば、5 の値は投票に必要なコイン供給の20%に相当する。
+**Minimum power fraction** - オプション。 選挙を有効とみなすには、コイン供給量のうちどれくらい投票される必要があるか。 例えば、5 の値は投票に必要なコイン供給の20%に相当する。
 
 ## 候補者登録
 
@@ -34,9 +36,9 @@ Delegated proof of stake(DPoS)のアルゴリズムでは、トークン所有�
 
 ## 今後の改善
 
-### 証人の報酬
+## 保証金
 
-現在証人に直接仕事の対価が支払われることはない。将来ブロックの提案や検証に対して証人に支払いができるよう、スキームを発展させて行く可能性がある。
+今後、証人はある特定数のコインをロックされ、悪事を働いた際にはそれが押収されるようになるかもしれない。このことで、証人の給与を超える良い行いをしようというさらなるインセンティブが追加される。
 
 ### 認証の証明
 
@@ -90,7 +92,7 @@ loom init
 loom genkey -a pubkey -k privkey
 ```
 
-そしたら、ブロックチェーン上の初期コインが我々が投票力を持てるように分配されているか、確認する必要がある。 これを行うには、`genesis.json`の修正と、コインコントラクト設定の`init`セクションの変更が必要だ。
+そしたら、ブロックチェーン上の初期コインが我々が投票力を持てるように分配されているか、確認する必要がある。 これを行うには、`genesis.json`の修正と、コインコントラクト設定の`init`セクションの変更が必要だ。 この例では、自らに100コインを与える。
 
 ```json
         {
@@ -105,14 +107,14 @@ loom genkey -a pubkey -k privkey
                             "chain_id": "default",
                             "local": "<local address in base64 from genkey>"
                         },
-                        "balance": 10
+                        "balance": 100
                     }
                 ]
             }
         },
 ```
 
-We also need to tweak the DPOS settings for this example so we can run an election right now instead of waiting a full election cycle for votes to come in. We do this by changing the `electionCycleLength` in `genesis.json` to ``.
+また、完全な選挙サイクルを待って投票しなくても今すぐ選挙を実行できるように、このDPoSサンプルの設定を調整する必要がある。 こうするためには`genesis.json`内の`electionCycleLength`を``へ変更しよう。 また10コインを証人への給与として追加する。
 
 ```json
         {
@@ -124,7 +126,8 @@ We also need to tweak the DPOS settings for this example so we can run an electi
                 "params": {
                     "witnessCount": "21",
                     "electionCycleLength": "0",
-                    "minPowerFraction": "5"
+                    "minPowerFraction": "5",
+                    "witnessSalary": "10"
                 },
                 "validators": [
                     {
@@ -154,6 +157,19 @@ make example-cli
 ./example-cli call list_witnesses
 ```
 
+まずdposコントラクトに資金を提供して、証人が支払いを受け取れるようにしよう。単純に`dpos`コントラクトに送金をする。
+
+```shell
+./example-cli call transfer dpos 90 -k privkey
+```
+
+またいつでも自分の残高およびdposコントラクトの残高をチェックすることができる。
+
+```shell
+./example-cli call balance <your address>
+./example-cli call balance dpos
+```
+
 証人に立候補するには、ブロックチェーン上での登録が必要となる。この例では、単に自分自身を登録しよう。
 
 ```shell
@@ -163,7 +179,7 @@ make example-cli
 そうしたら自分自身に投票してみよう。21の割り当て票全てを投票する。
 
 ```shell
-./example-cli call vote <local address> 21 -k privkey
+./example-cli call vote <your address> 21 -k privkey
 ```
 
 最後に自分で仕組んだ選挙を実行する ^o^
@@ -176,4 +192,11 @@ make example-cli
 
 ```shell
 ./example-cli call list_witnesses
+```
+
+もう一度選挙を実行して、自分に支払いが行われたかを検証することができる。
+
+```shell
+./example-cli call elect -k privkey
+./example-cli call balance <your address>
 ```

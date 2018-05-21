@@ -1,6 +1,6 @@
 ---
 id: prereqs-ubuntu
-title: 前提条件
+title: Prerequisites (Ubuntu)
 sidebar_label: インストール (Ubuntu)
 ---
 UbuntuでのLoomのインストールとセットアップ
