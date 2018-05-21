@@ -2,18 +2,18 @@
 id: 常见问题
 title: 常见问题
 ---
-We strive to resolve common issues and make them better with each release.
+我们努力地解决常见问题，并在每一个新版本中使它们变得更好。
 
-Inbetween releases we keep common issues here that people run into.
+在版本发布之间，我们把人们遇到的常见问题放在这里。
 
-1) Plugin Exited before we could connect
+1) 在我们可以链接之前，插件退出了。
 
-```plugin: plugin process exited: path=/bin/sh panic: plugin exited before we could connect
+```插件：插件进程退出：path=/bin/sh panic: 在我们可以链接之前，插件退出了
 
-    <br />This usually means there is a process hanging around that needs to be killed
+    <br />这通常意味着有个进程需要被关闭
     
     
 
 ps -ef | grep blueprint kill -9 xxxx ```
 
-Change blueprint to whatever the name of the contract is, and then the xxx is the process id
+将蓝图更改为合约的名字，然后xxx就是进程id
