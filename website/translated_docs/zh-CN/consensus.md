@@ -10,4 +10,4 @@ Loom区块链允许可插入的后端作为共识。 任何[ABCI](https://github
 
 ### 委任股权证明
 
-If using a BFT style backend the [delegated proof of stake smart contract](delegated-proof-of-stake.html) can be used.
+如果使用一个BFT风格的后端，[委任股权证明智能合约](delegated-proof-of-stake.html)就可以被使用。
