@@ -1,6 +1,6 @@
 ---
-id: delegated-proof-of-stake
-title: Delegated Proof of Stake
+id: 委任股权证明
+title: 委任股权证明
 ---
 The delegated proof of stake algorithm allows token holders to elect witnesses. Witnesses act as validators of the blockchain, proposing blocks and verifying that transactions are correct. These witnesses serve a standard term length before being subject to elections again.
 
