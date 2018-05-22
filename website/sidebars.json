@@ -4,6 +4,7 @@
     "Javascript Client SDK": ["loom-js-quickstart"],
     "Go Contract SDK": ["go-loom-clients", "goloomstate", "goloomevents", "goloompermissions", "builtin"],
     "Unity SDK": ["unity-sdk"],
+    "Events": ["loomevents"],
     "Consensus": ["delegated-proof-of-stake"],
     "Monitoring": ["metrics", "logging"],
     "Solidity & EVM": ["evm"],
