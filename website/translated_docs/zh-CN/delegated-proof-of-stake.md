@@ -28,9 +28,9 @@ title: 委任股权证明
 
 ### 代理投票
 
-In addition to voting directly for witness candidates, accounts can also proxy their vote to a trusted party. This means the proxy ends up with a vote power proportional to `proxy balance + sum(balance of principals)`.
+除了直接为见证人候选人投票外, 账户还可以将投票权委托给信任的一方。 这意味着代理拥有 `代理余额 + 总和 (本金余额)` 成正比的投票权。
 
-## Elections
+## 选举
 
 Any account can trigger an election if enough time has passed by sending a transaction to the network. Witnesses are elected by summing up the total voting power given to them and taking the top N candidates where N is the witness count specified in the initial parameters. This means that all witnesses end up with an equal chance of proposing a block no matter how many votes they received. If the mininum number of power required specified by the minimum power fraction is not reached then the witness set does not change.
 
