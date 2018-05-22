@@ -60,7 +60,7 @@ sudo unzip protoc-${PROTOBUF_VERSION}-linux-x86_64.zip -d /usr/local
 ## インストール
 
 ```bash
-curl -OL https://storage.googleapis.com/private.delegatecall.com/loom/linux/build-116/loom
+curl -OL https://storage.googleapis.com/private.delegatecall.com/loom/linux/build-128/loom
 chmod +x loom
 
 mkdir ~/gopath
@@ -92,8 +92,8 @@ Blueprint contract のソースは[こちら](https://github.com/loomnetwork/wea
 
 ```bash
 cd blueprint/build
-./blueprint genkey
-./blueprint create-acct
-./blueprint set -v 1
+../../loom genkey -k priv_key -a pub_key
+./blueprint create-acct -k priv_key
+./blueprint set -v 1 -k priv_key
 ./blueprint get
 ```

@@ -1,19 +1,19 @@
 ---
-id: etherboy-deployment
-title: Example Deployment
-sidebar_label: Etherboy Deployment
+id: etherboy-部署
+title: 部署示例
+sidebar_label: Etherboy 部署
 ---
 # Etherboy
 
-This documentation explains how to run Etherboy in a single server instance (any 64-bit Linux instance).
+本文档说明如何在单个服务器实例 (任何64位Linux实例) 中运行Etherboy。
 
-## Installation
+## 安装
 
-1. Choose a working directory of your choice. In this example we are using `/home/ubuntu` 
+1. 选择一个你喜欢的工作目录。在这个例子中, 我们使用 `/home/ubuntu` 
         bash
         cd /home/ubuntu
 
-2. Download the binaries:
+2. 下载二进制文件:
     
     ```bash
     wget https://storage.googleapis.com/private.delegatecall.com/loom/linux/build-94/loom
@@ -24,7 +24,7 @@ This documentation explains how to run Etherboy in a single server instance (any
     wget -O contracts/etherboycore.so https://storage.googleapis.com/private.delegatecall.com/etherboy/linux/build-53/etherboycore.so
     ```
 
-3. Create `genesis.json` in the working directory:
+3. 在工作目录中创建 `genesis.json`:
     
     ```json
     {
