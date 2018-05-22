@@ -6,7 +6,7 @@ title: 委任股权证明
 
 ## 参数
 
-**Coin contract address** - Specifies which ERC20-like coin contract to use to calculate the power of a vote. By default this is resolved to the address at `coin`.
+**币合约地址** - 指定用于计算投票权力的ERC20风格硬币合约。默认情况下，这将解析为`coin`的地址。
 
 **Witness count** - The number of witnesses that can be elected.
 
