@@ -26,6 +26,8 @@
     "NodeJS & Browser Quick Start": "NodeJSとブラウザのクイックスタート",
     "metrics": "メトリクス",
     "Metrics": "メトリクス",
+    "phaser-sdk-demo-websocket": "Javascript WebSockets Demo",
+    "Phaser + Websockets Demo": "Phaser + Websockets Demo",
     "phaser-sdk-demo": "Phaser SDK Demo",
     "Phaser SDK Demo": "Phaser SDK Demo",
     "prereqs-ubuntu": "Prerequisites (Ubuntu)",
