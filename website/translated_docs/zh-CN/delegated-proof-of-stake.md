@@ -50,9 +50,9 @@ title: 委任股权证明
 
 ### 选票期限
 
-Currently votes never expire, however, one can imagine a scenario in which votes expire after a certain time period. This would prevent lost or stolen accounts from having undue influence in elections. This can be done either by looking at the time the vote was cast or by looking at the last activity on the account.
+目前，选票从来不会过期, 但是，人们可以想象一个场景, 在某个时间段后选票会过期。 这将防止遗失或被盗帐户在选举中产生不当影响。 这可以通过查看投票的时间或查看帐户上的最后一个操作来完成。
 
-## Contract Transactions
+## 合约事务
 
 `registerCandidate`
 
