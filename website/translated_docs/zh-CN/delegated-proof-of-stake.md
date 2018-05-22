@@ -54,29 +54,29 @@ title: 委任股权证明
 
 ## 合约事务
 
-`registerCandidate`
+`<code>registerCandidate` 候选人登记</code>
 
-Register a candidate to be a witness.
+登记一个候选人为见证人
 
-`unregisterCandidate`
+`<code>unregisterCandidate` 取消登记候选人</code>
 
-Unregister a candidate to be a witness.
+注销候选人为见证人。
 
-`vote`
+`<code>vote` 投票</code>
 
-Vote for a particular candidate.
+投票给某个候选人。
 
-`proxyVote`
+`<code>proxyVote` 代理投票</code>
 
-Proxy your votes to another account.
+把你的选票委托给另一个帐户。
 
-`unproxyVote`
+`<code>unproxyVote` 取消代理投票</code>
 
-Unproxy your votes.
+取消你的选票的代理
 
-`elect`
+`<code>elect` 选举</code>
 
-Run the election.
+进行选举
 
 ## Example CLI Usage
 
