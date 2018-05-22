@@ -157,29 +157,29 @@ make example-cli
 ./example-cli call list_witnesses
 ```
 
-First we'll fund the dpos contract so that witnesses can get paid. This is simply a transfer to the `dpos` contract.
+首先, 我们将向dpos合约投入资金, 以便见证人可以得到报酬。这只是将资产转移到`dpos`合约而已。
 
 ```shell
 ./example-cli call transfer dpos 90 -k privkey
 ```
 
-We can also check our balance and the balance of the dpos contract at any time.
+我们也可以在任何时候检查我们的余额和dpos合约的余额。
 
 ```shell
-./example-cli call balance <your address>
+./example-cli call balance <你的地址>
 ./example-cli call balance dpos
 ```
 
-In order to run for a witness seat we need to register on the blockchain. For this example we'll just register ourselves.
+为了获取见证人的一席之位, 我们需要在区块链上登记。在这个例子中, 我们只登记我们自己。
 
 ```shell
-./example-cli call register_candidate <public key> -k privkey
+./example-cli call register_candidate <公钥> -k privkey
 ```
 
-Then we'll vote for ourselves, giving all of our vote allocation, which is 21 votes.
+然后我们会给自己投票，把所有的选票份额也就是21票全投给自己。
 
 ```shell
-./example-cli call vote <your address> 21 -k privkey
+./example-cli call vote <你的地址> 21 -k privkey
 ```
 
 Finally we'll run the election, which we've rigged :).
