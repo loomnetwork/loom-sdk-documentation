@@ -8,13 +8,13 @@ title: 委任股权证明
 
 **币合约地址** - 指定用于计算投票权力的ERC20风格硬币合约。默认情况下，这将解析为`coin`的地址。
 
-**Witness count** - The number of witnesses that can be elected.
+**见证人个数** - 可当选的见证人数量。
 
-**Witness salary** - Optional. The amount that witnesses get paid for validating blocks.
+**见证人薪水** - 可选项。见证人验证区块所获金额。
 
-**Vote allocation** - Number of votes each coin account gets. By default this is equal to the number of witnesses.
+**投票分配** - 每个币帐户获得的选票数。默认情况下, 这个数字等于见证人的数量。
 
-**Election cycle length** - How long the election cycle is. By default this is 1 week.
+**选举周期长度** - 选举周期的长短。默认情况下是1周。
 
 **Minimum power fraction** - Optional. How much of the coin supply needs to have voted for elections to be considered valid. For example, a value of 5 corresponds to 20% of the coin supply needing to have voted.
 
