@@ -182,21 +182,21 @@ make example-cli
 ./example-cli call vote <你的地址> 21 -k privkey
 ```
 
-Finally we'll run the election, which we've rigged :).
+最后我们将进行（被我们操纵了的）选举：）。
 
 ```shell
 ./example-cli call elect -k privkey
 ```
 
-To verify that we've been elected we can check the witness list again to see that it's changed.
+为了验证我们已经被选中，我们可以再次检查见证人列表查看它已被更改。
 
 ```shell
 ./example-cli call list_witnesses
 ```
 
-We can run the election again and verify we were paid for our service.
+我们可以再次举行选举并验证我们的服务是否获得报酬。
 
 ```shell
 ./example-cli call elect -k privkey
-./example-cli call balance <your address>
+./example-cli call balance <你的地址>
 ```
