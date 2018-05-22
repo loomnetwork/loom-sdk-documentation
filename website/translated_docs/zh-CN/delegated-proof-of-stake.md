@@ -42,13 +42,13 @@ title: 委任股权证明
 
 ### 权威证明
 
-Right now candidates do not have to proof their identity, but in the future it may be useful to enable on-chain notarization to verify candidates' identities.
+现在，候选人不必证明自己的身份，但将来可能进行上链公证核实候选人的身份会更有帮助。
 
-### Alternating Election Cycle
+### 交替的选举周期
 
-Currently all witnesses are up for reelection at every election. It may be better to have an election cycle that differs from the term length.
+目前，所有的见证人在每次选举中都会连任。 有一个不同于任期长短的选举周期也许更好。
 
-### Vote Expiration
+### 选票期限
 
 Currently votes never expire, however, one can imagine a scenario in which votes expire after a certain time period. This would prevent lost or stolen accounts from having undue influence in elections. This can be done either by looking at the time the vote was cast or by looking at the last activity on the account.
 
