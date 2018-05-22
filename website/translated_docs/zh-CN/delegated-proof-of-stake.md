@@ -24,7 +24,7 @@ title: 委任股权证明
 
 ## 投票
 
-每个币帐户都有特定数量的选票，通常等于见证人的数量。 However, the power of each vote is proportional to the balance of coins the account holds. This ensures that accounts with more at stake have a greater voice in how the network is run. In the current implementation votes do not expire. This means that unless a vote is explicitly changed it is assumed that the account holder is satisfied with the job of the witness and will receive the account holder's vote again in the next election. Unlike traditional elections, voting can be done any time so there is no "election day", however votes are not counted until the election time.
+每个币帐户都有特定数量的选票，通常等于见证人的数量。 然而，每张选票的权力与账户持有的币余额成正比。 这可以确保有更多利害关系的帐户在网络运行方式上有更大的发言权。 在当前实现，选票不会过期。 This means that unless a vote is explicitly changed it is assumed that the account holder is satisfied with the job of the witness and will receive the account holder's vote again in the next election. Unlike traditional elections, voting can be done any time so there is no "election day", however votes are not counted until the election time.
 
 ### Proxying Votes
 
