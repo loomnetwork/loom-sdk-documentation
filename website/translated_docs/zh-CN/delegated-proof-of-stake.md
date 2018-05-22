@@ -16,13 +16,13 @@ title: 委任股权证明
 
 **选举周期长度** - 选举周期的长短。默认情况下是1周。
 
-**Minimum power fraction** - Optional. How much of the coin supply needs to have voted for elections to be considered valid. For example, a value of 5 corresponds to 20% of the coin supply needing to have voted.
+**最小权利分数** - 可选项。 币供应中的多少需要投票选举才被认为是有效的。 例如，币供应的20%需要有5个。
 
-## Candidate Registration
+## 候选人注册
 
-All candidates must register by specifying the public key matching their address.
+所有候选人必须通过指定与其地址相匹配的公钥进行注册。
 
-## Voting
+## 投票
 
 Each coin account has up to a specified number of votes, generally equal to the number of witnesses. However, the power of each vote is proportional to the balance of coins the account holds. This ensures that accounts with more at stake have a greater voice in how the network is run. In the current implementation votes do not expire. This means that unless a vote is explicitly changed it is assumed that the account holder is satisfied with the job of the witness and will receive the account holder's vote again in the next election. Unlike traditional elections, voting can be done any time so there is no "election day", however votes are not counted until the election time.
 
