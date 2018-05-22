@@ -72,7 +72,7 @@ class Footer extends React.Component {
               rel="noreferrer noopener">
               Message Board
             </a>
-            <a href="https://t.me/joinchat/EH7c0BFclZFfWOqw_gjzZw">Project Chat</a>
+            <a href="https://t.me/LoomSDK">Chatroom</a>
             <a
               href="https://twitter.com/loomnetwork"
               target="_blank"
