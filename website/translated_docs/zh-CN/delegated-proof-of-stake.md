@@ -2,7 +2,7 @@
 id: 委任股权证明
 title: 委任股权证明
 ---
-The delegated proof of stake algorithm allows token holders to elect witnesses. Witnesses act as validators of the blockchain, proposing blocks and verifying that transactions are correct. These witnesses serve a standard term length before being subject to elections again.
+委任股权证明算法使代币持有者可以选举见证人。 Witnesses act as validators of the blockchain, proposing blocks and verifying that transactions are correct. These witnesses serve a standard term length before being subject to elections again.
 
 ## Parameters
 
