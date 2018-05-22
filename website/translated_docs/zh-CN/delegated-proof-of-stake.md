@@ -24,9 +24,9 @@ title: 委任股权证明
 
 ## 投票
 
-每个币帐户都有特定数量的选票，通常等于见证人的数量。 然而，每张选票的权力与账户持有的币余额成正比。 这可以确保有更多利害关系的帐户在网络运行方式上有更大的发言权。 在当前实现，选票不会过期。 这意味着, 除非一张选票被明确更改了, 否则将会假设帐户持有人对见证人的工作感到满意, 而且他将在下次选举中再次收到帐户持有人的投票。 Unlike traditional elections, voting can be done any time so there is no "election day", however votes are not counted until the election time.
+每个币帐户都有特定数量的选票，通常等于见证人的数量。 然而，每张选票的权力与账户持有的币余额成正比。 这可以确保有更多利害关系的帐户在网络运行方式上有更大的发言权。 在当前实现，选票不会过期。 这意味着, 除非一张选票被明确更改了, 否则将会假设帐户持有人对见证人的工作感到满意, 而且他将在下次选举中再次收到帐户持有人的投票。 与传统的选举不同, 投票可以在任何时候进行, 所以没有 "选举日", 但是选票要到选举的时候才能算出来。
 
-### Proxying Votes
+### 代理投票
 
 In addition to voting directly for witness candidates, accounts can also proxy their vote to a trusted party. This means the proxy ends up with a vote power proportional to `proxy balance + sum(balance of principals)`.
 
