@@ -78,21 +78,21 @@ title: 委任股权证明
 
 进行选举
 
-## Example CLI Usage
+## 示例CLI用法
 
-To get started we first need to initialize the blockchain. The DPOS and Coin smart contracts will automatically be added into `genesis.json`.
+要开始, 我们首先需要初始化区块链。DPOS和币的智能合约将自动添加到 `genesis.json`。
 
 ```shell
 loom init
 ```
 
-Next we generate public/private keys for an example account.
+接下来, 我们为一个示例帐户生成公钥/私钥。
 
 ```shell
 loom genkey -a pubkey -k privkey
 ```
 
-Then we need to make sure some initial coins on the blockchain are given out so that we have some voting power. To do this we need to modify `genesis.json` and change the `init` section of the Coin contract configuration. In this example we'll give ourselves 100 coins.
+然后我们需要确保区块链上的一些初始币被给出，这样我们就会有一些投票权。 为此, 我们需要修改`genesis.json`，并更改币合约配置的 `init` 部分。 在这个例子中, 我们将给自己100枚币。
 
 ```json
         {
@@ -114,7 +114,7 @@ Then we need to make sure some initial coins on the blockchain are given out so 
         },
 ```
 
-We also need to tweak the DPOS settings for this example so we can run an election right now instead of waiting a full election cycle for votes to come in. We do this by changing the `electionCycleLength` in `genesis.json` to ``. We'll also add a salary of 10 coins for witnesses.
+我们还需要调整这个例子的DPOS设置, 这样我们现在就可以进行选举, 而不是等待一个完整的选举周期再来投票。 We do this by changing the `electionCycleLength` in `genesis.json` to ``. We'll also add a salary of 10 coins for witnesses.
 
 ```json
         {
