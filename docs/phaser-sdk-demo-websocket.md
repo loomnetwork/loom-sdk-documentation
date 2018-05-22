@@ -1,7 +1,7 @@
 ---
 id: phaser-sdk-demo-websocket
-title: Phaser SDK Demo + WebSockets
-sidebar_label: Phaser SDK Demo + WebSockets
+title: Javascript WebSockets Demo
+sidebar_label: Phaser + Websockets Demo
 ---
 
 A basic example showcasing a simple HTML5 + WebSockets interacting with a Loom DappChain, using [Phaser](http://phaser.io) and [Loom.js](https://github.com/loomnetwork/loom-js).

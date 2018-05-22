@@ -7,7 +7,7 @@
     "Consensus": ["delegated-proof-of-stake"],
     "Monitoring": ["metrics", "logging"],
     "Solidity & EVM": ["evm"],
-    "Example Applications": ["phaser-sdk-demo"],
+    "Example Applications": ["phaser-sdk-demo","phaser-sdk-demo-websocket"],
     "Deployment": ["etherboy-deployment"],
     "Frequently Asked Questions": ["common-issues", "release-notes"]
   }
