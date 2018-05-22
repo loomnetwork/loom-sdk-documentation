@@ -1,9 +1,9 @@
 ---
-id: prereqs
-title: Prerequisites
-sidebar_label: Prerequisites
+id: 先决条件
+title: 先决条件
+sidebar_label: 先决条件
 ---
-Check the [documentation](https://docusaurus.io) for how to use Docusaurus.
+有关如何使用 Docusaurus, 请查看[文档](https://docusaurus.io)。
 
 ## Lorem
 
