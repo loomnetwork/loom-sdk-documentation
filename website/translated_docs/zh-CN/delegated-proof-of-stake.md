@@ -32,15 +32,15 @@ title: 委任股权证明
 
 ## 选举
 
-Any account can trigger an election if enough time has passed by sending a transaction to the network. Witnesses are elected by summing up the total voting power given to them and taking the top N candidates where N is the witness count specified in the initial parameters. This means that all witnesses end up with an equal chance of proposing a block no matter how many votes they received. If the mininum number of power required specified by the minimum power fraction is not reached then the witness set does not change.
+如果过了足够长的时间，任何帐户都可以通过向网络发送事务触发选举。 见证人是通过总结给予他们的总投票权并选出前N名候选人而选出的（N是初始参数中指定的见证人个数）。 这意味着，无论他们收到多少票，所有见证人最终都有平等的机会来提议一个区块。 如果没有达到最小权利分数规定的最小权利需要数量，那么见证人集不会改变。
 
-## Future Improvements
+## 未来的改进
 
-## Bonding
+## 连结
 
-In the future witnesses may lock up a specified number of coins that can be seized for bad behavior. This adds an additional incentive for good behavior beyond the witness salary.
+在未来, 见证人可能会锁定指定数量的币, 用以扣押不良行为。这为超出见证人薪水的良好行为增加了一个额外的激励。
 
-### Proof of Authority
+### 权威证明
 
 Right now candidates do not have to proof their identity, but in the future it may be useful to enable on-chain notarization to verify candidates' identities.
 
