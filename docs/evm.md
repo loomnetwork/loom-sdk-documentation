@@ -58,8 +58,8 @@ There are currently three ways to interact with the DAppChain's EVM.
          {
              "vm": "plugin",
              "format": "plugin",
-             "name": "wrapstore",
-             "location": "wrapstore:1.0.0",
+             "name": "evmexample",
+             "location": "evmexample:1.0.0",
              "init": {
  
              }
@@ -79,7 +79,9 @@ directory.
   1. `plugin`   User plugin, can be produced by `go-loom`.
   2. `truffle`  Solidity program, compiled using truffles compiler.
   3. `solidity` Solidity program, compiled using solc.
-  4. `hex`
+  4. `hex`      Raw Hex, for instance solidty program compiled using `solc -o`
+  option
+  .
 * `name` This name can be used to retrieve the address of the contract 
 assigned by loom or the EVM.
 * `location` Versioned name of the file binary file located in the contracts 
@@ -92,11 +94,14 @@ loom's logging information.
 
 ## Deploy and run from command line
 
-The loom command line tool has two commands for interacting with the 
+The loom command line tool has three commands for interacting with the 
 chains's EVM.
 * `deploy` This will deploy a smart contract in EVM bytecode onto the chain's 
 EVM.
-* `call` This will call a method on an already deployed EVM smart contract.
+* `call` This will call a method that can mutate the state on an already 
+deployed EVM smart contract.
+* `static-call` This will call a read only method on an already deployed EVM 
+smart contract.
 
 ### Deploy
 
@@ -128,16 +133,16 @@ Flags:
  ```   
  If everything works you should see something like:
  ```text
-New contract deployed with address:  default:0xB448D7db27192d54FeBdA458B81e7383F8641c8A
+New contract deployed with address:  0xB448D7db27192d54FeBdA458B81e7383F8641c8A
 Runtime bytecode:  [96 96 96 64 82 96 .... ]
 ```
 The output contract address can be used to call a method on the contract in 
 the call command.
 
-### Call
+### call
 
 ```text
-Call a contract
+Call a method on a contract that can mutate the state
 
 Usage:
   loom call [flags]
@@ -161,17 +166,46 @@ Flags:
  
  Example
  ```text
-call -a ./data/pub -k ./data/pri -i ./cmd/loom/data/inputGet.bin \
-  -c default:0xbD770416A3345f91E4b34576Cb804a576Fa48eB1  \
+call -a ./data/pub -k ./data/pri -i ./cmd/loom/data/inputSet.bin \
+  -c 0xbD770416A3345f91E4b34576Cb804a576Fa48eB1  \
   -w http://localhost:46657 -r http://localhost:9999                         
         
 ```
-On completion this will return the response from the deployed contract,
+On completion this will return the transaction hash, this should be unique for
+each transaction call.
+
+### static-call
+Call a read only method on a contract. Returns the method return value.
+```
+Usage:
+  loom static-call [flags]
+
+Flags:
+      --chain string           chain ID (default "default")
+  -c, --contract-addr string   contract address
+  -h, --help                   help for static-call
+  -i, --input string           file with input data
+  -r, --read string            URI for quering app state (default "http://localhost:46658/query")
+  -w, --write string           URI for sending txs (default "http://localhost:46658/rpc")
+```
+The -a and -k flags are used to identify the user with public and private 
+ key address files.
+ -c requires the contract address. This could be one output from a previous 
+ call to `\loom deploy` or retrieved from the start up log.
+ -i is the input string. For a solidity contract this will be ABI encoded as 
+ described in the [Solidity ABI documentation](https://solidity.readthedocs.io/en/develop/abi-spec.html).
+ Example
+ ```text
+static-call -a ./data/pub -k ./data/pri -i ./cmd/loom/data/inputGet.bin \
+  -c 0xbD770416A3345f91E4b34576Cb804a576Fa48eB1  \
+  -w http://localhost:46657 -r http://localhost:9999
+
+```
 
 ## From a user plugin
 
 Smart contracts deployed on a DAppChain's EVM can be called from 
-user created plugins. The wrapstore example in go-loom gives and example of 
+user created plugins. The evmexample example in go-loom gives and example of
 how to achieve this. 
 
 Before continuing let's consider the various modules involved.
@@ -349,9 +383,9 @@ contract SimpleStore {
 We will look at a simple plugin that wraps this solidity contract. So our 
 plugin will have two functions SetValue and GetValue that will just pass data
 between the SimpleStore contract and the transaction initiator. As it wraps 
-this SimpleStore we will call it WrapStore.
+this SimpleStore we will call it EvmExample.
 
-Here is the outline as for the WrapStore contract, with stubs added for the 
+Here is the outline as for the EvmExample contract, with stubs added for the
 SetValue and GetValue 
 methods.
 ```go
@@ -360,28 +394,28 @@ package main
 import (
 	"github.com/loomnetwork/go-loom/plugin"
 	"github.com/loomnetwork/go-loom/plugin/contractpb"
-	"github.com/loomnetwork/go-loom/examples/plugins/wrapstore/types"
+	"github.com/loomnetwork/go-loom/examples/plugins/evmexample/types"
 )
 
-type WrapStore struct {
+type EvmExample struct {
 }
 
-func (c *WrapStore) Meta() (plugin.Meta, error) {
+func (c *EvmExample) Meta() (plugin.Meta, error) {
 	return plugin.Meta{
-		Name:    "WrapStore",
+		Name:    "EvmExample",
 		Version: "1.0.0",
 	}, nil
 }
 
-func (c *WrapStore) SetValue(ctx contractpb.Context, value *types.WrapValue) error {
+func (c *EvmExample) SetValue(ctx contractpb.Context, value *types.WrapValue) error {
 	return nil
 }
 
-func (c *WrapStore) GetValue(ctx contractpb.Context, req *types.Dummy) (*types.WrapValue, error) {
+func (c *EvmExample) GetValue(ctx contractpb.Context, req *types.Dummy) (*types.WrapValue, error) {
 		return nil, nil
 }
 
-var Contract = contractpb.MakePluginContract(&WrapStore{})
+var Contract = contractpb.MakePluginContract(&EvmExample{})
 
 func main() {
 	plugin.Serve(Contract)
@@ -472,10 +506,10 @@ The Pack method takes the function signature and a list of the arguments and
 returns the encoded input. 
 
 ### Putting it together
-Ok now we know how to get the input, and contact address we can give an 
+Now we know how to get the input, and contact address we can give an 
 example of our SetValue method. Error checking removed for clarity.
 ```go
-func (c *WrapStore) SetValue(ctx contractpb.Context, value *types.WrapValue) error {
+func (c *EvmExample) SetValue(ctx contractpb.Context, value *types.WrapValue) error {
 	ssAddr, err := ctx.Resolve("SimpleStore")
 	abiSS, err := abi.JSON(strings.NewReader(SimpleStoreABI))
 	input, err := abiSS.Pack("set", big.NewInt(value.Value))
@@ -485,25 +519,24 @@ func (c *WrapStore) SetValue(ctx contractpb.Context, value *types.WrapValue) err
 	return err
 }
 ```
-The evmOut function is a dummy. This function could be called in Go using 
-Go-loom with.
+This function could be called in Go using Go-loom with.
 ```go
 	rpcClient := client.NewDAppChainRPCClient(chainId, writeUri, readUri)
-	contract := client.NewContract(rpcClient, contractAddr, "wrapstore")
+	contract := client.NewContract(rpcClient, contractAddr, "EvmExample")
 	payload := &types.WrapValue{
 		Value: int64(value),
 	}
 	_, err = contract.Call("SetValue", payload, signer, nil)
 
 ```
-The GetValue function now works in a similar fashion. The only difference is 
-that we now have to unwrap the output from the solidity contract and return 
-it in a WrapValue message.
+The GetValue function now works in a similar fashion. We now have to unwrap 
+the output from the solidity contract and return it in a WrapValue message
+. `StaticCallEvm` is used as `get` is a view or constant function.
 ```go
 import (
 	"github.com/ethereum/go-ethereum/accounts/abi"
 	"github.com/ethereum/go-ethereum/common"
-	"github.com/loomnetwork/go-loom/examples/plugins/wrapstore/types"
+	"github.com/loomnetwork/go-loom/examples/plugins/evmexample/types"
 	"github.com/loomnetwork/go-loom/plugin"
 	"github.com/loomnetwork/go-loom/plugin/contractpb"	
 	"math/big"
@@ -511,7 +544,7 @@ import (
 	"strconv"
 )
 
-func (c *WrapStore) GetValue(ctx contractpb.Context, req *types.Dummy) (*types.WrapValue, error) {
+func (c *EvmExample) GetValue(ctx contractpb.Context, req *types.Dummy) (*types.WrapValue, error) {
 	ssAddr, err := ctx.Resolve("SimpleStore")
 	if err != nil {
 		return nil, err
@@ -525,7 +558,7 @@ func (c *WrapStore) GetValue(ctx contractpb.Context, req *types.Dummy) (*types.W
 		return nil, err
 	}
 	evmOut := []byte{}
-	err = contractpb.CallEVM(ctx, ssAddr, input, &evmOut)
+	err = contractpb.StaticCallEVM(ctx, ssAddr, input, &evmOut)
 	if err != nil {
 		return nil, err
 	}
