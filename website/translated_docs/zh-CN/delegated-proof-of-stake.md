@@ -114,7 +114,7 @@ loom genkey -a pubkey -k privkey
         },
 ```
 
-我们还需要调整这个例子的DPOS设置, 这样我们现在就可以进行选举, 而不是等待一个完整的选举周期再来投票。 我们通过把在`genesis. json`中的`electionCycleLength` 修改成``来做到这一点。 We'll also add a salary of 10 coins for witnesses.
+我们还需要调整这个例子的DPOS设置, 这样我们现在就可以进行选举, 而不是等待一个完整的选举周期再来投票。 我们通过把在`genesis. json`中的`electionCycleLength` 修改成``来做到这一点。 我们还将为见证人增加10枚币的工资。
 
 ```json
         {
@@ -139,19 +139,19 @@ loom genkey -a pubkey -k privkey
         }
 ```
 
-We then boot the blockchain which will initialize the Coin and DPOS smart contracts.
+然后, 我们启动区块链，将初始化币和DPOS智能合约。
 
 ```shell
 loom run
 ```
 
-To send transactions to the network we can use the example-cli from the [go-loom project](https://github.com/loomnetwork/go-loom). This can be built by running
+要将事务发送到网络, 我们可以使用[go-loom project](https://github.com/loomnetwork/go-loom)中的示例-cli。这可以通过运行来构建。
 
 ```shell
 make example-cli
 ```
 
-We can check the witness list at any time by running the `list_witnesses` subcommand.
+我们可以在任何时候通过运行`list_witnesses`子命令来检查见证人列表。
 
 ```shell
 ./example-cli call list_witnesses
