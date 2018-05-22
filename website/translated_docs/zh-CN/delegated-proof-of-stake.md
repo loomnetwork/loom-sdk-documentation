@@ -2,9 +2,9 @@
 id: 委任股权证明
 title: 委任股权证明
 ---
-委任股权证明算法使代币持有者可以选举见证人。 Witnesses act as validators of the blockchain, proposing blocks and verifying that transactions are correct. These witnesses serve a standard term length before being subject to elections again.
+委任股权证明算法使代币持有者可以选举见证人。 见证人将充当区块链的验证者，提议区块以及核实交易是否准确。 在再次接受选举之前，这些见证人的任期长度为标准期限。
 
-## Parameters
+## 参数
 
 **Coin contract address** - Specifies which ERC20-like coin contract to use to calculate the power of a vote. By default this is resolved to the address at `coin`.
 
