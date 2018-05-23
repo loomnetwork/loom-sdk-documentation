@@ -30,7 +30,13 @@ git clone https://github.com/loomnetwork/tiles-chain
 ### 3.) Start the DappChain
 
 ```bash
-cd tiles-chain/dappchain
+cd tiles-chain
+mkdir tmpgopath
+export GOPATH=`pwd`/tmpgopath
+
+cd dappchain
+wget https://storage.googleapis.com/private.delegatecall.com/loom/osx/build-132/loom
+chmod +x loom
 
 # Compile
 export GOPATH=$GOPATH:`pwd`
@@ -39,16 +45,17 @@ make
 
 # Configure
 cd build
-loom init
+../loom init
 cp ../genesis.example.json genesis.json
 
 # Run
-loom run
+../loom run
 ```
 
 ### 4.) Start the web server
 
 ```bash
+# On second terminal
 cd tiles-chain/webclient
 
 # Install
