@@ -3,23 +3,23 @@ id: evm
 title: 以太坊虚拟机器
 sidebar_label: EVM页面
 ---
-## Overview
+## 概括
 
-loom DAppChains contain an ethereum virtual machine (EVM) and allows you to deploy and run smart contracts that compile to EVM bytecode.
+loom DApp链包含一个以太坊虚拟机器（EVM）并使你可以部署以及运行将编译成EVM字节码的智能合约。
 
-### Ethereum virtual machine
+### 以太坊虚拟机器
 
-An EVM consist of a database and the interpreter for EVM bytecode.
+一个EVM由一个数据库以及EVM字节码解释器组成。
 
-The interpreter runs EVM bytecode and is specially designed for creating secure deterministic programs suitable for blockchains. The most popular language for coding EVM smart contracts is Solidity, however any language that compiles to EVM bytecode can be run by the EVM interpreter.
+解释器运行EVM字节码，专为创建适合区块链的安全的确定性程序而设计。 编码EVM智能合约最受欢迎的语言是Solidity，然而任何编译为EVM字节码的语言都可以由EVM解释器运行。
 
-The database is keyed by addresses for each of the programs that have been deployed on the EVM. The value contains the program's bytecode and any associated data.
+该数据库由EVM上已部署的每个程序的地址键入。 该值包含程序的字节码和任何相关数据。
 
-### DAppChains and EVM
+### DApp链和EVM
 
-There are currently three ways to interact with the DAppChain's EVM.
+目前与DApp链EVM交互的方式有三种。
 
-1. A smart contact can be deployed on initial startup of the blockchain.
+1. 智能合约可以在区块链初始启动时被部署。
 2. The loom command line tool allows deploying a smart contract or calling a method on an already deployed contract.
 3. Another smart contract, either an EVM contract or a plugin contract, can call methods on an already deployed EVM contract.
     
