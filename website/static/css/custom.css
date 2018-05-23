@@ -3,6 +3,9 @@
 
 /* global */
 
+a {
+  color: #f9a82f;
+}
 
 .logo {
   display: block !important;
