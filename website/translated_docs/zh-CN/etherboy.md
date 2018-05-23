@@ -16,7 +16,7 @@ sidebar_label: Etherboy 部署
 2. 下载二进制文件:
     
     ```bash
-    wget https://storage.googleapis.com/private.delegatecall.com/loom/linux/build-94/loom
+    wget https://storage.googleapis.com/private.delegatecall.com/loom/linux/build-132/loom
     wget https://storage.googleapis.com/private.delegatecall.com/etherboy/linux/build-53/etherboycli
     chmod +x loom etherboycli
     
