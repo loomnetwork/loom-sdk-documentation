@@ -42,9 +42,9 @@ sidebar_label: Etherboy 部署
     }
     ```
 
-4. Execute `loom init` in the working directory to initialize config files.
+4. 在工作目录中执行`loom init`以初始化配置文件。
 
-Note: `loom` and `etherboycli` can be placed anywhere in your `$PATH` so you don't have to always execute with `./`. However, `etherboycore.so` must always be placed in `$WORKING_DIRECTORY/contracts/etherboycore.so`.
+注意: `loom` 和 `etherboycli` 可以放置在你 `$PATH` 中的任何位置，因此你不必总是使用 `./` 执行。 However, `etherboycore.so` must always be placed in `$WORKING_DIRECTORY/contracts/etherboycore.so`.
 
 ## Running
 
