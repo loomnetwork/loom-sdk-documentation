@@ -1,5 +1,5 @@
 ---
-id: etherboy-部署
+id: etherboy-deployment
 title: 部署示例
 sidebar_label: Etherboy 部署
 ---
