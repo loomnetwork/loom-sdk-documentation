@@ -1,5 +1,5 @@
 ---
-id: 共识
+id: consensus
 title: 区块链共识
 ---
 Loom区块链允许可插入的后端作为共识。 任何[ABCI](https://github.com/tendermint/abci)匹配的共识引擎可以用来运行loom应用程序。 后端负责确认区块链以及维持区块链状态，亦即区块和交易。 默认后端是[Tendermint](https://tendermint.com/)，实行着[BFT](https://en.wikipedia.org/wiki/Byzantine_fault_tolerance)风格共识算法，它需要2/3 + 1张验证者投票来确认一个区块。 在未来，我们计划支持比特币风格PoW/最长的链共识。
