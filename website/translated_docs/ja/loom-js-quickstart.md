@@ -21,7 +21,7 @@ npm install loom-js
 
 ## DAppチェーンへの接続
 
-`Contract` クラスは、Loom DAppチェーンで実行されるスマートコントラクトと対話するための便利な方法を提供する。 Loom SDKのサンプルスマートコントラクト [helloworld](https://github.com/loomnetwork/go-loom/blob/master/examples/plugins/helloworld/helloworld.go) と対話する `Contract` インスタンスを作成する関数を書いてみよう。
+`Contract` クラスは、Loom DAppチェーンで実行されるスマートコントラクトと対話するための便利な方法を提供する。 Let's write a function that creates a `Contract` instance to interact with the sample [BluePrint](https://github.com/loomnetwork/weave-blueprint/blob/master/src/blueprint.go) smart contract from the Loom SDK...
 
 ```js
 const {
@@ -48,9 +48,7 @@ async function getContract(privateKey, publicKey) {
     new NonceTxMiddleware(publicKey, client),
     new SignedTxMiddleware(privateKey)
   ]
-  // address of the `helloworld` smart contract on the Loom DAppChain
-  const contractAddr = await client.getContractAddressAsync('helloworld')
-
+  const contractAddr = await client.getContractAddressAsync('BluePrint')
   const callerAddr = new Address(client.chainId, LocalAddress.fromPublicKey(publicKey))
   return new Contract({
     contractAddr,
@@ -64,7 +62,7 @@ async function getContract(privateKey, publicKey) {
 
 スマートコントラクトの状態を変更するには、そのパブリックなメソッドのうちどれかを呼び出すことが必要であり、さらに署名済みのトランザクションが送信され、DAppチェーンによって検証されていなくてはならない。 幸いこれらのほとんどは、`Contract.CallAsync()` メソッドを使用すれば `Contract`クラスが処理を行う。
 
-[helloworld](https://github.com/loomnetwork/go-loom/blob/master/examples/plugins/helloworld/helloworld.go)スマートコントラクトは、パブリックな`SetMsg`メソッドを持っており、これはキーとバリューの連想配列を保存するよう呼び出すことができる。 このメソッドを呼び出す関数を書いてみよう。
+The [BluePrint](https://github.com/loomnetwork/weave-blueprint/blob/master/src/blueprint.go) smart contract has a public `SetMsg` method that can be called to store an association between a key and a value. このメソッドを呼び出す関数を書いてみよう。
 
 ```js
 /**
@@ -84,7 +82,7 @@ async function store(contract, key, value) {
 
 スマートコントラクトの状態を読み取るためには、パブリックな読み取り専用メソッドのうちどれかを呼び出す必要があり、`Contract.StaticCallAsync()`メソッドを使って行うことができる。
 
-[helloworld](https://github.com/loomnetwork/go-loom/blob/master/examples/plugins/helloworld/helloworld.go)スマートコントラクトは、パブリックな`GetMsg`メソッドを持っており、キーとバリューの連想配列を参照するようこれを呼び出すことができる。 このメソッドを呼び出す関数を書いてみよう。
+The [BluePrint](https://github.com/loomnetwork/weave-blueprint/blob/master/src/blueprint.go) smart contract has a public `GetMsg` method that can be called to look up an association between a key and a value. このメソッドを呼び出す関数を書いてみよう。
 
 ```js
 /**
