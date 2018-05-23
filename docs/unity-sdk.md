@@ -23,7 +23,7 @@ You can find all the code on this page and a ready-to-go Unity scene in the Loom
 
 The `Contract` class provides a convenient way to interact with a smart contract running on a Loom
 DAppChain. Let's write a method that creates a `Contract` instance to interact with the sample
-[helloworld][] smart contract provided in the Loom SDK...
+[BluePrint][] smart contract provided in the Loom SDK...
 
 ```csharp
 // LoomQuickStartSample.cs
@@ -35,7 +35,7 @@ using Loom.Unity3d.Samples;
 
 public class LoomQuickStartSample : MonoBehavior
 {
-    Contract GetContract(byte[] privateKey, byte[] publicKey)
+    async Task<Contract> GetContract(byte[] privateKey, byte[] publicKey)
     {
         var writer = RPCClientFactory.Configure()
             .WithLogger(Debug.unityLogger)
@@ -59,8 +59,7 @@ public class LoomQuickStartSample : MonoBehavior
             },
             new SignedTxMiddleware(privateKey)
         });
-        // address of the `helloworld` smart contract on the Loom DAppChain
-        var contractAddr = Address.FromHexString("0x005B17864f3adbF53b1384F2E6f2120c6652F779");
+        var contractAddr = await client.ResolveContractAddressAsync("BluePrint");
         var callerAddr = Address.FromPublicKey(publicKey);
         return new Contract(client, contractAddr, callerAddr);
     }
@@ -73,9 +72,9 @@ To mutate the state of a smart contract you need to call one of its public metho
 signed transaction must be sent to and validated by the DAppChain. Fortunately the `Contract` class
 takes care of most of this when you use the `Contract.CallAsync()` method.
 
-The [helloworld][] smart contract has a public `SetMsg` method that can be called to store an
+The [BluePrint][] smart contract has a public `SetMsg` method that can be called to store an
 association between a key and a value, note that this method doesn't return anything. Let's add a
-method to the `LoomQuickStartSample` class that calls `helloworld.SetMsg()`.
+method to the `LoomQuickStartSample` class that calls `BluePrint.SetMsg()`.
 
 ```csharp
 async Task CallContract(Contract contract)
@@ -88,9 +87,9 @@ async Task CallContract(Contract contract)
 }
 ```
 
-Smart contract methods that mutate state may return a value. The [helloworld][] smart contract has
+Smart contract methods that mutate state may return a value. The [BluePrint][] smart contract has
 a public `SetMsgEcho` method that will store a key/value and return the key/value it stored. Let's
-add another method to the `LoomQuickStartSample` class to call `helloworld.SetMsgEcho`.
+add another method to the `LoomQuickStartSample` class to call `BluePrint.SetMsgEcho`.
 
 ```csharp
 async Task CallContractWithResult(Contract contract)
@@ -119,9 +118,9 @@ To read the state of a smart contract you need to call one of its public read-on
 a read-only method doesn't modify the smart contract state. You can call a read-only method on a
 smart contract by using the `Contract.StaticCallAsync()` method.
 
-The [helloworld][] smart contract has a public `GetMsg` method that can be called to look up an
+The [BluePrint][] smart contract has a public `GetMsg` method that can be called to look up an
 association between a key and a value. Let's add a method to the `LoomQuickStartSample` class to
-call `helloworld.GetMsg`.
+call `BluePrint.GetMsg`.
 
 ```csharp
 async Task StaticCallContract(Contract contract)
@@ -158,7 +157,7 @@ async void Start()
     var privateKey = CryptoUtils.GeneratePrivateKey();
     var publicKey = CryptoUtils.PublicKeyFromPrivateKey(privateKey);
   
-    var contract = GetContract(privateKey, publicKey);
+    var contract = await GetContract(privateKey, publicKey);
     await CallContract(contract);
     // This should print: { "key": "123", "value": "hello!" } in the Unity console window
     await StaticCallContract(contract);
@@ -169,8 +168,8 @@ async void Start()
 
 Now that we have all the code in place let's test it out:
 1. Create an empty `GameObject` in a Unity scene and attach the `LoomQuickStartSample` script to it.
-2. Deploy the [helloworld][] smart contract on a local Loom DAppChain node.
+2. Deploy the [BluePrint][] smart contract on a local Loom DAppChain node.
 3. Hit `Play` in the Unity Editor.
 
 
-[helloworld]: https://github.com/loomnetwork/go-loom/blob/master/examples/plugins/helloworld/helloworld.go
+[BluePrint]: https://github.com/loomnetwork/weave-blueprint/blob/master/src/blueprint.go
