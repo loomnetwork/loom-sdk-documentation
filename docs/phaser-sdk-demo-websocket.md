@@ -51,6 +51,7 @@ cp ../genesis.example.json genesis.json
 ### 3.) Start the web server
 
 ```bash
+# On second terminal
 cd tiles-chain/webclient
 
 # Install
