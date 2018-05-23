@@ -437,6 +437,7 @@ footer .zombie-mascot {
 }
 
 .feature-element-content {
+  text-align: center;
   padding: 24px 36px;
 }
 
@@ -626,6 +627,25 @@ footer .zombie-mascot {
   border-bottom: 1px solid #ccc;
 }
 
+
+/* Index > docs */
+
+.docs {
+  display: flex;
+  flex-direction: row;
+}
+
+.docs div {
+  width: 50%;
+}
+
+.docs .docs-copy-content {
+  padding-top: 24px;
+}
+
+.docs .docs-copy-content h3 {
+  margin-bottom: 0px;
+}
 
 
 

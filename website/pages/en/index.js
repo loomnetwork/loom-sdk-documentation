@@ -135,37 +135,30 @@ const Features = props => (
     <div className="features-container">
       <div className="feature-element">
         <div className="feature-element-content">
-          <h2>
-             <a href="https://medium.com/loom-network/dappchains-scaling-ethereum-dapps-through-sidechains-f99e51fff447"><translate>What is a Loom DAppChain?</translate></a>
-          </h2>
+          <img src={imgUrl("js-zombie.png")} />
         </div>
         <hr />
         <div className="feature-element-content">
-          <p>
-            <translate>
-Loom Network allows developers to build large-scale games and social apps by using DAppChains — DApps running as their own sidechains.
-More specifically, a DAppChain is an Application Specific Sidechain, that runs parallel to a mainchain, Ethereum in this case.
-            </translate>
-          </p>
+          <h3>
+            {/* */}
+              Javascript
+            {/*</translate>*/}
+          </h3>
           <a className="feature-btn" href="https://medium.com/loom-network/dappchains-scaling-ethereum-dapps-through-sidechains-f99e51fff447"><translate>Read more</translate>
           </a>
         </div>
       </div>
       <div className="feature-element">
         <div className="feature-element-content">
-          <h2>
-            <translate>
-              Loom Network SDK Roadmap
-            </translate> 
-          </h2>
+          <img src={imgUrl("phaser-zombie.png")} />
         </div>
         <hr />
         <div className="feature-element-content">
-          <p>
-            <translate>
-              Overview of all the Loom SDK Features. What upcoming projects are running on DAppchains. Some of features like Ethereum Asset Transfers, Indexing and Consensus selection.
-            </translate>
-          </p>
+          <h3>
+            {/*<translate>*/}
+              Phaser
+            {/*</translate>*/}
+          </h3>
           <a className="feature-btn" href="https://medium.com/loom-network/loom-network-sdk-alpha-release-first-5-dappchains-announced-sdk-roadmap-1dddec789004">
             <translate>
               Read More
@@ -175,19 +168,15 @@ More specifically, a DAppChain is an Application Specific Sidechain, that runs p
       </div>
       <div className="feature-element">
         <div className="feature-element-content">
-          <h2>
-            <translate>
-              UnitySDK  for DAppchains
-            </translate>  
-          </h2>
+          <img src={imgUrl("unity-zombie.png")} />
         </div>
         <hr />
         <div className="feature-element-content">
-          <p>
-            <translate>
-              Loom uses Unity for all of its Games. We have also published a Unity Sdk. We will have updated source samples soon with a fullgame built on a DAppchain. Developers will be able to send and recieve transactions on a blockchain, including with a websocket realtime api. 
-            </translate>
-          </p>
+          <h3>
+            {/*<translate>*/}
+              Unity
+            {/*</translate>*/}
+          </h3>
           <a className="feature-btn" href={docUrl('unity-sdk.html', props.language)}>
             <translate>
               Read More
@@ -215,7 +204,7 @@ const Banner = props => (
     <div className="wrapper">
       <div className="artifact-container">
         <img src={imgUrl("oval-white-artifact.svg")} className="artifact artifact-5" />
-        <img src={imgUrl("square-artifact.svg")} className="artifact artifact-4" />
+        <img src={imgUrl("square-artifact.svg")} className="artifahttps://trello.com/b/tfO19nMv/cryptozombies-marketingct artifact-4" />
         <img src={imgUrl("triangle-artifact.svg")} className="artifact artifact-3" />
         <img src={imgUrl("circle-green-artifact.svg")} className="artifact artifact-2" />
         <img src={imgUrl("square-yellow-artifact.svg")} className="artifact artifact-1" />
@@ -232,6 +221,20 @@ const Banner = props => (
       </div>
     </div>
   </div>
+);
+
+const Docs = props => (
+<div className="docs wrapper">
+  <div>
+    <img src={imgUrl("zombie-docs.png")} />
+  </div>   
+  <div className="docs-copy-content">
+    <h3>Docs</h3>
+    <p>
+      This is an intro to building your first DAppChain
+    </p>
+  </div>
+</div>
 );
 
 // const Banner = props => (
@@ -505,6 +508,7 @@ class Index extends React.Component {
           <Banner language={language}/>
           <Download language={language} />
           <Features language={language} />
+          <Docs language={language} />
           {/* <Prereqs />
           <Instructions /> */}
           <Showcase language={language} />
