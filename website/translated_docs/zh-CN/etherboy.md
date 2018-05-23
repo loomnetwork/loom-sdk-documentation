@@ -60,11 +60,11 @@ I[05-16|06:06:16.970] Using simple log event dispatcher
 I[05-16|06:06:19.999] Starting RPC HTTP server on tcp://127.0.0.1:9999 module=query-server
 ```
 
-This will run Etherboy in the foreground and print its output to the console. For better process management, look at the next section.
+这将在前台运行Etherboy，并将其输出打印到控制台。要更好地进行流程管理, 请查看下一节。
 
-### systemd Startup Script
+### systemd启动脚本
 
-The following startup script can be used to control the service using systemd. Make changes to `WorkingDirectory` and/or `ExecStart` to reflect your setup.
+以下启动脚本可通过使用systemd来控制服务。对 `WorkingDirectory` 和/或 `ExecStart` 进行更改以反映你的设置。
 
 ```ini
 [Unit]
@@ -87,30 +87,30 @@ StandardError=syslog
 WantedBy=multi-user.target
 ```
 
-Save it to `/etc/systemd/system/etherboy.service`. Run these to activate it:
+把它保存到`/etc/systemd/system/etherboy.service`。运行这些操作以激活它:
 
 ```bash
 sudo systemctl daemon-reload
 sudo systemctl start etherboy.service
 ```
 
-You may now inspect the output using:
+你现在可以使用以下方法检查输出:
 
 ```bash
 sudo journalctl -u etherboy.service
 ```
 
-When satisfied everything is running as intended, executing the following will enable the service so that it is started at boot:
+当你满足一切都按预期运行时, 执行以下操作将启用该服务, 以便在启动时开始:
 
 ```bash
 sudo systemctl enable etherboy.service
 ```
 
-## Verifying
+## 验证
 
-### Listening ports
+### 监听端口
 
-If all is well, you will be able to see these ports opened in your server.
+如果一切顺利, 你将能够看到这些端口在你的服务器上打开。
 
 ```bash
 $ sudo netstat -tpnl
@@ -122,7 +122,7 @@ tcp6       0      0 :::46658                :::*                    LISTEN      
 tcp6       0      0 :::9999                 :::*                    LISTEN      14327/loom
 ```
 
-### The CLI - etherboycli
+### CLI - etherboycli
 
 ```bash
 $ pwd
