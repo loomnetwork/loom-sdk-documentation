@@ -652,6 +652,11 @@ footer .zombie-mascot {
     background-color: #ffffff;
   }  
 
+
+  .docsSliderActive nav.toc .navBreadcrumb {
+    background-color: #ffffff;
+  }
+
   navigationSlider .slidingNav ul li.siteNavItemActive a, .navigationSlider .slidingNav ul li.siteNavGroupActive a {
     background: #f9a830;
   }
