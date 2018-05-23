@@ -7,7 +7,12 @@ sidebar_label: Release Notes
 
 Reverse chronology order of release notes
 
-## Release 129 - May 23rd
+## Release 132 - May 23rd
+
+* Websocket performance fixes
+* New Websocket Demo App - TilesChain - [Github](https://github.com/loomnetwork/tiles-chain) 
+
+## Release 129 - May 22rd
 
 * Websocket support for eventing
 * Updates to indexing layer for solidty contracts
@@ -23,5 +28,3 @@ Reverse chronology order of release notes
 * Updating logging to default to multiple files 
 * Moving all RPC to a single interface
 * Updated External Process interface
-
-<!-- * New Websocket Demo App - TilesChain - [Github](https://github.com/loomnetwork/tiles-chain) -->
