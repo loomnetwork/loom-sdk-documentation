@@ -616,7 +616,9 @@ footer .zombie-mascot {
 
 /* responsive menu */
 
-.docsSliderActive nav.toc .navBreadcrumb, .docsNavContainer {
+.docsSliderActive nav.toc .navBreadcrumb,
+nav.toc .toggleNav,
+.docsSliderActive.docsNavContainer {
   background-color: #fff;
 }
 
@@ -646,6 +648,7 @@ footer .zombie-mascot {
 }
 
 @media screen and (max-width: 736px) {
+
   navigationSlider .slidingNav ul li.siteNavItemActive a, .navigationSlider .slidingNav ul li.siteNavGroupActive a {
     background: #f9a830;
   }
@@ -653,6 +656,11 @@ footer .zombie-mascot {
 }
 
 @media screen and (max-width: 1020px) {
+
+
+  .navPusher {
+    padding-top: 76px !important;
+  }
 
   .fixedHeaderContainer {
     position: fixed;
