@@ -617,7 +617,6 @@ footer .zombie-mascot {
 /* responsive menu */
 
 .docsSliderActive nav.toc .navBreadcrumb,
-nav.toc .toggleNav,
 .docsSliderActive.docsNavContainer {
   background-color: #fff;
 }
@@ -648,6 +647,10 @@ nav.toc .toggleNav,
 }
 
 @media screen and (max-width: 736px) {
+
+  nav.toc .toggleNav {
+    background-color: #ffffff;
+  }  
 
   navigationSlider .slidingNav ul li.siteNavItemActive a, .navigationSlider .slidingNav ul li.siteNavGroupActive a {
     background: #f9a830;
