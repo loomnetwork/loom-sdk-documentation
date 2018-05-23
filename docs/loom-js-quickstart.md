@@ -26,7 +26,7 @@ in the `quickstart` directory.
 
 The `Contract` class provides a convenient way to interact with a smart contract running on a Loom
 DAppChain. Let's write a function that creates a `Contract` instance to interact with the sample
-[helloworld][] smart contract from the Loom SDK...
+[BluePrint][] smart contract from the Loom SDK...
 
 ```js
 const {
@@ -53,9 +53,7 @@ async function getContract(privateKey, publicKey) {
     new NonceTxMiddleware(publicKey, client),
     new SignedTxMiddleware(privateKey)
   ]
-  // address of the `helloworld` smart contract on the Loom DAppChain
-  const contractAddr = await client.getContractAddressAsync('helloworld')
-
+  const contractAddr = await client.getContractAddressAsync('BluePrint')
   const callerAddr = new Address(client.chainId, LocalAddress.fromPublicKey(publicKey))
   return new Contract({
     contractAddr,
@@ -71,7 +69,7 @@ To mutate the state of a smart contract you need to call one of its public metho
 signed transaction must be sent to and validated by the DAppChain. Fortunately the `Contract` class
 takes care of most of this when you use the `Contract.callAsync()` method.
 
-The [helloworld][] smart contract has a public `SetMsg` method that can be called to store an
+The [BluePrint][] smart contract has a public `SetMsg` method that can be called to store an
 association between a key and a value. Let's write a function that calls this method...
 
 ```js
@@ -93,7 +91,7 @@ async function store(contract, key, value) {
 To read the state of a smart contract you need to call one of its public read-only methods, you can
 do so by using the `Contract.staticCallAsync()` method.
 
-The [helloworld][] smart contract has a public `GetMsg` method that can be called to look up an
+The [BluePrint][] smart contract has a public `GetMsg` method that can be called to look up an
 association between a key and a value. Let's write a function that calls this method...
 
 ```js
@@ -127,4 +125,4 @@ run the following code, you should see `Value: hello!` printed to the console.
 })()
 ```
 
-[helloworld]: https://github.com/loomnetwork/go-loom/blob/master/examples/plugins/helloworld/helloworld.go
+[BluePrint]: https://github.com/loomnetwork/weave-blueprint/blob/master/src/blueprint.go
