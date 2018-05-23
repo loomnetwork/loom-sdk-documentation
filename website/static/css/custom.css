@@ -613,6 +613,21 @@ footer .zombie-mascot {
   margin-bottom: 24px;
 }
 
+
+/* responsive menu */
+
+.docsSliderActive nav.toc .navBreadcrumb, .docsNavContainer {
+  background-color: #fff;
+}
+
+
+.docsNavContainer nav.toc .navBreadcrumb, .docsSliderActive nav.toc .navBreadcrumb {
+  border-bottom: 1px solid #ccc;
+}
+
+
+
+
 /* responsive */
 
 @media screen and (max-width: 736px) {
@@ -665,7 +680,7 @@ footer .zombie-mascot {
 @media screen and (max-width: 600px) {
 
   .navPusher {
-    padding-top: 50px;
+    padding-top: 76px !important;
   }
 
   .fixedHeaderContainer {
@@ -745,7 +760,7 @@ footer .zombie-mascot {
 @media screen and (max-width: 360px) {
 
   .navPusher {
-    padding-top: 50px;
+    padding-top: 76px !important;
   }
 
   .fixedHeaderContainer {
