@@ -44,15 +44,15 @@ sidebar_label: Etherboy 部署
 
 4. 在工作目录中执行`loom init`以初始化配置文件。
 
-注意: `loom` 和 `etherboycli` 可以放置在你 `$PATH` 中的任何位置，因此你不必总是使用 `./` 执行。 However, `etherboycore.so` must always be placed in `$WORKING_DIRECTORY/contracts/etherboycore.so`.
+注意: `loom` 和 `etherboycli` 可以放置在你 `$PATH` 中的任何位置，因此你不必总是使用 `./` 执行。 但是，`etherboycore.so` 必须总是放在`$WORKING_DIRECTORY/contracts/etherboycore.so`里面。
 
-## Running
+## 运行
 
-There are two ways to run - directly, or via systemd (or any process control system you prefer)
+有两种方式可以运行：直接运行或者通过systemd（或任何你喜欢的过程控制系统）。
 
-### Direct execution
+### 直接运行
 
-Execute `loom run` in the working directory to run the service:
+在工作目录中执行`loom init`以初始化配置文件。
 
 ```bash
 ./loom run
