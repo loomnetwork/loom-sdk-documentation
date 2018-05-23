@@ -16,7 +16,7 @@ This documentation explains how to run Etherboy in a single server instance (any
     ```
 1. Download the binaries:
     ```bash
-    wget https://storage.googleapis.com/private.delegatecall.com/loom/linux/build-94/loom
+    wget https://storage.googleapis.com/private.delegatecall.com/loom/linux/build-132/loom
     wget https://storage.googleapis.com/private.delegatecall.com/etherboy/linux/build-53/etherboycli
     chmod +x loom etherboycli
 

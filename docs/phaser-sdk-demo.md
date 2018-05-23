@@ -23,7 +23,7 @@ Development
 Install Loom
 
 ```
-wget https://storage.googleapis.com/private.delegatecall.com/loom/osx/build-128/loom
+wget https://storage.googleapis.com/private.delegatecall.com/loom/osx/build-132/loom
 chmod +x loom
 
 mkdir tmpgopath
