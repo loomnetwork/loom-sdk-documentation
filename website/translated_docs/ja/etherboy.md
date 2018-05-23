@@ -16,7 +16,7 @@ sidebar_label: Etherboyのデプロイ
 2. バイナリをダウンロード
     
     ```bash
-    wget https://storage.googleapis.com/private.delegatecall.com/loom/linux/build-94/loom
+    wget https://storage.googleapis.com/private.delegatecall.com/loom/linux/build-132/loom
     wget https://storage.googleapis.com/private.delegatecall.com/etherboy/linux/build-53/etherboycli
     chmod +x loom etherboycli
     

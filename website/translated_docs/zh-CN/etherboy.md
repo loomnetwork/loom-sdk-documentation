@@ -1,5 +1,5 @@
 ---
-id: etherboy-部署
+id: etherboy-deployment
 title: 部署示例
 sidebar_label: Etherboy 部署
 ---
@@ -16,7 +16,7 @@ sidebar_label: Etherboy 部署
 2. 下载二进制文件:
     
     ```bash
-    wget https://storage.googleapis.com/private.delegatecall.com/loom/linux/build-94/loom
+    wget https://storage.googleapis.com/private.delegatecall.com/loom/linux/build-132/loom
     wget https://storage.googleapis.com/private.delegatecall.com/etherboy/linux/build-53/etherboycli
     chmod +x loom etherboycli
     
@@ -42,17 +42,17 @@ sidebar_label: Etherboy 部署
     }
     ```
 
-4. Execute `loom init` in the working directory to initialize config files.
+4. 在工作目录中执行`loom init`以初始化配置文件。
 
-Note: `loom` and `etherboycli` can be placed anywhere in your `$PATH` so you don't have to always execute with `./`. However, `etherboycore.so` must always be placed in `$WORKING_DIRECTORY/contracts/etherboycore.so`.
+注意: `loom` 和 `etherboycli` 可以放置在你 `$PATH` 中的任何位置，因此你不必总是使用 `./` 执行。 但是，`etherboycore.so` 必须总是放在`$WORKING_DIRECTORY/contracts/etherboycore.so`里面。
 
-## Running
+## 运行
 
-There are two ways to run - directly, or via systemd (or any process control system you prefer)
+有两种方式可以运行：直接运行或者通过systemd（或任何你喜欢的过程控制系统）。
 
-### Direct execution
+### 直接运行
 
-Execute `loom run` in the working directory to run the service:
+在工作目录中执行`loom init`以初始化配置文件。
 
 ```bash
 ./loom run
@@ -60,11 +60,11 @@ I[05-16|06:06:16.970] Using simple log event dispatcher
 I[05-16|06:06:19.999] Starting RPC HTTP server on tcp://127.0.0.1:9999 module=query-server
 ```
 
-This will run Etherboy in the foreground and print its output to the console. For better process management, look at the next section.
+这将在前台运行Etherboy，并将其输出打印到控制台。要更好地进行流程管理, 请查看下一节。
 
-### systemd Startup Script
+### systemd启动脚本
 
-The following startup script can be used to control the service using systemd. Make changes to `WorkingDirectory` and/or `ExecStart` to reflect your setup.
+以下启动脚本可通过使用systemd来控制服务。对 `WorkingDirectory` 和/或 `ExecStart` 进行更改以反映你的设置。
 
 ```ini
 [Unit]
@@ -87,30 +87,30 @@ StandardError=syslog
 WantedBy=multi-user.target
 ```
 
-Save it to `/etc/systemd/system/etherboy.service`. Run these to activate it:
+把它保存到`/etc/systemd/system/etherboy.service`。运行这些操作以激活它:
 
 ```bash
 sudo systemctl daemon-reload
 sudo systemctl start etherboy.service
 ```
 
-You may now inspect the output using:
+你现在可以使用以下方法检查输出:
 
 ```bash
 sudo journalctl -u etherboy.service
 ```
 
-When satisfied everything is running as intended, executing the following will enable the service so that it is started at boot:
+当你满足一切都按预期运行时, 执行以下操作将启用该服务, 以便在启动时开始:
 
 ```bash
 sudo systemctl enable etherboy.service
 ```
 
-## Verifying
+## 验证
 
-### Listening ports
+### 监听端口
 
-If all is well, you will be able to see these ports opened in your server.
+如果一切顺利, 你将能够看到这些端口在你的服务器上打开。
 
 ```bash
 $ sudo netstat -tpnl
@@ -122,7 +122,7 @@ tcp6       0      0 :::46658                :::*                    LISTEN      
 tcp6       0      0 :::9999                 :::*                    LISTEN      14327/loom
 ```
 
-### The CLI - etherboycli
+### CLI - etherboycli
 
 ```bash
 $ pwd

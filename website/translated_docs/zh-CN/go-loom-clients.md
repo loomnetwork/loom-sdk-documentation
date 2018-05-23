@@ -62,13 +62,13 @@ import (
 )
 
 // getContract creates a new `Contract` instance that can be used to interact with a smart contract.
-func getContract(contractHexAddr) (*client.Contract, error) {
+func getContract(contractName string) (*client.Contract, error) {
   rpcClient := client.NewDAppChainRPCClient(
     "default",
     "ws://127.0.0.1:46657/websocket",
     "ws://127.0.0.1:9999/queryws",
   )
-  contractAddr, err := loom.LocalAddressFromHexString(contractHexAddr)
+  contractAddr, err := rpcClient.Resolve(contractName)
   if err != nil {
     return nil, err
   }
@@ -126,7 +126,7 @@ func main() {
     panic(err)
   }
   signer := auth.NewEd25519Signer(privateKey)
-  contract, err := getContract("0x005B17864f3adbF53b1384F2E6f2120c6652F779")
+  contract, err := getContract("helloworld")
   if err != nil {
     panic(err)
   }
