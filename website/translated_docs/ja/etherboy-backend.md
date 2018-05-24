@@ -14,15 +14,16 @@ This documentation explains how to run the Etherboy DAppChain in a single server
 2. バイナリをダウンロード
     
     ```bash
-    wget https://storage.googleapis.com/private.delegatecall.com/loom/linux/build-132/loom
-    wget https://storage.googleapis.com/private.delegatecall.com/etherboy/linux/build-53/etherboycli
+    wget https://private.delegatecall.com/loom/linux/build-132/loom
+    wget https://private.delegatecall.com/etherboy/linux/build-53/etherboycli
     chmod +x loom etherboycli
     
     mkdir contracts
-    wget -O contracts/etherboycore.so https://storage.googleapis.com/private.delegatecall.com/etherboy/linux/build-53/etherboycore.so
+    wget -O contracts/etherboycore.so https://private.delegatecall.com/etherboy/linux/build-53/etherboycore.0.0.1
     ```
 
-3. ワーキングディレクトリに`genesis.json`を作成しよう。
+3. Execute `loom init` in the working directory to initialize config files.
+4. Update `genesis.json` in the working directory:
     
     ```json
     {
@@ -40,9 +41,7 @@ This documentation explains how to run the Etherboy DAppChain in a single server
     }
     ```
 
-4. ワーキングディレクトリで`loom init`を実行し、設定ファイルを初期化しよう。
-
-注: `loom`と`etherboycli`は`$PATH`をどこにでも通すことができるので、常に`./`で実行する必要はない。 しかしながら、`etherboycore.so`は常に`$WORKING_DIRECTORY/contracts/etherboycore.so`に置かれていなくてはならない。
+注: `loom`と`etherboycli`は`$PATH`をどこにでも通すことができるので、常に`./`で実行する必要はない。 However, `etherboycore.0.0.1` must always be placed in `$WORKING_DIRECTORY/contracts/etherboycore.0.0.1`.
 
 ## 起動
 
