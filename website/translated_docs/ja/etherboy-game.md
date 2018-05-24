@@ -3,7 +3,7 @@ id: etherboy-game
 title: Etherboyゲーム
 sidebar_label: Etherboyゲーム
 ---
-![Header](/developers/img/etherboy.jpg) EtherboyはUnityで構築されたマルチプラットフォームの2Dゲームで、DAppチェーン上で稼働し、また[Loom Unity SDK](unity-sdk.md)を使用してGo言語で書かれたスマートコントラクトと対話する。
+![Header](/developers/img/ebw_splash.jpg) EtherboyはUnityで構築されたマルチプラットフォームの2Dゲームで、DAppチェーン上で稼働し、また[Loom Unity SDK](unity-sdk.md)を使用してGo言語で書かれたスマートコントラクトと対話する。
 
 ## ゲームコントロール
 
