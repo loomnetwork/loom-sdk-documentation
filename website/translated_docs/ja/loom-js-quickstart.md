@@ -21,7 +21,7 @@ npm install loom-js
 
 ## DAppチェーンへの接続
 
-`Contract` クラスは、Loom DAppチェーンで実行されるスマートコントラクトと対話するための便利な方法を提供する。 Let's write a function that creates a `Contract` instance to interact with the sample [BluePrint](https://github.com/loomnetwork/weave-blueprint/blob/master/src/blueprint.go) smart contract from the Loom SDK...
+`Contract` クラスは、Loom DAppチェーンで実行されるスマートコントラクトと対話するための便利な方法を提供する。 Loom SDKのサンプルスマートコントラクト [BluePrint](https://github.com/loomnetwork/weave-blueprint/blob/master/src/blueprint.go) と対話する `Contract` インスタンスを作成する関数を書いてみよう。
 
 ```js
 const {
@@ -43,7 +43,7 @@ async function getContract(privateKey, publicKey) {
     'ws://127.0.0.1:46657/websocket',
     'ws://127.0.0.1:9999/queryws'
   )
-  // required middleware
+  // ミドルウェアを要求
   client.txMiddleware = [
     new NonceTxMiddleware(publicKey, client),
     new SignedTxMiddleware(privateKey)
@@ -62,7 +62,7 @@ async function getContract(privateKey, publicKey) {
 
 スマートコントラクトの状態を変更するには、そのパブリックなメソッドのうちどれかを呼び出すことが必要であり、さらに署名済みのトランザクションが送信され、DAppチェーンによって検証されていなくてはならない。 幸いこれらのほとんどは、`Contract.CallAsync()` メソッドを使用すれば `Contract`クラスが処理を行う。
 
-The [BluePrint](https://github.com/loomnetwork/weave-blueprint/blob/master/src/blueprint.go) smart contract has a public `SetMsg` method that can be called to store an association between a key and a value. このメソッドを呼び出す関数を書いてみよう。
+[BluePrint](https://github.com/loomnetwork/weave-blueprint/blob/master/src/blueprint.go)スマートコントラクトは、パブリックな`SetMsg`メソッドを持っており、これはキーとバリューの連想配列を保存するよう呼び出すことができる。 このメソッドを呼び出す関数を書いてみよう。
 
 ```js
 /**
@@ -82,7 +82,7 @@ async function store(contract, key, value) {
 
 スマートコントラクトの状態を読み取るためには、パブリックな読み取り専用メソッドのうちどれかを呼び出す必要があり、`Contract.StaticCallAsync()`メソッドを使って行うことができる。
 
-The [BluePrint](https://github.com/loomnetwork/weave-blueprint/blob/master/src/blueprint.go) smart contract has a public `GetMsg` method that can be called to look up an association between a key and a value. このメソッドを呼び出す関数を書いてみよう。
+[BluePrint](https://github.com/loomnetwork/weave-blueprint/blob/master/src/blueprint.go)スマートコントラクトは、パブリックな`GetMsg`メソッドを持っており、キーとバリューの連想配列を参照するようこれを呼び出すことができる。 このメソッドを呼び出す関数を書いてみよう。
 
 ```js
 /**

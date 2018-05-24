@@ -45,13 +45,11 @@ DAppチェーンのEVMと対話するには、現在3つの方法がある。
       1. `plugin`   ユーザープラグイン。`go-loom`で作成可能。
       2. `truffle`  truffleのコンパイラを使用してコンパイルされたSolidityプログラム。
       3. `solidity` solcを使用してコンパイルされたSolidityプログラム。
-      4. `hex`      Raw Hex, for instance solidty program compiled using `solc -o`
-      option
+      4. `hex`      Raw Hex。Solidityプログラムのインスタンスには`solc -o`のオプションを使用してコンパイルされる。
       .
-    * `name` This name can be used to retrieve the address of the contract 
-    assigned by loom or the EVM.
-    * `location` Versioned name of the file binary file located in the contracts 
-    directory. truffleとsolidityには完全なpathを与えなければならない可能性がある。
+    * `name` これはLoomもしくはEVMから割り当てられたコントラクトアドレスを取得するのに使用される。
+    * `location`コントラクトディレクトリ内に配置されたバージョン化されたバイナリファイル名。
+     truffleとsolidityには完全なpathを与えなければならない可能性がある。
     
     そのためこの例では、Loom DAppチェーンはSolidityコントラクト・SimpleStoreのtruffleコンパイルからバイトコードを受け取ることとなる。 そうしてこれをチェーンのEVMにデプロイする。 Loomのログ情報でその確認とコントラクトアドレスが利用可能となる。
     
@@ -59,10 +57,8 @@ DAppチェーンのEVMと対話するには、現在3つの方法がある。
     
     Loomのコマンドラインツールには、チェーンのEVMと対話するための3つのコマンドがある。
     * `deploy`チェーンのEVM上に、EVMバイトコードでスマートコントラクトをデプロイする。
-    * `call` This will call a method that can mutate the state on an already 
-    deployed EVM smart contract.
-    * `static-call` This will call a read only method on an already deployed EVM 
-    smart contract.
+    * `call` 既にデプロイ済みのEVMスマートコントラクトにある状態変更メソッドを呼び出す。
+    * `static-call` 既にデプロイ済みのEVMスマートコントラクトにある読み取り専用メソッドを呼び出す。
     
     ### Deploy
     
@@ -82,7 +78,7 @@ DAppチェーンのEVMと対話するには、現在3つの方法がある。
       -w, --write string      URI for sending txs (default "http://localhost:46657")
     
 
-The -a and -k flags are used to identify the user with public and private key address files. -b は、コントラクトのEVMローバイトコードを保持しているファイルを提供する。 これは`solc -o outfile.bin myProgram.sol`などのSolidityコンパイラを使用することで生成することができる。
+-a 及び -k のフラグは、公開鍵および秘密鍵のアドレスファイルでユーザーを特定するのに使用される。 -b は、コントラクトのEVMローバイトコードを保持しているファイルを提供する。 これは`solc -o outfile.bin myProgram.sol`などのSolidityコンパイラを使用することで生成することができる。
 
 例: 
 
@@ -114,27 +110,20 @@ The -a and -k flags are used to identify the user with public and private key ad
       -w, --write string           URI for sending txs (default "http://localhost:46657")
     
 
--a 及び -k のフラグは、公開鍵および秘密鍵のアドレスファイルでユーザーを特定するのに使用される。 -c はコントラクトアドレスを要求する。 これは前述の`\loom deploy`へのコール結果、もしくは立ち上げ時のログから検索したものとなりうる。 -i は入力文字列だ。 For a solidity contract this will be ABI encoded as described in the [Solidity ABI documentation](https://solidity.readthedocs.io/en/develop/abi-spec.html).
+-a 及び -k のフラグは、公開鍵および秘密鍵のアドレスファイルでユーザーを特定するのに使用される。 -c はコントラクトアドレスを要求する。 これは前述の`\loom deploy`へのコール結果、もしくは立ち上げ時のログから検索したものとなりうる。 -i は入力文字列だ。 Solidityのコントラクトでは、これは[Solidity ABI documentation](https://solidity.readthedocs.io/en/develop/abi-spec.html)で説明されているようにABIにエンコーディングされる。
 
-Example ```text call -a ./data/pub -k ./data/pri -i ./cmd/loom/data/inputSet.bin \ -c 0xbD770416A3345f91E4b34576Cb804a576Fa48eB1 \ -w http://localhost:46657 -r http://localhost:9999
+例 ```text call -a ./data/pub -k ./data/pri -i ./cmd/loom/data/inputSet.bin \ -c 0xbD770416A3345f91E4b34576Cb804a576Fa48eB1 \ -w http://localhost:46657 -r http://localhost:9999
 
-    On completion this will return the transaction hash, this should be unique for
-    each transaction call.
-    
-    ### static-call
-    Call a read only method on a contract. Returns the method return value.
+    完了するとトランザクションのハッシュ値が返されるが、これは各トランザクションの呼び出しごとの唯一のもので同じものはない。
     
 
 Usage: loom static-call [flags]
 
 Flags: --chain string chain ID (default "default") -c, --contract-addr string contract address -h, --help help for static-call -i, --input string file with input data -r, --read string URI for quering app state (default "http://localhost:46658/query") -w, --write string URI for sending txs (default "http://localhost:46658/rpc")
 
-    The -a and -k flags are used to identify the user with public and private 
-     key address files.
-     -c requires the contract address. This could be one output from a previous 
-     call to `\loom deploy` or retrieved from the start up log.
-     -i is the input string. For a solidity contract this will be ABI encoded as 
-     described in the [Solidity ABI documentation](https://solidity.readthedocs.io/en/develop/abi-spec.html).
+    -a 及び -k のフラグは、公開鍵および秘密鍵のアドレスファイルでユーザーを特定するのに使用される。
+     -c はコントラクトアドレスを要求する。 これは前述の\loom deployへのコール結果、もしくは立ち上げ時のログから検索したものとなりうる。
+     -i は入力文字列だ。 SolidityコントラクトではこれはABIとなる。そのエンコーディングについては [Solidity ABI documentation]で説明されている。(https://solidity.readthedocs.io/en/develop/abi-spec.html).
      Example
      ```text
     static-call -a ./data/pub -k ./data/pri -i ./cmd/loom/data/inputGet.bin \
@@ -143,32 +132,32 @@ Flags: --chain string chain ID (default "default") -c, --contract-addr string co
     
     
 
-## From a user plugin
+## ユーザーのプラグインから
 
-Smart contracts deployed on a DAppChain's EVM can be called from user created plugins. The evmexample example in go-loom gives and example of how to achieve this.
+DAppチェーン上のEVMにデプロイされたスマートコントラクトは、プラグインを作成したユーザーによって呼び出しが可能だ。go-looomにあるevmexampleのサンプルは、これを行う例を示している。
 
-Before continuing let's consider the various modules involved.
+続きをやる前に、関連する様々なモジュールについて考えてみよう。
 
-* User application. This is the end user application that initiates transactions on the DAppChain.
+* ユーザーアプリケーション。これはエンド ユーザーのアプリケーションで、DAppチェーン上でのトランザクションを引き起こす。
 
-* DAppChain. Receives transactions from the user application and forwards to the appropriate contract to run. Also commits results to the blockchain.
+* DAppチェーン。ユーザーアプリケーションからトランザクションを受信し、適切なコントラクトへ転送して実行する。またブロックチェーンに結果をコミットする。
 
-* Smart contracts. These are written by the user and deployed on the DAppChain. There are two main types.
+* スマートコントラクト。これらはユーザーによって書かれ、DAppチェーンにデプロイされる。主に２種類がある。
     
-    1. Plugins. These can be written in any language supported by gRPC; go-loom allows easy use of contracts written in Go, and loom-js for javascript. The plugin is compiled into an executable that the DAppChain calls using gRPC.
-    2. EVM smart contracts. Solidity programs or any other code that compiles into EVM bytecode can be run by the DAppChain using its EVM.
+    1. プラグイン。 RPCでサポートされていれば、どんな言語で書くことも可能だ; go-loom はGoで書かれたコントラクトの使用を簡単にし、またloom-jsは javascript向けのものである。 このプラグインはDAppチェーンがgRPCを使って 呼び出せるようなものへコンパイルされる。
+    2. EVMスマートコントラクト。SolidityのプログラムやEVMバイトコードにコンパイルされる 何か他のコードはDAppチェーンでEVMを使って実行することができる。
 
-Plugins can run other contracts including ones deployed on the EVM by calling back to the DAppChain using gRPC. The reverse however is not true however, ECM deployed contracts can only interact within the EVM, this is to ensure that the EVM's results are deterministic.
+プラグインは、EVM上にデプロイ済みのものも含めて他のコントラクトを実行することができる。これはgRPCを使ってDAppチェーンへコールバックするすることで行われる。 逆はしかし真ではない。だがEVMにデプロイされたコントラクトはEVM内でのみやり取りができるので、EVMの結果は決定論的なものとなる。
 
-### User code
+### ユーザーのコード
 
-The user provides two items of code. The smart contracts and the end application that make use of the DAppChain.
+ユーザーは2つのコードアイテムを提供する。つまりスマートコントラクトと、DAppsを使えるようにするエンドアプリケーションだ。
 
-In the following we will assume that Go is being used for the end application and the smart contracts are written either in Go for plugins or solidity for EVM. Refer to loom-js-quickstart.md for a javascript solution.
+以下では、Goがエンドアプリケーションに使用されていること、さらにスマートコントラクトがプラグイン用のGo、もしくはEVM用のSolidity、このどちらかで書かれていることと仮定していく。 javaScript向けのソリューションは、loom-js-quickstart.mdを参照のこと。
 
-### Minimal plugin
+### 最小プラグイン
 
-First lets look at the definition of a contract in Go-loom.
+まず、Go-loomでのコントラクト定義について見ていこう。
 
 ```go
 type Contract interface {
@@ -176,7 +165,7 @@ type Contract interface {
 }
 ```
 
-and plugin.Meta is defined from a protobuf definition
+そしてplugin.Metaはprotobufにより定義されている。
 
 ```go
 type ContractMeta struct {
@@ -185,7 +174,7 @@ type ContractMeta struct {
 }
 ```
 
-So all a contract needs is to implement the Meta function. However to be usable as a plugin in a DAppChain there are a few other bits. Here is a minimal example.
+なので全コントラクトに必要なのはメタ関数の実装だ。しかし、DAppチェーンでプラグインとして使用できるようにするにはその他もいくつか必要だ。ここにあるのは最小限の例である。
 
 ```go
 package main
@@ -212,12 +201,12 @@ func main() {
 }
 ```
 
-Here are some points of interest. 1. First the contract has to be package main. 2. Define our contract called HelloWorld as a struct. 3. Implement the `Meta()` function, returning the contracts name and version number. 4. The variable `Contract` needs to be defined. The function `contract
-.MakePluginContract` converts our simple outline into an object that a DAppChain can communicate with. 5. The main routine can then sets the contract up as a working server.
+ここにはいくつか興味深い点がある。 1. まず、コントラクトはpackage mainでなくてはならない。 2. HelloWorldというコントラクトを構造体として定義。 3. コントラクト名とバージョン数を返す`Meta()` 関数を実装。 4. `Contract`という変数の定義が必要。 関数`contract
+.MakePluginContract`は簡単なアウトラインをオブジェクトに変換し、DAppチェーンとのやり取りができるようにする。 5. その後メインルーチンは、コントラクトをワーキングサーバーとしてセットアップ可能。
 
-Of course our contract has no functionality so can't do anything. The next step is to add some. The MakePluginContract function can then use reflection to learn any new methods we give to our contract.
+もちろんこのコントラクトは機能を持たないので何もできない。 次のステップでいくつか追加していこう。 こうしてMakePluginContract関数は、コントラクトに与える新しいメソッドを取得するためにリフレクションを使用することができる。
 
-### Adding functions
+### 関数の追加
 
 ```go
 func (c *HelloWorld) Hello(ctx contract.StaticContext, req *types.HelloRequest) (*types.HelloResponse, error) {
@@ -227,9 +216,9 @@ func (c *HelloWorld) Hello(ctx contract.StaticContext, req *types.HelloRequest) 
 }
 ```
 
-So a simple function that just returns a fixed message. A couple of key points. * Either a `contract.StaticContext` or `contract.Context` should be the first parameter. It provides various methods that allow you to access the resources on the DAppChain. For example view or modify the the state database, or call other plugins. * The user input in the second parameter and the first return value take the form of [protobuf messages](https://developers.google.com/protocol-buffers/); HelloRequest and HelloResponse in this example. These protobuf message structs need to auto generated from a language neutral .proto file. See below. * The input and output protobuf message parameters need to coordinated with the calling application. As the protobuf message data structures are generated from language independent .proto files it does not matter if the calling application and the smart contract are written in different languages.
+固定メッセージを返すだけのシンプルな関数だ。 いくつかキーとなる点がある。 * `contract.StaticContext`もしくは`contract.Context`のどちらかが、第１パラメータである必要がある。 これはDAppチェーン上のリソースにアクセスを可能にする様々な方法を提供する。 例えば、データベース状態の閲覧や変更、もしくは他のプラグインの呼び出しなどだ。 * 第２パラメーターのユーザー入力と最初の戻り値は、[protobufメッセージ](https://developers.google.com/protocol-buffers/)の形式をとる; この例ではHelloRequestとHelloResponseだ。 これらのprotobufメッセージ構造体は言語中立な .protoファイルから自動生成される必要がある。 以下を参照のこと。 * protobufメッセージを入力および出力するパラメーターは、呼び出し元のアプリケーションと連携している必要がある。 protobufメッセージのデータ構造が .protoの言語ファイルから生成されるので、呼び出し元のアプリケーションとスマートコントラクトが別の言語で書かれていても問題にはならない。
 
-So this would be an example of a suitable types.proto file for our Hello function.
+なのでこれは、Hello関数にとって適切なtypes.protoファイルの例であろう。
 
 ```proto
 syntax = "proto3";
@@ -244,14 +233,14 @@ message HelloResponse {
 
 ```
 
-A types.pb.go file that we can use can be built using the protoc-gen-gogo plugin for proto, with a command like 
+使用可能なtypes.pb.goファイルは、protto用のprotoc-gen-gogoプラグインを使って、以下のようなコマンドで生成できる。 
 
     bash
      protoc --gogo_out=. --plugin=protoc-gen-gogo  types.proto
 
-### Call smart contract
+### スマートコントラクトの呼び出し
 
-The following code fragment shows how to call the Hello function of our Hello World example in Go using functions from Go-loom.
+次のコードフラグメントは、Hello WorldサンプルのHello関数を呼び出すための、Go-loomを使用したGoでのやり方を示している。 
 
 ```go
     rpcClient := client.NewDAppChainRPCClient(chainId, "http://localhost:1234", "http://localhost:2345")
@@ -264,14 +253,14 @@ The following code fragment shows how to call the Hello function of our Hello Wo
 
 1. クライアントを作成し、そのURLでDAppチェーンへのアクセスできるようにする。
 2. 名前とアドレスからスマートコントラクトのハンドルを取得する。
-3. The wire type HelloRequest adn HelloResponse have to match the input and output parameters of the contract's method we are calling. 
-4. Call the `Hello` method. We sue StaticCall as the Hello method has a static context.
+3. ワイヤータイプのHelloRequestとHelloResponseは、呼び出し中のコントラクトメソッドの入力および出力パラメーターと一致しなくてはならない。 
+4. `Hello`メソッドを呼び出す。Helloメソッドは静的コンテキストを持っているので、StaticCallを使っている。
 
-## Calling solidity contract
+## Solidityコントラクトの呼び出し
 
-Now we have had a quick review of implementing plugins we can look at accessing smart contracts deployed on the DAppChain's EVM from a plugin.
+プラグインの実装を簡単に見直したので、今度はプラグインからDAppチェーンのEVMにデプロイされたスマートコントラクトにアクセスすることについてやっていこう。
 
-First we we assume we have deployed this simple solidity contract on the DAppChain's EVM.
+最初に、この簡単なSolidityコントラクトをDAppチェーンのEVMにデプロイしたと仮定しよう。
 
 ```solidity
 pragma solidity ^0.4.18;
@@ -288,9 +277,9 @@ contract SimpleStore {
 }
 ```
 
-We will look at a simple plugin that wraps this solidity contract. So our plugin will have two functions SetValue and GetValue that will just pass data between the SimpleStore contract and the transaction initiator. As it wraps this SimpleStore we will call it EvmExample.
+このSolidityコントラクトをラップする簡単なプラグインを見ていこう。 こうして我々のプラグインはSetValueとGetValueの2つの関数を持つことになり、これらはSimpleStoreコントラクトとトランザクション送信者の間でのデータ受け渡しを行う。 これはSimpleStoreをラップするので、EvmExampleと呼ぼう。
 
-Here is the outline as for the EvmExample contract, with stubs added for the SetValue and GetValue methods.
+これはEvmExampleコントラクトに関するアウトラインで、SetValueおよびGetValueメソッドに追加されたスタブもある。
 
 ```go
 package main
@@ -326,7 +315,7 @@ func main() {
 }
 ```
 
-The .proto file for generating the message declarations looks like
+メッセージの宣言を生成する .protoファイルはこのようになる。
 
 ```proto
 syntax = "proto3";
@@ -339,31 +328,28 @@ message WrapValue {
 }
 ```
 
-Lets look at the SetValue function first. The function to call to run a smart contract on the EVM is ```go contractpb.CallEVM(ctx Context, addr loom.Address, input []byte, output *[]byte) error
+まずSetValue関数を見ていこう。EVM上のスマートコントラクトを実行するよう呼び出す関数は ```go contractpb.CallEVM(ctx Context, addr loom.Address, input []byte, output *[]byte) error
 
-    The context is just passed though, for setting the output can just be a dummy 
-    object. We need to the address of the solidity contract, and the correct 
-    input.
+    ここではコンテキストが単に渡されているが、outputを設定するにはダミーとすることが可能だ。 またSolidityコントラクトとインプットを渡すことが必要だ。
     
-    The Context contains a Registry that allows us to get the address of a 
-    contract from it's name.
+    このContextはレジストリを含み、コントラクトのアドレスをその名前から取得することを可能にする。
     ```go
     ssAddr, err := ctx.Resolve("SimpleStore")
     
 
-The input is passed straight though to the EVM and needs to be encoded as laid out in the [Solidity ABI documentation](https://solidity.readthedocs.io/en/develop/abi-spec.html).
+このインプットはEVMへ直接渡されているが、[Solidity ABIドキュメンテーション](https://solidity.readthedocs.io/en/develop/abi-spec.html)にあるようにエンコードされる必要がある。 
 
-### ABI encoding of parameters
+### パラメーターのABIエンコーディング
 
-So for our input we need to encode it to something like
+そのため、このインプットをこのようなものへエンコードしなくてはならない。
 
 ```text
 60fe47b100000000000000000000000000000000000000000000000000000000000003db
 ```
 
-Don't panic, go-ethereum can help us out.
+心配しなくても大丈夫。
 
-When you compile Solidity you not only get the bytecode that runs on the EVM, but you get a ABI. The ABI is a json object that describes the contracts interface. Here is the ABI for our SimpleStore
+Solidityをコンパイルすると、EVM上で動くバイトコードだけではなくABIも手に入る。ABIはJSONオブジェクトでコントラクトのインターフェースを記述している。これはSimpleStoreのABIだ。
 
 ```json
 [
@@ -398,20 +384,20 @@ When you compile Solidity you not only get the bytecode that runs on the EVM, bu
   ]
 ```
 
-We can use "github.com/ethereum/go-ethereum/accounts/abi" and this ABI string to encode our input. The key function is [abi.JSON](https://godoc.org/github.com/obscuren/go-ethereum/accounts/abi#JSON)
+"github.com/ethereum/go-ethereum/accounts/abi"とこのABI文字列を使って、インプットをエンコードすることができる。 [abi.JSON](https://godoc.org/github.com/obscuren/go-ethereum/accounts/abi#JSON)はここでの重要な関数である。
 
 ```go
     abiSimpleStore, err := abi.JSON(strings.NewReader(SimpleStoreABI))
     input, err := abiSimpleStore.Pack("set", big.NewInt(value.Value))
 ```
 
-Here we have the SimpleContract ABI in the `SimpleStoreABI` variable. We could either read it in from a file, or hard code into the source.
+ここでは変数`SimpleStoreABI`の中にSimpleContract ABIがある。ファイルから読み取るのも、もしくはソース内にハードコードするのもどちらも可能だ。
 
-The Pack method takes the function signature and a list of the arguments and returns the encoded input.
+Packメソッドは関数シグネチャと引数リストを受け取り、エンコードされたインプットを返す。
 
-### Putting it together
+### まとめ
 
-Now we know how to get the input, and contact address we can give an example of our SetValue method. Error checking removed for clarity.
+これでインプットの取得方法とSetValueメソッドのサンプルに与えることができるコントラクトアドレスがわかった。エラーチェックはわかりやすさのため割愛した。
 
 ```go
 func (c *EvmExample) SetValue(ctx contractpb.Context, value *types.WrapValue) error {
@@ -425,7 +411,7 @@ func (c *EvmExample) SetValue(ctx contractpb.Context, value *types.WrapValue) er
 }
 ```
 
-This function could be called in Go using Go-loom with.
+この関数はGo-loomを使ってGoで呼び出すことができる。
 
 ```go
     rpcClient := client.NewDAppChainRPCClient(chainId, writeUri, readUri)
@@ -437,7 +423,7 @@ This function could be called in Go using Go-loom with.
 
 ```
 
-The GetValue function now works in a similar fashion. We now have to unwrap the output from the solidity contract and return it in a WrapValue message . `StaticCallEvm` is used as `get` is a view or constant function.
+するとGetValue関数は同じやり方で機能する。 今度はSolidityコントラクトのアウトプットをアンラップし、それをWrapValueメッセージで返す必要がある。 `StaticCallEvm`は`get`として使われ、viewもしくはconstant関数である。
 
 ```go
 import (
