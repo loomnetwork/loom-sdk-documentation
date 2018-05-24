@@ -48,10 +48,9 @@ DAppチェーンのEVMと対話するには、現在3つの方法がある。
       4. `hex`      Raw Hex, for instance solidty program compiled using `solc -o`
       option
       .
-    * `name` This name can be used to retrieve the address of the contract 
-    assigned by loom or the EVM.
-    * `location` Versioned name of the file binary file located in the contracts 
-    directory. truffleとsolidityには完全なpathを与えなければならない可能性がある。
+    * `name` これはLoomもしくはEVMから割り当てられたコントラクトアドレスを取得するのに使用される。
+    * `location`コントラクトディレクトリ内に配置されたバージョン化されたバイナリファイル名。
+     truffleとsolidityには完全なpathを与えなければならない可能性がある。
     
     そのためこの例では、Loom DAppチェーンはSolidityコントラクト・SimpleStoreのtruffleコンパイルからバイトコードを受け取ることとなる。 そうしてこれをチェーンのEVMにデプロイする。 Loomのログ情報でその確認とコントラクトアドレスが利用可能となる。
     
@@ -59,10 +58,8 @@ DAppチェーンのEVMと対話するには、現在3つの方法がある。
     
     Loomのコマンドラインツールには、チェーンのEVMと対話するための3つのコマンドがある。
     * `deploy`チェーンのEVM上に、EVMバイトコードでスマートコントラクトをデプロイする。
-    * `call` This will call a method that can mutate the state on an already 
-    deployed EVM smart contract.
-    * `static-call` This will call a read only method on an already deployed EVM 
-    smart contract.
+    * `call` 既にデプロイ済みのEVMスマートコントラクトにある状態変更メソッドを呼び出す。
+    * `static-call` 既にデプロイ済みのEVMスマートコントラクトにある読み取り専用メソッドを呼び出す。
     
     ### Deploy
     
