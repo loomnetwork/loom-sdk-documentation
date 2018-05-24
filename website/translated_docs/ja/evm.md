@@ -249,9 +249,9 @@ A types.pb.go file that we can use can be built using the protoc-gen-gogo plugin
     bash
      protoc --gogo_out=. --plugin=protoc-gen-gogo  types.proto
 
-### Call smart contract
+### スマートコントラクトの呼び出し
 
-The following code fragment shows how to call the Hello function of our Hello World example in Go using functions from Go-loom.
+次のコードフラグメントは、Hello WorldサンプルのHello関数を呼び出すための、Go-loomを使用したGoでのやり方を示している。 
 
 ```go
     rpcClient := client.NewDAppChainRPCClient(chainId, "http://localhost:1234", "http://localhost:2345")
@@ -264,14 +264,14 @@ The following code fragment shows how to call the Hello function of our Hello Wo
 
 1. クライアントを作成し、そのURLでDAppチェーンへのアクセスできるようにする。
 2. 名前とアドレスからスマートコントラクトのハンドルを取得する。
-3. The wire type HelloRequest adn HelloResponse have to match the input and output parameters of the contract's method we are calling. 
-4. Call the `Hello` method. We sue StaticCall as the Hello method has a static context.
+3. ワイヤータイプのHelloRequestとHelloResponseは、呼び出し中のコントラクトメソッドの入力および出力パラメーターと一致しなくてはならない。 
+4. `Hello`メソッドを呼び出す。Helloメソッドは静的コンテキストを持っているので、StaticCallを使っている。
 
-## Calling solidity contract
+## Solidityコントラクトの呼び出し
 
-Now we have had a quick review of implementing plugins we can look at accessing smart contracts deployed on the DAppChain's EVM from a plugin.
+プラグインの実装を簡単に見直したので、今度はプラグインからDAppチェーンのEVMにデプロイされたスマートコントラクトにアクセスすることについてやっていこう。
 
-First we we assume we have deployed this simple solidity contract on the DAppChain's EVM.
+最初に、この簡単なSolidityコントラクトをDAppチェーンのEVMにデプロイしたと仮定しよう。
 
 ```solidity
 pragma solidity ^0.4.18;
@@ -288,9 +288,9 @@ contract SimpleStore {
 }
 ```
 
-We will look at a simple plugin that wraps this solidity contract. So our plugin will have two functions SetValue and GetValue that will just pass data between the SimpleStore contract and the transaction initiator. As it wraps this SimpleStore we will call it EvmExample.
+このSolidityコントラクトをラップする簡単なプラグインを見ていこう。 こうして我々のプラグインはSetValueとGetValueの2つの関数を持つことになり、これらはSimpleStoreコントラクトとトランザクション送信者の間でのデータ受け渡しを行う。 これはSimpleStoreをラップするので、EvmExampleと呼ぼう。
 
-Here is the outline as for the EvmExample contract, with stubs added for the SetValue and GetValue methods.
+これはEvmExampleコントラクトに関するアウトラインで、SetValueおよびGetValueメソッドに追加されたスタブもある。
 
 ```go
 package main
@@ -326,7 +326,7 @@ func main() {
 }
 ```
 
-The .proto file for generating the message declarations looks like
+メッセージの宣言を生成する .protoファイルはこのようになる。
 
 ```proto
 syntax = "proto3";
@@ -339,31 +339,28 @@ message WrapValue {
 }
 ```
 
-Lets look at the SetValue function first. The function to call to run a smart contract on the EVM is ```go contractpb.CallEVM(ctx Context, addr loom.Address, input []byte, output *[]byte) error
+まずSetValue関数を見ていこう。EVM上のスマートコントラクトを実行するよう呼び出す関数は ```go contractpb.CallEVM(ctx Context, addr loom.Address, input []byte, output *[]byte) error
 
-    The context is just passed though, for setting the output can just be a dummy 
-    object. We need to the address of the solidity contract, and the correct 
-    input.
+    ここではコンテキストが単に渡されているが、outputを設定するにはダミーとすることが可能だ。 またSolidityコントラクトとインプットを渡すことが必要だ。
     
-    The Context contains a Registry that allows us to get the address of a 
-    contract from it's name.
+    このContextはレジストリを含み、コントラクトのアドレスをその名前から取得することを可能にする。
     ```go
     ssAddr, err := ctx.Resolve("SimpleStore")
     
 
-The input is passed straight though to the EVM and needs to be encoded as laid out in the [Solidity ABI documentation](https://solidity.readthedocs.io/en/develop/abi-spec.html).
+このインプットはEVMへ直接渡されているが、[Solidity ABIドキュメンテーション](https://solidity.readthedocs.io/en/develop/abi-spec.html)にあるようにエンコードされる必要がある。 
 
-### ABI encoding of parameters
+### パラメーターのABIエンコーディング
 
-So for our input we need to encode it to something like
+そのため、このインプットをこのようなものへエンコードしなくてはならない。
 
 ```text
 60fe47b100000000000000000000000000000000000000000000000000000000000003db
 ```
 
-Don't panic, go-ethereum can help us out.
+心配しなくても大丈夫。
 
-When you compile Solidity you not only get the bytecode that runs on the EVM, but you get a ABI. The ABI is a json object that describes the contracts interface. Here is the ABI for our SimpleStore
+Solidityをコンパイルすると、EVM上で動くバイトコードだけではなくABIも手に入る。ABIはJSONオブジェクトでコントラクトのインターフェースを記述している。これはSimpleStoreのABIだ。
 
 ```json
 [
@@ -398,20 +395,20 @@ When you compile Solidity you not only get the bytecode that runs on the EVM, bu
   ]
 ```
 
-We can use "github.com/ethereum/go-ethereum/accounts/abi" and this ABI string to encode our input. The key function is [abi.JSON](https://godoc.org/github.com/obscuren/go-ethereum/accounts/abi#JSON)
+"github.com/ethereum/go-ethereum/accounts/abi"とこのABI文字列を使って、インプットをエンコードすることができる。 [abi.JSON](https://godoc.org/github.com/obscuren/go-ethereum/accounts/abi#JSON)はここでの重要な関数である。
 
 ```go
     abiSimpleStore, err := abi.JSON(strings.NewReader(SimpleStoreABI))
     input, err := abiSimpleStore.Pack("set", big.NewInt(value.Value))
 ```
 
-Here we have the SimpleContract ABI in the `SimpleStoreABI` variable. We could either read it in from a file, or hard code into the source.
+ここでは変数`SimpleStoreABI`の中にSimpleContract ABIがある。ファイルから読み取るのも、もしくはソース内にハードコードするのもどちらも可能だ。
 
-The Pack method takes the function signature and a list of the arguments and returns the encoded input.
+Packメソッドは関数シグネチャと引数リストを受け取り、エンコードされたインプットを返す。
 
-### Putting it together
+### まとめ
 
-Now we know how to get the input, and contact address we can give an example of our SetValue method. Error checking removed for clarity.
+これでインプットの取得方法とSetValueメソッドのサンプルに与えることができるコントラクトアドレスがわかった。エラーチェックはわかりやすさのため割愛した。
 
 ```go
 func (c *EvmExample) SetValue(ctx contractpb.Context, value *types.WrapValue) error {
@@ -425,7 +422,7 @@ func (c *EvmExample) SetValue(ctx contractpb.Context, value *types.WrapValue) er
 }
 ```
 
-This function could be called in Go using Go-loom with.
+この関数はGo-loomを使ってGoで呼び出すことができる。
 
 ```go
     rpcClient := client.NewDAppChainRPCClient(chainId, writeUri, readUri)
@@ -437,7 +434,7 @@ This function could be called in Go using Go-loom with.
 
 ```
 
-The GetValue function now works in a similar fashion. We now have to unwrap the output from the solidity contract and return it in a WrapValue message . `StaticCallEvm` is used as `get` is a view or constant function.
+するとGetValue関数は同じやり方で機能する。 We now have to unwrap the output from the solidity contract and return it in a WrapValue message . `StaticCallEvm` is used as `get` is a view or constant function.
 
 ```go
 import (
