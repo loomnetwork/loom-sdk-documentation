@@ -1,21 +1,21 @@
 ---
 id: phaser-sdk-demo
-title: Phaser SDK Demo
-sidebar_label: Phaser SDK Demo
+title: Phaser SDKのデモ
+sidebar_label: Phaser SDKのデモ
 ---
 ![Game screenshot](/developers/img/screenshot.png)
 
 A basic example showcasing a simple HTML5 game interacting with a Loom DappChain, using [Phaser](http://phaser.io) and [Loom.js](https://github.com/loomnetwork/loom-js). Souce code is available on [Github](https://github.com/loomnetwork/phaser-sdk-demo)
 
-## Game instructions
+## ゲームの説明
 
-Use the arrow keys to move around, jump by pressing the up arrow. For each passing row of blocks, 1 point is awarded. Collect bonus stars to increase your score further.
+矢印キーを使って移動し、上の矢印キーを押してジャンプする。 ブロックの列をパスするごとに１ポイントが与えられる。さらにスコアを増やすには、ボーナスの星を集める。
 
-## Development
+## 開発
 
-1.) Run your own DappChain
+1.) 自分のDAppチェーンを起動しよう
 
-Install Loom
+Loomをインストール
 
     wget https://storage.googleapis.com/private.delegatecall.com/loom/osx/build-132/loom
     chmod +x loom
@@ -34,29 +34,29 @@ Install Loom
     
     
 
-Run Blockchain
+ブロックチェーンの起動
 
     ../../loom run
     
 
-Please consult the [Loom SDK docs](https://loomx.io/developers/docs/en/prereqs.html) for further instruction on running your own DappChain.
+自分のDAppチェーン起動についてのさらなる説明は、[Loom SDKドキュメンテーション](https://loomx.io/developers/docs/en/prereqs.html)を参照すること。
 
-2.) Start the dev server
+2.) 開発サーバーのスタート
 
-Run dev server
+開発サーバーの起動
 
-    #Get Source
+    #ソースを入手
     git clone git@github.com:loomnetwork/phaser-sdk-demo.git
     
     cd phaser-sdk-demo
     
-    # Install
+    # インストール
     yarn
     
-    # Compile protobuff
+    # protobuffのコンパイル
     yarn run proto
     
-    # Start the dev server
+    # 開発サーバーの起動
     yarn run dev
     
     
@@ -65,6 +65,6 @@ Run dev server
 
 <https://loomx.io>
 
-## License
+## ライセンス
 
 MIT
