@@ -141,17 +141,17 @@ Flags: --chain string chain ID (default "default") -c, --contract-addr string co
 
 ## ユーザーのプラグインから
 
-Smart contracts deployed on a DAppChain's EVM can be called from user created plugins. The evmexample example in go-loom gives and example of how to achieve this.
+DAppチェーン上のEVMにデプロイされたスマートコントラクトは、プラグインを作成したユーザーによって呼び出しが可能だ。go-looomにあるevmexampleのサンプルは、これを行う例を示している。
 
 続きをやる前に、関連する様々なモジュールについて考えてみよう。
 
 * ユーザーアプリケーション。これはエンド ユーザーのアプリケーションで、DAppチェーン上でのトランザクションを引き起こす。
 
-* DAppChain. Receives transactions from the user application and forwards to the appropriate contract to run. Also commits results to the blockchain.
+* DAppチェーン。ユーザーアプリケーションからトランザクションを受信し、適切なコントラクトへ転送して実行する。またブロックチェーンに結果をコミットする。
 
-* Smart contracts. These are written by the user and deployed on the DAppChain. There are two main types.
+* スマートコントラクト。これらはユーザーによって書かれ、DAppチェーンにデプロイされる。主に２種類がある。
     
-    1. Plugins. RPCでサポートされていれば、どんな言語で書くことも可能だ; go-loom はGoで書かれたコントラクトの使用を簡単にし、またloom-jsは javascript向けのものである。 このプラグインはDAppチェーンがgRPCを使って 呼び出せるようなものへコンパイルされる。
+    1. プラグイン。 RPCでサポートされていれば、どんな言語で書くことも可能だ; go-loom はGoで書かれたコントラクトの使用を簡単にし、またloom-jsは javascript向けのものである。 このプラグインはDAppチェーンがgRPCを使って 呼び出せるようなものへコンパイルされる。
     2. EVMスマートコントラクト。SolidityのプログラムやEVMバイトコードにコンパイルされる 何か他のコードはDAppチェーンでEVMを使って実行することができる。
 
 プラグインは、EVM上にデプロイ済みのものも含めて他のコントラクトを実行することができる。これはgRPCを使ってDAppチェーンへコールバックするすることで行われる。 逆はしかし真ではない。だがEVMにデプロイされたコントラクトはEVM内でのみやり取りができるので、EVMの結果は決定論的なものとなる。
