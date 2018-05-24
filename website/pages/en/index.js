@@ -142,7 +142,7 @@ const Features = props => (
           <h3>
             Javascript
           </h3>
-          <a className="feature-btn" href={docUrl('loom-js-quickstart.html', props.language)}>
+          <a className="feature-btn" href={docUrl('phaser-sdk-demo-websocket.html', props.language)}>
             <translate>
               Read More
             </translate>
@@ -174,7 +174,7 @@ const Features = props => (
           <h3>
             Golang
           </h3>
-          <a className="feature-btn" href={docUrl('go-loom-clients.html', props.language)}>
+          <a className="feature-btn" href={docUrl('prereqs.html', props.language)}>
             <translate>
               Read More
             </translate>              
@@ -242,7 +242,9 @@ const Docs = props => (
     <img src={imgUrl("zombie-docs.png")} />
   </div>   
   <div className="docs-copy-content">
-    <h3>Docs</h3>
+  <a className="download-btn" href={docUrl('prereqs.html', props.language)}>
+    <h3><translate>Docs</translate></h3>
+  </a>
     <p>
       This is an intro to building your first DAppChain
     </p>
@@ -411,6 +413,7 @@ const Instructions = props => (
 
 const Download = props => (
   <div className="download custom-section global-padding">
+{/*
     <ul className="download-btn-container">
       <li className="border-right">
         <span>
@@ -422,9 +425,9 @@ const Download = props => (
       </li>
       <li className="border-left">
       <a className="download-btn" href={docUrl('prereqs.html', props.language)}><translate>Get Started!</translate></a>
-              {/* <a className="download-btn" href="https://storage.googleapis.com/private.delegatecall.com/loom/osx/build-132/loom">Download OSX</a> */}
-      </li>
-    </ul>
+           */}   {/* <a className="download-btn" href="https://storage.googleapis.com/private.delegatecall.com/loom/osx/build-132/loom">Download OSX</a> */}
+    {/*   </li>
+    </ul> */}
     {/* <div className="link-container center-text">
       <a href={pageUrl('platforms.html', props.language)}><translate>Other platforms</translate></a>
     </div> */}
