@@ -140,11 +140,12 @@ const Features = props => (
         <hr />
         <div className="feature-element-content">
           <h3>
-            {/* */}
-              Javascript
-            {/*</translate>*/}
+            Javascript
           </h3>
-          <a className="feature-btn" href="https://medium.com/loom-network/dappchains-scaling-ethereum-dapps-through-sidechains-f99e51fff447"><translate>Read more</translate>
+          <a className="feature-btn" href={docUrl('loom-js-quickstart.html', props.language)}>
+            <translate>
+              Read More
+            </translate>
           </a>
         </div>
       </div>
@@ -154,15 +155,29 @@ const Features = props => (
         </div>
         <hr />
         <div className="feature-element-content">
-          <h3>
-            {/*<translate>*/}
-              Phaser
-            {/*</translate>*/}
+          <h3>            
+            Phaser
           </h3>
-          <a className="feature-btn" href="https://medium.com/loom-network/loom-network-sdk-alpha-release-first-5-dappchains-announced-sdk-roadmap-1dddec789004">
+          <a className="feature-btn" href={docUrl('phaser-sdk-demo.html', props.language)}>
             <translate>
               Read More
             </translate>
+          </a>
+        </div>
+      </div>
+      <div className="feature-element">
+        <div className="feature-element-content">
+          <img src={imgUrl("gopher-zombie.png")} />
+        </div>
+        <hr />
+        <div className="feature-element-content">
+          <h3>
+            Golang
+          </h3>
+          <a className="feature-btn" href={docUrl('go-loom-clients.html', props.language)}>
+            <translate>
+              Read More
+            </translate>              
           </a>
         </div>
       </div>
@@ -173,9 +188,7 @@ const Features = props => (
         <hr />
         <div className="feature-element-content">
           <h3>
-            {/*<translate>*/}
-              Unity
-            {/*</translate>*/}
+            Unity
           </h3>
           <a className="feature-btn" href={docUrl('unity-sdk.html', props.language)}>
             <translate>
@@ -183,7 +196,7 @@ const Features = props => (
             </translate>              
           </a>
         </div>
-      </div>
+      </div>      
     </div>
   </div>
 );
