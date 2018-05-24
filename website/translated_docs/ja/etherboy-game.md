@@ -51,9 +51,9 @@ cd etherboy-core
 make deps
 make
 cd run
-$LOOM_EXE init
+$LOOM_BIN init
 cp ../genesis.json genesis.json
-$LOOM_EXE run
+$LOOM_BIN run
 ```
 
 Assuming everything went without a hitch so far you now have a local Loom DAppChain running the Etherboy smart contract!
