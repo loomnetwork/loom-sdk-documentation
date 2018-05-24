@@ -3,25 +3,25 @@ id: etherboy-game
 title: Etherboyゲーム
 sidebar_label: Etherboyゲーム
 ---
-![Header](/developers/img/etherboy.jpg) Etherboy is a multi-platform 2D game built in Unity, using the [Loom Unity SDK](unity-sdk.md) to interact with a smart contract written in Golang and running on a Loom DAppChain.
+![Header](/developers/img/etherboy.jpg) EtherboyはUnityで構築されたマルチプラットフォームの2Dゲームで、DAppチェーン上で稼働し、また[Loom Unity SDK](unity-sdk.md)を使用してGo言語で書かれたスマートコントラクトと対話する。
 
-## Game Controls
+## ゲームコントロール
 
-### WebGL Key Bindings
+### WebGLキーバインディング
 
-- **UP**: enter doors, go up ropes
-- **DOWN**: go down ropes
-- **E**: talk to NPCs, sleep in bed, interact with objects
-- **SPACE** / **RIGHT-CLICK**: jump
-- **LEFT-CLICK**: attack (when weapon is equipped)
+- ** ↑ **: ドアから入る、ロープをよじ登る
+- ** ↓ **: ロープを下る
+- **E**: NPCに話しかける、ベッドで寝る、オブジェクトとのやり取り
+- **スペース** / **右クリック**: ジャンプ
+- **左クリック**: 攻撃 (武器が装備されたとき)
 
-## Supported Platforms
+## 対応プラットフォーム
 
 - WebGL
 - Android (WIP)
 - iOS (WIP)
 - Windows / Mac / Linux
 
-## A peek at the source code?
+## ソースコードを見てみよう
 
-The code for the [Etherboy game](https://github.com/loomnetwork/Etherboy) and the [Etherboy smart contract](https://github.com/loomnetwork/etherboy-core) is on Github for your perusal. And we've also provided [instructions](etherboy-backend.md) for setting up a Loom DAppChain for the game.
+[Etherboy ゲーム](https://github.com/loomnetwork/Etherboy)および[Etherboyスマートコントラクト](https://github.com/loomnetwork/etherboy-core) のコードは、閲覧できるようGithub上で公開中だ。 またこのゲームのためにDAppチェーンをセットアップする[手順の説明](etherboy-backend.md)も提供している。
