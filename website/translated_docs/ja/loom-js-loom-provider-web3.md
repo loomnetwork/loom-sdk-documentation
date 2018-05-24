@@ -19,7 +19,7 @@ npm install loom-js
 
 ## SimpleContract
 
-Let's say that we have a Solidity contract, which is already compiled and deployed on Loom DAppChain
+あるSolidityコントラクトが、すでにコンパ入りされLoom DAppチェーン上にデプロイされているとしよう。
 
     pragma solidity ^0.4.18;
     
