@@ -3,7 +3,7 @@ id: loom-js-loom-provider-web3
 title: Loom.js + Web3.js
 sidebar_label: Loom.js + Web3.js
 ---
-# Overview
+# 概要
 
 The `loom-js` comes with the `LoomProvider` which makes possible to connect with `Web3.js` as a provider allowing Ethereum developers to deploy and call smart contracts running inside the Loom DAppChains, for further details check out [EVM page](evm)
 
@@ -15,9 +15,9 @@ yarn add loom-js
 npm install loom-js
 ```
 
-# Instantiate the contract
+# コントラクトのインスタンス化
 
-## The SimpleContract
+## SimpleContract
 
 Let's say that we have a Solidity contract, which is already compiled and deployed on Loom DAppChain
 
