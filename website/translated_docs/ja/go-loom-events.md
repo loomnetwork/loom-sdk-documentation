@@ -33,6 +33,6 @@ loom-sdkは、デフォルトではログにイベントを出力するのみと
     ctx.Emit(emitMsgJSON)
 ```
 
-### Subscribing to events
+### イベントのサブスクライブ
 
 See [this page](./loomevents) for more information on subscribing to events
