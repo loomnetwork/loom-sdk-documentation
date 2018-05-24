@@ -114,13 +114,13 @@ const publicKey = CryptoUtils.publicKeyFromPrivateKey(privateKey)
 const client = getClient(privateKey, publicKey)
 ```
 
-Now with client ready let's instantiate the `Web3`, in order to properly initialize the `Web3` instance we're going to pass the `LoomProvider` with the `client`
+クライアントの準備ができたので、今度は`Web3`をインスタンス化しよう。`Web3`を適切にインスタンス化するために、`client`と共に`LoomProvider`を渡そう。
 
 ```js
 const web3 = new Web3(new LoomProvider(client))
 ```
 
-We're ready to instantiate the contract
+コントラクトをインスタンス化する準備ができた。
 
 ```js
 // 公開鍵を基にアドレスを取得
