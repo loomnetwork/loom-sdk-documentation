@@ -190,7 +190,7 @@ const Features = props => (
           <h3>
             Unity
           </h3>
-          <a className="feature-btn" href={docUrl('unity-sdk.html', props.language)}>
+          <a className="feature-btn" href={docUrl('etherboy-game.html', props.language)}>
             <translate>
               Read More
             </translate>              

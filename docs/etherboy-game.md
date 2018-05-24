@@ -34,36 +34,25 @@ sorted out before proceeding any further.
 
 ### Download Loom DAppChain
 
-**MacOS**
-```bash
-wget https://storage.googleapis.com/private.delegatecall.com/loom/osx/build-132/loom
-chmod +x loom
-```
+For Linux [start here](prereqs-ubuntu.html) first
 
-**Linux**
-```bash
-curl -OL https://storage.googleapis.com/private.delegatecall.com/loom/linux/build-132/loom
-chmod +x loom
-```
 
-### Deploy Etherboy contract
+### Deploy Etherboy contract  (OSX)
 
 Fetch the smart contract code from Github with SSH
 ```bash
-git clone git@github.com:loomnetwork/etherboy-core.git \
-          ebgopath/src/github.com/loomnetwork/etherboy-core
-```
-OR with HTTPS
-```bash
-git clone https://github.com/loomnetwork/etherboy-core.git \
-          ebgopath/src/github.com/loomnetwork/etherboy-core
+wget https://storage.googleapis.com/private.delegatecall.com/loom/osx/build-132/loom
+chmod +x loom
+export LOOM_BIN=`pwd`/loom
+export GOPATH=`pwd`/ebgopath
+mkdir -p ebgopath/src/github.com/loomnetwork
+cd ebgopath/src/github.com/loomnetwork
+git clone https://github.com/loomnetwork/etherboy-core.git etherboy-core
 ```
 
 Build and deploy the contract
 ```bash
-export LOOM_EXE=`pwd`/loom
-export GOPATH=`pwd`/ebgopath
-cd $GOPATH/src/github.com/loomnetwork/etherboy-core
+cd etherboy-core
 make deps
 make
 cd run
@@ -74,6 +63,9 @@ $LOOM_EXE run
 
 Assuming everything went without a hitch so far you now have a local Loom DAppChain running the
 Etherboy smart contract!
+
+![Animation](/developers/img/etherboy-clip.gif)
+
 
 ### Build Unity project
 

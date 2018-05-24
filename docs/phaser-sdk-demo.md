@@ -55,7 +55,7 @@ Run dev server
 
 ```
 #Get Source
-git clone git@github.com:loomnetwork/phaser-sdk-demo.git
+git clone https://github.com/loomnetwork/phaser-sdk-demo.git
 
 cd phaser-sdk-demo
 
