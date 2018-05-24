@@ -1,7 +1,7 @@
 ---
 id: etherboy-backend
-title: Etherboy Backend
-sidebar_label: Etherboy Backend
+title: Etherboyバックエンド
+sidebar_label: Etherboyバックエンド
 ---
 This documentation explains how to run the Etherboy DAppChain in a single server instance (any 64-bit Linux instance).
 
@@ -22,8 +22,8 @@ This documentation explains how to run the Etherboy DAppChain in a single server
     wget -O contracts/etherboycore.so https://private.delegatecall.com/etherboy/linux/build-53/etherboycore.0.0.1
     ```
 
-3. Execute `loom init` in the working directory to initialize config files.
-4. Update `genesis.json` in the working directory:
+3. ワーキングディレクトリで`loom init`を実行し、設定ファイルを初期化しよう。
+4. ワーキングディレクトリに`genesis.json`を更新しよう。
     
     ```json
     {
@@ -41,7 +41,7 @@ This documentation explains how to run the Etherboy DAppChain in a single server
     }
     ```
 
-注: `loom`と`etherboycli`は`$PATH`をどこにでも通すことができるので、常に`./`で実行する必要はない。 However, `etherboycore.0.0.1` must always be placed in `$WORKING_DIRECTORY/contracts/etherboycore.0.0.1`.
+注: `loom`と`etherboycli`は`$PATH`をどこにでも通すことができるので、常に`./`で実行する必要はない。 しかしながら、`etherboycore.0.0.1`は常に`$WORKING_DIRECTORY/contracts/etherboycore.0.0.1`に置かれていなくてはならない。
 
 ## 起動
 
