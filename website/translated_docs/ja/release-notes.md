@@ -5,7 +5,7 @@ sidebar_label: リリースノート
 ---
 ## 概要
 
-Reverse chronology order of release notes
+新着順。
 
 ## リリース 132 - 5月23日
 
@@ -25,6 +25,6 @@ Reverse chronology order of release notes
 ## リリース 128 - 5月19日
 
 * 安定したベータ版リリース
-* Updating logging to default to multiple files 
+* ロギングをデフォルトで複数ファイルでできるようアップデート 
 * 全RPCを一つのインターフェースへ移動
-* Updated External Process interface
+* 外部プロセスインターフェースのアップデート
