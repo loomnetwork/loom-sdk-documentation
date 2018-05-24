@@ -75,13 +75,38 @@ $LOOM_EXE run
 Assuming everything went without a hitch so far you now have a local Loom DAppChain running the
 Etherboy smart contract!
 
-### Tweak Unity project
+### Build Unity project
 
-TBD
+Clone the Unity project for the [Etherboy game][] from Github and modify 
 
-## A peek at the source code?
+- Open the project in Unity
+- Select `File`->`Build Settings`
+- Select either `Web GL` or `PC, Mac & Linux Standalone` from the platform list
+- Press `Switch Platform` if it's enabled
+- Press `Build`, select the build output directory
 
-The code for the [Etherboy game][] and the [Etherboy smart contract][] is on Github for your perusal.
+> WebGL builds of the full game take around 30 minutes to complete.
+
+If you configure your local DAppChain to run on another host or port you'll need to update the
+following section of `Assets/WebGLTemplates/Loom/settings.js` before doing a **WebGL** build, or
+you can edit `settings.js` inside the build output directory after the build:
+
+```js
+  dappchain: {
+    writeUrl: 'http://localhost:46658/rpc',
+    readUrl: 'http://localhost:46658/query'
+  }
+```
+
+For a desktop build you'll need to edit `Assets/Resources/env_config.json` to change the default
+DAppChain host & port:
+
+```json
+{
+    "write_host": "http://localhost:46658/rpc",
+    "read_host": "http://localhost:46658/query"
+}
+```
 
 [MacOS prerequisites]: prereqs.md
 [Ubuntu prerequisites]: prereqs-ubuntu.md
