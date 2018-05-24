@@ -1,6 +1,6 @@
 ---
 id: prereqs
-title: Prerequisites (OSX)
+title: 前提条件(OSX)
 sidebar_label: インストール (OSX)
 ---
 OSXでのLoomのインストールとセットアップ
