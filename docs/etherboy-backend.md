@@ -22,7 +22,8 @@ This documentation explains how to run the Etherboy DAppChain in a single server
     mkdir contracts
     wget -O contracts/etherboycore.so https://private.delegatecall.com/etherboy/linux/build-53/etherboycore.0.0.1
     ```
-1. Create `genesis.json` in the working directory:
+1. Execute `loom init` in the working directory to initialize config files.
+1. Update `genesis.json` in the working directory:
     ```json
     {
         "contracts": [
@@ -38,7 +39,6 @@ This documentation explains how to run the Etherboy DAppChain in a single server
         ]
     }
     ```
-1. Execute `loom init` in the working directory to initialize config files.
 
 Note: `loom` and `etherboycli` can be placed anywhere in your `$PATH` so you don't have to always execute with `./`. However, `etherboycore.0.0.1` must always be placed in `$WORKING_DIRECTORY/contracts/etherboycore.0.0.1`.
 
