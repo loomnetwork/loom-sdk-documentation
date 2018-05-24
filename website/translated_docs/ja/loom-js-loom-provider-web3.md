@@ -5,7 +5,7 @@ sidebar_label: Loom.js + Web3.js
 ---
 # 概要
 
-The `loom-js` comes with the `LoomProvider` which makes possible to connect with `Web3.js` as a provider allowing Ethereum developers to deploy and call smart contracts running inside the Loom DAppChains, for further details check out [EVM page](evm)
+`loom-js`には`LoomProvider`が備わっている。これはイーサリアム開発者がLoom DAppチェーン内で実行されるスマートコントラクトの呼び出しやデプロイができると同時に、`Web3.js`をプロバイダとして接続することを可能にする。さらなる詳細は[EVMページ](evm)をチェックしよう。
 
 NPMで`loom-js`をインストール
 
@@ -36,7 +36,7 @@ npm install loom-js
     }
     
 
-With the binary compiled with the Solidity compiler the next step is to create a `genesis.json` for the Loom DappChain. (Don't forget to set the `location` to the compiled binary)
+堅さのコンパイラでコンパイルされたバイナリを使って、次のステップではLoom Dappチェーン用の`genesis.json` を作成しよう。 (コンパイルされたバイナリに`location`を設定するのを忘れないように)
 
 ```Javascript
 {
@@ -80,7 +80,7 @@ const ABI = [{
 }]
 ```
 
-Instantiate and using the `Web3` with `LoomProvider` looks similar from use from an Ethereum Node, but first we need to initialize the `loom-js` client properly.
+インスタンス化および`LoomProvider`での`Web3`の使用は、イーサリアムのノードを使用するのに似ているが、まず`loom-js`クライアントを正しく初期化する必要がある。
 
 ```js
 import {
