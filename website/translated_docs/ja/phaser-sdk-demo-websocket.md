@@ -9,11 +9,11 @@ sidebar_label: Phaser + Websocketsのデモ
 
 ## ゲームの説明
 
-Use the mouse cursor to click on the black canvas area to create colored tiles, each new player will have a different color the canvas which is shared amongst all players
+マウスカーソルを使って黒いキャンバス領域をクリックし、色のついたタイルを作る。新しいプレイヤーはそれぞれ異なる色のキャンバスを持つこととなり、キャンバスは全てのプレイヤーから共有される。
 
 ## 開発
 
-### 1.) Download the example project (Tiles Chain)
+### 1.) サンプルプロジェクトのダウンロード(Tiles Chain)
 
 ```bash
 git clone https://github.com/loomnetwork/tiles-chain
@@ -30,44 +30,44 @@ cd dappchain
 wget https://storage.googleapis.com/private.delegatecall.com/loom/osx/build-132/loom
 chmod +x loom
 
-# Compile
+# コンパイル
 export GOPATH=$GOPATH:`pwd`
 make deps
 make
 
-# Configure
+# 設定
 cd build
 ../loom init
 cp ../genesis.example.json genesis.json
 
-# Run
+# 起動
 ../loom run
 ```
 
-### 3.) Start the web server
+### 3.) webサーバーのスタート
 
 ```bash
 cd tiles-chain/webclient
 
-# Install
+# インストール
 yarn
 
-# Compile protobuf
+# protobufのコンパイル
 yarn run proto
 
-# Start the demo
+# デモのスタート
 yarn start
 
 ```
 
-### 5.) Running
+### 5.) 起動
 
-The Tiles-Chain web interface will be available on `http://localhost:9000`
+Tiles-Chainウェブインターフェースは今後`http://localhost:9000`で利用可能となる。
 
 ## Loom Network
 
 <https://loomx.io>
 
-## License
+## ライセンス
 
 MIT
