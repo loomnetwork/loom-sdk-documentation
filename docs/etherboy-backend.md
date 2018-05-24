@@ -1,12 +1,11 @@
 ---
-id: etherboy-deployment
-title: Example Deployment 
-sidebar_label: Etherboy Deployment 
+id: etherboy-backend
+title: Etherboy Backend
+sidebar_label: Etherboy Backend 
 ---
 
-# Etherboy
-
-This documentation explains how to run Etherboy in a single server instance (any 64-bit Linux instance).
+This documentation explains how to run the Etherboy DAppChain in a single server instance
+(any 64-bit Linux instance).
 
 ## Installation
 
