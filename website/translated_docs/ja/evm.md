@@ -45,8 +45,7 @@ DAppチェーンのEVMと対話するには、現在3つの方法がある。
       1. `plugin`   ユーザープラグイン。`go-loom`で作成可能。
       2. `truffle`  truffleのコンパイラを使用してコンパイルされたSolidityプログラム。
       3. `solidity` solcを使用してコンパイルされたSolidityプログラム。
-      4. `hex`      Raw Hex, for instance solidty program compiled using `solc -o`
-      option
+      4. `hex`      Raw Hex。Solidityプログラムのインスタンスには`solc -o`のオプションを使用してコンパイルされる。
       .
     * `name` これはLoomもしくはEVMから割り当てられたコントラクトアドレスを取得するのに使用される。
     * `location`コントラクトディレクトリ内に配置されたバージョン化されたバイナリファイル名。
@@ -122,13 +121,10 @@ Usage: loom static-call [flags]
 
 Flags: --chain string chain ID (default "default") -c, --contract-addr string contract address -h, --help help for static-call -i, --input string file with input data -r, --read string URI for quering app state (default "http://localhost:46658/query") -w, --write string URI for sending txs (default "http://localhost:46658/rpc")
 
-    The -a and -k flags are used to identify the user with public and private 
-     key address files.
-     -c requires the contract address. This could be one output from a previous 
-     call to `\loom deploy` or retrieved from the start up log.
-     -i is the input string. For a solidity contract this will be ABI encoded as 
-     described in the [Solidity ABI documentation](https://solidity.readthedocs.io/en/develop/abi-spec.html).
-     例
+    -a 及び -k のフラグは、公開鍵および秘密鍵のアドレスファイルでユーザーを特定するのに使用される。
+     -c はコントラクトアドレスを要求する。 これは前述の\loom deployへのコール結果、もしくは立ち上げ時のログから検索したものとなりうる。
+     -i は入力文字列だ。 SolidityコントラクトではこれはABIとなる。そのエンコーディングについては [Solidity ABI documentation]で説明されている。(https://solidity.readthedocs.io/en/develop/abi-spec.html).
+     Example
      ```text
     static-call -a ./data/pub -k ./data/pri -i ./cmd/loom/data/inputGet.bin \
       -c 0xbD770416A3345f91E4b34576Cb804a576Fa48eB1  \
@@ -155,7 +151,7 @@ DAppチェーン上のEVMにデプロイされたスマートコントラクト�
 
 ### ユーザーのコード
 
-The user provides two items of code. The smart contracts and the end application that make use of the DAppChain.
+ユーザーは2つのコードアイテムを提供する。つまりスマートコントラクトと、DAppsを使えるようにするエンドアプリケーションだ。
 
 以下では、Goがエンドアプリケーションに使用されていること、さらにスマートコントラクトがプラグイン用のGo、もしくはEVM用のSolidity、このどちらかで書かれていることと仮定していく。 javaScript向けのソリューションは、loom-js-quickstart.mdを参照のこと。
 
@@ -427,7 +423,7 @@ func (c *EvmExample) SetValue(ctx contractpb.Context, value *types.WrapValue) er
 
 ```
 
-するとGetValue関数は同じやり方で機能する。 今度はSolidityコントラクトのアウトプットをアンラップし、それをWrapValueメッセージで返す必要がある。 `StaticCallEvm` is used as `get` is a view or constant function.
+するとGetValue関数は同じやり方で機能する。 今度はSolidityコントラクトのアウトプットをアンラップし、それをWrapValueメッセージで返す必要がある。 `StaticCallEvm`は`get`として使われ、viewもしくはconstant関数である。
 
 ```go
 import (
