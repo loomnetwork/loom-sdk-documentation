@@ -7,24 +7,30 @@ sidebar_label: リリースノート
 
 新着順。
 
-## リリース 132 - 5月23日
+## Release 133 - May 24th
 
-* Websocketのパフォーマンスを修正
-* 新しいWebsocketのデモアプリ - TilesChain - [Github](https://github.com/loomnetwork/tiles-chain) 
+* [Etherboy Demo released](https://loomx.io/developers/docs/en/etherboy-game.html)
+* [Japanese Docs released](https://loomx.io/developers/ja)
+* Updated Homepage for [docs site](https://loomx.io/developers/en/) 
 
-## リリース 129 - 5月22日
+## Release 132 - May 23rd
 
-* イベントでのWebsocketサポート
-* レイヤーインデックス機能のSolidityコントラクトをアップデート 
-* Phaserゲームデモ - [Github](https://github.com/loomnetwork/phaser-sdk-demo)
+* Websocket performance fixes
+* New Websocket Demo App - TilesChain - [Github](https://github.com/loomnetwork/tiles-chain) 
 
-## リリース 128 - 5月21日
+## Release 129 - May 22rd
 
-* Etherboyのバグを修正
+* Websocket support for eventing
+* Updates to indexing layer for solidty contracts
+* Phaser Game Dame - [Github](https://github.com/loomnetwork/phaser-sdk-demo)
 
-## リリース 128 - 5月19日
+## Release 128 - May 21th
 
-* 安定したベータ版リリース
-* ロギングをデフォルトで複数ファイルでできるようアップデート 
-* 全RPCを一つのインターフェースへ移動
-* 外部プロセスインターフェースのアップデート
+* Lots of bug fixes for Etherboy
+
+## Release 128 - May 19th
+
+* Stable Beta Release
+* Updating logging to default to multiple files 
+* Moving all RPC to a single interface
+* Updated External Process interface
