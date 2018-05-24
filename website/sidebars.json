@@ -9,7 +9,7 @@
     "Monitoring": ["metrics", "logging"],
     "Solidity & EVM": ["evm"],
     "Example Applications": ["phaser-sdk-demo","phaser-sdk-demo-websocket"],
-    "Deployment": ["etherboy-deployment"],
+    "Deployment": ["etherboy-deployment","multi-node-deployment"],
     "Frequently Asked Questions": ["common-issues", "release-notes"]
   }
 }
