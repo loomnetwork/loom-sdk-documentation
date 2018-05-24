@@ -14,15 +14,16 @@ This documentation explains how to run the Etherboy DAppChain in a single server
 2. 下载二进制文件:
     
     ```bash
-    wget https://storage.googleapis.com/private.delegatecall.com/loom/linux/build-132/loom
-    wget https://storage.googleapis.com/private.delegatecall.com/etherboy/linux/build-53/etherboycli
+    wget https://private.delegatecall.com/loom/linux/build-132/loom
+    wget https://private.delegatecall.com/etherboy/linux/build-53/etherboycli
     chmod +x loom etherboycli
     
     mkdir contracts
-    wget -O contracts/etherboycore.so https://storage.googleapis.com/private.delegatecall.com/etherboy/linux/build-53/etherboycore.so
+    wget -O contracts/etherboycore.so https://private.delegatecall.com/etherboy/linux/build-53/etherboycore.0.0.1
     ```
 
-3. 在工作目录中创建 `genesis.json`:
+3. Execute `loom init` in the working directory to initialize config files.
+4. Update `genesis.json` in the working directory:
     
     ```json
     {
@@ -40,9 +41,7 @@ This documentation explains how to run the Etherboy DAppChain in a single server
     }
     ```
 
-4. 在工作目录中执行`loom init`以初始化配置文件。
-
-注意: `loom` 和 `etherboycli` 可以放置在你 `$PATH` 中的任何位置，因此你不必总是使用 `./` 执行。 但是，`etherboycore.so` 必须总是放在`$WORKING_DIRECTORY/contracts/etherboycore.so`里面。
+注意: `loom` 和 `etherboycli` 可以放置在你 `$PATH` 中的任何位置，因此你不必总是使用 `./` 执行。 However, `etherboycore.0.0.1` must always be placed in `$WORKING_DIRECTORY/contracts/etherboycore.0.0.1`.
 
 ## 运行
 
