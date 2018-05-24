@@ -43,7 +43,7 @@ loom-sdkは、デフォルトではログにイベントを出力するのみと
 
 ## websocketsでのサブスクライブ
 
-The Loom SDK query endpoint can be used to subscribe to the event stream as well. Here is sample subscription code using a command line and the [wscat](https://www.npmjs.com/package/wscat2) nodejs cli.
+Loom SDKのクエリ・エンドポイントも、イベントストリームへサブスクライブするのに使用できる。 ここにあるのは、コマンドラインと[wscat](https://www.npmjs.com/package/wscat2) nodejs cliを使用したサンプルのサブスクリプションコードだ。
 
     $ cat command.json
     {
@@ -78,8 +78,8 @@ The Loom SDK query endpoint can be used to subscribe to the event stream as well
     }
     
 
-The first json in the cli ouptut is the response of the subscribe command. The following json is an event from a contract processing a transaction.
+CLIアウトプット中の最初のjsonは、サブスクライブコマンドの応答である。次のjsonは、トランザクションを処理しているコントラクトからのイベントである。
 
 ### Goコードの例
 
-You can refer to [a demo indexer](https://github.com/loomnetwork/etherboy-core/blob/master/tools/cli/indexer/etherboyindexer.go) which uses the redis and websocket event subscriptions to read the events and persist to elasticsearch. (Note that this code is meant only for demonstration purposes).
+[デモインデクサー](https://github.com/loomnetwork/etherboy-core/blob/master/tools/cli/indexer/etherboyindexer.go)を参照するとよい。 これは redisとwebsocketのイベントサブスクリプションを使用して、イベントの読み取りとelasticsearchの維持を行なっている。 (このコードはデモンストレーションのみを目的としていることに気をつけること)。
