@@ -8,8 +8,8 @@
     "Consensus": ["delegated-proof-of-stake"],
     "Monitoring": ["metrics", "logging"],
     "Solidity & EVM": ["evm"],
-    "Example Applications": ["phaser-sdk-demo","phaser-sdk-demo-websocket"],
-    "Deployment": ["etherboy-deployment"],
+    "Example Games & Apps": ["etherboy-game", "phaser-sdk-demo","phaser-sdk-demo-websocket"],
+    "Deployment": ["etherboy-backend"],
     "Frequently Asked Questions": ["common-issues", "release-notes"]
   }
 }
