@@ -135,7 +135,7 @@ Flags: --chain string chain ID (default "default") -c, --contract-addr string co
      call to `\loom deploy` or retrieved from the start up log.
      -i is the input string. For a solidity contract this will be ABI encoded as 
      described in the [Solidity ABI documentation](https://solidity.readthedocs.io/en/develop/abi-spec.html).
-     Example
+     例
      ```text
     static-call -a ./data/pub -k ./data/pri -i ./cmd/loom/data/inputGet.bin \
       -c 0xbD770416A3345f91E4b34576Cb804a576Fa48eB1  \
@@ -147,28 +147,28 @@ Flags: --chain string chain ID (default "default") -c, --contract-addr string co
 
 Smart contracts deployed on a DAppChain's EVM can be called from user created plugins. The evmexample example in go-loom gives and example of how to achieve this.
 
-Before continuing let's consider the various modules involved.
+続きをやる前に、関連する様々なモジュールについて考えてみよう。
 
-* User application. This is the end user application that initiates transactions on the DAppChain.
+* ユーザーアプリケーション。これはエンド ユーザーのアプリケーションで、DAppチェーン上でのトランザクションを引き起こす。
 
 * DAppChain. Receives transactions from the user application and forwards to the appropriate contract to run. Also commits results to the blockchain.
 
 * Smart contracts. These are written by the user and deployed on the DAppChain. There are two main types.
     
-    1. Plugins. These can be written in any language supported by gRPC; go-loom allows easy use of contracts written in Go, and loom-js for javascript. The plugin is compiled into an executable that the DAppChain calls using gRPC.
-    2. EVM smart contracts. Solidity programs or any other code that compiles into EVM bytecode can be run by the DAppChain using its EVM.
+    1. Plugins. RPCでサポートされていれば、どんな言語で書くことも可能だ; go-loom はGoで書かれたコントラクトの使用を簡単にし、またloom-jsは javascript向けのものである。 このプラグインはDAppチェーンがgRPCを使って 呼び出せるようなものへコンパイルされる。
+    2. EVMスマートコントラクト。SolidityのプログラムやEVMバイトコードにコンパイルされる 何か他のコードはDAppチェーンでEVMを使って実行することができる。
 
-Plugins can run other contracts including ones deployed on the EVM by calling back to the DAppChain using gRPC. The reverse however is not true however, ECM deployed contracts can only interact within the EVM, this is to ensure that the EVM's results are deterministic.
+プラグインは、EVM上にデプロイ済みのものも含めて他のコントラクトを実行することができる。これはgRPCを使ってDAppチェーンへコールバックするすることで行われる。 逆はしかし真ではない。だがEVMにデプロイされたコントラクトはEVM内でのみやり取りができるので、EVMの結果は決定論的なものとなる。
 
-### User code
+### ユーザーのコード
 
 The user provides two items of code. The smart contracts and the end application that make use of the DAppChain.
 
-In the following we will assume that Go is being used for the end application and the smart contracts are written either in Go for plugins or solidity for EVM. Refer to loom-js-quickstart.md for a javascript solution.
+以下では、Goがエンドアプリケーションに使用されていること、さらにスマートコントラクトがプラグイン用のGo、もしくはEVM用のSolidity、このどちらかで書かれていることと仮定していく。 javaScript向けのソリューションは、loom-js-quickstart.mdを参照のこと。
 
-### Minimal plugin
+### 最小プラグイン
 
-First lets look at the definition of a contract in Go-loom.
+まず、Go-loomでのコントラクト定義について見ていこう。
 
 ```go
 type Contract interface {
@@ -176,7 +176,7 @@ type Contract interface {
 }
 ```
 
-and plugin.Meta is defined from a protobuf definition
+そしてplugin.Metaはprotobufにより定義されている。
 
 ```go
 type ContractMeta struct {
@@ -185,7 +185,7 @@ type ContractMeta struct {
 }
 ```
 
-So all a contract needs is to implement the Meta function. However to be usable as a plugin in a DAppChain there are a few other bits. Here is a minimal example.
+なので全コントラクトに必要なのはメタ関数の実装だ。しかし、DAppチェーンでプラグインとして使用できるようにするにはその他もいくつか必要だ。ここにあるのは最小限の例である。
 
 ```go
 package main
@@ -212,12 +212,12 @@ func main() {
 }
 ```
 
-Here are some points of interest. 1. First the contract has to be package main. 2. Define our contract called HelloWorld as a struct. 3. Implement the `Meta()` function, returning the contracts name and version number. 4. The variable `Contract` needs to be defined. The function `contract
-.MakePluginContract` converts our simple outline into an object that a DAppChain can communicate with. 5. The main routine can then sets the contract up as a working server.
+ここにはいくつか興味深い点がある。 1. まず、コントラクトはpackage mainでなくてはならない。 2. HelloWorldというコントラクトを構造体として定義。 3. コントラクト名とバージョン数を返す`Meta()` 関数を実装。 4. `Contract`という変数の定義が必要。 関数`contract
+.MakePluginContract`は簡単なアウトラインをオブジェクトに変換し、DAppチェーンとのやり取りができるようにする。 5. その後メインルーチンは、コントラクトをワーキングサーバーとしてセットアップ可能。
 
-Of course our contract has no functionality so can't do anything. The next step is to add some. The MakePluginContract function can then use reflection to learn any new methods we give to our contract.
+もちろんこのコントラクトは機能を持たないので何もできない。 次のステップでいくつか追加していこう。 こうしてMakePluginContract関数は、コントラクトに与える新しいメソッドを取得するためにリフレクションを使用することができる。
 
-### Adding functions
+### 関数の追加
 
 ```go
 func (c *HelloWorld) Hello(ctx contract.StaticContext, req *types.HelloRequest) (*types.HelloResponse, error) {
@@ -227,7 +227,7 @@ func (c *HelloWorld) Hello(ctx contract.StaticContext, req *types.HelloRequest) 
 }
 ```
 
-So a simple function that just returns a fixed message. A couple of key points. * Either a `contract.StaticContext` or `contract.Context` should be the first parameter. It provides various methods that allow you to access the resources on the DAppChain. For example view or modify the the state database, or call other plugins. * The user input in the second parameter and the first return value take the form of [protobuf messages](https://developers.google.com/protocol-buffers/); HelloRequest and HelloResponse in this example. These protobuf message structs need to auto generated from a language neutral .proto file. See below. * The input and output protobuf message parameters need to coordinated with the calling application. As the protobuf message data structures are generated from language independent .proto files it does not matter if the calling application and the smart contract are written in different languages.
+固定メッセージを返すだけのシンプルな関数だ。 いくつかキーとなる点がある。 * `contract.StaticContext`もしくは`contract.Context`のどちらかが、第１パラメータである必要がある。 これはDAppチェーン上のリソースにアクセスを可能にする様々な方法を提供する。 例えば、データベース状態の閲覧や変更、もしくは他のプラグインの呼び出しなどだ。 * 第２パラメーターのユーザー入力と最初の戻り値は、[protobufメッセージ](https://developers.google.com/protocol-buffers/)の形式をとる; この例ではHelloRequestとHelloResponseだ。 これらのprotobufメッセージ構造体は言語中立な .protoファイルから自動生成される必要がある。 以下を参照のこと。 * protobufメッセージを入力および出力するパラメーターは、呼び出し元のアプリケーションと連携している必要がある。 As the protobuf message data structures are generated from language independent .proto files it does not matter if the calling application and the smart contract are written in different languages.
 
 So this would be an example of a suitable types.proto file for our Hello function.
 
@@ -434,7 +434,7 @@ func (c *EvmExample) SetValue(ctx contractpb.Context, value *types.WrapValue) er
 
 ```
 
-するとGetValue関数は同じやり方で機能する。 We now have to unwrap the output from the solidity contract and return it in a WrapValue message . `StaticCallEvm` is used as `get` is a view or constant function.
+するとGetValue関数は同じやり方で機能する。 今度はSolidityコントラクトのアウトプットをアンラップし、それをWrapValueメッセージで返す必要がある。 `StaticCallEvm` is used as `get` is a view or constant function.
 
 ```go
 import (
