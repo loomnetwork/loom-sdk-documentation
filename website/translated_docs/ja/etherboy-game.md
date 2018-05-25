@@ -24,7 +24,7 @@ sidebar_label: Etherboyゲーム
 
 ## 開発
 
-現在Loom DAppチェーンを稼働させるには、MacOSもしくはLinux上で行わなければならない。だがもしWindows 10をお使いであれば、[Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10)内でUbuntuを実行可能だ (その他のディストリビューションも動くかもしれないが、ドキュメンテーションはUbuntu向けに書かれている)。 Please ensure you have the [MacOS prerequisites](prereqs.md) or [Ubuntu prerequisites](prereqs-ubuntu.md) sorted out before proceeding any further.
+現在Loom DAppチェーンを稼働させるには、MacOSもしくはLinux上で行わなければならない。だがもしWindows 10をお使いであれば、[Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10)内でUbuntuを実行可能だ (その他のディストリビューションも動くかもしれないが、ドキュメンテーションはUbuntu向けに書かれている)。 先に進めていく前に、確実に[MacOS向け前提条件](prereqs.md)または[Ubuntu向け前提条件](prereqs-ubuntu.md)を用意しよう。
 
 ### Loom DAppチェーンをダウンロード
 
@@ -32,7 +32,7 @@ Linuxの場合はまず[ここから始めよう](prereqs-ubuntu.html)。
 
 ### Etherboyのコントラクトのデプロイ(OSX)
 
-Fetch the smart contract code from Github with SSH
+SSHでGithubからスマートコントラクトのコードをフェッチする。
 
 ```bash
 wget https://storage.googleapis.com/private.delegatecall.com/loom/osx/build-132/loom
@@ -44,7 +44,7 @@ cd ebgopath/src/github.com/loomnetwork
 git clone https://github.com/loomnetwork/etherboy-core.git etherboy-core
 ```
 
-Build and deploy the contract
+コントラクトの構築およびデプロイ
 
 ```bash
 cd etherboy-core
