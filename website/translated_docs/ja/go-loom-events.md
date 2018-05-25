@@ -35,4 +35,4 @@ loom-sdkは、デフォルトではログにイベントを出力するのみと
 
 ### イベントのサブスクライブ
 
-See [this page](loomevents.html) for more information on subscribing to events
+イベントのサブスクライブについて、[このページ](loomevents.html)でさらに情報を参照しよう。
