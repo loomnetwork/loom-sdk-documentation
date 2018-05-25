@@ -119,11 +119,11 @@ loom run tcp://47cd3e4cc27ac621ff8bc59b776fa228adab827e@10.2.3.4:46656,tcp://495
 
 ノード３、ノード４についても同じだ。ノード固有のキーとIPアドレスは除く。
 
-**Please remember that all commands need to be executed from within the working directory.**
+**全コマンドはワーキングディレクトリ内から実行されなくてはならないことを覚えておこう。**
 
-### systemd Startup Script
+### systemdスタートアップスクリプト
 
-The following startup script can be used to control the service using systemd. Make changes to `WorkingDirectory` and/or `ExecStart` to reflect your setup.
+次のスタートアップスクリプトはsystemdを使ったサービスをコントロールするために使用することができる。`WorkingDirectory`および/または`ExecStart`を変更して、あなたの設定を反映させよう。
 
 Notice `ExecStart`, it is constructed using the same concept from the previous section when running loom directly. This means each node has a different startup script.
 
