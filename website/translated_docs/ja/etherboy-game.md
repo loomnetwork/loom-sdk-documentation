@@ -24,7 +24,7 @@ sidebar_label: Etherboyゲーム
 
 ## 開発
 
-Currently you need to be on MacOS or Linux to spin up a Loom DAppChain, but if you're on Windows 10 you can run Ubuntu in the [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10) (other distros may work but docs are written for Ubuntu). Please ensure you have the [MacOS prerequisites](prereqs.md) or [Ubuntu prerequisites](prereqs-ubuntu.md) sorted out before proceeding any further.
+現在Loom DAppチェーンを稼働させるには、MacOSもしくはLinux上で行わなければならない。だがもしWindows 10をお使いであれば、[Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10)内でUbuntuを実行可能だ (その他のディストリビューションも動くかもしれないが、ドキュメンテーションはUbuntu向けに書かれている)。 Please ensure you have the [MacOS prerequisites](prereqs.md) or [Ubuntu prerequisites](prereqs-ubuntu.md) sorted out before proceeding any further.
 
 ### Loom DAppチェーンをダウンロード
 
