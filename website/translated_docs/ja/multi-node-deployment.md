@@ -49,7 +49,7 @@ sidebar_label: マルチノードデプロイメント
 }
 ```
 
-次に各ノードから全ての`validators`を収集して結合し、配列にしよう。 This file will now need to be replaced with the combined file, in all nodes. ２ノードのクラスタは、このようになるはずだ:
+次に各ノードから全ての`validators`を収集して結合し、配列にしよう。 今度は全ノードにあるこのファイルを、結合したファイルへと置き換えなくてはならない。 ２ノードのクラスタは、このようになるはずだ:
 
 ```json
 {
@@ -77,25 +77,25 @@ sidebar_label: マルチノードデプロイメント
 }
 ```
 
-## Running
+## 起動
 
-First, we need to get node keys from each node. Go to the working directory and run `loom nodekey`:
+まず、各ノードのノードキーを取得する必要がある。ワーキングディレクトリの`loom nodekey`を実行しよう:
 
 ```bash
 $ loom nodekey
 47cd3e4cc27ac621ff8bc59b776fa228adab827e
 ```
 
-Do remember to clearly make note which node key is for which node. Also important is the private IP (or any IP that are available for the nodes to communicate with each other). Generally, in a cloud environment we use public IPs for security and latency reasons.
+ノードキーがどのノードのものか、はっきりとわかるようにしておくことを忘れないように。 またプライベートIP(もしくはノードが互いに通信し合うのに有効なIP)も同じく重要だ。 一般に、クラウド環境ではセキュリティとレイテンシのため、パブリックIPを使う。
 
-Now, let's use an example with 4 nodes:
+では４ノードのサンプルを使用してみよう:
 
-| Node | IP       | Node key                                 |
-| ---- | -------- | ---------------------------------------- |
-| 1    | 10.2.3.4 | 47cd3e4cc27ac621ff8bc59b776fa228adab827e |
-| 2    | 10.6.7.8 | e728bada822af677b95cb8ff126ca72cc4e3dc74 |
-| 3    | 10.3.2.1 | 4953e5726664985cc1cc92ae2edcfc6e089ba50d |
-| 4    | 10.7.6.5 | 02c90b57d241c3c014755ecb07e0c0d232e07fff |
+| ノード | IP       | ノードキー                                    |
+| --- | -------- | ---------------------------------------- |
+| 1   | 10.2.3.4 | 47cd3e4cc27ac621ff8bc59b776fa228adab827e |
+| 2   | 10.6.7.8 | e728bada822af677b95cb8ff126ca72cc4e3dc74 |
+| 3   | 10.3.2.1 | 4953e5726664985cc1cc92ae2edcfc6e089ba50d |
+| 4   | 10.7.6.5 | 02c90b57d241c3c014755ecb07e0c0d232e07fff |
 
 To run loom, we need to tell each node about its peers. The general format is:
 
