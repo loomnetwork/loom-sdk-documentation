@@ -28,8 +28,8 @@ sidebar_label: Etherboyゲーム
 
 ### MacOS
 
-1. Install Golang by following the steps in [MacOS prerequisites](prereqs.md) (if you haven't done so already).
-2. Download Loom DAppChain binary 
+1. [MacOSの前提条件](prereqs.md)にある手順通りにGolangをインストールしよう(もしまだインストールしていなければ)。
+2. Loom DAppチェーンのバイナリをダウンロード 
         bash
         wget https://storage.googleapis.com/private.delegatecall.com/loom/osx/build-132/loom
         chmod +x loom
@@ -37,8 +37,8 @@ sidebar_label: Etherboyゲーム
 
 ### Linux
 
-1. Install Golang by follwing the steps in [Ubuntu prerequisites](prereqs-ubuntu.md) (if you haven't done so already).
-2. Download Loom DAppChain binary 
+1. [Ubuntuの前提条件](prereqs-ubuntu.md)にある手順通りにGolangをインストールしよう(もしまだインストールしていなければ)。
+2. Loom DAppチェーンのバイナリをダウンロード 
         bash
         curl -OL https://storage.googleapis.com/private.delegatecall.com/loom/linux/build-132/loom
         chmod +x loom
@@ -87,7 +87,7 @@ $LOOM_BIN run
 
 #### デスクトップ
 
-Just launch the binary generated in the build output directory. If you have issues logging in please ensure nothing is running on port `9998`.
+ビルド出力ディレクトリ内に生成されたバイナリをローンチするだけでよい。もしログインで問題があれば、ポート`9998`で何も実行されていないことを確認しよう。
 
 #### WebGL
 
