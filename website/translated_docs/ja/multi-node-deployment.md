@@ -27,9 +27,9 @@ sidebar_label: マルチノードデプロイメント
             ]
         }
 
-## Configuration
+## 設定
 
-In the working directory, look inside the folder `chaindata/config`. You will find a file named `genesis.json`. It is not to be confused with the one in the working directory. It should look like this:
+ワーキングディレクトリにあるフォルダ`chaindata/config`の中を見てみよう。 `genesis.json`という名前のファイルが見つかるはずだ。 It is not to be confused with the one in the working directory. It should look like this:
 
 ```json
 {
