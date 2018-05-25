@@ -595,7 +595,7 @@ loom-js: `async getTxReceiptAsync(txHash: Uint8Array): Promise<EvmTxReceipt | nu
 
 | Field             | Contents                                          | 
 | ------------------|:--------------------------------------------------|
-| TransactionIndex  | transaction numer this block                      |
+| TransactionIndex  | transaction number this block                      |
 | BlockHash         | Hash of the last block                            |
 | BlockNumber       | Block height                                      |
 | CumulativeGasUsed | Currently not used                                |
