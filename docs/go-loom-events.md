@@ -41,4 +41,4 @@ The code snippet below shows sample code for emitting events from the contract.
 
 ### Subscribing to events
 
-See [this page](./loomevents) for more information on subscribing to events
+See [this page](loomevents.html) for more information on subscribing to events
