@@ -91,9 +91,9 @@ $LOOM_BIN run
 
 #### WebGL
 
-Run an http server to serve the build output directory at `localhost:8090`, and open `localhost:8090` in your web browser.
+`localhost:8090`でビルド出力ディレクトリのためのhttpサーバーを実行し、ウェブブラウザで`localhost:8090`を開こう。
 
-If you don't know how to set up a local http server follow the steps below.
+もしローカルのhttpサーバーのセットアップ方法がわからなければ、次の手順通りにやってみよう。
 
 ```bash
 brew install node
