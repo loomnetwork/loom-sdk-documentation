@@ -29,7 +29,7 @@ sidebar_label: マルチノードデプロイメント
 
 ## 設定
 
-ワーキングディレクトリにあるフォルダ`chaindata/config`の中を見てみよう。 `genesis.json`という名前のファイルが見つかるはずだ。 It is not to be confused with the one in the working directory. It should look like this:
+ワーキングディレクトリにあるフォルダ`chaindata/config`の中を見てみよう。 `genesis.json`という名前のファイルが見つかるはずだ。 ワーキングディレクトリにあるものと混同しないようにしよう。 このファイルは以下のようなものだ:
 
 ```json
 {
@@ -49,7 +49,7 @@ sidebar_label: マルチノードデプロイメント
 }
 ```
 
-Next, collect all the `validators` from each node, then combine them into an array. This file will now need to be replaced with the combined file, in all nodes. For a two node cluster, it should now look like this:
+次に各ノードから全ての`validators`を収集して結合し、配列にしよう。 This file will now need to be replaced with the combined file, in all nodes. ２ノードのクラスタは、このようになるはずだ:
 
 ```json
 {
