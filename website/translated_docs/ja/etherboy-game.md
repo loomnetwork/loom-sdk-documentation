@@ -7,7 +7,7 @@ sidebar_label: Etherboyゲーム
 
 ## ゲームコントロール
 
-### Desktop / WebGL
+### デスクトップ / WebGL
 
 - ** ↑ **: ドアから入る、ロープをよじ登る
 - ** ↓ **: ロープを下る
@@ -24,7 +24,7 @@ sidebar_label: Etherboyゲーム
 
 ## 開発
 
-Currently you need to be on MacOS or Linux to spin up a Loom DAppChain, but if you're on Windows 10 you can run Ubuntu in the [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10) (other distros may work but docs are written for Ubuntu).
+現在Loom DAppチェーンを稼働させるには、MacOSもしくはLinux上で行わなければならない。だがもしWindows 10をお使いであれば、[Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10)内でUbuntuを実行可能だ (その他のディストリビューションも動くかもしれないが、ドキュメンテーションはUbuntu向けに書かれている)。
 
 ### MacOS
 
@@ -44,9 +44,9 @@ Currently you need to be on MacOS or Linux to spin up a Loom DAppChain, but if y
         chmod +x loom
         export LOOM_BIN=`pwd`/loom
 
-### Deploy Etherboy contract (OSX / Linux)
+### Etherboyのコントラクトのデプロイ(OSX / Linux)
 
-Fetch the smart contract code from Github
+Githubからスマートコントラクトのコードをフェッチする。
 
 ```bash
 export GOPATH=`pwd`/ebgopath
@@ -55,7 +55,7 @@ cd ebgopath/src/github.com/loomnetwork
 git clone https://github.com/loomnetwork/etherboy-core.git etherboy-core
 ```
 
-Build and deploy the contract
+コントラクトの構築およびデプロイ
 
 ```bash
 cd etherboy-core
@@ -67,13 +67,13 @@ cp ../genesis.json genesis.json
 $LOOM_BIN run
 ```
 
-Assuming everything went without a hitch so far you now have a local Loom DAppChain running the Etherboy smart contract!
+全てここまで問題なく進んだら、Etherboyのスマートコントラクトを実行する、ローカルLoom DAppチェーンの出来上がりだ。
 
 ![Animation](/developers/img/etherboy-clip.gif)
 
-### Build the Unity project
+### Unityプロジェクトの構築
 
-Clone the Unity project for the [Etherboy game](https://github.com/loomnetwork/Etherboy) from Github and modify
+[Etherboyゲーム](https://github.com/loomnetwork/Etherboy)のUnityプロジェクトをGithubからクローンして修正しよう。
 
 - Unityでプロジェクトを開く
 - `File`->`Build Settings`を選択
@@ -83,9 +83,9 @@ Clone the Unity project for the [Etherboy game](https://github.com/loomnetwork/E
 
 > WebGLのゲーム全体の構築は、完了までおよそ30分ほど必要だ。
 
-### Run the game
+### ゲームの実行
 
-#### Desktop
+#### デスクトップ
 
 Just launch the binary generated in the build output directory. If you have issues logging in please ensure nothing is running on port `9998`.
 
@@ -102,9 +102,9 @@ cd path/to/webgl-build-dir
 http-server -a localhost -p 8090
 ```
 
-### Optional configuration
+### オプション設定
 
-If you configure your local DAppChain to run on another host or port you'll need to update the following section of `Assets/WebGLTemplates/Loom/settings.js` before doing a **WebGL** build, or you can edit `settings.js` inside the build output directory after the build:
+もしローカルDAppチェーンを設定して別のホストやポートで実行したい場合、**WebGL**の構築を行う前に`Assets/WebGLTemplates/Loom/settings.js`をアップデートするか、もしくは構築後にビルド出力ディレクトリ内の`settings.js`を編集してもよい:
 
 ```js
   dappchain: {
@@ -113,7 +113,7 @@ If you configure your local DAppChain to run on another host or port you'll need
   }
 ```
 
-For a desktop build you'll need to edit `Assets/Resources/env_config.json` to change the default DAppChain host & port:
+デスクトップの構築をするには、`Assets/Resources/env_config.json`を編集して、デフォルトのDAppチェーンのホストおよびポートを変更する必要がある:
 
 ```json
 {
