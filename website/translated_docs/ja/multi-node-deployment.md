@@ -125,7 +125,7 @@ loom run tcp://47cd3e4cc27ac621ff8bc59b776fa228adab827e@10.2.3.4:46656,tcp://495
 
 次のスタートアップスクリプトはsystemdを使ったサービスをコントロールするために使用することができる。`WorkingDirectory`および/または`ExecStart`を変更して、あなたの設定を反映させよう。
 
-Notice `ExecStart`, it is constructed using the same concept from the previous section when running loom directly. This means each node has a different startup script.
+Loomを直接実行する場合、`ExecStart`は前のセクションと同じコンセプトを使用する構成となっていることに気をつけよう。これは、各ノードが異なるスタートアップスクリプトを持っているという意味である。i
 
 ```ini
 [Unit]
@@ -148,30 +148,30 @@ StandardError=syslog
 WantedBy=multi-user.target
 ```
 
-Save it to `/etc/systemd/system/loom.service`. Run these to activate it:
+これを`/etc/systemd/system/loom.service`へ保存し、アクティベートするために以下を実行しよう:
 
 ```bash
 sudo systemctl daemon-reload
 sudo systemctl start loom.service
 ```
 
-You may now inspect the output using:
+以下を使ってアウトプットを検証できる:
 
 ```bash
 sudo journalctl -u loom.service
 ```
 
-When satisfied everything is running as intended, executing the following will enable the service so that it is started at boot:
+すべてが思った通りに動いていれば、以下を実行することでブート時にサービスが開始されるようになる。
 
 ```bash
 sudo systemctl enable loom.service
 ```
 
-## Verifying
+## 検証
 
-### Listening ports
+### ポートのリッスン
 
-If all is well, you will be able to see these ports opened in each node.
+全てうまくいくと、各ノードに開かれたこれらのポートを見ることができる。
 
 ```bash
 $ sudo netstat -tpnl
