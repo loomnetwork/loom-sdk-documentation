@@ -97,27 +97,27 @@ $ loom nodekey
 | 3   | 10.3.2.1 | 4953e5726664985cc1cc92ae2edcfc6e089ba50d |
 | 4   | 10.7.6.5 | 02c90b57d241c3c014755ecb07e0c0d232e07fff |
 
-To run loom, we need to tell each node about its peers. The general format is:
+Loomを実行するには、各ノードにそのピアについて伝える必要がある。一般的なフォーマットはこうだ:
 
 ```bash
 loom run tcp://<node1_key>@<node1_ip>:46656,tcp://<node2_key>@<node2_ip>:46656,...tcp://<nodeN_key>@<nodeN_ip>:46656
 ```
 
-Let's see examples by using the table above.
+上の表を用いた例を見ていこう。
 
-On node 1:
+ノード 1にて:
 
 ```bash
 loom run tcp://e728bada822af677b95cb8ff126ca72cc4e3dc74@10.6.7.8:46656,tcp://4953e5726664985cc1cc92ae2edcfc6e089ba50d@10.3.2.1:46656,tcp://4953e5726664985cc1cc92ae2edcfc6e089ba50d@10.7.6.5:46656
 ```
 
-On node 2:
+ノード２にて:
 
 ```bash
 loom run tcp://47cd3e4cc27ac621ff8bc59b776fa228adab827e@10.2.3.4:46656,tcp://4953e5726664985cc1cc92ae2edcfc6e089ba50d@10.3.2.1:46656,tcp://4953e5726664985cc1cc92ae2edcfc6e089ba50d@10.7.6.5:46656
 ```
 
-The same goes for node 3 and node 4. We exclude the node's own key and IP address.
+ノード３、ノード４についても同じだ。ノード固有のキーとIPアドレスは除く。
 
 **Please remember that all commands need to be executed from within the working directory.**
 
