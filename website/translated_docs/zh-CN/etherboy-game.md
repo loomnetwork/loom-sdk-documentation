@@ -7,7 +7,7 @@ sidebar_label: Etherboy Game
 
 ## Game Controls
 
-### WebGL Key Bindings
+### Desktop / WebGL
 
 - **UP**: enter doors, go up ropes
 - **DOWN**: go down ropes
@@ -24,20 +24,31 @@ sidebar_label: Etherboy Game
 
 ## Development
 
-Currently you need to be on MacOS or Linux to spin up a Loom DAppChain, but if you're on Windows 10 you can run Ubuntu in the [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10) (other distros may work but docs are written for Ubuntu). Please ensure you have the [MacOS prerequisites](prereqs.md) or [Ubuntu prerequisites](prereqs-ubuntu.md) sorted out before proceeding any further.
+Currently you need to be on MacOS or Linux to spin up a Loom DAppChain, but if you're on Windows 10 you can run Ubuntu in the [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10) (other distros may work but docs are written for Ubuntu).
 
-### Download Loom DAppChain
+### MacOS
 
-For Linux [start here](prereqs-ubuntu.html) first
+1. Install Golang by following the steps in [MacOS prerequisites](prereqs.md) (if you haven't done so already).
+2. Download Loom DAppChain binary 
+        bash
+        wget https://storage.googleapis.com/private.delegatecall.com/loom/osx/build-132/loom
+        chmod +x loom
+        export LOOM_BIN=`pwd`/loom
 
-### Deploy Etherboy contract (OSX)
+### Linux
 
-Fetch the smart contract code from Github with SSH
+1. Install Golang by follwing the steps in [Ubuntu prerequisites](prereqs-ubuntu.md) (if you haven't done so already).
+2. Download Loom DAppChain binary 
+        bash
+        curl -OL https://storage.googleapis.com/private.delegatecall.com/loom/linux/build-132/loom
+        chmod +x loom
+        export LOOM_BIN=`pwd`/loom
+
+### Deploy Etherboy contract (OSX / Linux)
+
+Fetch the smart contract code from Github
 
 ```bash
-wget https://storage.googleapis.com/private.delegatecall.com/loom/osx/build-132/loom
-chmod +x loom
-export LOOM_BIN=`pwd`/loom
 export GOPATH=`pwd`/ebgopath
 mkdir -p ebgopath/src/github.com/loomnetwork
 cd ebgopath/src/github.com/loomnetwork
@@ -60,7 +71,7 @@ Assuming everything went without a hitch so far you now have a local Loom DAppCh
 
 ![Animation](/developers/img/etherboy-clip.gif)
 
-### Build Unity project
+### Build the Unity project
 
 Clone the Unity project for the [Etherboy game](https://github.com/loomnetwork/Etherboy) from Github and modify
 
@@ -71,6 +82,27 @@ Clone the Unity project for the [Etherboy game](https://github.com/loomnetwork/E
 - Press `Build`, select the build output directory
 
 > WebGL builds of the full game take around 30 minutes to complete.
+
+### Run the game
+
+#### Desktop
+
+Just launch the binary generated in the build output directory. If you have issues logging in please ensure nothing is running on port `9998`.
+
+#### WebGL
+
+Run an http server to serve the build output directory at `localhost:8090`, and open `localhost:8090` in your web browser.
+
+If you don't know how to set up a local http server follow the steps below.
+
+```bash
+brew install node
+npm install http-server -g
+cd path/to/webgl-build-dir
+http-server -a localhost -p 8090
+```
+
+### Optional configuration
 
 If you configure your local DAppChain to run on another host or port you'll need to update the following section of `Assets/WebGLTemplates/Loom/settings.js` before doing a **WebGL** build, or you can edit `settings.js` inside the build output directory after the build:
 
