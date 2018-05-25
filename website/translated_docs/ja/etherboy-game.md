@@ -56,19 +56,19 @@ cp ../genesis.json genesis.json
 $LOOM_BIN run
 ```
 
-Assuming everything went without a hitch so far you now have a local Loom DAppChain running the Etherboy smart contract!
+全てここまで問題なく進んだら、Etherboyのスマートコントラクトを実行する、ローカルLoom DAppチェーンの出来上がりだ。
 
 ![Animation](/developers/img/etherboy-clip.gif)
 
-### Build Unity project
+### Unityプロジェクトの構築
 
-Clone the Unity project for the [Etherboy game](https://github.com/loomnetwork/Etherboy) from Github and modify
+[Etherboyゲーム](https://github.com/loomnetwork/Etherboy)のUnityプロジェクトをGithubからクローンして修正しよう。
 
-- Open the project in Unity
-- Select `File`->`Build Settings`
-- Select either `Web GL` or `PC, Mac & Linux Standalone` from the platform list
-- Press `Switch Platform` if it's enabled
-- Press `Build`, select the build output directory
+- Unityでプロジェクトを開く
+- `File`->`Build Settings`を選択
+- プラットフォームリストから`Web GL`もしくは`PC, Mac & Linux Standalone`のどちらかを選択
+- 可能であれば`Switch Platform`をクリック
+- `Build`をクリックし、ビルド出力ディレクトリを選択
 
 > WebGL builds of the full game take around 30 minutes to complete.
 
