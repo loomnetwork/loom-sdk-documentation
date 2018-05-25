@@ -70,9 +70,9 @@ $LOOM_BIN run
 - 可能であれば`Switch Platform`をクリック
 - `Build`をクリックし、ビルド出力ディレクトリを選択
 
-> WebGL builds of the full game take around 30 minutes to complete.
+> WebGLのゲーム全体の構築は、完了までおよそ30分ほど必要だ。
 
-If you configure your local DAppChain to run on another host or port you'll need to update the following section of `Assets/WebGLTemplates/Loom/settings.js` before doing a **WebGL** build, or you can edit `settings.js` inside the build output directory after the build:
+もしローカルDAppチェーンを設定して別のホストやポートで実行したい場合、**WebGL**の構築を行う前に`Assets/WebGLTemplates/Loom/settings.js`をアップデートするか、もしくは構築後にビルド出力ディレクトリ内の`settings.js`を編集してもよい:
 
 ```js
   dappchain: {
