@@ -593,17 +593,18 @@ go-loom:`func (c *DAppChainRPCClient) EvmTxReceipt(txHash []byte) (vm
  
 loom-js: `async getTxReceiptAsync(txHash: Uint8Array): Promise<EvmTxReceipt | null>`
 
-| Field             | Contents           | 
-| ------------------|:-------------|
-| TransactionIndex  | transaction numer this block |
-| BlockHash         | Hash of the last block      |
-| BlockNumber       | Block height      |
-| CumulativeGasUsed | Currently not used |
-| GasUsed           | Currently not used  |
-| ContractAddress   | Address of the contract called |
-| Logs              | Events, encoded as an array of Event protobufs |
-| LogsBloom         | Not used |
-| Status            | 1 = success or 0 = failier |
+| Field             | Contents                                          | 
+| ------------------|:--------------------------------------------------|
+| TransactionIndex  | transaction numer this block                      |
+| BlockHash         | Hash of the last block                            |
+| BlockNumber       | Block height                                      |
+| CumulativeGasUsed | Currently not used                                |
+| GasUsed           | Currently not used                                |
+| ContractAddress   | Address of the contract called                    |
+| Logs              | Events, encoded as an array of Event protobufs    |
+| LogsBloom         | Not used                                          |
+| Status            | 1 = success or 0 = failier                        |
+
 
 
 
