@@ -7,6 +7,12 @@ sidebar_label: リリースノート
 
 新着順。
 
+## リリース 133 - 5月24日
+
+* [Etherboyのデモをリリース](https://loomx.io/developers/docs/en/etherboy-game.html)
+* [日本語ドキュメンテーションをリリース](https://loomx.io/developers/ja)
+* [ドキュメンテーションサイト](https://loomx.io/developers/en/)をアップデート 
+
 ## リリース 132 - 5月23日
 
 * Websocketのパフォーマンスを修正
@@ -24,7 +30,7 @@ sidebar_label: リリースノート
 
 ## リリース 128 - 5月19日
 
-* 安定したベータ版リリース
+* 安定したベータ版をリリース
 * ロギングをデフォルトで複数ファイルでできるようアップデート 
 * 全RPCを一つのインターフェースへ移動
 * 外部プロセスインターフェースのアップデート

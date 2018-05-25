@@ -5,9 +5,9 @@ sidebar_label: Loom.js + Web3.js
 ---
 # 概要
 
-The `loom-js` comes with the `LoomProvider` which makes possible to connect with `Web3.js` as a provider allowing Ethereum developers to deploy and call smart contracts running inside the Loom DAppChains, for further details check out [EVM page](evm)
+`loom-js`には`LoomProvider`が備わっている。これはイーサリアム開発者がLoom DAppチェーン内で実行されるスマートコントラクトの呼び出しやデプロイができると同時に、`Web3.js`をプロバイダとして接続することを可能にする。さらなる詳細は[EVMページ](evm)をチェックしよう。
 
-To get started install `loom-js` from NPM:
+NPMで`loom-js`をインストール
 
 ```shell
 yarn add loom-js
@@ -19,7 +19,7 @@ npm install loom-js
 
 ## SimpleContract
 
-Let's say that we have a Solidity contract, which is already compiled and deployed on Loom DAppChain
+あるSolidityコントラクトが、すでにコンパ入りされLoom DAppチェーン上にデプロイされているとしよう。
 
     pragma solidity ^0.4.18;
     
@@ -36,7 +36,7 @@ Let's say that we have a Solidity contract, which is already compiled and deploy
     }
     
 
-With the binary compiled with the Solidity compiler the next step is to create a `genesis.json` for the Loom DappChain. (Don't forget to set the `location` to the compiled binary)
+堅さのコンパイラでコンパイルされたバイナリを使って、次のステップではLoom Dappチェーン用の`genesis.json` を作成しよう。 (コンパイルされたバイナリに`location`を設定するのを忘れないように)
 
 ```Javascript
 {
@@ -80,7 +80,7 @@ const ABI = [{
 }]
 ```
 
-Instantiate and using the `Web3` with `LoomProvider` looks similar from use from an Ethereum Node, but first we need to initialize the `loom-js` client properly.
+インスタンス化および`LoomProvider`での`Web3`の使用は、イーサリアムのノードを使用するのに似ているが、まず`loom-js`クライアントを正しく初期化する必要がある。
 
 ```js
 import {
@@ -90,7 +90,7 @@ import {
 
 import Web3 from 'web3'
 
-// This function will initialize and return the client
+// この関数は初期化およびクライアントを返却をする
 function getClient(privateKey, publicKey) {
   const client = new Client(
     'default',
@@ -106,41 +106,41 @@ function getClient(privateKey, publicKey) {
   return client
 }
 
-// Setting up keys
+// キーの設定
 const privateKey = CryptoUtils.generatePrivateKey()
 const publicKey = CryptoUtils.publicKeyFromPrivateKey(privateKey)
 
-// Client ready
+// クライアントの準備
 const client = getClient(privateKey, publicKey)
 ```
 
-Now with client ready let's instantiate the `Web3`, in order to properly initialize the `Web3` instance we're going to pass the `LoomProvider` with the `client`
+クライアントの準備ができたので、今度は`Web3`をインスタンス化しよう。`Web3`を適切にインスタンス化するために、`client`と共に`LoomProvider`を渡そう。
 
 ```js
 const web3 = new Web3(new LoomProvider(client))
 ```
 
-We're ready to instantiate the contract
+コントラクトをインスタンス化する準備ができた。
 
 ```js
-// Getting our address based on public key
+// 公開鍵を基にアドレスを取得
 const fromAddress = LocalAddress.fromPublicKey(publicKey).toString()
 
-// Get the contract address (we don't need to know the address just the name specified in genesis.json
+// コントラクトアドレスの取得 (アドレスは必要なく、genesis.json中での特定の名前だけで良い)
 const loomContractAddress = await client.getContractAddressAsync('SimpleStore')
 
-// Translate loom address to hexa to be compatible with Web3
+// Web3と互換性を持つようloom addressをhexaへ変換
 const contractAddress = CryptoUtils.bytesToHexAddr(loomContractAddress.local.bytes)
 
-// Instantiate the contract
+// コントラクトのインスタンス化
 const contract = new web3.eth.Contract(ABI, contractAddress, {from: fromAddress})
 ```
 
-The contract is instantiated and ready
+コントラクトはインスタンス化され、準備が整った。
 
 # トランザクションと呼び出し
 
-After the instantiation of the `Web3 Contract` we'll be able to use the contract methods for transactions (`send`) and calls (`call`) like so:
+`Web3 Contract`のインスタンス化が終わったら、トランザクション(`send`) や呼び出し(`call`)のためのコントラクトメソッドを次のように使用できる:
 
 ```js
 (async function () {
@@ -165,7 +165,7 @@ import {
 
 import Web3 from 'web3'
 
-// こうして関数は初期化およびクライアントの返却をする
+// この関数は初期化およびクライアントの返却をする
 function getClient(privateKey, publicKey) {
   const client = new Client(
     'default',

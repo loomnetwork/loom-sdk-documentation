@@ -45,18 +45,18 @@ Loomをインストール
 
 開発サーバーの起動
 
-    #ソースを入手
-    git clone git@github.com:loomnetwork/phaser-sdk-demo.git
+    #Get Source
+    git clone https://github.com/loomnetwork/phaser-sdk-demo.git
     
     cd phaser-sdk-demo
     
-    # インストール
+    # Install
     yarn
     
-    # protobuffのコンパイル
+    # Compile protobuff
     yarn run proto
     
-    # 開発サーバーの起動
+    # Start the dev server
     yarn run dev
     
     
