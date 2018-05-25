@@ -81,7 +81,7 @@ $LOOM_BIN run
   }
 ```
 
-For a desktop build you'll need to edit `Assets/Resources/env_config.json` to change the default DAppChain host & port:
+デスクトップの構築をするには、`Assets/Resources/env_config.json`を編集して、デフォルトのDAppチェーンのホストおよびポートを変更する必要がある:
 
 ```json
 {
