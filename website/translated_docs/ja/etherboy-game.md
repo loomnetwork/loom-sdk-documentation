@@ -22,15 +22,15 @@ sidebar_label: Etherboyゲーム
 - iOS (WIP)
 - Windows / Mac / Linux
 
-## Development
+## 開発
 
 Currently you need to be on MacOS or Linux to spin up a Loom DAppChain, but if you're on Windows 10 you can run Ubuntu in the [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10) (other distros may work but docs are written for Ubuntu). Please ensure you have the [MacOS prerequisites](prereqs.md) or [Ubuntu prerequisites](prereqs-ubuntu.md) sorted out before proceeding any further.
 
-### Download Loom DAppChain
+### Loom DAppチェーンをダウンロード
 
-For Linux [start here](prereqs-ubuntu.html) first
+Linuxの場合はまず[ここから始めよう](prereqs-ubuntu.html)。
 
-### Deploy Etherboy contract (OSX)
+### Etherboyのコントラクトのデプロイ(OSX)
 
 Fetch the smart contract code from Github with SSH
 
