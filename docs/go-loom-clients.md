@@ -26,7 +26,7 @@ to build it.
 
 ```shell
 # this should generate the ./example-cli executable
-make example-cmds
+make example-cli
 ```
 
 ## Example CLI app
