@@ -17,7 +17,7 @@ Use the arrow keys to move around, jump by pressing the up arrow. For each passi
 
 Install Loom
 
-    wget https://storage.googleapis.com/private.delegatecall.com/loom/osx/build-132/loom
+    wget https://storage.googleapis.com/private.delegatecall.com/loom/osx/build-133/loom
     chmod +x loom
     
     mkdir tmpgopath
