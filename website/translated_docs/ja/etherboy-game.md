@@ -7,7 +7,7 @@ sidebar_label: Etherboyゲーム
 
 ## ゲームコントロール
 
-### WebGLキーバインディング
+### デスクトップ / WebGL
 
 - ** ↑ **: ドアから入る、ロープをよじ登る
 - ** ↓ **: ロープを下る
@@ -24,20 +24,31 @@ sidebar_label: Etherboyゲーム
 
 ## 開発
 
-現在Loom DAppチェーンを稼働させるには、MacOSもしくはLinux上で行わなければならない。だがもしWindows 10をお使いであれば、[Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10)内でUbuntuを実行可能だ (その他のディストリビューションも動くかもしれないが、ドキュメンテーションはUbuntu向けに書かれている)。 先に進めていく前に、確実に[MacOS向け前提条件](prereqs.md)または[Ubuntu向け前提条件](prereqs-ubuntu.md)を用意しよう。
+現在Loom DAppチェーンを稼働させるには、MacOSもしくはLinux上で行わなければならない。だがもしWindows 10をお使いであれば、[Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10)内でUbuntuを実行可能だ (その他のディストリビューションも動くかもしれないが、ドキュメンテーションはUbuntu向けに書かれている)。
 
-### Loom DAppチェーンをダウンロード
+### MacOS
 
-Linuxの場合はまず[ここから始めよう](prereqs-ubuntu.html)。
+1. [MacOSの前提条件](prereqs.md)にある手順通りにGolangをインストールしよう(もしまだインストールしていなければ)。
+2. Loom DAppチェーンのバイナリをダウンロード 
+        bash
+        wget https://storage.googleapis.com/private.delegatecall.com/loom/osx/build-133/loom
+        chmod +x loom
+        export LOOM_BIN=`pwd`/loom
 
-### Etherboyのコントラクトのデプロイ(OSX)
+### Linux
 
-SSHでGithubからスマートコントラクトのコードをフェッチする。
+1. [Ubuntuの前提条件](prereqs-ubuntu.md)にある手順通りにGolangをインストールしよう(もしまだインストールしていなければ)。
+2. Loom DAppチェーンのバイナリをダウンロード 
+        bash
+        curl -OL https://storage.googleapis.com/private.delegatecall.com/loom/linux/build-133/loom
+        chmod +x loom
+        export LOOM_BIN=`pwd`/loom
+
+### Etherboyのコントラクトのデプロイ(OSX / Linux)
+
+Githubからスマートコントラクトのコードをフェッチする。
 
 ```bash
-wget https://storage.googleapis.com/private.delegatecall.com/loom/osx/build-132/loom
-chmod +x loom
-export LOOM_BIN=`pwd`/loom
 export GOPATH=`pwd`/ebgopath
 mkdir -p ebgopath/src/github.com/loomnetwork
 cd ebgopath/src/github.com/loomnetwork
@@ -71,6 +82,27 @@ $LOOM_BIN run
 - `Build`をクリックし、ビルド出力ディレクトリを選択
 
 > WebGLのゲーム全体の構築は、完了までおよそ30分ほど必要だ。
+
+### ゲームの実行
+
+#### デスクトップ
+
+ビルド出力ディレクトリ内に生成されたバイナリをローンチするだけでよい。もしログインで問題があれば、ポート`9998`で何も実行されていないことを確認しよう。
+
+#### WebGL
+
+`localhost:8090`でビルド出力ディレクトリのためのhttpサーバーを実行し、ウェブブラウザで`localhost:8090`を開こう。
+
+もしローカルのhttpサーバーのセットアップ方法がわからなければ、次の手順通りにやってみよう。
+
+```bash
+brew install node
+npm install http-server -g
+cd path/to/webgl-build-dir
+http-server -a localhost -p 8090
+```
+
+### オプション設定
 
 もしローカルDAppチェーンを設定して別のホストやポートで実行したい場合、**WebGL**の構築を行う前に`Assets/WebGLTemplates/Loom/settings.js`をアップデートするか、もしくは構築後にビルド出力ディレクトリ内の`settings.js`を編集してもよい:
 

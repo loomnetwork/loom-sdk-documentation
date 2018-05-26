@@ -32,6 +32,8 @@
     "NodeJS & Browser Quick Start": "NodeJS & Browser Quick Start",
     "metrics": "Metrics",
     "Metrics": "Metrics",
+    "multi-node-deployment": "Example Deployment",
+    "Multi Node Deployment": "Multi Node Deployment",
     "phaser-sdk-demo-websocket": "Javascript WebSockets Demo",
     "Phaser + Websockets Demo": "Phaser + Websockets Demo",
     "phaser-sdk-demo": "Phaser SDK Demo",
