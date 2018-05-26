@@ -184,3 +184,69 @@ tcp6       0      0 :::46656                :::*                    LISTEN      
 tcp6       0      0 :::46657                :::*                    LISTEN      2135/loom
 tcp6       0      0 :::46658                :::*                    LISTEN      2135/loom
 ```
+
+## Automation
+
+If combining the configuration files and startup commands seems to be a lot of work, we have a way to automate it using Ansible.
+
+Ansible needs to be installed locally.
+
+The playbook is available [here](https://github.com/loomnetwork/loom-playbooks/blob/master/loom-playbook.yml)
+
+You will need to change the inventory to match your nodes and preferred working directory.
+
+**Please ensure SSH and sudo access to the nodes are available**
+
+### Inventory: inventory.yaml
+
+The inventory specifies the nodes and their IP addresses. If the node only have one IP, use same for both `ansible_host` and `private_ip`. `ansible_host` is used by Ansible to connect to the host, while `private_ip` is used by the nodes to communicate with each other.
+
+```yaml
+---
+all:
+  vars:
+    loom_build: build-132
+    ansible_ssh_common_args: '-o StrictHostKeyChecking=no'
+    working_directory: /home/ubuntu
+    user: ubuntu
+  hosts:
+    loom-0:
+      ansible_host: 1.2.3.4
+      private_ip: 10.2.3.4
+    loom-1:
+      ansible_host: 5.6.7.8
+      private_ip: 10.6.7.8
+    loom-2:
+      ansible_host: 4.3.2.1
+      private_ip: 10.3.2.1
+    loom-3:
+      ansible_host: 8.7.6.5
+      private_ip: 10.7.6.5
+```
+
+After modifying the inventory with the details of the nodes, execute the playbook:
+
+```bash
+ansible-playbook -i inventory.yml -vv loom-playbook.yml
+```
+
+## More Automation: Vagrant
+
+There is also a Vagrantfile included to provision a full cluster. Ansible needs to be installed on the host machine.
+
+It is tested with VirtualBox provider. It takes less than two minutes on a decent machine to create and provision 4 nodes.
+
+The following variables may be changed when needed.
+
+```ruby
+# Size of the cluster created by Vagrant
+num_instances = 4
+
+# Private Network Prefix
+private_network_prefix = "172.31.99."
+
+# Build numbers
+loom_build = "build-132"
+```
+
+Note: Vagrant creates its own inventory so `inventory.yml` is not used.
