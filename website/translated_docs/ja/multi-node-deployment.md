@@ -17,7 +17,7 @@ sidebar_label: マルチノードデプロイメント
 
 2. バイナリをダウンロード 
         bash
-        wget https://private.delegatecall.com/loom/linux/build-132/loom
+        wget https://private.delegatecall.com/loom/linux/build-133/loom
 
 3. ワーキングディレクトリで`loom init`を実行し、設定ファイルを初期化しよう。
 4. ワーキングディレクトリ内の `genesis.json` を更新 
