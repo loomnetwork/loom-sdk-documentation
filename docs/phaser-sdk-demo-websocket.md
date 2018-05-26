@@ -31,7 +31,7 @@ mkdir tmpgopath
 export GOPATH=`pwd`/tmpgopath
 
 cd dappchain
-wget https://storage.googleapis.com/private.delegatecall.com/loom/osx/build-132/loom
+wget https://storage.googleapis.com/private.delegatecall.com/loom/osx/build-133/loom
 chmod +x loom
 
 # Compile
