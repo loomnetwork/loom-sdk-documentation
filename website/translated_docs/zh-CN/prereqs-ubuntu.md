@@ -60,7 +60,7 @@ sudo unzip protoc-${PROTOBUF_VERSION}-linux-x86_64.zip -d /usr/local
 ## Installation
 
 ```bash
-curl -OL https://storage.googleapis.com/private.delegatecall.com/loom/linux/build-132/loom
+curl -OL https://storage.googleapis.com/private.delegatecall.com/loom/linux/build-133/loom
 chmod +x loom
 
 mkdir ~/gopath
