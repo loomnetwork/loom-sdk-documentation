@@ -41,6 +41,10 @@ This documentation explains how to run the Etherboy DAppChain in a single server
     }
     ```
 
+5. Add `loom.yml` in the working directory: 
+        yaml
+        QueryServerHost: "tcp://0.0.0.0:9999"
+
 注意: `loom` 和 `etherboycli` 可以放置在你 `$PATH` 中的任何位置，因此你不必总是使用 `./` 执行。 However, `etherboycore.0.0.1` must always be placed in `$WORKING_DIRECTORY/contracts/etherboycore.0.0.1`.
 
 ## 运行
@@ -54,7 +58,7 @@ This documentation explains how to run the Etherboy DAppChain in a single server
 ```bash
 ./loom run
 I[05-16|06:06:16.970] Using simple log event dispatcher
-I[05-16|06:06:19.999] Starting RPC HTTP server on tcp://127.0.0.1:9999 module=query-server
+I[05-16|06:06:19.999] Starting RPC HTTP server on tcp://0.0.0.0:9999 module=query-server
 ```
 
 这将在前台运行Etherboy，并将其输出打印到控制台。要更好地进行流程管理, 请查看下一节。
