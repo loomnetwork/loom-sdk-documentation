@@ -12,8 +12,8 @@ Reverse chronology order of release notes
 
 * Initial Solidity Alpha test build, you can now deploy solidity contracts
 * Websocket eventing support for solidity 
-* [Example Project for solidity Events](https://loomx.io/developers/docs/en/phaser-sdk-demo-web3-websocket.html)
-* [Multinode deployment guide](https://loomx.io/developers/docs/en/multi-node-deployment.html)
+* [Example Project for solidity Events](phaser-sdk-demo-web3-websocket.html)
+* [Multinode deployment guide](multi-node-deployment.html)
 
 ## Release 133 - May 24th
 
