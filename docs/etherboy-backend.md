@@ -1,7 +1,7 @@
 ---
 id: etherboy-backend
 title: Etherboy Backend
-sidebar_label: Etherboy Backend 
+sidebar_label: Etherboy Backend
 ---
 
 This documentation explains how to run the Etherboy DAppChain in a single server instance
@@ -39,6 +39,12 @@ This documentation explains how to run the Etherboy DAppChain in a single server
         ]
     }
     ```
+1. Add `loom.yml` in the working directory:
+    ```yaml
+    QueryServerHost: "tcp://0.0.0.0:9999"
+    TendermintLogLevel: "debug"
+    ```
+
 
 Note: `loom` and `etherboycli` can be placed anywhere in your `$PATH` so you don't have to always execute with `./`. However, `etherboycore.0.0.1` must always be placed in `$WORKING_DIRECTORY/contracts/etherboycore.0.0.1`.
 
