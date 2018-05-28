@@ -18,8 +18,8 @@ go get github.com/loomnetwork/go-loom
 `go-loom`パッケージには多くのサンプルがある。`examples/cli`にはCLI アプリが含まれており、これはスマートコントラクト`examples/plugins/helloworld` と対話するために使用することができる。 まずはCLIアプリの構築及びテスト運用からスタートし、その後構築に使用した`go-loom` APIを紹介していこう。
 
 ```shell
-# これは実行可能な ./example-cli を生成する
-make example-cmds
+# this should generate the ./example-cli executable
+make example-cli
 ```
 
 ## CLI アプリのサンプル
@@ -27,13 +27,13 @@ make example-cmds
 [helloworld](https://github.com/loomnetwork/go-loom/blob/master/examples/plugins/helloworld/helloworld.go)スマートコントラクトは、パブリックな`SetMsg`メソッドを持っており、これはキーとバリューの連想配列を保存するよう呼び出すことができる。
 
 ```shell
-./example-cli call --method SetMsg -k 123 -v 456
+./example-cli call set_msg -k 123 -v 456 --contract [contract_name] -p [priv_key]
 ```
 
 このスマートコントラクトは同じくパブリックな`GetMsg`メソッドを持っており、これはキーとバリューの連想配列を参照するために呼び出すことができる。
 
 ```shell
-./example-cli static-call --method GetMsg -k 123
+./example-cli call get_msg -k 123 -p [priv_key]
 ```
 
 以下のレスポンスが見られるはずだ:
