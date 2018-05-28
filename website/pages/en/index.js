@@ -225,7 +225,8 @@ const Banner = props => (
       <div className="banner-copy">
         <h1>
           Loom SDK
-        </h1>
+          <span className="banner-beta-label">Beta</span>
+        </h1>        
         <h3><translate>Build decentralized worlds</translate></h3>
       </div>
       <div className="banner-mascot-container">
@@ -245,8 +246,9 @@ const Docs = props => (
   <a className="download-btn" href={docUrl('prereqs.html', props.language)}>
     <h3><translate>Docs</translate></h3>
   </a>
-    <p>
-      This is an intro to building your first DAppChain
+    <p>          
+      Check out the <a href={docUrl("prereqs.html", props.language)}>docs</a> to get started building decentralized apps on your own DappChain.
+      Please note that the Loom SDK is currently in <span className="beta-label">private beta</span>.
     </p>
   </div>
 </div>
