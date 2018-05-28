@@ -67,13 +67,3 @@ yarn start
 ### 5.) Running
 
 The Tiles-Chain web interface will be available on `http://localhost:9000`
-
-Loom Network
-----
-[https://loomx.io](https://loomx.io)
-
-
-License
-----
-
-MIT

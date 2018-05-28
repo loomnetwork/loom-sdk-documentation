@@ -69,13 +69,3 @@ yarn run proto
 yarn run dev
 
 ```
-
-Loom Network
-----
-[https://loomx.io](https://loomx.io)
-
-
-License
-----
-
-MIT
