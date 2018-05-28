@@ -26,7 +26,7 @@ to build it.
 
 ```shell
 # this should generate the ./example-cli executable
-make example-cmds
+make example-cli
 ```
 
 ## Example CLI app
@@ -35,14 +35,14 @@ The [helloworld][] smart contract has a public `SetMsg` method that can be calle
 association between a key and a value.
 
 ```shell
-./example-cli call --method SetMsg -k 123 -v 456
+./example-cli call set_msg -k 123 -v 456 --contract [contract_name] -p [priv_key]
 ```
 
 The smart contract also has a public read-only `GetMsg` method that can be called to look up an
 association between a key and a value.
 
 ```shell
-./example-cli static-call --method GetMsg -k 123
+./example-cli call get_msg -k 123 -p [priv_key]
 ```
 
 You should see the following response:
