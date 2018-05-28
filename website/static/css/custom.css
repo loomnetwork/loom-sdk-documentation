@@ -157,6 +157,16 @@ nav.toc .toggleNav .navGroup.navGroupActive h3 {
   text-decoration: underline;
 }
 
+.beta-label {
+  text-align: center;
+  position: relative;
+  font-size: 32px;
+  position: relative;
+  top: -14px;
+  padding-left: 8px;
+  color: #f9a830;  
+}
+
 /* footer */
 
 footer.nav-footer {
@@ -395,7 +405,6 @@ footer .zombie-mascot {
   left: 50%;
   height: 100%;
   top: 0px;
-  z-index: 200;
 }
 
 /* features  */
