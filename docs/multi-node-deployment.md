@@ -184,7 +184,7 @@ If all is well, you will be able to see these ports opened in each node.
 $ sudo netstat -tpnl
 Active Internet connections (only servers)
 Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name
-tcp        0      0 127.0.0.1:9999          0.0.0.0:*               LISTEN      2135/loom
+tcp        0      0 :::9999          0.0.0.0:*               LISTEN      2135/loom
 tcp6       0      0 :::46656                :::*                    LISTEN      2135/loom
 tcp6       0      0 :::46657                :::*                    LISTEN      2135/loom
 tcp6       0      0 :::46658                :::*                    LISTEN      2135/loom
