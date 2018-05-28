@@ -5,7 +5,7 @@ sidebar_label: Loom.js + Web3.js
 ---
 # Overview
 
-The `loom-js` comes with the `LoomProvider` which makes possible to connect with `Web3.js` as a provider allowing Ethereum developers to deploy and call smart contracts running inside the Loom DAppChains, for further details check out [EVM page](evm)
+The `loom-js` comes with the `LoomProvider` which makes possible to connect with `Web3.js` as a provider allowing Ethereum developers to deploy and send transactions to smart contracts, listen for smart contracts events running inside the Loom DAppChains, for further details check out [EVM page](evm)
 
 To get started install `loom-js` from NPM:
 
@@ -21,18 +21,21 @@ npm install loom-js
 
 Let's say that we have a Solidity contract, which is already compiled and deployed on Loom DAppChain
 
-    pragma solidity ^0.4.18;
+    pragma solidity ^0.4.22;
     
     contract SimpleStore {
+      uint value;
+    
+      event NewValueSet(uint);
+    
       function set(uint _value) public {
         value = _value;
+        emit NewValueSet(value);
       }
     
-      function get() public constant returns (uint) {
+      function get() public view returns (uint) {
         return value;
       }
-    
-      uint value;
     }
     
 
@@ -77,6 +80,15 @@ const ABI = [{
   "payable": false,
   "stateMutability": "view",
   "type": "function"
+}, {
+  "anonymous": false,
+  "inputs": [{
+    "indexed": false,
+    "name": "",
+    "type": "uint256"
+  }],
+  "name": "NewValueSet",
+  "type": "event"
 }]
 ```
 
@@ -153,6 +165,24 @@ After the instantiation of the `Web3 Contract` we'll be able to use the contract
 })()
 ```
 
+# Events
+
+It is possible to add event listeners to the contract, although it don't support the filters yet
+
+```js
+(async function () {
+  // Listen for new value set
+  contract.events.NewValueSet({}, (err, newValueSet) {
+    if (err) {
+      console.error('error', err)
+      return
+    }
+
+    console.log('New value set', newValueSet.returnValues)
+  })
+})()
+```
+
 ## Putting it all together
 
 Now that we have all the pieces in place make sure that you have the DAppChain running and then run the following code, you should see `Value: hello!` printed to the console.
@@ -206,6 +236,16 @@ const web3 = new Web3(new LoomProvider(client))
 
   // Instantiate the contract
   const contract = new web3.eth.Contract(ABI, contractAddress, {from: fromAddress})
+
+  // Listen for new value set
+  contract.events.NewValueSet({}, (err, newValueSet) {
+    if (err) {
+      console.error('error', err)
+      return
+    }
+
+    console.log('New value set', newValueSet.returnValues)
+  })
 
   // Set value of 47
   await contract.methods.set(47).send()
