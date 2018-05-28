@@ -225,7 +225,8 @@ const Banner = props => (
       <div className="banner-copy">
         <h1>
           Loom SDK
-        </h1>
+          <span className="beta-label">Beta</span>
+        </h1>        
         <h3><translate>Build decentralized worlds</translate></h3>
       </div>
       <div className="banner-mascot-container">
@@ -244,7 +245,8 @@ const Docs = props => (
   <div className="docs-copy-content">
     <h3>Docs</h3>
     <p>
-      This is an intro to building your first DAppChain
+      Check out the docs to get started building decentralized apps on your own DappChain.
+      Please note that the Loom SDK is currently private beta.
     </p>
   </div>
 </div>
