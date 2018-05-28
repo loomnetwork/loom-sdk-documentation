@@ -58,13 +58,3 @@ Run dev server
     
     # Start the dev server
     yarn run dev
-    
-    
-
-## Loom Network
-
-<https://loomx.io>
-
-## License
-
-MIT
