@@ -33,7 +33,7 @@ git clone https://github.com/loomnetwork/tiles-chain-evm
 cd tiles-chain-evm
 
 cd dappchain
-wget https://storage.googleapis.com/private.delegatecall.com/loom/osx/build-134/loom
+wget https://storage.googleapis.com/private.delegatecall.com/loom/osx/build-136/loom
 chmod +x loom
 
 # Configure

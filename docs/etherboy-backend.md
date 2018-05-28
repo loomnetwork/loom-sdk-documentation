@@ -1,7 +1,7 @@
 ---
 id: etherboy-backend
 title: Etherboy Backend
-sidebar_label: Etherboy Backend 
+sidebar_label: Etherboy Backend
 ---
 
 This documentation explains how to run the Etherboy DAppChain in a single server instance
@@ -39,6 +39,11 @@ This documentation explains how to run the Etherboy DAppChain in a single server
         ]
     }
     ```
+1. Add `loom.yml` in the working directory:
+    ```yaml
+    QueryServerHost: "tcp://0.0.0.0:9999"
+    ```
+
 
 Note: `loom` and `etherboycli` can be placed anywhere in your `$PATH` so you don't have to always execute with `./`. However, `etherboycore.0.0.1` must always be placed in `$WORKING_DIRECTORY/contracts/etherboycore.0.0.1`.
 
@@ -53,7 +58,7 @@ Execute `loom run` in the working directory to run the service:
 ```bash
 ./loom run
 I[05-16|06:06:16.970] Using simple log event dispatcher
-I[05-16|06:06:19.999] Starting RPC HTTP server on tcp://127.0.0.1:9999 module=query-server
+I[05-16|06:06:19.999] Starting RPC HTTP server on tcp://0.0.0.0:9999 module=query-server
 ```
 
 This will run Etherboy in the foreground and print its output to the console. For better process management, look at the next section.
