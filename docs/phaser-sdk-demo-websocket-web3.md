@@ -37,11 +37,11 @@ wget https://storage.googleapis.com/private.delegatecall.com/loom/osx/build-136/
 chmod +x loom
 
 # Configure
-../loom init
+./loom init
 cp genesis.example.json genesis.json
 
 # Run
-../loom run
+./loom run
 ```
 
 ### 4.) Start the web server
