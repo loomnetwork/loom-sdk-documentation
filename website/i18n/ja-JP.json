@@ -3,7 +3,7 @@
   "localized-strings": {
     "next": "次へ",
     "previous": "前へ",
-    "tagline": "分散型の世界を作ろう",
+    "tagline": "分散型の世界を作る",
     "builtin": "ビルトインのスマートコントラクト",
     "common-issues": "よくある問題点",
     "consensus": "ブロックチェーンのコンセンサス",
@@ -78,7 +78,7 @@
     "Who's Using This?|no description given": "Loom SDK採用プロジェクト",
     "This project is used by all these people|no description given": "以下のチームで使用されています！",
     "Read More|no description given": "もっと読む",
-    "Build decentralized worlds|no description given": "分散型の世界を作ろう",
+    "Build decentralized worlds|no description given": "分散型の世界を作る",
     "Docs|no description given": "ドキュメンテーション",
     "Loom Platform has generators for a default project|no description given": "Loomのプラットフォームには、デフォルトのプロジェクト用のジェネレータがあります。",
     "What should we be building?|no description given": "何をビルドすべきか？",
