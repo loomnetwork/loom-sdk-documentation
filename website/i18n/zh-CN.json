@@ -40,6 +40,8 @@
     "Phaser SDK Demo": "Phaser SDK Demo",
     "prereqs-ubuntu": "Prerequisites (Ubuntu)",
     "Installation (Ubuntu)": "Installation (Ubuntu)",
+    "prereqs-windows": "Prerequisites Windows",
+    "Installation Windows": "Installation Windows",
     "prereqs": "Prerequisites (OSX)",
     "Installation (OSX)": "Installation (OSX)",
     "goloomstate": "Saving and reading state in go-loom contracts",
