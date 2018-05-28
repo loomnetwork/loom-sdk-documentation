@@ -5,7 +5,7 @@ sidebar_label: Loom.js + Web3.js
 ---
 # 概要
 
-`loom-js`には`LoomProvider`が備わっている。これはイーサリアム開発者がLoom DAppチェーン内で実行されるスマートコントラクトの呼び出しやデプロイができると同時に、`Web3.js`をプロバイダとして接続することを可能にする。さらなる詳細は[EVMページ](evm)をチェックしよう。
+The `loom-js` comes with the `LoomProvider` which makes possible to connect with `Web3.js` as a provider allowing Ethereum developers to deploy and send transactions to smart contracts, listen for smart contracts events running inside the Loom DAppChains, for further details check out [EVM page](evm)
 
 NPMで`loom-js`をインストール
 
@@ -21,18 +21,21 @@ npm install loom-js
 
 あるSolidityコントラクトが、すでにコンパ入りされLoom DAppチェーン上にデプロイされているとしよう。
 
-    pragma solidity ^0.4.18;
+    pragma solidity ^0.4.22;
     
     contract SimpleStore {
+      uint value;
+    
+      event NewValueSet(uint);
+    
       function set(uint _value) public {
         value = _value;
+        emit NewValueSet(value);
       }
     
-      function get() public constant returns (uint) {
+      function get() public view returns (uint) {
         return value;
       }
-    
-      uint value;
     }
     
 
@@ -77,6 +80,15 @@ const ABI = [{
   "payable": false,
   "stateMutability": "view",
   "type": "function"
+}, {
+  "anonymous": false,
+  "inputs": [{
+    "indexed": false,
+    "name": "",
+    "type": "uint256"
+  }],
+  "name": "NewValueSet",
+  "type": "event"
 }]
 ```
 
@@ -153,9 +165,27 @@ const contract = new web3.eth.Contract(ABI, contractAddress, {from: fromAddress}
 })()
 ```
 
+# Events
+
+It is possible to add event listeners to the contract, although it don't support the filters yet
+
+```js
+(async function () {
+  // Listen for new value set
+  contract.events.NewValueSet({}, (err, newValueSet) {
+    if (err) {
+      console.error('error', err)
+      return
+    }
+
+    console.log('New value set', newValueSet.returnValues)
+  })
+})()
+```
+
 ## まとめ
 
-全て準備が整ったので、DAppチェーンが稼働していることを確認してから、次のコードを実行してみよう。`Value: hello!`とコンソールにプリントされるはずだ。
+Now that we have all the pieces in place make sure that you have the DAppChain running and then run the following code, you should see `Value: hello!` printed to the console.
 
 ```js
 import {
@@ -165,7 +195,7 @@ import {
 
 import Web3 from 'web3'
 
-// この関数は初期化およびクライアントの返却をする
+// This function will initialize and return the client
 function getClient(privateKey, publicKey) {
   const client = new Client(
     'default',
@@ -181,36 +211,46 @@ function getClient(privateKey, publicKey) {
   return client
 }
 
-// キーの設定
+// Setting up keys
 const privateKey = CryptoUtils.generatePrivateKey()
 const publicKey = CryptoUtils.publicKeyFromPrivateKey(privateKey)
 
-// クライアントの準備
+// Client ready
 const client = getClient(privateKey, publicKey)
 
-// web3の設定
+// Setting the web3
 const web3 = new Web3(new LoomProvider(client))
 
 ;(async () => {
-  // コントラクトABIの設定
+  // Set the contract ABI
   const ABI = [{"constant":false,"inputs":[{"name":"_value","type":"uint256"}],"name":"set","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"get","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"}]
 
-  // 秘密鍵を基にアドレスを取得
+  // Getting our address based on public key
   const fromAddress = LocalAddress.fromPublicKey(publicKey).toString()
 
-  // コントラクトアドレスの取得 (アドレスは必要なく、genesis.json中での特定の名前だけで良い)
+  // Get the contract address (we don't need to know the address just the name specified in genesis.json
   const loomContractAddress = await client.getContractAddressAsync('SimpleStore')
 
-  // Web3と互換性を持つようloom addressをhexaへ変換
+  // Translate loom address to hexa to be compatible with Web3
   const contractAddress = CryptoUtils.bytesToHexAddr(loomContractAddress.local.bytes)
 
-  // コントラクトのインスタンス化
+  // Instantiate the contract
   const contract = new web3.eth.Contract(ABI, contractAddress, {from: fromAddress})
 
-  // 47のバリューを設定
+  // Listen for new value set
+  contract.events.NewValueSet({}, (err, newValueSet) {
+    if (err) {
+      console.error('error', err)
+      return
+    }
+
+    console.log('New value set', newValueSet.returnValues)
+  })
+
+  // Set value of 47
   await contract.methods.set(47).send()
 
-  // バリューの取得
+  // Get the value
   const result = await contract.methods.get().call()
   // result should be 47
 })()
