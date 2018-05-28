@@ -42,7 +42,6 @@ This documentation explains how to run the Etherboy DAppChain in a single server
 1. Add `loom.yml` in the working directory:
     ```yaml
     QueryServerHost: "tcp://0.0.0.0:9999"
-    TendermintLogLevel: "debug"
     ```
 
 

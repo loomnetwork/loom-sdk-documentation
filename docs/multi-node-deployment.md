@@ -31,7 +31,6 @@ These steps need to be executed on each node.
 1. Add `loom.yml` in the working directory:
     ```yaml
     QueryServerHost: "tcp://0.0.0.0:9999"
-    TendermintLogLevel: "debug"
     ```
 
 ## Configuration
