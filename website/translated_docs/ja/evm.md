@@ -468,11 +468,11 @@ func (c *EvmExample) GetValue(ctx contractpb.Context, req *types.Dummy) (*types.
 
 ## トランザクションのハッシュ値
 
-状態を変更することができる`Call`トランザクションは、 トランザクションのハッシュ値を返す。 これは、トランザクション詳細についての唯一無二のハッシュ値である。 ２つのコントラクトが同じハッシュ値を返すことはない。 It can be used to retrieve details of the transaction.
+状態を変更することができる`Call`トランザクションは、 トランザクションのハッシュ値を返す。 これは、トランザクション詳細についての唯一無二のハッシュ値である。 ２つのコントラクトが同じハッシュ値を返すことはない。 トランザクション詳細を見つけるために、これを使用することができる。
 
-### Transaction receipt
+### トランザクションのレシート
 
-Details of each EVM call transaction are stored on the loomchain and can be accessed using the transaction hash.
+EVMのcallトランザクションの各詳細はLoomチェーン上に保存され、トランザクションのハッシュ値を用いてアクセスすることができる。
 
 The loom chain `QueryService` has the method `TxReceipt(txHash []byte) 
 ([]byte, error)` which returns the receipt in a protobuf form. go-loom and loom-js provide an API for this query.
