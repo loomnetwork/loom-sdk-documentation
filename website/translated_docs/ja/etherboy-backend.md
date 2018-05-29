@@ -41,7 +41,7 @@ sidebar_label: Etherboyバックエンド
     }
     ```
 
-5. Add `loom.yml` in the working directory: 
+5. ワーキングディレクトリに `loom.yml` を追加しよう。 
         yaml
         QueryServerHost: "tcp://0.0.0.0:9999"
 
