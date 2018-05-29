@@ -9,10 +9,10 @@ sidebar_label: リリースノート
 
 ## リリース 136 - 5月28日
 
-* Initial Solidity Alpha test build, you can now deploy solidity contracts
-* Websocket eventing support for solidity 
-* [Example Project for solidity Events](phaser-sdk-demo-web3-websocket.html)
-* [Multinode deployment guide](multi-node-deployment.html)
+* 初期Solidityアルファ版テストビルド。Solidityコントラクトがデプロイ可能に。
+* Splidityでのイベントサポート 
+* [Solidityイベントのサンプルプロジェクト](phaser-sdk-demo-web3-websocket.html)
+* [マルチノードデプロイメントガイド](multi-node-deployment.html)
 
 ## リリース 133 - 5月24日
 
