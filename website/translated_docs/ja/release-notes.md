@@ -7,6 +7,13 @@ sidebar_label: リリースノート
 
 新着順。
 
+## リリース 136 - 5月28日
+
+* 初期Solidityアルファ版テストビルド。Solidityコントラクトがデプロイ可能に。
+* Splidityでのイベントサポート 
+* [Solidityイベントのサンプルプロジェクト](phaser-sdk-demo-web3-websocket.html)
+* [マルチノードデプロイメントガイド](multi-node-deployment.html)
+
 ## リリース 133 - 5月24日
 
 * [Etherboyのデモをリリース](https://loomx.io/developers/docs/en/etherboy-game.html)
@@ -30,7 +37,7 @@ sidebar_label: リリースノート
 
 ## リリース 128 - 5月19日
 
-* 安定したベータ版をリリース
+* 安定したベータ版リリース
 * ロギングをデフォルトで複数ファイルでできるようアップデート 
 * 全RPCを一つのインターフェースへ移動
 * 外部プロセスインターフェースのアップデート

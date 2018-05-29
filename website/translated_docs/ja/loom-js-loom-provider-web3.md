@@ -5,7 +5,7 @@ sidebar_label: Loom.js + Web3.js
 ---
 # 概要
 
-The `loom-js` comes with the `LoomProvider` which makes possible to connect with `Web3.js` as a provider allowing Ethereum developers to deploy and send transactions to smart contracts, listen for smart contracts events running inside the Loom DAppChains, for further details check out [EVM page](evm)
+`loom-js`には`LoomProvider`が備わっている。これはLoom DAppチェーン内で実行されるスマートコントラクトのデプロイ、及びスマートコントラクトへのトランザクションの送信、スマートコントラクトイベントのリッスンをイーサリアム開発者にとって可能にすると同時に、`Web3.js`をプロバイダとして接続できるようにする。さらなる詳細は[EVMページ](evm)をチェックしよう。
 
 NPMで`loom-js`をインストール
 
@@ -165,9 +165,9 @@ const contract = new web3.eth.Contract(ABI, contractAddress, {from: fromAddress}
 })()
 ```
 
-# Events
+# イベント
 
-It is possible to add event listeners to the contract, although it don't support the filters yet
+コントラクトにイベントリスナーを追加することが可能だ。ただしフィルターはまだサポートしていない。
 
 ```js
 (async function () {
@@ -185,7 +185,7 @@ It is possible to add event listeners to the contract, although it don't support
 
 ## まとめ
 
-Now that we have all the pieces in place make sure that you have the DAppChain running and then run the following code, you should see `Value: hello!` printed to the console.
+全て準備が整ったので、DAppチェーンが稼働していることを確認してから、次のコードを実行してみよう。`Value: hello!`とコンソールにプリントされるはずだ。
 
 ```js
 import {

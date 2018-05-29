@@ -58,13 +58,3 @@ Loomをインストール
     
     # Start the dev server
     yarn run dev
-    
-    
-
-## Loom Network
-
-<https://loomx.io>
-
-## ライセンス
-
-MIT

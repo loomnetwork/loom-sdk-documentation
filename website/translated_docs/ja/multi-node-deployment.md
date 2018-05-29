@@ -27,6 +27,10 @@ sidebar_label: マルチノードデプロイメント
             ]
         }
 
+5. Add `loom.yml` in the working directory: 
+        yaml
+        QueryServerHost: "tcp://0.0.0.0:9999"
+
 ## 設定
 
 ワーキングディレクトリにあるフォルダ`chaindata/config`の中を見てみよう。 `genesis.json`という名前のファイルが見つかるはずだ。 ワーキングディレクトリにあるものと混同しないようにしよう。 このファイルは以下のようなものだ:
@@ -177,19 +181,19 @@ sudo systemctl enable loom.service
 $ sudo netstat -tpnl
 Active Internet connections (only servers)
 Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name
-tcp        0      0 127.0.0.1:9999          0.0.0.0:*               LISTEN      2135/loom
+tcp        0      0 :::9999                 0.0.0.0:*               LISTEN      2135/loom
 tcp6       0      0 :::46656                :::*                    LISTEN      2135/loom
 tcp6       0      0 :::46657                :::*                    LISTEN      2135/loom
 tcp6       0      0 :::46658                :::*                    LISTEN      2135/loom
 ```
 
-## Automation
+## 自動化
 
-If combining the configuration files and startup commands seems to be a lot of work, we have a way to automate it using Ansible.
+設定ファイルとスタートアップコマンドを組み合わせるのが手間であれば、Ansibleを使用して自動化する方法がある。
 
-Ansible needs to be installed locally.
+Ansibleをローカルにインストールする必要がある。
 
-The playbook is available [here](https://github.com/loomnetwork/loom-playbooks/blob/master/loom-playbook.yml)
+プレイブックは、[ここ](https://github.com/loomnetwork/loom-playbooks/blob/master/loom-playbook.yml)から利用できる。
 
 You will need to change the inventory to match your nodes and preferred working directory.
 

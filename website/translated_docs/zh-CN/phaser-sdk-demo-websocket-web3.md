@@ -5,7 +5,7 @@ sidebar_label: JS WebSockets + EVM Web3 Demo
 ---
 A basic example showcasing a simple HTML5 + WebSockets interacting with a Loom DappChain, using [Phaser](http://phaser.io) and [Loom.js](https://github.com/loomnetwork/loom-js), this time using Web3 and Loom Provider to create seamlessly experience for Ethereum Developers
 
-![](https://camo.githubusercontent.com/9d49b0ce78d692e69d1dd571bc8d1aafe5b806a8/68747470733a2f2f647a776f6e73656d72697368372e636c6f756466726f6e742e6e65742f6974656d732f315232363044327030713370304d33693232304a2f53637265656e2532305265636f7264696e67253230323031382d30352d3232253230617425323031302e3233253230414d2e6769663f763d3961353539316139)
+![](/developers/img/websocket_evm.gif)
 
 ## Game instructions
 
@@ -29,15 +29,15 @@ git clone https://github.com/loomnetwork/tiles-chain-evm
 cd tiles-chain-evm
 
 cd dappchain
-wget https://storage.googleapis.com/private.delegatecall.com/loom/osx/build-134/loom
+wget https://storage.googleapis.com/private.delegatecall.com/loom/osx/build-136/loom
 chmod +x loom
 
 # Configure
-../loom init
+./loom init
 cp genesis.example.json genesis.json
 
 # Run
-../loom run
+./loom run
 ```
 
 ### 4.) Start the web server
@@ -56,11 +56,3 @@ yarn start
 ### 5.) Running
 
 The Tiles-Chain web interface will be available on `http://localhost:9000`
-
-## Loom Network
-
-<https://loomx.io>
-
-## License
-
-MIT

@@ -63,11 +63,3 @@ yarn start
 ### 5.) 起動
 
 Tiles-Chainウェブインターフェースは今後`http://localhost:9000`で利用可能となる。
-
-## Loom Network
-
-<https://loomx.io>
-
-## ライセンス
-
-MIT

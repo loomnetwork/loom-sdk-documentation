@@ -41,6 +41,10 @@ sidebar_label: Etherboyバックエンド
     }
     ```
 
+5. ワーキングディレクトリに `loom.yml` を追加しよう。 
+        yaml
+        QueryServerHost: "tcp://0.0.0.0:9999"
+
 注: `loom`と`etherboycli`は`$PATH`をどこにでも通すことができるので、常に`./`で実行する必要はない。 しかしながら、`etherboycore.0.0.1`は常に`$WORKING_DIRECTORY/contracts/etherboycore.0.0.1`に置かれていなくてはならない。
 
 ## 起動
@@ -54,7 +58,7 @@ sidebar_label: Etherboyバックエンド
 ```bash
 ./loom run
 I[05-16|06:06:16.970] Using simple log event dispatcher
-I[05-16|06:06:19.999] Starting RPC HTTP server on tcp://127.0.0.1:9999 module=query-server
+I[05-16|06:06:19.999] Starting RPC HTTP server on tcp://0.0.0.0:9999 module=query-server
 ```
 
 これはフォア グラウンドで Etherboy を実行し、そのアウトプットをコンソールにプリントする。プロセスマネジメントをより良く行うには、次のセクションを見てみよう。

@@ -7,6 +7,13 @@ sidebar_label: Release Notes
 
 Reverse chronology order of release notes
 
+## Release 136 - May 28th
+
+* Initial Solidity Alpha test build, you can now deploy solidity contracts
+* Websocket eventing support for solidity 
+* [Example Project for solidity Events](phaser-sdk-demo-web3-websocket.html)
+* [Multinode deployment guide](multi-node-deployment.html)
+
 ## Release 133 - May 24th
 
 * [Etherboy Demo released](https://loomx.io/developers/docs/en/etherboy-game.html)
