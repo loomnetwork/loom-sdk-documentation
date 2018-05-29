@@ -466,9 +466,9 @@ func (c *EvmExample) GetValue(ctx contractpb.Context, req *types.Dummy) (*types.
 }
 ```
 
-## Transaction hash
+## トランザクションのハッシュ値
 
-`Call` transactions that can modify the state return a transaction hash. This is a unique hash of the transaction details. No two contracts should return the same hash. It can be used to retrieve details of the transaction.
+状態を変更することができる`Call`トランザクションは、 トランザクションのハッシュ値を返す。 これは、トランザクション詳細についての唯一無二のハッシュ値である。 ２つのコントラクトが同じハッシュ値を返すことはない。 It can be used to retrieve details of the transaction.
 
 ### Transaction receipt
 
