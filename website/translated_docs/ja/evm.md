@@ -474,22 +474,22 @@ func (c *EvmExample) GetValue(ctx contractpb.Context, req *types.Dummy) (*types.
 
 EVMのcallトランザクションの各詳細はLoomチェーン上に保存され、トランザクションのハッシュ値を用いてアクセスすることができる。
 
-The loom chain `QueryService` has the method `TxReceipt(txHash []byte) 
-([]byte, error)` which returns the receipt in a protobuf form. go-loom and loom-js provide an API for this query.
+Loomチェーンの`QueryService`には、`TxReceipt(txHash []byte) 
+([]byte, error)`というメソッドがあり、これはprotobuf形式のレシートを返す。 go-loom及びloom-jsはこのクエリにAPIを提供する。 
 
 go-loom:`func (c *DAppChainRPCClient) EvmTxReceipt(txHash []byte) (vm
 .EvmTxReceipt, error)`
 
 loom-js: `async getTxReceiptAsync(txHash: Uint8Array): Promise<EvmTxReceipt | null>`
 
-| Field             | Contents                                       |
-| ----------------- |:---------------------------------------------- |
-| TransactionIndex  | transaction number this block                  |
-| BlockHash         | Hash of the last block                         |
-| BlockNumber       | Block height                                   |
-| CumulativeGasUsed | Currently not used                             |
-| GasUsed           | Currently not used                             |
-| ContractAddress   | Address of the contract called                 |
-| Logs              | Events, encoded as an array of Event protobufs |
-| LogsBloom         | Not used                                       |
-| Status            | 1 = success or 0 = failier                     |
+| フィールド             | コンテンツ                          |
+| ----------------- |:------------------------------ |
+| TransactionIndex  | このブロックのトランザクション番号              |
+| BlockHash         | 最終ブロックのハッシュ値                   |
+| BlockNumber       | ブロックの高さ                        |
+| CumulativeGasUsed | 現在は使われていない                     |
+| GasUsed           | 現在は使われていない                     |
+| ContractAddress   | 呼び出されたコントラクトのアドレス              |
+| Logs              | イベントprotobufの配列としてエンコードされたイベント |
+| LogsBloom         | 使われていない                        |
+| Status            | 1 = 成功 / 0 = 失敗                |
