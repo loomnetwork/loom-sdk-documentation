@@ -27,7 +27,7 @@ sidebar_label: マルチノードデプロイメント
             ]
         }
 
-5. Add `loom.yml` in the working directory: 
+5. ワーキングディレクトリに `loom.yml` を追加しよう。 
         yaml
         QueryServerHost: "tcp://0.0.0.0:9999"
 
@@ -234,11 +234,11 @@ ansible-playbook -i inventory.yml -vv loom-playbook.yml
 
 ## さらなる自動化: Vagrant
 
-There is also a Vagrantfile included to provision a full cluster. Ansible needs to be installed on the host machine.
+また完全なクラスタをプロビジョニングするためのVagrantfileも含まれている。Ansibleがホストマシンにインストールされていることが必要だ。
 
-It is tested with VirtualBox provider. It takes less than two minutes on a decent machine to create and provision 4 nodes.
+これはVirtualBoxプロバイダを使ってテストされる。それなりのマシン上であれば、４ノードを作成しプロビジョニングするのに２分もかからない。
 
-The following variables may be changed when needed.
+以下の変数は必要に応じて変更されることがある。
 
 ```ruby
 # Vagrantによって作成されたクラスタサイズ
@@ -251,4 +251,4 @@ private_network_prefix = "172.31.99."
 loom_build = "build-132"
 ```
 
-Note: Vagrant creates its own inventory so `inventory.yml` is not used.
+注: Vagrantは独自のインベントリを作成するので、`inventory.yml`は使用されない。
