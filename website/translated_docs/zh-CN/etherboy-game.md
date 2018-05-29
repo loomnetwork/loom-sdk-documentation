@@ -3,28 +3,28 @@ id: etherboy-game
 title: Etherboy游戏
 sidebar_label: Etherboy游戏
 ---
-![Header](/developers/img/ebw_splash.jpg) Etherboy is a multi-platform 2D game built in Unity, using the [Loom Unity SDK](unity-sdk.md) to interact with a smart contract written in Golang and running on a Loom DAppChain.
+![Header](/developers/img/ebw_splash.jpg) Etherboy是一个基于Unity的多平台2D游戏，使用 [Loom Unity SDK](unity-sdk.md)与一个用Golang写的智能合约交互并运行在Loom DApp链上。
 
-## Game Controls
+## 游戏控制
 
-### Desktop / WebGL
+### 台式机 / WebGL
 
-- **UP**: enter doors, go up ropes
-- **DOWN**: go down ropes
-- **E**: talk to NPCs, sleep in bed, interact with objects
-- **SPACE** / **RIGHT-CLICK**: jump
-- **LEFT-CLICK**: attack (when weapon is equipped)
+- **UP**：进门、爬绳
+- **DOWN**：从绳索下来
+- **E**：与NPC交谈、在床上睡觉、与物品交互
+- **空间** / **右键单击**: 跳
+- **左键单击**: 攻击 (当装备了武器时)
 
-## Supported Platforms
+## 支持的平台
 
 - WebGL
 - Android (WIP)
 - iOS (WIP)
-- Windows / Mac / Linux
+- Windows/Mac/Linux
 
-## Development
+## 开发
 
-Currently you need to be on MacOS or Linux to spin up a Loom DAppChain, but if you're on Windows 10 you can run Ubuntu in the [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10) (other distros may work but docs are written for Ubuntu).
+目前你需要在MacOS或Linux上启动Loom DApp链，但是如果你在用Windows 10，你可以运行在[Linux的Windows子系统](https://docs.microsoft.com/en-us/windows/wsl/install-win10)中的Ubuntu（其他发行版本可能也可以，但是文档是写给Ubuntu的）。
 
 ### MacOS
 
