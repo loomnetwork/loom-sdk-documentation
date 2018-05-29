@@ -5,6 +5,6 @@ sidebar_label: インストール (Windows)
 ---
 WindowsでのLoomのインストールとセットアップ
 
-Currently the only way to use Loom on windows is to use the [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
+現在LoomをWindowsで使う唯一の方法は、[Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10)の使用である。
 
 Once you install that you can continue on and follow the steps under [Prerequisites Ubuntu](prereqs-ubuntu.html).
