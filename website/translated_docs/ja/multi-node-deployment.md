@@ -187,7 +187,7 @@ tcp6       0      0 :::46657                :::*                    LISTEN      
 tcp6       0      0 :::46658                :::*                    LISTEN      2135/loom
 ```
 
-## Automation
+## 自動化
 
 If combining the configuration files and startup commands seems to be a lot of work, we have a way to automate it using Ansible.
 
