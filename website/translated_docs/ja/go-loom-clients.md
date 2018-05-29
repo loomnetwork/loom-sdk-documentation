@@ -18,7 +18,7 @@ go get github.com/loomnetwork/go-loom
 `go-loom`パッケージには多くのサンプルがある。`examples/cli`にはCLI アプリが含まれており、これはスマートコントラクト`examples/plugins/helloworld` と対話するために使用することができる。 まずはCLIアプリの構築及びテスト運用からスタートし、その後構築に使用した`go-loom` APIを紹介していこう。
 
 ```shell
-# this should generate the ./example-cli executable
+# これは実行可能な ./example-cli を生成する
 make example-cli
 ```
 
