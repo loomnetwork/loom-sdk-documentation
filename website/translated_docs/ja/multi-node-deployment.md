@@ -241,13 +241,13 @@ It is tested with VirtualBox provider. It takes less than two minutes on a decen
 The following variables may be changed when needed.
 
 ```ruby
-# Size of the cluster created by Vagrant
+# Vagrantによって作成されたクラスタサイズ
 num_instances = 4
 
-# Private Network Prefix
+# プライベートネットワークのプレフィックス
 private_network_prefix = "172.31.99."
 
-# Build numbers
+# ビルド番号
 loom_build = "build-132"
 ```
 
