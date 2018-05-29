@@ -1,9 +1,9 @@
 ---
 id: prereqs-windows
-title: Prerequisites Windows
-sidebar_label: Installation Windows
+title: 前提条件(Windows)
+sidebar_label: インストール (Windows)
 ---
-Installing and setting up Loom on Windows
+WindowsでのLoomのインストールとセットアップ
 
 Currently the only way to use Loom on windows is to use the [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
 
