@@ -165,7 +165,7 @@ const contract = new web3.eth.Contract(ABI, contractAddress, {from: fromAddress}
 })()
 ```
 
-# Events
+# イベント
 
 It is possible to add event listeners to the contract, although it don't support the filters yet
 
@@ -185,7 +185,7 @@ It is possible to add event listeners to the contract, although it don't support
 
 ## まとめ
 
-Now that we have all the pieces in place make sure that you have the DAppChain running and then run the following code, you should see `Value: hello!` printed to the console.
+全て準備が整ったので、DAppチェーンが稼働していることを確認してから、次のコードを実行してみよう。`Value: hello!`とコンソールにプリントされるはずだ。
 
 ```js
 import {
