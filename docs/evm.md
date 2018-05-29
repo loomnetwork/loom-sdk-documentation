@@ -825,8 +825,8 @@ arguments are [ABI encoded](https://solidity.readthedocs.io/en/develop/abi-spec.
 ## Transaction hash
 
 Writing to a DAppChain using a `Call` transactions that can modify the state 
-return a transaction hash. This is a unique hash of the transaction details. No two contracts should return
- the same hash. It can be used to retrieve details of the transaction.
+returns a transaction hash. This is a unique hash of the transaction details.
+ No two contracts should return the same hash. It can be used to retrieve details of the transaction.
  
 ### Transaction receipt
 
@@ -842,6 +842,7 @@ go-loom:`func (c *DAppChainRPCClient) GetEvmTxReceipt(txHash []byte) (vm
  
 loom-js: `async getTxReceiptAsync(txHash: Uint8Array): Promise<EvmTxReceipt | null>`
 
+Details of the transaction receipt objects follow.
 | Field             | Contents                                          | 
 | ------------------|:--------------------------------------------------|
 | TransactionIndex  | transaction number this block                     |
