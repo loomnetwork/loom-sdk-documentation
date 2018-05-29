@@ -191,9 +191,9 @@ tcp6       0      0 :::46658                :::*                    LISTEN      
 
 設定ファイルとスタートアップコマンドを組み合わせるのが手間であれば、Ansibleを使用して自動化する方法がある。
 
-Ansible needs to be installed locally.
+Ansibleをローカルにインストールする必要がある。
 
-The playbook is available [here](https://github.com/loomnetwork/loom-playbooks/blob/master/loom-playbook.yml)
+プレイブックは、[ここ](https://github.com/loomnetwork/loom-playbooks/blob/master/loom-playbook.yml)から利用できる。
 
 You will need to change the inventory to match your nodes and preferred working directory.
 
