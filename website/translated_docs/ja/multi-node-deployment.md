@@ -195,13 +195,13 @@ Ansibleをローカルにインストールする必要がある。
 
 プレイブックは、[ここ](https://github.com/loomnetwork/loom-playbooks/blob/master/loom-playbook.yml)から利用できる。
 
-You will need to change the inventory to match your nodes and preferred working directory.
+自分のノード及び選択したワーキングディレクトリと一致するように、インベントリを変更しなくてはならない。
 
-**Please ensure SSH and sudo access to the nodes are available**
+**ノードへのSSH及びsudoアクセスが利用可能か確認しよう。**
 
-### Inventory: inventory.yaml
+### インベントリ: inventory.yaml
 
-The inventory specifies the nodes and their IP addresses. If the node only have one IP, use same for both `ansible_host` and `private_ip`. `ansible_host` is used by Ansible to connect to the host, while `private_ip` is used by the nodes to communicate with each other.
+このインベントリは、ノードとそのIPアドレスを指定する。 ノードが１つのIPしか持たない場合、 `ansible_host`と`private_ip`の両方に 同じものを使用しよう。 `ansible_host`はAnsibleによってホストに接続するために使用され、一方`private_ip`はノードが互いに通信するためにノードにより使用される。
 
 ```yaml
 ---
@@ -226,13 +226,13 @@ all:
       private_ip: 10.7.6.5
 ```
 
-After modifying the inventory with the details of the nodes, execute the playbook:
+インベントリのノード詳細を変更したら、プレイブックを実行しよう:
 
 ```bash
 ansible-playbook -i inventory.yml -vv loom-playbook.yml
 ```
 
-## More Automation: Vagrant
+## さらなる自動化: Vagrant
 
 There is also a Vagrantfile included to provision a full cluster. Ansible needs to be installed on the host machine.
 
