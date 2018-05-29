@@ -189,7 +189,7 @@ tcp6       0      0 :::46658                :::*                    LISTEN      
 
 ## 自動化
 
-If combining the configuration files and startup commands seems to be a lot of work, we have a way to automate it using Ansible.
+設定ファイルとスタートアップコマンドを組み合わせるのが手間であれば、Ansibleを使用して自動化する方法がある。
 
 Ansible needs to be installed locally.
 
