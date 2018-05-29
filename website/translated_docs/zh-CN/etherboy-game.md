@@ -37,16 +37,16 @@ sidebar_label: Etherboy游戏
 
 ### Linux
 
-1. Install Golang by follwing the steps in [Ubuntu prerequisites](prereqs-ubuntu.md) (if you haven't done so already).
-2. Download Loom DAppChain binary 
+1. 按照 [MacOS 先决条件](prereqs-ubuntu.md) 中的步骤安装 Golang (如果你尚未完成此操作)。
+2. 下载Loom DApp链二进制 
         bash
         curl -OL https://storage.googleapis.com/private.delegatecall.com/loom/linux/build-133/loom
         chmod +x loom
         export LOOM_BIN=`pwd`/loom
 
-### Deploy Etherboy contract (OSX / Linux)
+### 部署 Etherboy 合同 (OSX/Linux)
 
-Fetch the smart contract code from Github
+从 Github 获取智能合约代码
 
 ```bash
 export GOPATH=`pwd`/ebgopath
@@ -55,7 +55,7 @@ cd ebgopath/src/github.com/loomnetwork
 git clone https://github.com/loomnetwork/etherboy-core.git etherboy-core
 ```
 
-Build and deploy the contract
+构建和部署合约
 
 ```bash
 cd etherboy-core
@@ -67,17 +67,17 @@ cp ../genesis.json genesis.json
 $LOOM_BIN run
 ```
 
-Assuming everything went without a hitch so far you now have a local Loom DAppChain running the Etherboy smart contract!
+假设一切到目前为止都很顺利，那么你现在有一个本地Loom DApp链在运行着Etherboy智能合约啦!
 
 ![Animation](/developers/img/etherboy-clip.gif)
 
-### Build the Unity project
+### 构建Unity项目
 
-Clone the Unity project for the [Etherboy game](https://github.com/loomnetwork/Etherboy) from Github and modify
+从Github克隆 [Etherboy 游戏](https://github.com/loomnetwork/Etherboy) 的Unity项目并修改
 
-- Open the project in Unity
-- Select `File`->`Build Settings`
-- Select either `Web GL` or `PC, Mac & Linux Standalone` from the platform list
+- 在Unity中打开项目
+- 选择 `File`->`Build Settings`
+- 从平台列表中选择 `Web GL` 或 `PC, Mac & Linux Standalone`
 - Press `Switch Platform` if it's enabled
 - Press `Build`, select the build output directory
 
