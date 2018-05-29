@@ -167,7 +167,7 @@ const contract = new web3.eth.Contract(ABI, contractAddress, {from: fromAddress}
 
 # イベント
 
-It is possible to add event listeners to the contract, although it don't support the filters yet
+コントラクトにイベントリスナーを追加することが可能だ。ただしフィルターはまだサポートしていない。
 
 ```js
 (async function () {
