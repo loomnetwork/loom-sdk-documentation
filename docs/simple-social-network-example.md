@@ -22,8 +22,6 @@ Please ensure you've installed Golang as documented in the [prerequisites](https
 git clone https://github.com/loomnetwork/solidity-social-example
 
 cd solidity-social-example
-mkdir tmpgopath
-export GOPATH=`pwd`/tmpgopath
 
 cd dappchain
 wget https://storage.googleapis.com/private.delegatecall.com/loom/osx/build-137/loom
@@ -31,11 +29,11 @@ chmod +x loom
 
 # Configure
 cd build
-../loom init
-cp ../genesis.example.json genesis.json
+./loom init
+cp genesis.example.json genesis.json
 
 # Run
-../loom run
+./loom run
 ```
 
 ### 2.) Start ElasticSearch and Redis
