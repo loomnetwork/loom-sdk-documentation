@@ -557,9 +557,9 @@ func deployEvmContract(name string, byteHex string, signer auth.Signer) (*EvmCon
 
 #### DAppチェーン上のSolidityコントラクトへの書き込み
 
-DAppチェーンのEVMにデプロイされたスマートコントラクトへの読み取り及び書き込みは、 非EVMプラグインへの[書き込み](https://loomx.io/developers/docs/en/go-loom-clients.html#writing-data-to-a-dappchain)及び[読み取り](https://loomx.io/developers/docs/en/go-loom-clients.html#reading-data-from-a-dappchain)のやり方と同様である。 主な違いは、関数シグネチャと入力パラメータが[ABIエンコーディング](https://solidity.readthedocs.io/en/develop/abi-spec.html)を使ってバイトコードに変換される必要があるということだ。 You can use the go-ethereum [abi.JSON](https://godoc.org/github.com/obscuren/go-ethereum/accounts/abi#JSON) function to encode input using your contracts ABI which you can get from `solc --abi -o. MySolidiityProgram.sol`
+DAppチェーンのEVMにデプロイされたスマートコントラクトへの読み取り及び書き込みは、 非EVMプラグインへの[書き込み](https://loomx.io/developers/docs/en/go-loom-clients.html#writing-data-to-a-dappchain)及び[読み取り](https://loomx.io/developers/docs/en/go-loom-clients.html#reading-data-from-a-dappchain)のやり方と同様である。 主な違いは、関数シグネチャと入力パラメータが[ABIエンコーディング](https://solidity.readthedocs.io/en/develop/abi-spec.html)を使ってバイトコードに変換される必要があるということだ。 go-ethereumの [abi.JSON](https://godoc.org/github.com/obscuren/go-ethereum/accounts/abi#JSON)関数を使って`solc --abi -o.MySolidiityProgram.sol`から取得できるコントラクトABIを用いて、 インプットをエンコードすることが可能だ。
 
-EvmContract's Call method is used for methods that mutate the DAppChain's state. ```go input ( "github.com/loomnetwork/go-loom/auth" "github.com/loomnetwork/go-loom/client" "github.com/loomnetwork/go-loom/vm "github.com/ethereum/go-ethereum/accounts/abi"  
+EvmContractのCallメソッドは、DAppチェーンの状態を変更するメソッドに対し使用される。 ```go input ( "github.com/loomnetwork/go-loom/auth" "github.com/loomnetwork/go-loom/client" "github.com/loomnetwork/go-loom/vm "github.com/ethereum/go-ethereum/accounts/abi"  
 )
 
 func store(contract *client.EvmContract, key, abi string, value int) ([]byte, error) { abiSS, err := abi.JSON(strings.NewReader(SimpleStoreABI)) if err != nil { return []byte{}, err } input, err := abiSS.Pack("set", big.NewInt(value.Value)) if err != nil { return []byte[], err ] return contract.Call(input, key) } ``` The Call method returns a [transaction hash](https://loomx.io/developers/docs/en/evm.html#transaction-hash) You can use the transaction hash retrieve more information about the contract using the `GetEvmTxReceipt` method. This returns a [transcation recieipt, vm.EvmTxReceipt](https://loomx.io/developers/docs/en/evm.html#transaction-receipt) object.
@@ -584,7 +584,7 @@ func store(contract *client.EvmContract, key, abi string, value int) ([]byte, er
 
 ```
 
-#### Reading from a Solidity contract on a DAppCahin
+#### DAppチェーン上Solidityコントラクトからの読み取り
 
 To get information from an EVM smart contract you need to call a view method using the EvmContract's staticCall. This returns the result in an ABI encoded []byte. As for other EVM methods the function signature and input arguments are [ABI encoded](https://solidity.readthedocs.io/en/develop/abi-spec.html).
 
