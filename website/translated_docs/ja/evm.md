@@ -1,7 +1,7 @@
 ---
 id: evm
 title: イーサリアム仮想マシン
-sidebar_label: EVMのページ
+sidebar_label: EVM
 ---
 ## 概要
 
@@ -17,11 +17,13 @@ EVMを構成するのは、データベース及びEVMバイトコードイン�
 
 ### DAppチェーンとEVM
 
-DAppチェーンのEVMと対話するには、現在3つの方法がある。
+現在、DAppチェーンのEVMと対話するいくつかの方法がある。
 
 1. スマートコントラクトは、ブロックチェーンの初期起動時にデプロイできる。
 2. Loomのコマンドラインツールは、スマートコントラクトのデプロイ、またはすでにデプロイ済みのコントラクト上のメソッドの呼び出しを可能にする。
 3. EVMコントラクトもしくはプラグインコントラクトのどちらからでも、既にデプロイ済みの別のEVMコントラクト上のメソッドを呼び出すことができる。
+4. Goだとgo-loomのEvmContractオブジェクトを使用できる。
+5. TypeScriptやJavaScriptではloom-jsのEvmContractオブジェクトを使用する。
     
     EVMスマートコントラクトは、コンパイルされたバイトコード形式でDAppチェーンにデプロイされる。 このためチェーンは親言語を認識しない。 Solidityのスマートコントラクトメソッドの呼び出しパラメーターは、[Solidityのウェブサイトに記載されている](https://solidity.readthedocs.io/en/develop/abi-spec.html)アプリケーションバイナリインターフェイス (ABI) でエンコードされる。 このABIは非常に複雑になるのだが、後ほど取り上げるように、イーサリアムの実装はパラメーター生成をサポートする関数を与えなくてはならない。
     
@@ -69,17 +71,22 @@ DAppチェーンのEVMと対話するには、現在3つの方法がある。
     Usage:
       loom deploy [flags]
     
-    Flags:
       -a, --address string    address file
       -b, --bytecode string   bytecode file
           --chain string      chain ID (default "default")
       -h, --help              help for deploy
       -k, --key string        private key file
-      -r, --read string       URI for querying app state (default "http://localhost:47000")
-      -w, --write string      URI for sending txs (default "http://localhost:46657")
+      -n, --name string       contract name
+      -r, --read string       URI for quering app state (default "http://localhost:46658/query")
+      -w, --write string      URI for sending txs (default "http://localhost:46658/rpc")
     
 
--a 及び -k のフラグは、公開鍵および秘密鍵のアドレスファイルでユーザーを特定するのに使用される。 -b は、コントラクトのEVMローバイトコードを保持しているファイルを提供する。 これは`solc -o outfile.bin myProgram.sol`などのSolidityコンパイラを使用することで生成することができる。
+-a 及び -k のフラグは、公開鍵および秘密鍵のアドレスファイルでユーザーを特定するのに使用される。
+
+-b gives the file where the raw EVM bytecode for the contract is held. This could be generated using a solidity compiler such as `solc --bin -o. 
+ MySolProgram.sol`
+
+-n allows you to enter a name for your contract. This will act as a more user friendly handle than the contract address.
 
 例: 
 
@@ -104,67 +111,86 @@ DAppチェーンのEVMと対話するには、現在3つの方法がある。
       -a, --address string         address file
           --chain string           chain ID (default "default")
       -c, --contract-addr string   contract address
+      -n, --contract-name string   contract name
       -h, --help                   help for call
       -i, --input string           file with input data
       -k, --key string             private key file
-      -r, --read string            URI for querying app state (default "http://localhost:47000")
-      -w, --write string           URI for sending txs (default "http://localhost:46657")
+      -r, --read string            URI for quering app state (default "http://localhost:46658/query")
+      -w, --write string           URI for sending txs (default "http://localhost:46658/rpc")
     
 
--a 及び -k のフラグは、公開鍵および秘密鍵のアドレスファイルでユーザーを特定するのに使用される。 -c はコントラクトアドレスを要求する。 これは前述の`\loom deploy`へのコール結果、もしくは立ち上げ時のログから検索したものとなりうる。 -i は入力文字列だ。 Solidityのコントラクトでは、これは[Solidity ABI documentation](https://solidity.readthedocs.io/en/develop/abi-spec.html)で説明されているようにABIにエンコーディングされる。
+-a 及び -k のフラグは、公開鍵および秘密鍵のアドレスファイルでユーザーを特定するのに使用される。
 
-例 ```text call -a ./data/pub -k ./data/pri -i ./cmd/loom/data/inputSet.bin \ -c 0xbD770416A3345f91E4b34576Cb804a576Fa48eB1 \ -w http://localhost:46657 -r http://localhost:9999
+-c requires the contract address. This could be one output from a previous call to `\loom deploy` or retrieved from the start up log.
 
-    完了するとトランザクションのハッシュ値が返されるが、これは各トランザクションの呼び出しごとの唯一のもので同じものはない。
+-n is a name or label entered for the contract when it was deployed.Can be used as an alternative to the address
+
+-i is the input string. For a solidity contract this will be ABI encoded as described in the [Solidity ABI documentation](https://solidity.readthedocs.io/en/develop/abi-spec.html).
+
+Example ```text call -a ./data/pub -k ./data/pri -i ./cmd/loom/data/inputSet.bin \ -c 0xbD770416A3345f91E4b34576Cb804a576Fa48eB1 \ -w http://localhost:46657 -r http://localhost:9999
+
+    On completion this will return the [transaction hash](https://loomx.io/developers/docs/en/evm.html#transaction-receipt), this should be unique
+     for each transaction call.
+    
+    ### static-call
+    Call a read only method on a contract. Returns the method return value.
+    ```text
+    Usage:
+      loom static-call [flags]
+    
+    Flags:
+          --chain string           chain ID (default "default")
+      -c, --contract-addr string   contract address
+      -n, --contract-name string   contract name
+      -h, --help                   help for static-call
+      -i, --input string           file with input data
+      -r, --read string            URI for quering app state (default "http://localhost:46658/query")
+      -w, --write string           URI for sending txs (default "http://localhost:46658/rpc")
     
 
-Usage: loom static-call [flags]
+-a 及び -k のフラグは、公開鍵および秘密鍵のアドレスファイルでユーザーを特定するのに使用される。
 
-Flags: --chain string chain ID (default "default") -c, --contract-addr string contract address -h, --help help for static-call -i, --input string file with input data -r, --read string URI for quering app state (default "http://localhost:46658/query") -w, --write string URI for sending txs (default "http://localhost:46658/rpc")
+-c requires the contract address. This could be one output from a previous call to `\loom deploy` or retrieved from the start up log.
 
-    -a 及び -k のフラグは、公開鍵および秘密鍵のアドレスファイルでユーザーを特定するのに使用される。
-     -c はコントラクトアドレスを要求する。 これは前述の\loom deployへのコール結果、もしくは立ち上げ時のログから検索したものとなりうる。
-     -i は入力文字列だ。 SolidityコントラクトではこれはABIとなる。そのエンコーディングについては [Solidity ABI documentation]で説明されている。(https://solidity.readthedocs.io/en/develop/abi-spec.html).
-     Example
-     ```text
-    static-call -a ./data/pub -k ./data/pri -i ./cmd/loom/data/inputGet.bin \
-      -c 0xbD770416A3345f91E4b34576Cb804a576Fa48eB1  \
-      -w http://localhost:46657 -r http://localhost:9999
+-n is a name or label entered for the contract when it was deployed.Can be used as an alternative to the address.
+
+-i is the input string. Solidityのコントラクトでは、これは[Solidity ABI documentation](https://solidity.readthedocs.io/en/develop/abi-spec.html)で説明されているようにABIにエンコーディングされる。 Example ```text static-call -a ./data/pub -k ./data/pri -i ./cmd/loom/data/inputGet.bin \ -c 0xbD770416A3345f91E4b34576Cb804a576Fa48eB1 \ -w http://localhost:46657 -r http://localhost:9999
+
+    <br />## ユーザープラグインから
     
+    DAppチェーンのEVMにデプロイされたコントラクトは、ユーザーが作成したプラグインから呼び出すことができる。 go-loomのevmexampleの例は、これを実現する方法の例となる。 
     
-
-## ユーザーのプラグインから
-
-DAppチェーン上のEVMにデプロイされたスマートコントラクトは、プラグインを作成したユーザーによって呼び出しが可能だ。go-looomにあるevmexampleのサンプルは、これを行う例を示している。
-
-続きをやる前に、関連する様々なモジュールについて考えてみよう。
-
-* ユーザーアプリケーション。これはエンド ユーザーのアプリケーションで、DAppチェーン上でのトランザクションを引き起こす。
-
-* DAppチェーン。ユーザーアプリケーションからトランザクションを受信し、適切なコントラクトへ転送して実行する。またブロックチェーンに結果をコミットする。
-
-* スマートコントラクト。これらはユーザーによって書かれ、DAppチェーンにデプロイされる。主に２種類がある。
+    続きをやる前に、関連する様々なモジュールについて考えてみよう。
     
-    1. プラグイン。 RPCでサポートされていれば、どんな言語で書くことも可能だ; go-loom はGoで書かれたコントラクトの使用を簡単にし、またloom-jsは javascript向けのものである。 このプラグインはDAppチェーンがgRPCを使って 呼び出せるようなものへコンパイルされる。
-    2. EVMスマートコントラクト。SolidityのプログラムやEVMバイトコードにコンパイルされる 何か他のコードはDAppチェーンでEVMを使って実行することができる。
-
-プラグインは、EVM上にデプロイ済みのものも含めて他のコントラクトを実行することができる。これはgRPCを使ってDAppチェーンへコールバックするすることで行われる。 逆はしかし真ではない。だがEVMにデプロイされたコントラクトはEVM内でのみやり取りができるので、EVMの結果は決定論的なものとなる。
-
-### ユーザーのコード
-
-ユーザーは2つのコードアイテムを提供する。つまりスマートコントラクトと、DAppsを使えるようにするエンドアプリケーションだ。
-
-以下では、Goがエンドアプリケーションに使用されていること、さらにスマートコントラクトがプラグイン用のGo、もしくはEVM用のSolidity、このどちらかで書かれていることと仮定していく。 javaScript向けのソリューションは、loom-js-quickstart.mdを参照のこと。
-
-### 最小プラグイン
-
-まず、Go-loomでのコントラクト定義について見ていこう。
-
-```go
-type Contract interface {
-    Meta() (plugin.Meta, error)
-}
-```
+    * ユーザーアプリケーション。 これはエンド ユーザーのアプリケーションで、DAppチェーン上でのトランザクションを引き起こす。 
+    
+    * DAppチェーン。 ユーザーアプリケーションからトランザクションを受信し、適切なコントラクトへと転送し実行する。 またブロックチェーンに結果をコミットする。
+    
+    * スマートコントラクト。 ユーザーによって書かれ、DAppチェーン上にデプロイされる。 
+    これには2つの主なタイプがある。
+        1. プラグイン。 RPCでサポートされていれば、どんな言語で書くことも可能だ; 
+        go-loom はGoで書かれたコントラクトの使用を簡単にし、またloom-jsは 
+        javascript向けのものである。 このプラグインはDAppチェーンがgRPCを使って
+        呼び出せるようなものへコンパイルされる。
+        2. EVMスマートコントラクト SolidityのプログラムやEVMバイトコードにコンパイルされる
+         何か他のコードはDAppチェーンでEVMを使って実行することができる。
+    
+    プラグインは、EVM上にデプロイ済みのものも含めて他のコントラクトを実行することができる。これはgRPCを使ってDAppチェーンへコールバックするすることで行われる。 逆はしかし真ではない。だが
+    
+    ### ユーザーのコード
+    
+    ユーザーは2つのコードを提供する。 それはスマートコントラクトと、DAppチェーンを使用するエンドアプリケーションだ。
+    
+    以下では、Goがエンドアプリケーションに使用されていること、さらにスマートコントラクトがプラグイン用のGo、もしくはEVM用のSolidity、このどちらかで書かれていることと仮定していく。 javaScript向けのソリューションは、loom-js-quickstart.mdを参照のこと。
+    
+    ### 最小限のプラグイン
+    
+    まず、Go-loomでのコントラクト定義について見ていこう。
+    ```go
+    type Contract interface {
+        Meta() (plugin.Meta, error)
+    }
+    
 
 そしてplugin.Metaはprotobufにより定義されている。
 
@@ -466,9 +492,194 @@ func (c *EvmExample) GetValue(ctx contractpb.Context, req *types.Dummy) (*types.
 }
 ```
 
+## EvmContract
+
+go-loomとloom-jsは、RPCクライアントを使用して稼働中のDAppチェーンと通信するのに役立つ。
+
+### go-loom
+
+これは[go-loomコントラクト](https://loomx.io/developers/docs/en/go-loom-clients.html#connecting-to-a-dappchain)で説明されているのと同じ方法で機能する。
+
+#### DAppチェーン上のSolidityコントラクトへの接続
+
+So to connect to an existing solidity smart contact running on a DAppChain EVM we can use
+
+```go
+package main
+
+import (
+  "github.com/loomnetwork/go-loom/auth"
+  "github.com/loomnetwork/go-loom/client"
+  "github.com/loomnetwork/go-loom/vm"
+)
+
+// getContractは新しい`Contract`インスタンスを作成し、これを使ってDAppチェーンのEVM上にあるスマートコントラクトとの対話が行える。
+func getEvmContract(contractName string) (*client.EvmContract, error) {
+  rpcClient := client.NewDAppChainRPCClient(
+    "default",
+    "ws://127.0.0.1:46657/websocket",
+    "ws://127.0.0.1:9999/queryws",
+  )
+  contractAddr, err := rpcClient.Resolve(contractName)
+  if err != nil {
+    return nil, err
+  }
+  return client.NewEvmContract(rpcClient, contractAddr), nil
+}
+```
+
+#### DAppチェーンへのSolidityコントラクトのデプロイ
+
+また、新しいスマートコントラクトを稼働中のDAppチェーンEVMにデプロイすることもできる。
+
+Solidityコントラクトは、Solidityコンパイラ`solc --bin -o . mySolidityProgram.sol`を使ってバイトコードに変換される。
+
+`hex.DecodeString`を使って、hex文字列をバイト配列に変換することができる。
+
+```go
+import (
+  "encoding/hex"
+  "github.com/loomnetwork/go-loom/auth"
+  "github.com/loomnetwork/go-loom/client"
+  "github.com/loomnetwork/go-loom/vm"
+)
+
+func deployEvmContract(name string, byteHex string, signer auth.Signer) (*EvmContract, error) {
+    // remove the 0x at the beging of a hex string
+    byteCode, err := hex.DecodeString(string(byteHex[2:]))
+    if err != nil {
+        return err
+    }
+    rpcClient := client.NewDAppChainRPCClient(common.ChainID, common.WriteURI, common.ReadURI)
+    return client.DeployContract(rpcClient, signer, byteCode, name)
+}
+```
+
+#### DAppチェーン上のSolidityコントラクトへの書き込み
+
+DAppチェーンのEVMにデプロイされたスマートコントラクトへの読み取り及び書き込みは、 非EVMプラグインへの[書き込み](https://loomx.io/developers/docs/en/go-loom-clients.html#writing-data-to-a-dappchain)及び[読み取り](https://loomx.io/developers/docs/en/go-loom-clients.html#reading-data-from-a-dappchain)のやり方と同様である。 主な違いは、関数シグネチャと入力パラメータが[ABIエンコーディング](https://solidity.readthedocs.io/en/develop/abi-spec.html)を使ってバイトコードに変換される必要があるということだ。 go-ethereumの [abi.JSON](https://godoc.org/github.com/obscuren/go-ethereum/accounts/abi#JSON)関数を使って`solc --abi -o.MySolidiityProgram.sol`から取得できるコントラクトABIを用いて、 インプットをエンコードすることが可能だ。
+
+EvmContractのCallメソッドは、DAppチェーンの状態を変更するメソッドに対し使用される。 ```go input ( "github.com/loomnetwork/go-loom/auth" "github.com/loomnetwork/go-loom/client" "github.com/loomnetwork/go-loom/vm "github.com/ethereum/go-ethereum/accounts/abi"  
+)
+
+func store(contract *client.EvmContract, key, abi string, value int) ([]byte, error) { abiSS, err := abi.JSON(strings.NewReader(SimpleStoreABI)) if err != nil { return []byte{}, err } input, err := abiSS.Pack("set", big.NewInt(value.Value)) if err != nil { return []byte[], err ] return contract.Call(input, key) } ``` The Call method returns a [transaction hash](https://loomx.io/developers/docs/en/evm.html#transaction-hash) You can use the transaction hash retrieve more information about the contract using the `GetEvmTxReceipt` method. This returns a [transcation recieipt, vm.EvmTxReceipt](https://loomx.io/developers/docs/en/evm.html#transaction-receipt) object.
+
+```go
+ input (
+   "github.com/loomnetwork/go-loom/auth"
+   "github.com/loomnetwork/go-loom/client"
+   "github.com/loomnetwork/go-loom/vm
+   "github.com/ethereum/go-ethereum/accounts/abi"   
+ )
+
+ ...
+    txHash, err := store(ecmContract, key, abi, 23)
+    if err != nil {
+        return err
+    }
+    rpcClient := client.NewDAppChainRPCClient(common.ChainID, common.WriteURI, common.ReadURI)
+    var receipt vm.EvmTxReceipt
+    receipt, err = rpcClinet.GetTxReceipt(txHash)
+ ...
+
+```
+
+#### DAppチェーン上Solidityコントラクトからの読み取り
+
+To get information from an EVM smart contract you need to call a view method using the EvmContract's staticCall. This returns the result in an ABI encoded []byte. As for other EVM methods the function signature and input arguments are [ABI encoded](https://solidity.readthedocs.io/en/develop/abi-spec.html).
+
+```go
+ input (
+   "github.com/loomnetwork/go-loom/auth"
+   "github.com/loomnetwork/go-loom/client"
+   "github.com/loomnetwork/go-loom/vm
+   "github.com/ethereum/go-ethereum/accounts/abi"   
+ )
+
+ func get(contract *client.EvmContract, abi string, value int) ([]byte, error) {
+    abiSS, err := abi.JSON(strings.NewReader(SimpleStoreABI))
+    if err != nil {
+        return []byte{}, err
+    }
+    input, err := abiSS.Pack("set", big.NewInt(value.Value))
+    if err != nil {
+        return []byte[], err
+    ]
+    return contract.StaticCall(input) 
+ }
+ ```
+
+### loom-js
+
+In JavaScript and TypeScript you can Call methods contracts deployed on the EVM 
+of a DAppChain in a similar way as for non-EVM plugins, outlined in the 
+[loom-js quickstart](https://loomx.io/developers/docs/en/loom-js-quickstart.html#connecting-to-a-dappchain)
+
+#### Connecting to a Solidity contract on a DAppChain
+
+We use the EvmContract class instead of the Contract class. So the loom-js
+ quick-start getEvmContract could looks like:
+```js
+const {
+  NonceTxMiddleware, SignedTxMiddleware, Client,
+  Contract, Address, LocalAddress, CryptoUtils
+} = require('loom-js')
+
+const { MapEntry } = require('./helloworld_pb')
+
+/**
+ * Creates a new `EvmContract` instance that can be used to interact with a 
+ smart contract running on a DAppChain's EVM.
+ * @param privateKey Private key that will be used to sign transactions sent to the contract.
+ * @param publicKey Public key that corresponds to the private key.
+ * @returns `EvmContract` instance.
+ */
+async function getContract(privateKey, publicKey) {
+  const client = new Client(
+    'default',
+    'ws://127.0.0.1:46657/websocket',
+    'ws://127.0.0.1:9999/queryws'
+  )
+  // required middleware
+  client.txMiddleware = [
+    new NonceTxMiddleware(publicKey, client),
+    new SignedTxMiddleware(privateKey)
+  ]
+  const contractAddr = await client.getContractAddres('MySolidityContract')
+  const callerAddr = new Address(client.chainId, LocalAddress.fromPublicKey(publicKey))
+  return new EvmContract({
+    contractAddr,
+    callerAddr,
+    client
+  })
+}
+```
+
+#### Writing to a Solidity contract on a DAppChain
+
+Calling an EVM smart contract's method that mutates the state works the same as [writiing data to a DAppChain](https://loomx.io/developers/docs/en/loom-js-quickstart.html#writing-data-to-a-dappchain) The main difference in the case of an EvmContract is that the input takes the format of an [ABI encoded](https://solidity.readthedocs.io/en/develop/abi-spec.html) array.
+
+```go
+    let txHash = await evmContract.callAsync(abiEncodedInput)
+```
+
+The return value is a [transaction hash](https://loomx.io/developers/docs/en/evm.html#transaction-hash) You can use the transaction hsh retrive more information about the contract using the `GetEvmTxReceipt` method. This returns a [transaction receipt, EvmTxReceipt](https://loomx.io/developers/docs/en/evm.html#transaction-receipt) object
+
+```text
+    let receipt = await client.getTxReceiptAsync(rtv)
+```
+
+#### Reading from a Solidity contract on a DAppCahin
+
+To get information from an EVM smart contract you need to call a view method using the EvmContract's staticCall. This returns the result in an ABI encoded []byte. As for other EVM methods the function signature and input arguments are [ABI encoded](https://solidity.readthedocs.io/en/develop/abi-spec.html).
+
+```go
+    let txResult = await evmContract.staticCallAsync(abiEncodedInput)
+```
+
 ## トランザクションのハッシュ値
 
-状態を変更することができる`Call`トランザクションは、 トランザクションのハッシュ値を返す。 これは、トランザクション詳細についての唯一無二のハッシュ値である。 ２つのコントラクトが同じハッシュ値を返すことはない。 トランザクション詳細を見つけるために、これを使用することができる。
+Writing to a DAppChain using a `Call` transactions that can modify the state returns a transaction hash. This is a unique hash of the transaction details. No two contracts should return the same hash. It can be used to retrieve details of the transaction.
 
 ### トランザクションのレシート
 
@@ -477,10 +688,12 @@ EVMのcallトランザクションの各詳細はLoomチェーン上に保存さ
 Loomチェーンの`QueryService`には、`TxReceipt(txHash []byte) 
 ([]byte, error)`というメソッドがあり、これはprotobuf形式のレシートを返す。 go-loom及びloom-jsはこのクエリにAPIを提供する。 
 
-go-loom:`func (c *DAppChainRPCClient) EvmTxReceipt(txHash []byte) (vm
+go-loom:`func (c *DAppChainRPCClient) GetEvmTxReceipt(txHash []byte) (vm
 .EvmTxReceipt, error)`
 
 loom-js: `async getTxReceiptAsync(txHash: Uint8Array): Promise<EvmTxReceipt | null>`
+
+以下、トランザクション詳細のレシートオブジェクトだ。 
 
 | フィールド             | コンテンツ                          |
 | ----------------- |:------------------------------ |

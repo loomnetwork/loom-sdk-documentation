@@ -1,17 +1,17 @@
 ---
 id: loomevents
-title: Subscribing to events
-sidebar_label: Subscribing to events
+title: 订阅事件
+sidebar_label: 订阅事件
 ---
-## Emitting events
+## 发送事件
 
-Events emitted from smart contracts and [go plugins](./goloomevents). These events can be subscribed to in two ways
+事件由智能合约和 [go plugins](./goloomevents)发出。 有两种方式订阅这些事件：
 
-### Event structure
+### 事件结构
 
-The event JSON shown above is wrapped in some transaction specific metadata before being emitted to the event stream. The other fields in the metadata include Called address, the contract address, the contract name and the raw transaction request data.
+上面展示的事件JSON在发送到事件流之前被封装在一些事务特定的元数据中。 元数据中的其他字段包括被调用地址、合约地址、合约名称和原始事务请求数据。
 
-Below is an example of the full message that goes into redis -
+以下是进入redis的完整信息示例 -
 
 ```json
 {
@@ -30,20 +30,20 @@ Below is an example of the full message that goes into redis -
 }
 ```
 
-The `rawRequest` and the `encodedData` are base64 encoded with a standard encoding.
+`rawRequest`和`encodedData`使用标准编码进行base64编码。
 
-## Subscribing via Redis
+## 通过Redis订阅
 
-By default the loom-sdk will only emit events to the log. To configure it to send it to a redis sorted set, add the following line to the loom.yaml config file.
+默认情况下，loom-sdk只会将事件发送到log。 要将其配置为将其发送到redis有序集合中，请将以下行添加到loom.yaml配置文件中。
 
     EventDispatcherURI: "redis://localhost:6379"
     
 
-This will start emitting events to the redis server in a sorted set called `loomevents`. Each event is added to the sorted set with the score being the blockchain height.
+这将开始把事件发送到名为`loomevents`的有序集合中的redis服务器。每个事件都会被添加到有序集合中，得分就是区块链高度。
 
-## Subscribing via websockets
+## 通过websockets订阅
 
-The Loom SDK query endpoint can be used to subscribe to the event stream as well. Here is sample subscription code using a command line and the [wscat](https://www.npmjs.com/package/wscat2) nodejs cli.
+Loom SDK查询端点也可用于订阅事件流。 以下是一个使用命令和[wscat](https://www.npmjs.com/package/wscat2) nodejs cli的示例订阅代码。
 
     $ cat command.json
     {
@@ -78,8 +78,8 @@ The Loom SDK query endpoint can be used to subscribe to the event stream as well
     }
     
 
-The first json in the cli ouptut is the response of the subscribe command. The following json is an event from a contract processing a transaction.
+Cli输出中的第一个json是订阅命令的响应。 以下json是来自一个处理事务的合约的事件。
 
-### Example go code
+### 示例go代码
 
-You can refer to [a demo indexer](https://github.com/loomnetwork/etherboy-core/blob/master/tools/cli/indexer/etherboyindexer.go) which uses the redis and websocket event subscriptions to read the events and persist to elasticsearch. (Note that this code is meant only for demonstration purposes).
+你可以参考使用redis和websocket事件订阅的[demo索引器](https://github.com/loomnetwork/etherboy-core/blob/master/tools/cli/indexer/etherboyindexer.go) 来读取事件并坚持弹性搜索。 （注意这个代码仅用于演示目的）。
