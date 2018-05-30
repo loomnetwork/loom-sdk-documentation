@@ -82,9 +82,6 @@ cd solidity-social-example/webclient
 # Install
 yarn
 
-# Compile protobuf
-yarn run proto
-
 # Start the demo
 yarn start
 
