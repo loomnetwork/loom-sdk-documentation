@@ -6,31 +6,24 @@ sidebar_label: Simple Social Network Example
 
 # Simple Social Network Example
 
-Sample DAppChain showing the integration between LoomProvider, Web3 and [Loom.js](https://github.com/loomnetwork/loom-js) for a super simple social network interaction, where users can post and comment on posts. Source is on [Github Websocket Demo](https://github.com/loomnetwork/solidity-social-example)
+This example shows how to build a social network on a Loom DAppChain, using `Web3` and [Loom.js](https://github.com/loomnetwork/loom-js).
+In this simple social network users can post and comment on posts. Source is available on [Github](https://github.com/loomnetwork/solidity-social-example).
 
 ![](https://dzwonsemrish7.cloudfront.net/items/2W3c2O3G2A1q1l3f3D3d/Screen%20Recording%202018-05-29%20at%2003.35%20PM.gif)
 
 > The smart contract compiled for this example uses the Solidity version 0.4.24 (SimpleSocialNetwork.sol)
-
-> This example also uses Redis and ElasticSearch to manages a cache layer
 
 Development
 ----
 
 ### 1.) Run your own DappChain
 
-Please consult the [Loom SDK docs](https://loomx.io/developers/docs/en/prereqs.html) for further instruction on running your own DappChain.
-
-### 2.) Clone the example project
+Please ensure you've installed Golang as documented in the [prerequisites](https://loomx.io/developers/docs/en/prereqs.html).
 
 ```bash
 git clone https://github.com/loomnetwork/solidity-social-example
-```
 
-### 3.) Start the DappChain
-
-```bash
-cd web3-loom-provider
+cd solidity-social-example
 mkdir tmpgopath
 export GOPATH=`pwd`/tmpgopath
 
@@ -52,7 +45,7 @@ cp ../genesis.example.json genesis.json
 ../loom run
 ```
 
-### 4.) Start ElasticSearch and Redis
+### 2.) Start ElasticSearch and Redis
 
 > Notice that both services are required in order to correct run and interact with the application
 
@@ -67,23 +60,24 @@ brew services start elasticsearch
 brew services start redis
 ```
 
-### 5.) Start indexer
+### 3.) Start indexer
 
-The `indexer.js` is a service which will receive all events from the smart contract and feeds a cache layer built on a message queue and a fast database (Redis + ElasticSearch), it also serves the app with a fresh data on the address `http://localhost:8081/posts` or `http://localhost:8081/comments`
+The indexer is a service that will receive all events from the smart contract and feed a cache layer built on a message queue and a fast database (Redis + ElasticSearch).
+The data accumulated by this service is served at `http://localhost:8081/posts` and `http://localhost:8081/comments`
 
 ```bash
 # On second terminal
-cd web3-loom-provider/webclient
+cd solidity-social-example/webclient
 node indexer.js
 ```
 
-### 6.) Start the web server
+### 4.) Start the web server
 
-Finally we're going to start the webserver which will supply the interface allowing users to interact to the smart contracts on the Loom DappChain
+The webserver will serve the frontend which allows users to interact with the smart contracts on the Loom DappChain.
 
 ```bash
 # On third terminal
-cd web3-loom-provider/webclient
+cd solidity-social-example/webclient
 
 # Install
 yarn
@@ -96,9 +90,9 @@ yarn start
 
 ```
 
-### 7.) Running
+### 5.) Running
 
-The Simple Social Network web interface will be available on `http://localhost:8080`
+Open `http://localhost:8080` in your web browser to use the Simple Social Network.
 
 Project structure
 ----
