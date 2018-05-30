@@ -91,9 +91,9 @@ $LOOM_BIN run
 
 #### WebGL
 
-Run an http server to serve the build output directory at `localhost:8090`, and open `localhost:8090` in your web browser.
+运行一个http服务器来为在`localhost:8090`的生成输出目录提供服务，并在你的网络浏览器中打开`localhost:8090`。
 
-If you don't know how to set up a local http server follow the steps below.
+如果你不知道如何设置本地http服务器, 请按照以下步骤执行。
 
 ```bash
 brew install node
@@ -102,9 +102,9 @@ cd path/to/webgl-build-dir
 http-server -a localhost -p 8090
 ```
 
-### Optional configuration
+### 可选配置
 
-If you configure your local DAppChain to run on another host or port you'll need to update the following section of `Assets/WebGLTemplates/Loom/settings.js` before doing a **WebGL** build, or you can edit `settings.js` inside the build output directory after the build:
+如果你将本地DApp链配置为在其他主机或端口上运行，则需要在做**WebGL** 生成之前，更新以下`Assets/WebGLTemplates/Loom/settings.js` 的部分，或者你可以在生成之后编辑在生成输出目录中的`settings.js` ：
 
 ```js
   dappchain: {
@@ -113,7 +113,7 @@ If you configure your local DAppChain to run on another host or port you'll need
   }
 ```
 
-For a desktop build you'll need to edit `Assets/Resources/env_config.json` to change the default DAppChain host & port:
+对于桌面生成，你需要编辑`Assets/Resources/env_config.json` 来更改默认的DApp链托管&端口：
 
 ```json
 {
