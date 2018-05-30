@@ -22,8 +22,8 @@ This documentation explains how to run the Etherboy DAppChain in a single server
     wget -O contracts/etherboycore.so https://private.delegatecall.com/etherboy/linux/build-53/etherboycore.0.0.1
     ```
 
-3. Execute `loom init` in the working directory to initialize config files.
-4. Update `genesis.json` in the working directory:
+3. 在工作目录中执行`loom init`以初始化配置文件。
+4. 在工作目录中更新 `genesis.json`:
     
     ```json
     {
@@ -41,11 +41,11 @@ This documentation explains how to run the Etherboy DAppChain in a single server
     }
     ```
 
-5. Add `loom.yml` in the working directory: 
+5. 添加 `loom.yml` 到工作目录中： 
         yaml
         QueryServerHost: "tcp://0.0.0.0:9999"
 
-注意: `loom` 和 `etherboycli` 可以放置在你 `$PATH` 中的任何位置，因此你不必总是使用 `./` 执行。 However, `etherboycore.0.0.1` must always be placed in `$WORKING_DIRECTORY/contracts/etherboycore.0.0.1`.
+注意: `loom` 和 `etherboycli` 可以放置在你 `$PATH` 中的任何位置，因此你不必总是使用 `./` 执行。 但是，`etherboycore.0.0.1` 必须总是放在`$WORKING_DIRECTORY/contracts/etherboycore.so`里面。
 
 ## 运行
 
