@@ -29,11 +29,6 @@ cd dappchain
 wget https://storage.googleapis.com/private.delegatecall.com/loom/osx/build-137/loom
 chmod +x loom
 
-# Compile
-export GOPATH=$GOPATH:`pwd`
-make deps
-make
-
 # Configure
 cd build
 ../loom init
