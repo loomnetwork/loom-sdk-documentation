@@ -54,6 +54,7 @@ The indexer is a service that will receive all events from the smart contract an
 ```bash
 # On second terminal
 cd solidity-social-example/webclient
+npm install
 node indexer.js
 ```
 
