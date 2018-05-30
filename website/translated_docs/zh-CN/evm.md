@@ -17,15 +17,15 @@ loom DApp链包含一个以太坊虚拟机器（EVM）并使你可以部署以�
 
 ### DApp链和EVM
 
-There are currently several ways to interact with the DAppChain's EVM.
+目前有几种与DApp链EVM交互的方式。
 
 1. 智能合约可以在区块链初始启动时被部署。
-2. The loom command line tool allows deploying a smart contract or calling a method on an already deployed contract.
-3. Another smart contract, either an EVM contract or a plugin contract, can call methods on an already deployed EVM contract.
-4. In Go you can use go-loom's EvmContract object.
-5. In TypeScript or JavaScript you use the loom-js's EvmContract object.
+2. Loom命令行工具允许部署智能合约或在已经部署的合约中调用方法。
+3. 另一种智能合约，即EVM合约或插件合约，可以调用已部署的EVM合约上的方法。
+4. 在Go里你可以用go-loom的EvmContract对象。
+5. 在TypeScript或JavaScript中你使用loom-js的EvmContract对象。
     
-    An EVM smart contract is deployed to a DAppChain in the form of compiled bytecode. Which makes the chain unaware of the parent language. Parameters to solidity smart contract method calls are encoded with the Application Binary Interface (ABI) [documented on the solidity website](https://solidity.readthedocs.io/en/develop/abi-spec.html). The ABI can get quite complex, however ethereum implementations should, as we see later, give function to support parameter generation.
+    EVM智能合约以编译的字节码的形式部署到DApp链中。 这使得链无法得知父语言。 Solidity智能合约方法调用的参数是以在[Solidity网站上记录的](https://solidity.readthedocs.io/en/develop/abi-spec.html).应用程序二进制接口(ABI) 来进行编码的。 ABI可以变得相当复杂，但是正如我们以后看到的，以太坊实现应该给出了支持参数生成的功能。
     
     ## Deploy on Boot up.
     
