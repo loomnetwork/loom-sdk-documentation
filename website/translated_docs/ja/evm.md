@@ -498,9 +498,9 @@ go-loomとloom-jsは、RPCクライアントを使用して稼働中のDAppチ�
 
 ### go-loom
 
-This works in much the same way as described for [go-loom Contract](https://loomx.io/developers/docs/en/go-loom-clients.html#connecting-to-a-dappchain)
+これは[go-loomコントラクト](https://loomx.io/developers/docs/en/go-loom-clients.html#connecting-to-a-dappchain)で説明されているのと同じ方法で機能する。
 
-#### Connecting to a Solidity contract on a DAppChain
+#### DAppチェーン上のSolidityコントラクトへの接続
 
 So to connect to an existing solidity smart contact running on a DAppChain EVM we can use
 
@@ -513,8 +513,7 @@ import (
   "github.com/loomnetwork/go-loom/vm"
 )
 
-// getContract creates a new `Contract` instance that can be used to interact
- with a smart contract deployed on a DAppChain's EVM.
+// getContractは新しい`Contract`インスタンスを作成し、これを使ってDAppチェーンのEVM上にあるスマートコントラクトとの対話が行える。
 func getEvmContract(contractName string) (*client.EvmContract, error) {
   rpcClient := client.NewDAppChainRPCClient(
     "default",
@@ -529,9 +528,9 @@ func getEvmContract(contractName string) (*client.EvmContract, error) {
 }
 ```
 
-#### Deploying a Solidity contract to a DAppChain
+#### DAppチェーンへのSolidityコントラクトのデプロイ
 
-We can also deploy a new smart contract to a running DAppChain EVM. For this we need the contracts bytecode.
+また、新しいスマートコントラクトを稼働中のDAppチェーンEVMにデプロイすることもできる。
 
 A solidity contract can be converted to byte code using the solidity compiler `solc --bin -o . mySolidityProgram.sol`
 
