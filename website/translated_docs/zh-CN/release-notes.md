@@ -7,6 +7,12 @@ sidebar_label: Release Notes
 
 Reverse chronology order of release notes
 
+## Release 137 - May 30th
+
+* Go Clients can Access EVM Contracts
+* Numerous bug fixes for EVM
+* [Social Network Example App - Solidity](simple-social-network-example.html)
+
 ## Release 136 - May 28th
 
 * Initial Solidity Alpha test build, you can now deploy solidity contracts
