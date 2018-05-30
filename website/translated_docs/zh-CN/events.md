@@ -1,13 +1,13 @@
 ---
 id: loomevents
-title: Subscribing to events
-sidebar_label: Subscribing to events
+title: 订阅事件
+sidebar_label: 订阅事件
 ---
-## Emitting events
+## 发射事件
 
-Events emitted from smart contracts and [go plugins](./goloomevents). These events can be subscribed to in two ways
+事件由智能合约和 [go plugins](./goloomevents)发出。 有两种方式订阅这些事件：
 
-### Event structure
+### 事件结构
 
 The event JSON shown above is wrapped in some transaction specific metadata before being emitted to the event stream. The other fields in the metadata include Called address, the contract address, the contract name and the raw transaction request data.
 
