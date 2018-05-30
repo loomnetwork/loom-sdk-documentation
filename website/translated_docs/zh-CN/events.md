@@ -82,4 +82,4 @@ Cli输出中的第一个json是订阅命令的响应。 以下json是来自一�
 
 ### 示例go代码
 
-You can refer to [a demo indexer](https://github.com/loomnetwork/etherboy-core/blob/master/tools/cli/indexer/etherboyindexer.go) which uses the redis and websocket event subscriptions to read the events and persist to elasticsearch. (Note that this code is meant only for demonstration purposes).
+你可以参考使用redis和websocket事件订阅的[demo索引器](https://github.com/loomnetwork/etherboy-core/blob/master/tools/cli/indexer/etherboyindexer.go) 来读取事件并坚持弹性搜索。 （注意这个代码仅用于演示目的）。
