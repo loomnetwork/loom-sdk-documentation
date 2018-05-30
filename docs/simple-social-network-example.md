@@ -58,7 +58,7 @@ The data accumulated by this service is served at `http://localhost:8081/posts` 
 ```bash
 # On second terminal
 cd solidity-social-example/webclient
-npm install
+yarn
 node indexer.js
 ```
 
