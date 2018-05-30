@@ -51,6 +51,11 @@ brew services start redis
 
 The indexer is a service that will receive all events from the smart contract and feed a cache layer built on a message queue and a fast database (Redis + ElasticSearch). The data accumulated by this service is served at `http://localhost:8081/posts` and `http://localhost:8081/comments`
 
+Note this works best on Node8
+
+    brew install node@8
+    
+
 ```bash
 # On second terminal
 cd solidity-social-example/webclient
