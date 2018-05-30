@@ -78,16 +78,16 @@ $LOOM_BIN run
 - 在Unity中打开项目
 - 选择 `File`->`Build Settings`
 - 从平台列表中选择 `Web GL` 或 `PC, Mac & Linux Standalone`
-- Press `Switch Platform` if it's enabled
-- Press `Build`, select the build output directory
+- 如果启用了`Switch Platform` 请点击
+- 点击 `Build`, 选择生成输出目录
 
-> WebGL builds of the full game take around 30 minutes to complete.
+> WebGL 完整游戏的生成需要大约30分钟完成。
 
-### Run the game
+### 运行游戏
 
-#### Desktop
+#### 桌面
 
-Just launch the binary generated in the build output directory. If you have issues logging in please ensure nothing is running on port `9998`.
+启动在生成输出目录中生成的二进制文件。如果你在登录时有问题, 请确保在端口 `9998` 上没有运行任何内容。
 
 #### WebGL
 
