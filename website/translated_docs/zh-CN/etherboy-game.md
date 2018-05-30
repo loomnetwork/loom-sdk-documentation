@@ -3,7 +3,7 @@ id: etherboy-game
 title: Etherboy游戏
 sidebar_label: Etherboy游戏
 ---
-![Header](/developers/img/ebw_splash.jpg) Etherboy是一个基于Unity的多平台2D游戏，使用 [Loom Unity SDK](unity-sdk.md)与一个用Golang写的智能合约交互并运行在Loom DApp链上。
+![页眉](/developers/img/ebw_splash.jpg) Etherboy是一个基于Unity的多平台2D游戏，使用 [Loom Unity SDK](unity-sdk.md)与一个用Golang写的智能合约交互并运行在Loom DApp链上。
 
 ## 游戏控制
 
@@ -69,7 +69,7 @@ $LOOM_BIN run
 
 假设一切到目前为止都很顺利，那么你现在有一个本地Loom DApp链在运行着Etherboy智能合约啦!
 
-![Animation](/developers/img/etherboy-clip.gif)
+![动画](/developers/img/etherboy-clip.gif)
 
 ### 构建Unity项目
 
