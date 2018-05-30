@@ -28,7 +28,6 @@ wget https://storage.googleapis.com/private.delegatecall.com/loom/osx/build-137/
 chmod +x loom
 
 # Configure
-cd build
 ./loom init
 cp genesis.example.json genesis.json
 
