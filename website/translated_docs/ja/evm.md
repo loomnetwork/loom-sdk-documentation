@@ -532,9 +532,9 @@ func getEvmContract(contractName string) (*client.EvmContract, error) {
 
 また、新しいスマートコントラクトを稼働中のDAppチェーンEVMにデプロイすることもできる。
 
-A solidity contract can be converted to byte code using the solidity compiler `solc --bin -o . mySolidityProgram.sol`
+Solidityコントラクトは、Solidityコンパイラ`solc --bin -o . mySolidityProgram.sol`を使ってバイトコードに変換される。
 
-`hex.DecodeString` can be used to convert a hex string to a []byte array.
+`hex.DecodeString`を使って、hex文字列をバイト配列に変換することができる。
 
 ```go
 import (
@@ -555,9 +555,9 @@ func deployEvmContract(name string, byteHex string, signer auth.Signer) (*EvmCon
 }
 ```
 
-#### Writing to a Solidity contract on a DAppChain
+#### DAppチェーン上のSolidityコントラクトへの書き込み
 
-Writing and reading to a smart contract deployed on a DAppChain's EVM works in a similar way to [writing](https://loomx.io/developers/docs/en/go-loom-clients.html#writing-data-to-a-dappchain) and [reading](https://loomx.io/developers/docs/en/go-loom-clients.html#reading-data-from-a-dappchain) to non-EVM plugins. The main difference is that the function signature and input parameters need to be converted to bytecode using [ABI encoding](https://solidity.readthedocs.io/en/develop/abi-spec.html). You can use the go-ethereum [abi.JSON](https://godoc.org/github.com/obscuren/go-ethereum/accounts/abi#JSON) function to encode input using your contracts ABI which you can get from `solc --abi -o. MySolidiityProgram.sol`
+DAppチェーンのEVMにデプロイされたスマートコントラクトへの読み取り及び書き込みは、 非EVMプラグインへの[書き込み](https://loomx.io/developers/docs/en/go-loom-clients.html#writing-data-to-a-dappchain)及び[読み取り](https://loomx.io/developers/docs/en/go-loom-clients.html#reading-data-from-a-dappchain)のやり方と同様である。 主な違いは、関数シグネチャと入力パラメータが[ABIエンコーディング](https://solidity.readthedocs.io/en/develop/abi-spec.html)を使ってバイトコードに変換される必要があるということだ。 You can use the go-ethereum [abi.JSON](https://godoc.org/github.com/obscuren/go-ethereum/accounts/abi#JSON) function to encode input using your contracts ABI which you can get from `solc --abi -o. MySolidiityProgram.sol`
 
 EvmContract's Call method is used for methods that mutate the DAppChain's state. ```go input ( "github.com/loomnetwork/go-loom/auth" "github.com/loomnetwork/go-loom/client" "github.com/loomnetwork/go-loom/vm "github.com/ethereum/go-ethereum/accounts/abi"  
 )
