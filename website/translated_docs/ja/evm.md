@@ -585,7 +585,7 @@ func store(contract *client.EvmContract, key, abi string, value int) ([]byte, er
 
 #### DAppチェーン上Solidityコントラクトからの読み取り
 
-EVMスマートコントラクトから情報を取得するには、EvmContractのstaticCallを使用してviewメソッドを呼び出す必要がある。 これはABIにエンコードされたバイト形式で結果を返す。 As for other EVM methods the function signature and input arguments are [ABI encoded](https://solidity.readthedocs.io/en/develop/abi-spec.html).
+EVMスマートコントラクトから情報を取得するには、EvmContractのstaticCallを使用してviewメソッドを呼び出す必要がある。 これはABIにエンコードされたバイト形式で結果を返す。 他のEVMメソッドの場合、関数シグネチャと入力引数が[ABIエンコーディング](https://solidity.readthedocs.io/en/develop/abi-spec.html)される。
 
 ```go
  input (
@@ -610,13 +610,11 @@ EVMスマートコントラクトから情報を取得するには、EvmContract
 
 ### loom-js
 
-In JavaScript and TypeScript you can Call methods contracts deployed on the EVM 
-of a DAppChain in a similar way as for non-EVM plugins, outlined in the 
-[loom-js quickstart](https://loomx.io/developers/docs/en/loom-js-quickstart.html#connecting-to-a-dappchain)
+ JavaScriptおよびTypeScriptでは、非EVMプラグインの場合と同じやり方で、DAppチェーンのEVM上にデプロイされたコントラクトのメソッドをCallすることができる。概要は [loom-jsクイックスタート](https://loomx.io/developers/docs/en/loom-js-quickstart.html#connecting-to-a-dappchain)にて。
 
-#### Connecting to a Solidity contract on a DAppChain
+#### DAppチェーン上のSolidityコントラクトに接続
 
-We use the EvmContract class instead of the Contract class. So the loom-js
+Contractクラスの代わりにEvmContractクラスを使用できる。 So the loom-js
  quick-start getEvmContract could looks like:
 ```js
 const {
@@ -627,11 +625,10 @@ const {
 const { MapEntry } = require('./helloworld_pb')
 
 /**
- * Creates a new `EvmContract` instance that can be used to interact with a 
- smart contract running on a DAppChain's EVM.
- * @param privateKey Private key that will be used to sign transactions sent to the contract.
- * @param publicKey Public key that corresponds to the private key.
- * @returns `EvmContract` instance.
+ * 新たな`EvmContract`インスタンスを作成し、DAppチェーン上EVMで実行されるスマートコントラクトとの対話に使えるようにする。
+ * @param privateKey(秘密鍵)はコントラクトに送信されたトランザクションに署名するために使われる。
+ * @param publicKey(公開鍵)は秘密鍵に対応するものである。
+ * @returns `EvmContract`のインスタンス
  */
 async function getContract(privateKey, publicKey) {
   const client = new Client(
@@ -654,7 +651,7 @@ async function getContract(privateKey, publicKey) {
 }
 ```
 
-#### Writing to a Solidity contract on a DAppChain
+#### DAppチェーン上のSolidityコントラクトへの書き込み
 
 Calling an EVM smart contract's method that mutates the state works the same as [writiing data to a DAppChain](https://loomx.io/developers/docs/en/loom-js-quickstart.html#writing-data-to-a-dappchain) The main difference in the case of an EvmContract is that the input takes the format of an [ABI encoded](https://solidity.readthedocs.io/en/develop/abi-spec.html) array.
 
