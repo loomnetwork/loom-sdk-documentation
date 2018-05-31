@@ -17,33 +17,44 @@ sidebar_label: Phaser SDKのデモ
 
 Loomをインストール
 
-    wget https://storage.googleapis.com/private.delegatecall.com/loom/osx/build-133/loom
-    chmod +x loom
-    
-    mkdir tmpgopath
-    export GOPATH=`pwd`/tmpgopath
-    ./loom spin weave-blueprint
-    cd blueprint
-    export GOPATH=$GOPATH:`pwd`
-    make deps
-    make
-    cd build
-    
-    ../../loom init
-    cp ../genesis.example.json genesis.json
-    
+```bash
+wget https://private.delegatecall.com/loom/osx/build-133/loom
+chmod +x loom
+
+mkdir contracts
+wget -O contracts/blueprint.0.0.1 https://private.delegatecall.com/weave-blueprint/osx/build-4/blueprint.0.0.1
+chmod +x contracts/blueprint.0.0.1
+
+./loom init
+```
+
+Replace genesis.json with:
+
+```json
+{
+  "contracts": [
+    {
+      "vm": "plugin",
+      "format": "plugin",
+      "name": "BluePrint",
+      "location": "blueprint:0.0.1",
+      "init": {
+      }
+    }
+  ]
+}
+```
+
+Run Blockchain
+
+    ./loom run
     
 
-ブロックチェーンの起動
+Please consult the [Loom SDK docs](https://loomx.io/developers/docs/en/prereqs.html) for further instruction on running your own DappChain.
 
-    ../../loom run
-    
+2.) Start the dev server
 
-自分のDAppチェーン起動についてのさらなる説明は、[Loom SDKドキュメンテーション](https://loomx.io/developers/docs/en/prereqs.html)を参照すること。
-
-2.) 開発サーバーのスタート
-
-開発サーバーの起動
+Run dev server
 
     #Get Source
     git clone https://github.com/loomnetwork/phaser-sdk-demo.git
