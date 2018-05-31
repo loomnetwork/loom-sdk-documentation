@@ -7,9 +7,9 @@ sidebar_label: リリースノート
 
 新着順。
 
-## Release 137 - May 30th
+## リリース 137 - 5月30日
 
-* Go Clients can Access EVM Contracts
+* GoクライアントがEVMコントラクトへアクセス可能に
 * Numerous bug fixes for EVM
 * [Social Network Example App - Solidity](simple-social-network-example.html)
 
