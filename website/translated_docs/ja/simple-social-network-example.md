@@ -13,7 +13,7 @@ sidebar_label: シンプルなソーシャル ネットワークのサンプル
 
 ### 1.) 自分のDAppチェーンを起動しよう
 
-Please ensure you've installed Golang as documented in the [prerequisites](https://loomx.io/developers/docs/en/prereqs.html).
+[前提条件](https://loomx.io/developers/docs/en/prereqs.html)に記されているように、Golangをインストール済みか確認すること。
 
 ```bash
 git clone https://github.com/loomnetwork/solidity-social-example
