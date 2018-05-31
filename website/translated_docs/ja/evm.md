@@ -653,7 +653,7 @@ async function getContract(privateKey, publicKey) {
 
 #### DAppチェーン上のSolidityコントラクトへの書き込み
 
-Calling an EVM smart contract's method that mutates the state works the same as [writiing data to a DAppChain](https://loomx.io/developers/docs/en/loom-js-quickstart.html#writing-data-to-a-dappchain) The main difference in the case of an EvmContract is that the input takes the format of an [ABI encoded](https://solidity.readthedocs.io/en/develop/abi-spec.html) array.
+状態を変更するEVMスマートコントラクトのメソッドは、[DAppチェーンへのデータの書き込み](https://loomx.io/developers/docs/en/loom-js-quickstart.html#writing-data-to-a-dappchain)と同じように機能する。 EvmContractの場合の主な違いは、インプットは[ABIエンコード](https://solidity.readthedocs.io/en/develop/abi-spec.html)された配列の形式を取るということだ。
 
 ```go
     let txHash = await evmContract.callAsync(abiEncodedInput)
