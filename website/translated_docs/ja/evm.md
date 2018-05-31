@@ -153,7 +153,7 @@ EVMを構成するのは、データベース及びEVMバイトコードイン�
 
 -n はコントラクトデプロイ時に入力された名前やラベルであり、アドレスを代替するものとして使用可能だ。
 
--i は入力文字列だ。 Solidityのコントラクトでは、これは[Solidity ABI documentation](https://solidity.readthedocs.io/en/develop/abi-spec.html)で説明されているようにABIにエンコーディングされる。 Example ```text static-call -a ./data/pub -k ./data/pri -i ./cmd/loom/data/inputGet.bin \ -c 0xbD770416A3345f91E4b34576Cb804a576Fa48eB1 \ -w http://localhost:46657 -r http://localhost:9999
+-i は入力文字列だ。 Solidityのコントラクトでは、これは[Solidity ABI documentation](https://solidity.readthedocs.io/en/develop/abi-spec.html)で説明されているようにABIにエンコーディングされる。 例 ```text static-call -a ./data/pub -k ./data/pri -i ./cmd/loom/data/inputGet.bin \ -c 0xbD770416A3345f91E4b34576Cb804a576Fa48eB1 \ -w http://localhost:46657 -r http://localhost:9999
 
     <br />## ユーザープラグインから
     
@@ -501,7 +501,7 @@ go-loomとloom-jsは、RPCクライアントを使用して稼働中のDAppチ�
 
 #### DAppチェーン上のSolidityコントラクトへの接続
 
-So to connect to an existing solidity smart contact running on a DAppChain EVM we can use
+DAppチェーンEVM上で実行される既存のSolidityスマートコントラクトに接続するには、以下を使う。
 
 ```go
 package main
@@ -659,7 +659,7 @@ async function getContract(privateKey, publicKey) {
     let txHash = await evmContract.callAsync(abiEncodedInput)
 ```
 
-The return value is a [transaction hash](https://loomx.io/developers/docs/en/evm.html#transaction-hash) You can use the transaction hsh retrive more information about the contract using the `GetEvmTxReceipt` method. This returns a [transaction receipt, EvmTxReceipt](https://loomx.io/developers/docs/en/evm.html#transaction-receipt) object
+戻り値は、[トランザクションのハッシュ値](https://loomx.io/developers/docs/en/evm.html#transaction-hash)である。 `GetEvmTxReceipt`メソッドでこのハッシュを用いて、コントラクトについてのさらなる情報を検索できる。 これは [トランザクションのレシート、EvmTxReceipt](https://loomx.io/developers/docs/en/evm.html#transaction-receipt) オブジェクトを返す。
 
 ```text
     let receipt = await client.getTxReceiptAsync(rtv)
@@ -667,7 +667,7 @@ The return value is a [transaction hash](https://loomx.io/developers/docs/en/evm
 
 #### DAppチェーン上Solidityコントラクトからの読み取り
 
-To get information from an EVM smart contract you need to call a view method using the EvmContract's staticCall. This returns the result in an ABI encoded []byte. As for other EVM methods the function signature and input arguments are [ABI encoded](https://solidity.readthedocs.io/en/develop/abi-spec.html).
+EVMスマートコントラクトから情報を取得するには、EvmContractのstaticCallを使用してviewメソッドを呼び出す必要がある。 これはABIにエンコードされたバイト形式で結果を返す。 他のEVMメソッドの場合、関数シグネチャと入力引数が[ABIエンコーディング](https://solidity.readthedocs.io/en/develop/abi-spec.html)される。
 
 ```go
     let txResult = await evmContract.staticCallAsync(abiEncodedInput)
@@ -675,7 +675,7 @@ To get information from an EVM smart contract you need to call a view method usi
 
 ## トランザクションのハッシュ値
 
-Writing to a DAppChain using a `Call` transactions that can modify the state returns a transaction hash. This is a unique hash of the transaction details. No two contracts should return the same hash. It can be used to retrieve details of the transaction.
+状態を変更することができる`Call`トランザクションを使ったDAppチェーンへの書き込みは、 トランザクションのハッシュ値を返す。 これは、トランザクション詳細についての唯一無二のハッシュ値である。 ２つのコントラクトが同じハッシュ値を返すことはない。 トランザクション詳細を見つけるために、これを使用することができる。
 
 ### トランザクションのレシート
 
