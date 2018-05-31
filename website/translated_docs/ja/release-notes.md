@@ -10,40 +10,40 @@ sidebar_label: リリースノート
 ## リリース 137 - 5月30日
 
 * GoクライアントがEVMコントラクトへアクセス可能に
-* Numerous bug fixes for EVM
-* [Social Network Example App - Solidity](simple-social-network-example.html)
+* EVMのバグを多数修正
+* [ソーシャルネットワークのサンプルアプリ- Solidity](simple-social-network-example.html)
 
-## Release 136 - May 28th
+## リリース 136 - 5月28日
 
-* Initial Solidity Alpha test build, you can now deploy solidity contracts
-* Websocket eventing support for solidity 
-* [Example Project for solidity Events](phaser-sdk-demo-web3-websocket.html)
-* [Multinode deployment guide](multi-node-deployment.html)
+* 初期Solidityアルファ版テストビルド。Solidityコントラクトがデプロイ可能に。
+* Splidityでのイベントサポート 
+* [Solidityイベントのサンプルプロジェクト](phaser-sdk-demo-web3-websocket.html)
+* [マルチノードデプロイメントガイド](multi-node-deployment.html)
 
-## Release 133 - May 24th
+## リリース 133 - 5月24日
 
-* [Etherboy Demo released](https://loomx.io/developers/docs/en/etherboy-game.html)
-* [Japanese Docs released](https://loomx.io/developers/ja)
-* Updated Homepage for [docs site](https://loomx.io/developers/en/) 
+* [Etherboyのデモをリリース](https://loomx.io/developers/docs/en/etherboy-game.html)
+* [日本語ドキュメンテーションをリリース](https://loomx.io/developers/ja)
+* [ドキュメンテーションサイト](https://loomx.io/developers/en/)をアップデート 
 
-## Release 132 - May 23rd
+## リリース 132 - 5月23日
 
-* Websocket performance fixes
-* New Websocket Demo App - TilesChain - [Github](https://github.com/loomnetwork/tiles-chain) 
+* Websocketのパフォーマンスを修正
+* 新しいWebsocketのデモアプリ - TilesChain - [Github](https://github.com/loomnetwork/tiles-chain) 
 
-## Release 129 - May 22rd
+## リリース 129 - 5月22日
 
-* Websocket support for eventing
-* Updates to indexing layer for solidty contracts
-* Phaser Game Dame - [Github](https://github.com/loomnetwork/phaser-sdk-demo)
+* イベントでのWebsocketサポート
+* レイヤーインデックス機能のSolidityコントラクトをアップデート 
+* Phaserゲームデモ - [Github](https://github.com/loomnetwork/phaser-sdk-demo)
 
-## Release 128 - May 21th
+## リリース 128 - 5月21日
 
-* Lots of bug fixes for Etherboy
+* Etherboyのバグを修正
 
-## Release 128 - May 19th
+## リリース 128 - 5月19日
 
-* Stable Beta Release
-* Updating logging to default to multiple files 
-* Moving all RPC to a single interface
-* Updated External Process interface
+* 安定したベータ版リリース
+* ロギングをデフォルトで複数ファイルでできるようアップデート 
+* 全RPCを一つのインターフェースへ移動
+* 外部プロセスインターフェースのアップデート
