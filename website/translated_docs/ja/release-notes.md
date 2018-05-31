@@ -34,7 +34,7 @@ sidebar_label: リリースノート
 ## リリース 129 - 5月22日
 
 * イベントでのWebsocketサポート
-* レイヤーインデックス機能のSolidityコントラクトをアップデート 
+* インデックスレイヤー機能をSolidityコントラクト向けにアップデート 
 * Phaserゲームデモ - [Github](https://github.com/loomnetwork/phaser-sdk-demo)
 
 ## リリース 128 - 5月21日
