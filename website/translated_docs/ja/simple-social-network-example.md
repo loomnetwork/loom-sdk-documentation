@@ -3,15 +3,15 @@ id: simple-social-network-example
 title: シンプルなソーシャルネットワークのサンプル
 sidebar_label: シンプルなソーシャル ネットワークのサンプル
 ---
-This example shows how to build a social network on a Loom DAppChain, using `Web3` and [Loom.js](https://github.com/loomnetwork/loom-js). In this simple social network users can post and comment on posts. Source is available on [Github](https://github.com/loomnetwork/solidity-social-example).
+これは、`Web3`と[Loom.js](https://github.com/loomnetwork/loom-js)を使ってLoom DAppチェーン上にソーシャルネットワーキングを構築するサンプルである。 このシンプルなソーシャルネットワークでは、ユーザーは投稿及び投稿へのコメントができる。 ソースコードは[Github](https://github.com/loomnetwork/solidity-social-example)で利用可能。
 
 ![](https://dzwonsemrish7.cloudfront.net/items/2W3c2O3G2A1q1l3f3D3d/Screen%20Recording%202018-05-29%20at%2003.35%20PM.gif)
 
-> The smart contract compiled for this example uses the Solidity version 0.4.24 (SimpleSocialNetwork.sol)
+> コンパイルされたこのサンプル用のスマートコントラクトは、 Solidity version 0.4.24 (SimpleSocialNetwork.sol)を使用している。
 
-## Development
+## 開発
 
-### 1.) Run your own DappChain
+### 1.) 自分のDAppチェーンを起動しよう
 
 Please ensure you've installed Golang as documented in the [prerequisites](https://loomx.io/developers/docs/en/prereqs.html).
 
@@ -24,17 +24,17 @@ cd dappchain
 wget https://storage.googleapis.com/private.delegatecall.com/loom/osx/build-137/loom
 chmod +x loom
 
-# Configure
+# 設定
 ./loom init
 cp genesis.example.json genesis.json
 
-# Run
+# 起動
 ./loom run
 ```
 
-### 2.) Start ElasticSearch and Redis
+### 2.) ElasticSearchとRedisのスタート
 
-> Notice that both services are required in order to correct run and interact with the application
+> 両サービスは、起動の修正とアプリケーションとの対話のために必要であることに注意しよう。
 
 ```bash
 # macOS
@@ -42,12 +42,12 @@ brew tap homebrew/services
 brew install elasticsearch
 brew install redis
 
-# Start services on macOS
+# macOSでサービスをスタート
 brew services start elasticsearch
 brew services start redis
 ```
 
-### 3.) Start indexer
+### 3.) インデクサーをスタート
 
 The indexer is a service that will receive all events from the smart contract and feed a cache layer built on a message queue and a fast database (Redis + ElasticSearch). The data accumulated by this service is served at `http://localhost:8081/posts` and `http://localhost:8081/comments`
 
@@ -57,13 +57,13 @@ Note this works best on Node8
     
 
 ```bash
-# On second terminal
+# ２つ目のターミナルで
 cd solidity-social-example/webclient
 yarn
 node indexer.js
 ```
 
-### 4.) Start the web server
+### 4.) webサーバーのスタート
 
 The webserver will serve the frontend which allows users to interact with the smart contracts on the Loom DappChain.
 
