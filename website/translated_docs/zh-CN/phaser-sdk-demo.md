@@ -17,26 +17,37 @@ Use the arrow keys to move around, jump by pressing the up arrow. For each passi
 
 Install Loom
 
-    wget https://storage.googleapis.com/private.delegatecall.com/loom/osx/build-133/loom
-    chmod +x loom
-    
-    mkdir tmpgopath
-    export GOPATH=`pwd`/tmpgopath
-    ./loom spin weave-blueprint
-    cd blueprint
-    export GOPATH=$GOPATH:`pwd`
-    make deps
-    make
-    cd build
-    
-    ../../loom init
-    cp ../genesis.example.json genesis.json
-    
-    
+```bash
+wget https://private.delegatecall.com/loom/osx/build-133/loom
+chmod +x loom
+
+mkdir contracts
+wget -O contracts/blueprint.0.0.1 https://private.delegatecall.com/weave-blueprint/osx/build-4/blueprint.0.0.1
+chmod +x contracts/blueprint.0.0.1
+
+./loom init
+```
+
+Replace genesis.json with:
+
+```json
+{
+  "contracts": [
+    {
+      "vm": "plugin",
+      "format": "plugin",
+      "name": "BluePrint",
+      "location": "blueprint:0.0.1",
+      "init": {
+      }
+    }
+  ]
+}
+```
 
 Run Blockchain
 
-    ../../loom run
+    ./loom run
     
 
 Please consult the [Loom SDK docs](https://loomx.io/developers/docs/en/prereqs.html) for further instruction on running your own DappChain.
