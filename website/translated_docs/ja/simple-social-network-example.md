@@ -49,9 +49,9 @@ brew services start redis
 
 ### 3.) インデクサーをスタート
 
-The indexer is a service that will receive all events from the smart contract and feed a cache layer built on a message queue and a fast database (Redis + ElasticSearch). The data accumulated by this service is served at `http://localhost:8081/posts` and `http://localhost:8081/comments`
+インデクサーは、スマートコントラクトから全イベントを受け取り、それをメッセージキューと高速データベース上に構築されたキャッシュレイヤーへと保存するサービスである。 このサービスによって蓄積されたデータは、`http://localhost:8081/posts`及び`http://localhost:8081/comments`にて提供される。
 
-これはNode8 で最適に機能する。
+注：これはNode8 で最も良く機能する。
 
     brew install node@8
     
@@ -65,20 +65,20 @@ node indexer.js
 
 ### 4.) webサーバーのスタート
 
-The webserver will serve the frontend which allows users to interact with the smart contracts on the Loom DappChain.
+WEBサーバーは、ユーザーがLoom DAppチェーン上のスマートコントラクトと対話可能となるフロントエンドを提供する。
 
 ```bash
-# On third terminal
+# ３つ目のターミナルで
 cd solidity-social-example/webclient
 
-# Install
+# インストール
 yarn
 
-# Start the demo
+# デモのスタート
 yarn start
 
 ```
 
-### 5.) Running
+### 5.) 起動
 
-Open `http://localhost:8080` in your web browser to use the Simple Social Network.
+ウェブブラウザで`http://localhost:8080`を開いて、シンプルなソーシャルネットワークを使ってみよう。
