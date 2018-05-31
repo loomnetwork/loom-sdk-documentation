@@ -83,10 +83,10 @@ EVMを構成するのは、データベース及びEVMバイトコードイン�
 
 -a 及び -k のフラグは、公開鍵および秘密鍵のアドレスファイルでユーザーを特定するのに使用される。
 
--b gives the file where the raw EVM bytecode for the contract is held. This could be generated using a solidity compiler such as `solc --bin -o. 
- MySolProgram.sol`
+-bはコントラクトのEVMのローバイトコードがあるファイルを提供する。 これは`solc --bin -o. 
+ MySolProgram.sol`といったSolidityコンパイラを使って生成可能だ。
 
--n allows you to enter a name for your contract. This will act as a more user friendly handle than the contract address.
+-n はコントラクトの名前を入力できるようにする。これはコントラクトアドレスよりも、よりユーザーフレンドリーなハンドルとして機能する。
 
 例: 
 
@@ -121,11 +121,11 @@ EVMを構成するのは、データベース及びEVMバイトコードイン�
 
 -a 及び -k のフラグは、公開鍵および秘密鍵のアドレスファイルでユーザーを特定するのに使用される。
 
--c requires the contract address. This could be one output from a previous call to `\loom deploy` or retrieved from the start up log.
+-c はコントラクトアドレスを要求する。これは前述の`\loom deploy`へのコール結果、もしくは立ち上げ時のログから検索したものとなりうる。
 
--n is a name or label entered for the contract when it was deployed.Can be used as an alternative to the address
+-n はコントラクトデプロイ時に入力された名前やラベルであり、アドレスを代替するものとして使用可能だ。
 
--i is the input string. For a solidity contract this will be ABI encoded as described in the [Solidity ABI documentation](https://solidity.readthedocs.io/en/develop/abi-spec.html).
+-i は入力文字列だ。Solidityのコントラクトでは、これは[Solidity ABI documentation](https://solidity.readthedocs.io/en/develop/abi-spec.html)で説明されているようにABIにエンコーディングされる。
 
 Example ```text call -a ./data/pub -k ./data/pri -i ./cmd/loom/data/inputSet.bin \ -c 0xbD770416A3345f91E4b34576Cb804a576Fa48eB1 \ -w http://localhost:46657 -r http://localhost:9999
 
