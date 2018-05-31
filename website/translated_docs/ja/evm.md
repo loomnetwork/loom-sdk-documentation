@@ -127,13 +127,12 @@ EVMを構成するのは、データベース及びEVMバイトコードイン�
 
 -i は入力文字列だ。Solidityのコントラクトでは、これは[Solidity ABI documentation](https://solidity.readthedocs.io/en/develop/abi-spec.html)で説明されているようにABIにエンコーディングされる。
 
-Example ```text call -a ./data/pub -k ./data/pri -i ./cmd/loom/data/inputSet.bin \ -c 0xbD770416A3345f91E4b34576Cb804a576Fa48eB1 \ -w http://localhost:46657 -r http://localhost:9999
+例 ```text call -a ./data/pub -k ./data/pri -i ./cmd/loom/data/inputSet.bin \ -c 0xbD770416A3345f91E4b34576Cb804a576Fa48eB1 \ -w http://localhost:46657 -r http://localhost:9999
 
-    On completion this will return the [transaction hash](https://loomx.io/developers/docs/en/evm.html#transaction-receipt), this should be unique
-     for each transaction call.
+    これが完了すると、 [トランザクションのハッシュ値](https://loomx.io/developers/docs/en/evm.html#transaction-receipt)が返却されるが、これは各トランザクションコールに対し唯一であり同じものはない。
     
     ### static-call
-    Call a read only method on a contract. Returns the method return value.
+    コントラクト上の読み取り専用メソッドを呼び出す。 メソッドの戻り値を返す。
     ```text
     Usage:
       loom static-call [flags]
@@ -150,11 +149,11 @@ Example ```text call -a ./data/pub -k ./data/pri -i ./cmd/loom/data/inputSet.bin
 
 -a 及び -k のフラグは、公開鍵および秘密鍵のアドレスファイルでユーザーを特定するのに使用される。
 
--c requires the contract address. This could be one output from a previous call to `\loom deploy` or retrieved from the start up log.
+-c はコントラクトアドレスを要求する。これは前述の`\loom deploy`へのコール結果、もしくは立ち上げ時のログから検索したものとなりうる。
 
--n is a name or label entered for the contract when it was deployed.Can be used as an alternative to the address.
+-n はコントラクトデプロイ時に入力された名前やラベルであり、アドレスを代替するものとして使用可能だ。
 
--i is the input string. Solidityのコントラクトでは、これは[Solidity ABI documentation](https://solidity.readthedocs.io/en/develop/abi-spec.html)で説明されているようにABIにエンコーディングされる。 Example ```text static-call -a ./data/pub -k ./data/pri -i ./cmd/loom/data/inputGet.bin \ -c 0xbD770416A3345f91E4b34576Cb804a576Fa48eB1 \ -w http://localhost:46657 -r http://localhost:9999
+-i は入力文字列だ。 Solidityのコントラクトでは、これは[Solidity ABI documentation](https://solidity.readthedocs.io/en/develop/abi-spec.html)で説明されているようにABIにエンコーディングされる。 Example ```text static-call -a ./data/pub -k ./data/pri -i ./cmd/loom/data/inputGet.bin \ -c 0xbD770416A3345f91E4b34576Cb804a576Fa48eB1 \ -w http://localhost:46657 -r http://localhost:9999
 
     <br />## ユーザープラグインから
     
@@ -562,7 +561,7 @@ DAppチェーンのEVMにデプロイされたスマートコントラクトへ�
 EvmContractのCallメソッドは、DAppチェーンの状態を変更するメソッドに対し使用される。 ```go input ( "github.com/loomnetwork/go-loom/auth" "github.com/loomnetwork/go-loom/client" "github.com/loomnetwork/go-loom/vm "github.com/ethereum/go-ethereum/accounts/abi"  
 )
 
-func store(contract *client.EvmContract, key, abi string, value int) ([]byte, error) { abiSS, err := abi.JSON(strings.NewReader(SimpleStoreABI)) if err != nil { return []byte{}, err } input, err := abiSS.Pack("set", big.NewInt(value.Value)) if err != nil { return []byte[], err ] return contract.Call(input, key) } ``` The Call method returns a [transaction hash](https://loomx.io/developers/docs/en/evm.html#transaction-hash) You can use the transaction hash retrieve more information about the contract using the `GetEvmTxReceipt` method. This returns a [transcation recieipt, vm.EvmTxReceipt](https://loomx.io/developers/docs/en/evm.html#transaction-receipt) object.
+func store(contract *client.EvmContract, key, abi string, value int) ([]byte, error) { abiSS, err := abi.JSON(strings.NewReader(SimpleStoreABI)) if err != nil { return []byte{}, err } input, err := abiSS.Pack("set", big.NewInt(value.Value)) if err != nil { return []byte[], err ] return contract.Call(input, key) } ``` The Call method returns a [transaction hash](https://loomx.io/developers/docs/en/evm.html#transaction-hash) You can use the transaction hash retrieve more information about the contract using the `GetEvmTxReceipt` method. これは [transcation recieipt, vm.EvmTxReceipt](https://loomx.io/developers/docs/en/evm.html#transaction-receipt) オブジェクトを返す。
 
 ```go
  input (
@@ -586,7 +585,7 @@ func store(contract *client.EvmContract, key, abi string, value int) ([]byte, er
 
 #### DAppチェーン上Solidityコントラクトからの読み取り
 
-To get information from an EVM smart contract you need to call a view method using the EvmContract's staticCall. This returns the result in an ABI encoded []byte. As for other EVM methods the function signature and input arguments are [ABI encoded](https://solidity.readthedocs.io/en/develop/abi-spec.html).
+EVMスマートコントラクトから情報を取得するには、EvmContractのstaticCallを使用してviewメソッドを呼び出す必要がある。 これはABIにエンコードされたバイト形式で結果を返す。 As for other EVM methods the function signature and input arguments are [ABI encoded](https://solidity.readthedocs.io/en/develop/abi-spec.html).
 
 ```go
  input (
@@ -669,7 +668,7 @@ The return value is a [transaction hash](https://loomx.io/developers/docs/en/evm
     let receipt = await client.getTxReceiptAsync(rtv)
 ```
 
-#### Reading from a Solidity contract on a DAppCahin
+#### DAppチェーン上Solidityコントラクトからの読み取り
 
 To get information from an EVM smart contract you need to call a view method using the EvmContract's staticCall. This returns the result in an ABI encoded []byte. As for other EVM methods the function signature and input arguments are [ABI encoded](https://solidity.readthedocs.io/en/develop/abi-spec.html).
 
