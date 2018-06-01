@@ -55,6 +55,7 @@ https://github.com/google/protobuf/releases/
 export PROTOBUF_VERSION=3.5.1
 curl -OL https://github.com/google/protobuf/releases/download/v${PROTOBUF_VERSION}/protoc-${PROTOBUF_VERSION}-linux-x86_64.zip
 sudo unzip protoc-${PROTOBUF_VERSION}-linux-x86_64.zip -d /usr/local
+sudo chmod +x /usr/local/bin/protoc
 ```
 
 
