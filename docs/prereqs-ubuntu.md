@@ -23,29 +23,8 @@ sudo tar -C /usr/local -xzf go1.10.2.linux-amd64.tar.gz
 Assuming you are on bash, if zsh do to `~/.zshrc`:
 
 ```bash
-echo -e "\n export PATH=$PATH:/usr/local/go/bin" >>  ~/.bashrc
+echo -e "\n export PATH=\$PATH:/usr/local/go/bin" >>  ~/.bashrc
 source ~/.bashrc
-```
-
-### The "gimme" way
-
-```bash
-curl -sL -o /usr/local/bin/gimme https://raw.githubusercontent.com/travis-ci/gimme/master/gimme
-chmod +x /usr/local/bin/gimme
-
-gimme 1.10.2
-```
-
-Add the following to your `~/.bashrc` or `~/.zshrc`:
-
-```bash
-unset GOOS;
-unset GOARCH;
-export GOROOT='/home/ubuntu/.gimme/versions/go1.10.2.linux.amd64';
-export PATH="/home/ubuntu/.gimme/versions/go1.10.2.linux.amd64/bin:${PATH}";
-go version >&2;
-
-export GIMME_ENV="/home/ubuntu/.gimme/envs/go1.10.2.env"
 ```
 
 ## Protobuf
