@@ -23,29 +23,8 @@ sudo tar -C /usr/local -xzf go1.10.2.linux-amd64.tar.gz
 Assuming you are on bash, if zsh do to `~/.zshrc`:
 
 ```bash
-echo -e "\n export PATH=$PATH:/usr/local/go/bin" >>  ~/.bashrc
+echo -e "\n export PATH=\$PATH:/usr/local/go/bin" >>  ~/.bashrc
 source ~/.bashrc
-```
-
-### "gimme" の方法
-
-```bash
-curl -sL -o /usr/local/bin/gimme https://raw.githubusercontent.com/travis-ci/gimme/master/gimme
-chmod +x /usr/local/bin/gimme
-
-gimme 1.10.2
-```
-
-`~/.bashrc`もしくは`~/.zshrc`に以下を追加しよう:
-
-```bash
-unset GOOS;
-unset GOARCH;
-export GOROOT='/home/ubuntu/.gimme/versions/go1.10.2.linux.amd64';
-export PATH="/home/ubuntu/.gimme/versions/go1.10.2.linux.amd64/bin:${PATH}";
-go version >&2;
-
-export GIMME_ENV="/home/ubuntu/.gimme/envs/go1.10.2.env"
 ```
 
 ## Protobuf
@@ -86,11 +65,11 @@ cp ../genesis.example.json genesis.json
 
 ## トランザクションの送信
 
-2 つ目のコンソールを開こう。
+Open a second console
 
-このようにして秘密鍵を生成し、アカウントを作成する。そしてバリューを設定し、そのバリューをブロックチェーンから読み取る。
+This will generate a private key. Create an account. Then set a value, and then read the value from the blockchain.
 
-Blueprint contract のソースは[こちら](https://github.com/loomnetwork/weave-blueprint)を参照
+You can read the source of the [blueprint contract here](https://github.com/loomnetwork/weave-blueprint)
 
 ```bash
 cd blueprint/build
