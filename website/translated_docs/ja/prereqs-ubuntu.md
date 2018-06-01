@@ -20,10 +20,11 @@ curl -O https://dl.google.com/go/go1.10.2.linux-amd64.tar.gz
 sudo tar -C /usr/local -xzf go1.10.2.linux-amd64.tar.gz
 ```
 
-`~/.bashrc`もしくは`~/.zshrc`に以下を追加しよう:
+Assuming you are on bash, if zsh do to `~/.zshrc`:
 
 ```bash
-export PATH=$PATH:/usr/local/go/bin
+echo -e "\n export PATH=$PATH:/usr/local/go/bin" >>  ~/.bashrc
+sourch ~/.bashrc
 ```
 
 ### "gimme" の方法
