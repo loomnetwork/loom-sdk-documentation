@@ -7,6 +7,12 @@ sidebar_label: リリースノート
 
 新着順。
 
+## リリース 137 - 5月30日
+
+* GoクライアントがEVMコントラクトへアクセス可能に
+* EVMのバグを多数修正
+* [ソーシャルネットワークのサンプルアプリ- Solidity](simple-social-network-example.html)
+
 ## リリース 136 - 5月28日
 
 * 初期Solidityアルファ版テストビルド。Solidityコントラクトがデプロイ可能に。
@@ -28,7 +34,7 @@ sidebar_label: リリースノート
 ## リリース 129 - 5月22日
 
 * イベントでのWebsocketサポート
-* レイヤーインデックス機能のSolidityコントラクトをアップデート 
+* インデックスレイヤー機能をSolidityコントラクト向けにアップデート 
 * Phaserゲームデモ - [Github](https://github.com/loomnetwork/phaser-sdk-demo)
 
 ## リリース 128 - 5月21日

@@ -3,16 +3,13 @@ id: simple-social-network-example
 title: Simple Social Network Example
 sidebar_label: Simple Social Network Example
 ---
-
-This example shows how to build a social network on a Loom DAppChain, using `Web3` and [Loom.js](https://github.com/loomnetwork/loom-js).
-In this simple social network users can post and comment on posts. Source is available on [Github](https://github.com/loomnetwork/solidity-social-example).
+This example shows how to build a social network on a Loom DAppChain, using `Web3` and [Loom.js](https://github.com/loomnetwork/loom-js). In this simple social network users can post and comment on posts. Source is available on [Github](https://github.com/loomnetwork/solidity-social-example).
 
 ![](https://dzwonsemrish7.cloudfront.net/items/2W3c2O3G2A1q1l3f3D3d/Screen%20Recording%202018-05-29%20at%2003.35%20PM.gif)
 
 > The smart contract compiled for this example uses the Solidity version 0.4.24 (SimpleSocialNetwork.sol)
 
-Development
-----
+## Development
 
 ### 1.) Run your own DappChain
 
@@ -24,7 +21,7 @@ git clone https://github.com/loomnetwork/solidity-social-example
 cd solidity-social-example
 
 cd dappchain
-wget https://storage.googleapis.com/private.delegatecall.com/loom/osx/build-139/loom
+wget https://storage.googleapis.com/private.delegatecall.com/loom/osx/build-137/loom
 chmod +x loom
 
 # Configure
@@ -52,14 +49,12 @@ brew services start redis
 
 ### 3.) Start indexer
 
-The indexer is a service that will receive all events from the smart contract and feed a cache layer built on a message queue and a fast database (Redis + ElasticSearch).
-The data accumulated by this service is served at `http://localhost:8081/posts` and `http://localhost:8081/comments`
+The indexer is a service that will receive all events from the smart contract and feed a cache layer built on a message queue and a fast database (Redis + ElasticSearch). The data accumulated by this service is served at `http://localhost:8081/posts` and `http://localhost:8081/comments`
 
-Note this works best on Node8 
-```
-brew install node@8
-```
+Note this works best on Node8
 
+    brew install node@8
+    
 
 ```bash
 # On second terminal

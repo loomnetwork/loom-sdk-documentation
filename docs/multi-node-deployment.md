@@ -18,7 +18,7 @@ These steps need to be executed on each node.
     ```
 1. Download the binaries:
     ```bash
-    wget https://private.delegatecall.com/loom/linux/build-133/loom
+    wget https://private.delegatecall.com/loom/linux/build-139/loom
     ```
 1. Execute `loom init` in the working directory to initialize config files.
 1. Update `genesis.json` in the working directory:

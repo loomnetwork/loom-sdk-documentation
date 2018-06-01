@@ -17,26 +17,37 @@ sidebar_label: Phaser SDKのデモ
 
 Loomをインストール
 
-    wget https://storage.googleapis.com/private.delegatecall.com/loom/osx/build-133/loom
-    chmod +x loom
-    
-    mkdir tmpgopath
-    export GOPATH=`pwd`/tmpgopath
-    ./loom spin weave-blueprint
-    cd blueprint
-    export GOPATH=$GOPATH:`pwd`
-    make deps
-    make
-    cd build
-    
-    ../../loom init
-    cp ../genesis.example.json genesis.json
-    
-    
+```bash
+wget https://private.delegatecall.com/loom/osx/build-133/loom
+chmod +x loom
+
+mkdir contracts
+wget -O contracts/blueprint.0.0.1 https://private.delegatecall.com/weave-blueprint/osx/build-9/blueprint.0.0.1
+chmod +x contracts/blueprint.0.0.1
+
+./loom init
+```
+
+genesis.jsonをいかに置きかえよう:
+
+```json
+{
+  "contracts": [
+    {
+      "vm": "plugin",
+      "format": "plugin",
+      "name": "BluePrint",
+      "location": "blueprint:0.0.1",
+      "init": {
+      }
+    }
+  ]
+}
+```
 
 ブロックチェーンの起動
 
-    ../../loom run
+    ./loom run
     
 
 自分のDAppチェーン起動についてのさらなる説明は、[Loom SDKドキュメンテーション](https://loomx.io/developers/docs/en/prereqs.html)を参照すること。
@@ -45,16 +56,16 @@ Loomをインストール
 
 開発サーバーの起動
 
-    #Get Source
+    #ソースを入手
     git clone https://github.com/loomnetwork/phaser-sdk-demo.git
     
     cd phaser-sdk-demo
     
-    # Install
+    # インストール
     yarn
     
-    # Compile protobuff
+    # protobuffのコンパイル
     yarn run proto
     
-    # Start the dev server
+    # 開発サーバーの起動
     yarn run dev
