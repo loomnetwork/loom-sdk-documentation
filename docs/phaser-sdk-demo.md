@@ -27,7 +27,7 @@ wget https://private.delegatecall.com/loom/osx/build-133/loom
 chmod +x loom
 
 mkdir contracts
-wget -O contracts/blueprint.0.0.1 https://private.delegatecall.com/weave-blueprint/osx/build-4/blueprint.0.0.1
+wget -O contracts/blueprint.0.0.1 https://private.delegatecall.com/weave-blueprint/osx/build-9/blueprint.0.0.1
 chmod +x contracts/blueprint.0.0.1
 
 ./loom init
