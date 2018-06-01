@@ -160,7 +160,7 @@ make example-cli
 まずdposコントラクトに資金を提供して、証人が支払いを受け取れるようにしよう。単純に`dpos`コントラクトに送金をする。
 
 ```shell
-./example-cli call transfer dpos 90 -k privkey
+./example-cli call transfer dpos 90 -p privkey
 ```
 
 またいつでも自分の残高およびdposコントラクトの残高をチェックすることができる。
@@ -173,19 +173,19 @@ make example-cli
 証人に立候補するには、ブロックチェーン上での登録が必要となる。この例では、単に自分自身を登録しよう。
 
 ```shell
-./example-cli call register_candidate <public key> -k privkey
+./example-cli call register_candidate <public key> -p privkey
 ```
 
 そうしたら自分自身に投票してみよう。21の割り当て票全てを投票する。
 
 ```shell
-./example-cli call vote <your address> 21 -k privkey
+./example-cli call vote <your address> 21 -p privkey
 ```
 
 最後に自分で仕組んだ選挙を実行する ^o^
 
 ```shell
-./example-cli call elect -k privkey
+./example-cli call elect -p privkey
 ```
 
 自分が選出されたことを検証するには、証人リストが変更されているか再度チェックすることが可能だ。
@@ -197,6 +197,6 @@ make example-cli
 もう一度選挙を実行して、自分に支払いが行われたかを検証することができる。
 
 ```shell
-./example-cli call elect -k privkey
+./example-cli call elect -p privkey
 ./example-cli call balance <your address>
 ```
