@@ -21,14 +21,14 @@ git clone https://github.com/loomnetwork/solidity-social-example
 cd solidity-social-example
 
 cd dappchain
-wget https://storage.googleapis.com/private.delegatecall.com/loom/osx/build-137/loom
+wget https://storage.googleapis.com/private.delegatecall.com/loom/osx/build-139/loom
 chmod +x loom
 
-# 設定
+# Configure
 ./loom init
 cp genesis.example.json genesis.json
 
-# 起動
+# Run
 ./loom run
 ```
 
