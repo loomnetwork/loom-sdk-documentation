@@ -7,6 +7,13 @@ sidebar_label: Release Notes
 ## Overview
 
 Reverse chronology order of release notes
+## Release 143 - June 1st
+
+# [BluePrint Docker Images Available](docker-blueprint.html)
+# [Japanese Hackathon Results](https://medium.com/loom-network/highlights-from-the-first-loom-unity-sdk-hackathon-tokyo-edition-6ed723747c19)
+# Evm TX Reciepts fixes 
+
+
 ## Release 137 - May 30th
 
 * Go Clients can Access EVM Contracts
