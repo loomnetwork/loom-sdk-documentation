@@ -24,7 +24,7 @@ Assuming you are on bash, if zsh do to `~/.zshrc`:
 
 ```bash
 echo -e "\n export PATH=$PATH:/usr/local/go/bin" >>  ~/.bashrc
-sourch ~/.bashrc
+source ~/.bashrc
 ```
 
 ### The "gimme" way
