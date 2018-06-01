@@ -62,7 +62,7 @@ sudo chmod +x /usr/local/bin/protoc
 ## インストール
 
 ```bash
-curl -OL https://storage.googleapis.com/private.delegatecall.com/loom/linux/build-133/loom
+curl -OL https://storage.googleapis.com/private.delegatecall.com/loom/linux/build-139/loom
 chmod +x loom
 
 mkdir ~/gopath
