@@ -7,23 +7,23 @@ sidebar_label: リリースノート
 
 新着順。
 
-## Release 143 - June 1st
+## リリース 143 - 6月1日
 
-# [BluePrint Docker Images Available](docker-blueprint.html)
+# [BluePrint Dockerイメージが利用可能](docker-blueprint.html)
 
-# [Japanese Hackathon Results](https://medium.com/loom-network/highlights-from-the-first-loom-unity-sdk-hackathon-tokyo-edition-6ed723747c19)
+# [東京ハッカソンのレポート](https://medium.com/loom-network/highlights-from-the-first-loom-unity-sdk-hackathon-tokyo-edition-6ed723747c19)
 
-# [Docker Images for some of Loom SDK Projects](https://hub.docker.com/r/loomnetwork/)
+# [Loom SDKプロジェクト用のDockerイメージ](https://hub.docker.com/r/loomnetwork/)
 
-# Evm TX Reciepts fixes
+# Evmトランザクションレシートの修正
 
-## Release 137 - May 30th
+## リリース 137 - 5月30日
 
 * GoクライアントがEVMコントラクトへアクセス可能に
 * EVMのバグを多数修正
 * [ソーシャルネットワークのサンプルアプリ- Solidity](simple-social-network-example.html)
 
-## Release 136 - May 28th
+## リリース 136 - 5月28日
 
 * 初期Solidityアルファ版テストビルド。Solidityコントラクトがデプロイ可能に。
 * Splidityでのイベントサポート 
