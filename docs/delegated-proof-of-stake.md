@@ -171,7 +171,7 @@ We can check the witness list at any time by running the `list_witnesses` subcom
 
 First we'll fund the dpos contract so that witnesses can get paid. This is simply a transfer to the `dpos` contract.
 ```shell
-./example-cli call transfer dpos 90 -k privkey
+./example-cli call transfer dpos 90 -p privkey
 ```
 
 We can also check our balance and the balance of the dpos contract at any time.
@@ -182,17 +182,17 @@ We can also check our balance and the balance of the dpos contract at any time.
 
 In order to run for a witness seat we need to register on the blockchain. For this example we'll just register ourselves.
 ```shell
-./example-cli call register_candidate <public key> -k privkey
+./example-cli call register_candidate <public key> -p privkey
 ```
 
 Then we'll vote for ourselves, giving all of our vote allocation, which is 21 votes.
 ```shell
-./example-cli call vote <your address> 21 -k privkey
+./example-cli call vote <your address> 21 -p privkey
 ```
 
 Finally we'll run the election, which we've rigged :).
 ```shell
-./example-cli call elect -k privkey
+./example-cli call elect -p privkey
 ```
 
 To verify that we've been elected we can check the witness list again to see that it's changed.
@@ -202,6 +202,6 @@ To verify that we've been elected we can check the witness list again to see tha
 
 We can run the election again and verify we were paid for our service.
 ```shell
-./example-cli call elect -k privkey
+./example-cli call elect -p privkey
 ./example-cli call balance <your address>
 ```
