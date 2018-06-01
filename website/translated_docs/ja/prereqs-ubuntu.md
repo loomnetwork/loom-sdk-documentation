@@ -20,7 +20,7 @@ curl -O https://dl.google.com/go/go1.10.2.linux-amd64.tar.gz
 sudo tar -C /usr/local -xzf go1.10.2.linux-amd64.tar.gz
 ```
 
-Assuming you are on bash, if zsh do to `~/.zshrc`:
+bashを使っていると仮定しているが、zshであれば `~/.zshrc`:
 
 ```bash
 echo -e "\n export PATH=\$PATH:/usr/local/go/bin" >>  ~/.bashrc
@@ -65,11 +65,11 @@ cp ../genesis.example.json genesis.json
 
 ## トランザクションの送信
 
-Open a second console
+2 つ目のコンソールを開こう。
 
-This will generate a private key. Create an account. Then set a value, and then read the value from the blockchain.
+このようにして秘密鍵を生成し、アカウントを作成する。そしてバリューを設定し、そのバリューをブロックチェーンから読み取る。
 
-You can read the source of the [blueprint contract here](https://github.com/loomnetwork/weave-blueprint)
+Blueprint contract のソースは[こちら](https://github.com/loomnetwork/weave-blueprint)を参照
 
 ```bash
 cd blueprint/build
