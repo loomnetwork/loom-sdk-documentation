@@ -1,10 +1,8 @@
 ---
-id: docker
-title: Running in Docker
-sidebar_label: Running in Docker
+id: docker-blueprint-phaser
+title: Phaser Docker Example
+sidebar_label: Phaser Docker Exaample
 ---
-
-# Running in Docker
 
 We have public Docker containers to run DappChain and demos directly. All you need is Docker installed.
 
@@ -12,17 +10,7 @@ The Docker images are built each time the code is updated, so it is always curre
 
 Note: The commands below exposes all available ports, but that may not be needed all the time.
 
-## Loom (DappChain)
 
-```bash
-docker run -d -p 46656:46656 -p 46657:46657 -p 46658:46658 -p 9999:9999 loomnetwork/loom:latest
-```
-
-## [Weave Blueprint](https://github.com/loomnetwork/weave-blueprint)
-
-```bash
-docker run -d -p 46656:46656 -p 46657:46657 -p 46658:46658 -p 9999:9999 loomnetwork/weave-blueprint:latest
-```
 
 ## [Phaser SDK Demo](https://github.com/loomnetwork/phaser-sdk-demo)
 
@@ -39,3 +27,13 @@ If there is a web server running on the same host, the container for `phaser-sdk
 It is important for the web browser to be able to access the websockets running in the `weave-blueprint` container.
 
 The docker run parameter `-p` can be manipulated further according to needs.
+
+## [Docker Images](https://hub.docker.com/r/loomnetwork/)
+
+If you want to pull the individual images
+
+[Loom Base](https://hub.docker.com/r/loomnetwork/loom/) 
+
+[Blueprint Contract](https://hub.docker.com/r/loomnetwork/weave-blueprint/) 
+
+[Phaser SDK UI Example](https://hub.docker.com/r/loomnetwork/phaser-sdk-demo)
