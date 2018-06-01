@@ -36,7 +36,7 @@ written for Ubuntu).
 1. Install Golang by following the steps in [MacOS prerequisites][] (if you haven't done so already).
 2. Download Loom DAppChain binary
    ```bash
-   wget https://storage.googleapis.com/private.delegatecall.com/loom/osx/build-133/loom
+   wget https://storage.googleapis.com/private.delegatecall.com/loom/osx/build-139/loom
    chmod +x loom
    export LOOM_BIN=`pwd`/loom
    ```
@@ -46,7 +46,7 @@ written for Ubuntu).
 1. Install Golang by follwing the steps in [Ubuntu prerequisites][]  (if you haven't done so already).
 2. Download Loom DAppChain binary
    ```bash
-   curl -OL https://storage.googleapis.com/private.delegatecall.com/loom/linux/build-133/loom
+   curl -OL https://storage.googleapis.com/private.delegatecall.com/loom/linux/build-139/loom
    chmod +x loom
    export LOOM_BIN=`pwd`/loom
    ```
