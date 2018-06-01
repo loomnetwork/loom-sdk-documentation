@@ -160,7 +160,7 @@ make example-cli
 首先, 我们将向dpos合约投入资金, 以便见证人可以得到报酬。这只是将资产转移到`dpos`合约而已。
 
 ```shell
-./example-cli call transfer dpos 90 -k privkey
+./example-cli call transfer dpos 90 -p privkey
 ```
 
 我们也可以在任何时候检查我们的余额和dpos合约的余额。
@@ -173,19 +173,19 @@ make example-cli
 为了获取见证人的一席之位, 我们需要在区块链上登记。在这个例子中, 我们只登记我们自己。
 
 ```shell
-./example-cli call register_candidate <公钥> -k privkey
+./example-cli call register_candidate <public key> -p privkey
 ```
 
 然后我们会给自己投票，把所有的选票份额也就是21票全投给自己。
 
 ```shell
-./example-cli call vote <你的地址> 21 -k privkey
+./example-cli call vote <your address> 21 -p privkey
 ```
 
 最后我们将进行（被我们操纵了的）选举：）。
 
 ```shell
-./example-cli call elect -k privkey
+./example-cli call elect -p privkey
 ```
 
 为了验证我们已经被选中，我们可以再次检查见证人列表查看它已被更改。
@@ -197,6 +197,6 @@ make example-cli
 我们可以再次举行选举并验证我们的服务是否获得报酬。
 
 ```shell
-./example-cli call elect -k privkey
-./example-cli call balance <你的地址>
+./example-cli call elect -p privkey
+./example-cli call balance <your address>
 ```
