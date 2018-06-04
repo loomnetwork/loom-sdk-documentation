@@ -619,13 +619,14 @@ Contractクラスの代わりにEvmContractクラスを使用できる。 So the
 ```js
 const {
   NonceTxMiddleware, SignedTxMiddleware, Client,
-  Contract, Address, LocalAddress, CryptoUtils
+  EvmContract, Address, LocalAddress, CryptoUtils
 } = require('loom-js')
 
 const { MapEntry } = require('./helloworld_pb')
 
 /**
- * 新たな`EvmContract`インスタンスを作成し、DAppチェーン上EVMで実行されるスマートコントラクトとの対話に使えるようにする。
+ * Creates a new `EvmContract` instance that can be used to interact with a 
+ smart contract running on a DAppChain's EVM.
  * @param privateKey(秘密鍵)はコントラクトに送信されたトランザクションに署名するために使われる。
  * @param publicKey(公開鍵)は秘密鍵に対応するものである。
  * @returns `EvmContract`のインスタンス

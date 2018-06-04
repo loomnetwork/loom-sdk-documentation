@@ -650,7 +650,7 @@ We use the EvmContract class instead of the Contract class. So the loom-js
 ```js
 const {
   NonceTxMiddleware, SignedTxMiddleware, Client,
-  Contract, Address, LocalAddress, CryptoUtils
+  EvmContract, Address, LocalAddress, CryptoUtils
 } = require('loom-js')
 
 const { MapEntry } = require('./helloworld_pb')

@@ -20,31 +20,11 @@ curl -O https://dl.google.com/go/go1.10.2.linux-amd64.tar.gz
 sudo tar -C /usr/local -xzf go1.10.2.linux-amd64.tar.gz
 ```
 
-`~/.bashrc`もしくは`~/.zshrc`に以下を追加しよう:
+bashを使っていると仮定しているが、zshであれば `~/.zshrc`:
 
 ```bash
-export PATH=$PATH:/usr/local/go/bin
-```
-
-### "gimme" の方法
-
-```bash
-curl -sL -o /usr/local/bin/gimme https://raw.githubusercontent.com/travis-ci/gimme/master/gimme
-chmod +x /usr/local/bin/gimme
-
-gimme 1.10.2
-```
-
-`~/.bashrc`もしくは`~/.zshrc`に以下を追加しよう:
-
-```bash
-unset GOOS;
-unset GOARCH;
-export GOROOT='/home/ubuntu/.gimme/versions/go1.10.2.linux.amd64';
-export PATH="/home/ubuntu/.gimme/versions/go1.10.2.linux.amd64/bin:${PATH}";
-go version >&2;
-
-export GIMME_ENV="/home/ubuntu/.gimme/envs/go1.10.2.env"
+echo -e "\n export PATH=\$PATH:/usr/local/go/bin" >>  ~/.bashrc
+source ~/.bashrc
 ```
 
 ## Protobuf
@@ -55,12 +35,13 @@ https://github.com/google/protobuf/releases/
 export PROTOBUF_VERSION=3.5.1
 curl -OL https://github.com/google/protobuf/releases/download/v${PROTOBUF_VERSION}/protoc-${PROTOBUF_VERSION}-linux-x86_64.zip
 sudo unzip protoc-${PROTOBUF_VERSION}-linux-x86_64.zip -d /usr/local
+sudo chmod +x /usr/local/bin/protoc
 ```
 
 ## インストール
 
 ```bash
-curl -OL https://storage.googleapis.com/private.delegatecall.com/loom/linux/build-133/loom
+curl -OL https://storage.googleapis.com/private.delegatecall.com/loom/linux/build-139/loom
 chmod +x loom
 
 mkdir ~/gopath

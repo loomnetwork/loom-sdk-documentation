@@ -7,6 +7,16 @@ sidebar_label: リリースノート
 
 新着順。
 
+## リリース 143 - 6月1日
+
+# [BluePrint Dockerイメージが利用可能](docker-blueprint.html)
+
+# [東京ハッカソンのレポート](https://medium.com/loom-network/highlights-from-the-first-loom-unity-sdk-hackathon-tokyo-edition-6ed723747c19)
+
+# [Loom SDKプロジェクト用のDockerイメージ](https://hub.docker.com/r/loomnetwork/)
+
+# Evmトランザクションレシートの修正
+
 ## リリース 137 - 5月30日
 
 * GoクライアントがEVMコントラクトへアクセス可能に
@@ -20,28 +30,28 @@ sidebar_label: リリースノート
 * [Solidityイベントのサンプルプロジェクト](phaser-sdk-demo-web3-websocket.html)
 * [マルチノードデプロイメントガイド](multi-node-deployment.html)
 
-## リリース 133 - 5月24日
+## Release 133 - May 24th
 
 * [Etherboyのデモをリリース](https://loomx.io/developers/docs/en/etherboy-game.html)
 * [日本語ドキュメンテーションをリリース](https://loomx.io/developers/ja)
 * [ドキュメンテーションサイト](https://loomx.io/developers/en/)をアップデート 
 
-## リリース 132 - 5月23日
+## Release 132 - May 23rd
 
 * Websocketのパフォーマンスを修正
 * 新しいWebsocketのデモアプリ - TilesChain - [Github](https://github.com/loomnetwork/tiles-chain) 
 
-## リリース 129 - 5月22日
+## Release 129 - May 22rd
 
 * イベントでのWebsocketサポート
 * インデックスレイヤー機能をSolidityコントラクト向けにアップデート 
 * Phaserゲームデモ - [Github](https://github.com/loomnetwork/phaser-sdk-demo)
 
-## リリース 128 - 5月21日
+## Release 128 - May 21th
 
 * Etherboyのバグを修正
 
-## リリース 128 - 5月19日
+## Release 128 - May 19th
 
 * 安定したベータ版リリース
 * ロギングをデフォルトで複数ファイルでできるようアップデート 
