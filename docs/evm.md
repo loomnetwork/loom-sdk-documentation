@@ -201,6 +201,9 @@ Flags:
   -i, --input string           file with input data
   -r, --read string            URI for quering app state (default "http://localhost:46658/query")
   -w, --write string           URI for sending txs (default "http://localhost:46658/rpc")
+  -a, --address string         address file
+      --chain string           chain ID (default "default")
+  -k, --key string             private key file
 ```
 The -a and -k flags are used to identify the user with public and private 
  key address files.
@@ -214,6 +217,8 @@ The -a and -k flags are used to identify the user with public and private
  -i is the input string. For a solidity contract this will be ABI encoded as 
  described in the [Solidity ABI documentation](https://solidity.readthedocs.io/en/develop/abi-spec.html).
  Example
+ 
+ The address fields -a and -k are optional.
  ```text
 static-call -a ./data/pub -k ./data/pri -i ./cmd/loom/data/inputGet.bin \
   -c 0xbD770416A3345f91E4b34576Cb804a576Fa48eB1  \
@@ -728,6 +733,8 @@ using the EvmContract's staticCall. This returns the result in an ABI
 encoded []byte. As for other EVM methods the function signature and input 
 arguments are 
  [ABI encoded](https://solidity.readthedocs.io/en/develop/abi-spec.html). 
+ The caller field in StaticCall is optional, and using a blank loom.Address 
+ is fine.
 ```go
  input (
    "github.com/loomnetwork/go-loom/auth"
@@ -745,7 +752,7 @@ arguments are
  	if err != nil {
  	    return []byte[], err
  	]
- 	return contract.StaticCall(input) 
+ 	return contract.StaticCall(input, loom.Address{}) 
  }
  ```
 
