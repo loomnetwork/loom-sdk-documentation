@@ -30,28 +30,28 @@ sidebar_label: リリースノート
 * [Solidityイベントのサンプルプロジェクト](phaser-sdk-demo-web3-websocket.html)
 * [マルチノードデプロイメントガイド](multi-node-deployment.html)
 
-## Release 133 - May 24th
+## リリース 133 - 5月24日
 
 * [Etherboyのデモをリリース](https://loomx.io/developers/docs/en/etherboy-game.html)
 * [日本語ドキュメンテーションをリリース](https://loomx.io/developers/ja)
 * [ドキュメンテーションサイト](https://loomx.io/developers/en/)をアップデート 
 
-## Release 132 - May 23rd
+## リリース 132 - 5月23日
 
 * Websocketのパフォーマンスを修正
 * 新しいWebsocketのデモアプリ - TilesChain - [Github](https://github.com/loomnetwork/tiles-chain) 
 
-## Release 129 - May 22rd
+## リリース 129 - 5月22日
 
 * イベントでのWebsocketサポート
 * インデックスレイヤー機能をSolidityコントラクト向けにアップデート 
 * Phaserゲームデモ - [Github](https://github.com/loomnetwork/phaser-sdk-demo)
 
-## Release 128 - May 21th
+## リリース 128 - 5月21日
 
 * Etherboyのバグを修正
 
-## Release 128 - May 19th
+## リリース 128 - 5月19日
 
 * 安定したベータ版リリース
 * ロギングをデフォルトで複数ファイルでできるようアップデート 
