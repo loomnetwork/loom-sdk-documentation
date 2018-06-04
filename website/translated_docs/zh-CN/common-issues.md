@@ -6,10 +6,11 @@ title: 常见问题
 
 在版本发布之间，我们把人们遇到的常见问题放在这里。
 
-1) 在我们可以链接之前，插件退出了。
+1) "Plugin Exited before we could connect"
 
-    plugin: plugin process exited: path=/bin/sh
+    <br />plugin: plugin process exited: path=/bin/sh
     panic: plugin exited before we could connect
+    
     
 
 This usually means there is a process hanging around that needs to be killed
