@@ -9,7 +9,8 @@ Inbetween releases we keep common issues here that people run into.
 
 1) Plugin Exited before we could connect
 
-```plugin: plugin process exited: path=/bin/sh
+```
+plugin: plugin process exited: path=/bin/sh
 panic: plugin exited before we could connect
 ```
 
