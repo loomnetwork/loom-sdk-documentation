@@ -20,7 +20,7 @@ curl -O https://dl.google.com/go/go1.10.2.linux-amd64.tar.gz
 sudo tar -C /usr/local -xzf go1.10.2.linux-amd64.tar.gz
 ```
 
-bashを使っていると仮定しているが、zshであれば `~/.zshrc`:
+ここではbashをお使いであると想定しているが、もしzshであれば `~/.zshrc`:
 
 ```bash
 echo -e "\n export PATH=\$PATH:/usr/local/go/bin" >>  ~/.bashrc
