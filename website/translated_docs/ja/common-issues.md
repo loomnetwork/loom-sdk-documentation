@@ -8,12 +8,14 @@ title: 共通課題
 
 1) Plugin Exited before we could connect
 
-```plugin: plugin process exited: path=/bin/sh panic: plugin exited before we could connect
-
-    <br />これは通常、killする必要がある無意味に稼働しているがあるということを意味する。
-    
+    plugin: plugin process exited: path=/bin/sh
+    panic: plugin exited before we could connect
     
 
-ps -ef | grep blueprint kill -9 xxxx ```
+This usually means there is a process hanging around that needs to be killed
 
-blueprintをコントラクトの名前であるものに変更しよう。xxxxはプロセスidだ。
+    ps -ef | grep blueprint
+    kill -9 xxxx 
+    
+
+Change blueprint to whatever the name of the contract is, and then the xxx is the process id
