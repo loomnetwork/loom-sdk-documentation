@@ -27,10 +27,10 @@ Webブラウザにとって、`weave-blueprint`コンテナで実行されてい
 
 ## [Dockerイメージ](https://hub.docker.com/r/loomnetwork/)
 
-If you want to pull the individual images
+個々のイベージをプルしたい場合
 
 [Loom Base](https://hub.docker.com/r/loomnetwork/loom/)
 
-[Blueprint Contract](https://hub.docker.com/r/loomnetwork/weave-blueprint/)
+[Blueprintコントラクト](https://hub.docker.com/r/loomnetwork/weave-blueprint/)
 
-[Phaser SDK UI Example](https://hub.docker.com/r/loomnetwork/phaser-sdk-demo)
+[Phaser SDK UIサンプル](https://hub.docker.com/r/loomnetwork/phaser-sdk-demo)
