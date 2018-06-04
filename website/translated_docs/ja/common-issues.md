@@ -6,10 +6,11 @@ title: 共通課題
 
 リリースの合間で、人々が遭遇する共通の課題についてここに記しておこう。
 
-1) Plugin Exited before we could connect
+1) "Plugin Exited before we could connect"
 
-    plugin: plugin process exited: path=/bin/sh
+    <br />plugin: plugin process exited: path=/bin/sh
     panic: plugin exited before we could connect
+    
     
 
 This usually means there is a process hanging around that needs to be killed
