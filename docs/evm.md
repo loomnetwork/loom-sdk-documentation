@@ -733,7 +733,7 @@ using the EvmContract's staticCall. This returns the result in an ABI
 encoded []byte. As for other EVM methods the function signature and input 
 arguments are 
  [ABI encoded](https://solidity.readthedocs.io/en/develop/abi-spec.html). 
- The caller field in StaticCall is optional, and using a blank loom.Address 
+ The caller field in StaticCall is optional, and using an empty loom.Address 
  is fine.
 ```go
  input (
@@ -752,7 +752,7 @@ arguments are
  	if err != nil {
  	    return []byte[], err
  	]
- 	return contract.StaticCall(input, loom.Address{}) 
+ 	return contract.StaticCall(input, loom.RootAddress("MyChainID") 
  }
  ```
 
