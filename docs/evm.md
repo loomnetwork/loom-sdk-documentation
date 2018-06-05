@@ -190,8 +190,7 @@ call -a ./data/pub -k ./data/pri -i ./cmd/loom/data/inputSet.bin \
         
 ```
 On completion this will return the [transaction hash](https://loomx.io/developers/docs/en/evm.html#transaction-receipt), this should be unique
- for each transaction call. It can be used to return a receipt of the 
- transaction.
+ for each transaction call. It can be used to return a receipt of the transaction.
 
 ### static-call
 Call a read only method on a contract. Returns the method return value.
