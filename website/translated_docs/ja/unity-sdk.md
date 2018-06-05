@@ -14,7 +14,7 @@ sidebar_label: Unity SDK
 
 ## サンプル コード
 
-[`Assets/Samples/QuickStart`](https://github.com/loomnetwork/unity3d-sdk/tree/master/Assets/Samples/QuickStart)に、このページの全コード及びLoom Unity SDK内で用意済みのUnityシーンがある。
+You can find all the code on this page and a ready-to-go Unity scene in the Loom Unity SDK under [`Assets/LoomSDK/Samples/QuickStart`](https://github.com/loomnetwork/unity3d-sdk/tree/master/Assets/LoomSDK/Samples/QuickStart).
 
 ## DAppチェーンへの接続
 
