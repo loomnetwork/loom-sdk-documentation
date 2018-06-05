@@ -1,6 +1,6 @@
 ---
-id: common-issues
-title: 共通課題
+id: よくある問題点
+title: よくある問題点
 ---
 我々は共通の課題を解決し、各リリースごとに改善するよう努めている。
 
@@ -13,10 +13,10 @@ title: 共通課題
     
     
 
-This usually means there is a process hanging around that needs to be killed
+これは通常、killする必要がある無意味に稼働しているがあるということを意味する。
 
     ps -ef | grep blueprint
     kill -9 xxxx 
     
 
-Change blueprint to whatever the name of the contract is, and then the xxx is the process id
+blueprintをコントラクトの名前であるものに変更しよう。xxxxはプロセスidだ。
