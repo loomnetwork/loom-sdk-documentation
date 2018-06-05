@@ -107,8 +107,8 @@ smart contract.
 
 
 ### Deploy
-Use `./loom deploy`, to deploy a contract that can be compiled to EVM 
-bytecode onto a DAppChains EVM. 
+Use `./loom deploy` to deploy a contract, that can be compiled to EVM 
+bytecode, onto a DAppChains EVM. 
 ```text
 Deploy a contract 
 
