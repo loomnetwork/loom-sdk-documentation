@@ -752,7 +752,7 @@ arguments are
  	if err != nil {
  	    return []byte[], err
  	]
- 	return contract.StaticCall(input, loom.RootAddress("MyChainID") 
+ 	return contract.StaticCall(input, loom.RootAddress("MyChainID")) 
  }
  ```
 
