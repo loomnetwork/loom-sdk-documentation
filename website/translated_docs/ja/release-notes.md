@@ -7,53 +7,57 @@ sidebar_label: リリースノート
 
 新着順。
 
-## リリース 143 - 6月1日
+## Release 155 - June 6th
 
-# [BluePrint Dockerイメージが利用可能](docker-blueprint.html)
+* [Cocos SDK is Live](cocos-sdk-quickstart.html)
+* [Truffle Support available](truffle-deploy.html)
+* Static calls to EVM now allow caller
+* EVM Fixes for a lot of scenarios 
 
-# [東京ハッカソンのレポート](https://medium.com/loom-network/highlights-from-the-first-loom-unity-sdk-hackathon-tokyo-edition-6ed723747c19)
+## Release 143 - June 1st
 
-# [Loom SDKプロジェクト用のDockerイメージ](https://hub.docker.com/r/loomnetwork/)
+* [BluePrint Docker Images Available](docker-blueprint.html)
+* [Japanese Hackathon Results](https://medium.com/loom-network/highlights-from-the-first-loom-unity-sdk-hackathon-tokyo-edition-6ed723747c19)
+* [Docker Images for some of Loom SDK Projects](https://hub.docker.com/r/loomnetwork/)
+* Evm TX Reciepts fixes 
 
-# Evmトランザクションレシートの修正
+## Release 137 - May 30th
 
-## リリース 137 - 5月30日
+* Go Clients can Access EVM Contracts
+* Numerous bug fixes for EVM
+* [Social Network Example App - Solidity](simple-social-network-example.html)
 
-* GoクライアントがEVMコントラクトへアクセス可能に
-* EVMのバグを多数修正
-* [ソーシャルネットワークのサンプルアプリ- Solidity](simple-social-network-example.html)
+## Release 136 - May 28th
 
-## リリース 136 - 5月28日
+* Initial Solidity Alpha test build, you can now deploy solidity contracts
+* Websocket eventing support for solidity 
+* [Example Project for solidity Events](phaser-sdk-demo-web3-websocket.html)
+* [Multinode deployment guide](multi-node-deployment.html)
 
-* 初期Solidityアルファ版テストビルド。Solidityコントラクトがデプロイ可能に。
-* Splidityでのイベントサポート 
-* [Solidityイベントのサンプルプロジェクト](phaser-sdk-demo-web3-websocket.html)
-* [マルチノードデプロイメントガイド](multi-node-deployment.html)
+## Release 133 - May 24th
 
-## リリース 133 - 5月24日
+* [Etherboy Demo released](https://loomx.io/developers/docs/en/etherboy-game.html)
+* [Japanese Docs released](https://loomx.io/developers/ja)
+* Updated Homepage for [docs site](https://loomx.io/developers/en/) 
 
-* [Etherboyのデモをリリース](https://loomx.io/developers/docs/en/etherboy-game.html)
-* [日本語ドキュメンテーションをリリース](https://loomx.io/developers/ja)
-* [ドキュメンテーションサイト](https://loomx.io/developers/en/)をアップデート 
+## Release 132 - May 23rd
 
-## リリース 132 - 5月23日
+* Websocket performance fixes
+* New Websocket Demo App - TilesChain - [Github](https://github.com/loomnetwork/tiles-chain) 
 
-* Websocketのパフォーマンスを修正
-* 新しいWebsocketのデモアプリ - TilesChain - [Github](https://github.com/loomnetwork/tiles-chain) 
+## Release 129 - May 22rd
 
-## リリース 129 - 5月22日
+* Websocket support for eventing
+* Updates to indexing layer for solidty contracts
+* Phaser Game Dame - [Github](https://github.com/loomnetwork/phaser-sdk-demo)
 
-* イベントでのWebsocketサポート
-* インデックスレイヤー機能をSolidityコントラクト向けにアップデート 
-* Phaserゲームデモ - [Github](https://github.com/loomnetwork/phaser-sdk-demo)
+## Release 128 - May 21th
 
-## リリース 128 - 5月21日
+* Lots of bug fixes for Etherboy
 
-* Etherboyのバグを修正
+## Release 128 - May 19th
 
-## リリース 128 - 5月19日
-
-* 安定したベータ版リリース
-* ロギングをデフォルトで複数ファイルでできるようアップデート 
-* 全RPCを一つのインターフェースへ移動
-* 外部プロセスインターフェースのアップデート
+* Stable Beta Release
+* Updating logging to default to multiple files 
+* Moving all RPC to a single interface
+* Updated External Process interface
