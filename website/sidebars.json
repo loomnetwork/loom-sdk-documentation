@@ -3,7 +3,7 @@
     "Prerequisites": ["prereqs", "prereqs-ubuntu", "prereqs-windows"],
     "Javascript Client SDK": ["loom-js-quickstart"],
     "Go Contract SDK": ["go-loom-clients", "goloomstate", "goloomevents", "goloompermissions", "builtin"],
-    "Unity SDK": ["unity-sdk"],
+    "Game SDKs": ["unity-sdk", "cocos-sdk-quickstart"],
     "Events": ["loomevents"],
     "Consensus": ["delegated-proof-of-stake"],
     "Monitoring": ["metrics", "logging"],
