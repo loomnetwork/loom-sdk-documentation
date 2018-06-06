@@ -45,7 +45,7 @@ chmod +x loom
 # On second terminal
 
 # Deploy Migrations.sol and SimpleStore.sol
-yarn build
+yarn deploy
 
 # Running test on directory /test
 yarn test
