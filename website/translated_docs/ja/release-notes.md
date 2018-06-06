@@ -11,7 +11,7 @@ sidebar_label: リリースノート
 
 * [Cocos SDKをリリース](cocos-sdk-quickstart.html)
 * [Truffleのサポートが利用可能に](truffle-deploy.html)
-* EVMの静的呼び出しが呼び出し元を許可
+* EVMへの静的コールで呼び出し元を許可
 * 多くのシナリオ用のEVMを修正 
 
 ## リリース 143 - 6月1日
