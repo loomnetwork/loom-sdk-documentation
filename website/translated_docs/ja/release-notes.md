@@ -9,13 +9,13 @@ sidebar_label: リリースノート
 
 ## リリース 143 - 6月1日
 
-# [BluePrint Dockerイメージが利用可能](docker-blueprint.html)
+* [BluePrint Dockerイメージが利用可能](docker-blueprint.html)
 
-# [東京ハッカソンのレポート](https://medium.com/loom-network/highlights-from-the-first-loom-unity-sdk-hackathon-tokyo-edition-6ed723747c19)
+* [東京ハッカソンのレポート](https://medium.com/loom-network/highlights-from-the-first-loom-unity-sdk-hackathon-tokyo-edition-6ed723747c19)
 
-# [Loom SDKプロジェクト用のDockerイメージ](https://hub.docker.com/r/loomnetwork/)
+* [Loom SDKプロジェクト用のDockerイメージ](https://hub.docker.com/r/loomnetwork/)
 
-# Evmトランザクションレシートの修正
+* Evmトランザクションレシートの修正
 
 ## リリース 137 - 5月30日
 
