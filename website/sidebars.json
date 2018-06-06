@@ -7,7 +7,7 @@
     "Events": ["loomevents"],
     "Consensus": ["delegated-proof-of-stake"],
     "Monitoring": ["metrics", "logging"],
-    "Solidity & EVM": ["evm"],
+    "Solidity & EVM": ["evm",  "truffle-deploy"],
     "Example Games & Apps": ["etherboy-game", "phaser-sdk-demo","phaser-sdk-demo-websocket", "phaser-sdk-demo-web3-websocket", "simple-social-network-example"],
     "Deployment": ["etherboy-backend","multi-node-deployment", "docker-blueprint-phaser"],
     "Frequently Asked Questions": ["common-issues", "release-notes"]
