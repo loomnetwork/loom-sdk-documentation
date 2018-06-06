@@ -8,7 +8,7 @@ sidebar_label: Release Notes
 
 Reverse chronology order of release notes
 
-## Release 154 - June 6th
+## Release 155 - June 6th
 
 * [Cocos SDK is Live](cocos-sdk-quickstart.html)
 * [Truffle Support available](truffle-deploy.html)

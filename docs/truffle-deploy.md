@@ -32,7 +32,7 @@ npm install
 
 ```bash
 # Download
-wget https://storage.googleapis.com/private.delegatecall.com/loom/osx/build-154/loom
+wget https://storage.googleapis.com/private.delegatecall.com/loom/osx/build-155/loom
 chmod +x loom
 
 # Run
