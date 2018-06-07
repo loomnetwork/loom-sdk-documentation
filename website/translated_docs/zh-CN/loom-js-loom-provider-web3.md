@@ -96,8 +96,7 @@ Instantiate and using the `Web3` with `LoomProvider` looks similar from use from
 
 ```js
 import {
-  NonceTxMiddleware, SignedTxMiddleware, Client,
-  Address, LocalAddress, CryptoUtils, LoomProvider, EvmContract
+  Client, Address, LocalAddress, CryptoUtils, LoomProvider, EvmContract
 } from '../loom.umd'
 
 import Web3 from 'web3'
@@ -109,11 +108,6 @@ function getClient(privateKey, publicKey) {
     'ws://127.0.0.1:46657/websocket',
     'ws://127.0.0.1:9999/queryws',
   )
-
-  client.txMiddleware = [
-    new NonceTxMiddleware(publicKey, client),
-    new SignedTxMiddleware(privateKey)
-  ]
 
   return client
 }
@@ -129,7 +123,7 @@ const client = getClient(privateKey, publicKey)
 Now with client ready let's instantiate the `Web3`, in order to properly initialize the `Web3` instance we're going to pass the `LoomProvider` with the `client`
 
 ```js
-const web3 = new Web3(new LoomProvider(client))
+const web3 = new Web3(new LoomProvider(client, privateKey))
 ```
 
 We're ready to instantiate the contract
@@ -189,8 +183,7 @@ Now that we have all the pieces in place make sure that you have the DAppChain r
 
 ```js
 import {
-  NonceTxMiddleware, SignedTxMiddleware, Client,
-  Address, LocalAddress, CryptoUtils, LoomProvider, EvmContract
+  Client, Address, LocalAddress, CryptoUtils, LoomProvider
 } from '../loom.umd'
 
 import Web3 from 'web3'
@@ -203,11 +196,6 @@ function getClient(privateKey, publicKey) {
     'ws://127.0.0.1:9999/queryws',
   )
 
-  client.txMiddleware = [
-    new NonceTxMiddleware(publicKey, client),
-    new SignedTxMiddleware(privateKey)
-  ]
-
   return client
 }
 
@@ -219,7 +207,7 @@ const publicKey = CryptoUtils.publicKeyFromPrivateKey(privateKey)
 const client = getClient(privateKey, publicKey)
 
 // Setting the web3
-const web3 = new Web3(new LoomProvider(client))
+const web3 = new Web3(new LoomProvider(client, privateKey))
 
 ;(async () => {
   // Set the contract ABI
