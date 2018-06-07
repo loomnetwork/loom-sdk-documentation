@@ -163,6 +163,13 @@ console.log("Accounts list", loomProvider.accountsAddrList)
 console.log("Accounts and Private Keys", loomProvider.accounts)
 ```
 
+And add more accounts just use function `createExtraAccounts`
+
+```js
+const loomTruffleProvider = new LoomTruffleProvider(chainId, writeUrl, readUrl, privateKey)
+loomTruffleProvider.createExtraAccounts(10)
+```
+
 ## Configuring and running Web3.js + LoomProvider
 
 ### Download and Install
