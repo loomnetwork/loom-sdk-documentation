@@ -151,6 +151,18 @@ truffle deploy --network loom_dapp_chain
 
 > If you already deployed and wants to reset the deployment you can run the command `truffle deploy --reset --network loom_dapp_chain`
 
+### Adding more accounts
+
+In order to access accounts on `LoomTruffleProvider` you should use the function `getProviderEngine` which will return the `LoomProvider` giving access to properties `accountsAddrList` and `accounts``
+
+```js
+const loomTruffleProvider = new LoomTruffleProvider(chainId, writeUrl, readUrl, privateKey)
+const loomProvider = loomTruffleProvider.getProviderEngine()
+
+console.log("Accounts list", loomProvider.accountsAddrList)
+console.log("Accounts and Private Keys", loomProvider.accounts)
+```
+
 ## Configuring and running Web3.js + LoomProvider
 
 ### Download and Install
@@ -196,16 +208,11 @@ const client = new Client(
   'ws://127.0.0.1:9999/queryws',
 )
 
-client.txMiddleware = [
-  new NonceTxMiddleware(publicKey, client),
-  new SignedTxMiddleware(privateKey)
-]
-
 // The address for the caller of the function
 const from = LocalAddress.fromPublicKey(publicKey).toString()
 
 // Instantiate web3 client using LoomProvider
-const web3 = new Web3(new LoomProvider(client))
+const web3 = new Web3(new LoomProvider(client, privateKey))
 
 const ABI = [{"anonymous":false,"inputs":[{"indexed":false,"name":"_value","type":"uint256"}],"name":"NewValueSet","type":"event"},{"constant":false,"inputs":[{"name":"_value","type":"uint256"}],"name":"set","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"get","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"}]
 
