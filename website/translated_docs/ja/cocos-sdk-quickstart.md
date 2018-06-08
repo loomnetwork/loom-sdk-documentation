@@ -111,5 +111,5 @@ Cocos Creatorは、UIシステムやアニメーションエディタといっ�
 
 ## 注意点
 
-- `Loom Block Chain` configuration, Contract's usage, take a look at [this](https://loomx.io/developers/docs/en/prereqs.html)
+- `Loom Block Chain`の設定、Contractの使用については、[こちら](https://loomx.io/developers/docs/en/prereqs.html)を参照。
 - Sample `dark-slash` come from `Cocos Creator` [Tutorial Project](https://github.com/cocos-creator/tutorial-dark-slash)
