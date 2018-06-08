@@ -7,15 +7,19 @@ sidebar_label: リリースノート
 
 新着順。
 
+## リリース 155 - 6月6日
+
+* [Cocos SDKをリリース](cocos-sdk-quickstart.html)
+* [Truffleのサポートが利用可能に](truffle-deploy.html)
+* EVMへの静的コールで呼び出し元を許可
+* 多くのシナリオ用のEVMを修正 
+
 ## リリース 143 - 6月1日
 
 * [BluePrint Dockerイメージが利用可能](docker-blueprint.html)
-
 * [東京ハッカソンのレポート](https://medium.com/loom-network/highlights-from-the-first-loom-unity-sdk-hackathon-tokyo-edition-6ed723747c19)
-
 * [Loom SDKプロジェクト用のDockerイメージ](https://hub.docker.com/r/loomnetwork/)
-
-* Evmトランザクションレシートの修正
+* Evmトランザクションレシートの修正 
 
 ## リリース 137 - 5月30日
 
@@ -44,7 +48,7 @@ sidebar_label: リリースノート
 ## リリース 129 - 5月22日
 
 * イベントでのWebsocketサポート
-* インデックスレイヤー機能をSolidityコントラクト向けにアップデート 
+* Solidityコントラクト用インデックスレイヤーをアップデート 
 * Phaserゲームデモ - [Github](https://github.com/loomnetwork/phaser-sdk-demo)
 
 ## リリース 128 - 5月21日
