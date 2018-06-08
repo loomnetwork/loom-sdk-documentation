@@ -88,16 +88,16 @@ Cocos Creatorは、UIシステムやアニメーションエディタといっ�
 
 ## Creator Gameとの統合
 
-1. 生成された`Loom Cocos SDK`を、あなたのプロジェクトの`asset/script`ディレクトリにコピーしよう。そして`loom`に名前を変更しよう。
-2. write your own `proto` file as requirements of your game e.g. `sample/loomDemoForCreator` use [setscore.proto](https://github.com/loomnetwork/phaser-sdk-demo/blob/master/src/assets/protobuff/setscore.proto), and related [setscore_pb.js](https://github.com/loomnetwork/phaser-sdk-demo/blob/master/src/assets/protobuff/setscore_pb.js)
-3. write yur own contract as requirements of your game, and serailezse your data with `setscore_pb.js`, and send to Loom Blockchain, take a look at [SimpleContract](https://github.com/loomnetwork/phaser-sdk-demo/blob/master/src/SimpleContract.js)
+1. 生成された`Loom Cocos SDK`を、あなたのプロジェクトの`asset/script`ディレクトリにコピーしよう。そして名前を`loom`に変更しよう。
+2. あなたのゲームの要件として、独自の`proto`ファイルを書こう。 例として`sample/loomDemoForCreator`は[setscore.proto](https://github.com/loomnetwork/phaser-sdk-demo/blob/master/src/assets/protobuff/setscore.proto)と関連する [setscore_pb.js](https://github.com/loomnetwork/phaser-sdk-demo/blob/master/src/assets/protobuff/setscore_pb.js)を使用している。
+3. あなたのゲームの要件として独自のコントラクトを書こう。そしてデータを`setscore_pb.js`を使ってデータをシリアライズし、Loomブロックチェーンに送信しよう。[SimpleContract](https://github.com/loomnetwork/phaser-sdk-demo/blob/master/src/SimpleContract.js)を参照すること。
 
 ![](/developers/img/script_loom_folder.png)
 
-1. invoke api of your contract at suitable position.
-2. Run
+1. 適切な場所であなたのコントラクトのAPIを呼び出す。
+2. 実行する。
 
-## Sample:
+## サンプル:
 
 there have two `Sample` project: * `loomDemoForCreator` simplely use loom sdk * `dark-slash` use loom sdk in a real game
 
