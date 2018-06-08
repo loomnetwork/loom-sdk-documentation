@@ -78,7 +78,7 @@ Loom Cocos SDK構成ダイアグラム
 
 ![](http://www.cocos2d-x.org/s/images/creator_192.png)
 
-Cocos Creator is a complete package of game development tools and workflow, including a game engine (based on Cocos2d-x), resource management, scene editing, game preview, debug and publish one project to multiple platforms.
+Cocos Creatorはゲーム開発ツール及びワークフローの完全パッケージで、(Cocos2d-xがベースの)ゲームエンジン、リソース管理、シーン編集、ゲームプレビュー、デバッグが含まれている。また１つのプロジェクトを複数プラットフォームに公開する。
 
 For the first time we introduced entity-component structure and data-driven workflow to the Cocos2d-x family. With JavaScript, you can scripting your component in no time. The editor and engine extension is also made with JavaScript so you can make games and refine your tool in a single programming language.
 
@@ -86,7 +86,7 @@ Cocos Creator provides an innovative, easy to use toolset such as the UI system 
 
 you can download `Cocos Creator` from [here](http://www.cocos.com/creator) , and install.
 
-## Integrate to Creator Game
+## Creator Gameとの統合
 
 1. copy the generated `Loom Cocos SDK` to your project's `asset/script` directory, and rename it to `loom`
 2. write your own `proto` file as requirements of your game e.g. `sample/loomDemoForCreator` use [setscore.proto](https://github.com/loomnetwork/phaser-sdk-demo/blob/master/src/assets/protobuff/setscore.proto), and related [setscore_pb.js](https://github.com/loomnetwork/phaser-sdk-demo/blob/master/src/assets/protobuff/setscore_pb.js)
