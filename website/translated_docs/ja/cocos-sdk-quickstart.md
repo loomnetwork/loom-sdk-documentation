@@ -65,7 +65,7 @@ Loom Cocos SDK structure diagram
     cp ../genesis.example.json genesis.json
     
 
-Run Blockchain:
+ブロックチェーンの起動:
 
     # unable to start http server: listen tcp 127.0.0.1:9092: bind: address already in use
     pkill blueprint # kill server first
