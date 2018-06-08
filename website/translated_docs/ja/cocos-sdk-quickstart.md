@@ -80,7 +80,7 @@ Loom Cocos SDK構成ダイアグラム
 
 Cocos Creatorはゲーム開発ツール及びワークフローの完全パッケージで、(Cocos2d-xがベースの)ゲームエンジン、リソース管理、シーン編集、ゲームプレビュー、デバッグが含まれている。また１つのプロジェクトを複数プラットフォームに公開する。
 
-For the first time we introduced entity-component structure and data-driven workflow to the Cocos2d-x family. With JavaScript, you can scripting your component in no time. The editor and engine extension is also made with JavaScript so you can make games and refine your tool in a single programming language.
+我々は初めて、エンティティコンポーネントの構造とデータドリブンなワークフローをCocos2d-xファミリーに導入した。 With JavaScript, you can scripting your component in no time. The editor and engine extension is also made with JavaScript so you can make games and refine your tool in a single programming language.
 
 Cocos Creator provides an innovative, easy to use toolset such as the UI system and Animation editor. The toolset will be expanding continuously and quickly, thanks to the open editor extension system.
 
