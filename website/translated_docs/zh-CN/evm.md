@@ -76,9 +76,10 @@ loom DApp链包含一个以太坊虚拟机器（EVM）并使你可以部署以�
     
     
     ### Deploy
-    
+    Use `./loom deploy` to deploy a contract, that can be compiled to EVM 
+    bytecode, onto a DAppChains EVM. 
     ```text
-    Deploy a contract
+    Deploy a contract 
     
     Usage:
       loom deploy [flags]
@@ -107,10 +108,12 @@ Example:
       http://localhost:46657 -r http://localhost:9999
 
   
-If everything works you should see something like: ```text New contract deployed with address: 0xB448D7db27192d54FeBdA458B81e7383F8641c8A Runtime bytecode: [96 96 96 64 82 96 .... ]
+If everything works you should see something like: ```text New contract deployed with address: default:0x71A53d11A3b77e369463804FEE9B17ba7E24d98B Runtime bytecode: [96 96 96 64 82 ... 84 226 214 187 0 41] Transcation receipt: [10 178 198 52 108 ... 141 155 79 250 97 129 104 243]
 
     The output contract address can be used to call a method on the contract in 
     the call command.
+    The uinique [transaction hash](https://loomx.io/developers/docs/en/evm.html#transaction-receipt)
+    can be used to retrive a receipt of the deployment transaction. 
     
     ### call
     
@@ -143,7 +146,7 @@ The -a and -k flags are used to identify the user with public and private key ad
 Example ```text call -a ./data/pub -k ./data/pri -i ./cmd/loom/data/inputSet.bin \ -c 0xbD770416A3345f91E4b34576Cb804a576Fa48eB1 \ -w http://localhost:46657 -r http://localhost:9999
 
     On completion this will return the [transaction hash](https://loomx.io/developers/docs/en/evm.html#transaction-receipt), this should be unique
-     for each transaction call.
+     for each transaction call. It can be used to return a receipt of the transaction.
     
     ### static-call
     Call a read only method on a contract. Returns the method return value.
@@ -159,6 +162,9 @@ Example ```text call -a ./data/pub -k ./data/pri -i ./cmd/loom/data/inputSet.bin
       -i, --input string           file with input data
       -r, --read string            URI for quering app state (default "http://localhost:46658/query")
       -w, --write string           URI for sending txs (default "http://localhost:46658/rpc")
+      -a, --address string         address file
+          --chain string           chain ID (default "default")
+      -k, --key string             private key file
     
 
 The -a and -k flags are used to identify the user with public and private key address files.
@@ -167,7 +173,9 @@ The -a and -k flags are used to identify the user with public and private key ad
 
 -n is a name or label entered for the contract when it was deployed.Can be used as an alternative to the address.
 
--i is the input string. For a solidity contract this will be ABI encoded as described in the [Solidity ABI documentation](https://solidity.readthedocs.io/en/develop/abi-spec.html). Example ```text static-call -a ./data/pub -k ./data/pri -i ./cmd/loom/data/inputGet.bin \ -c 0xbD770416A3345f91E4b34576Cb804a576Fa48eB1 \ -w http://localhost:46657 -r http://localhost:9999
+-i is the input string. For a solidity contract this will be ABI encoded as described in the [Solidity ABI documentation](https://solidity.readthedocs.io/en/develop/abi-spec.html). Example
+
+The address fields -a and -k are optional. ```text static-call -a ./data/pub -k ./data/pri -i ./cmd/loom/data/inputGet.bin \ -c 0xbD770416A3345f91E4b34576Cb804a576Fa48eB1 \ -w http://localhost:46657 -r http://localhost:9999
 
     <br />## From a user plugin
     
@@ -562,7 +570,7 @@ We can also deploy a new smart contract to a running DAppChain EVM. For this we 
 
 A solidity contract can be converted to byte code using the solidity compiler `solc --bin -o . mySolidityProgram.sol`
 
-`hex.DecodeString` can be used to convert a hex string to a []byte array.
+`hex.DecodeString` can be used to convert a hex string to a []byte array. We can then use the client.DeployContract to deploy our contract. and return an EVMContract handle. The second return parameter is a [transaction hash](https://loomx.io/developers/docs/en/evm.html#transaction-receipt) that can be used to retrive a reciept of the transaction using the TxHash Query.
 
 ```go
 import (
@@ -572,7 +580,8 @@ import (
   "github.com/loomnetwork/go-loom/vm"
 )
 
-func deployEvmContract(name string, byteHex string, signer auth.Signer) (*EvmContract, error) {
+func deployEvmContract(name string, byteHex string, signer auth.Signer) 
+(handle *EvmContract, txReciept []byte, err error) {
     // remove the 0x at the beging of a hex string
     byteCode, err := hex.DecodeString(string(byteHex[2:]))
     if err != nil {
@@ -582,6 +591,20 @@ func deployEvmContract(name string, byteHex string, signer auth.Signer) (*EvmCon
     return client.DeployContract(rpcClient, signer, byteCode, name)
 }
 ```
+
+#### Retrieving Solidity contract's code
+
+You can retrieve the runtime bytecode for a deployed solidity contract using the DAppChains QueryInterface method GetCode.
+
+```go
+// GetCode returns the runtime byte-code of a contract running on a DAppChain's EVM.
+// Gives an error for non-EVM contracts.
+// contract - address of the contract in the form of a string. (Use loom.Address.String() to convert)
+// return []byte - runtime bytecode of the contract.
+func (c *DAppChainRPCClient) GetCode(contract string) ([]byte, error) 
+```
+
+The runtime code is the inital contract's binary with the code for starting and construting the contract removed as its no longer needed.
 
 #### Writing to a Solidity contract on a DAppChain
 
@@ -614,7 +637,7 @@ func store(contract *client.EvmContract, key, abi string, value int) ([]byte, er
 
 #### Reading from a Solidity contract on a DAppCahin
 
-To get information from an EVM smart contract you need to call a view method using the EvmContract's staticCall. This returns the result in an ABI encoded []byte. As for other EVM methods the function signature and input arguments are [ABI encoded](https://solidity.readthedocs.io/en/develop/abi-spec.html).
+To get information from an EVM smart contract you need to call a view method using the EvmContract's staticCall. This returns the result in an ABI encoded []byte. As for other EVM methods the function signature and input arguments are [ABI encoded](https://solidity.readthedocs.io/en/develop/abi-spec.html). The caller field in StaticCall is optional, and using an empty loom.Address is fine.
 
 ```go
  input (
@@ -633,7 +656,7 @@ To get information from an EVM smart contract you need to call a view method usi
     if err != nil {
         return []byte[], err
     ]
-    return contract.StaticCall(input) 
+    return contract.StaticCall(input, loom.RootAddress("MyChainId")) 
  }
  ```
 

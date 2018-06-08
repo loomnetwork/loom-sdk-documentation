@@ -3,11 +3,9 @@ id: truffle-deploy
 title: Truffle DappChain Example
 sidebar_label: Truffle Deploy
 ---
-
 ![http://truffleframework.com](/developers/img/truffle.jpg)
 
-Simple example of Truffle interacting with Loom DappChain, this example uses [loom-truffle-provider](https://github.com/loomnetwork/loom-truffle-provider) (check LoomTruffleProvider repository for more details)
-
+Simple example of Truffle interacting with Loom DappChain, this example uses [loom-truffle-provider](https://github.com/loomnetwork/loom-truffle-provider)
 
 ## Requirements
 
@@ -35,7 +33,7 @@ npm install
 
 ```bash
 # Download
-wget https://storage.googleapis.com/private.delegatecall.com/loom/osx/build-161/loom
+wget https://storage.googleapis.com/private.delegatecall.com/loom/osx/build-155/loom
 chmod +x loom
 
 # Run
@@ -56,9 +54,9 @@ yarn test
 ```
 
 > In order to correctly redeploy the contracts there's a command "yarn deploy:reset"
-
+> 
 > Also is possible to call truffle command directly by call "yarn truffle"
-
+> 
 > We're not versioning the build directory for this particular example, although is recommended to versioning, the limitation can be removed by editing .gitignore
 
 ## Current limitations
@@ -67,12 +65,4 @@ yarn test
 
 * Loom Truffle Provider is currently compatible only with Truffle `v4.1.8`. Support for newer versions will be added soon.
 
-Loom Network
-----
-[https://loomx.io](https://loomx.io)
-
-
-License
-----
-
-BSD 3-Clause License
+* Only one account is available for testing and deployment, the one associated with the private key.
