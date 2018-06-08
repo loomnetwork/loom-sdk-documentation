@@ -31,36 +31,13 @@ EVMを構成するのは、データベース及びEVMバイトコードイン�
     
     コンパイル済みのコードをコントラクトディレクトリ内に配置し`genesis.json` ファイルをリンクすることで、立ち上げ時のDAppチェーンにデプロイすることができる。
     
-    これはジェネシス・ファイルのサンプルだ。 
+    これはジェネシス・ファイルのサンプルだ。 ```json { "contracts": [ { "vm": "EVM", "format": "truffle", "name": "SimpleStore", "location": "/path/to/loomchain/contracts/SimpleStore.json" }, { "vm": "plugin", "format": "plugin", "name": "evmexample", "location": "evmexample:1.0.0", "init": {
     
-    <pre>json
-{
- "contracts": [
-     {
-         "vm": "EVM",
-         "format": "truffle",
-         "name": "SimpleStore",
-         "location": "/path/to/loomchain/contracts/SimpleStore.json"
-     },
-     {
-         "vm": "plugin",
-         "format": "plugin",
-         "name": "evmexample",
-         "location": "evmexample:1.0.0",
-         "init": {
-</pre>
-    
-             
-        <pre>         }
-                }
-        </pre>
-        
-        
+             }
+         }
         
     
-    <pre>] 
-} 
-</pre> ```
+    ] } 
 
     配列の先頭に2つのコントラクトがある。 1つ目はEVMコントラクトで、2つ目はプラグインコントラクトだ。
     * `vm:`コントラクト実行に使用する仮想マシン。 現在2つのオプションがある。
