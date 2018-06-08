@@ -80,15 +80,15 @@ Loom Cocos SDK構成ダイアグラム
 
 Cocos Creatorはゲーム開発ツール及びワークフローの完全パッケージで、(Cocos2d-xがベースの)ゲームエンジン、リソース管理、シーン編集、ゲームプレビュー、デバッグが含まれている。また１つのプロジェクトを複数プラットフォームに公開する。
 
-我々は初めて、エンティティコンポーネントの構造とデータドリブンなワークフローをCocos2d-xファミリーに導入した。 JavaScriptを使って、コンポーネントをすぐにスクリプティングすることが可能だ。 The editor and engine extension is also made with JavaScript so you can make games and refine your tool in a single programming language.
+我々は初めて、エンティティコンポーネントの構造とデータドリブンなワークフローをCocos2d-xファミリーに導入した。 JavaScriptを使って、あなたのコンポーネントをすぐにスクリプティングすることが可能だ。 そのエディタ及びエンジン拡張機能も同じくJavaScriptで作成されているので、１つのプログラミング言語でゲームの作成とツールの改良を行うことができる。
 
-Cocos Creator provides an innovative, easy to use toolset such as the UI system and Animation editor. The toolset will be expanding continuously and quickly, thanks to the open editor extension system.
+Cocos Creatorは、UIシステムやアニメーションエディタといった革新的で使いやすいツールセットを提供する。 オープンなエディタ拡張システムのおかげで、このツールセットは常にそして迅速に拡大し続ける。
 
-you can download `Cocos Creator` from [here](http://www.cocos.com/creator) , and install.
+`Cocos Creator`は[ここ](http://www.cocos.com/creator)からダウンロードしてインストールできる。
 
 ## Creator Gameとの統合
 
-1. copy the generated `Loom Cocos SDK` to your project's `asset/script` directory, and rename it to `loom`
+1. 生成された`Loom Cocos SDK`を、あなたのプロジェクトの`asset/script`ディレクトリにコピーしよう。そして`loom`に名前を変更しよう。
 2. write your own `proto` file as requirements of your game e.g. `sample/loomDemoForCreator` use [setscore.proto](https://github.com/loomnetwork/phaser-sdk-demo/blob/master/src/assets/protobuff/setscore.proto), and related [setscore_pb.js](https://github.com/loomnetwork/phaser-sdk-demo/blob/master/src/assets/protobuff/setscore_pb.js)
 3. write yur own contract as requirements of your game, and serailezse your data with `setscore_pb.js`, and send to Loom Blockchain, take a look at [SimpleContract](https://github.com/loomnetwork/phaser-sdk-demo/blob/master/src/SimpleContract.js)
 
