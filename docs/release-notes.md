@@ -8,6 +8,11 @@ sidebar_label: Release Notes
 
 Reverse chronology order of release notes
 
+## Release 161 - June 7th
+
+* Tons of Truffle Fixes
+* Tons of web3.js fixes for Loom-Js provider
+
 ## Release 155 - June 6th
 
 * [Cocos SDK is Live](cocos-sdk-quickstart.html)
