@@ -67,14 +67,14 @@ Loom Cocos SDK構成ダイアグラム
 
 ブロックチェーンの起動:
 
-    # unable to start http server: listen tcp 127.0.0.1:9092: bind: address already in use
-    pkill blueprint # kill server first
+    # httpサーバーを起動不可にする: listen tcp 127.0.0.1:9092: bind: address already in use
+    pkill blueprint  # まずサーバーをkillする
     ../../loom run
     
 
-Please consult the [Loom SDK docs](https://loomx.io/developers/docs/en/prereqs.html) for further instruction on running your own DappChain.
+自分のDAppチェーン起動についてのさらなる説明は、[Loom SDKドキュメンテーション](https://loomx.io/developers/docs/en/prereqs.html)を参照すること。
 
-## Install Cocos Creator
+## Cocos Creatorのインストール
 
 ![](http://www.cocos2d-x.org/s/images/creator_192.png)
 
