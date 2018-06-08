@@ -99,11 +99,11 @@ Cocos Creatorは、UIシステムやアニメーションエディタといっ�
 
 ## サンプル:
 
-there have two `Sample` project: * `loomDemoForCreator` simplely use loom sdk * `dark-slash` use loom sdk in a real game
+２つの`Sample`プロジェクトがある: * `loomDemoForCreator`はLoom SDKをシンプルに使用している。 * `dark-slash`はLoom SDKを実際のゲームにて使用している。
 
-Test Steps
+テストの手順
 
-- update git submodule, run command `git submodule update --init`, if you have done this, skip this.
+- コマンド`git submodule update --init`を実行し、gitのサブモジュールを更新しよう。もしすでに終わっていればこの手順はスキップしよう。
 - generate and pack `Loom Cocos SDK`, run command `./tools/genCocoSDK.py`
 - sync `Loom Cocos SDK` to `sample/loomDemoForCreator` and `sample/dark-slash`, run command `./tools/syncLoomJSToSample.py`
 - entry directory `blueprint/build`, run `Loom Block Chain` services, run command `../../loom run`, if you have done this, skip this.
