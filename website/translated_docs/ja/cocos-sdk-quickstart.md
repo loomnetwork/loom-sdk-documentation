@@ -104,8 +104,8 @@ Cocos Creatorは、UIシステムやアニメーションエディタといっ�
 テストの手順
 
 - コマンド`git submodule update --init`を実行し、gitのサブモジュールを更新しよう。もしすでに終わっていればこの手順はスキップしよう。
-- generate and pack `Loom Cocos SDK`, run command `./tools/genCocoSDK.py`
-- sync `Loom Cocos SDK` to `sample/loomDemoForCreator` and `sample/dark-slash`, run command `./tools/syncLoomJSToSample.py`
+- `Loom Cocos SDK`を生成し圧縮しよう。コマンド`./tools/genCocoSDK.py`を実行しよう。
+- `Loom Cocos SDK`を、`sample/loomDemoForCreator`及び`sample/dark-slash`と同期させて、コマンド`./tools/syncLoomJSToSample.py`を実行しよう。
 - entry directory `blueprint/build`, run `Loom Block Chain` services, run command `../../loom run`, if you have done this, skip this.
 - open `sample/loomDemoForCreator` or `sample/dark-slash` with `Cocos Creator` and run
 
