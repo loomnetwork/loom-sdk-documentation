@@ -106,10 +106,10 @@ Cocos Creatorは、UIシステムやアニメーションエディタといっ�
 - コマンド`git submodule update --init`を実行し、gitのサブモジュールを更新しよう。もしすでに終わっていればこの手順はスキップしよう。
 - `Loom Cocos SDK`を生成し圧縮しよう。コマンド`./tools/genCocoSDK.py`を実行しよう。
 - `Loom Cocos SDK`を、`sample/loomDemoForCreator`及び`sample/dark-slash`と同期させて、コマンド`./tools/syncLoomJSToSample.py`を実行しよう。
-- entry directory `blueprint/build`, run `Loom Block Chain` services, run command `../../loom run`, if you have done this, skip this.
-- open `sample/loomDemoForCreator` or `sample/dark-slash` with `Cocos Creator` and run
+- ディレクトリ`blueprint/build`へ入り、`Loom Block Chain`サービスを実行する。コマンド`../../loom run`を実行しよう。もしすでに終わっていれば、この手順はスキップしよう。
+- `Cocos Creator`を使って`sample/loomDemoForCreator`または`sample/dark-slash`を開き、実行しよう。
 
-## Notice
+## 注意点
 
 - `Loom Block Chain` configuration, Contract's usage, take a look at [this](https://loomx.io/developers/docs/en/prereqs.html)
 - Sample `dark-slash` come from `Cocos Creator` [Tutorial Project](https://github.com/cocos-creator/tutorial-dark-slash)
