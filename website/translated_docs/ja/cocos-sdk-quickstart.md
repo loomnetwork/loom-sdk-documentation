@@ -26,19 +26,19 @@ sidebar_label: Cocos SDKクイックスタート
 
 ## Loom Cocos SDK
 
-Loom global structure diagram
+Loomグローバル構成ダイアグラム
 
 ![](/developers/img/Loom-Cocos-SDK.png)
 
-Loom Cocos SDK structure diagram
+Loom Cocos SDK構成ダイアグラム
 
 ![](/developers/img/loom-cocos-sdk-struct.png)
 
-`Loom-Cocos-SDK` have same api, same protobuf, similar contract with `loom-js`.
+`Loom-Cocos-SDK`には、`loom-js`と同一のAPIとprotobuf、さらに同様のコントラクトがある。
 
-`Loom Cocos SDK` is base on [Loom-JS](https://github.com/loomnetwork/loom-js/) , and proting it to `Cocos Creator` .
+`Loom Cocos SDK`は[Loom-JS](https://github.com/loomnetwork/loom-js/)をベースとしていて、これを`Cocos Creator`にプロットしている。
 
-### Generate LoomJS SDK
+### LoomJS SDKの生成
 
 - `git clone https://github.com/loomnetwork/cocos-sdk.git`
 - `cd cocos-sdk`
