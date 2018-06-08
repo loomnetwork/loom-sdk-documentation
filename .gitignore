@@ -12,3 +12,10 @@ website/i18n/*
 !website/i18n/en.json
 
 .vscode/
+
+
+# Mac OS X file
+.DS_Store
+
+# Jetbrains project meta folder
+.idea/*

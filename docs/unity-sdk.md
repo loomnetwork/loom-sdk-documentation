@@ -17,7 +17,7 @@ and asset transfers. The following Unity target platforms are currently supporte
 
 ## Sample Code
 
-You can find all the code on this page and a ready-to-go Unity scene in the Loom Unity SDK under [`Assets/Samples/QuickStart`](https://github.com/loomnetwork/unity3d-sdk/tree/master/Assets/Samples/QuickStart).
+You can find all the code on this page and a ready-to-go Unity scene in the Loom Unity SDK under [`Assets/LoomSDK/Samples/QuickStart`](https://github.com/loomnetwork/unity3d-sdk/tree/master/Assets/LoomSDK/Samples/QuickStart).
 
 ## Connecting to a DAppChain
 

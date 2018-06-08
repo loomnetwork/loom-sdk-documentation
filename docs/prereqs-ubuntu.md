@@ -20,31 +20,11 @@ curl -O https://dl.google.com/go/go1.10.2.linux-amd64.tar.gz
 sudo tar -C /usr/local -xzf go1.10.2.linux-amd64.tar.gz
 ```
 
-Add the following to your `~/.bashrc` or `~/.zshrc`:
+Assuming you are on bash, if zsh do to `~/.zshrc`:
 
 ```bash
-export PATH=$PATH:/usr/local/go/bin
-```
-
-### The "gimme" way
-
-```bash
-curl -sL -o /usr/local/bin/gimme https://raw.githubusercontent.com/travis-ci/gimme/master/gimme
-chmod +x /usr/local/bin/gimme
-
-gimme 1.10.2
-```
-
-Add the following to your `~/.bashrc` or `~/.zshrc`:
-
-```bash
-unset GOOS;
-unset GOARCH;
-export GOROOT='/home/ubuntu/.gimme/versions/go1.10.2.linux.amd64';
-export PATH="/home/ubuntu/.gimme/versions/go1.10.2.linux.amd64/bin:${PATH}";
-go version >&2;
-
-export GIMME_ENV="/home/ubuntu/.gimme/envs/go1.10.2.env"
+echo -e "\n export PATH=\$PATH:/usr/local/go/bin" >>  ~/.bashrc
+source ~/.bashrc
 ```
 
 ## Protobuf
@@ -55,13 +35,14 @@ https://github.com/google/protobuf/releases/
 export PROTOBUF_VERSION=3.5.1
 curl -OL https://github.com/google/protobuf/releases/download/v${PROTOBUF_VERSION}/protoc-${PROTOBUF_VERSION}-linux-x86_64.zip
 sudo unzip protoc-${PROTOBUF_VERSION}-linux-x86_64.zip -d /usr/local
+sudo chmod +x /usr/local/bin/protoc
 ```
 
 
 ## Installation
 
 ```bash
-curl -OL https://storage.googleapis.com/private.delegatecall.com/loom/linux/build-133/loom
+curl -OL https://storage.googleapis.com/private.delegatecall.com/loom/linux/build-155/loom
 chmod +x loom
 
 mkdir ~/gopath
@@ -94,7 +75,7 @@ You can read the source of the [blueprint contract here](https://github.com/loom
 ```bash
 cd blueprint/build
 ../../loom genkey -k priv_key -a pub_key
-./blueprint create-acct -k priv_key
-./blueprint set -v 1 -k priv_key
-./blueprint get
+./blueprint call create-acct -p priv_key
+./blueprint call set -v 1 -p priv_key
+./blueprint call get
 ```

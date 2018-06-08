@@ -43,7 +43,7 @@ go get -u github.com/golang/protobuf/protoc-gen-go
 ## Installation
 
 ```bash
-wget https://storage.googleapis.com/private.delegatecall.com/loom/osx/build-133/loom
+wget https://storage.googleapis.com/private.delegatecall.com/loom/osx/build-155/loom
 chmod +x loom
 
 mkdir tmpgopath
@@ -76,7 +76,7 @@ You can read the source of the <a href="https://github.com/loomnetwork/weave-blu
 ```bash
 cd blueprint/build
 ../../loom genkey -k priv_key -a pub_key
-./blueprint create-acct -k priv_key
-./blueprint set -v 1 -k priv_key
-./blueprint get
+./blueprint call create-acct -p priv_key
+./blueprint call set -v 1 -p priv_key
+./blueprint call get
 ```

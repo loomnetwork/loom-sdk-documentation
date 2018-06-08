@@ -7,6 +7,23 @@ sidebar_label: Release Notes
 ## Overview
 
 Reverse chronology order of release notes
+
+## Release 155 - June 6th
+
+* [Cocos SDK is Live](cocos-sdk-quickstart.html)
+* [Truffle Support available](truffle-deploy.html)
+* Static calls to EVM now allow caller
+* EVM Fixes for a lot of scenarios 
+
+
+## Release 143 - June 1st
+
+* [BluePrint Docker Images Available](docker-blueprint.html)
+* [Japanese Hackathon Results](https://medium.com/loom-network/highlights-from-the-first-loom-unity-sdk-hackathon-tokyo-edition-6ed723747c19)
+* [Docker Images for some of Loom SDK Projects](https://hub.docker.com/r/loomnetwork/)
+* Evm TX Reciepts fixes 
+
+
 ## Release 137 - May 30th
 
 * Go Clients can Access EVM Contracts
