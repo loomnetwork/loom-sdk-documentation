@@ -496,7 +496,7 @@ const Showcase = props => {
     })
     .map((user, i) => {
       return (
-        <a href={user.infoLink} key={i}>
+        <a href={user.infoLink} target="_blank" key={i}>
           <img src={userImgUrl(user.image)} alt={user.caption} title={user.caption} />
         </a>
       );
