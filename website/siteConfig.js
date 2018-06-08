@@ -22,6 +22,12 @@ const users = [
     infoLink: 'https://neondistrict.io/',
     pinned: true,
   },
+  {
+    caption: 'Axie Infinity',
+    image: 'img/axie-logo.png',
+    infoLink: 'https://medium.com/loom-network/loom-sdk-projects-axie-infinity-collect-breed-and-battle-fantasy-pets-on-the-blockchain-22e6fd11b410',
+    pinned: true,
+  },  
 ];
 
 const siteConfig = {
