@@ -5,7 +5,7 @@ sidebar_label: Web3, LoomProvider and Truffle
 ---
 ## Overview
 
-The `loom-js` also comes with the `LoomProvider` which allows you to integrate with the [Web3.js](https://github.com/ethereum/web3.js), thus making easier the integration with [EVM](docs/en/evm.html) contained on Loom DappChain, also is possible to use [Truffle Framework](http://truffleframework.com/) to manage tests, deployments and solidity smart contracts.
+The `loom-js` also comes with the `LoomProvider` which allows you to integrate with the [Web3.js](https://github.com/ethereum/web3.js), thus making easier the integration with [EVM](docs/en/evm.html) contained on Loom DAppChain, also is possible to use [Truffle Framework](http://truffleframework.com/) to manage tests, deployments and solidity smart contracts.
 
 ### Web3
 
@@ -13,13 +13,13 @@ As the official documentation for `Web3.js` states:
 
 > `Web3.js` is a collection of libraries which allow you to interact with a local or remote ethereum node, using a HTTP or IPC connection.
 
-For the Loom DappChains the communication happens using `WebSockets` instead `HTTP` or `IPC`, however the deeper knowledge of the communication isn't required since `Web3.js` abstracts that part.
+For the Loom DAppChains the communication happens using `WebSockets` instead `HTTP` or `IPC`, however the deeper knowledge of the communication isn't required since `Web3.js` abstracts that part.
 
 ### LoomProvider
 
-An `Provider` is a bridge that connects the `Web3.js` API to the Ethereum node, in order to make `Web3.js` calls compatible with Loom DappChain you should use the `LoomProvider`
+An `Provider` is a bridge that connects the `Web3.js` API to the Ethereum node, in order to make `Web3.js` calls compatible with Loom DAppChain you should use the `LoomProvider`
 
-Combining `Web3.js` and `LoomProvider` is a good option to interact with smart contracts deployed on Loom DappChain, because `Web3.js` abstracts the construction of API calls not needing the interpretation of the [ABI](https://solidity.readthedocs.io/en/develop/abi-spec.html) manually.
+Combining `Web3.js` and `LoomProvider` is a good option to interact with smart contracts deployed on Loom DAppChain, because `Web3.js` abstracts the construction of API calls not needing the interpretation of the [ABI](https://solidity.readthedocs.io/en/develop/abi-spec.html) manually.
 
 ### Truffle framework
 
@@ -37,10 +37,8 @@ First you'll need to install `Truffle`:
 
 ```bash
 # Currently supported version
-npm install -g truffle@4.1.8
+npm install -g truffle
 ```
-
-> Current the version supported is 4.1.8, soon the support will be updated for newer versions
 
 Once `Truffle` is installed let's create a directory and initialize a project:
 
@@ -101,7 +99,7 @@ module.exports = function(deployer) {
 
 ### Download and configure Loom Truffle Provider
 
-The last cog to be added is the `Loom Truffle Provider`, that plugin provides the connection between `Truffle` and Loom DappChain (and it also has the `LoomProvider` underneath). Let's install:
+The last cog to be added is the `Loom Truffle Provider`, that plugin provides the connection between `Truffle` and Loom DAppChain (and it also has the `LoomProvider` underneath). Let's install:
 
 ```bash
 npm install loom-truffle-provider --save
@@ -116,8 +114,8 @@ const { readFileSync } = require('fs')
 const LoomTruffleProvider = require('loom-truffle-provider')
 
 const chainId    = 'default'
-const writeUrl   = 'ws://127.0.0.1:46657/websocket'
-const readUrl    = 'ws://127.0.0.1:9999/queryws'
+const writeUrl   = 'http://127.0.0.1:46658/rpc'
+const readUrl    = 'http://127.0.0.1:46658/query'
 const privateKey = readFileSync('./private_key', 'utf-8')
 
 const loomTruffleProvider = new LoomTruffleProvider(chainId, writeUrl, readUrl, privateKey)
@@ -125,9 +123,8 @@ const loomTruffleProvider = new LoomTruffleProvider(chainId, writeUrl, readUrl, 
 module.exports = {
   networks: {
     loom_dapp_chain: {
-      provider: function() {
-        return loomTruffleProvider
-      }, network_id: '*'
+      provider: loomTruffleProvider,
+      network_id: '*'
     }
   }
 }
@@ -139,7 +136,7 @@ module.exports = {
 
 Now we're good to run the deploy command:
 
-> But before you need to start the Loom DappChain
+> But before you need to start the Loom DAppChain
 
 ```bash
 truffle deploy --network loom_dapp_chain
