@@ -26,19 +26,19 @@ sidebar_label: Cocos SDK快速开始
 
 ## Loom Cocos SDK
 
-Loom global structure diagram
+Loom 全局结构
 
 ![](/developers/img/Loom-Cocos-SDK.png)
 
-Loom Cocos SDK structure diagram
+Loom Cocos SDK软件结构
 
 ![](/developers/img/loom-cocos-sdk-struct.png)
 
-`Loom-Cocos-SDK` have same api, same protobuf, similar contract with `loom-js`.
+由图可见，`Loom-Cocos-SDK` 与`loom-js`使用相同的API, 相同的 protobuf 文件, 基本类似的合约写法。
 
-`Loom Cocos SDK` is base on [Loom-JS](https://github.com/loomnetwork/loom-js/) , and proting it to `Cocos Creator` .
+`Loom Cocos SDK`是基于 [Loom-JS](https://github.com/loomnetwork/loom-js/)而移植到`Cocos Creator`上.
 
-### Generate LoomJS SDK
+### 打包并生成 Loom Cocos SDK
 
 - `git clone https://github.com/loomnetwork/cocos-sdk.git`
 - `cd cocos-sdk`
