@@ -1,28 +1,28 @@
 ---
 id: cocos-sdk-quickstart
-title: Loom SDK for Cocos Creator
-sidebar_label: Cocos SDK Quickstart
+title: Cocos Creator的Loom SDK
+sidebar_label: Cocos SDK快速开始
 ---
-## Content:
+## 内容：
 
-- English 
- - [Prerequisites](#prerequisites)
+- 中文 
+ - [环境依赖](#prerequisites)
  - [Loom Cocos SDK](#loom-cocos-sdk)
- - [Generate LoomJS SDK](#generate-loomjs-sdk)
- - [Install Loom](#install-loom)
- - [Install Cocos Creator](#install-cocos-creator)
- - [Integrate to Creator Game](#integrate-to-creator-game)
- - [Sample](#sample)
- - [Notice](#notice)
+ - [打包并生成LoomJS SDK](#generate-loomjs-sdk)
+ - [安装Loom](#install-loom)
+ - [安装Cocos Creator](#install-cocos-creator)
+ - [Creator Game 内集成调用](#integrate-to-creator-game)
+ - [示例](#sample)
+ - [说明](#notice)
 
-## Prerequisites
+## 环境依赖
 
 1. Python 2.7
 2. Git
 3. [NodeJS](https://nodejs.org/en/), [NPM](https://www.npmjs.com/get-npm)
-4. [Loom](https://loomx.io/), [Install Steps](https://loomx.io/developers/docs/en/prereqs.html)
+4. [Loom](https://loomx.io/), [安装速度](https://loomx.io/developers/docs/en/prereqs.html)
 5. [Cocos Creator](http://www.cocos.com/creator)
-6. [Cocos Loom SDK Repo](https://github.com/loomnetwork/cocos-sdk/)
+6. [Cocos Loom SDK 代码库](https://github.com/loomnetwork/cocos-sdk/)
 
 ## Loom Cocos SDK
 
