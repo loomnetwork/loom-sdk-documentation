@@ -12,7 +12,7 @@ sidebar_label: Cocos SDK快速开始
  - [安装Loom](#install-loom)
  - [安装Cocos Creator](#install-cocos-creator)
  - [Creator Game 内集成调用](#integrate-to-creator-game)
- - [示例](#sample)
+ - [Sample](#sample)
  - [说明](#notice)
 
 ## 环境依赖
@@ -84,18 +84,18 @@ Cocos Creator基于开源框架Cocos2d-x，实现了一体化、可扩展、可�
 
 这极大地简化了Cocos2d-x开发工作流中的场景编辑、UI设计、资源管理、游戏调试和预览、多平台发布等工作。 是使用Cocos2d-x进行团队协作开发的最佳选择。
 
-you can download `Cocos Creator` from [here](http://www.cocos.com/creator) , and install.
+在[这里](http://www.cocos.com/creator)下载最新的`Cocos Creator`安装即可.
 
-## Integrate to Creator Game
+## Creator Game 内集成调用
 
-1. copy the generated `Loom Cocos SDK` to your project's `asset/script` directory, and rename it to `loom`
-2. write your own `proto` file as requirements of your game e.g. `sample/loomDemoForCreator` use [setscore.proto](https://github.com/loomnetwork/phaser-sdk-demo/blob/master/src/assets/protobuff/setscore.proto), and related [setscore_pb.js](https://github.com/loomnetwork/phaser-sdk-demo/blob/master/src/assets/protobuff/setscore_pb.js)
-3. write yur own contract as requirements of your game, and serailezse your data with `setscore_pb.js`, and send to Loom Blockchain, take a look at [SimpleContract](https://github.com/loomnetwork/phaser-sdk-demo/blob/master/src/SimpleContract.js)
+1. 将上一步中打包生成好的`Loom Cocos SDK`放到工程的`asset/script`目录下, 重命名为`loom`
+2. 根据你的游戏的需求编写自己的`proto`文件, 然后用 protoc 生成对应的 js 文件 e.g. 本例中使用的是[setscore.proto](https://github.com/loomnetwork/phaser-sdk-demo/blob/master/src/assets/protobuff/setscore.proto), 及对应生成的[setscore_pb.js](https://github.com/loomnetwork/phaser-sdk-demo/blob/master/src/assets/protobuff/setscore_pb.js)
+3. 编写适应自己游戏需求的合约, 使用上一步中的 `setscore_pb.js`将数据序列化, 并将数据发往DappChain, 参见[SimpleContract](https://github.com/loomnetwork/phaser-sdk-demo/blob/master/src/SimpleContract.js)
 
 ![](/developers/img/script_loom_folder.png)
 
-1. invoke api of your contract at suitable position.
-2. Run
+1. 在你的游戏中需要的位置调用上一步中的接口.
+2. 运行, 检查
 
 ## Sample:
 
