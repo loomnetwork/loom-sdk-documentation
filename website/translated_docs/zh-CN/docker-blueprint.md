@@ -21,16 +21,16 @@ docker run -d -p 80:3000 loomnetwork/phaser-sdk-demo:latest
 
 如果在同一主机上运行web服务器，则 `phaser-sdk-demo` 的容器可以使用 `-p 127.0.0.1: 3000:3000`运行，并将web服务器配置为与端口 3000 (或任何其他可用端口) 的反向代理。
 
-It is important for the web browser to be able to access the websockets running in the `weave-blueprint` container.
+Web浏览器能够访问`weave-blueprint`容器中运行的websockets很重要。
 
-The docker run parameter `-p` can be manipulated further according to needs.
+Docker运行的参数`-p`可以根据需要进一步操纵。
 
-## [Docker Images](https://hub.docker.com/r/loomnetwork/)
+## [Docker图像](https://hub.docker.com/r/loomnetwork/)
 
-If you want to pull the individual images
+如果你想拉出个别图像
 
-[Loom Base](https://hub.docker.com/r/loomnetwork/loom/)
+[Loom基础](https://hub.docker.com/r/loomnetwork/loom/)
 
-[Blueprint Contract](https://hub.docker.com/r/loomnetwork/weave-blueprint/)
+[蓝图合约](https://hub.docker.com/r/loomnetwork/weave-blueprint/)
 
-[Phaser SDK UI Example](https://hub.docker.com/r/loomnetwork/phaser-sdk-demo)
+[Phaser SDK UI示例](https://hub.docker.com/r/loomnetwork/phaser-sdk-demo)
