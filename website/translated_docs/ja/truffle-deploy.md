@@ -5,7 +5,7 @@ sidebar_label: Truffle Deploy
 ---
 ![http://truffleframework.com](/developers/img/truffle.jpg)
 
-Simple example of Truffle interacting with Loom DappChain, this example uses [loom-truffle-provider](https://github.com/loomnetwork/loom-truffle-provider)
+Simple example of Truffle interacting with Loom DappChain, this example uses [loom-truffle-provider](https://github.com/loomnetwork/loom-truffle-provider) (check LoomTruffleProvider repository for more details)
 
 ## Requirements
 
@@ -33,7 +33,7 @@ npm install
 
 ```bash
 # Download
-wget https://storage.googleapis.com/private.delegatecall.com/loom/osx/build-155/loom
+wget https://storage.googleapis.com/private.delegatecall.com/loom/osx/build-161/loom
 chmod +x loom
 
 # Run
@@ -65,4 +65,10 @@ yarn test
 
 * Loom Truffle Provider is currently compatible only with Truffle `v4.1.8`. Support for newer versions will be added soon.
 
-* Only one account is available for testing and deployment, the one associated with the private key.
+## Loom Network
+
+<https://loomx.io>
+
+## License
+
+BSD 3-Clause License

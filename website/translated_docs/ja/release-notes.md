@@ -7,6 +7,11 @@ sidebar_label: リリースノート
 
 新着順。
 
+## リリース 161 - 6月7日
+
+* Truffleサポートを修正
+* Loom-Jsプロバイダのためのweb3.jsを修正
+
 ## リリース 155 - 6月6日
 
 * [Cocos SDKをリリース](cocos-sdk-quickstart.html)
@@ -48,16 +53,16 @@ sidebar_label: リリースノート
 ## リリース 129 - 5月22日
 
 * イベントでのWebsocketサポート
-* Solidityコントラクト用インデックスレイヤーをアップデート 
-* Phaserゲームデモ - [Github](https://github.com/loomnetwork/phaser-sdk-demo)
+* レイヤーインデックス機能のSolidityコントラクトをアップデート 
+* Phaser Game Dame - [Github](https://github.com/loomnetwork/phaser-sdk-demo)
 
-## リリース 128 - 5月21日
+## Release 128 - May 21th
 
-* Etherboyのバグを修正
+* Lots of bug fixes for Etherboy
 
-## リリース 128 - 5月19日
+## Release 128 - May 19th
 
-* 安定したベータ版リリース
-* ロギングをデフォルトで複数ファイルでできるようアップデート 
-* 全RPCを一つのインターフェースへ移動
-* 外部プロセスインターフェースのアップデート
+* Stable Beta Release
+* Updating logging to default to multiple files 
+* Moving all RPC to a single interface
+* Updated External Process interface

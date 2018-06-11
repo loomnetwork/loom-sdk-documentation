@@ -1,9 +1,9 @@
 ---
 id: etherboy-backend
-title: Etherboy Backend
-sidebar_label: Etherboy Backend
+title: Etherboy 后端
+sidebar_label: Etherboy 后端
 ---
-This documentation explains how to run the Etherboy DAppChain in a single server instance (any 64-bit Linux instance).
+本文档说明如何在单个服务器实例 (任何64位Linux实例) 中运行Etherboy。
 
 ## 安装
 

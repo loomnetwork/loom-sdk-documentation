@@ -173,13 +173,13 @@ make example-cli
 为了获取见证人的一席之位, 我们需要在区块链上登记。在这个例子中, 我们只登记我们自己。
 
 ```shell
-./example-cli call register_candidate <public key> -p privkey
+./example-cli call register_candidate <公钥> -p privkey
 ```
 
 然后我们会给自己投票，把所有的选票份额也就是21票全投给自己。
 
 ```shell
-./example-cli call vote <your address> 21 -p privkey
+./example-cli call vote <你的地址> 21 -k privkey
 ```
 
 最后我们将进行（被我们操纵了的）选举：）。
@@ -198,5 +198,5 @@ make example-cli
 
 ```shell
 ./example-cli call elect -p privkey
-./example-cli call balance <your address>
+./example-cli call balance <你的地址>
 ```
