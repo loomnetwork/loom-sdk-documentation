@@ -80,9 +80,9 @@ Loom Cocos SDK软件结构
 
 Cocos Creator是以内容创作为核心的游戏开发工具，在Cocos2d-x基础上实现了彻底脚本化、组件化和数据驱动等特点。
 
-For the first time we introduced entity-component structure and data-driven workflow to the Cocos2d-x family. With JavaScript, you can scripting your component in no time. The editor and engine extension is also made with JavaScript so you can make games and refine your tool in a single programming language.
+Cocos Creator基于开源框架Cocos2d-x，实现了一体化、可扩展、可自定义工作流的编辑器，并在Cocos系列产品中第一次引入了组件化编程思想和数据驱动的架构设计。 通过JavaScript, 你可以短时间内编写组件脚本。 编辑器和引擎扩展也是用 JavaScript 构建的, 所以你就可以用一个编程语言来制作游戏和细化工具了。
 
-Cocos Creator provides an innovative, easy to use toolset such as the UI system and Animation editor. The toolset will be expanding continuously and quickly, thanks to the open editor extension system.
+这极大地简化了Cocos2d-x开发工作流中的场景编辑、UI设计、资源管理、游戏调试和预览、多平台发布等工作。 是使用Cocos2d-x进行团队协作开发的最佳选择。
 
 you can download `Cocos Creator` from [here](http://www.cocos.com/creator) , and install.
 
