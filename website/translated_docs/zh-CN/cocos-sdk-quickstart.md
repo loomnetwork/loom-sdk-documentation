@@ -20,7 +20,7 @@ sidebar_label: Cocos SDK快速开始
 1. Python 2.7
 2. Git
 3. [NodeJS](https://nodejs.org/en/), [NPM](https://www.npmjs.com/get-npm)
-4. [Loom](https://loomx.io/), [安装速度](https://loomx.io/developers/docs/en/prereqs.html)
+4. [Loom](https://loomx.io/), [安装步骤](https://loomx.io/developers/docs/en/prereqs.html)
 5. [Cocos Creator](http://www.cocos.com/creator)
 6. [Cocos Loom SDK 代码库](https://github.com/loomnetwork/cocos-sdk/)
 
