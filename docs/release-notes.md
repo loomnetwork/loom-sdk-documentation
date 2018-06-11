@@ -8,6 +8,14 @@ sidebar_label: Release Notes
 
 Reverse chronology order of release notes
 
+## Release 163 - June 11th
+
+* Support for latest Build of Truffle
+* [Updated truffle example](https://github.com/loomnetwork/loom-truffle-provider)
+* Initial Implementation of Sybil resistance framework
+* Websocket events now support topics 
+* Loom-JS 1.8.0 Release with updated websocket topic support
+
 ## Release 161 - June 7th
 
 * Tons of Truffle Fixes
