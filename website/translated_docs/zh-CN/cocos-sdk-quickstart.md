@@ -6,14 +6,14 @@ sidebar_label: Cocos SDK快速开始
 ## 内容：
 
 - 中文 
- - [环境依赖](#prerequisites)
+ - [环境依赖](#环境依赖)
  - [Loom Cocos SDK](#loom-cocos-sdk)
  - [打包并生成LoomJS SDK](#generate-loomjs-sdk)
- - [安装Loom](#install-loom)
- - [安装Cocos Creator](#install-cocos-creator)
- - [Creator Game 内集成调用](#integrate-to-creator-game)
+ - [安装Loom](#安装Loom)
+ - [安装Cocos Creator](#安装Cocos Creator)
+ - [Creator Game 内集成调用](#creator Game 内集成调用)
  - [Sample](#sample)
- - [说明](#notice)
+ - [说明](#说明)
 
 ## 环境依赖
 
@@ -67,8 +67,8 @@ Loom Cocos SDK软件结构
 
 运行区块链：
 
-    # unable to start http server: listen tcp 127.0.0.1:9092: bind: address already in use
-    pkill blueprint # kill server first
+    # 无法开始http服务器: listen tcp 127.0.0.1:9092: bind: address already in use
+    pkill blueprint # 先关闭服务器
     ../../loom run
     
 
@@ -112,4 +112,4 @@ Cocos Creator基于开源框架Cocos2d-x，实现了一体化、可扩展、可�
 ## 说明
 
 - `Loom Block Chain` 的配置, 运行, 合约的使用, 参见[这里](https://loomx.io/developers/docs/en/prereqs.html)
-- Sample `dark-slash` come from `Cocos Creator` [Tutorial Project](https://github.com/cocos-creator/tutorial-dark-slash)
+- Sample `dark-slash` 来自于`Cocos Creator`的[样例工程](https://github.com/cocos-creator/tutorial-dark-slash)
