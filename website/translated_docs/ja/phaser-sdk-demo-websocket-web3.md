@@ -3,7 +3,7 @@ id: phaser-sdk-demo-web3-websocket
 title: Javascript WebSocketsとWeb3のデモ
 sidebar_label: JS Websocket + EVM Web3 デモ
 ---
-[Phaser](http://phaser.io)と[Loom.js](https://github.com/loomnetwork/loom-js)を使用した、Loom DAppチェーンと対話するシンプルなHTML 5+ Websocketのゲーム基本サンプルだ。今回はWeb3とLoomプロバイダを使用して、イーサリアム開発者にとってのシームレスなUXとしている。
+A basic example showcasing a simple HTML5 + WebSockets interacting with a Loom DappChain, using [Phaser](http://phaser.io) and [Loom.js](https://github.com/loomnetwork/loom-js), this time using Web3 and Loom Provider to create a seamless experience for Ethereum Developers
 
 ![](/developers/img/websocket_evm.gif)
 
