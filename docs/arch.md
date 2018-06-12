@@ -32,7 +32,7 @@ They can also be made as external processes, that the blockchain communicates to
 
 ## Ethereum Integration
 
-SDK Is integrates into the Ethereum Backend with three pieces
+The SDK integrates into the Ethereum Backend with following pieces:
 
 ### Transfer Gateway
 
