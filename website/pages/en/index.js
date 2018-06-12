@@ -248,7 +248,7 @@ const Docs = props => (
   </a>
     <p>          
       Check out the <a href={docUrl("prereqs.html", props.language)}>docs</a> to get started building decentralized apps on your own DappChain.
-      Please note that the Loom SDK is currently in <span className="beta-label">private beta</span>.
+      Please note that the Loom SDK is currently in now available to the public!
     </p>
   </div>
 </div>
