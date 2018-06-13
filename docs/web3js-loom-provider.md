@@ -7,7 +7,7 @@ sidebar_label: Web3, LoomProvider and Truffle
 ## Overview
 
 The `loom-js` also comes with the `LoomProvider` which allows you to integrate with the [Web3.js](https://github.com/ethereum/web3.js),
-thus making easier the integration with [EVM](docs/en/evm.html) contained on Loom DAppChain, also is possible to use [Truffle Framework](http://truffleframework.com/) to manage tests, deployments and solidity smart contracts.
+thus making easier the integration with [EVM](evm.html) contained on Loom DAppChain, also is possible to use [Truffle Framework](http://truffleframework.com/) to manage tests, deployments and solidity smart contracts.
 
 ### Web3
 
