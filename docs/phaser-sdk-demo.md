@@ -31,23 +31,7 @@ wget -O contracts/blueprint.0.0.1 https://private.delegatecall.com/weave-bluepri
 chmod +x contracts/blueprint.0.0.1
 
 ./loom init
-```
-
-Replace genesis.json with:
-
-```json
-{
-  "contracts": [
-    {
-      "vm": "plugin",
-      "format": "plugin",
-      "name": "BluePrint",
-      "location": "blueprint:0.0.1",
-      "init": {
-      }
-    }
-  ]
-}
+cp ../genesis.example.json genesis.json
 ```
 
 Run Blockchain
