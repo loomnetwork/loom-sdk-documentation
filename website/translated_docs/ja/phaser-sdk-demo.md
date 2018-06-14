@@ -26,46 +26,30 @@ wget -O contracts/blueprint.0.0.1 https://private.delegatecall.com/weave-bluepri
 chmod +x contracts/blueprint.0.0.1
 
 ./loom init
+cp ../genesis.example.json genesis.json
 ```
 
-genesis.jsonをいかに置きかえよう:
-
-```json
-{
-  "contracts": [
-    {
-      "vm": "plugin",
-      "format": "plugin",
-      "name": "BluePrint",
-      "location": "blueprint:0.0.1",
-      "init": {
-      }
-    }
-  ]
-}
-```
-
-ブロックチェーンの起動
+Run Blockchain
 
     ./loom run
     
 
-自分のDAppチェーン起動についてのさらなる説明は、[Loom SDKドキュメンテーション](https://loomx.io/developers/docs/en/prereqs.html)を参照すること。
+Please consult the [Loom SDK docs](https://loomx.io/developers/docs/en/prereqs.html) for further instruction on running your own DappChain.
 
-2.) 開発サーバーのスタート
+2.) Start the dev server
 
-開発サーバーの起動
+Run dev server
 
-    #ソースを入手
+    #Get Source
     git clone https://github.com/loomnetwork/phaser-sdk-demo.git
     
     cd phaser-sdk-demo
     
-    # インストール
+    # Install
     yarn
     
-    # protobuffのコンパイル
+    # Compile protobuff
     yarn run proto
     
-    # 開発サーバーの起動
+    # Start the dev server
     yarn run dev
