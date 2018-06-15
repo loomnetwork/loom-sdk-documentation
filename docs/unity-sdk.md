@@ -15,11 +15,13 @@ and asset transfers. The following Unity target platforms are currently supporte
 - iOS
 - WebGL
 
-## Sample Code
+## Plugin-based nodes
+
+### Sample Code
 
 You can find all the code on this page and a ready-to-go Unity scene in the Loom Unity SDK under [`Assets/LoomSDK/Samples/QuickStart`](https://github.com/loomnetwork/unity3d-sdk/tree/master/Assets/LoomSDK/Samples/QuickStart).
 
-## Connecting to a DAppChain
+### Connecting to a DAppChain
 
 The `Contract` class provides a convenient way to interact with a smart contract running on a Loom
 DAppChain. Let's write a method that creates a `Contract` instance to interact with the sample
@@ -66,7 +68,7 @@ public class LoomQuickStartSample : MonoBehavior
 }
 ```
 
-## Writing data to a DAppChain
+### Writing data to a DAppChain
 
 To mutate the state of a smart contract you need to call one of its public methods, to do so a
 signed transaction must be sent to and validated by the DAppChain. Fortunately the `Contract` class
@@ -112,7 +114,7 @@ async Task CallContractWithResult(Contract contract)
 }
 ```
 
-## Reading data from a DAppChain
+### Reading data from a DAppChain
 
 To read the state of a smart contract you need to call one of its public read-only methods, calling
 a read-only method doesn't modify the smart contract state. You can call a read-only method on a
@@ -143,7 +145,7 @@ async Task StaticCallContract(Contract contract)
 }
 ```
 
-## Putting it all together
+### Putting it all together
 
 Add the following method to the `LoomQuickStartSample` class.
 
