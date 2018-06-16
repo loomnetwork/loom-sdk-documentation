@@ -63,9 +63,8 @@ EVMを構成するのは、データベース及びEVMバイトコードイン�
     * `static-call` 既にデプロイ済みのEVMスマートコントラクトにある読み取り専用メソッドを呼び出す。
     
     
-    ### Deploy
-    Use `./loom deploy` to deploy a contract, that can be compiled to EVM 
-    bytecode, onto a DAppChains EVM. 
+    ### デプロイ
+    `./loom deploy` を使用してコントラクトをデプロイすると、EVMバイトコードにコンパイルされDAppチェーンEVMに置かれる。 
     ```text
     Deploy a contract 
     
