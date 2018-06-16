@@ -279,7 +279,7 @@ message HelloResponse {
 
 ### スマートコントラクトの呼び出し
 
-The following code fragment shows how to call the Hello function of our Hello World example in Go using functions from Go-loom.
+次のコードフラグメントは、Hello WorldサンプルのHello関数を呼び出すための、Go-loomを使用したGoでのやり方を示している。
 
 ```go
     rpcClient := client.NewDAppChainRPCClient(chainId, "http://localhost:1234", "http://localhost:2345")
@@ -299,7 +299,7 @@ The following code fragment shows how to call the Hello function of our Hello Wo
 
 プラグインの実装を簡単に見直したので、今度はプラグインからDAppチェーンのEVMにデプロイされたスマートコントラクトにアクセスすることについてやっていこう。
 
-First we we assume we have deployed this simple solidity contract on the DAppChain's EVM.
+最初に、この簡単なSolidityコントラクトをDAppチェーンのEVMにデプロイしたと仮定しよう。
 
 ```solidity
 pragma solidity ^0.4.18;
@@ -575,8 +575,8 @@ DAppチェーンのQueryInterfaceメソッドのGetCodeを使ってデプロイ�
 ```go
 // GetCodeはDAppチェーンのEVM上で動いているコントラクトのランタイムバイトコードを返却する
 // EVMではないコントラクトにはエラーを出す。
-// contract - address of the contract in the form of a string. (Use loom.Address.String() to convert)
-// return []byte - runtime bytecode of the contract.
+// contract - コントラクトのアドレス string (loom.Address.String() で変換できる)
+// return []byte - ランタイムバイトコード
 func (c *DAppChainRPCClient) GetCode(contract string) ([]byte, error) 
 ```
 
