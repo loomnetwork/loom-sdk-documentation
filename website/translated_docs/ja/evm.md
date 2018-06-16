@@ -103,7 +103,7 @@ EVMを構成するのは、データベース及びEVMバイトコードイン�
     The uinique [transaction hash](https://loomx.io/developers/docs/en/evm.html#transaction-receipt)
     can be used to retrive a receipt of the deployment transaction. 
     
-    ### call
+    ### 呼び出し
     
     ```
     text
