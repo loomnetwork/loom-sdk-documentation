@@ -95,7 +95,7 @@ EVMを構成するのは、データベース及びEVMバイトコードイン�
       http://localhost:46657 -r http://localhost:9999
 
   
-If everything works you should see something like: ```text New contract deployed with address: default:0x71A53d11A3b77e369463804FEE9B17ba7E24d98B Runtime bytecode: [96 96 96 64 82 ... 84 226 214 187 0 41] Transcation receipt: [10 178 198 52 108 ... 141 155 79 250 97 129 104 243]
+全てうまく動いていれば、以下が見られるはずだ: ```text New contract deployed with address: default:0xB531D7db11d3FeBdA77B369463704e9F17c8A Runtime bytecode: [24 98 96 96 96 64 ... 84 226 214 187 0 41] Transcation receipt: [10 178 198 52 108 ... 141 155 79 250 97 129 104 243]
 
     出力されたコントラクトアドレスは、callコマンドでコントラクトのメソッドを呼び出すのに使用できる。
     The uinique [transaction hash](https://loomx.io/developers/docs/en/evm.html#transaction-receipt)
