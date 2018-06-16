@@ -139,7 +139,8 @@ EVMを構成するのは、データベース及びEVMバイトコードイン�
     
     ### 静的呼び出し
     コントラクトの読み取り専用メソッドの呼び出し メソッドの戻り値を返す。
-    ```text
+    ```
+    text
     Usage:
       loom static-call [flags]
     
@@ -154,6 +155,7 @@ EVMを構成するのは、データベース及びEVMバイトコードイン�
       -a, --address string         address file
           --chain string           chain ID (default "default")
       -k, --key string             private key file
+    ```
     
 
 -a 及び -k のフラグは、公開鍵および秘密鍵のアドレスファイルでユーザーを特定するのに使用される。
@@ -162,9 +164,9 @@ EVMを構成するのは、データベース及びEVMバイトコードイン�
 
 -n はコントラクトデプロイ時に入力された名前やラベルであり、アドレスを代替するものとして使用可能だ。
 
--i は入力文字列だ。 Solidityのコントラクトでは、これは[Solidity ABI documentation](https://solidity.readthedocs.io/en/develop/abi-spec.html)で説明されているようにABIにエンコーディングされる。 Example
+-i は入力文字列だ。 Solidityのコントラクトでは、これは[Solidity ABI documentation](https://solidity.readthedocs.io/en/develop/abi-spec.html)で説明されているようにABIにエンコーディングされる。 例
 
-The address fields -a and -k are optional. ```text static-call -a ./data/pub -k ./data/pri -i ./cmd/loom/data/inputGet.bin \ -c 0xbD770416A3345f91E4b34576Cb804a576Fa48eB1 \ -w http://localhost:46657 -r http://localhost:9999
+アドレスフィールド -a と -k はオプションである。 ```text static-call -a ./data/pub -k ./data/pri -i ./cmd/loom/data/inputGet.bin \ -c 0xbD770416A3345f91E4b34576Cb804a576Fa48eB1 \ -w http://localhost:46657 -r http://localhost:9999 ```
 
     <br />## ユーザープラグインから
     
@@ -202,7 +204,7 @@ The address fields -a and -k are optional. ```text static-call -a ./data/pub -k 
     }
     
 
-and plugin.Meta is defined from a protobuf definition
+そしてplugin.Metaはprotobufで定義される
 
 ```go
 type ContractMeta struct {
