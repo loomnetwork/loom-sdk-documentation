@@ -66,7 +66,7 @@ EVMを構成するのは、データベース及びEVMバイトコードイン�
     ### デプロイ
     `./loom deploy` を使用してコントラクトをデプロイすると、EVMバイトコードにコンパイルされDAppチェーンEVMに置かれる。 
     ```text
-    Deploy a contract 
+    コントラクトをデプロイ
     
     Usage:
       loom deploy [flags]
