@@ -584,12 +584,12 @@ func (c *DAppChainRPCClient) GetCode(contract string) ([]byte, error)
 
 #### DAppチェーン上のSolidityコントラクトへの書き込み
 
-Writing and reading to a smart contract deployed on a DAppChain's EVM works in a similar way to [writing](https://loomx.io/developers/docs/en/go-loom-clients.html#writing-data-to-a-dappchain) and [reading](https://loomx.io/developers/docs/en/go-loom-clients.html#reading-data-from-a-dappchain) to non-EVM plugins. The main difference is that the function signature and input parameters need to be converted to bytecode using [ABI encoding](https://solidity.readthedocs.io/en/develop/abi-spec.html). You can use the go-ethereum [abi.JSON](https://godoc.org/github.com/obscuren/go-ethereum/accounts/abi#JSON) function to encode input using your contracts ABI which you can get from `solc --abi -o. MySolidiityProgram.sol`
+DAppチェーンのEVMにデプロイされたスマートコントラクトへの読み取り及び書き込みは、 非EVMプラグインへの[書き込み](https://loomx.io/developers/docs/en/go-loom-clients.html#writing-data-to-a-dappchain)及び[読み取り](https://loomx.io/developers/docs/en/go-loom-clients.html#reading-data-from-a-dappchain)のやり方と同様である。 主な違いは、関数シグネチャと入力パラメータが[ABIエンコーディング](https://solidity.readthedocs.io/en/develop/abi-spec.html)を使ってバイトコードに変換される必要があるということだ。 go-ethereumの [abi.JSON](https://godoc.org/github.com/obscuren/go-ethereum/accounts/abi#JSON)関数を使って`solc --abi -o.MySolidiityProgram.sol`から取得できるコントラクトABIを用いて、 
 
-EvmContract's Call method is used for methods that mutate the DAppChain's state. ```go input ( "github.com/loomnetwork/go-loom/auth" "github.com/loomnetwork/go-loom/client" "github.com/loomnetwork/go-loom/vm "github.com/ethereum/go-ethereum/accounts/abi"  
+EvmContractのCallメソッドは、DAppチェーンの状態を変更するメソッドに対し使用される。 ```go input ( "github.com/loomnetwork/go-loom/auth" "github.com/loomnetwork/go-loom/client" "github.com/loomnetwork/go-loom/vm "github.com/ethereum/go-ethereum/accounts/abi"  
 )
 
-func store(contract *client.EvmContract, key, abi string, value int) ([]byte, error) { abiSS, err := abi.JSON(strings.NewReader(SimpleStoreABI)) if err != nil { return []byte{}, err } input, err := abiSS.Pack("set", big.NewInt(value.Value)) if err != nil { return []byte[], err ] return contract.Call(input, key) } ``` The Call method returns a [transaction hash](https://loomx.io/developers/docs/en/evm.html#transaction-hash) You can use the transaction hash retrieve more information about the contract using the `GetEvmTxReceipt` method. This returns a [transcation recieipt, vm.EvmTxReceipt](https://loomx.io/developers/docs/en/evm.html#transaction-receipt) object.
+func store(contract *client.EvmContract, key, abi string, value int) ([]byte, error) { abiSS, err := abi.JSON(strings.NewReader(SimpleStoreABI)) if err != nil { return []byte{}, err } input, err := abiSS.Pack("set", big.NewInt(value.Value)) if err != nil { return []byte[], err ] return contract.Call(input, key) } ``` The Call method returns a [transaction hash](https://loomx.io/developers/docs/en/evm.html#transaction-hash) You can use the transaction hash retrieve more information about the contract using the `GetEvmTxReceipt` method. これは [transcation recieipt, vm.EvmTxReceipt](https://loomx.io/developers/docs/en/evm.html#transaction-receipt) オブジェクトを返す。
 
 ```go
  input (
@@ -616,7 +616,8 @@ func store(contract *client.EvmContract, key, abi string, value int) ([]byte, er
 EVMスマートコントラクトから情報を取得するには、EvmContractのstaticCallを使用してviewメソッドを呼び出す必要がある。 これはABIにエンコードされたバイト形式で結果を返す。 他のEVMメソッドの場合、関数シグネチャと入力引数が[ABIエンコーディング](https://solidity.readthedocs.io/en/develop/abi-spec.html)される。 StaticCallのcallerフィールドはオプション、空のloom.Addressは良い。
 
 ```go
- input (
+ ```
+input (
    "github.com/loomnetwork/go-loom/auth"
    "github.com/loomnetwork/go-loom/client"
    "github.com/loomnetwork/go-loom/vm
@@ -637,9 +638,8 @@ EVMスマートコントラクトから情報を取得するには、EvmContract
  ```
 
 ### loom-js
-
-In JavaScript and TypeScript you can Call methods contracts deployed on the EVM 
-of a DAppChain in a similar way as for non-EVM plugins, outlined in the 
+JavaScriptとTypeScriptでnon-EVMプラグインと同様に
+DAppチェーンのEVMにデプロイされたコントラクトのメソッドを呼び出す事ができる。 概要は以下
 [loom-js quickstart](https://loomx.io/developers/docs/en/loom-js-quickstart.html#connecting-to-a-dappchain)
 
 #### Connecting to a Solidity contract on a DAppChain
@@ -655,11 +655,10 @@ const {
 const { MapEntry } = require('./helloworld_pb')
 
 /**
- * Creates a new `EvmContract` instance that can be used to interact with a 
- smart contract running on a DAppChain's EVM.
- * @param privateKey Private key that will be used to sign transactions sent to the contract.
- * @param publicKey Public key that corresponds to the private key.
- * @returns `EvmContract` instance.
+ * 新たな`EvmContract`インスタンスを作成し、DAppチェーン上EVMで実行されるスマートコントラクトとの対話に使えるようにする。
+ * @param privateKey(秘密鍵)はコントラクトに送信されたトランザクションに署名するために使われる。
+ * @param publicKey(公開鍵)は秘密鍵に対応するものである。
+ * @returns `EvmContract`のインスタンス
  */
 async function getContract(privateKey, publicKey) {
   const client = new Client(
