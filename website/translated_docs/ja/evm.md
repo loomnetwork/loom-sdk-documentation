@@ -213,7 +213,7 @@ type ContractMeta struct {
 }
 ```
 
-So all a contract needs is to implement the Meta function. However to be usable as a plugin in a DAppChain there are a few other bits. Here is a minimal example.
+全てのコントラクトはMeta関数を実装する必要がある。 しかしDAppチェーンのプラグインとして利用可能にするにはさらなる手順が必要であるが、以下最小限のサンプルだ。
 
 ```go
 package main
