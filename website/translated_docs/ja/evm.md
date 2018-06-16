@@ -568,7 +568,7 @@ func deployEvmContract(name string, byteHex string, signer auth.Signer)
 }
 ```
 
-#### Retrieving Solidity contract's code
+#### Solidityコントラクトコードの取得
 
 You can retrieve the runtime bytecode for a deployed solidity contract using the DAppChains QueryInterface method GetCode.
 
