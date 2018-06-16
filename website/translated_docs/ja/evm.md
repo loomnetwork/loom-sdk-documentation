@@ -137,8 +137,8 @@ EVMを構成するのは、データベース及びEVMバイトコードイン�
 
     これが完了すると、 [トランザクションのハッシュ値](https://loomx.io/developers/docs/en/evm.html#transaction-receipt)が返却されるが、これは各トランザクションコールに対し唯一であり同じものはない。 It can be used to return a receipt of the transaction.
     
-    ### static-call
-    Call a read only method on a contract. Returns the method return value.
+    ### 静的呼び出し
+    コントラクトの読み取り専用メソッドの呼び出し メソッドの戻り値を返す。
     ```text
     Usage:
       loom static-call [flags]
