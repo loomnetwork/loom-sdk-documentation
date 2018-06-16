@@ -570,11 +570,11 @@ func deployEvmContract(name string, byteHex string, signer auth.Signer)
 
 #### Solidityコントラクトコードの取得
 
-You can retrieve the runtime bytecode for a deployed solidity contract using the DAppChains QueryInterface method GetCode.
+DAppチェーンのQueryInterfaceメソッドのGetCodeを使ってデプロイされたsolidiyコントラクトからランタイムのバイトコードを取得できる
 
 ```go
-// GetCode returns the runtime byte-code of a contract running on a DAppChain's EVM.
-// Gives an error for non-EVM contracts.
+// GetCodeはDAppチェーンのEVM上で動いているコントラクトのランタイムバイトコードを返却する
+// EVMではないコントラクトにはエラーを出す。
 // contract - address of the contract in the form of a string. (Use loom.Address.String() to convert)
 // return []byte - runtime bytecode of the contract.
 func (c *DAppChainRPCClient) GetCode(contract string) ([]byte, error) 
