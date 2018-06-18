@@ -1,7 +1,7 @@
 ---
-id: unity-tiles-chain-evm
-title: Unity Tiles EVM Example
-sidebar_label: Unity Tiles EVM Example
+id: unity-sample-tiles-chain-evm
+title: Tiles EVM Example
+sidebar_label: Tiles EVM Example
 ---
 
 A basic example showcasing a simple Unity game interacting with an EVM-based Loom DappChain, using [Loom Unity SDK](https://github.com/loomnetwork/unity3d-sdk).
@@ -16,17 +16,17 @@ Use the mouse cursor to click on the black canvas area to create colored tiles, 
 Development
 ----
 
-### 1.) Run your own DappChain
+### 1. Run your own DappChain
 
 Please consult the [Loom SDK docs](https://loomx.io/developers/docs/en/prereqs.html) for further instruction on running your own DappChain.
 
-### 2.) Download the example project (Unity Tiles Chain EVM)
+### 2. Download the example project (Unity Tiles Chain EVM)
 
 ```bash
 git clone https://github.com/loomnetwork/unity-tiles-chain-evm
 ```
 
-### 3.) Start the DappChain
+### 3. Start the DappChain
 
 ```bash
 cd unity-tiles-chain-evm

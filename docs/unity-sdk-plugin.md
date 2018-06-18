@@ -1,27 +1,19 @@
 ---
-id: unity-sdk
-title: Unity SDK
-sidebar_label: Unity SDK
+id: unity-sdk-plugin
+title: Plugin-based Smart Contract Quickstart
+sidebar_label: Plugin-based Smart Contract Quickstart
 ---
 
-## Overview
 
-The [Unity SDK](http://github.com/loomnetwork/unity3d-sdk) allows games to interact with smart
-contracts running on Loom DAppChains, it also provides optional services like identity management
-and asset transfers. The following Unity target platforms are currently supported:
+Loom supports EVM ([Ethereum Virtual Machine](evm.html)) and plugin-based smart contracts. Plugin-based smart contracts can be created with (go-loom)[https://github.com/loomnetwork/go-loom], for example.
 
-- Desktop (Mac/Windows/Linux)
-- Android
-- iOS
-- WebGL
+In this example, we will demostrate how to use the Unity SDK to communicate with plugin-based smart contracts.
 
-## Plugin-based nodes
-
-### Sample Code
+## Sample Code
 
 You can find all the code on this page and a ready-to-go Unity scene in the Loom Unity SDK under [`Assets/LoomSDK/Samples/QuickStart`](https://github.com/loomnetwork/unity3d-sdk/tree/master/Assets/LoomSDK/Samples/QuickStart).
 
-### Connecting to a DAppChain
+## Connecting to a DAppChain
 
 The `Contract` class provides a convenient way to interact with a smart contract running on a Loom
 DAppChain. Let's write a method that creates a `Contract` instance to interact with the sample
@@ -68,7 +60,7 @@ public class LoomQuickStartSample : MonoBehavior
 }
 ```
 
-### Writing data to a DAppChain
+## Writing data to a DAppChain
 
 To mutate the state of a smart contract you need to call one of its public methods, to do so a
 signed transaction must be sent to and validated by the DAppChain. Fortunately the `Contract` class
@@ -114,7 +106,7 @@ async Task CallContractWithResult(Contract contract)
 }
 ```
 
-### Reading data from a DAppChain
+## Reading data from a DAppChain
 
 To read the state of a smart contract you need to call one of its public read-only methods, calling
 a read-only method doesn't modify the smart contract state. You can call a read-only method on a
@@ -145,7 +137,7 @@ async Task StaticCallContract(Contract contract)
 }
 ```
 
-### Putting it all together
+## Putting it all together
 
 Add the following method to the `LoomQuickStartSample` class.
 
@@ -178,11 +170,11 @@ Now that we have all the code in place let's test it out:
 
 ## EVM-based nodes
 
-### Sample Code
+## Sample Code
 
 This sample uses the Solidity contract from [`unity-tiles-chain-evm` demo](https://github.com/loomnetwork/unity-tiles-chain-evm). For the purpose of this sample, we will use this sample contract just to store a text string.
 
-### Connecting to a DAppChain
+## Connecting to a DAppChain
 
 The `EvmContract` class provides a convenient way to interact with a smart contract running on a Loom
 DAppChain running an EVM-compatible smart contract. Let's write a method that creates an `EvmContract` instance to interact with the sample
@@ -234,7 +226,7 @@ public class LoomEvmQuickStartSample : MonoBehaviour
 }
 ```
 
-### Writing data to a DAppChain
+## Writing data to a DAppChain
 
 To mutate the state of a smart contract you need to call one of its public methods, to do so a
 signed transaction must be sent to and validated by the DAppChain. Fortunately the `EvmContract` class
@@ -259,7 +251,7 @@ public async Task CallContract(EvmContract contract)
 }
 ```
 
-### Reading data from a DAppChain
+## Reading data from a DAppChain
 
 To read the state of a smart contract you need to call one of its public read-only methods, calling
 a read-only method doesn't modify the smart contract state. You can call a read-only method on a
@@ -289,7 +281,7 @@ public async Task StaticCallContract(EvmContract contract)
 }
 ```
 
-### Receiving events from a DAppChain
+## Receiving events from a DAppChain
 
 DAppChains can trigger events in reaction to calling a smart contract. To be notified of new events, you must subscribe to the `EvmContract.ChainEventReceived` event. But first, we need to define a DTO (Data Transfer Object) that specifies the event parameters.
 
@@ -311,7 +303,7 @@ private void ContractOnChainEventReceived(object sender, EvmChainEventArgs e)
 }
 ```
 
-### Putting it all together
+## Putting it all together
 
 Add the following method to the `LoomEvmQuickStartSample` class.
 
