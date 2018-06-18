@@ -27,6 +27,8 @@
     "Emitting events": "Emitting events",
     "goloompermissions": "Working with permissions helpers in go-loom",
     "Permission Helpers": "Permission Helpers",
+    "json-rpc-methods": "JSON RPC Methods",
+    "JSON RPC Methods": "JSON RPC Methods",
     "logging": "Logging",
     "Logging": "Logging",
     "loom-js-loom-provider-web3": "Loom.js + Web3.js",
