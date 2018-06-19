@@ -101,7 +101,7 @@ import {
 
 import Web3 from 'web3'
 
-// This function will initialize and return the client
+// この関数はクライアントの初期化とリターンを行う
 function getClient(privateKey, publicKey) {
   const client = new Client(
     'default',
@@ -112,11 +112,11 @@ function getClient(privateKey, publicKey) {
   return client
 }
 
-// Setting up keys
+// キーのセットアップ
 const privateKey = CryptoUtils.generatePrivateKey()
 const publicKey = CryptoUtils.publicKeyFromPrivateKey(privateKey)
 
-// Client ready
+// クライアントを準備
 const client = getClient(privateKey, publicKey)
 ```
 
@@ -188,7 +188,7 @@ import {
 
 import Web3 from 'web3'
 
-// This function will initialize and return the client
+// この関数はクライアントの初期化とリターンを行う
 function getClient(privateKey, publicKey) {
   const client = new Client(
     'default',
@@ -199,33 +199,33 @@ function getClient(privateKey, publicKey) {
   return client
 }
 
-// Setting up keys
+// キーのセットアップ
 const privateKey = CryptoUtils.generatePrivateKey()
 const publicKey = CryptoUtils.publicKeyFromPrivateKey(privateKey)
 
-// Client ready
+// クライアントの準備
 const client = getClient(privateKey, publicKey)
 
-// Setting the web3
+// web3の設定
 const web3 = new Web3(new LoomProvider(client, privateKey))
 
 ;(async () => {
   // Set the contract ABI
   const ABI = [{"constant":false,"inputs":[{"name":"_value","type":"uint256"}],"name":"set","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"get","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"}]
 
-  // Getting our address based on public key
+  // 公開鍵を元にアドレスを取得
   const fromAddress = LocalAddress.fromPublicKey(publicKey).toString()
 
-  // Get the contract address (we don't need to know the address just the name specified in genesis.json
+  // コントラクトアドレスを取得 (genesis.json内で示されたコントラクト名を使う。アドレスは必要ない
   const loomContractAddress = await client.getContractAddressAsync('SimpleStore')
 
-  // Translate loom address to hexa to be compatible with Web3
+  // Web3と互換性を持つよう、loomアドレスをhexaに変換
   const contractAddress = CryptoUtils.bytesToHexAddr(loomContractAddress.local.bytes)
 
-  // Instantiate the contract
+  // コントラクトのインスタンス化
   const contract = new web3.eth.Contract(ABI, contractAddress, {from: fromAddress})
 
-  // Listen for new value set
+  // 新たなバリュー設定をリッスン
   contract.events.NewValueSet({}, (err, newValueSet) {
     if (err) {
       console.error('error', err)
@@ -235,12 +235,12 @@ const web3 = new Web3(new LoomProvider(client, privateKey))
     console.log('New value set', newValueSet.returnValues)
   })
 
-  // Set value of 47
+  // バリューを47に設定
   await contract.methods.set(47).send()
 
-  // Get the value
+  // バリューを取得
   const result = await contract.methods.get().call()
-  // result should be 47
+  // 結果は47となるはずだ
 })()
 
 ```

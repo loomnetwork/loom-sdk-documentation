@@ -23,7 +23,7 @@ sudo tar -C /usr/local -xzf go1.10.2.linux-amd64.tar.gz
 Assuming you are on bash, if zsh do to `~/.zshrc`:
 
 ```bash
-echo -e "\n export PATH=\$PATH:/usr/local/go/bin" >>  ~/.bashrc
+echo -e "\nexport PATH=\$PATH:/usr/local/go/bin:~/gopath/bin" >>  ~/.bashrc
 source ~/.bashrc
 ```
 
@@ -38,14 +38,22 @@ sudo unzip protoc-${PROTOBUF_VERSION}-linux-x86_64.zip -d /usr/local
 sudo chmod +x /usr/local/bin/protoc
 ```
 
+## Dep
+
+```bash
+mkdir -p ~/gopath/bin
+export GOPATH=~/gopath
+curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
+```
+
 ## Installation
 
 ```bash
-curl -OL https://storage.googleapis.com/private.delegatecall.com/loom/linux/build-155/loom
+curl -OL https://storage.googleapis.com/private.delegatecall.com/loom/linux/build-186/loom
 chmod +x loom
 
-mkdir ~/gopath
-export GOPATH=`pwd`/tmpgopath
+export GOPATH=~/gopath
+export PATH=$GOPATH/bin:$PATH
 ./loom spin weave-blueprint
 cd blueprint
 export GOPATH=$GOPATH:`pwd`

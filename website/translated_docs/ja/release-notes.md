@@ -7,53 +7,67 @@ sidebar_label: リリースノート
 
 新着順。
 
-## リリース 161 - 6月7日
+## Release 186 - June 19th
 
-* Truffleサポートを修正
-* Loom-Jsプロバイダのためのweb3.jsを修正
+* [EVM Unity Example app](https://loomx.io/developers/docs/en/unity-sample-tiles-chain-evm.html)
+* Unity SDK support for Solidity Apps
+* Many fixes for Filtering/Querying Ethereum Events
 
-## リリース 155 - 6月6日
+## Release 163 - June 11th
 
-* [Cocos SDKをリリース](cocos-sdk-quickstart.html)
-* [Truffleのサポートが利用可能に](truffle-deploy.html)
-* EVMへの静的コールで呼び出し元を許可
-* 多くのシナリオ用のEVMを修正 
+* Support for latest Build of Truffle
+* [Updated truffle example](https://github.com/loomnetwork/loom-truffle-provider)
+* Initial Implementation of Sybil resistance framework
+* Websocket events now support topics 
+* Loom-JS 1.8.0 Release with updated websocket topic support
 
-## リリース 143 - 6月1日
+## Release 161 - June 7th
 
-* [BluePrint Dockerイメージが利用可能](docker-blueprint.html)
-* [東京ハッカソンのレポート](https://medium.com/loom-network/highlights-from-the-first-loom-unity-sdk-hackathon-tokyo-edition-6ed723747c19)
-* [Loom SDKプロジェクト用のDockerイメージ](https://hub.docker.com/r/loomnetwork/)
-* Evmトランザクションレシートの修正 
+* Tons of Truffle Fixes
+* Tons of web3.js fixes for Loom-Js provider
 
-## リリース 137 - 5月30日
+## Release 155 - June 6th
 
-* GoクライアントがEVMコントラクトへアクセス可能に
-* EVMのバグを多数修正
-* [ソーシャルネットワークのサンプルアプリ- Solidity](simple-social-network-example.html)
+* [Cocos SDK is Live](cocos-sdk-quickstart.html)
+* [Truffle Support available](truffle-deploy.html)
+* Static calls to EVM now allow caller
+* EVM Fixes for a lot of scenarios 
 
-## リリース 136 - 5月28日
+## Release 143 - June 1st
 
-* 初期Solidityアルファ版テストビルド。Solidityコントラクトがデプロイ可能に。
-* Splidityでのイベントサポート 
-* [Solidityイベントのサンプルプロジェクト](phaser-sdk-demo-web3-websocket.html)
-* [マルチノードデプロイメントガイド](multi-node-deployment.html)
+* [BluePrint Docker Images Available](docker-blueprint.html)
+* [Japanese Hackathon Results](https://medium.com/loom-network/highlights-from-the-first-loom-unity-sdk-hackathon-tokyo-edition-6ed723747c19)
+* [Docker Images for some of Loom SDK Projects](https://hub.docker.com/r/loomnetwork/)
+* Evm TX Reciepts fixes 
 
-## リリース 133 - 5月24日
+## Release 137 - May 30th
 
-* [Etherboyのデモをリリース](https://loomx.io/developers/docs/en/etherboy-game.html)
-* [日本語ドキュメンテーションをリリース](https://loomx.io/developers/ja)
-* [ドキュメンテーションサイト](https://loomx.io/developers/en/)をアップデート 
+* Go Clients can Access EVM Contracts
+* Numerous bug fixes for EVM
+* [Social Network Example App - Solidity](simple-social-network-example.html)
 
-## リリース 132 - 5月23日
+## Release 136 - May 28th
 
-* Websocketのパフォーマンスを修正
-* 新しいWebsocketのデモアプリ - TilesChain - [Github](https://github.com/loomnetwork/tiles-chain) 
+* Initial Solidity Alpha test build, you can now deploy solidity contracts
+* Websocket eventing support for solidity 
+* [Example Project for solidity Events](phaser-sdk-demo-web3-websocket.html)
+* [Multinode deployment guide](multi-node-deployment.html)
 
-## リリース 129 - 5月22日
+## Release 133 - May 24th
 
-* イベントでのWebsocketサポート
-* レイヤーインデックス機能のSolidityコントラクトをアップデート 
+* [Etherboy Demo released](https://loomx.io/developers/docs/en/etherboy-game.html)
+* [Japanese Docs released](https://loomx.io/developers/ja)
+* Updated Homepage for [docs site](https://loomx.io/developers/en/) 
+
+## Release 132 - May 23rd
+
+* Websocket performance fixes
+* New Websocket Demo App - TilesChain - [Github](https://github.com/loomnetwork/tiles-chain) 
+
+## Release 129 - May 22rd
+
+* Websocket support for eventing
+* Updates to indexing layer for solidty contracts
 * Phaser Game Dame - [Github](https://github.com/loomnetwork/phaser-sdk-demo)
 
 ## Release 128 - May 21th
