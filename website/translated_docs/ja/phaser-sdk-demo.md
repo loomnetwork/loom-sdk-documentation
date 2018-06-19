@@ -29,27 +29,27 @@ chmod +x contracts/blueprint.0.0.1
 cp ../genesis.example.json genesis.json
 ```
 
-Run Blockchain
+ブロックチェーンの起動
 
     ./loom run
     
 
-Please consult the [Loom SDK docs](https://loomx.io/developers/docs/en/prereqs.html) for further instruction on running your own DappChain.
+自分のDAppチェーン起動についてのさらなる説明は、[Loom SDKドキュメンテーション](https://loomx.io/developers/docs/en/prereqs.html)を参照すること。
 
-2.) Start the dev server
+2.) 開発サーバーのスタート
 
-Run dev server
+開発サーバーの起動
 
-    #Get Source
+    #ソースを取得
     git clone https://github.com/loomnetwork/phaser-sdk-demo.git
     
     cd phaser-sdk-demo
     
-    # Install
+    # インストール
     yarn
     
-    # Compile protobuff
+    # protobuffのコンパイル
     yarn run proto
     
-    # Start the dev server
+    # 開発サーバーの起動
     yarn run dev
