@@ -1,20 +1,20 @@
 ---
 id: arch
-title: Architecture of a DAppChain
+title: DAppチェーンのアーキテクチャ
 ---
-Loom SDK is a pluggable Blockchain Development Kit. Pluggable both at the consensus and contract layer
+Loom SDKはプラグ可能なブロックチェーン開発キットであり、コンセンサス及びコントラクトレイヤーでプラグ可能となっている。
 
-## Consensus
+## コンセンサス
 
-Loom SDK has 2 layers of consensus. One at the P2P layer.
+Loom SDKには、２つのコンセンサスレイヤーがあり、その１つはP2Pレイヤーだ。
 
-Loom Backend supports different BPFT engines, like Tendermint. In future we will support Raft for PoA chains.
+LoomのバックエンドはTendermintのような異なるPBFTエンジンをサポートしている。将来はPoAチェーンにRaftのサポートを予定している。
 
-Loom Consensus layer support Loom DPoS or a configurable PoS/DPoS contract per Chain. Once Casper becomes available we will add support for this
+Loomのコンセンサスレイヤーは、Loom DPoSもしくはチェーンごとに設定可能なPoS/DPoSコントラクトをサポートしている。Casperが利用可能になれば、このサポートも追加していく。
 
 ![](/developers/img/loom-sdk-arch-overview.jpg)
 
-## Smart contracts
+## スマートコントラクト
 
 It allows smart contracts written in Go, Solidity or any language supporting GRPC.
 
@@ -24,41 +24,41 @@ They can also be made as external processes, that the blockchain communicates to
 
 ![](/developers/img/loom-sdk-arch-contracts.jpg)
 
-## Ethereum Integration
+## イーサリアムとの統合
 
-The SDK integrates into the Ethereum Backend with following pieces:
+SDKは以下の部分でイーサリアムのバックエンドと統合している:
 
-### Transfer Gateway
+### トランスファーゲートウェイ
 
 ![](/developers/img/loom-sdk-arch-plasma.jpg)
 
-### Transfer gateway allows for the following
+### トランスファーゲートウェイで以下が可能
 
-* Transfering Assets to a DappChain
-* Transfering Assets to Ethereum
-* Mirroring(Pegging) Assets on a Dappchain
-* ERC-20 Tokens
-* ERC-721 Tokens
+* DAppチェーンへのアセットの移転
+* イーサリアムへのアセットの移転
+* DAppチェーンへのアセットのミラーリング(ペギング)
+* ERC-20トークン
+* ERC-721トークン
 * Ether 
 
-### Plama Cash Contract supports
+### Plama Cashコントラクトがサポート
 
-* ERC-721 Tokens
-* ERC-20 Tokens (July)
-* Ether (July)
+* ERC-721トークン
+* ERC-20トークン(７月)
+* Ether (７月)
 
-## Blockchain services
+## ブロックチェーンのサービス
 
-SDK includes a number of high level blockchain services
+SDKはたくさんのハイレベルなブロックチェーンサービスを含んでいる。
 
-* Signing / Auth / Nonce Middleware
-* Builtin Coin
-* Indexing
-* Websockets and eventing
-* Solidity + Ethereum Virtual Machine
-* Support for game engines like Cocos, Unity, and Phaser
-* Transfer Gateway integration
-* Plasma integration (coming late June)
-* Cron (coming soon)
-* Rate limiting (early phases)
-* Hard fork Manager (coming July)
+* 署名 / 認証 / ノンスミドルウェア
+* ビルトインコイン
+* インデックス
+* Websocketsとイベント
+* Solidity + イーサリアム仮想マシン
+* CocosやUnity、Phaserといったゲームエンジンのサポート
+* トランスファーゲートウェイの統合
+* Plasmaの統合 (６月下旬)
+* Cron (じきにサポート)
+* レートの制限 (初期フェーズ)
+* ハードフォークマネージャー(７月)
