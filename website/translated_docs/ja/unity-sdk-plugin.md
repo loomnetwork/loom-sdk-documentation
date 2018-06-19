@@ -254,7 +254,7 @@ public async Task StaticCallContract(EvmContract contract)
 
 ## DAppチェーンからのイベントの受信
 
-DAppチェーンはスマートコントラクト呼び出しに反応して、イベントをトリガすることができる。 新規イベントを通知するには、`EvmContract.ChainEventReceived`イベントへのサブスクライブをする必要がある。 But first, we need to define a DTO (Data Transfer Object) that specifies the event parameters.
+DAppチェーンはスマートコントラクト呼び出しに反応して、イベントをトリガすることができる。 新規イベントを通知するには、`EvmContract.ChainEventReceived`イベントへのサブスクライブをする必要がある。 しかしまずはDTO(Data Transfer Object) を定義し、イベントパラメーターを指定しなくてはならない。
 
 ```csharp
 public class OnTileMapStateUpdateEvent
@@ -274,28 +274,29 @@ private void ContractOnChainEventReceived(object sender, EvmChainEventArgs e)
 }
 ```
 
-## Putting it all together
+## まとめ
 
-Add the following method to the `LoomEvmQuickStartSample` class.
+`LoomEvmQuickStartSample` クラスに次のメソッドを追加しよう。
 
 ```csharp
 async void Start()
 {
-    // The private key is used to sign transactions sent to the DAppChain.
-    // Usually you'd generate one private key per player, or let them provide their own.
-    // In this sample we just generate a new key every time.
+    // 秘密鍵(privateKey)はDAppチェーンへ送られたトランザクションへ署名するために使われる。
+    // 通常プレイヤー1人につき1つの秘密鍵を生成するか、もしくはプレイヤーが自身の秘密鍵を提供する。
+    // このサンプルでは、毎回新しく鍵を生成している。
     var privateKey = CryptoUtils.GeneratePrivateKey();
     var publicKey = CryptoUtils.PublicKeyFromPrivateKey(privateKey);
 
-    // Connect to the contract
+    // コントラクトに接続
     var contract = await GetContract(privateKey, publicKey);
-    // This should print something like: "hello 6475" in the Unity console window if some data is already stored
+    // 何かしらのデータがすでに保存されていれば、Unityコンソールウィンドウには
+    //  こんな風にプリントされるはずだ: "hello 6475" 
     await StaticCallContract(contract);
-    // Listen for events
+    // イベントをリッスン
     contract.ChainEventReceived += ContractOnChainEventReceived;
-    // Store the string in a contract
+    // コントラクトに文字列を保存
     await CallContract(contract);
 }
 ```
 
-Now that we have all the code in place let's test it out: 1. Create an empty `GameObject` in a Unity scene and attach the `LoomEvmQuickStartSample` script to it. 2. Deploy the [TilesChain](https://github.com/loomnetwork/unity-tiles-chain-evm/blob/master/dappchain/TilesChain.sol) smart contract on a local Loom DAppChain node. 3. Hit `Play` in the Unity Editor.
+全コードの用意ができたので、テストしてみよう: 1. Unityシーンに空の`GameObject`を作成し、そこに`LoomEvmQuickStartSample`スクリプトを付け加えよう。 2. スマートコントラクト[TilesChain](https://github.com/loomnetwork/unity-tiles-chain-evm/blob/master/dappchain/TilesChain.sol)をローカルのLoom DAppチェーンノードにデプロイしよう。 3. Unityエディタの`Play`をクリックしよう。
