@@ -1,7 +1,7 @@
 ---
 id: web3js-loom-provider-truffle
-title: Web3, LoomProvider and Truffle
-sidebar_label: Web3, LoomProvider and Truffle
+title: Web3、LoomProviderとTruffle
+sidebar_label: Web3、LoomProviderとTruffle
 ---
 ## Overview
 
