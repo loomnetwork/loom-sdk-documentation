@@ -3,9 +3,9 @@ id: unity-sdk-plugin
 title: プラグインベースのスマートコントラクトクイックスタート
 sidebar_label: プラグインベースのスマートコントラクトクイックスタート
 ---
-Loomは、EVM ([Ethereum Virtual Machine](evm.html)) 及びプラグインベースのスマートコントラクトをサポートする。 Plugin-based smart contracts can be created with (go-loom)[https://github.com/loomnetwork/go-loom], for example.
+Loomは、EVM ([Ethereum Virtual Machine](evm.html)) 及びプラグインベースのスマートコントラクトをサポートする。 プラグインベースのスマートコントラクトは、例えば(go-loom)[https://github.com/loomnetwork/go-loom]を使用して作成される。
 
-In this example, we will demostrate how to use the Unity SDK to communicate with plugin-based smart contracts.
+このサンプルでは、Unity SDKを使用してプラグインベースのスマートコントラクトと対話する方法をデモンストレーションする。
 
 ## サンプル コード
 
@@ -13,7 +13,7 @@ In this example, we will demostrate how to use the Unity SDK to communicate with
 
 ## DAppチェーンへの接続
 
-`Contract` クラスは、Loom DAppチェーンで実行されるスマートコントラクトと対話するための便利な方法を提供する。 Let's write a method that creates a `Contract` instance to interact with the sample [BluePrint](https://github.com/loomnetwork/weave-blueprint/blob/master/src/blueprint.go) smart contract provided in the Loom SDK...
+`Contract` クラスは、Loom DAppチェーンで実行されるスマートコントラクトと対話するための便利な方法を提供する。 Loom SDKのサンプルスマートコントラクト[BluePrint](https://github.com/loomnetwork/weave-blueprint/blob/master/src/blueprint.go) と対話する`Contract` インスタンスを作成する関数を書いてみよう。
 
 ```csharp
 // LoomQuickStartSample.cs
