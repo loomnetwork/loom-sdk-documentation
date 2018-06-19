@@ -38,6 +38,13 @@ sudo unzip protoc-${PROTOBUF_VERSION}-linux-x86_64.zip -d /usr/local
 sudo chmod +x /usr/local/bin/protoc
 ```
 
+## Dep
+
+```bash
+mkdir -p ~/gopath/bin
+export GOPATH=~/gopath
+curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
+```
 
 ## Installation
 
@@ -45,8 +52,8 @@ sudo chmod +x /usr/local/bin/protoc
 curl -OL https://storage.googleapis.com/private.delegatecall.com/loom/linux/build-163/loom
 chmod +x loom
 
-mkdir ~/gopath
-export GOPATH=`pwd`/tmpgopath
+export GOPATH=~/gopath
+export PATH=$GOPATH/bin:$PATH
 ./loom spin weave-blueprint
 cd blueprint
 export GOPATH=$GOPATH:`pwd`
