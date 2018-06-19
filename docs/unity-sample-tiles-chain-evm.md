@@ -32,7 +32,7 @@ git clone https://github.com/loomnetwork/unity-tiles-chain-evm
 cd unity-tiles-chain-evm
 
 cd dappchain
-wget https://storage.googleapis.com/private.delegatecall.com/loom/osx/build-161/loom
+wget https://storage.googleapis.com/private.delegatecall.com/loom/osx/build-186/loom
 chmod +x loom
 
 # Configure
