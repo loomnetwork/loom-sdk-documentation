@@ -67,15 +67,15 @@ yarn deploy
 yarn test
 ```
 
-> In order to correctly redeploy the contracts there's a command "yarn deploy:reset"
+> コントラクトを正しく再デプロイするには "yarn deploy:reset" というコマンドがある。
 > 
-> Also is possible to call truffle command directly by call "yarn truffle"
+> また "yarn truffle" を呼び出すことで、Truffleコマンドを直接呼び出すこともできる。
 > 
-> We're not versioning the build directory for this particular example, although is recommended to versioning, the limitation can be removed by editing .gitignore
+> このサンプルのためのビルドディレクトリのバージョニングは行なっていないが、バージョニングを行うことをおすすめする。この制限は .gitignore を編集することで解除できる。
 
-## Current limitations
+## 現在の制限
 
-* Events declared on smart contracts should have an named parameter like `NewValueSet(uint _value)` in the contract `SimpleStore.sol`. Also it helps to dealing with events
+* スマートコントラクト上で宣言されたイベントは、`SimpleStore.sol`にある`NewValueSet(uint _value)`のように、名前のあるパラメーターを持っていなくてはならない。
 
 ## Loom Network
 
