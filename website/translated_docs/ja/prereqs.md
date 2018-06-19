@@ -51,7 +51,7 @@ $ brew upgrade dep
 ## インストール
 
 ```bash
-wget https://storage.googleapis.com/private.delegatecall.com/loom/osx/build-163/loom
+wget https://storage.googleapis.com/private.delegatecall.com/loom/osx/build-186/loom
 chmod +x loom
 
 mkdir tmpgopath
