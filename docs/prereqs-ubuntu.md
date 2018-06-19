@@ -41,6 +41,8 @@ sudo chmod +x /usr/local/bin/protoc
 ## Dep
 
 ```bash
+mkdir -p ~/gopath/bin
+export GOPATH=~/gopath
 curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
 ```
 
@@ -50,8 +52,8 @@ curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
 curl -OL https://storage.googleapis.com/private.delegatecall.com/loom/linux/build-163/loom
 chmod +x loom
 
-mkdir ~/gopath
-export GOPATH=`pwd`/tmpgopath
+export GOPATH=~/gopath
+export PATH=$GOPATH/bin:$PATH
 ./loom spin weave-blueprint
 cd blueprint
 export GOPATH=$GOPATH:`pwd`
