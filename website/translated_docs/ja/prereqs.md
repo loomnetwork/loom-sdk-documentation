@@ -5,11 +5,13 @@ sidebar_label: インストール (OSX)
 ---
 OSXでのLoomのインストールとセットアップ
 
-Wget
+## wget
 
-    brew install wget
+```bash
+brew install wget
+```
 
-Golang
+## Golang
 
 ```bash
 wget https://dl.google.com/go/go1.10.2.darwin-amd64.tar.gz
@@ -20,13 +22,15 @@ export GOPATH=~/gopath
 *Add GOPATH to your bashrc  or zshrc
 ```
 
-もしくはGolangを`brew`からインストール
+or install Golang from `brew`
 
 ```bash
 brew install go
 ```
 
-Protobufs https://github.com/google/protobuf/releases/tag/v3.5.1
+## Protobuf
+
+https://github.com/google/protobuf/releases/
 
 ```bash
 wget https://github.com/google/protobuf/releases/download/v3.5.1/protoc-3.5.1-osx-x86_64.zip
@@ -37,7 +41,14 @@ export GOPATH=~/gopath
 go get -u github.com/golang/protobuf/protoc-gen-go
 ```
 
-## インストール
+## Dep
+
+```bash
+$ brew install dep
+$ brew upgrade dep
+```
+
+## Installation
 
 ```bash
 wget https://storage.googleapis.com/private.delegatecall.com/loom/osx/build-163/loom
@@ -56,18 +67,18 @@ cd build
 cp ../genesis.example.json genesis.json
 ```
 
-## ブロックチェーンの起動
+## Run Blockchain
 
     ../../loom run
     
 
-## トランザクションの送信
+## Send transactions
 
-2 番目のコンソール画面を開こう。   
+Open a second console   
   
-このようにして秘密鍵を生成し、アカウントを作成する。そしてバリューを設定し、そのバリューをブロックチェーンから読み取る。
+This will generate a private key. Create an account. Then set a value, and then read the value from the blockchain.
 
-Blueprint contract のソースは[こちら](https://github.com/loomnetwork/weave-blueprint)を参照
+You can read the source of the [blueprint contract here](https://github.com/loomnetwork/weave-blueprint)
 
 ```bash
 cd blueprint/build
