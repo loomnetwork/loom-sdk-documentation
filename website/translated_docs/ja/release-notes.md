@@ -9,11 +9,11 @@ sidebar_label: リリースノート
 
 ## リリース 163 - 6月11日
 
-* Support for latest Build of Truffle
-* [Updated truffle example](https://github.com/loomnetwork/loom-truffle-provider)
-* Initial Implementation of Sybil resistance framework
-* Websocket events now support topics 
-* Loom-JS 1.8.0 Release with updated websocket topic support
+* Truffleの最新ビルドをサポート
+* [Truffleサンプルをアップデート](https://github.com/loomnetwork/loom-truffle-provider)
+* シビル攻撃耐性フレームワークの初期実装
+* Websocketイベントのトピックサポート 
+* Loom-JS 1.8.0リリースで、websocketトピックをサポートするようアップデート
 
 ## リリース 161 - 6月7日
 
