@@ -152,11 +152,11 @@ async void Start()
 
 ## サンプル コード
 
-このサンプルは、[`unity-tiles-chain-evm`デモ](https://github.com/loomnetwork/unity-tiles-chain-evm)のSolidityコントラクトを使用している。 For the purpose of this sample, we will use this sample contract just to store a text string.
+このサンプルは、[`unity-tiles-chain-evm`デモ](https://github.com/loomnetwork/unity-tiles-chain-evm)のSolidityコントラクトを使用している。 このサンプルでは、サンプルコントラクトはテキスト文字列を保存していくためだけに使用していく。
 
-## Connecting to a DAppChain
+## DAppチェーンへの接続
 
-The `EvmContract` class provides a convenient way to interact with a smart contract running on a Loom DAppChain running an EVM-compatible smart contract. Let's write a method that creates an `EvmContract` instance to interact with the sample [TilesChain](https://github.com/loomnetwork/unity-tiles-chain-evm/blob/master/dappchain/TilesChain.sol) smart contract.
+`EvmContract` クラスは、Loom DAppチェーンで実行されるスマートコントラクトと対話するための便利な方法を提供する。Loom DAppチェーンは、EVM互換性のあるスマートコントラクトを実行することができる。 Let's write a method that creates an `EvmContract` instance to interact with the sample [TilesChain](https://github.com/loomnetwork/unity-tiles-chain-evm/blob/master/dappchain/TilesChain.sol) smart contract.
 
 ```csharp
 // LoomEvmQuickStartSample.cs
@@ -183,7 +183,7 @@ public class LoomEvmQuickStartSample : MonoBehaviour
         var client = new DAppChainClient(writer, reader)
             { Logger = Debug.unityLogger };
 
-        // required middleware
+        // ミドルウェアを要求
         client.TxMiddleware = new TxMiddleware(new ITxMiddlewareHandler[]
         {
             new NonceTxMiddleware
@@ -194,7 +194,7 @@ public class LoomEvmQuickStartSample : MonoBehaviour
             new SignedTxMiddleware(privateKey)
         });
 
-        // ABI of the Solidity contract
+        // SolidityコントラクトのABI
         const string abi = "[{\"constant\":false,\"inputs\":[{\"name\":\"_tileState\",\"type\":\"string\"}],\"name\":\"SetTileMapState\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"GetTileMapState\",\"outputs\":[{\"name\":\"\",\"type\":\"string\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"name\":\"state\",\"type\":\"string\"}],\"name\":\"OnTileMapStateUpdate\",\"type\":\"event\"}]\r\n";
         var contractAddr = await client.ResolveContractAddressAsync("TilesChain");
         var callerAddr = Address.FromPublicKey(publicKey);
@@ -204,9 +204,9 @@ public class LoomEvmQuickStartSample : MonoBehaviour
 }
 ```
 
-## Writing data to a DAppChain
+## DAppチェーンへのデータの書き込み
 
-To mutate the state of a smart contract you need to call one of its public methods, to do so a signed transaction must be sent to and validated by the DAppChain. Fortunately the `EvmContract` class takes care of most of this when you use the `EvmContract.Call*Async()` family of methods.
+スマートコントラクトの状態を変更するには、そのパブリックなメソッドのうちどれかを呼び出すことが必要であり、さらに署名済みのトランザクションが送信され、DAppチェーンによって検証されていなくてはならない。 幸いこれらのほとんどは、`EvmContract.Call*Async()`ファミリーのメソッドを使用すれば 、`EvmContract`クラスが処理を行う。
 
 The [TilesChain](https://github.com/loomnetwork/unity-tiles-chain-evm/blob/master/dappchain/TilesChain.sol) smart contract has a public `SetTileMapState` method that can be called to store an string value, note that this method doesn't return anything. Let's add a method to the `LoomEvmQuickStartSample` class that calls `TilesChain.SetTileMapState()`.
 
