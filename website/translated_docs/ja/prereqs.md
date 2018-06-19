@@ -22,7 +22,7 @@ export GOPATH=~/gopath
 *Add GOPATH to your bashrc  or zshrc
 ```
 
-or install Golang from `brew`
+もしくはGolangを`brew`からインストール
 
 ```bash
 brew install go
@@ -48,7 +48,7 @@ $ brew install dep
 $ brew upgrade dep
 ```
 
-## Installation
+## インストール
 
 ```bash
 wget https://storage.googleapis.com/private.delegatecall.com/loom/osx/build-163/loom
@@ -67,18 +67,18 @@ cd build
 cp ../genesis.example.json genesis.json
 ```
 
-## Run Blockchain
+## ブロックチェーンの起動
 
     ../../loom run
     
 
-## Send transactions
+## トランザクションの送信
 
-Open a second console   
+2 番目のコンソール画面を開こう。   
   
-This will generate a private key. Create an account. Then set a value, and then read the value from the blockchain.
+このようにして秘密鍵を生成し、アカウントを作成する。そしてバリューを設定し、そのバリューをブロックチェーンから読み取る。
 
-You can read the source of the [blueprint contract here](https://github.com/loomnetwork/weave-blueprint)
+Blueprint contract のソースは[こちら](https://github.com/loomnetwork/weave-blueprint)を参照
 
 ```bash
 cd blueprint/build
