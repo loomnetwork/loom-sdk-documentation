@@ -38,6 +38,11 @@ sudo unzip protoc-${PROTOBUF_VERSION}-linux-x86_64.zip -d /usr/local
 sudo chmod +x /usr/local/bin/protoc
 ```
 
+## Dep
+
+```bash
+curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
+```
 
 ## Installation
 
