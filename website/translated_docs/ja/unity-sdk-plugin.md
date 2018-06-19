@@ -3,7 +3,7 @@ id: unity-sdk-plugin
 title: プラグインベースのスマートコントラクトクイックスタート
 sidebar_label: プラグインベースのスマートコントラクトクイックスタート
 ---
-Loom supports EVM ([Ethereum Virtual Machine](evm.html)) and plugin-based smart contracts. Plugin-based smart contracts can be created with (go-loom)[https://github.com/loomnetwork/go-loom], for example.
+Loomは、EVM ([Ethereum Virtual Machine](evm.html)) 及びプラグインベースのスマートコントラクトをサポートする。 Plugin-based smart contracts can be created with (go-loom)[https://github.com/loomnetwork/go-loom], for example.
 
 In this example, we will demostrate how to use the Unity SDK to communicate with plugin-based smart contracts.
 
