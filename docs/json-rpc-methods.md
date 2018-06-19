@@ -82,7 +82,7 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 #### Description
 
-Returns the number of most recent block.
+Returns the number of the most recent completed block.
 
 #### Parameters
 
@@ -127,7 +127,7 @@ Executes a new message call immediately without creating a transaction on the bl
 
 #### Returns
 
-`DATA` - the return value of executed contract.
+`DATA` - the return value of the executed contract.
 
 #### Example
 
@@ -165,8 +165,8 @@ Returns information about a block by block number.
 
 - `number`: `QUANTITY` - the block number. null when its pending block.
 - `hash`: `DATA`, 32 Bytes - hash of the block. null when its pending block.
-- `parentHash:`DATA`, 32 Bytes - hash of the parent block.
-- `nonce`: `DATA`, 8 Bytes - hash of the generated proof-of-work. null when its pending block.
+- `parentHash`: DATA`, 32 Bytes - hash of the parent block.
+- `logsBloom`: `DATA`, 256 Bytes - the bloom filter for the logs of the block. null when its pending block.
 - `timestamp`: `QUANTITY` - the unix timestamp for when the block was collated.
 - `transactions`: `Array` - Array of transaction objects, or 32 Bytes transaction hashes depending on the last given parameter.
 
@@ -187,7 +187,7 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 //     "number": "0x1b4", // 436
 //     "hash": "0xe670ec64341771606e55d6b4ca35a1a6b75ee3d5145a99d05921026d1527331",
 //     "parentHash": "0x9646252be9520f6e71339a8df9c55e4d7619deeb018d2a3f2d21fc165dde5eb5",
-//     "nonce": "0xe04d296d2460cfb8472af2c5fd05b5a214109c25688d3704aed5484f9a7792f2",
+//     "logsBloom": "0xe670ec64341771606e55d6b4ca35a1a6b75ee3d5145a99d05921026d1527331",
 //     "timestamp": "0x54e34e8e" // 1424182926
 //     "transactions": [{...},{ ... }]
 //   }
@@ -213,8 +213,8 @@ Returns information about a block by hash.
 
 - `number`: `QUANTITY` - the block number. null when its pending block.
 - `hash`: `DATA`, 32 Bytes - hash of the block. null when its pending block.
-- `parentHash:`DATA`, 32 Bytes - hash of the parent block.
-- `nonce`: `DATA`, 8 Bytes - hash of the generated proof-of-work. null when its pending block.
+- `parentHash`: `DATA`, 32 Bytes - hash of the parent block.
+- `logsBloom`: `DATA`, 256 Bytes - the bloom filter for the logs of the block. null when its pending block.
 - `timestamp`: `QUANTITY` - the unix timestamp for when the block was collated.
 - `transactions`: `Array` - Array of transaction objects, or 32 Bytes transaction hashes depending on the last given parameter.
 
@@ -235,7 +235,7 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 //     "number": "0x1b4", // 436
 //     "hash": "0xe670ec64341771606e55d6b4ca35a1a6b75ee3d5145a99d05921026d1527331",
 //     "parentHash": "0x9646252be9520f6e71339a8df9c55e4d7619deeb018d2a3f2d21fc165dde5eb5",
-//     "nonce": "0xe04d296d2460cfb8472af2c5fd05b5a214109c25688d3704aed5484f9a7792f2",
+//     "logsBloom": "0xe670ec64341771606e55d6b4ca35a1a6b75ee3d5145a99d05921026d1527331",
 //     "timestamp": "0x54e34e8e" // 1424182926
 //     "transactions": [{...},{ ... }]
 //   }
@@ -548,7 +548,7 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 #### Description
 
-Returns logs that are included in new imported blocks and match the given filter criteria.
+It works by subscribing to particular events. The node will return a subscription id. For each event that matches the subscription a notification with relevant data is send together with the subscription id.
 
 #### Parameters
 
@@ -588,7 +588,7 @@ Uninstalls a filter with given id. Should always be called when watch is no long
 
 #### Parameters
 
-1.  `QUANTITY` - The filter i
+1.  `QUANTITY` - The filter id
 
 #### Returns
 
