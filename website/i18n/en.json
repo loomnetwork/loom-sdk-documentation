@@ -59,11 +59,11 @@
     "Truffle Deploy": "Truffle Deploy",
     "unity-sample-tiles-chain-evm": "Tiles EVM Example",
     "Tiles EVM Example": "Tiles EVM Example",
-    "unity-sdk-evm": "EVM-based Loom Node Quickstart",
+    "unity-sdk-evm": "EVM-based Smart Contract Quickstart",
     "EVM-based Smart Contract Quickstart": "EVM-based Smart Contract Quickstart",
     "unity-sdk-overview": "Overview",
     "Overview": "Overview",
-    "unity-sdk-plugin": "Plugin-based Loom Node Quickstart",
+    "unity-sdk-plugin": "Plugin-based Smart Contract Quickstart",
     "Plugin-based Smart Contract Quickstart": "Plugin-based Smart Contract Quickstart",
     "web3js-loom-provider-truffle": "Web3, LoomProvider and Truffle",
     "Web3, LoomProvider and Truffle": "Web3, LoomProvider and Truffle",
@@ -83,12 +83,7 @@
     "Solidity & EVM": "Solidity & EVM",
     "Example Games & Apps": "Example Games & Apps",
     "Deployment": "Deployment",
-    "Frequently Asked Questions": "Frequently Asked Questions",
-    "EVM-based Loom Node Quickstart": "EVM-based Loom Node Quickstart",
-    "Plugin-based Loom Node Quickstart": "Plugin-based Loom Node Quickstart",
-    "unity-sdk": "Unity SDK",
-    "unity-tiles-chain-evm": "Unity Tiles EVM Example",
-    "Unity Tiles EVM Example": "Unity Tiles EVM Example"
+    "Frequently Asked Questions": "Frequently Asked Questions"
   },
   "pages-strings": {
     "Learn more using the [documentation on this site.](/test-site/docs/en/doc1.html)|no description given": "Learn more using the [documentation on this site.](/test-site/docs/en/doc1.html)",

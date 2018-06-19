@@ -23,7 +23,7 @@ sudo tar -C /usr/local -xzf go1.10.2.linux-amd64.tar.gz
 Assuming you are on bash, if zsh do to `~/.zshrc`:
 
 ```bash
-echo -e "\n export PATH=\$PATH:/usr/local/go/bin" >>  ~/.bashrc
+echo -e "\nexport PATH=\$PATH:/usr/local/go/bin:~/gopath/bin" >>  ~/.bashrc
 source ~/.bashrc
 ```
 
