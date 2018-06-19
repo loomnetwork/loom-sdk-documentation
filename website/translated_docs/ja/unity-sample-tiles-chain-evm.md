@@ -1,29 +1,29 @@
 ---
 id: unity-sample-tiles-chain-evm
-title: Tiles EVM Example
-sidebar_label: Tiles EVM Example
+title: TilesのEVMサンプル
+sidebar_label: TilesのEVMサンプル
 ---
-A basic example showcasing a simple Unity game interacting with an EVM-based Loom DappChain, using [Loom Unity SDK](https://github.com/loomnetwork/unity3d-sdk).
+[Loom Unity SDK](https://github.com/loomnetwork/unity3d-sdk)を使用した、EVMベースのLoom DAppチェーンと対話するシンプルなUnityゲームの基本サンプルだ。
 
 ![](https://camo.githubusercontent.com/9d49b0ce78d692e69d1dd571bc8d1aafe5b806a8/68747470733a2f2f647a776f6e73656d72697368372e636c6f756466726f6e742e6e65742f6974656d732f315232363044327030713370304d33693232304a2f53637265656e2532305265636f7264696e67253230323031382d30352d3232253230617425323031302e3233253230414d2e6769663f763d3961353539316139)
 
-## Game instructions
+## ゲームの説明
 
-Use the mouse cursor to click on the black canvas area to create colored tiles, each new player will have a different color the canvas which is shared amongst all players.
+マウスカーソルを使って黒いキャンバス領域をクリックし、色のついたタイルを作る。新しいプレイヤーはそれぞれ異なる色のキャンバスを持つこととなり、キャンバスは全てのプレイヤーから共有される。
 
-## Development
+## 開発
 
-### 1. Run your own DappChain
+### 1. 自分のDAppチェーンを起動しよう
 
-Please consult the [Loom SDK docs](https://loomx.io/developers/docs/en/prereqs.html) for further instruction on running your own DappChain.
+自分のDAppチェーン起動についてのさらなる説明は、[Loom SDKドキュメンテーション](https://loomx.io/developers/docs/en/prereqs.html)を参照すること。
 
-### 2. Download the example project (Unity Tiles Chain EVM)
+### 2. サンプルプロジェクトのダウンロード(Unity Tiles Chain EVM)
 
 ```bash
 git clone https://github.com/loomnetwork/unity-tiles-chain-evm
 ```
 
-### 3. Start the DappChain
+### 3. DAppチェーンのスタート
 
 ```bash
 cd unity-tiles-chain-evm
@@ -32,14 +32,14 @@ cd dappchain
 wget https://storage.googleapis.com/private.delegatecall.com/loom/osx/build-161/loom
 chmod +x loom
 
-# Configure
+# 設定
 ./loom init
 cp genesis.example.json genesis.json
 
-# Run
+# 起動
 ./loom run
 ```
 
-### 4.) Build the Unity client
+### 4. Unityクライアントの構築
 
-Open the Unity project located in `unityclient` folder. Open the `LoomTilesChainEvm` scene and build it.
+`unityclient`フォルダ内にあるUnityプロジェクトを開き、`LoomTilesChainEvm` シーンを開いてビルドしよう。
