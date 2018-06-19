@@ -77,14 +77,14 @@ import (
 func getContract(contractName string) (*client.Contract, error) {
   rpcClient := client.NewDAppChainRPCClient(
     "default",
-    "ws://127.0.0.1:46657/websocket",
-    "ws://127.0.0.1:9999/queryws",
+    "http://localhost:46658/rpc",
+    "http://localhost:46658/query",
   )
   contractAddr, err := rpcClient.Resolve(contractName)
   if err != nil {
     return nil, err
   }
-  return client.NewContract(rpcClient, contractAddr), nil
+  return client.NewContract(rpcClient, contractAddr.Local), nil
 }
 ```
 
@@ -125,7 +125,7 @@ func load(contract *client.Contract, key string) (string, error) {
     Key: key, // The smart contract will look up the value stored under this key.
   }
   var result types.MapEntry
-  if _, err = contract.StaticCall("GetMsg", params, &result); err != nil {
+  if _, err := contract.StaticCall("GetMsg", &params, contract.Address, &result); err != nil {
     return "", err
   }
   return result.Value, nil
