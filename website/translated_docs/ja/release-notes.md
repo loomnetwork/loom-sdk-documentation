@@ -32,20 +32,20 @@ sidebar_label: リリースノート
 * [BluePrint Dockerイメージが利用可能](docker-blueprint.html)
 * [東京ハッカソンのレポート](https://medium.com/loom-network/highlights-from-the-first-loom-unity-sdk-hackathon-tokyo-edition-6ed723747c19)
 * [Loom SDKプロジェクト用のDockerイメージ](https://hub.docker.com/r/loomnetwork/)
-* Evm TX Reciepts fixes 
+* Evmトランザクションレシートの修正 
 
-## Release 137 - May 30th
+## リリース 137 - 5月30日
 
-* Go Clients can Access EVM Contracts
-* Numerous bug fixes for EVM
-* [Social Network Example App - Solidity](simple-social-network-example.html)
+* GoクライアントがEVMコントラクトへアクセス可能に
+* EVMのバグを多数修正
+* [ソーシャルネットワークのサンプルアプリ- Solidity](simple-social-network-example.html)
 
-## Release 136 - May 28th
+## リリース 136 - 5月28日
 
-* Initial Solidity Alpha test build, you can now deploy solidity contracts
-* Websocket eventing support for solidity 
-* [Example Project for solidity Events](phaser-sdk-demo-web3-websocket.html)
-* [Multinode deployment guide](multi-node-deployment.html)
+* 初期Solidityアルファ版テストビルド。Solidityコントラクトがデプロイ可能に。
+* Splidityでのイベントサポート 
+* [Solidityイベントのサンプルプロジェクト](phaser-sdk-demo-web3-websocket.html)
+* [マルチノードデプロイメントガイド](multi-node-deployment.html)
 
 ## リリース 133 - 5月24日
 
