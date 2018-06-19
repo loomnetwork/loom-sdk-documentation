@@ -1,23 +1,23 @@
 ---
 id: truffle-deploy
-title: Truffle DAppChain Example
-sidebar_label: Truffle Deploy
+title: Truffle DAppチェーンサンプル
+sidebar_label: Truffleデプロイ
 ---
 ![http://truffleframework.com](/developers/img/truffle.jpg)
 
-Simple example of Truffle interacting with Loom DAppChain, this example uses [loom-truffle-provider](https://github.com/loomnetwork/loom-truffle-provider) (check LoomTruffleProvider repository for more details)
+Loom DAppチェーンと対話するTruffleの簡単なサンプルだ。このサンプルは[loom-truffle-provider](https://github.com/loomnetwork/loom-truffle-provider)を使用している(さらなる詳細については、LoomTruffleProviderのリポジトリをチェックしよう)
 
-## Requirements
+## 要件
 
 ```bash
 Node >= 8
 ```
 
-## Install
+## インストール
 
-In order to download the Truffle DAppChain Example there're two methods Git or Unbox
+Truffle DAppチェーンサンプルをダウンロードするには、GitもしくはUnboxの２つの方法がある。
 
-### Git method
+### Gitの方法
 
 ```bash
 git clone https://github.com/loomnetwork/truffle-dappchain-example
@@ -27,14 +27,14 @@ git clone https://github.com/loomnetwork/truffle-dappchain-example
 cd truffle-dappchain-example
 
 yarn install
-# or
+# もしくは
 npm install
 ```
 
-### Unbox method
+### Unboxの方法
 
 ```bash
-# Install Truffle if not installed
+# もしまだであれば、Truffleをインストール
 npm install -g truffle
 
 mkdir truffle-dappchain-example
@@ -43,27 +43,27 @@ cd truffle-dappchain-example
 truffle unbox loomnetwork/truffle-dappchain-example
 ```
 
-## Start DappChain
+## DAppチェーンのスタート
 
 ```bash
-# Download
+# ダウンロード
 wget https://storage.googleapis.com/private.delegatecall.com/loom/osx/build-161/loom
 chmod +x loom
 
-# Run
+# 起動
 ./loom init
 ./loom run
 ```
 
-## Deploy Truffle
+## Truffleのデプロイ
 
 ```bash
-# On second terminal
+# ２つ目のターミナル画面で
 
-# Deploy Migrations.sol and SimpleStore.sol
+# Migrations.sol 及び SimpleStore.sol をデプロイ
 yarn deploy
 
-# Running test on directory /test
+# ディレクトリ /test にてテストを実行
 yarn test
 ```
 
@@ -81,6 +81,6 @@ yarn test
 
 <https://loomx.io>
 
-## License
+## ライセンス
 
 BSD 3-Clause License
