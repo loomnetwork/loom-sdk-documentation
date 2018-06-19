@@ -5,11 +5,13 @@ sidebar_label: Installation (OSX)
 ---
 Installing and setting up Loom on OSX
 
-Wget
+## wget
 
-    brew install wget
+```bash
+brew install wget
+```
 
-Golang
+## Golang
 
 ```bash
 wget https://dl.google.com/go/go1.10.2.darwin-amd64.tar.gz
@@ -26,7 +28,9 @@ or install Golang from `brew`
 brew install go
 ```
 
-Protobufs https://github.com/google/protobuf/releases/tag/v3.5.1
+## Protobuf
+
+https://github.com/google/protobuf/releases/
 
 ```bash
 wget https://github.com/google/protobuf/releases/download/v3.5.1/protoc-3.5.1-osx-x86_64.zip
@@ -35,6 +39,13 @@ sudo unzip protoc-3.5.1-osx-x86_64.zip -d /usr/local
 sudo chmod +X /usr/local/bin/protoc
 export GOPATH=~/gopath
 go get -u github.com/golang/protobuf/protoc-gen-go
+```
+
+## Dep
+
+```bash
+$ brew install dep
+$ brew upgrade dep
 ```
 
 ## Installation
