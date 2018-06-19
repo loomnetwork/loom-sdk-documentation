@@ -208,7 +208,7 @@ public class LoomEvmQuickStartSample : MonoBehaviour
 
 スマートコントラクトの状態を変更するには、そのパブリックなメソッドのうちどれかを呼び出すことが必要であり、さらに署名済みのトランザクションが送信され、DAppチェーンによって検証されていなくてはならない。 幸いこれらのほとんどは、`EvmContract.Call*Async()`ファミリーのメソッドを使用すれば 、`EvmContract`クラスが処理を行う。
 
-The [TilesChain](https://github.com/loomnetwork/unity-tiles-chain-evm/blob/master/dappchain/TilesChain.sol) smart contract has a public `SetTileMapState` method that can be called to store an string value, note that this method doesn't return anything. Let's add a method to the `LoomEvmQuickStartSample` class that calls `TilesChain.SetTileMapState()`.
+[TilesChain](https://github.com/loomnetwork/unity-tiles-chain-evm/blob/master/dappchain/TilesChain.sol)スマートコントラクトは、パブリックな`SetTileMapState`メソッドを持っており、これはバリューの文字列を保存するよう呼び出すことができる。このメソッドは何も返さないことに気をつけること。 `LoomEvmQuickStartSample`クラスに`TilesChain.SetTileMapState()`を呼び出すメソッドを追加しよう。
 
 ```csharp
 public async Task CallContract(EvmContract contract)
@@ -225,11 +225,11 @@ public async Task CallContract(EvmContract contract)
 }
 ```
 
-## Reading data from a DAppChain
+## DAppチェーンからのデータの読み取り
 
-To read the state of a smart contract you need to call one of its public read-only methods, calling a read-only method doesn't modify the smart contract state. You can call a read-only method on a smart contract by using the `EvmContract.StaticCall*Async()` family of methods.
+スマートコントラクトの状態を読み取るには、そのパブリックな読み取り専用メソッドのうちどれかを呼び出すことが必要だ。読み取り専用メソッドの呼び出しで、スマートコントラクトの状態が変更されることはない。 スマートコントラクト上の読み取り専用メソッドは、`EvmContract.StaticCall*Async()` ファミリーのメソッドを使用して呼び出すことができる。
 
-The [TilesChain](https://github.com/loomnetwork/unity-tiles-chain-evm/blob/master/dappchain/TilesChain.sol) smart contract has a public `GetTileMapState` method that can be called to get the stored string value. Let's add a method to the `LoomEvmQuickStartSample` class to call `TilesChain.GetTileMapState`.
+[TilesChain](https://github.com/loomnetwork/unity-tiles-chain-evm/blob/master/dappchain/TilesChain.sol)スマートコントラクトは、パブリックな`GetTileMapState`メソッドを持っており、これは保存された文字列のバリュー取得するために呼び出すことができる。 `LoomEvmQuickStartSample`クラスに`TilesChain.GetTileMapState`を呼び出すメソッドを追加しよう。
 
 ```csharp
 public async Task StaticCallContract(EvmContract contract)
@@ -252,9 +252,9 @@ public async Task StaticCallContract(EvmContract contract)
 }
 ```
 
-## Receiving events from a DAppChain
+## DAppチェーンからのイベントの受信
 
-DAppChains can trigger events in reaction to calling a smart contract. To be notified of new events, you must subscribe to the `EvmContract.ChainEventReceived` event. But first, we need to define a DTO (Data Transfer Object) that specifies the event parameters.
+DAppチェーンはスマートコントラクト呼び出しに反応して、イベントをトリガすることができる。 新規イベントを通知するには、`EvmContract.ChainEventReceived`イベントへのサブスクライブをする必要がある。 But first, we need to define a DTO (Data Transfer Object) that specifies the event parameters.
 
 ```csharp
 public class OnTileMapStateUpdateEvent
