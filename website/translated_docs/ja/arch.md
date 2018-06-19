@@ -16,7 +16,7 @@ Loomのコンセンサスレイヤーは、Loom DPoSもしくはチェーンご�
 
 ## スマートコントラクト
 
-It allows smart contracts written in Go, Solidity or any language supporting GRPC.
+GoやSolidityなどの、GRPCサポート言語で書かれたスマートコントラクトを使用することができる。
 
 Smart contracts can be embedded into the chain, like DPoS, Coin or EthereumVM.
 
