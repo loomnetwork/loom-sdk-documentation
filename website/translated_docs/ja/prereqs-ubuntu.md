@@ -46,7 +46,7 @@ export GOPATH=~/gopath
 curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
 ```
 
-## Installation
+## インストール
 
 ```bash
 curl -OL https://storage.googleapis.com/private.delegatecall.com/loom/linux/build-163/loom
@@ -65,13 +65,13 @@ cd build
 cp ../genesis.example.json genesis.json
 ```
 
-## Run Blockchain
+## ブロックチェーンの起動
 
 ```bash
 ../../loom run
 ```
 
-## Send transactions
+## トランザクションの送信
 
 2 つ目のコンソールを開こう。
 
