@@ -49,7 +49,7 @@ curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
 ## Installation
 
 ```bash
-curl -OL https://storage.googleapis.com/private.delegatecall.com/loom/linux/build-163/loom
+curl -OL https://storage.googleapis.com/private.delegatecall.com/loom/linux/build-186/loom
 chmod +x loom
 
 export GOPATH=~/gopath
