@@ -188,10 +188,10 @@ yarn add loom-js
 Adding `Web3.js` to Node.js project (running on Node.js version 8 or greater) is fairly simple after the install, it should be simple as well for projects using `Webpack` also:
 
 ```Javascript
-// Node.JS 8 or greater
+// Node.JS 8 または8以上
 const Web3 = require('web3')
 
-// Webpack with ES2016 support
+// ES2016サポートのWebpack
 import Web3 from 'web3'
 ```
 
@@ -234,7 +234,7 @@ const tx = await contract.methods.set(47).send()
 const value = await contract.methods.get().call()
 ```
 
-Also listen for events, in that case for the event `NewValueSet`:
+またイベントをリッスンするには、例えばイベント`NewValueSet`の場合だと以下のようになる:
 
 ```Javascript
 contract.events.NewValueSet({}, (err, event) => {
