@@ -20,7 +20,7 @@ GoやSolidityなどの、GRPCサポート言語で書かれたスマートコン
 
 スマートコントラクトは、DPoSのようなチェーン、あるいはコインやイーサリアム仮想マシンに埋め込むことが可能である。
 
-They can also be made as external processes, that the blockchain communicates to via GRPC.
+さらにブロックチェーンがGRPCを介して通信を行う外部プロセスとして、スマートコントラクトをし様子rこともできる。
 
 ![](/developers/img/loom-sdk-arch-contracts.jpg)
 
