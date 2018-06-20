@@ -9,11 +9,11 @@ sidebar_label: Web3、LoomProviderとTruffle
 
 ### Web3
 
-As the official documentation for `Web3.js` states:
+`Web3.js`は、公式ドキュメンテーションで次のように説明されている:
 
-> `Web3.js` is a collection of libraries which allow you to interact with a local or remote ethereum node, using a HTTP or IPC connection.
+> `Web3.js`はライブラリ・コレクションである。これはHTTPもしくはIPC接続を使用して、ローカル又はリモートのイーサリアムノードとの対話を可能にする。
 
-For the Loom DAppChains the communication happens using `WebSockets` instead `HTTP` or `IPC`, however the deeper knowledge of the communication isn't required since `Web3.js` abstracts that part.
+Loom DAppチェーンでは`HTTP`や`IPC`の代わりに、`WebSockets`を用いて通信する。しかし`Web3.js`がその部分の抽象化を行うので、この通信についての深い知識は必要ではない。
 
 ### LoomProvider
 
@@ -21,7 +21,7 @@ An `Provider` is a bridge that connects the `Web3.js` API to the Ethereum node, 
 
 Combining `Web3.js` and `LoomProvider` is a good option to interact with smart contracts deployed on Loom DAppChain, because `Web3.js` abstracts the construction of API calls not needing the interpretation of the [ABI](https://solidity.readthedocs.io/en/develop/abi-spec.html) manually.
 
-### Truffle framework
+### Truffleフレームワーク
 
 So the official site for `Truffle` says:
 
