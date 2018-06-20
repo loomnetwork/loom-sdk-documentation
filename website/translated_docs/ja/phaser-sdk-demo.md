@@ -26,23 +26,7 @@ wget -O contracts/blueprint.0.0.1 https://private.delegatecall.com/weave-bluepri
 chmod +x contracts/blueprint.0.0.1
 
 ./loom init
-```
-
-genesis.jsonをいかに置きかえよう:
-
-```json
-{
-  "contracts": [
-    {
-      "vm": "plugin",
-      "format": "plugin",
-      "name": "BluePrint",
-      "location": "blueprint:0.0.1",
-      "init": {
-      }
-    }
-  ]
-}
+cp ../genesis.example.json genesis.json
 ```
 
 ブロックチェーンの起動
@@ -56,7 +40,7 @@ genesis.jsonをいかに置きかえよう:
 
 開発サーバーの起動
 
-    #ソースを入手
+    #ソースを取得
     git clone https://github.com/loomnetwork/phaser-sdk-demo.git
     
     cd phaser-sdk-demo

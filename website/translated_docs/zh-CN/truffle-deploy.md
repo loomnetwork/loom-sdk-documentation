@@ -1,11 +1,11 @@
 ---
 id: truffle-deploy
-title: Truffle DappChain Example
+title: Truffle DAppChain Example
 sidebar_label: Truffle Deploy
 ---
 ![http://truffleframework.com](/developers/img/truffle.jpg)
 
-Simple example of Truffle interacting with Loom DappChain, this example uses [loom-truffle-provider](https://github.com/loomnetwork/loom-truffle-provider) (check LoomTruffleProvider repository for more details)
+Simple example of Truffle interacting with Loom DAppChain, this example uses [loom-truffle-provider](https://github.com/loomnetwork/loom-truffle-provider) (check LoomTruffleProvider repository for more details)
 
 ## Requirements
 
@@ -15,7 +15,9 @@ Node >= 8
 
 ## Install
 
-Download the Truffle DappChain Example
+In order to download the Truffle DAppChain Example there're two methods Git or Unbox
+
+### Git method
 
 ```bash
 git clone https://github.com/loomnetwork/truffle-dappchain-example
@@ -27,6 +29,18 @@ cd truffle-dappchain-example
 yarn install
 # or
 npm install
+```
+
+### Unbox method
+
+```bash
+# Install Truffle if not installed
+npm install -g truffle
+
+mkdir truffle-dappchain-example
+cd truffle-dappchain-example
+
+truffle unbox loomnetwork/truffle-dappchain-example
 ```
 
 ## Start DappChain
@@ -62,8 +76,6 @@ yarn test
 ## Current limitations
 
 * Events declared on smart contracts should have an named parameter like `NewValueSet(uint _value)` in the contract `SimpleStore.sol`. Also it helps to dealing with events
-
-* Loom Truffle Provider is currently compatible only with Truffle `v4.1.8`. Support for newer versions will be added soon.
 
 ## Loom Network
 
