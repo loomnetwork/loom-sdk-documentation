@@ -100,7 +100,7 @@ async Task CallContractWithResult(Contract contract)
 
 スマートコントラクトの状態を読み取るには、そのパブリックな読み取り専用メソッドのうちどれかを呼び出すことが必要だ。読み取り専用メソッドの呼び出しで、スマートコントラクトの状態が変更されることはない。 スマートコントラクト上の読み取り専用メソッドは、`Contract.StaticCallAsync()` メソッドを使用して呼び出すことができる。
 
-[BluePrint](https://github.com/loomnetwork/weave-blueprint/blob/master/src/blueprint.go)スマートコントラクトは、パブリックな`GetMsg`メソッドを持っており、キーとバリューの連想配列を参照するようこれを呼び出すことができる。 Let's add a method to the `LoomQuickStartSample` class to call `BluePrint.GetMsg`.
+[BluePrint](https://github.com/loomnetwork/weave-blueprint/blob/master/src/blueprint.go)スマートコントラクトは、パブリックな`GetMsg`メソッドを持っており、キーとバリューの連想配列を参照するようこれを呼び出すことができる。 `LoomQuickStartSample`クラスに`BluePrint.GetMsg()`を呼び出すメソッドを追加しよう。
 
 ```csharp
 async Task StaticCallContract(Contract contract)
@@ -123,9 +123,9 @@ async Task StaticCallContract(Contract contract)
 }
 ```
 
-## Putting it all together
+## まとめ
 
-Add the following method to the `LoomQuickStartSample` class.
+`LoomQuickStartSample` クラスに次のメソッドを追加しよう。
 
 ```csharp
 // これで初期化する
@@ -156,7 +156,7 @@ async void Start()
 
 ## DAppチェーンへの接続
 
-`EvmContract` クラスは、Loom DAppチェーンで実行されるスマートコントラクトと対話するための便利な方法を提供する。Loom DAppチェーンは、EVM互換性のあるスマートコントラクトを実行することができる。 Let's write a method that creates an `EvmContract` instance to interact with the sample [TilesChain](https://github.com/loomnetwork/unity-tiles-chain-evm/blob/master/dappchain/TilesChain.sol) smart contract.
+`EvmContract` クラスは、Loom DAppチェーンで実行されるスマートコントラクトと対話するための便利な方法を提供する。Loom DAppチェーンは、EVM互換性のあるスマートコントラクトを実行することができる。 サンプルスマートコントラクト [TilesChain](https://github.com/loomnetwork/unity-tiles-chain-evm/blob/master/dappchain/TilesChain.sol) と対話する `Contract` インスタンスを作成する関数を書いてみよう。
 
 ```csharp
 // LoomEvmQuickStartSample.cs
