@@ -97,7 +97,7 @@ module.exports = function(deployer) {
 
 > There's a complete example of Truffle integration available on https://github.com/loomnetwork/truffle-dappchain-example
 
-### Download and configure Loom Truffle Provider
+### Loom Truffle Providerのダウンロードと設定
 
 The last cog to be added is the `Loom Truffle Provider`, that plugin provides the connection between `Truffle` and Loom DAppChain (and it also has the `LoomProvider` underneath). Let's install:
 
