@@ -134,17 +134,17 @@ module.exports = {
 
 ### Truffleデプロイコマンドの実行
 
-Now we're good to run the deploy command:
+これでデプロイコマンドを実行する準備ができた:
 
-> But before you need to start the Loom DAppChain
+> だがその前に、Loom DAppチェーンを起動しなくてはならない
 
 ```bash
 truffle deploy --network loom_dapp_chain
 ```
 
-> If you already deployed and wants to reset the deployment you can run the command `truffle deploy --reset --network loom_dapp_chain`
+> もしすでに完了しているデプロイメントをリセットしたい場合は、メソッド`truffle deploy --reset --network loom_dapp_chain`を実行しよう
 
-### Adding more accounts
+### アカウントをさらに追加
 
 In order to access accounts on `LoomTruffleProvider` you should use the function `getProviderEngine` which will return the `LoomProvider` giving access to properties `accountsAddrList` and `accounts``
 
@@ -171,7 +171,7 @@ You can download the `Web3.js` latest version using `npm`
 
 ```bash
 npm install web3 --save
-# or
+# 又は
 yarn add web3
 ```
 
@@ -179,7 +179,7 @@ And download and install `LoomProvider` (which lives on `loom-js`)
 
 ```bash
 npm install loom-js --save
-# or
+# 又は
 yarn add loom-js
 ```
 
