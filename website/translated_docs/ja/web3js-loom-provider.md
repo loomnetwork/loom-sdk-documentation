@@ -65,7 +65,7 @@ truffle init
 
 ### コントラクトの追加とマイグレーション
 
-On the `contracts` directory we should create our contract in [Solidity](http://solidity.readthedocs.io/en/v0.4.22/), we're going to use the famous `SimpleStore.sol` which has a `set` function for a parameter `value` also for an state change, a `get` function for the read only and no state change call and an event called `NewValueSet` which will have the parameter `value`, as the following example:
+`contracts`ディレクトリ上で、コントラクトを[Solidity](http://solidity.readthedocs.io/en/v0.4.22/)にて作成する必要がある。これから使用する有名な`SimpleStore.sol`を説明しよう。`set`関数は、パラメーター`value`と状態を変更する。さらに`get`関数は、読み取り専用でコールしても状態は変更されない。`NewValueSet`というイベントは、次のサンプルのようにパラメーター`value`を持つこととなる:
 
     pragma solidity ^0.4.22;
     
@@ -85,7 +85,7 @@ On the `contracts` directory we should create our contract in [Solidity](http://
     }
     
 
-Next let's add an migration, `Truffle` works with the concept of migrations, which makes useful for track changes and updates. The file should be created on migrations directory and it should be `JavaScript` file and the file name should start with the number `2` becoming `2_simple_store.js`, and the content should be the following:
+では次にマイグレーションを追加しよう。`Truffle`にはマイグレーションの概念があるので、変更や更新のトラッキングが非常に便利となる。 このファイルはマイグレーションのディレクトリ上に作成する必要がある。さらに`JavaScript`ファイルとして、`2_simple_store.js`というふうに、数字の`2`から始まるファイル名を持たなくてはならない。さらに、その中身は以下のようにする必要がある:
 
 ```Javascript
 var SimpleStore = artifacts.require("./SimpleStore.sol");
@@ -95,11 +95,11 @@ module.exports = function(deployer) {
 };
 ```
 
-> There's a complete example of Truffle integration available on https://github.com/loomnetwork/truffle-dappchain-example
+> 完全なTruffle統合のサンプルは、 https://github.com/loomnetwork/truffle-dappchain-example にて利用可能だ。
 
 ### Loom Truffle Providerのダウンロードと設定
 
-The last cog to be added is the `Loom Truffle Provider`, that plugin provides the connection between `Truffle` and Loom DAppChain (and it also has the `LoomProvider` underneath). Let's install:
+最後に追加するパーツは`Loom Truffle Provider`である。このプラグインでは、`Truffle`とLoom DAppチェーン間の接続が提供される(さらにその下には`LoomProvider`がある)。 Let's install:
 
 ```bash
 npm install loom-truffle-provider --save
@@ -222,7 +222,7 @@ const contractAddress = '0x...'
 const contract = new web3.eth.Contract(ABI, contractAddress, {from})
 ```
 
-### Running Web3 contract instance
+### Web3コントラクトインスランスの実行
 
 Let's assume that is the `SimpleStore.sol` which was declared up above, so we can call `set` and `get` functions easier:
 
