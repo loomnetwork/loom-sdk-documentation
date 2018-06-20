@@ -156,18 +156,18 @@ console.log("Accounts list", loomProvider.accountsAddrList)
 console.log("Accounts and Private Keys", loomProvider.accounts)
 ```
 
-And add more accounts just use function `createExtraAccounts`
+さらにアカウントを追加するには、関数`createExtraAccounts`を使用すれば良い。
 
 ```js
 const loomTruffleProvider = new LoomTruffleProvider(chainId, writeUrl, readUrl, privateKey)
 loomTruffleProvider.createExtraAccounts(10)
 ```
 
-## Configuring and running Web3.js + LoomProvider
+## Web3.js と LoomProviderの設定と実行
 
-### Download and Install
+### ダウンロードとインストール
 
-You can download the `Web3.js` latest version using `npm`
+`npm`を使って、`Web3.js`の最新バージョンをダウンロードできる。
 
 ```bash
 npm install web3 --save
@@ -175,7 +175,7 @@ npm install web3 --save
 yarn add web3
 ```
 
-And download and install `LoomProvider` (which lives on `loom-js`)
+さらに`LoomProvider`をダウンロードしてインストールしよう(`loom-js`にて機能)
 
 ```bash
 npm install loom-js --save
@@ -183,7 +183,7 @@ npm install loom-js --save
 yarn add loom-js
 ```
 
-### Adding to project and configuring
+### プロジェクトへの追加と設定
 
 Adding `Web3.js` to Node.js project (running on Node.js version 8 or greater) is fairly simple after the install, it should be simple as well for projects using `Webpack` also:
 
