@@ -23,35 +23,35 @@ Combining `Web3.js` and `LoomProvider` is a good option to interact with smart c
 
 ### Truffleフレームワーク
 
-So the official site for `Truffle` says:
+`Truffle`は公式サイトでこう説明されている:
 
-> Truffle is the most popular development framework for Ethereum with a mission to make your life a whole lot easier.
+> Truffleは最もポピュラーなイーサリアム開発フレームワークであり、あなたの開発ライフをもっと簡単にするというミッションを持っている。
 
-And that is pure true, because `Truffle` can: `compile`, `deploy`, `test`, `debug` and much more.
+そして実際にその通りのものとなっている。なぜなら`Truffle`では以下を含む多くのことが可能なのだ: `compile`、`deploy`、`test`、`debug`
 
-## Deploying and run from Truffle
+## Truffleを使ったデプロイと実行
 
-### Download and Install
+### ダウンロードとインストール
 
-First you'll need to install `Truffle`:
+まずは`Truffle`をインストールする必要がある:
 
 ```bash
-# Currently supported version
+# 現在サポートされているバージョン
 npm install -g truffle
 ```
 
-Once `Truffle` is installed let's create a directory and initialize a project:
+`Truffle`がインストールされたら、ディレクトリを作成してプロジェクトの初期化を行おう:
 
 ```bash
-# Create directory and access
+# ディレクトリを作成しアクセス
 mkdir simple-store
 cd simple-store
 
-# Initialize a project from zero with truffle
+# Truffleを使ってゼロからプロジェクトを初期化
 truffle init
 ```
 
-The new directory structure will looks like:
+新しいディレクトリ構造は次のようになる:
 
     .
     ├── contracts
@@ -63,7 +63,7 @@ The new directory structure will looks like:
     └── truffle.js
     
 
-### Adding contract and migration
+### コントラクトの追加とマイグレーション
 
 On the `contracts` directory we should create our contract in [Solidity](http://solidity.readthedocs.io/en/v0.4.22/), we're going to use the famous `SimpleStore.sol` which has a `set` function for a parameter `value` also for an state change, a `get` function for the read only and no state change call and an event called `NewValueSet` which will have the parameter `value`, as the following example:
 
@@ -227,10 +227,10 @@ const contract = new web3.eth.Contract(ABI, contractAddress, {from})
 Let's assume that is the `SimpleStore.sol` which was declared up above, so we can call `set` and `get` functions easier:
 
 ```Javascript
-// Set the value 47
+// バリューを47に設定
 const tx = await contract.methods.set(47).send()
 
-// Get the value 47
+// バリュー47を取得
 const value = await contract.methods.get().call()
 ```
 
