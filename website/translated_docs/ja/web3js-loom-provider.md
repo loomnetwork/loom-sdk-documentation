@@ -17,7 +17,7 @@ Loom DAppチェーンでは`HTTP`や`IPC`の代わりに、`WebSockets`を用い
 
 ### LoomProvider
 
-An `Provider` is a bridge that connects the `Web3.js` API to the Ethereum node, in order to make `Web3.js` calls compatible with Loom DAppChain you should use the `LoomProvider`
+`Provider`は、`Web3.js`のAPIをイーサリアム・ノードに接続するブリッジである。`Web3.js`のコールがLoom DAppチェーンとの互換性を持つようにするには、`LoomProvider`を使用する必要がある。
 
 Combining `Web3.js` and `LoomProvider` is a good option to interact with smart contracts deployed on Loom DAppChain, because `Web3.js` abstracts the construction of API calls not needing the interpretation of the [ABI](https://solidity.readthedocs.io/en/develop/abi-spec.html) manually.
 
