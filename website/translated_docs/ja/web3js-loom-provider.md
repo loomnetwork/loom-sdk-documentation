@@ -19,7 +19,7 @@ Loom DAppチェーンでは`HTTP`や`IPC`の代わりに、`WebSockets`を用い
 
 `Provider`は、`Web3.js`のAPIをイーサリアム・ノードに接続するブリッジである。`Web3.js`のコールがLoom DAppチェーンとの互換性を持つようにするには、`LoomProvider`を使用する必要がある。
 
-Combining `Web3.js` and `LoomProvider` is a good option to interact with smart contracts deployed on Loom DAppChain, because `Web3.js` abstracts the construction of API calls not needing the interpretation of the [ABI](https://solidity.readthedocs.io/en/develop/abi-spec.html) manually.
+Loom DAppチェーン上にデプロイされたスマートコントラクトと対話するための良い選択肢として、`Web3.js`と`LoomProvider`の組み合わせがある。なぜなら`Web3.js` はAPIコールの構成を抽象化し、[ABI](https://solidity.readthedocs.io/en/develop/abi-spec.html)を手動で変換する必要がないからだ。
 
 ### Truffleフレームワーク
 
