@@ -99,15 +99,15 @@ module.exports = function(deployer) {
 
 ### Loom Truffle Providerのダウンロードと設定
 
-最後に追加するパーツは`Loom Truffle Provider`である。このプラグインでは、`Truffle`とLoom DAppチェーン間の接続が提供される(さらにその下には`LoomProvider`がある)。 Let's install:
+最後に追加するパーツは`Loom Truffle Provider`である。このプラグインでは、`Truffle`とLoom DAppチェーン間の接続が提供される(さらにその下には`LoomProvider`がある)。 ではインストールしよう:
 
 ```bash
 npm install loom-truffle-provider --save
-#or
+#または
 yarn add loom-truffle-provider
 ```
 
-And let's edit the file `truffle.js` to add the necessary configuration, as the following example:
+さらに次のサンプルのように、`truffle.js`のファイルを編集して必要な設定を追加しよう:
 
 ```javascript
 const { readFileSync } = require('fs')
@@ -130,9 +130,9 @@ module.exports = {
 }
 ```
 
-> Don't forget to generate yours keys using the command `loom genkey -a public_key -k private_key`
+> 忘れずに、コマンド`loom genkey -a public_key -k private_key`を使用してキーを生成しよう。
 
-### Running Truffle deploy command
+### Truffleデプロイコマンドの実行
 
 Now we're good to run the deploy command:
 
