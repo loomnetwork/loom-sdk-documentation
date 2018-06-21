@@ -1,9 +1,9 @@
 ---
 id: unity-sdk-overview
-title: Overview
-sidebar_label: Overview
+title: Unity SDK概要
+sidebar_label: Unity SDK概要
 ---
-The [Unity SDK](http://github.com/loomnetwork/unity3d-sdk) allows games to interact with smart contracts running on Loom DAppChains, it also provides optional services like identity management and asset transfers. The following Unity target platforms are currently supported:
+[Unity SDK](http://github.com/loomnetwork/unity3d-sdk)は、ゲームがLoom DAppチェーン上で実行されるスマートコントラクトと対話することを可能にし、またアイデンティティ管理や資産の移転といったオプションサービスも提供する。 Unityのターゲットプラットフォームは、現在以下がサポートされている:
 
 - Desktop (Mac/Windows/Linux)
 - Android
