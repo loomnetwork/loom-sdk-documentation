@@ -146,7 +146,7 @@ truffle deploy --network loom_dapp_chain
 
 ### アカウントをさらに追加
 
-In order to access accounts on `LoomTruffleProvider` you should use the function `getProviderEngine` which will return the `LoomProvider` giving access to properties `accountsAddrList` and `accounts``
+`LoomTruffleProvider`のアカウントにアクセスするには、`getProviderEngine`関数を使用する必要がある。これは`LoomProvider`を返却し、`accountsAddrList`及び`accounts`プロパティへとアクセスできるようにする。
 
 ```js
 const loomTruffleProvider = new LoomTruffleProvider(chainId, writeUrl, readUrl, privateKey)
@@ -185,7 +185,7 @@ yarn add loom-js
 
 ### プロジェクトへの追加と設定
 
-Adding `Web3.js` to Node.js project (running on Node.js version 8 or greater) is fairly simple after the install, it should be simple as well for projects using `Webpack` also:
+インストール後、Node.jsプロジェクト(Node.jsバージョン8以上 )に`Web3.js`を追加するのは非常に簡単だ。これは`Webpack`を用いたプロジェクトの場合と同じくらい簡単なはずだ:
 
 ```Javascript
 // Node.JS 8 または8以上
@@ -195,23 +195,23 @@ const Web3 = require('web3')
 import Web3 from 'web3'
 ```
 
-Next step is to configure the `LoomProvider`, is quite similar from the example on `NodeJS & Browser Quick Start`.
+次のステップでは`LoomProvider`を設定しよう。これは`NodeJS & Browser Quick Start`のサンプルにかなり似ている。
 
 ```Javascript
 const privateKey = CryptoUtils.generatePrivateKey()
 const publicKey = CryptoUtils.publicKeyFromPrivateKey(privateKey)
 
-// Create the client
+// クライアントを作成
 const client = new Client(
   'default',
   'ws://127.0.0.1:46657/websocket',
   'ws://127.0.0.1:9999/queryws',
 )
 
-// The address for the caller of the function
+// 関数呼び出し元のアドレス
 const from = LocalAddress.fromPublicKey(publicKey).toString()
 
-// Instantiate web3 client using LoomProvider
+// LoomProviderを使って、web3クライアントをインスタンス化 
 const web3 = new Web3(new LoomProvider(client, privateKey))
 
 const ABI = [{"anonymous":false,"inputs":[{"indexed":false,"name":"_value","type":"uint256"}],"name":"NewValueSet","type":"event"},{"constant":false,"inputs":[{"name":"_value","type":"uint256"}],"name":"set","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"get","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"}]
