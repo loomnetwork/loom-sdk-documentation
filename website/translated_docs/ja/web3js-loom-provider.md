@@ -224,7 +224,7 @@ const contract = new web3.eth.Contract(ABI, contractAddress, {from})
 
 ### Web3コントラクトインスランスの実行
 
-Let's assume that is the `SimpleStore.sol` which was declared up above, so we can call `set` and `get` functions easier:
+`SimpleStore.sol`の宣言が上述されているとすると、`set`関数及び`get`関数をより簡単に呼び出すことができる。
 
 ```Javascript
 // バリューを47に設定
