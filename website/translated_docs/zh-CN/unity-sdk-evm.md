@@ -53,7 +53,9 @@ public class LoomEvmQuickStartSample : MonoBehaviour
 
         // ABI of the Solidity contract
         const string abi = "[{\"constant\":false,\"inputs\":[{\"name\":\"_tileState\",\"type\":\"string\"}],\"name\":\"SetTileMapState\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"GetTileMapState\",\"outputs\":[{\"name\":\"\",\"type\":\"string\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"name\":\"state\",\"type\":\"string\"}],\"name\":\"OnTileMapStateUpdate\",\"type\":\"event\"}]\r\n";
-        var contractAddr = await client.ResolveContractAddressAsync("TilesChain");
+        // Note: With EVM based smart contracts, you can't access them by name.
+        // Put the address of your deployed contract here.
+        var contractAddr = Address.FromHexString("0xf420fbbb810698a74120df3723315ee06f472870");
         var callerAddr = Address.FromPublicKey(publicKey);
 
         return new EvmContract(client, contractAddr, callerAddr, abi);
