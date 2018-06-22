@@ -10,8 +10,10 @@ sidebar_label: Etherboyのデプロイ
 ## インストール
 
 1. ワーキングディレクトリを自分で選択しよう。この例で使っているのは: `/home/ubuntu` 
-        bash
-        cd /home/ubuntu
+
+    ```bash
+    cd /home/ubuntu
+    ```
 
 2. バイナリをダウンロード
     

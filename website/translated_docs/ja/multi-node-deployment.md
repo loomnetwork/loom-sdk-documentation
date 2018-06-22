@@ -12,24 +12,28 @@ sidebar_label: マルチノードデプロイメント
 これらの手順を各ノード上で実行する必要がある。
 
 1. ワーキングディレクトリを自分で選択しよう。この例で使っているのは: `/home/ubuntu` 
-        bash
-        cd /home/ubuntu
+    ```bash
+    cd /home/ubuntu
+    ```
 
 2. バイナリをダウンロード 
-        bash
-        wget https://private.delegatecall.com/loom/linux/build-139/loom
+    ```bash
+    wget https://private.delegatecall.com/loom/linux/build-139/loom
+    ```
 
 3. ワーキングディレクトリで`loom init`を実行し、設定ファイルを初期化しよう。
 4. ワーキングディレクトリ内の `genesis.json` を更新 
-        json
-        {
-            "contracts": [
-            ]
-        }
+    ```json
+    {
+        "contracts": [
+        ]
+    }
+    ```
 
 5. ワーキングディレクトリに `loom.yml` を追加しよう。 
-        yaml
-        QueryServerHost: "tcp://0.0.0.0:9999"
+    ```yaml
+    QueryServerHost: "tcp://0.0.0.0:9999"
+    ```
 
 ## 設定
 
