@@ -18,7 +18,7 @@ These steps need to be executed on each node.
     ```
 1. Download the binaries:
     ```bash
-    wget https://private.delegatecall.com/loom/linux/build-139/loom
+    wget https://private.delegatecall.com/loom/linux/build-196/loom
     ```
 1. Execute `loom init` in the working directory to initialize config files.
 1. Update `genesis.json` in the working directory:
@@ -209,7 +209,7 @@ The inventory specifies the nodes and their IP addresses. If the node only have 
 ---
 all:
   vars:
-    loom_build: build-132
+    loom_build: build-196
     ansible_ssh_common_args: '-o StrictHostKeyChecking=no'
     working_directory: /home/ubuntu
     user: ubuntu
@@ -250,7 +250,7 @@ num_instances = 4
 private_network_prefix = "172.31.99."
 
 # Build numbers
-loom_build = "build-132"
+loom_build = "build-196"
 ```
 
 Note: Vagrant creates its own inventory so `inventory.yml` is not used.
