@@ -31,7 +31,7 @@ sidebar_label: Etherboy游戏
 1. 按照 [MacOS 先决条件](prereqs.md) 中的步骤安装 Golang (如果你尚未完成此操作)。
 2. 下载Loom DApp链二进制 
         bash
-        wget https://storage.googleapis.com/private.delegatecall.com/loom/osx/build-139/loom
+        wget https://private.delegatecall.com/loom/osx/build-196/loom
         chmod +x loom
         export LOOM_BIN=`pwd`/loom
 
@@ -40,7 +40,7 @@ sidebar_label: Etherboy游戏
 1. 按照 [MacOS 先决条件](prereqs-ubuntu.md) 中的步骤安装 Golang (如果你尚未完成此操作)。
 2. 下载Loom DApp链二进制 
         bash
-        curl -OL https://storage.googleapis.com/private.delegatecall.com/loom/linux/build-139/loom
+        curl -OL https://private.delegatecall.com/loom/linux/build-196/loom
         chmod +x loom
         export LOOM_BIN=`pwd`/loom
 
