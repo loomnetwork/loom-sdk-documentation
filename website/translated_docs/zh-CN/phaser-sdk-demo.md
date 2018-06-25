@@ -18,7 +18,7 @@ Use the arrow keys to move around, jump by pressing the up arrow. For each passi
 Install Loom
 
 ```bash
-wget https://private.delegatecall.com/loom/osx/build-139/loom
+wget https://private.delegatecall.com/loom/osx/build-196/loom
 chmod +x loom
 
 mkdir contracts
