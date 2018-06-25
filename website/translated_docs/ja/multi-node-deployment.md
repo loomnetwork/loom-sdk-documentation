@@ -17,7 +17,7 @@ sidebar_label: マルチノードデプロイメント
 
 2. バイナリをダウンロード 
         bash
-        wget https://private.delegatecall.com/loom/linux/build-139/loom
+        wget https://private.delegatecall.com/loom/linux/build-196/loom
 
 3. ワーキングディレクトリで`loom init`を実行し、設定ファイルを初期化しよう。
 4. ワーキングディレクトリ内の `genesis.json` を更新 
@@ -207,7 +207,7 @@ Ansibleをローカルにインストールする必要がある。
 ---
 all:
   vars:
-    loom_build: build-132
+    loom_build: build-196
     ansible_ssh_common_args: '-o StrictHostKeyChecking=no'
     working_directory: /home/ubuntu
     user: ubuntu
@@ -241,14 +241,14 @@ ansible-playbook -i inventory.yml -vv loom-playbook.yml
 以下の変数は必要に応じて変更されることがある。
 
 ```ruby
-# Vagrantによって作成されたクラスタサイズ
+# Size of the cluster created by Vagrant
 num_instances = 4
 
-# プライベートネットワークのプレフィックス
+# Private Network Prefix
 private_network_prefix = "172.31.99."
 
-# ビルド番号
-loom_build = "build-132"
+# Build numbers
+loom_build = "build-196"
 ```
 
 注: Vagrantは独自のインベントリを作成するので、`inventory.yml`は使用されない。
