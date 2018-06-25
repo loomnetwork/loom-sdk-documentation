@@ -209,7 +209,7 @@ The inventory specifies the nodes and their IP addresses. If the node only have 
 ---
 all:
   vars:
-    loom_build: build-132
+    loom_build: build-196
     ansible_ssh_common_args: '-o StrictHostKeyChecking=no'
     working_directory: /home/ubuntu
     user: ubuntu
@@ -250,7 +250,7 @@ num_instances = 4
 private_network_prefix = "172.31.99."
 
 # Build numbers
-loom_build = "build-132"
+loom_build = "build-196"
 ```
 
 Note: Vagrant creates its own inventory so `inventory.yml` is not used.
