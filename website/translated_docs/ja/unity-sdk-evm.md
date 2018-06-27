@@ -113,7 +113,7 @@ public async Task StaticCallContract(EvmContract contract)
 
 ## DAppチェーンからのイベントの受信
 
-DAppチェーンはスマートコントラクト呼び出しに反応して、イベントをトリガすることができる。 To be notified of new events, you must subscribe to the `EvmContract.EventReceived` event. しかしまずはDTO(Data Transfer Object) を定義し、イベントパラメーターを指定しなくてはならない。
+DAppチェーンはスマートコントラクト呼び出しに反応して、イベントをトリガすることができる。 新規イベントを通知するには、`EvmContract.EventReceived`イベントへのサブスクライブをする必要がある。 しかしまずはDTO(Data Transfer Object) を定義し、イベントパラメーターを指定しなくてはならない。
 
 ```csharp
 public class OnTileMapStateUpdateEvent
@@ -146,13 +146,14 @@ async void Start()
     var privateKey = CryptoUtils.GeneratePrivateKey();
     var publicKey = CryptoUtils.PublicKeyFromPrivateKey(privateKey);
 
-    // Connect to the contract
+    // コントラクトに接続
     var contract = await GetContract(privateKey, publicKey);
-    // This should print something like: "hello 6475" in the Unity console window if some data is already stored
+    // 何かしらのデータがすでに保存されていれば、Unityコンソールウィンドウには
+    //  こんな風にプリントされるはずだ: "hello 6475" 
     await StaticCallContract(contract);
-    // Listen for events
+    // イベントをリッスン
     contract.EventReceived += ContractEventReceived;
-    // Store the string in a contract
+    // コントラクトに文字列を保存
     await CallContract(contract);
 }
 ```
