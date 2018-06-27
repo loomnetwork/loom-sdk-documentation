@@ -241,13 +241,13 @@ ansible-playbook -i inventory.yml -vv loom-playbook.yml
 以下の変数は必要に応じて変更されることがある。
 
 ```ruby
-# Size of the cluster created by Vagrant
+# Vagrantで作成されるクラスタのサイズ
 num_instances = 4
 
-# Private Network Prefix
+# プライベートネットワークのプレフィックス
 private_network_prefix = "172.31.99."
 
-# Build numbers
+# ビルド番号
 loom_build = "build-196"
 ```
 
