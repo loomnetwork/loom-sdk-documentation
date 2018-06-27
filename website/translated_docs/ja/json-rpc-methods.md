@@ -1,9 +1,9 @@
 ---
 id: json-rpc-methods
-title: JSON RPC Methods
-sidebar_label: JSON RPC Methods
+title: JSON RPCメソッド
+sidebar_label: JSON RPCメソッド
 ---
-## Overview
+## 概要
 
 In order to be compatible with [Web3.js](https://github.com/ethereum/web3.js) LoomProvider added some methods that are quite compatible with [Ethereum JSON RPC Methods](https://github.com/ethereum/wiki/wiki/JSON-RPC#json-rpc-api), those methods are callable directly by the Loom `QueryService` or by `LoomProvider`, on this tutorial we're going to talk about `LoomProvider`
 
