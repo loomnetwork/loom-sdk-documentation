@@ -151,14 +151,14 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 #### 説明
 
-Returns information about a block by block number.
+ブロック番号でブロック情報を返却する。
 
 #### パラメーター
 
-1. `QUANTITY|TAG` - integer of a block number, or the string "earliest", "latest" or "pending", as in the default block parameter.
-2. `Boolean` - If true it returns the full transaction objects, if false only the hashes of the transactions.
+1. `QUANTITY|TAG` -ブロック番号の整数、もしくはデフォルトのブロックパラメーターの"earliest"、"latest"、"pending"の文字列。
+2. `Boolean` - 真であれば完全なトランザクションオブジェクトを返却し、偽であればトランザクションのハッシュのみとなる。
 
-#### Returns
+#### 戻り値
 
 `Object` - A block object, or `null` when no block was found:
 
