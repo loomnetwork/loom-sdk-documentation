@@ -160,11 +160,11 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 #### 戻り値
 
-`Object` - A block object, or `null` when no block was found:
+`Object` - ブロックオブジェクト、またはブロックが見つからない場合は`null`:
 
-- `number`: `QUANTITY` - the block number. null when its pending block.
-- `hash`: `DATA`, 32 Bytes - hash of the block. null when its pending block.
-- `parentHash`: DATA`, 32 Bytes - hash of the parent block.
+- `number`: `QUANTITY` - ブロック番号。ブロックの処理が保留中であればnull。
+- `hash`: `DATA`, 32バイトのブロックのハッシュ値。ブロック処理が保留中であればnull。
+- `parentHash`: `DATA`, 32バイトの親ブロックのハッシュ。
 - `logsBloom`: `DATA`, 256 Bytes - the bloom filter for the logs of the block. null when its pending block.
 - `timestamp`: `QUANTITY` - the unix timestamp for when the block was collated.
 - `transactions`: `Array` - Array of transaction objects, or 32 Bytes transaction hashes depending on the last given parameter.
