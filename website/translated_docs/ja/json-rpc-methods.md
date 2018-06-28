@@ -9,7 +9,7 @@ sidebar_label: JSON RPCメソッド
 
 ### LoomProviderからのJSON RPCメソッドの呼び出し
 
-The provider should be the bridge between client and the Loom DAppChain, the code below is an example of `LoomProvider` been instantiated and calling the `JSON RPC` to get accounts with `eth_accounts`
+プロバイダーはクライアントとLoom DAppチェーン間のブリッジとなる必要がある。下のコードサンプルでは、インスタンス化された`LoomProvider`が`JSON RPC`を呼び出し、`eth_accounts`でアカウントを取得している。
 
 ```javascript
 const privateKey = CryptoUtils.generatePrivateKey();
