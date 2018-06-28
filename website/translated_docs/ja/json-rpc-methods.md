@@ -122,22 +122,22 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 - from: DATA, 20バイト。トランザクション送信元のアドレス。
 - to: DATA, 20バイト。トランザクションの宛先アドレス。
-- data: DATA - Hash of the method signature and encoded parameters. For details see Ethereum Contract ABI
+- data: DATA - メソッドのシグネチャ及びエンコードされたパラメーターのハッシュ。詳細については、Ethereum Contract ABIを参照すること。
 
-#### Returns
+#### 戻り値
 
-`DATA` - the return value of the executed contract.
+`DATA` - 実行されたコントラクトの戻り値。
 
-#### Example
+#### 例
 
 ```Javascript
-// eth_call JSON RPC call
+// eth_call JSON RPCの呼び出し
 const jsonRPCString = '{"jsonrpc":"2.0","method":"eth_call","params":[{see above}],"id":1}'
 
-// Parse JSON is a necessary step before send
+// sendの前にJSONをパースするステップが必要
 await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
-// Return should be something like
+// このように返却されるはずだ
 // {
 //   "id":1,
 //   "jsonrpc": "2.0",
@@ -149,11 +149,11 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 * * *
 
-#### Description
+#### 説明
 
 Returns information about a block by block number.
 
-#### Parameters
+#### パラメーター
 
 1. `QUANTITY|TAG` - integer of a block number, or the string "earliest", "latest" or "pending", as in the default block parameter.
 2. `Boolean` - If true it returns the full transaction objects, if false only the hashes of the transactions.
