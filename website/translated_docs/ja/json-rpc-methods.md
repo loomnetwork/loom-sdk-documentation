@@ -89,18 +89,18 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 #### 戻り値
 
-`QUANTITY` - integer of the current block number the client is on.
+`QUANTITY` - 整数。クライアントが取得する現在のブロック番号。
 
-#### Example
+#### 例
 
 ```Javascript
-// eth_blockNumber JSON RPC call
+// eth_blockNumber JSON RPCの呼び出し
 const jsonRPCString = '{"jsonrpc":"2.0","method":"eth_blockNumber","params":[],"id":83}'
 
-// Parse JSON is a necessary step before send
+// sendの前にJSONをパースするステップが必要
 await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
-// Return should be something like
+// このように返却されるはずだ
 // {
 //   "id":83,
 //   "jsonrpc": "2.0",
@@ -112,16 +112,16 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 * * *
 
-#### Description
+#### 説明
 
-Executes a new message call immediately without creating a transaction on the block chain.
+ブロック チェーン上にトランザクションを作成せず、新しいメッセージコールをすぐに実行。
 
-#### Parameters
+#### パラメーター
 
-1. Object - The transaction call object
+1. Object - トランザクションコールのオブジェクト
 
-- from: DATA, 20 Bytes - The address the transaction is sent from.
-- to: DATA, 20 Bytes - The address the transaction is directed to.
+- from: DATA, 20バイト。トランザクション送信元のアドレス。
+- to: DATA, 20バイト。トランザクションの宛先アドレス。
 - data: DATA - Hash of the method signature and encoded parameters. For details see Ethereum Contract ABI
 
 #### Returns
