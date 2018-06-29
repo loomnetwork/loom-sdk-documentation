@@ -348,7 +348,7 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 - `toBlock`: `QUANTITY|TAG` - (オプショナル。デフォルトは: "latest") ブロック番号の整数、または最新採掘ブロックの場合 "latest"、未採掘トランザクションの場合は "pending"もしくは "earliest"となる。
 - `address`: `DATA`|Array, 20バイト - (オプショナル) コントラクトアドレス、またはログ生成元のアドレスのリスト。
 - `topics`: Array of `DATA`, - (オプショナル) 32バイトの`DATA`トピックの配列。 トピックは順序に依存。 各トピックはまた、 "or"のオプションを持った`DATA`の配列であることも可能。
-- `blockhash`: `DATA`, 32 Bytes - (optional, future) With the addition of EIP-234, blockHash will be a new filter option which restricts the logs returned to the single block with the 32-byte hash blockHash. Using blockHash is equivalent to fromBlock = toBlock = the block number with hash blockHash. If blockHash is present in in the filter criteria, then neither fromBlock nor toBlock are allowed.
+- `blockhash`: `DATA`, 32バイト - (オプショナル、今後追加) blockHashはEIP-234の追加により、32バイトのblockHashで返却されるログを単一ブロックに制限する、新たなフィルターのオプションとなる。 blockHashはこれらと同様に使用できる: fromBlock = toBlock = blockHashのハッシュを持つブロックの番号。 BlockHash がフィルター条件に存在する場合は、fromBlock と toBlock のどちらも使用不可。
 
 #### 戻り値
 
