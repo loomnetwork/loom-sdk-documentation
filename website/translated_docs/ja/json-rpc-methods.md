@@ -302,7 +302,7 @@ Polling method for a filter, which returns an array of logs which occurred since
     - `blockNumber`: `QUANTITY` - ログが含まれるブロックの番号。未処理ログ、未処理ブロックの場合null。
     - `address`: `DATA`, 20バイト - ログ生成元のアドレス。
     - `data`: `DATA` - 32バイト。１つ以上のインデックスされていないログの引数。
-    - `topics`: `Array of DATA` - インデックスされたログの引数`DATA`。0から432バイト。 (In solidity: The first topic is the hash of the signature of the event (e.g. Deposit(address,bytes32,uint256)), except you declared the event with the anonymous specifier.)
+    - `topics`: `Array of DATA` - インデックスされたログの引数`DATA`。0から432バイト。 (Solidityでは: 最初のトピックはイベントシグネチャのハッシュとなる (例: Deposit(address,bytes32,uint256))、匿名指定子でイベントを宣言した場合を除く。)
 
 #### 例
 
@@ -384,7 +384,7 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 `Object` - トランザクションレシートオブジェクト、またはレシートが見つからない場合は`null`:
 
-- `transactionHash`: `DATA`, 32 Bytes - hash of the transaction.
+- `transactionHash`: `DATA`, 32バイトのトランザクションハッシュ。
 - `transactionIndex`: `QUANTITY` - integer of the transactions index position in the block.
 - `blockHash`: `DATA`, 32 Bytes - hash of the block where this transaction was in.
 - `blockNumber`: `QUANTITY` - block number where this transaction was in.
@@ -516,13 +516,13 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 - `from`: `DATA`, 20バイトのトランザクション送信元アドレス。
 - `to`: `DATA`, 20バイト - (新規コントラクト作成時のオプション) トランザクションの宛先アドレス。
-- `data`: `DATA` - The compiled code of a contract OR the hash of the invoked method signature and encoded parameters. For details see Ethereum Contract ABI
+- `data`: `DATA` - コントラクトのコンパイル済みコード、あるいは呼び出されたメソッドのシグネチャ及びエンコード済みパラメーター。詳細についてはEthereum Contract ABIを参照すること。
 
 #### 戻り値
 
 `DATA`, 32バイト - トランザクションのハッシュ。またはトランザクションがまだ有効でない場合はゼロハッシュ。
 
-Use [eth_getTransactionReceipt](#eth-gettransactionreceipt) to get the contract address, after the transaction was mined, when you created a contract.
+コントラクト作成の際のトランザクションが採掘されたら、[eth_getTransactionReceipt](#eth-gettransactionreceipt)を使用してコントラクトアドレスを取得しよう。
 
 #### 例
 
