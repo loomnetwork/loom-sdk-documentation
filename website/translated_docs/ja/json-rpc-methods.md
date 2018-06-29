@@ -427,7 +427,7 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 #### 説明
 
-Creates a filter in the node, to notify when new pending transactions arrive. To check if the state has changed, call [eth_getFilterChanges](#eth-getfilterchanges).
+新たな未処理トランザクションが発生した場合に通知するよう、ノードにフィルタを作成する。状態が変更されたかをチェックするには、[eth_getFilterChanges](#eth-getfilterchanges)を呼び出す。
 
 #### パラメーター
 
@@ -462,9 +462,9 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 Creates a filter object, based on filter options, to notify when the state changes (logs). To check if the state has changed, call [eth_getFilterChanges](#eth-getfilterchanges).
 
-##### A note on specifying topic filters:
+##### トピック指定フィルターについて:
 
-Topics are order-dependent. A transaction with a log with topics [A, B] will be matched by the following topic filters:
+トピックは順序に依存する。トピック[A, B]を含むトランザクションのログは、以下のトピックフィルターとマッチする:
 
 - `[]` "anything"
 - `[A]` "A in first position (and anything after)"
@@ -472,14 +472,14 @@ Topics are order-dependent. A transaction with a log with topics [A, B] will be 
 - `[A, B]` "A in first position AND B in second position (and anything after)"
 - `[[A, B], [A, B]]` "(A OR B) in first position AND (A OR B) in second position (and anything after)"
 
-#### Parameters
+#### パラメーター
 
 1. `Object` - フィルターのオプション:
 
 - `fromBlock`: `QUANTITY|TAG` - (オプショナル。デフォルトは: "latest") ブロック番号の整数、または最新採掘ブロックの場合 "latest"、未採掘トランザクションの場合は "pending"もしくは "earliest"となる。
 - `toBlock`: `QUANTITY|TAG` - (オプショナル。デフォルトは: "latest") ブロック番号の整数、または最新採掘ブロックの場合 "latest"、未採掘トランザクションの場合は "pending"もしくは "earliest"となる。
-- `address`: `DATA|Array`, 20 Bytes - (optional) Contract address or a list of addresses from which logs should originate.
-- `topics`: `Array of DATA`, - (optional) Array of 32 Bytes DATA topics. Topics are order-dependent. Each topic can also be an array of DATA with "or" options.
+- `address`: `DATA|Array`, 20バイト - (オプショナル) コントラクトアドレス、またはログ生成元のアドレスのリスト。
+- `topics`: `Array of DATA`, - (オプショナル) 32バイトDATAトピックの配列。トピックは順序に依存。各トピックは、"or"のオプションを持つDATAの配列であることも可能。
 
 #### 戻り値
 
@@ -547,7 +547,7 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 #### 説明
 
-特定イベントのサブスクライブで機能し、 ノードはサブスクリプションIDを返却する。 For each event that matches the subscription a notification with relevant data is send together with the subscription id.
+特定イベントのサブスクライブで機能。 ノードはサブスクリプションIDを返却する。 サブスクリプションとマッチする各イベントで、サブスクリプションIDと関連データを含む通知が送信される。
 
 #### パラメーター
 
