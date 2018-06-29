@@ -172,13 +172,13 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 #### 例
 
 ```Javascript
-// eth_getBlockByNumber JSON RPC call
+// eth_getBlockByNumber JSON RPCの呼び出し
 const jsonRPCString = '{"jsonrpc":"2.0","method":"eth_getBlockByNumber","params":["0x1b4", true],"id":1}'
 
-// Parse JSON is a necessary step before send
+// sendの前にJSONをパースするステップが必要
 await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
-// Return should be something like
+// このように返却されるはずだ
 // {
 // "id":1,
 // "jsonrpc":"2.0",
@@ -203,30 +203,30 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 #### パラメーター
 
-1. `DATA` - `32 Bytes` - Hash of a block.
-2. `Boolean` - If `true` it returns the full transaction objects, if `false` only the hashes of the transactions.
+1. `DATA` - `32 Bytes` - ブロックのハッシュ。
+2. `Boolean` - `true`であれば完全なトランザクションオブジェクトを返却し、`false` であればトランザクションのハッシュのみとなる。
 
-#### Returns
+#### 戻り値
 
-`Object` - A block object, or `null` when no block was found:
+`Object` - ブロックオブジェクト、またはブロックが見つからない場合は`null`:
 
-- `number`: `QUANTITY` - the block number. null when its pending block.
-- `hash`: `DATA`, 32 Bytes - hash of the block. null when its pending block.
-- `parentHash`: `DATA`, 32 Bytes - hash of the parent block.
+- `number`: `QUANTITY` - ブロック番号。ブロックの処理が保留中であればnull。
+- `hash`: `DATA`, 32バイトのブロックのハッシュ値。ブロック処理が保留中であればnull。
+- `parentHash`: `DATA`, 32バイトの親ブロックのハッシュ。
 - `logsBloom`: `DATA`, 256 Bytes - the bloom filter for the logs of the block. null when its pending block.
 - `timestamp`: `QUANTITY` - the unix timestamp for when the block was collated.
 - `transactions`: `Array` - Array of transaction objects, or 32 Bytes transaction hashes depending on the last given parameter.
 
-#### Example
+#### 例
 
 ```Javascript
-// eth_getBlockByHash JSON RPC call
+// eth_getBlockByHash JSON RPC呼び出し
 const jsonRPCString = '{"jsonrpc":"2.0","method":"eth_getTransactionByHash","params":["0xb903239f8543d04b5dc1ba6579132b143087c68db1b2168786408fcbce568238"],"id":1}'
 
-// Parse JSON is a necessary step before send
+// sendの前にJSONをパースするステップが必要
 await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
-// Return should be something like
+// このように返却されるはずだ
 // {
 // "id":1,
 // "jsonrpc":"2.0",
@@ -245,28 +245,28 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 * * *
 
-#### Description
+#### 説明
 
-Returns code at a given address.
+与えられたアドレスでコードを返却する。
 
-#### Parameters
+#### パラメーター
 
-1. `DATA`, `20 Bytes` - address
+1. `DATA`, `20 Bytes` - アドレス。
 
-#### Returns
+#### 戻り値
 
-`DATA` - the code from the given address.
+`DATA` - 与えられたアドレスから返却されるコード。
 
-#### Example
+#### 例
 
 ```Javascript
-// eth_getCode JSON RPC call
+// eth_getCode JSON RPCの呼び出し
 const jsonRPCString = '{"jsonrpc":"2.0","method":"eth_getCode","params":["0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b", "0x2"],"id":1}'
 
-// Parse JSON is a necessary step before send
+// sendの前にJSONをパースするステップが必要
 await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
-// Return should be something like
+// このように返却されるはずだ
 // {
 //   "id":1,
 //   "jsonrpc": "2.0",
@@ -278,13 +278,13 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 * * *
 
-#### Description
+#### 説明
 
 Polling method for a filter, which returns an array of logs which occurred since last poll.
 
-#### Parameters
+#### パラメーター
 
-1. `QUANTITY` - the filter id.
+1. `QUANTITY` -フィルターのID。
 
 #### Returns
 
@@ -506,15 +506,15 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 * * *
 
-#### Description
+#### 説明
 
 Creates new message call transaction or a contract creation, if the data field contains code.
 
-#### Parameters
+#### パラメーター
 
-1. `Object` - The transaction object
+1. `Object` - トランザクションオブジェクト。
 
-- `from`: `DATA`, 20 Bytes - The address the transaction is send from.
+- `from`: `DATA`, 20バイトのトランザクション送信元アドレス。
 - `to`: `DATA`, 20 Bytes - (optional when creating new contract) The address the transaction is directed to.
 - `data`: `DATA` - The compiled code of a contract OR the hash of the invoked method signature and encoded parameters. For details see Ethereum Contract ABI
 
@@ -524,16 +524,16 @@ Creates new message call transaction or a contract creation, if the data field c
 
 Use [eth_getTransactionReceipt](#eth-gettransactionreceipt) to get the contract address, after the transaction was mined, when you created a contract.
 
-#### Example
+#### 例
 
 ```Javascript
-// eth_sendTransaction JSON RPC call
+// eth_sendTransaction JSON RPCの呼び出し
 const jsonRPCString = '{"jsonrpc":"2.0","method":"eth_sendTransaction","params":[{see above}],"id":1}'
 
-// Parse JSON is a necessary step before send
+// sendの前にJSONをパースするステップが必要
 await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
-// Return should be something like
+// このように返却されるはずだ
 // {
 //   "id":1,
 //   "jsonrpc": "2.0",
@@ -545,7 +545,7 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 * * *
 
-#### Description
+#### 説明
 
 It works by subscribing to particular events. The node will return a subscription id. For each event that matches the subscription a notification with relevant data is send together with the subscription id.
 
