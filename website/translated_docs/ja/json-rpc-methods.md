@@ -460,17 +460,17 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 #### 説明
 
-Creates a filter object, based on filter options, to notify when the state changes (logs). To check if the state has changed, call [eth_getFilterChanges](#eth-getfilterchanges).
+状態変更(ログ)を通知するフィルターオプションに基づいたフィルターオブジェクトを作成する。状態が変更をチェックするには、[eth_getFilterChanges](#eth-getfilterchanges)を呼び出す。
 
 ##### トピック指定フィルターについて:
 
-トピックは順序に依存する。トピック[A, B]を含むトランザクションのログは、以下のトピックフィルターとマッチする:
+トピックは順序に依存する。トピック[A, B]を含むログを持つトランザクションは、以下のトピックフィルターとマッチする:
 
-- `[]` "anything"
-- `[A]` "A in first position (and anything after)"
-- `[null, B]` "anything in first position AND B in second position (and anything after)"
-- `[A, B]` "A in first position AND B in second position (and anything after)"
-- `[[A, B], [A, B]]` "(A OR B) in first position AND (A OR B) in second position (and anything after)"
+- `[]` "条件なし"
+- `[A]` "Aが最初にある (それ以降はなんでも良い)"
+- `[null, B]` "最初のトピックはなんでも良いが、２番目にはBがある (それ以降はなんでも良い)"
+- `[A, B]` "Aが最初、かつBが２番目にある (以降はなんでも良い)"
+- `[[A, B], [A, B]]` "(A または B) は最初にあり、かつ (A または B) が２番目にある (以降はなんでも良い)"
 
 #### パラメーター
 
