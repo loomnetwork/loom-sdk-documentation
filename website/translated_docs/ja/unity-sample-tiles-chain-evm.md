@@ -29,14 +29,14 @@ git clone https://github.com/loomnetwork/unity-tiles-chain-evm
 cd unity-tiles-chain-evm
 
 cd dappchain
-wget https://private.delegatecall.com/loom/osx/build-196/loom
+wget https://private.delegatecall.com/loom/osx/build-209/loom
 chmod +x loom
 
-# 設定
+# Configure
 ./loom init
 cp genesis.example.json genesis.json
 
-# 起動
+# Run
 ./loom run
 ```
 
