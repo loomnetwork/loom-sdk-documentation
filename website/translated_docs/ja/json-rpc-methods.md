@@ -165,11 +165,11 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 - `number`: `QUANTITY` - ブロック番号。ブロックの処理が保留中であればnull。
 - `hash`: `DATA`, 32バイトのブロックのハッシュ値。ブロック処理が保留中であればnull。
 - `parentHash`: `DATA`, 32バイトの親ブロックのハッシュ。
-- `logsBloom`: `DATA`, 256 Bytes - the bloom filter for the logs of the block. null when its pending block.
-- `timestamp`: `QUANTITY` - the unix timestamp for when the block was collated.
-- `transactions`: `Array` - Array of transaction objects, or 32 Bytes transaction hashes depending on the last given parameter.
+- `logsBloom`: `DATA`, 256バイト - ブロックのログのブルームフィルタ。ブロック処理が保留中であればnull。
+- `timestamp`: `QUANTITY` - ブロックが照合された時のunixタイムスタンプ。
+- `transactions`: `Array` - トランザクションオブジェクトの配列。または与えられた最新のパラメーターに依存する、32バイトのトランザクションハッシュ。
 
-#### Example
+#### 例
 
 ```Javascript
 // eth_getBlockByNumber JSON RPC call
@@ -197,11 +197,11 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 * * *
 
-#### Description
+#### 説明
 
-Returns information about a block by hash.
+ハッシュでブロック情報を返却する。
 
-#### Parameters
+#### パラメーター
 
 1. `DATA` - `32 Bytes` - Hash of a block.
 2. `Boolean` - If `true` it returns the full transaction objects, if `false` only the hashes of the transactions.
