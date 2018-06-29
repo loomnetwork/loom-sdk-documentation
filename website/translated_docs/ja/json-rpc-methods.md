@@ -213,9 +213,9 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 - `number`: `QUANTITY` - ブロック番号。ブロックの処理が保留中であればnull。
 - `hash`: `DATA`, 32バイトのブロックのハッシュ値。ブロック処理が保留中であればnull。
 - `parentHash`: `DATA`, 32バイトの親ブロックのハッシュ。
-- `logsBloom`: `DATA`, 256 Bytes - the bloom filter for the logs of the block. null when its pending block.
-- `timestamp`: `QUANTITY` - the unix timestamp for when the block was collated.
-- `transactions`: `Array` - Array of transaction objects, or 32 Bytes transaction hashes depending on the last given parameter.
+- `logsBloom`: `DATA`, 256バイト - ブロックのログのブルームフィルタ。ブロック処理が保留中であればnull。
+- `timestamp`: `QUANTITY` - ブロックが照合された時のunixタイムスタンプ。
+- `transactions`: `Array` - トランザクションオブジェクトの配列。または与えられた最新のパラメーターに依存する、32バイトのトランザクションハッシュ。
 
 #### 例
 
@@ -286,7 +286,7 @@ Polling method for a filter, which returns an array of logs which occurred since
 
 1. `QUANTITY` -フィルターのID。
 
-#### Returns
+#### 戻り値
 
 `Array` - Array of log objects, or an empty array if nothing has changed since last poll.
 
@@ -340,11 +340,11 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 Returns an array of all logs matching a given filter object.
 
-#### Parameters
+#### パラメーター
 
-1. `Object` - The filter options:
+1. `Object` - フィルターのオプション:
 
-- `fromBlock`: `QUANTITY|TAG` - (optional, default: `"latest"`) Integer block number, or "latest" for the last mined block or "pending", "earliest" for not yet mined transactions.
+- `fromBlock`: `QUANTITY|TAG` - (オプショナル。デフォルトは: `"latest"`) ブロック番号の整数、または最新採掘ブロックの場合 "latest"、未採掘トランザクションの場合は "pending"もしくは "earliest"となる。
 - `toBlock`: `QUANTITY|TAG` - (optional, default: "latest") Integer block number, or "latest" for the last mined block or "pending", "earliest" for not yet mined transactions.
 - `address`: `DATA`|Array, 20 Bytes - (optional) Contract address or a list of addresses from which logs should originate.
 - `topics`: Array of `DATA`, - (optional) Array of 32 Bytes `DATA` topics. Topics are order-dependent. Each topic can also be an array of `DATA` with "or" options.
