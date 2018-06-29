@@ -280,7 +280,7 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 #### 説明
 
-Polling method for a filter, which returns an array of logs which occurred since last poll.
+フィルターのポーリングメソッド。最新のポール以降で発生したログの配列を返却する。
 
 #### パラメーター
 
@@ -551,10 +551,10 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 #### パラメーター
 
-1. `object` with the following (optional) fields
+1. `object` は次の(オプショナルの)フィールドを持つ。
 
-- `address`, either an address or an array of addresses. Only logs that are created from these addresses are returned (optional)
-- `topics`, only logs which match the specified topics (optional)
+- `address` 単一アドレスまたはアドレスの配列のどちらか。これらのアドレスより作成されるログのみが返却される(オプショナル)
+- `topics` 特定のトピックとマッチするログのみ (オプショナル)
 
 #### 戻り値
 
