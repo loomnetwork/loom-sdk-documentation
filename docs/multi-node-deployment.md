@@ -29,7 +29,87 @@ These steps need to be executed on each node.
 
 ## Configuration
 
-In the working directory, look inside the folder `chaindata/config`. You will find a file named `genesis.json`. It is not to be confused with the one in the working directory. It should look like this:
+There are two genesis.json files that needs to be combined.
+
+### genesis.json #1 - in the working directory
+
+The `genesis.json` file looks like this:
+
+```json
+{
+  "contracts": [
+    {
+      "vm": "plugin",
+      "format": "plugin",
+      "name": "coin",
+      "location": "coin:1.0.0",
+      "init": null
+    },
+    {
+      "vm": "plugin",
+      "format": "plugin",
+      "name": "dpos",
+      "location": "dpos:1.0.0",
+      "init": {
+        "params": {
+          "witnessCount": "21",
+          "electionCycleLength": "604800",
+          "minPowerFraction": "5"
+        },
+        "validators": [
+          {
+            "pubKey": "RLYcH6fzeg4k5bDtGwRi/sM2UhO2Yw/kLdtrvvvn6CE=",
+            "power": "10"
+          }
+        ]
+      }
+    }
+  ]
+}
+```
+
+Next, collect all `validators` from each node, then combine them into an array. This file will now need to be replaced with the combined file, in all nodes. For a two node cluster, it should now look like this:
+
+```json
+{
+  "contracts": [
+    {
+      "vm": "plugin",
+      "format": "plugin",
+      "name": "coin",
+      "location": "coin:1.0.0",
+      "init": null
+    },
+    {
+      "vm": "plugin",
+      "format": "plugin",
+      "name": "dpos",
+      "location": "dpos:1.0.0",
+      "init": {
+        "params": {
+          "witnessCount": "21",
+          "electionCycleLength": "604800",
+          "minPowerFraction": "5"
+        },
+        "validators": [
+          {
+            "pubKey": "RLYcH6fzeg4k5bDtGwRi/sM2UhO2Yw/kLdtrvvvn6CE=",
+            "power": "10"
+          },
+          {
+            "pubKey": "gCn5WayR3cgQjNlNXYiBSYgQ3c1pGIsFWajVGczByZulGa09mb",
+            "power": "10"
+          }
+        ]
+      }
+    }
+  ]
+}
+```
+
+### genesis.json #2 - inside chaindata/config
+
+You will find a file named `genesis.json`. It is not to be confused with the one in the working directory. It should look like this:
 
 ```json
 {
@@ -41,7 +121,7 @@ In the working directory, look inside the folder `chaindata/config`. You will fi
       "power": 10,
       "pub_key": {
           "type": "ABCD1234ABCD12",
-          "value": "bm90aGluZyBzcGVjaWFsIGp1c3QgYSBiYXNlNjQgc3RyaW5nCg=="
+          "value": "RLYcH6fzeg4k5bDtGwRi/sM2UhO2Yw/kLdtrvvvn6CE"
       }
     }
   ],
@@ -61,7 +141,7 @@ Next, collect all the `validators` from each node, then combine them into an arr
       "power": 10,
       "pub_key": {
           "type": "AC26791624DE60",
-          "value": "bm90aGluZyBzcGVjaWFsIGp1c3QgYSBiYXNlNjQgc3RyaW5nCg=="
+          "value": "RLYcH6fzeg4k5bDtGwRi/sM2UhO2Yw/kLdtrvvvn6CE"
       }
     },
     {
