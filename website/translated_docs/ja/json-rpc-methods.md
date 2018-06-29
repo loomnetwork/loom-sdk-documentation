@@ -288,7 +288,7 @@ Polling method for a filter, which returns an array of logs which occurred since
 
 #### 戻り値
 
-`Array` - ログオブジェクトの配列。もしくは最終の投票より何も変更がない場合は空の配列となる。
+`Array` - ログオブジェクトの配列。もしくは最新ポールより何も変更がない場合は空の配列となる。
 
 - `eth_newBlockFilter`で作成されたフィルターの場合、戻り値はブロックのハッシュとなる (`DATA`, 32バイト)、例`["0x3454645634534..."]`。
 - `eth_newPendingTransactionFilter` で作成されたフィルターの場合、戻り値はトランザクションのハッシュとなる (`DATA`, 32バイト)、例`["0x6345343454645..."]`。
