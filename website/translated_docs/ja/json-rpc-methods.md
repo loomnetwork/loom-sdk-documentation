@@ -591,18 +591,18 @@ Uninstalls a filter with given id. Should always be called when watch is no long
 
 #### Returns
 
-`Boolean` - `true` if the filter was successfully uninstalled, otherwise `false`.
+`Boolean` - フィルターのアンインストールが成功すれば`true`、そうでなければ`false`。
 
-#### Example
+#### 例
 
 ```Javascript
-// eth_uninstallFilter JSON RPC call
+// eth_uninstallFilter JSON RPCの呼び出し
 const jsonRPCString = '{"jsonrpc":"2.0","method":"eth_uninstallFilter","params":["0xb"],"id":73}'
 
-// Parse JSON is a necessary step before send
+// sendの前にJSONをパースするステップが必要
 await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
-// Return should be something like
+// このように返却されるはずだ
 // {
 //   "id":1,
 //   "jsonrpc": "2.0",
@@ -614,17 +614,17 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 * * *
 
-#### Description
+#### 説明
 
-Returns the current network id.
+現在のネットワークIDを返却する。
 
-#### Parameters
+#### パラメーター
 
-None
+なし。
 
-#### Returns
+#### 戻り値
 
-`String` - The current network id.
+`String` - 現在のネットワークID。
 
 - "474747": Currently there's now network id defined, the number returned is simply `474747`
 
