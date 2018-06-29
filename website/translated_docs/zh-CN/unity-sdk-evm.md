@@ -113,7 +113,7 @@ public async Task StaticCallContract(EvmContract contract)
 
 ## Receiving events from a DAppChain
 
-DAppChains can trigger events in reaction to calling a smart contract. To be notified of new events, you must subscribe to the `EvmContract.ChainEventReceived` event. But first, we need to define a DTO (Data Transfer Object) that specifies the event parameters.
+DAppChains can trigger events in reaction to calling a smart contract. To be notified of new events, you must subscribe to the `EvmContract.EventReceived` event. But first, we need to define a DTO (Data Transfer Object) that specifies the event parameters.
 
 ```csharp
 public class OnTileMapStateUpdateEvent
@@ -122,7 +122,7 @@ public class OnTileMapStateUpdateEvent
     public string State { get; set; }
 }
 
-private void ContractOnChainEventReceived(object sender, EvmChainEventArgs e)
+private void ContractEventReceived(object sender, EvmChainEventArgs e)
 {
     Debug.LogFormat("Received smart contract event: " + e.EventName);
     if (e.EventName == "OnTileMapStateUpdate")
@@ -151,7 +151,7 @@ async void Start()
     // This should print something like: "hello 6475" in the Unity console window if some data is already stored
     await StaticCallContract(contract);
     // Listen for events
-    contract.ChainEventReceived += ContractOnChainEventReceived;
+    contract.EventReceived += ContractEventReceived;
     // Store the string in a contract
     await CallContract(contract);
 }

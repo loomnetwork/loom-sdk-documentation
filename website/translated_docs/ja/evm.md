@@ -164,7 +164,7 @@ call -a ./data/pub -k ./data/pri -i ./cmd/loom/data/inputSet.bin \
         
 ```
 
-これが完了すると、 [トランザクションのハッシュ値](https://loomx.io/developers/docs/en/evm.html#transaction-receipt)が返却されるが、これは各トランザクションコールに対し唯一であり同じものはない。 It can be used to return a receipt of the transaction.
+
     
 ### 静的呼び出し
 コントラクトの読み取り専用メソッドの呼び出し メソッドの戻り値を返す。

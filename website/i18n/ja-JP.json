@@ -27,6 +27,8 @@
     "Emitting events": "イベントの発生",
     "goloompermissions": "go-loomでの権限ヘルパーの使用",
     "Permission Helpers": "権限ヘルパーの使用",
+    "json-rpc-methods": "JSON RPCメソッド",
+    "JSON RPC Methods": "JSON RPCメソッド",
     "logging": "ロギング",
     "Logging": "ロギング",
     "loom-js-loom-provider-web3": "Loom.js + Web3.js",
@@ -81,6 +83,7 @@
     "Consensus": "コンセンサス",
     "Monitoring": "モニタリング",
     "Solidity & EVM": "Solidity & EVM",
+    "EVM JSON RPC": "EVM JSON RPC",
     "Example Games & Apps": "サンプルゲーム＆アプリ",
     "Deployment": "デプロイ",
     "Frequently Asked Questions": "よくある質問"

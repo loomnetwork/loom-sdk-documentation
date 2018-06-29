@@ -47,7 +47,7 @@ truffle unbox loomnetwork/truffle-dappchain-example
 
 ```bash
 # ダウンロード
-wget https://storage.googleapis.com/private.delegatecall.com/loom/osx/build-161/loom
+wget https://private.delegatecall.com/loom/osx/build-196/loom
 chmod +x loom
 
 # 起動

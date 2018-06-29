@@ -17,27 +17,99 @@ sidebar_label: マルチノードデプロイメント
     ```
 
 2. バイナリをダウンロード 
-    ```bash
-    wget https://private.delegatecall.com/loom/linux/build-139/loom
-    ```
+        bash
+        wget https://private.delegatecall.com/loom/linux/build-208/loom
+        chmod +x loom
 
-3. ワーキングディレクトリで`loom init`を実行し、設定ファイルを初期化しよう。
-4. ワーキングディレクトリ内の `genesis.json` を更新 
-    ```json
-    {
-        "contracts": [
-        ]
-    }
-    ```
+3. ワーキングディレクトリで`./loom init`を実行し、設定ファイルを初期化しよう。
+4. ワーキングディレクトリに `loom.yml` を追加しよう。 
+        yaml
+        QueryServerHost: "tcp://0.0.0.0:9999"
 
-5. ワーキングディレクトリに `loom.yml` を追加しよう。 
-    ```yaml
-    QueryServerHost: "tcp://0.0.0.0:9999"
-    ```
 
 ## 設定
 
-ワーキングディレクトリにあるフォルダ`chaindata/config`の中を見てみよう。 `genesis.json`という名前のファイルが見つかるはずだ。 ワーキングディレクトリにあるものと混同しないようにしよう。 このファイルは以下のようなものだ:
+２つのgenesis.jsonファイルを組み合わせなくてはならない。
+
+### genesis.json #1 - ワーキングディレクトリ内
+
+`genesis.json`ファイルは次のようなものだ:
+
+```json
+{
+  "contracts": [
+    {
+      "vm": "plugin",
+      "format": "plugin",
+      "name": "coin",
+      "location": "coin:1.0.0",
+      "init": null
+    },
+    {
+      "vm": "plugin",
+      "format": "plugin",
+      "name": "dpos",
+      "location": "dpos:1.0.0",
+      "init": {
+        "params": {
+          "witnessCount": "21",
+          "electionCycleLength": "604800",
+          "minPowerFraction": "5"
+        },
+        "validators": [
+          {
+            "pubKey": "RLYcH6fzeg4k5bDtGwRi/sM2UhO2Yw/kLdtrvvvn6CE=",
+            "power": "10"
+          }
+        ]
+      }
+    }
+  ]
+}
+```
+
+次に各ノードから全ての`validators`を収集して結合し、配列にしよう。 今度は全ノードにあるこのファイルを、結合したファイルへと置き換えなくてはならない。 ２ノードのクラスタは、このようになるはずだ:
+
+```json
+{
+  "contracts": [
+    {
+      "vm": "plugin",
+      "format": "plugin",
+      "name": "coin",
+      "location": "coin:1.0.0",
+      "init": null
+    },
+    {
+      "vm": "plugin",
+      "format": "plugin",
+      "name": "dpos",
+      "location": "dpos:1.0.0",
+      "init": {
+        "params": {
+          "witnessCount": "21",
+          "electionCycleLength": "604800",
+          "minPowerFraction": "5"
+        },
+        "validators": [
+          {
+            "pubKey": "RLYcH6fzeg4k5bDtGwRi/sM2UhO2Yw/kLdtrvvvn6CE=",
+            "power": "10"
+          },
+          {
+            "pubKey": "gCn5WayR3cgQjNlNXYiBSYgQ3c1pGIsFWajVGczByZulGa09mb",
+            "power": "10"
+          }
+        ]
+      }
+    }
+  ]
+}
+```
+
+### genesis.json #2 - chaindata/config 内
+
+ここにも`genesis.json`という名前のファイルがあるが、ワーキングディレクトリ内のものと混同しないようにしよう。ファイルの中身は以下のようである:
 
 ```json
 {
@@ -49,7 +121,7 @@ sidebar_label: マルチノードデプロイメント
       "power": 10,
       "pub_key": {
           "type": "ABCD1234ABCD12",
-          "value": "bm90aGluZyBzcGVjaWFsIGp1c3QgYSBiYXNlNjQgc3RyaW5nCg=="
+          "value": "RLYcH6fzeg4k5bDtGwRi/sM2UhO2Yw/kLdtrvvvn6CE"
       }
     }
   ],
@@ -69,7 +141,7 @@ sidebar_label: マルチノードデプロイメント
       "power": 10,
       "pub_key": {
           "type": "AC26791624DE60",
-          "value": "bm90aGluZyBzcGVjaWFsIGp1c3QgYSBiYXNlNjQgc3RyaW5nCg=="
+          "value": "RLYcH6fzeg4k5bDtGwRi/sM2UhO2Yw/kLdtrvvvn6CE"
       }
     },
     {
@@ -163,7 +235,7 @@ sudo systemctl daemon-reload
 sudo systemctl start loom.service
 ```
 
-以下を使ってアウトプットを検証できる:
+以下を使ってアウトプットをチェック可能だ:
 
 ```bash
 sudo journalctl -u loom.service
@@ -211,7 +283,7 @@ Ansibleをローカルにインストールする必要がある。
 ---
 all:
   vars:
-    loom_build: build-132
+    loom_build: build-196
     ansible_ssh_common_args: '-o StrictHostKeyChecking=no'
     working_directory: /home/ubuntu
     user: ubuntu
@@ -252,7 +324,7 @@ num_instances = 4
 private_network_prefix = "172.31.99."
 
 # ビルド番号
-loom_build = "build-132"
+loom_build = "build-208"
 ```
 
 注: Vagrantは独自のインベントリを作成するので、`inventory.yml`は使用されない。

@@ -1,6 +1,6 @@
 ---
 id: arch
-title: Architecture of a DAppChain
+title: DAppChain架构
 ---
 Loom SDK is a pluggable Blockchain Development Kit. Pluggable both at the consensus and contract layer
 
