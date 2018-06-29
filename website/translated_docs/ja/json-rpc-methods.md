@@ -294,13 +294,13 @@ Polling method for a filter, which returns an array of logs which occurred since
 - `eth_newPendingTransactionFilter` で作成されたフィルターの場合、戻り値はトランザクションのハッシュとなる (`DATA`, 32バイト)、例`["0x6345343454645..."]`。
 - `eth_newFilter`で作成されたフィルターの場合、ログは以下パラメーターをもつオブジェクトとなる:
     
-    - `removed`: `TAG` - `true` when the log was removed, due to a chain reorganization. `false` if its a valid log.
-    - `logIndex`: `QUANTITY` - integer of the log index position in the block. null when its pending log.
-    - `transactionIndex`: `QUANTITY` - integer of the transactions index position log was created from. null when its pending log.
-    - `transactionHash`: `DATA`, 32 Bytes - hash of the transactions this log was created from. null when its pending log.
-    - `blockHash`: `DATA`, 32 Bytes - hash of the block where this log was in. null when its pending. null when its pending log.
+    - `removed`: `TAG` - チェーン再構成のためログが削除された場合`true` 。ログが有効な場合は`false`。
+    - `logIndex`: `QUANTITY` - ログのブロック中インデックスポジションの整数。未処理ログの場合はnull。
+    - `transactionIndex`: `QUANTITY` - トランザクションのブロック中インデックスポジションの整数。未処理ログの場合はnull。
+    - `transactionHash`: `DATA`, 32バイト - このログを作成したトランザクションのハッシュ。未処理ログの場合null。
+    - `blockHash`: `DATA`, 32バイト - このログが含まれるブロックのハッシュ。未処理ログ、未処理ブロックの場合null。
     - `blockNumber`: `QUANTITY` - the block number where this log was in. null when its pending. null when its pending log.
-    - `address`: `DATA`, 20 Bytes - address from which this log originated.
+    - `address`: `DATA`, 20バイト - ログ生成元のアドレス。
     - `data`: `DATA` - contains one or more 32 Bytes non-indexed arguments of the log.
     - `topics`: `Array of DATA` - Array of 0 to 4 32 Bytes `DATA` of indexed log arguments. (In solidity: The first topic is the hash of the signature of the event (e.g. Deposit(address,bytes32,uint256)), except you declared the event with the anonymous specifier.)
 
