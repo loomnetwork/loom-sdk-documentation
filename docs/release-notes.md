@@ -8,6 +8,25 @@ sidebar_label: Release Notes
 
 Reverse chronology order of release notes
 
+## Release 186 - June 19th
+
+* [EVM Unity Example app](https://loomx.io/developers/docs/en/unity-sample-tiles-chain-evm.html)
+* Unity SDK support for Solidity Apps
+* Many fixes for Filtering/Querying Ethereum Events
+
+## Release 163 - June 11th
+
+* Support for latest Build of Truffle
+* [Updated truffle example](https://github.com/loomnetwork/loom-truffle-provider)
+* Initial Implementation of Sybil resistance framework
+* Websocket events now support topics 
+* Loom-JS 1.8.0 Release with updated websocket topic support
+
+## Release 161 - June 7th
+
+* Tons of Truffle Fixes
+* Tons of web3.js fixes for Loom-Js provider
+
 ## Release 155 - June 6th
 
 * [Cocos SDK is Live](cocos-sdk-quickstart.html)

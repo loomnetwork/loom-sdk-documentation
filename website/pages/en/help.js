@@ -45,7 +45,7 @@ const Showcase = props => {
   return (
     <div className="productShowcaseSection paddingBottom">
       <h1><translate>Who's Using This?</translate></h1>
-      <p><translate>This project is used by all these people</translate></p>
+      <p><translate>Here are some of the teams who are building on the Loom SDK</translate></p>
       <div className="logos">{showcase}</div>
       <div className="more-users">
         <a className="button" href={pageUrl('users.html', props.language)}>

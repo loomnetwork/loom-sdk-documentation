@@ -248,7 +248,6 @@ const Docs = props => (
   </a>
     <p>          
       Check out the <a href={docUrl("prereqs.html", props.language)}>docs</a> to get started building decentralized apps on your own DappChain.
-      Please note that the Loom SDK is currently in <span className="beta-label">private beta</span>.
     </p>
   </div>
 </div>
@@ -427,7 +426,7 @@ const Download = props => (
       </li>
       <li className="border-left">
       <a className="download-btn" href={docUrl('prereqs.html', props.language)}><translate>Get Started!</translate></a>
-           */}   {/* <a className="download-btn" href="https://storage.googleapis.com/private.delegatecall.com/loom/osx/build-133/loom">Download OSX</a> */}
+           */}   {/* <a className="download-btn" href="https://private.delegatecall.com/loom/osx/build-196/loom">Download OSX</a> */}
     {/*   </li>
     </ul> */}
     {/* <div className="link-container center-text">
@@ -496,7 +495,7 @@ const Showcase = props => {
     })
     .map((user, i) => {
       return (
-        <a href={user.infoLink} key={i}>
+        <a href={user.infoLink} target="_blank" key={i}>
           <img src={userImgUrl(user.image)} alt={user.caption} title={user.caption} />
         </a>
       );
@@ -505,7 +504,7 @@ const Showcase = props => {
   return (
     <div className="productShowcaseSection paddingBottom">
       <h3><translate>Who's Using This?</translate></h3>
-      <p><translate>This project is used by all these people</translate></p>
+      <p><translate>Here are some of the teams who are building on the Loom SDK</translate></p>
       <div className="logos">{showcase}</div>
       <div className="more-users">
         <a className="button" href={pageUrl('users.html', props.language)}>

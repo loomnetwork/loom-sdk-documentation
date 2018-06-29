@@ -1,19 +1,13 @@
 ---
-id: unity-sdk
-title: Unity SDK
-sidebar_label: Unity SDK
+id: unity-sdk-plugin
+title: Plugin-based Smart Contract Quickstart
+sidebar_label: Plugin-based Smart Contract Quickstart
 ---
 
-## Overview
 
-The [Unity SDK](http://github.com/loomnetwork/unity3d-sdk) allows games to interact with smart
-contracts running on Loom DAppChains, it also provides optional services like identity management
-and asset transfers. The following Unity target platforms are currently supported:
+Loom supports EVM ([Ethereum Virtual Machine](evm.html)) and plugin-based smart contracts. Plugin-based smart contracts can be created with (go-loom)[https://github.com/loomnetwork/go-loom], for example.
 
-- Desktop (Mac/Windows/Linux)
-- Android
-- iOS
-- WebGL
+In this example, we will demostrate how to use the Unity SDK to communicate with plugin-based smart contracts.
 
 ## Sample Code
 

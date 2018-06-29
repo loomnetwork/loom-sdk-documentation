@@ -12,8 +12,9 @@ sidebar_label: マルチノードデプロイメント
 これらの手順を各ノード上で実行する必要がある。
 
 1. ワーキングディレクトリを自分で選択しよう。この例で使っているのは: `/home/ubuntu` 
-        bash
-        cd /home/ubuntu
+    ```bash
+    cd /home/ubuntu
+    ```
 
 2. バイナリをダウンロード 
         bash
@@ -24,6 +25,7 @@ sidebar_label: マルチノードデプロイメント
 4. ワーキングディレクトリに `loom.yml` を追加しよう。 
         yaml
         QueryServerHost: "tcp://0.0.0.0:9999"
+
 
 ## 設定
 

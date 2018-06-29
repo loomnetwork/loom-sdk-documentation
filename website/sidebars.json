@@ -3,13 +3,15 @@
     "Prerequisites": ["prereqs", "prereqs-ubuntu", "prereqs-windows"],
     "Javascript Client SDK": ["loom-js-quickstart", "web3js-loom-provider-truffle"],
     "Go Contract SDK": ["go-loom-clients", "goloomstate", "goloomevents", "goloompermissions", "builtin"],
-    "Game SDKs": ["unity-sdk", "cocos-sdk-quickstart"],
+    "Game SDKs": ["cocos-sdk-quickstart"],
+    "Unity SDK": ["unity-sdk-overview", "unity-sdk-plugin", "unity-sdk-evm", "unity-sample-tiles-chain-evm"],
     "Events": ["loomevents"],
     "Consensus": ["delegated-proof-of-stake"],
     "Monitoring": ["metrics", "logging"],
-    "Solidity & EVM": ["evm",  "truffle-deploy"],
-    "Example Games & Apps": ["etherboy-game", "phaser-sdk-demo","phaser-sdk-demo-websocket", "phaser-sdk-demo-web3-websocket", "simple-social-network-example"],
-    "Deployment": ["etherboy-backend","multi-node-deployment", "docker-blueprint-phaser"],
-    "Frequently Asked Questions": ["common-issues", "release-notes"]
+    "Solidity & EVM": ["evm", "truffle-deploy"],
+    "EVM JSON RPC": ["json-rpc-methods"],
+    "Example Games & Apps": ["etherboy-game", "phaser-sdk-demo", "phaser-sdk-demo-websocket", "phaser-sdk-demo-web3-websocket", "simple-social-network-example"],
+    "Deployment": ["etherboy-backend", "multi-node-deployment", "docker-blueprint-phaser"],
+    "Frequently Asked Questions": ["arch", "release-notes", "common-issues"]
   }
 }
