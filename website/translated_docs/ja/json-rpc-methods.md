@@ -299,10 +299,10 @@ Polling method for a filter, which returns an array of logs which occurred since
     - `transactionIndex`: `QUANTITY` - トランザクションのブロック中インデックスポジションの整数。未処理ログの場合はnull。
     - `transactionHash`: `DATA`, 32バイト - このログを作成したトランザクションのハッシュ。未処理ログの場合null。
     - `blockHash`: `DATA`, 32バイト - このログが含まれるブロックのハッシュ。未処理ログ、未処理ブロックの場合null。
-    - `blockNumber`: `QUANTITY` - the block number where this log was in. null when its pending. null when its pending log.
+    - `blockNumber`: `QUANTITY` - ログが含まれるブロックの番号。未処理ログ、未処理ブロックの場合null。
     - `address`: `DATA`, 20バイト - ログ生成元のアドレス。
-    - `data`: `DATA` - contains one or more 32 Bytes non-indexed arguments of the log.
-    - `topics`: `Array of DATA` - Array of 0 to 4 32 Bytes `DATA` of indexed log arguments. (In solidity: The first topic is the hash of the signature of the event (e.g. Deposit(address,bytes32,uint256)), except you declared the event with the anonymous specifier.)
+    - `data`: `DATA` - 32バイト。１つ以上のインデックスされていないログの引数。
+    - `topics`: `Array of DATA` - インデックスされたログの引数`DATA`。0から432バイト。 (In solidity: The first topic is the hash of the signature of the event (e.g. Deposit(address,bytes32,uint256)), except you declared the event with the anonymous specifier.)
 
 #### 例
 
@@ -345,16 +345,16 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 1. `Object` - フィルターのオプション:
 
 - `fromBlock`: `QUANTITY|TAG` - (オプショナル。デフォルトは: `"latest"`) ブロック番号の整数、または最新採掘ブロックの場合 "latest"、未採掘トランザクションの場合は "pending"もしくは "earliest"となる。
-- `toBlock`: `QUANTITY|TAG` - (optional, default: "latest") Integer block number, or "latest" for the last mined block or "pending", "earliest" for not yet mined transactions.
+- `toBlock`: `QUANTITY|TAG` - (オプショナル。デフォルトは: "latest") ブロック番号の整数、または最新採掘ブロックの場合 "latest"、未採掘トランザクションの場合は "pending"もしくは "earliest"となる。
 - `address`: `DATA`|Array, 20 Bytes - (optional) Contract address or a list of addresses from which logs should originate.
 - `topics`: Array of `DATA`, - (optional) Array of 32 Bytes `DATA` topics. Topics are order-dependent. Each topic can also be an array of `DATA` with "or" options.
 - `blockhash`: `DATA`, 32 Bytes - (optional, future) With the addition of EIP-234, blockHash will be a new filter option which restricts the logs returned to the single block with the 32-byte hash blockHash. Using blockHash is equivalent to fromBlock = toBlock = the block number with hash blockHash. If blockHash is present in in the filter criteria, then neither fromBlock nor toBlock are allowed.
 
-#### Returns
+#### 戻り値
 
-See [eth_getFilterChanges](#eth-getfilterchanges)
+[eth_getFilterChanges](#eth-getfilterchanges)を参照すること。
 
-#### Example
+#### 例
 
 ```Javascript
 // eth_getFilterChanges JSON RPCの呼び出し
@@ -376,13 +376,13 @@ Returns the receipt of a transaction by transaction hash.
 
 **Note** That the receipt is not available for pending transactions.
 
-#### Parameters
+#### パラメーター
 
-1. `DATA`, 32 Bytes - hash of a transaction
+1. `DATA`, 32バイト - トランザクションのハッシュ。
 
-#### Returns
+#### 戻り値
 
-`Object` - A transaction receipt object, or `null` when no receipt was found:
+`Object` - トランザクションレシートオブジェクト、またはレシートが見つからない場合は`null`:
 
 - `transactionHash`: `DATA`, 32 Bytes - hash of the transaction.
 - `transactionIndex`: `QUANTITY` - integer of the transactions index position in the block.
@@ -394,7 +394,7 @@ Returns the receipt of a transaction by transaction hash.
 - `logs`: `Array` - Array of log objects, which this transaction generated.
 - `status`: `QUANTITY` either 1 (success) or 0 (failure)
 
-#### Example
+#### 例
 
 ```Javascript
 // eth_getTransactionReceipt JSON RPCの呼び出し
@@ -474,27 +474,27 @@ Topics are order-dependent. A transaction with a log with topics [A, B] will be 
 
 #### Parameters
 
-1. `Object` - The filter options:
+1. `Object` - フィルターのオプション:
 
-- `fromBlock`: `QUANTITY|TAG` - (optional, default: "latest") Integer block number, or "latest" for the last mined block or "pending", "earliest" for not yet mined transactions.
-- `toBlock`: `QUANTITY|TAG` - (optional, default: "latest") Integer block number, or "latest" for the last mined block or "pending", "earliest" for not yet mined transactions.
+- `fromBlock`: `QUANTITY|TAG` - (オプショナル。デフォルトは: "latest") ブロック番号の整数、または最新採掘ブロックの場合 "latest"、未採掘トランザクションの場合は "pending"もしくは "earliest"となる。
+- `toBlock`: `QUANTITY|TAG` - (オプショナル。デフォルトは: "latest") ブロック番号の整数、または最新採掘ブロックの場合 "latest"、未採掘トランザクションの場合は "pending"もしくは "earliest"となる。
 - `address`: `DATA|Array`, 20 Bytes - (optional) Contract address or a list of addresses from which logs should originate.
 - `topics`: `Array of DATA`, - (optional) Array of 32 Bytes DATA topics. Topics are order-dependent. Each topic can also be an array of DATA with "or" options.
 
-#### Returns
+#### 戻り値
 
-`QUANTITY` - A filter id
+`QUANTITY` -フィルターのID。
 
-#### Example
+#### 例
 
 ```Javascript
-// eth_newFilter JSON RPC call
+// eth_newFilter JSON RPCの呼び出し
 const jsonRPCString = '{"jsonrpc":"2.0","method":"eth_newFilter","params":[{"topics":["0x12341234"]}],"id":73}'
 
-// Parse JSON is a necessary step before send
+// sendの前にJSONをパースするステップが必要
 await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
-// Return should be something like
+// このように返却されるはずだ
 // {
 //   "id":1,
 //   "jsonrpc": "2.0",
