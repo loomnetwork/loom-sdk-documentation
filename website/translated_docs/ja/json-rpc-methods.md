@@ -307,13 +307,13 @@ Polling method for a filter, which returns an array of logs which occurred since
 #### Example
 
 ```Javascript
-// eth_getFilterChanges JSON RPC call
+// eth_getFilterChanges JSON RPCの呼び出し
 const jsonRPCString = '{"jsonrpc":"2.0","method":"eth_getFilterChanges","params":["0x16"],"id":73}'
 
-// Parse JSON is a necessary step before send
+// sendの前にJSONをパースするステップが必要
 await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
-// Return should be something like
+// このように返却されるはずだ
 // {
 //   "id":1,
 //   "jsonrpc":"2.0",
@@ -336,7 +336,7 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 * * *
 
-#### Description
+#### 説明
 
 Returns an array of all logs matching a given filter object.
 
@@ -397,13 +397,13 @@ Returns the receipt of a transaction by transaction hash.
 #### Example
 
 ```Javascript
-// eth_getTransactionReceipt JSON RPC call
+// eth_getTransactionReceipt JSON RPCの呼び出し
 const jsonRPCString = '{"jsonrpc":"2.0","method":"eth_getTransactionReceipt","params":["0xb903239f8543d04b5dc1ba6579132b143087c68db1b2168786408fcbce568238"],"id":1}'
 
-// Parse JSON is a necessary step before send
+// sendの前にJSONをパースするステップが必要
 await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
-// Return should be something like
+// このように返却されるはずだ
 // {
 // "id":1,
 // "jsonrpc":"2.0",
@@ -425,28 +425,28 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 * * *
 
-#### Description
+#### 説明
 
 Creates a filter in the node, to notify when new pending transactions arrive. To check if the state has changed, call [eth_getFilterChanges](#eth-getfilterchanges).
 
-#### Parameters
+#### パラメーター
 
-None
+なし。
 
-#### Returns
+#### 戻り値
 
-`QUANTITY` - A filter id.
+`QUANTITY` -フィルターのID。
 
-#### Example
+#### 例
 
 ```Javascript
-// eth_newBlockFilter JSON RPC call
+// eth_newBlockFilter JSON RPCの呼び出し
 const jsonRPCString = '{"jsonrpc":"2.0","method":"eth_newBlockFilter","params":[],"id":73}'
 
-// Parse JSON is a necessary step before send
+// sendの前にJSONをパースするステップが必要
 await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
-// Return should be something like
+// このように返却されるはずだ
 // {
 //   "id":1,
 //   "jsonrpc":  "2.0",
@@ -458,7 +458,7 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 * * *
 
-#### Description
+#### 説明
 
 Creates a filter object, based on filter options, to notify when the state changes (logs). To check if the state has changed, call [eth_getFilterChanges](#eth-getfilterchanges).
 
@@ -515,12 +515,12 @@ Creates new message call transaction or a contract creation, if the data field c
 1. `Object` - トランザクションオブジェクト。
 
 - `from`: `DATA`, 20バイトのトランザクション送信元アドレス。
-- `to`: `DATA`, 20 Bytes - (optional when creating new contract) The address the transaction is directed to.
+- `to`: `DATA`, 20バイト - (新規コントラクト作成時のオプション) トランザクションの宛先アドレス。
 - `data`: `DATA` - The compiled code of a contract OR the hash of the invoked method signature and encoded parameters. For details see Ethereum Contract ABI
 
-#### Returns
+#### 戻り値
 
-`DATA`, 32 Bytes - the transaction hash, or the zero hash if the transaction is not yet available.
+`DATA`, 32バイト - トランザクションのハッシュ。またはトランザクションがまだ有効でない場合はゼロハッシュ。
 
 Use [eth_getTransactionReceipt](#eth-gettransactionreceipt) to get the contract address, after the transaction was mined, when you created a contract.
 
@@ -556,20 +556,20 @@ It works by subscribing to particular events. The node will return a subscriptio
 - `address`, either an address or an array of addresses. Only logs that are created from these addresses are returned (optional)
 - `topics`, only logs which match the specified topics (optional)
 
-#### Returns
+#### 戻り値
 
-Subscription id
+サブスクリプションID。
 
-#### Example
+#### 例
 
 ```Javascript
 // eth_subscribe JSON RPC call
 const jsonRPCString = '{"id": 1, "method": "eth_subscribe", "params": ["logs", {"address": "0x8320fe7702b96808f7bbc0d4a888ed1468216cfd", "topics": ["0xd78a0cb8bb633d06981248b816e7bd33c2a35a6089241d099fa519e361cab902"]}]}'
 
-// Parse JSON is a necessary step before send
+// sendの前にJSONをパースするステップが必要
 await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
-// Return should be something like
+// このように返却されるはずだ
 // {
 //   "jsonrpc":"2.0",
 //   "id":2,
