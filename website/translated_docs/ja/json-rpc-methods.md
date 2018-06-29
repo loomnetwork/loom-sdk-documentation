@@ -357,20 +357,20 @@ See [eth_getFilterChanges](#eth-getfilterchanges)
 #### Example
 
 ```Javascript
-// eth_getFilterChanges JSON RPC call
+// eth_getFilterChanges JSON RPCの呼び出し
 const jsonRPCString = '{"jsonrpc":"2.0","method":"eth_getLogs","params":[{"topics":["0x000000000000000000000000a94f5374fce5edbc8e2a8697c15331677e6ebf0b"]}],"id":74}'
 
-// Parse JSON is a necessary step before send
+/// sendの前にJSONをパースするステップが必要
 await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 ```
 
-Result see [eth_getFilterChanges](#eth-getfilterchanges)
+結果は[eth_getFilterChanges](#eth-getfilterchanges)を参照すること。
 
 ## eth_getTransactionReceipt
 
 * * *
 
-#### Description
+#### 説明
 
 Returns the receipt of a transaction by transaction hash.
 
