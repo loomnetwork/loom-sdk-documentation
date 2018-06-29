@@ -288,7 +288,7 @@ Polling method for a filter, which returns an array of logs which occurred since
 
 #### 戻り値
 
-`Array` - Array of log objects, or an empty array if nothing has changed since last poll.
+`Array` - ログオブジェクトの配列。もしくは最終の投票より何も変更がない場合は空の配列となる。
 
 - For filters created with `eth_newBlockFilter` the return are block hashes (`DATA`, 32 Bytes), e.g. `["0x3454645634534..."]`.
 - For filters created with `eth_newPendingTransactionFilter` the return are transaction hashes (`DATA`, 32 Bytes), e.g. `["0x6345343454645..."]`.
@@ -547,7 +547,7 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 #### 説明
 
-It works by subscribing to particular events. The node will return a subscription id. For each event that matches the subscription a notification with relevant data is send together with the subscription id.
+特定イベントのサブスクライブで機能し、 ノードはサブスクリプションIDを返却する。 For each event that matches the subscription a notification with relevant data is send together with the subscription id.
 
 #### Parameters
 
@@ -583,7 +583,7 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 #### 説明
 
-与えられたIDでフィルターをアンインストールする。 ウォッチングが必要でなくなった場合は常に、このメソッドを呼び出さなくてはならない。 Additonally Filters timeout when they aren't requested with [eth_getFilterChanges](#eth-getfilterchanges) for a period of time.
+与えられたIDでフィルターをアンインストールする。 ウォッチングが必要でなくなった場合は常に、このメソッドを呼び出さなくてはならない。 さらにある期間[eth_getFilterChanges](#eth-getfilterchanges)でのリクエストがない場合、フィルターはタイムアウトされる。
 
 #### パラメーター
 
