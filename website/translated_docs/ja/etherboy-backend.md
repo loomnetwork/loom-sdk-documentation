@@ -14,7 +14,7 @@ sidebar_label: Etherboyバックエンド
 2. バイナリをダウンロード
     
     ```bash
-    wget https://private.delegatecall.com/loom/linux/build-196/loom
+    wget https://private.delegatecall.com/loom/linux/build-209/loom
     wget https://private.delegatecall.com/etherboy/linux/build-53/etherboycli
     chmod +x loom etherboycli
     
@@ -42,9 +42,8 @@ sidebar_label: Etherboyバックエンド
     ```
 
 5. ワーキングディレクトリに `loom.yml` を追加しよう。 
-    ```yaml
-    QueryServerHost: "tcp://0.0.0.0:9999"
-    ```
+        yaml
+        QueryServerHost: "tcp://0.0.0.0:9999"
 
 注: `loom`と`etherboycli`は`$PATH`をどこにでも通すことができるので、常に`./`で実行する必要はない。 しかしながら、`etherboycore.0.0.1`は常に`$WORKING_DIRECTORY/contracts/etherboycore.0.0.1`に置かれていなくてはならない。
 
