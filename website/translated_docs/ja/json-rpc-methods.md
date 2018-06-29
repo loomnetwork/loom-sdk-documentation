@@ -346,7 +346,7 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 - `fromBlock`: `QUANTITY|TAG` - (オプショナル。デフォルトは: `"latest"`) ブロック番号の整数、または最新採掘ブロックの場合 "latest"、未採掘トランザクションの場合は "pending"もしくは "earliest"となる。
 - `toBlock`: `QUANTITY|TAG` - (オプショナル。デフォルトは: "latest") ブロック番号の整数、または最新採掘ブロックの場合 "latest"、未採掘トランザクションの場合は "pending"もしくは "earliest"となる。
-- `address`: `DATA`|Array, 20 Bytes - (optional) Contract address or a list of addresses from which logs should originate.
+- `address`: `DATA`|Array, 20バイト - (オプショナル) コントラクトアドレス、またはログ生成元のアドレスのリスト。
 - `topics`: Array of `DATA`, - (optional) Array of 32 Bytes `DATA` topics. Topics are order-dependent. Each topic can also be an array of `DATA` with "or" options.
 - `blockhash`: `DATA`, 32 Bytes - (optional, future) With the addition of EIP-234, blockHash will be a new filter option which restricts the logs returned to the single block with the 32-byte hash blockHash. Using blockHash is equivalent to fromBlock = toBlock = the block number with hash blockHash. If blockHash is present in in the filter criteria, then neither fromBlock nor toBlock are allowed.
 
@@ -508,7 +508,7 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 #### 説明
 
-Creates new message call transaction or a contract creation, if the data field contains code.
+新規メッセージ呼び出しトランザクションの作成、またはデータフィールドにコードが含まれていればコントラクトの作成を行う。
 
 #### パラメーター
 
@@ -549,7 +549,7 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 特定イベントのサブスクライブで機能し、 ノードはサブスクリプションIDを返却する。 For each event that matches the subscription a notification with relevant data is send together with the subscription id.
 
-#### Parameters
+#### パラメーター
 
 1. `object` with the following (optional) fields
 
