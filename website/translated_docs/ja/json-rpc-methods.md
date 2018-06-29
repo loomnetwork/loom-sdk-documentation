@@ -347,7 +347,7 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 - `fromBlock`: `QUANTITY|TAG` - (オプショナル。デフォルトは: `"latest"`) ブロック番号の整数、または最新採掘ブロックの場合 "latest"、未採掘トランザクションの場合は "pending"もしくは "earliest"となる。
 - `toBlock`: `QUANTITY|TAG` - (オプショナル。デフォルトは: "latest") ブロック番号の整数、または最新採掘ブロックの場合 "latest"、未採掘トランザクションの場合は "pending"もしくは "earliest"となる。
 - `address`: `DATA`|Array, 20バイト - (オプショナル) コントラクトアドレス、またはログ生成元のアドレスのリスト。
-- `topics`: Array of `DATA`, - (optional) Array of 32 Bytes `DATA` topics. Topics are order-dependent. Each topic can also be an array of `DATA` with "or" options.
+- `topics`: Array of `DATA`, - (オプショナル) 32バイトの`DATA`トピックの配列。 トピックは順序に依存。 各トピックはまた、 "or"のオプションを持った`DATA`の配列であることも可能。
 - `blockhash`: `DATA`, 32 Bytes - (optional, future) With the addition of EIP-234, blockHash will be a new filter option which restricts the logs returned to the single block with the 32-byte hash blockHash. Using blockHash is equivalent to fromBlock = toBlock = the block number with hash blockHash. If blockHash is present in in the filter criteria, then neither fromBlock nor toBlock are allowed.
 
 #### 戻り値
@@ -372,9 +372,9 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 #### 説明
 
-Returns the receipt of a transaction by transaction hash.
+トランザクションハッシュでトランザクションのレシートを返却する。
 
-**Note** That the receipt is not available for pending transactions.
+**注意** 未処理トランザクションの場合、レシートは利用不可。
 
 #### パラメーター
 
