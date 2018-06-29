@@ -8,6 +8,16 @@ sidebar_label: Release Notes
 
 Reverse chronology order of release notes
 
+## Release 209 - June 20th
+
+Major release
+* Plasma Cash initial integration - Demos coming next week
+* Multinode fixes and performance increases
+* Ansible updates for multinode
+* Querying / Filtering on EVM supports more types 
+* Unity SDK updates for EVM 
+* Loom-JS updates for EVM
+
 ## Release 186 - June 19th
 
 * [EVM Unity Example app](https://loomx.io/developers/docs/en/unity-sample-tiles-chain-evm.html)
