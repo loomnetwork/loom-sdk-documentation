@@ -290,9 +290,9 @@ Polling method for a filter, which returns an array of logs which occurred since
 
 `Array` - ログオブジェクトの配列。もしくは最終の投票より何も変更がない場合は空の配列となる。
 
-- For filters created with `eth_newBlockFilter` the return are block hashes (`DATA`, 32 Bytes), e.g. `["0x3454645634534..."]`.
-- For filters created with `eth_newPendingTransactionFilter` the return are transaction hashes (`DATA`, 32 Bytes), e.g. `["0x6345343454645..."]`.
-- For filters created with `eth_newFilter` logs are objects with following params:
+- `eth_newBlockFilter`で作成されたフィルターの場合、戻り値はブロックのハッシュとなる (`DATA`, 32バイト)、例`["0x3454645634534..."]`。
+- `eth_newPendingTransactionFilter` で作成されたフィルターの場合、戻り値はトランザクションのハッシュとなる (`DATA`, 32バイト)、例`["0x6345343454645..."]`。
+- `eth_newFilter`で作成されたフィルターの場合、ログは以下パラメーターをもつオブジェクトとなる:
     
     - `removed`: `TAG` - `true` when the log was removed, due to a chain reorganization. `false` if its a valid log.
     - `logIndex`: `QUANTITY` - integer of the log index position in the block. null when its pending log.
