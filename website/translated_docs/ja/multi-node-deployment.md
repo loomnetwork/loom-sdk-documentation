@@ -20,18 +20,18 @@ sidebar_label: マルチノードデプロイメント
         wget https://private.delegatecall.com/loom/linux/build-208/loom
         chmod +x loom
 
-3. Execute `./loom init` in the working directory to initialize config files.
-4. Add `loom.yml` を更新 
+3. ワーキングディレクトリで`./loom init`を実行し、設定ファイルを初期化しよう。
+4. ワーキングディレクトリに `loom.yml` を追加しよう。 
         yaml
         QueryServerHost: "tcp://0.0.0.0:9999"
 
 ## 設定
 
-There are two genesis.json files that needs to be combined.
+２つのgenesis.jsonファイルを組み合わせなくてはならない。
 
-### genesis.json #1 - in the working directory
+### genesis.json #1 - ワーキングディレクトリ内
 
-The `genesis.json` file looks like this:
+`genesis.json`ファイルは次のようなものだ:
 
 ```json
 {
@@ -66,7 +66,7 @@ The `genesis.json` file looks like this:
 }
 ```
 
-Next, collect all `validators` from each node, then combine them into an array. This file will now need to be replaced with the combined file, in all nodes. For a two node cluster, it should now look like this:
+次に各ノードから全ての`validators`を収集して結合し、配列にしよう。 今度は全ノードにあるこのファイルを、結合したファイルへと置き換えなくてはならない。 ２ノードのクラスタは、このようになるはずだ:
 
 ```json
 {
@@ -105,9 +105,9 @@ Next, collect all `validators` from each node, then combine them into an array. 
 }
 ```
 
-### genesis.json #2 - inside chaindata/config
+### genesis.json #2 - chaindata/config 内
 
-You will find a file named `genesis.json`. It is not to be confused with the one in the working directory. It should look like this:
+ここにも`genesis.json`という名前のファイルがあるが、ワーキングディレクトリ内のものと混同しないようにしよう。ファイルの中身は以下のようである:
 
 ```json
 {
@@ -127,7 +127,7 @@ You will find a file named `genesis.json`. It is not to be confused with the one
 }
 ```
 
-Next, collect all the `validators` from each node, then combine them into an array. This file will now need to be replaced with the combined file, in all nodes. For a two node cluster, it should now look like this:
+次に各ノードから全ての`validators`を収集して結合し、配列にしよう。 今度は全ノードにあるこのファイルを、結合したファイルへと置き換えなくてはならない。 ２ノードのクラスタは、このようになるはずだ:
 
 ```json
 {
@@ -157,16 +157,16 @@ Next, collect all the `validators` from each node, then combine them into an arr
 
 ## 起動
 
-First, we need to get node keys from each node. Go to the working directory and run `loom nodekey`:
+まず、各ノードのノードキーを取得する必要がある。ワーキングディレクトリの`loom nodekey`を実行しよう:
 
 ```bash
 $ loom nodekey
 47cd3e4cc27ac621ff8bc59b776fa228adab827e
 ```
 
-Do remember to clearly make note which node key is for which node. Also important is the private IP (or any IP that are available for the nodes to communicate with each other). Generally, in a cloud environment we use public IPs for security and latency reasons.
+ノードキーがどのノードのものか、はっきりとわかるようにしておくことを忘れないように。 またプライベートIP(もしくはノードが互いに通信し合うのに有効なIP)も同じく重要だ。 一般に、クラウド環境ではセキュリティとレイテンシのため、パブリックIPを使う。
 
-Now, let's use an example with 4 nodes:
+では４ノードのサンプルを使用してみよう:
 
 | ノード | IP       | ノードキー                                    |
 | --- | -------- | ---------------------------------------- |
@@ -175,35 +175,35 @@ Now, let's use an example with 4 nodes:
 | 3   | 10.3.2.1 | 4953e5726664985cc1cc92ae2edcfc6e089ba50d |
 | 4   | 10.7.6.5 | 02c90b57d241c3c014755ecb07e0c0d232e07fff |
 
-To run loom, we need to tell each node about its peers. The general format is:
+Loomを実行するには、各ノードにそのピアについて伝える必要がある。一般的なフォーマットはこうだ:
 
 ```bash
 loom run tcp://<node1_key>@<node1_ip>:46656,tcp://<node2_key>@<node2_ip>:46656,...tcp://<nodeN_key>@<nodeN_ip>:46656
 ```
 
-Let's see examples by using the table above.
+上の表を用いた例を見ていこう。
 
-On node 1:
+ノード 1にて:
 
 ```bash
 loom run tcp://e728bada822af677b95cb8ff126ca72cc4e3dc74@10.6.7.8:46656,tcp://4953e5726664985cc1cc92ae2edcfc6e089ba50d@10.3.2.1:46656,tcp://4953e5726664985cc1cc92ae2edcfc6e089ba50d@10.7.6.5:46656
 ```
 
-On node 2:
+ノード２にて:
 
 ```bash
 loom run tcp://47cd3e4cc27ac621ff8bc59b776fa228adab827e@10.2.3.4:46656,tcp://4953e5726664985cc1cc92ae2edcfc6e089ba50d@10.3.2.1:46656,tcp://4953e5726664985cc1cc92ae2edcfc6e089ba50d@10.7.6.5:46656
 ```
 
-The same goes for node 3 and node 4. We exclude the node's own key and IP address.
+ノード３、ノード４についても同じだ。ノード固有のキーとIPアドレスは除く。
 
-**Please remember that all commands need to be executed from within the working directory.**
+**全コマンドはワーキングディレクトリ内から実行されなくてはならないことを覚えておこう。**
 
-### systemd Startup Script
+### systemdスタートアップスクリプト
 
-The following startup script can be used to control the service using systemd. Make changes to `WorkingDirectory` and/or `ExecStart` to reflect your setup.
+次のスタートアップスクリプトはsystemdを使ったサービスをコントロールするために使用することができる。`WorkingDirectory`および/または`ExecStart`を変更して、あなたの設定を反映させよう。
 
-Notice `ExecStart`, it is constructed using the same concept from the previous section when running loom directly. This means each node has a different startup script.
+Loomを直接実行する場合、`ExecStart`は前のセクションと同じコンセプトを使用する構成となっていることに気をつけよう。これは、各ノードが異なるスタートアップスクリプトを持っているという意味である。i
 
 ```ini
 [Unit]
@@ -226,20 +226,20 @@ StandardError=syslog
 WantedBy=multi-user.target
 ```
 
-Save it to `/etc/systemd/system/loom.service`. Run these to activate it:
+これを`/etc/systemd/system/loom.service`へ保存し、アクティベートするために以下を実行しよう:
 
 ```bash
 sudo systemctl daemon-reload
 sudo systemctl start loom.service
 ```
 
-You may now inspect the output using:
+以下を使ってアウトプットをチェック可能だ:
 
 ```bash
 sudo journalctl -u loom.service
 ```
 
-When satisfied everything is running as intended, executing the following will enable the service so that it is started at boot:
+すべてが思った通りに動いていれば、以下を実行することでブート時にサービスが開始されるようになる。
 
 ```bash
 sudo systemctl enable loom.service
@@ -247,9 +247,9 @@ sudo systemctl enable loom.service
 
 ## 検証
 
-### Listening ports
+### ポートのリッスン
 
-If all is well, you will be able to see these ports opened in each node.
+全てうまくいくと、各ノードに開かれたこれらのポートを見ることができる。
 
 ```bash
 $ sudo netstat -tpnl
@@ -263,19 +263,19 @@ tcp6       0      0 :::46658                :::*                    LISTEN      
 
 ## 自動化
 
-If combining the configuration files and startup commands seems to be a lot of work, we have a way to automate it using Ansible.
+設定ファイルとスタートアップコマンドを組み合わせるのが手間であれば、Ansibleを使用して自動化する方法がある。
 
-Ansible needs to be installed locally.
+Ansibleをローカルにインストールする必要がある。
 
-The playbook is available [here](https://github.com/loomnetwork/loom-playbooks/blob/master/loom-playbook.yml)
+プレイブックは、[ここ](https://github.com/loomnetwork/loom-playbooks/blob/master/loom-playbook.yml)から利用できる。
 
-You will need to change the inventory to match your nodes and preferred working directory.
+自分のノード及び選択したワーキングディレクトリと一致するように、インベントリを変更しなくてはならない。
 
-**Please ensure SSH and sudo access to the nodes are available**
+**ノードへのSSH及びsudoアクセスが利用可能か確認しよう。**
 
-### Inventory: inventory.yaml
+### インベントリ: inventory.yaml
 
-The inventory specifies the nodes and their IP addresses. If the node only have one IP, use same for both `ansible_host` and `private_ip`. `ansible_host` is used by Ansible to connect to the host, while `private_ip` is used by the nodes to communicate with each other.
+このインベントリは、ノードとそのIPアドレスを指定する。 ノードが１つのIPしか持たない場合、 `ansible_host`と`private_ip`の両方に 同じものを使用しよう。 `ansible_host`はAnsibleによってホストに接続するために使用され、一方`private_ip`はノードが互いに通信するためにノードにより使用される。
 
 ```yaml
 ---
@@ -300,7 +300,7 @@ all:
       private_ip: 10.7.6.5
 ```
 
-After modifying the inventory with the details of the nodes, execute the playbook:
+インベントリのノード詳細を変更したら、プレイブックを実行しよう:
 
 ```bash
 ansible-playbook -i inventory.yml -vv loom-playbook.yml
@@ -308,21 +308,21 @@ ansible-playbook -i inventory.yml -vv loom-playbook.yml
 
 ## さらなる自動化: Vagrant
 
-There is also a Vagrantfile included to provision a full cluster. Ansible needs to be installed on the host machine.
+また完全なクラスタをプロビジョニングするためのVagrantfileも含まれている。Ansibleがホストマシンにインストールされていることが必要だ。
 
-It is tested with VirtualBox provider. It takes less than two minutes on a decent machine to create and provision 4 nodes.
+これはVirtualBoxプロバイダを使ってテストされる。それなりのマシン上であれば、４ノードを作成しプロビジョニングするのに２分もかからない。
 
-The following variables may be changed when needed.
+以下の変数は必要に応じて変更されることがある。
 
 ```ruby
-# Size of the cluster created by Vagrant
+# Vagrantによって作成されたクラスタサイズ
 num_instances = 4
 
-# Private Network Prefix
+# プライベートネットワークのプレフィックス
 private_network_prefix = "172.31.99."
 
-# Build numbers
+# ビルド番号
 loom_build = "build-208"
 ```
 
-Note: Vagrant creates its own inventory so `inventory.yml` is not used.
+注: Vagrantは独自のインベントリを作成するので、`inventory.yml`は使用されない。
