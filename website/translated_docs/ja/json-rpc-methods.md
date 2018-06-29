@@ -304,7 +304,7 @@ Polling method for a filter, which returns an array of logs which occurred since
     - `data`: `DATA` - contains one or more 32 Bytes non-indexed arguments of the log.
     - `topics`: `Array of DATA` - Array of 0 to 4 32 Bytes `DATA` of indexed log arguments. (In solidity: The first topic is the hash of the signature of the event (e.g. Deposit(address,bytes32,uint256)), except you declared the event with the anonymous specifier.)
 
-#### Example
+#### 例
 
 ```Javascript
 // eth_getFilterChanges JSON RPCの呼び出し
@@ -338,7 +338,7 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 #### 説明
 
-Returns an array of all logs matching a given filter object.
+与えられたフィルターオブジェクトとマッチする全ログの配列を返却する。
 
 #### パラメーター
 
@@ -581,15 +581,15 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 * * *
 
-#### Description
+#### 説明
 
-Uninstalls a filter with given id. Should always be called when watch is no longer needed. Additonally Filters timeout when they aren't requested with [eth_getFilterChanges](#eth-getfilterchanges) for a period of time.
+与えられたIDでフィルターをアンインストールする。 ウォッチングが必要でなくなった場合は常に、このメソッドを呼び出さなくてはならない。 Additonally Filters timeout when they aren't requested with [eth_getFilterChanges](#eth-getfilterchanges) for a period of time.
 
-#### Parameters
+#### パラメーター
 
-1. `QUANTITY` - The filter id
+1. `QUANTITY` -フィルターのID。
 
-#### Returns
+#### 戻り値
 
 `Boolean` - フィルターのアンインストールが成功すれば`true`、そうでなければ`false`。
 
@@ -626,18 +626,18 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 `String` - 現在のネットワークID。
 
-- "474747": Currently there's now network id defined, the number returned is simply `474747`
+- "474747": 現在のネットワークIDが定義されており、`474747`と数字が単純に返却される。
 
-#### Example
+#### 例
 
 ```Javascript
-// net_version JSON RPC call
+// net_version JSON RPCの呼び出し
 const jsonRPCString = '{"jsonrpc":"2.0","method":"net_version","params":[],"id":67}'
 
-// Parse JSON is a necessary step before send
+// sendの前にJSONをパースするステップが必要
 await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
-// Return should be something like
+// このように返却されるはずだ
 // {
 //   "id":67,
 //   "jsonrpc": "2.0",
