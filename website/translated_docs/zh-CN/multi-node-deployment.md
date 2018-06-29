@@ -281,7 +281,7 @@ The inventory specifies the nodes and their IP addresses. If the node only have 
 ---
 all:
   vars:
-    loom_build: build-196
+    loom_build: build-209
     ansible_ssh_common_args: '-o StrictHostKeyChecking=no'
     working_directory: /home/ubuntu
     user: ubuntu
