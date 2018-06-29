@@ -18,16 +18,10 @@ These steps need to be executed on each node.
     ```
 1. Download the binaries:
     ```bash
-    wget https://private.delegatecall.com/loom/linux/build-196/loom
+    wget https://private.delegatecall.com/loom/linux/build-208/loom
+    chmod +x loom
     ```
-1. Execute `loom init` in the working directory to initialize config files.
-1. Update `genesis.json` in the working directory:
-    ```json
-    {
-        "contracts": [
-        ]
-    }
-    ```
+1. Execute `./loom init` in the working directory to initialize config files.
 1. Add `loom.yml` in the working directory:
     ```yaml
     QueryServerHost: "tcp://0.0.0.0:9999"
@@ -250,7 +244,7 @@ num_instances = 4
 private_network_prefix = "172.31.99."
 
 # Build numbers
-loom_build = "build-196"
+loom_build = "build-208"
 ```
 
 Note: Vagrant creates its own inventory so `inventory.yml` is not used.
