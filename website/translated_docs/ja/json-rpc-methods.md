@@ -385,14 +385,14 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 `Object` - トランザクションレシートオブジェクト、またはレシートが見つからない場合は`null`:
 
 - `transactionHash`: `DATA`, 32バイトのトランザクションハッシュ。
-- `transactionIndex`: `QUANTITY` - integer of the transactions index position in the block.
-- `blockHash`: `DATA`, 32 Bytes - hash of the block where this transaction was in.
-- `blockNumber`: `QUANTITY` - block number where this transaction was in.
-- `from`: `DATA`, 20 Bytes - address of the sender.
-- `to`: `DATA`, 20 Bytes - address of the receiver. null when its a contract creation transaction.
-- `contractAddress`: `DATA`, 20 Bytes - The contract address created, if the transaction was a contract creation, otherwise null.
-- `logs`: `Array` - Array of log objects, which this transaction generated.
-- `status`: `QUANTITY` either 1 (success) or 0 (failure)
+- `transactionIndex`: `QUANTITY` - トランザクションのブロック中インデックスポジションの整数。
+- `blockHash`: `DATA`, 32バイト - トランザクションが含まれるブロックのハッシュ。
+- `blockNumber`: `QUANTITY` - トランザクションが含まれるブロックの番号。
+- `from`: `DATA`, 20バイトの送信者アドレス。
+- `to`: `DATA`, 20バイトの受信者アドレス。コントラクト作成トランザクションの場合はnull。
+- `contractAddress`: `DATA`, 20バイト - トランザクションがコントラクト作成のためのものであれば、作成されたコントラクトアドレスとなる。そうでない場合はnull。
+- `logs`: `Array` - トランザクションにより生成されたログオブジェクトの配列。
+- `status`: `QUANTITY` 1 (成功) もしくは 0 (失敗)
 
 #### 例
 
