@@ -7,7 +7,7 @@ sidebar_label: リリースノート
 
 新着順。
 
-## Release 209 - June 20th
+## リリース 209 - 7/20
 
 Major release * Plasma Cash initial integration - Demos coming next week * Multinode fixes and performance increases * Ansible updates for multinode * Querying / Filtering on EVM supports more types * Unity SDK updates for EVM * Loom-JS updates for EVM
 
