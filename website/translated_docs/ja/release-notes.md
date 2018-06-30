@@ -9,15 +9,15 @@ sidebar_label: リリースノート
 
 ## リリース 209 - 7/20
 
-Major release * Plasma Cash initial integration - Demos coming next week * Multinode fixes and performance increases * Ansible updates for multinode * Querying / Filtering on EVM supports more types * Unity SDK updates for EVM * Loom-JS updates for EVM
+メジャーリリース * Plasma Cash 初期インテグレーション - 次週デモを発表 * マルチノード修正、パフォーマンス改善 * マルチノード向けのAnsible更新 * EVM上のクエリ/フィルタがより多くの型をサポート * EVM向けのUnity SDK更新 * EVM向けのLoom-JS更新
 
-## Release 186 - June 19th
+## リリース 186 -7/19
 
 * [EVM Unityサンプルアプリ](https://loomx.io/developers/docs/en/unity-sample-tiles-chain-evm.html)
 * Unity SDKのSolidityアプリ向けサポート
 * イーサリアム・イベントのフィルター/クエリ機能を大幅に修正
 
-## Release 163 - June 11th
+## リリース 163 - 7/11
 
 * Truffleの最新ビルドをサポート
 * [Truffleサンプルをアップデート](https://github.com/loomnetwork/loom-truffle-provider)
@@ -25,60 +25,60 @@ Major release * Plasma Cash initial integration - Demos coming next week * Multi
 * Websocketイベントのトピックサポート 
 * Loom-JS 1.8.0リリースで、websocketトピックをサポートするようアップデート
 
-## Release 161 - June 7th
+## リリース 161 - 7/7
 
 * Truffleサポートを修正
 * Loom-Jsプロバイダのためのweb3.jsを修正
 
-## Release 155 - June 6th
+## リリース 155 - 7/6
 
 * [Cocos SDKをリリース](cocos-sdk-quickstart.html)
 * [Truffleのサポートが利用可能に](truffle-deploy.html)
 * EVMへの静的コールで呼び出し元を許可
 * 多くのシナリオ用のEVMを修正 
 
-## Release 143 - June 1st
+## リリース 143 - 7/1
 
 * [BluePrint Dockerイメージが利用可能](docker-blueprint.html)
 * [東京ハッカソンのレポート](https://medium.com/loom-network/highlights-from-the-first-loom-unity-sdk-hackathon-tokyo-edition-6ed723747c19)
 * [Loom SDKプロジェクト用のDockerイメージ](https://hub.docker.com/r/loomnetwork/)
 * Evmトランザクションレシートの修正 
 
-## Release 137 - May 30th
+## リリース 137 - 5/30
 
 * GoクライアントがEVMコントラクトへアクセス可能に
 * EVMのバグを多数修正
 * [ソーシャルネットワークのサンプルアプリ- Solidity](simple-social-network-example.html)
 
-## Release 136 - May 28th
+## リリース 136 - 5/28
 
 * 初期Solidityアルファ版テストビルド。Solidityコントラクトがデプロイ可能に。
 * Splidityでのイベントサポート 
 * [Solidityイベントのサンプルプロジェクト](phaser-sdk-demo-web3-websocket.html)
 * [マルチノードデプロイメントガイド](multi-node-deployment.html)
 
-## Release 133 - May 24th
+## リリース 133 - 5/24
 
 * [Etherboyのデモをリリース](https://loomx.io/developers/docs/en/etherboy-game.html)
 * [日本語ドキュメンテーションをリリース](https://loomx.io/developers/ja)
 * [ドキュメンテーションサイト](https://loomx.io/developers/en/)をアップデート 
 
-## Release 132 - May 23rd
+## リリース 132 - 5/23
 
 * Websocketのパフォーマンスを修正
 * 新しいWebsocketのデモアプリ - TilesChain - [Github](https://github.com/loomnetwork/tiles-chain) 
 
-## Release 129 - May 22rd
+## リリース 129 - 5/22
 
 * イベントでのWebsocketサポート
 * Solidityコントラクト用インデックスレイヤーをアップデート 
 * Phaserゲームデモ - [Github](https://github.com/loomnetwork/phaser-sdk-demo)
 
-## Release 128 - May 21th
+## リリース 128 - 5/21
 
 * Etherboyのバグを修正
 
-## Release 128 - May 19th
+## リリース 128 - 5/19
 
 * 安定したベータ版をリリース
 * ロギングをデフォルトで複数ファイルでできるようアップデート 
