@@ -63,30 +63,29 @@ loom DApp链包含一个以太坊虚拟机器（EVM）并使你可以部署以�
     
     ### 部署
     使用 `./loom deploy`将可以编译成EVM字节码的合约部署到DApp链的EVM上。 
-    ```text
-    Deploy a contract 
+    ```文字
+    部署一个合约
     
-    Usage:
-      loom deploy [flags]
+    使用:
+      loom 部署 [标志]
     
-      -a, --address string    address file
-      -b, --bytecode string   bytecode file
-          --chain string      chain ID (default "default")
-      -h, --help              help for deploy
-      -k, --key string        private key file
-      -n, --name string       contract name
-      -r, --read string       URI for quering app state (default "http://localhost:46658/query")
-      -w, --write string      URI for sending txs (default "http://localhost:46658/rpc")
+      -a, --地址字符串       地址文件
+      -b, --字节码字符串     字节码文件
+          --链字符串        链ID (默认 "默认")
+      -h, --帮助           部署的帮助
+      -k, --钥匙字符串        私有密钥文件
+      -n, --名称字符串      合约名
+      -r, --读取字符串       用于查询应用程序状态的URI (默认 "http://localhost:46658/query")
+      -w, --写字符串      用于发送txs的URI (默认 "http://localhost:46658/rpc")
     
 
-The -a and -k flags are used to identify the user with public and private key address files.
+-a 和 -k 标志用于标识具有公用密钥和私钥地址文件的用户。
 
--b gives the file where the raw EVM bytecode for the contract is held. This could be generated using a solidity compiler such as `solc --bin -o. 
- MySolProgram.sol`
+-b 给出了保存合约的原始EVM字节码的文件。 这可以用Solidity编译器，如 `solc --bin -o. MySolProgram.sol`
 
--n allows you to enter a name for your contract. This will act as a more user friendly handle than the contract address.
+-n 允许你为合约输入名称。这将是一个比合同地址更用户友好的代号。
 
-Example: 
+示例： 
 
     text
      ./loom deploy -a ./data/pub -k ./data/pri -b ./data/bytecode.bin  -w \
