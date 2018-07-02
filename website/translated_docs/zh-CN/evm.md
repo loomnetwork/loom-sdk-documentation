@@ -39,27 +39,19 @@ loom DApp链包含一个以太坊虚拟机器（EVM）并使你可以部署以�
     
     ] }
 
-    There are two contracts in the top array. The first is an EVM contract, and 
-    the second one is a plugin.
-    * `vm:` The virtual machine used to run the contract. Currently there are two 
-    options.
-      1. `plugin`   User created contracts.
-      2. `EVM`      contract run on DAppChains EVM.
-    * `format` The nature of the smart contract's input file in the contracts 
-    directory.
-      1. `plugin`   User plugin, can be produced by `go-loom`.
-      2. `truffle`  Solidity program, compiled using truffles compiler.
-      3. `solidity` Solidity program, compiled using solc.
-      4. `hex`      Raw Hex, for instance solidty program compiled using `solc -o`
-      option
-      .
-    * `name` This name can be used to retrieve the address of the contract 
-    assigned by loom or the EVM.
-    * `location` Versioned name of the file binary file located in the contracts 
-    directory. For truffle and solidity it might be necessary to give the full path.
+    在顶部序列中有两个合约。 第一个是EVM合约，第二个是插件。
+    * ' vm: ' 用于运行合约的虚拟机。 目前有两种选择。
+      1. "插件" 用户创建了合约。
+      2. `EVM` 合约运行在DApp链虚拟机上。
+    * `格式` 合约目录中智能合约输入文件的性质。
+      1. `插件` 用户插件，可通过`go-loom`产生。
+      2. `truffle` Solidity程序，用truffle的编译器编译。
+      3. `solidity` Solidity程序，用solc编译。
+      4. `hex` 原始Hex，例如使用`solc -o`选项编译的solidity程序。
+    * `名称` 这个名称可用于检索由loom或EVM分配的合约地址。
+    * `地点` 位于合约目录中的二进制文件的版本化名称。 对于truffle和solidity来说，可能有必要提供完整的路径。
     
-    So in this example the loom DAppChain will take the bytecode from the truffle
-    compilation of our SimpleStore solidity contract. It will then deploy it on 
+    所以在这个例子中，Loom DApp链将会用我们SimpleStore Solidity合约的truffle编译中的字节码。 It will then deploy it on 
     the chain's EVM. Confirmation and the contracts address will be available in 
     loom's logging information.
     
