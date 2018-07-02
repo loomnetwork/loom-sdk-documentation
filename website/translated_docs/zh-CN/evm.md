@@ -73,7 +73,7 @@ loom DApp链包含一个以太坊虚拟机器（EVM）并使你可以部署以�
       -b, --字节码字符串     字节码文件
           --链字符串        链ID (默认 "默认")
       -h, --帮助           部署的帮助
-      -k, --钥匙字符串        私有密钥文件
+      -k, --密钥字符串        私钥文件
       -n, --名称字符串      合约名
       -r, --读取字符串       用于查询应用程序状态的URI (默认 "http://localhost:46658/query")
       -w, --写字符串      用于发送txs的URI (默认 "http://localhost:46658/rpc")
@@ -130,45 +130,42 @@ loom DApp链包含一个以太坊虚拟机器（EVM）并使你可以部署以�
     
     ### static-call
     在合约上调用只读方法。 返回方法的返回值。
-    ```text
-    Usage:
+    ```文本
+    使用:
       loom static-call [flags]
     
     Flags:
-          --chain string           chain ID (default "default")
-      -c, --contract-addr string   contract address
-      -n, --contract-name string   contract name
-      -h, --help                   help for static-call
-      -i, --input string           file with input data
-      -r, --read string            URI for quering app state (default "http://localhost:46658/query")
-      -w, --write string           URI for sending txs (default "http://localhost:46658/rpc")
-      -a, --address string         address file
-          --chain string           chain ID (default "default")
-      -k, --key string             private key file
+          --链字符串          链ID (默认 "默认")
+      -c, --合约地址字符串   合约地址
+      -n, --合约名字符串   合约名
+      -h, --帮助                   静态调用的帮助
+      -i, --输入字符串           输入数据文件
+      -r, --读取字符串           用于查询应用程序状态的URI (默认 "http://localhost:46658/query")
+      -w, --写字符串           用于发送txs的URI (默认 "http://localhost:46658/rpc")
+      -a, --地址字符串         地址文件
+          --链字符串          链ID (默认 "默认")
+      -k, --密钥字符串             私钥文件
     
 
-The -a and -k flags are used to identify the user with public and private key address files.
+-a 和 -k 标志用于标识具有公用密钥和私钥地址文件的用户。
 
--c requires the contract address. This could be one output from a previous call to `\loom deploy` or retrieved from the start up log.
+-c 需要合约地址。这可以是先前对` \loom deploy `的调用或从启动日志中检索的一个输出。
 
--n is a name or label entered for the contract when it was deployed.Can be used as an alternative to the address.
+-n 是部署时为合约输入的名称或标签。 可以用作地址的替代品。
 
--i is the input string. For a solidity contract this will be ABI encoded as described in the [Solidity ABI documentation](https://solidity.readthedocs.io/en/develop/abi-spec.html). Example
+-i 是输入字符串。 对于一个Solidity合约，这将会是如[Solidity ABI 文档](https://solidity.readthedocs.io/en/develop/abi-spec.html) 中所述的ABI编码。 示例
 
-The address fields -a and -k are optional. ```text static-call -a ./data/pub -k ./data/pri -i ./cmd/loom/data/inputGet.bin \ -c 0xbD770416A3345f91E4b34576Cb804a576Fa48eB1 \ -w http://localhost:46657 -r http://localhost:9999
+地址域-a 和-k 是可选的。 ```文本 static-call -a ./data/pub -k ./data/pri -i ./cmd/loom/data/inputGet.bin \ -c 0xbD770416A3345f91E4b34576Cb804a576Fa48eB1 \ -w http://localhost:46657 -r http://localhost:9999
 
-    <br />## From a user plugin
+    <br />## 从一个用户插件
     
-    Smart contracts deployed on a DAppChain's EVM can be called from 
-    user created plugins. The evmexample example in go-loom gives and example of
-    how to achieve this. 
+    部署在DApp链EVM上的智能合约可以从用户创建的插件里调用。 Go-loom里的EVM示例给出了一个如果实现这个的范例。 
     
-    Before continuing let's consider the various modules involved.
+    在继续下去之前，让我们考虑以下各种相关的组件。
     
-    * User application. This is the end user application that initiates 
-    transactions on the DAppChain. 
+    * 用户应用程序。 这是一个在DApp链上启动事务的终端用户应用程序。 
     
-    * DAppChain. Receives transactions from the user application and forwards to 
+    * DApp链。 Receives transactions from the user application and forwards to 
     the appropriate contract to run. Also commits results to the 
     blockchain.
     
