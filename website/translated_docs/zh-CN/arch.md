@@ -34,22 +34,22 @@ SDK集成到以太坊后端，其中有一下几部分：
 
 ### 传输官网允许实现一下功能：
 
-* Transfering Assets to a DappChain
-* Transfering Assets to Ethereum
-* Mirroring(Pegging) Assets on a Dappchain
+* 把资产转移到Dapp链
+* 把资产转移到以太坊
+* Dapp链上镜像（钉住）资产
 * ERC-20 Tokens
 * ERC-721 Tokens
-* Ether 
+* 以太 
 
-### Plama Cash Contract supports
+### Plama Cash合约支持如下：
 
 * ERC-721 Tokens
-* ERC-20 Tokens (July)
-* Ether (July)
+* ERC-20 Tokens（7月）
+* 以太（7月）
 
-## Blockchain services
+## 区块链服务
 
-SDK includes a number of high level blockchain services
+SDK包含了一些高水平的区块链服务，如下：
 
 * Signing / Auth / Nonce Middleware
 * Builtin Coin
