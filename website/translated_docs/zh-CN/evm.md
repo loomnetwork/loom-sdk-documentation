@@ -63,11 +63,11 @@ loom DApp链包含一个以太坊虚拟机器（EVM）并使你可以部署以�
     
     ### 部署
     使用 `./loom deploy`将可以编译成EVM字节码的合约部署到DApp链的EVM上。 
-    ```文字
+    ```文本
     部署一个合约
     
     使用:
-      loom 部署 [标志]
+      loom deploy [flags]
     
       -a, --地址字符串       地址文件
       -b, --字节码字符串     字节码文件
@@ -92,31 +92,28 @@ loom DApp链包含一个以太坊虚拟机器（EVM）并使你可以部署以�
       http://localhost:46657 -r http://localhost:9999
 
   
-If everything works you should see something like: ```text New contract deployed with address: default:0x71A53d11A3b77e369463804FEE9B17ba7E24d98B Runtime bytecode: [96 96 96 64 82 ... 84 226 214 187 0 41] Transcation receipt: [10 178 198 52 108 ... 141 155 79 250 97 129 104 243]
+如果一切正常，你应该看到类似以下的内容： ```文本 新合约部署地址： 默认: 0x71A53d11A3b77e369463804FEE9B17ba7E24d98B Runtime字节码: [96 96 96 64 82 ... 84 226 214 187 0 41] 事务收据: [10 178 198 52 108 ... 141 155 79 250 97 129 104 243]
 
-    The output contract address can be used to call a method on the contract in 
-    the call command.
-    The uinique [transaction hash](https://loomx.io/developers/docs/en/evm.html#transaction-receipt)
-    can be used to retrive a receipt of the deployment transaction. 
+    输出合约地址可用于调用命令中调用合约上的方法。
+    独特的 [事务哈希] (https://loomx.io/developers/docs/en/evm.html#transaction-receipt) 可用于检索部署事务的收据。 
     
-    ### call
+    ### 调用
     
-    ```text
-    Call a method on a contract that can mutate the state
+    ```文本
+    对合约调用一个可以改变其状态的方法
     
-    Usage:
+    使用:
       loom call [flags]
     
     Flags:
-      -a, --address string         address file
-          --chain string           chain ID (default "default")
-      -c, --contract-addr string   contract address
-      -n, --contract-name string   contract name
-      -h, --help                   help for call
-      -i, --input string           file with input data
-      -k, --key string             private key file
-      -r, --read string            URI for quering app state (default "http://localhost:46658/query")
-      -w, --write string           URI for sending txs (default "http://localhost:46658/rpc")
+      -a, --地址字符串         地址文件
+          --链字符串           链ID (默认 "默认")
+      -c, --合约地址字符串   合约地址
+      -n, --合约名字符串   合约名
+      -h, --帮助                   调用的帮助
+      -i, --输入字符串           输入数据的文件
+      -k, --钥匙字符串             私有密钥文件
+      -r, --读取字符串           用于查询应用程序状态的URI (默认 "http://localhost:46658/query")
     
 
 The -a and -k flags are used to identify the user with public and private key address files.
