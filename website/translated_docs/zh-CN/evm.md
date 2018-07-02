@@ -126,11 +126,10 @@ loom DApp链包含一个以太坊虚拟机器（EVM）并使你可以部署以�
 
 示例 ```文本 call -a ./data/pub -k ./data/pri -i ./cmd/loom/data/inputSet.bin \ -c 0xbD770416A3345f91E4b34576Cb804a576Fa48eB1 \ -w http://localhost:46657 -r http://localhost:9999
 
-    On completion this will return the [transaction hash](https://loomx.io/developers/docs/en/evm.html#transaction-receipt), this should be unique
-     for each transaction call. It can be used to return a receipt of the transaction.
+    完成后, 这将返回 [事务哈希](https://loomx.io/developers/docs/en/evm.html#transaction-receipt), 这对于每个事务调用都应该是唯一的。 它可用于返回事务的收据。
     
     ### static-call
-    Call a read only method on a contract. Returns the method return value.
+    在合约上调用只读方法。 返回方法的返回值。
     ```text
     Usage:
       loom static-call [flags]
