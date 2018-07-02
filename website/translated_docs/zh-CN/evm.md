@@ -233,9 +233,9 @@ func (c *HelloWorld) Hello(ctx contract.StaticContext, req *types.HelloRequest) 
 }
 ```
 
-所以这样一个简单的函数就会返回一个固定的语句。 几个重点。 `contract.StaticContext` 或者 `contract.Context` 应该是第一个参数。 它提供了多种方法允许你访问DApp链上的资源。 比如，观看或修改状态数据库，或者调用其他插件。 * 第二个参数中的用户输入和第一个返回值以[protobuf 语句](https://developers.google.com/protocol-buffers/)的形式出现；在这个例子中就是 HelloRequest 和 HelloResponse。 这些protobuf语句结构需要从一个中性语言的.proto文件中生成。 见下。 * The input and output protobuf message parameters need to coordinated with the calling application. As the protobuf message data structures are generated from language independent .proto files it does not matter if the calling application and the smart contract are written in different languages.
+所以这样一个简单的函数就会返回一个固定的语句。 几个重点。 `contract.StaticContext` 或者 `contract.Context` 应该是第一个参数。 它提供了多种方法允许你访问DApp链上的资源。 比如，观看或修改状态数据库，或者调用其他插件。 * 第二个参数中的用户输入和第一个返回值以[protobuf 语句](https://developers.google.com/protocol-buffers/)的形式出现；在这个例子中就是 HelloRequest 和 HelloResponse。 这些protobuf语句结构需要从一个中性语言的.proto文件中生成。 见下。 * 输入和输出的protobuf语句参数需要和调用应用程序协调。 由于protobuf语句数据结构是从与语言无关的.proto文件生成的，因此调用应用程序和智能合约是用不同语言编写的并不重要。
 
-So this would be an example of a suitable types.proto file for our Hello function.
+所以这将是适合我们的Hello函数的 types.proto 文件的示例。
 
 ```proto
 syntax = "proto3";
@@ -250,14 +250,14 @@ message HelloResponse {
 
 ```
 
-A types.pb.go file that we can use can be built using the protoc-gen-gogo plugin for proto, with a command like 
+一个我们可以使用的 types.pb.go 文件，可以通过使用proto的 protoc-gen-gogo 插件构建， 命令如下 
 
     bash
      protoc --gogo_out=. --plugin=protoc-gen-gogo  types.proto
 
-### Call smart contract
+### 调用智能合约
 
-The following code fragment shows how to call the Hello function of our Hello World example in Go using functions from Go-loom.
+以下代码片段显示了如何使用Go-loom中的函数在Go中调用HelloWorld示例的Hello函数。
 
 ```go
     rpcClient := client.NewDAppChainRPCClient(chainId, "http://localhost:1234", "http://localhost:2345")
@@ -268,12 +268,12 @@ The following code fragment shows how to call the Hello function of our Hello Wo
     fmt.Println(response.Out)
 ```
 
-1. Create a client that can talk to our DAppChain using its url.
-2. Get a handle to our smart contract, from its name and address.
-3. The wire type HelloRequest adn HelloResponse have to match the input and output parameters of the contract's method we are calling. 
-4. Call the `Hello` method. We sue StaticCall as the Hello method has a static context.
+1. 创建一个可以通过自己的url与我们的DApp链交互的客户端。
+2. 从我们的智能合约的名字和地址中获取代号。
+3. 有线类型 HelloRequest 和 HelloResponse 必须匹配我们调用的合约方法的输入和输出参数。 
+4. 调用`Hello` 方法。我们起诉StaticCall，因为 Hello 方法有一个静态上下文。
 
-## Calling solidity contract
+## 调用Solidity合约
 
 Now we have had a quick review of implementing plugins we can look at accessing smart contracts deployed on the DAppChain's EVM from a plugin.
 
