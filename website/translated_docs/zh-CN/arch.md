@@ -55,10 +55,10 @@ SDK包含了一些高水平的区块链服务，如下：
 * Builtin Coin
 * 索引
 * Websockets and eventing
-* Solidity + Ethereum Virtual Machine
-* Support for game engines like Cocos, Unity, and Phaser
+* Solidity+以太坊虚拟机
+* 支持游戏引擎，如Cocos,Unity和Phaser
 * Transfer Gateway integration
-* Plasma integration (coming late June)
-* Cron (coming soon)
+* Plasma集成（六月底）
+* Cron（即将到来）
 * Rate limiting (early phases)
 * Hard fork Manager (coming July)
