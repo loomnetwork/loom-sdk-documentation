@@ -354,17 +354,17 @@ message WrapValue {
     ssAddr, err := ctx.Resolve("SimpleStore")
     
 
-The input is passed straight though to the EVM and needs to be encoded as laid out in the [Solidity ABI documentation](https://solidity.readthedocs.io/en/develop/abi-spec.html).
+输入值被直接传递到EVM并且需要被如[Solidity ABI 文档](https://solidity.readthedocs.io/en/develop/abi-spec.html)所述的编码。
 
-### ABI encoding of parameters
+### ABI编码参数
 
-So for our input we need to encode it to something like
+所以我们的输入值需要被编码如下
 
 ```text
 60fe47b100000000000000000000000000000000000000000000000000000000000003db
 ```
 
-Don't panic, go-ethereum can help us out.
+别害怕，go-ethereum 可以帮助我们。
 
 When you compile Solidity you not only get the bytecode that runs on the EVM, but you get a ABI. The ABI is a json object that describes the contracts interface. Here is the ABI for our SimpleStore
 
