@@ -275,9 +275,9 @@ message HelloResponse {
 
 ## 调用Solidity合约
 
-Now we have had a quick review of implementing plugins we can look at accessing smart contracts deployed on the DAppChain's EVM from a plugin.
+现在我们已经快速回顾了实现插件的情况，我们可以从插件中访问部署在DApp链的EVM上的智能合约。
 
-First we we assume we have deployed this simple solidity contract on the DAppChain's EVM.
+首先，我们假设我们已经在DApp链的EVM上部署了这个简单的Solidity合约。
 
 ```solidity
 pragma solidity ^0.4.18;
@@ -294,9 +294,9 @@ contract SimpleStore {
 }
 ```
 
-We will look at a simple plugin that wraps this solidity contract. So our plugin will have two functions SetValue and GetValue that will just pass data between the SimpleStore contract and the transaction initiator. As it wraps this SimpleStore we will call it EvmExample.
+我们将看一个包含这个Solidity合约的简单插件。 所以我们的插件将有两个功能 SetValue 和 GetValue，他们将把数据在SimpleStore合约和事务启动器中传递。 因为它包含这个SimpleStore，我们称之为EvmExample。
 
-Here is the outline as for the EvmExample contract, with stubs added for the SetValue and GetValue methods.
+以下是EvmExample合约的大纲，其中为 SetValue 和 GetValue 方法添加了存根。
 
 ```go
 package main
@@ -332,7 +332,7 @@ func main() {
 }
 ```
 
-The .proto file for generating the message declarations looks like
+用于生成语句声明的 .proto 文件如下所示
 
 ```proto
 syntax = "proto3";
@@ -345,14 +345,11 @@ message WrapValue {
 }
 ```
 
-Lets look at the SetValue function first. The function to call to run a smart contract on the EVM is ```go contractpb.CallEVM(ctx Context, addr loom.Address, input []byte, output *[]byte) error
+让我们先看看 SetValue 函数。需要调用来在EVM上运行智能合约的函数是 ```go contractpb.CallEVM(ctx Context, addr loom.Address, input []byte, output *[]byte) error
 
-    The context is just passed though, for setting the output can just be a dummy 
-    object. We need to the address of the solidity contract, and the correct 
-    input.
+    传递了上下文，用于设置输出只能是一个虚拟对象。 我们需要Solidity合约的地址以及正确的输入值。
     
-    The Context contains a Registry that allows us to get the address of a 
-    contract from it's name.
+    上下文包含一个注册表，允许我们从其名称中获取合约的地址。
     ```go
     ssAddr, err := ctx.Resolve("SimpleStore")
     
