@@ -12,9 +12,8 @@ sidebar_label: マルチノードデプロイメント
 これらの手順を各ノード上で実行する必要がある。
 
 1. ワーキングディレクトリを自分で選択しよう。この例で使っているのは: `/home/ubuntu` 
-    ```bash
-    cd /home/ubuntu
-    ```
+        bash
+        cd /home/ubuntu
 
 2. バイナリをダウンロード 
     ```bash
@@ -27,7 +26,6 @@ sidebar_label: マルチノードデプロイメント
     ```yaml
     QueryServerHost: "tcp://0.0.0.0:9999"
     ```
-
 
 ## 設定
 
@@ -285,7 +283,7 @@ Ansibleをローカルにインストールする必要がある。
 ---
 all:
   vars:
-    loom_build: build-196
+    loom_build: build-209
     ansible_ssh_common_args: '-o StrictHostKeyChecking=no'
     working_directory: /home/ubuntu
     user: ubuntu
