@@ -219,11 +219,11 @@ func (c *HelloWorld) Meta() (plugin.Meta, error) {
 }
 ```
 
-这里是一些需要注意的地方。 1. 第一，合约必须是package main。 2. 将我们名为Hello World的合约定义为结构。 3. 实现`Meta()` 函数，返回合约名和版本号。 4. 需要定义变量`Contract`。 函数`contract.MakePluginContract` 将我们简单的大纲转换为一个DApp链能与之交互的东西。 5. The main routine can then sets the contract up as a working server.
+这里是一些需要注意的地方。 1. 第一，合约必须是package main。 2. 将我们名为Hello World的合约定义为结构。 3. 实现`Meta()` 函数，返回合约名和版本号。 4. 需要定义变量`Contract`。 函数`contract.MakePluginContract` 将我们简单的大纲转换为一个DApp链能与之交互的东西。 5. 然后，主例程可以将合约设置为工作服务器。
 
-Of course our contract has no functionality so can't do anything. The next step is to add some. The MakePluginContract function can then use reflection to learn any new methods we give to our contract.
+当然了，我们的合约没有任何功能所以什么也做不了。 下一步就是为其添加一些功能。 然后，MakePluginContract函数可以使用反射来学习我们为合约提供的所有新方法。
 
-### Adding functions
+### 添加功能
 
 ```go
 func (c *HelloWorld) Hello(ctx contract.StaticContext, req *types.HelloRequest) (*types.HelloResponse, error) {
@@ -233,7 +233,7 @@ func (c *HelloWorld) Hello(ctx contract.StaticContext, req *types.HelloRequest) 
 }
 ```
 
-So a simple function that just returns a fixed message. A couple of key points. * Either a `contract.StaticContext` or `contract.Context` should be the first parameter. It provides various methods that allow you to access the resources on the DAppChain. For example view or modify the the state database, or call other plugins. * The user input in the second parameter and the first return value take the form of [protobuf messages](https://developers.google.com/protocol-buffers/); HelloRequest and HelloResponse in this example. These protobuf message structs need to auto generated from a language neutral .proto file. See below. * The input and output protobuf message parameters need to coordinated with the calling application. As the protobuf message data structures are generated from language independent .proto files it does not matter if the calling application and the smart contract are written in different languages.
+所以这样一个简单的函数就会返回一个固定的语句。 几个重点。 `contract.StaticContext` 或者 `contract.Context` 应该是第一个参数。 它提供了多种方法允许你访问DApp链上的资源。 比如，观看或修改状态数据库，或者调用其他插件。 * 第二个参数中的用户输入和第一个返回值以[protobuf 语句](https://developers.google.com/protocol-buffers/)的形式出现；在这个例子中就是 HelloRequest 和 HelloResponse。 这些protobuf语句结构需要从一个中性语言的.proto文件中生成。 见下。 * The input and output protobuf message parameters need to coordinated with the calling application. As the protobuf message data structures are generated from language independent .proto files it does not matter if the calling application and the smart contract are written in different languages.
 
 So this would be an example of a suitable types.proto file for our Hello function.
 
