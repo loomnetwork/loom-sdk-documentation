@@ -1,9 +1,9 @@
 ---
 id: go-loom-clients
 title: 在Golang中构建DApp链用户
-sidebar_label: Building DAppChain Clients
+sidebar_label: 构建DApp链客户端
 ---
-## Overview
+## 概括
 
 The `go-loom` library contains everything you need to build Go apps & services that interact with Loom DAppChains, and to build the smart contracts that live on those DAppChains.
 
