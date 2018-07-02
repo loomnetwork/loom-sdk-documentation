@@ -1,6 +1,6 @@
 ---
 id: go-loom-clients
-title: Building DAppChain clients in Golang
+title: 在Golang中构建DApp链用户
 sidebar_label: Building DAppChain Clients
 ---
 ## Overview
