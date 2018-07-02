@@ -18,21 +18,21 @@ Loom共识层支持Loom DPoS或是每条链的可配置PoS/DPoS合约。一旦Ca
 
 它将允许使用Go,Solidity或者任何支持GRPC的语言编写智能合约。
 
-Smart contracts can be embedded into the chain, like DPoS, Coin or EthereumVM.
+智能合约可以被编写入链中，如DPoS,Coin和EtherumVM.
 
-They can also be made as external processes, that the blockchain communicates to via GRPC.
+它们也可以作为外部过程，即区块链通过GRPC进行通信。
 
 ![](/developers/img/loom-sdk-arch-contracts.jpg)
 
-## Ethereum Integration
+## 以太坊整合
 
-The SDK integrates into the Ethereum Backend with following pieces:
+SDK集成到以太坊后端，其中有一下几部分：
 
-### Transfer Gateway
+### 传输网关
 
 ![](/developers/img/loom-sdk-arch-plasma.jpg)
 
-### Transfer gateway allows for the following
+### 传输官网允许实现一下功能：
 
 * Transfering Assets to a DappChain
 * Transfering Assets to Ethereum
