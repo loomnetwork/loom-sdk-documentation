@@ -165,28 +165,18 @@ loom DApp链包含一个以太坊虚拟机器（EVM）并使你可以部署以�
     
     * 用户应用程序。 这是一个在DApp链上启动事务的终端用户应用程序。 
     
-    * DApp链。 Receives transactions from the user application and forwards to 
-    the appropriate contract to run. Also commits results to the 
-    blockchain.
+    * DApp链。 从用户应用程序接收事务并转发到相应的合约去运行。 同时将结果提交到区块链。
     
-    * Smart contracts. These are written by the user and deployed on the DAppChain. 
-    There are two main types.
-        1. Plugins. These can be written in any language supported by gRPC; 
-        go-loom allows easy use of contracts written in Go, and loom-js for 
-        javascript. The plugin is compiled into an executable that the DAppChain 
-        calls using gRPC.
-        2. EVM smart contracts. Solidity programs or any other code that compiles
-         into EVM  bytecode can be run by the DAppChain using its EVM.
+    * 智能合约。 这些是由用户编写并部署在DApp链上的。 
+    有两种主要类型。
+        1. 插件。 这些可以用gRPC所以支持的任何语言写；go-loom允许用Go写的合约的简单使用，而loom-js是给javascript的。 该插件被编译成一个DApp链用gRPC调用的可执行文件。
+        2. EVM 智能合约。 Solidity程序或其他任何编译成EVM字节码的代码都可以由DApp链用它的EVM运行。
     
-    Plugins can run other contracts including ones deployed on the EVM by calling 
-    back to the DAppChain using gRPC. The reverse however is not true however, 
-    ECM deployed contracts can only interact within the EVM, this is to ensure that
-    the EVM's results are deterministic.
+    插件可以通过使用gRPC回调到DApp链来运行其他合同，包括那些部署在EVM上的合约。 然而，相反的情况却并非如此，EVM部署的合约只能在EVM内进行交互，这是为了确保EVM的结果具有确定性。
     
-    ### User code
+    ### 用户代码
     
-    The user provides two items of code. The smart contracts and 
-    the end application that make use of the DAppChain.
+    用户提供两个代码项。 智能合约以及使用DApp链的终端应用程序。
     
     In the following we will assume that Go is being used for the end 
     application and the smart contracts are written either in Go for plugins or 
