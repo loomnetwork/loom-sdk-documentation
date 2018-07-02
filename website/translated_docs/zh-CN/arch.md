@@ -53,7 +53,7 @@ SDK包含了一些高水平的区块链服务，如下：
 
 * Signing / Auth / Nonce Middleware
 * Builtin Coin
-* Indexing
+* 索引
 * Websockets and eventing
 * Solidity + Ethereum Virtual Machine
 * Support for game engines like Cocos, Unity, and Phaser
