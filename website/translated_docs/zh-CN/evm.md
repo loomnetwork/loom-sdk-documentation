@@ -178,20 +178,18 @@ loom DApp链包含一个以太坊虚拟机器（EVM）并使你可以部署以�
     
     用户提供两个代码项。 智能合约以及使用DApp链的终端应用程序。
     
-    In the following we will assume that Go is being used for the end 
-    application and the smart contracts are written either in Go for plugins or 
-    solidity for EVM. Refer to loom-js-quickstart.md for a javascript solution.
+    在下面我们将假设，Go被用于终端应用程序，而插件的智能合约用Go写，EVM的智能合约用Solidity写。 参阅 loom-js-quickstart.md 来寻找javascript的解决方案。
     
-    ### Minimal plugin
+    ### 最小插件
     
-    First lets look at the definition of a contract in Go-loom.
+    首先让我们来看看在Go-loom里合约的定义。
     ```go
     type Contract interface {
         Meta() (plugin.Meta, error)
     }
     
 
-and plugin.Meta is defined from a protobuf definition
+而plugin.Meta是从一个protobuf定义中被定义的
 
 ```go
 type ContractMeta struct {
@@ -200,7 +198,7 @@ type ContractMeta struct {
 }
 ```
 
-So all a contract needs is to implement the Meta function. However to be usable as a plugin in a DAppChain there are a few other bits. Here is a minimal example.
+因此, 一个合约所需要的就是实现Meta函数。然而，作为可在DApp链里使用的插件，还需要有一些其他东西。这里是一个最简单的例子。
 
 ```go
 package main
@@ -219,16 +217,9 @@ func (c *HelloWorld) Meta() (plugin.Meta, error) {
         Version: "1.0.0",
     }, nil
 }
-
-var Contract plugin.Contract = contractpb.MakePluginContract(&HelloWorld{})
-
-func main() {
-    plugin.Serve(Contract)
-}
 ```
 
-Here are some points of interest. 1. First the contract has to be package main. 2. Define our contract called HelloWorld as a struct. 3. Implement the `Meta()` function, returning the contracts name and version number. 4. The variable `Contract` needs to be defined. The function `contract
-.MakePluginContract` converts our simple outline into an object that a DAppChain can communicate with. 5. The main routine can then sets the contract up as a working server.
+这里是一些需要注意的地方。 1. 第一，合约必须是package main。 2. 将我们名为Hello World的合约定义为结构。 3. 实现`Meta()` 函数，返回合约名和版本号。 4. 需要定义变量`Contract`。 函数`contract.MakePluginContract` 将我们简单的大纲转换为一个DApp链能与之交互的东西。 5. The main routine can then sets the contract up as a working server.
 
 Of course our contract has no functionality so can't do anything. The next step is to add some. The MakePluginContract function can then use reflection to learn any new methods we give to our contract.
 
