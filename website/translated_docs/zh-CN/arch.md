@@ -4,7 +4,7 @@ title: DAppChain架构
 ---
 Loom SDK是一个可插入的Blockchain开发工具。可以在共识层和合同层插入。
 
-## Consensus
+## 共识
 
 Loom SDK有两层共识，一个在P2P层。
 
@@ -60,5 +60,5 @@ SDK包含了一些高水平的区块链服务，如下：
 * Transfer Gateway integration
 * Plasma集成（六月底）
 * Cron（即将到来）
-* Rate limiting (early phases)
+* 限速（早起阶段）
 * Hard fork Manager (coming July)
