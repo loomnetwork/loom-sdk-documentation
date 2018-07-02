@@ -116,15 +116,15 @@ loom DApp链包含一个以太坊虚拟机器（EVM）并使你可以部署以�
       -r, --读取字符串           用于查询应用程序状态的URI (默认 "http://localhost:46658/query")
     
 
-The -a and -k flags are used to identify the user with public and private key address files.
+-a 和 -k 标志用于标识具有公用密钥和私钥地址文件的用户。
 
--c requires the contract address. This could be one output from a previous call to `\loom deploy` or retrieved from the start up log.
+-c 需要合约地址。这可以是先前对` \loom deploy `的调用或从启动日志中检索的一个输出。
 
--n is a name or label entered for the contract when it was deployed.Can be used as an alternative to the address
+-n 是部署时为合约输入的名称或标签。 可以用作地址的替代品。
 
--i is the input string. For a solidity contract this will be ABI encoded as described in the [Solidity ABI documentation](https://solidity.readthedocs.io/en/develop/abi-spec.html).
+-i 是输入字符串。对于一个Solidity合约，这将会是如[Solidity ABI 文档](https://solidity.readthedocs.io/en/develop/abi-spec.html) 中所述的ABI编码。
 
-Example ```text call -a ./data/pub -k ./data/pri -i ./cmd/loom/data/inputSet.bin \ -c 0xbD770416A3345f91E4b34576Cb804a576Fa48eB1 \ -w http://localhost:46657 -r http://localhost:9999
+示例 ```文本 call -a ./data/pub -k ./data/pri -i ./cmd/loom/data/inputSet.bin \ -c 0xbD770416A3345f91E4b34576Cb804a576Fa48eB1 \ -w http://localhost:46657 -r http://localhost:9999
 
     On completion this will return the [transaction hash](https://loomx.io/developers/docs/en/evm.html#transaction-receipt), this should be unique
      for each transaction call. It can be used to return a receipt of the transaction.
