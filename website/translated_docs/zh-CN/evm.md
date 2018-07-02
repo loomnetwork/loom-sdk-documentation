@@ -41,35 +41,28 @@ loom DApp链包含一个以太坊虚拟机器（EVM）并使你可以部署以�
 
     在顶部序列中有两个合约。 第一个是EVM合约，第二个是插件。
     * ' vm: ' 用于运行合约的虚拟机。 目前有两种选择。
-      1. "插件" 用户创建了合约。
+      1. "plugin" 用户创建了合约。
       2. `EVM` 合约运行在DApp链虚拟机上。
-    * `格式` 合约目录中智能合约输入文件的性质。
-      1. `插件` 用户插件，可通过`go-loom`产生。
+    * `format` 合约目录中智能合约输入文件的性质。
+      1. `plugin` 用户插件，可通过`go-loom`产生。
       2. `truffle` Solidity程序，用truffle的编译器编译。
       3. `solidity` Solidity程序，用solc编译。
       4. `hex` 原始Hex，例如使用`solc -o`选项编译的solidity程序。
-    * `名称` 这个名称可用于检索由loom或EVM分配的合约地址。
-    * `地点` 位于合约目录中的二进制文件的版本化名称。 对于truffle和solidity来说，可能有必要提供完整的路径。
+    * `name` 这个名称可用于检索由loom或EVM分配的合约地址。
+    * `location` 位于合约目录中的二进制文件的版本化名称。 对于truffle和solidity来说，可能有必要提供完整的路径。
     
-    所以在这个例子中，Loom DApp链将会用我们SimpleStore Solidity合约的truffle编译中的字节码。 It will then deploy it on 
-    the chain's EVM. Confirmation and the contracts address will be available in 
-    loom's logging information.
+    所以在这个例子中，Loom DApp链将会用我们SimpleStore Solidity合约的truffle编译中的字节码。 然后将在该链的EVM上部署它。 可以在loom的登录信息中找到确认信息和合约地址。
     
-    ## Deploy and run from command line
+    ## 部署并从命令行运行
     
-    The loom command line tool has three commands for interacting with the 
-    chains's EVM.
-    * `deploy` This will deploy a smart contract in EVM bytecode onto the chain's 
-    EVM.
-    * `call` This will call a method that can mutate the state on an already 
-    deployed EVM smart contract.
-    * `static-call` This will call a read only method on an already deployed EVM 
-    smart contract.
+    Loom命令行工具有三个用于与链的EVM交互的命令。
+    * `deploy` 这会将一个用EVM字节码写的智能合约部署到该链的EVM上。
+    * `call` 这将对一个已经部署的EVM智能合约调用一个改变其状态的方法。
+    * `static-call` 这将对一个已经部署的EVM智能合约调用一个只读的方法。
     
     
-    ### Deploy
-    Use `./loom deploy` to deploy a contract, that can be compiled to EVM 
-    bytecode, onto a DAppChains EVM. 
+    ### 部署
+    使用 `./loom deploy`将可以编译成EVM字节码的合约部署到DApp链的EVM上。 
     ```text
     Deploy a contract 
     
