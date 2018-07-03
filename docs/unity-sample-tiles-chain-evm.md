@@ -11,7 +11,7 @@ A basic example showcasing a simple Unity game interacting with an EVM-based Loo
 Game instructions
 ----
 
-Use the mouse cursor to click on the black canvas area to create colored tiles, each new player will have a different color the canvas which is shared amongst all players.
+Use the mouse cursor to click on the black canvas area to create colored tiles, each new player will have a different color on the canvas which is shared amongst all players.
 
 Development
 ----
@@ -43,5 +43,5 @@ cp genesis.example.json genesis.json
 ./loom run
 ```
 
-### 4.) Build the Unity client
+### 4. Build the Unity client
 Open the Unity project located in `unityclient` folder. Open the `LoomTilesChainEvm` scene and build it.
