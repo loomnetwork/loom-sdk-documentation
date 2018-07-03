@@ -1,9 +1,9 @@
 ---
 id: simple-social-network-example
-title: Simple Social Network Example
-sidebar_label: Simple Social Network Example
+title: 简单的社交网络示例
+sidebar_label: 简单的社交网络示例
 ---
-This example shows how to build a social network on a Loom DAppChain, using `Web3` and [Loom.js](https://github.com/loomnetwork/loom-js). In this simple social network users can post and comment on posts. Source is available on [Github](https://github.com/loomnetwork/solidity-social-example).
+此示例显示如何使用 `Web3` 和 [Loom.js](https://github.com/loomnetwork/loom-js) 在Loom DApp链上构建社交网络。 在这个简单的社交网络中, 用户可以发布和评论帖子。 Source is available on [Github](https://github.com/loomnetwork/solidity-social-example).
 
 ![](https://dzwonsemrish7.cloudfront.net/items/2W3c2O3G2A1q1l3f3D3d/Screen%20Recording%202018-05-29%20at%2003.35%20PM.gif)
 
