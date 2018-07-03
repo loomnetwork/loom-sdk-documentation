@@ -15,14 +15,14 @@ Go-loom库包含构建与Loom DApp链交互的Go app和服务以及构建存在�
 
 在本节中，您将了解用于编写与Loom DApp链交互的Go代码的go-loom API，在Go中编写智能合约将在后面的部分中介绍。
 
-In the `go-loom` package you will find a number of examples, `examples/cli` contains a CLI app that can be used to interact with the `examples/plugins/helloworld` smart contract. We'll start by building and test driving the CLI app, then we'll introduce you to the `go-loom` API that was used to build it.
+在go-loom程序包中，你将找到许多示例，examples / cli包含一个CLI app，可用于与examples / plugins / helloworld智能合约进行交互。 我们将从构建和测试驱动CLI app开始，然后我们将向你介绍用于构建它的go-loom API。
 
 ```shell
 # this should generate the ./example-cli executable
 make example-cli
 ```
 
-## Example CLI app
+## CLI app示例
 
 The [helloworld](https://github.com/loomnetwork/go-loom/blob/master/examples/plugins/helloworld/helloworld.go) smart contract has a public `SetMsg` method that can be called to store an association between a key and a value.
 
