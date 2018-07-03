@@ -5,15 +5,15 @@ sidebar_label: 构建DApp链客户端
 ---
 ## 概括
 
-The `go-loom` library contains everything you need to build Go apps & services that interact with Loom DAppChains, and to build the smart contracts that live on those DAppChains.
+Go-loom库包含构建与Loom DApp链交互的Go app和服务以及构建存在在这些DApp链上的智能合约所需的一切。
 
-To get started install `go-loom`:
+开始安装go-loom:
 
 ```shell
-go get github.com/loomnetwork/go-loom
+获取github.com/loomnetwork/go-loom
 ```
 
-In this section you'll be introduced to the `go-loom` API that you will use to write Go code that interacts with a Loom DAppChain, writing smart contracts in Go will be covered in a later section.
+在本节中，您将了解用于编写与Loom DApp链交互的Go代码的go-loom API，在Go中编写智能合约将在后面的部分中介绍。
 
 In the `go-loom` package you will find a number of examples, `examples/cli` contains a CLI app that can be used to interact with the `examples/plugins/helloworld` smart contract. We'll start by building and test driving the CLI app, then we'll introduce you to the `go-loom` API that was used to build it.
 
