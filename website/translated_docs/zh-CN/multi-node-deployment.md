@@ -315,14 +315,14 @@ ansible-playbook -i inventory.yml -vv loom-playbook.yml
 在需要时, 可能会更改下列变量。
 
 ```ruby
-# Size of the cluster created by Vagrant
+# Vagrant创建的集群大小
 num_instances = 4
 
-# Private Network Prefix
+# 专用网络前缀
 private_network_prefix = "172.31.99."
 
-# Build numbers
+# 构建编号
 loom_build = "build-208"
 ```
 
-Note: Vagrant creates its own inventory so `inventory.yml` is not used.
+注意: Vagrant 创建自己的清单, 因此 `inventory.yml` 未使用。
