@@ -5,38 +5,38 @@ sidebar_label: 构建DApp链客户端
 ---
 ## 概括
 
-Go-loom库包含构建与Loom DApp链交互的Go app和服务以及构建存在在这些DApp链上的智能合约所需的一切。
+go-loom 库包含构建与Loom DApp链交互的Go app和服务以及构建存在在这些DApp链上的智能合约所需的一切。
 
-开始安装go-loom:
+开始安装 go-loom :
 
 ```shell
 获取github.com/loomnetwork/go-loom
 ```
 
-在本节中，您将了解用于编写与Loom DApp链交互的Go代码的go-loom API，在Go中编写智能合约将在后面的部分中介绍。
+在本节中，你将了解用于编写与Loom DApp链交互的Go代码的 go-loom API，在Go中编写智能合约将在后面的部分中介绍。
 
-在go-loom程序包中，你将找到许多示例，examples / cli包含一个CLI app，可用于与examples / plugins / helloworld智能合约进行交互。 我们将从构建和测试驱动CLI app开始，然后我们将向你介绍用于构建它的go-loom API。
+在 go-loom 程序包中，你将找到许多示例, examples / cli 包含一个CLI app，可用于与 examples / plugins / helloworld 智能合约进行交互。 我们将从构建和测试驱动CLI app开始，然后我们将向你介绍用于构建它的 go-loom API。
 
 ```shell
-# this should generate the ./example-cli executable
+#这将生成./example-cli可执行文件
 make example-cli
 ```
 
 ## CLI app示例
 
-The [helloworld](https://github.com/loomnetwork/go-loom/blob/master/examples/plugins/helloworld/helloworld.go) smart contract has a public `SetMsg` method that can be called to store an association between a key and a value.
+[helloworld](https://github.com/loomnetwork/go-loom/blob/master/examples/plugins/helloworld/helloworld.go) 智能合约具有一个公共 `SetMsg` 方法, 可以调用该方式来储存密钥与值的关联。
 
 ```shell
 ./example-cli call set_msg -k 123 -v 456 --contract [contract_name] -p [priv_key]
 ```
 
-The smart contract also has a public read-only `GetMsg` method that can be called to look up an association between a key and a value.
+智能合约还具有一个公共只读 GetMsg 方法，可以调用该方法来查找密钥和值之间的关联。
 
 ```shell
 ./example-cli call get_msg -k 123 -p [priv_key]
 ```
 
-You should see the following response:
+你应该看到以下响应：
 
 ```js
 {
@@ -45,11 +45,11 @@ You should see the following response:
 }
 ```
 
-And that concludes our demonstration of the functionality of the example CLI app, now it's time to take a look at the parts of the `go-loom` API that were used to implement it.
+这就结束了我们对示例CLI app功能的演示，现在是时候看一下用于实现它的` go-loom </ 0> API的各个部分。</p>
 
-## Connecting to a DAppChain
+<h2>连接到DApp链</h2>
 
-The `client.Contract` type provides a convenient way to interact with a smart contract running on a Loom DAppChain. Let's write a function that creates a `client.Contract` instance to interact with the sample [helloworld](https://github.com/loomnetwork/go-loom/blob/master/examples/plugins/helloworld/helloworld.go) smart contract from the Loom SDK...
+<p><code>Contract` 类提供了一种与Loom DApp链上运行的智能合约进行交互的便捷方式。 Let's write a function that creates a `client.Contract` instance to interact with the sample [helloworld](https://github.com/loomnetwork/go-loom/blob/master/examples/plugins/helloworld/helloworld.go) smart contract from the Loom SDK...
 
 ```go
 package main
