@@ -31,7 +31,7 @@ A permission `role` is granted to an `address` on a `token`. 例如, 创建帐�
 
 在HasPermission中，返回与bool值（指示匹配）以及` address </ code>和<code> role </ code>的组合匹配的角色子集。</p>
 
-<p>There are 2 other low level functions to work with permissions on arbitrary addresses</p>
+<p>还有另外两个低级函数以任意地址的权限运行。</p>
 
 <pre><code>    HasPermissionFor(addr loom.Address, token []byte, roles []string) (bool, []string)
     GrantPermissionTo(addr loom.Address, token []byte, role string)
