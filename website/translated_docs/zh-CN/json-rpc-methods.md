@@ -301,14 +301,14 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 <ul>
 <li><code>removed`: `TAG` - 由于链重新配置而删除日志时` true </ 0>。 如果启用了日志记录，则<code> false </ 0>。</li>
 <li><code> logIndex </ code>：<code> QUANTITY </ code> - 区块中日志索引位置的整数。 当日志为待处理时为null。</li>
-<li><code> transactionIndex`：` QUANTITY ` - 事务索引位置日志的整数是由此创建的。当日志为待处理时为null。</li> 
+<li><code> transactionIndex`：` QUANTITY ` - 事务索引位置的整数，日志是由此创建的。当日志为待处理时为null。</li> 
     
-    - ` transactionHash`：` DATA`，32字节 - 这个日志的事务哈希是由此创建的。当日志为待处理时为null。
+    - ` transactionHash`：` DATA`，32字节 - 事务的哈希，这个日志根据此创建。当日志为待处理时为null。
     - `blockHash`: `DATA`, 32 字节 - 这个日志所在区块的哈希。当它待处理时为null。当日志待处理时为null。
-    - `blockNumber`: `QUANTITY` - the block number where this log was in. null when its pending. null when its pending log.
-    - `address`: `DATA`, 20 Bytes - address from which this log originated.
-    - `data`: `DATA` - contains one or more 32 Bytes non-indexed arguments of the log.
-    - `topics`: `Array of DATA` - Array of 0 to 4 32 Bytes `DATA` of indexed log arguments. (In solidity: The first topic is the hash of the signature of the event (e.g. Deposit(address,bytes32,uint256)), except you declared the event with the anonymous specifier.)</ul></li> </ul> 
+    - `blockNumber`: `QUANTITY` - 这个日志所在的区块号。当它待处理时为null。当日志待处理时为null。
+    - `address`: `DATA`, 20 字节 - 这个日志起源的地址。
+    - `data`: `DATA` - 包含日志的一个或多个32字节的非索引参数。
+    - `topics`: `Array of DATA` - 数组0到 4 32 字节 索引日志参数的`DATA`。 （在Solidity：第一个topic是事件（例如Deposit(address,bytes32,uint256)）签名的哈希，除非你用匿名说明符声明了该事件。）</ul></li> </ul> 
     
     #### 示例
     
@@ -344,11 +344,11 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
     
     #### 说明
     
-    Returns an array of all logs matching a given filter object.
+    返回与给定过滤器对象匹配的所有日志的数组。
     
-    #### Parameters
+    #### 参数
     
-    1. `Object` - The filter options:
+    1. `Object` - 过滤器选项：
     
     - `fromBlock`: `QUANTITY|TAG` - (optional, default: `"latest"`) Integer block number, or "latest" for the last mined block or "pending", "earliest" for not yet mined transactions.
     - `toBlock`: `QUANTITY|TAG` - (optional, default: "latest") Integer block number, or "latest" for the last mined block or "pending", "earliest" for not yet mined transactions.
