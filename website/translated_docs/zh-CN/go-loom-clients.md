@@ -118,7 +118,7 @@ func load(contract *client.Contract, key string) (string, error) {
 
 ## 整理一下
 
-Now that we have all the pieces in place make sure that you have the DAppChain running and then run the following code, you should see `Value: hello!` printed to the console.
+现在, 我们已经有了所有的方法来确保您的 DApp链 运行, 然后运行下面的代码, 您将看到 `Value: hello!` 在控制台出现。
 
 ```go
 func main() {
