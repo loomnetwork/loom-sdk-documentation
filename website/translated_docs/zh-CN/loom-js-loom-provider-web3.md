@@ -17,9 +17,9 @@ npm install loom-js
 
 # 实例化合约
 
-## The SimpleContract
+## SimpleContract
 
-Let's say that we have a Solidity contract, which is already compiled and deployed on Loom DAppChain
+假设我们有一个 Solidity 合约，已经编译并部署到了 Looom DApp链
 
     pragma solidity ^0.4.22;
     
@@ -39,7 +39,7 @@ Let's say that we have a Solidity contract, which is already compiled and deploy
     }
     
 
-With the binary compiled with the Solidity compiler the next step is to create a `genesis.json` for the Loom DappChain. (Don't forget to set the `location` to the compiled binary)
+有了 Solidity 编译器编译的二进制文件，下一步就是为Loom DApp链生成一个 `genesis.json` 。 (不要忘记将 ` location ` 设置为已编译的二进制文件)
 
 ```Javascript
 {
@@ -55,7 +55,7 @@ With the binary compiled with the Solidity compiler the next step is to create a
 
 ```
 
-After compiled the contract will generate the following ABI Interface:
+在编译完合约后将生成如下的ABI接口文件:
 
 ```js
 const ABI = [{
@@ -92,7 +92,7 @@ const ABI = [{
 }]
 ```
 
-Instantiate and using the `Web3` with `LoomProvider` looks similar from use from an Ethereum Node, but first we need to initialize the `loom-js` client properly.
+用 `LoomProvider` 实例化和使用 `Web3` 看起来很像使用以太坊节点，不过首先我们需要正确初始化 `loom-js` 客户端。
 
 ```js
 import {
@@ -101,7 +101,7 @@ import {
 
 import Web3 from 'web3'
 
-// This function will initialize and return the client
+// 这个方法将初始化并返回客户端
 function getClient(privateKey, publicKey) {
   const client = new Client(
     'default',
@@ -112,41 +112,41 @@ function getClient(privateKey, publicKey) {
   return client
 }
 
-// Setting up keys
+// 配置密钥文件
 const privateKey = CryptoUtils.generatePrivateKey()
 const publicKey = CryptoUtils.publicKeyFromPrivateKey(privateKey)
 
-// Client ready
+// 客户端准备好了
 const client = getClient(privateKey, publicKey)
 ```
 
-Now with client ready let's instantiate the `Web3`, in order to properly initialize the `Web3` instance we're going to pass the `LoomProvider` with the `client`
+现在客户端准备好了，让我们来实例化 `Web3`，为了正确初始化 `Web3` 实例，我们将传入 `LoomProvider` 以及`client`。
 
 ```js
 const web3 = new Web3(new LoomProvider(client, privateKey))
 ```
 
-We're ready to instantiate the contract
+一切就绪，可以实例化合约了
 
 ```js
-// Getting our address based on public key
+// 基于公钥来获得地址
 const fromAddress = LocalAddress.fromPublicKey(publicKey).toString()
 
-// Get the contract address (we don't need to know the address just the name specified in genesis.json
+// 获得合约地址 (我们无需知道地址，只要 genesis.json 里面指定的名字即可）
 const loomContractAddress = await client.getContractAddressAsync('SimpleStore')
 
-// Translate loom address to hexa to be compatible with Web3
+// 将 loom 地址转译为十六进制以和 Web3 兼容
 const contractAddress = CryptoUtils.bytesToHexAddr(loomContractAddress.local.bytes)
 
-// Instantiate the contract
+// 实例化合约
 const contract = new web3.eth.Contract(ABI, contractAddress, {from: fromAddress})
 ```
 
-The contract is instantiated and ready
+合约成功实例化并准备就绪
 
-# Transactions and Calls
+# 事务和调用
 
-After the instantiation of the `Web3 Contract` we'll be able to use the contract methods for transactions (`send`) and calls (`call`) like so:
+在 `Web3 合约` 的实例化之后, 我们将能够像这样使用事务的合约方法 (`发送`) 和调用 (`call`):
 
 ```js
 (async function () {
@@ -159,9 +159,9 @@ After the instantiation of the `Web3 Contract` we'll be able to use the contract
 })()
 ```
 
-# Events
+# 事件
 
-It is possible to add event listeners to the contract, although it don't support the filters yet
+可以将事件侦听器添加到合约中, 尽管它尚不支持事件过滤。
 
 ```js
 (async function () {
@@ -177,18 +177,18 @@ It is possible to add event listeners to the contract, although it don't support
 })()
 ```
 
-## Putting it all together
+## 放在一起
 
-Now that we have all the pieces in place make sure that you have the DAppChain running and then run the following code, you should see `Value: hello!` printed to the console.
+现在, 我们已经有了所有的方法来确保您的 DApp链 运行, 然后运行下面的代码, 您将看到 `Value: hello!` 在控制台出现。
 
 ```js
 import {
-  Client, Address, LocalAddress, CryptoUtils, LoomProvider
+  Client, Address, LocalAddress, CryptoUtils, LoomProvider, EvmContract
 } from '../loom.umd'
 
 import Web3 from 'web3'
 
-// This function will initialize and return the client
+// 这个方法将初始化并返回客户端
 function getClient(privateKey, publicKey) {
   const client = new Client(
     'default',
@@ -199,48 +199,6 @@ function getClient(privateKey, publicKey) {
   return client
 }
 
-// Setting up keys
-const privateKey = CryptoUtils.generatePrivateKey()
-const publicKey = CryptoUtils.publicKeyFromPrivateKey(privateKey)
-
-// Client ready
-const client = getClient(privateKey, publicKey)
-
-// Setting the web3
-const web3 = new Web3(new LoomProvider(client, privateKey))
-
-;(async () => {
-  // Set the contract ABI
-  const ABI = [{"constant":false,"inputs":[{"name":"_value","type":"uint256"}],"name":"set","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"get","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"}]
-
-  // Getting our address based on public key
-  const fromAddress = LocalAddress.fromPublicKey(publicKey).toString()
-
-  // Get the contract address (we don't need to know the address just the name specified in genesis.json
-  const loomContractAddress = await client.getContractAddressAsync('SimpleStore')
-
-  // Translate loom address to hexa to be compatible with Web3
-  const contractAddress = CryptoUtils.bytesToHexAddr(loomContractAddress.local.bytes)
-
-  // Instantiate the contract
-  const contract = new web3.eth.Contract(ABI, contractAddress, {from: fromAddress})
-
-  // Listen for new value set
-  contract.events.NewValueSet({}, (err, newValueSet) {
-    if (err) {
-      console.error('error', err)
-      return
-    }
-
-    console.log('New value set', newValueSet.returnValues)
-  })
-
-  // Set value of 47
-  await contract.methods.set(47).send()
-
-  // Get the value
-  const result = await contract.methods.get().call()
-  // result should be 47
-})()
+// 配置密钥文件
 
 ```
