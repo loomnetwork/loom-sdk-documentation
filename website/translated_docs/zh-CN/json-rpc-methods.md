@@ -116,28 +116,28 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 Executes a new message call immediately without creating a transaction on the block chain.
 
-#### Parameters
+#### 参数
 
-1. Object - The transaction call object
+1. Object - 事务调用对象
 
-- from: DATA, 20 Bytes - The address the transaction is sent from.
-- to: DATA, 20 Bytes - The address the transaction is directed to.
-- data: DATA - Hash of the method signature and encoded parameters. For details see Ethereum Contract ABI
+- from: DATA, 20个字节 - 事务发送的地址
+- to: DATA, 20个字节 - 交易所针对的地址。
+- data: DATA - 散列方法签名和编码参数。 有关详细信息，请参阅以太坊合同ABI
 
-#### Returns
+#### 返回值
 
-`DATA` - the return value of the executed contract.
+`DATA` -已执行合同的返回值。
 
-#### Example
+#### 示例
 
 ```Javascript
-// eth_call JSON RPC call
+// eth_call JSON RPC调用
 const jsonRPCString = '{"jsonrpc":"2.0","method":"eth_call","params":[{see above}],"id":1}'
 
-// Parse JSON is a necessary step before send
+// Parse JSON是发送之前的必要步骤
 await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
-// Return should be something like
+// 返回将是这样的
 // {
 //   "id":1,
 //   "jsonrpc": "2.0",
@@ -149,7 +149,7 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 * * *
 
-#### Description
+#### 说明
 
 Returns information about a block by block number.
 
