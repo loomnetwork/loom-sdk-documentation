@@ -40,7 +40,7 @@ public class LoomEvmQuickStartSample : MonoBehaviour
         var client = new DAppChainClient(writer, reader)
             { Logger = Debug.unityLogger };
 
-        // required middleware
+        // 必须的中间件
         client.TxMiddleware = new TxMiddleware(new ITxMiddlewareHandler[]
         {
             new NonceTxMiddleware
@@ -51,10 +51,10 @@ public class LoomEvmQuickStartSample : MonoBehaviour
             new SignedTxMiddleware(privateKey)
         });
 
-        // ABI of the Solidity contract
+        // 合约的ABI
         const string abi = "[{\"constant\":false,\"inputs\":[{\"name\":\"_tileState\",\"type\":\"string\"}],\"name\":\"SetTileMapState\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"GetTileMapState\",\"outputs\":[{\"name\":\"\",\"type\":\"string\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"name\":\"state\",\"type\":\"string\"}],\"name\":\"OnTileMapStateUpdate\",\"type\":\"event\"}]\r\n";
-        // Note: With EVM based smart contracts, you can't access them by name.
-        // Put the address of your deployed contract here.
+        // 注意：使用基于EVM的智能合约，您无法按名称访问它们。
+        // 将已部署合约的地址放在此处。
         var contractAddr = Address.FromHexString("0xf420fbbb810698a74120df3723315ee06f472870");
         var callerAddr = Address.FromPublicKey(publicKey);
 
@@ -63,9 +63,9 @@ public class LoomEvmQuickStartSample : MonoBehaviour
 }
 ```
 
-## Writing data to a DAppChain
+## 将数据写入 DApp链
 
-To mutate the state of a smart contract you need to call one of its public methods, to do so a signed transaction must be sent to and validated by the DAppChain. Fortunately the `EvmContract` class takes care of most of this when you use the `EvmContract.Call*Async()` family of methods.
+要改变智能合约的状态，您需要调用其公共方法之一，为此必须将签名的事务发送到DApp链并由其进行验证。 幸运的是，当你使用`EvmContract.Call*Async()`系列方法时， `EvmContract`类会处理大部分内容。
 
 The [TilesChain](https://github.com/loomnetwork/unity-tiles-chain-evm/blob/master/dappchain/TilesChain.sol) smart contract has a public `SetTileMapState` method that can be called to store an string value, note that this method doesn't return anything. Let's add a method to the `LoomEvmQuickStartSample` class that calls `TilesChain.SetTileMapState()`.
 
