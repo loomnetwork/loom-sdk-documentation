@@ -21,16 +21,16 @@ Reverse chronology order of release notes
 
 * 对 Truffle 最新构建的支持
 * [更新的 Truffle 示例](https://github.com/loomnetwork/loom-truffle-provider)
-* Initial Implementation of Sybil resistance framework
-* Websocket events now support topics 
-* Loom-JS 1.8.0 Release with updated websocket topic support
+* Sybil 抵抗框架的初步实现
+* Websocket事件现在支持主题 
+* Loom-JS 1.8.0版本，带有更新的 websocket 主题支持
 
-## Release 161 - June 7th
+## 发布161 - 6月7日
 
 * Tons of Truffle Fixes
-* Tons of web3.js fixes for Loom-Js provider
+* 针对 Loom-Js provider 的大量 web3.js 修复
 
-## Release 155 - June 6th
+## 发布 155-6月6日
 
 * [Cocos SDK is Live](cocos-sdk-quickstart.html)
 * [Truffle Support available](truffle-deploy.html)
