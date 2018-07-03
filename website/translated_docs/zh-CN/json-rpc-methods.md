@@ -263,33 +263,34 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 #### 示例
 
 ```Javascript
-// eth_getCode JSON RPC call
+// eth_getCode JSON RPC调用
 const jsonRPCString = '{"jsonrpc":"2.0","method":"eth_getCode","params":["0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b", "0x2"],"id":1}'
 
-// Parse JSON is a necessary step before send
+// Parse JSON是发送之前的必要步骤
 await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
-// Return should be something like
+// 返回将是这样的
 // {
 //   "id":1,
 //   "jsonrpc": "2.0",
 //   "result": "0x600160008035811a818181146012578301005b601b6001356025565b8060005260206000f25b600060078202905091905056"
 // }
+ 
 ```
 
 ## eth_getFilterChanges
 
 * * *
 
-#### Description
+#### 说明
 
 Polling method for a filter, which returns an array of logs which occurred since last poll.
 
-#### Parameters
+#### 参数
 
 1. `QUANTITY` - the filter id.
 
-#### Returns
+#### 返回值
 
 `Array` - Array of log objects, or an empty array if nothing has changed since last poll.
 
