@@ -67,7 +67,7 @@ public class LoomEvmQuickStartSample : MonoBehaviour
 
 要改变智能合约的状态，您需要调用其公共方法之一，为此必须将签名的事务发送到DApp链并由其进行验证。 幸运的是，当你使用`EvmContract.Call*Async()`系列方法时， `EvmContract`类会处理大部分内容。
 
-[TilesChain](https://github.com/loomnetwork/unity-tiles-chain-evm/blob/master/dappchain/TilesChain.sol) 智能合约有一个公共`SetTileMapState` 方法，可以调用该方法来存储键和值之间的关联，请注意，此方法不返回任何内容。 Let's add a method to the `LoomEvmQuickStartSample` class that calls `TilesChain.SetTileMapState()`.
+[TilesChain](https://github.com/loomnetwork/unity-tiles-chain-evm/blob/master/dappchain/TilesChain.sol) 智能合约有一个公共`SetTileMapState` 方法，可以调用该方法来存储键和值之间的关联，请注意，此方法不返回任何内容。 让我们为调用`TilesChain.SetTileMapState()`的`LoomEvmQuickStartSample` 类添加一个方法。
 
 ```csharp
 public async Task CallContract(EvmContract contract)
@@ -84,11 +84,11 @@ public async Task CallContract(EvmContract contract)
 }
 ```
 
-## Reading data from a DAppChain
+## 从DApp链读取数据
 
-To read the state of a smart contract you need to call one of its public read-only methods, calling a read-only method doesn't modify the smart contract state. You can call a read-only method on a smart contract by using the `EvmContract.StaticCall*Async()` family of methods.
+要读取智能合约的状态，您需要调用其公共只读方法之一，调用只读方法不会修改智能合约状态。 你可以使用 `EvmContract.StaticCall*Async()` 系列方法在智能合约上调用只读方法。
 
-The [TilesChain](https://github.com/loomnetwork/unity-tiles-chain-evm/blob/master/dappchain/TilesChain.sol) smart contract has a public `GetTileMapState` method that can be called to get the stored string value. Let's add a method to the `LoomEvmQuickStartSample` class to call `TilesChain.GetTileMapState`.
+[TilesChain](https://github.com/loomnetwork/unity-tiles-chain-evm/blob/master/dappchain/TilesChain.sol) 智能合约有一个公共`SetTileMapState` 方法，可以调用该方法来存储键和值之间的关联，请注意，此方法不返回任何内容。 让我们在`LoomEvmQuickStartSample` 类中添加一个方法调用 `TilesChain.GetTileMapState`。
 
 ```csharp
 public async Task StaticCallContract(EvmContract contract)
@@ -111,9 +111,9 @@ public async Task StaticCallContract(EvmContract contract)
 }
 ```
 
-## Receiving events from a DAppChain
+## 从DApp链接收事件
 
-DAppChains can trigger events in reaction to calling a smart contract. To be notified of new events, you must subscribe to the `EvmContract.EventReceived` event. But first, we need to define a DTO (Data Transfer Object) that specifies the event parameters.
+DApp链可以触发事件来响应调用智能合约。 To be notified of new events, you must subscribe to the `EvmContract.EventReceived` event. But first, we need to define a DTO (Data Transfer Object) that specifies the event parameters.
 
 ```csharp
 public class OnTileMapStateUpdateEvent
