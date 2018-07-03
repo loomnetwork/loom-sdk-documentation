@@ -39,14 +39,14 @@ Loom 有内建的可配置的日志记录。 用户可以配置日志的层级�
 
 ### 在合约中记录日志
 
-The contract context has a pre-configured logger that can be used for structured logging. For example
+在合约上下文中，有一个提前配置好的记录器可以用于结构化的日志记录。 例如
 
     ctx.Logger().Info("Created account", "owner", owner, "address", addr)
     
 
-will generate a log line like
+将生成一行这样的日志：
 
     ts=2018-05-13T02:06:49.817229589Z module=loom level=info _msg="Created account" owner=godbole4 address="\ufffd8\ufffd\ufffd\ufffd\ufffd\ufffd$Y+H\ufffd\u0012\u000c]\u001a\ufffd\ufffd\ufffd\ufffd"
     
 
-Available methods on the context logger are `Error`, `Warn`, `Info`, and `Debug`
+上下文记录器可用的方法有 `Error`， `Warn`， `Info`， 以及 `Debug`。
