@@ -34,7 +34,7 @@ const jsonRPCString = '{"id": 1,"jsonrpc": "2.0", "method": "eth_accounts", "par
 // Parse JSON是发送之前的必要步骤
 await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
-// 返回应该是这样的
+// 返回将是这样的
 // {
 //   "id":1,
 //   "jsonrpc": "2.0",
@@ -50,24 +50,24 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 返回 LoomProvider 拥有的地址列表。
 
-#### Parameters
+#### 参数
 
-None
+无
 
-#### Returns
+#### 返回值
 
-`Array of DATA`, 20 Bytes - addresses owned by the client.
+`Array of DATA`, 20个字节 - 客户端拥有的地址。
 
-#### Example
+#### 示例
 
 ```Javascript
-// eth_accounts JSON RPC call
+// eth_accounts JSON RPC调用
 const jsonRPCString = '{"id": 1,"jsonrpc": "2.0", "method": "eth_accounts", "params": []}'
 
-// Parse JSON is a necessary step before send
+// Parse JSON是发送之前的必要步骤
 await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
-// Return should be something like
+// 返回将是这样的
 // {
 //   "id":1,
 //   "jsonrpc": "2.0",
@@ -79,28 +79,28 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 * * *
 
-#### Description
+#### 说明
 
-Returns the number of the most recent completed block.
+返回最近完成的区块的编号。
 
-#### Parameters
+#### 参数
 
-None
+无
 
-#### Returns
+#### 返回值
 
-`QUANTITY` - integer of the current block number the client is on.
+`QUANTITY` - 客户端所在的当前区块编号。
 
-#### Example
+#### 示例
 
 ```Javascript
-// eth_blockNumber JSON RPC call
+// eth_blockNumber JSON RPC调用
 const jsonRPCString = '{"jsonrpc":"2.0","method":"eth_blockNumber","params":[],"id":83}'
 
-// Parse JSON is a necessary step before send
+// Parse JSON是发送之前的必要步骤
 await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
-// Return should be something like
+// 返回将是这样的
 // {
 //   "id":83,
 //   "jsonrpc": "2.0",
@@ -112,7 +112,7 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 * * *
 
-#### Description
+#### 说明
 
 Executes a new message call immediately without creating a transaction on the block chain.
 
