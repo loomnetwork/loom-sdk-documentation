@@ -32,27 +32,27 @@ cd dappchain
 wget https://private.delegatecall.com/loom/osx/build-209/loom
 chmod +x loom
 
-# Configure
+# 配置
 ./loom init
 cp genesis.example.json genesis.json
 
-# Run
+# 运行
 ./loom run
 ```
 
-### 4.) Start the web server
+### 4.) 启动 web 服务器
 
 ```bash
-# On second terminal
+# 在第二个终端上
 cd tiles-chain-evm/webclient
 
-# Install
+# 安装
 yarn
 
-# Start the demo
+# 开始演示
 yarn start
 ```
 
-### 5.) Running
+### 5.) 运行
 
-The Tiles-Chain web interface will be available on `http://localhost:9000`
+Tiles-Chain 网络界面将在 `http://localhost:9000` 上提供
