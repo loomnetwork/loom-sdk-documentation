@@ -3,15 +3,15 @@ id: simple-social-network-example
 title: 简单的社交网络示例
 sidebar_label: 简单的社交网络示例
 ---
-此示例显示如何使用 `Web3` 和 [Loom.js](https://github.com/loomnetwork/loom-js) 在Loom DApp链上构建社交网络。 在这个简单的社交网络中, 用户可以发布和评论帖子。 Source is available on [Github](https://github.com/loomnetwork/solidity-social-example).
+此示例显示如何使用 `Web3` 和 [Loom.js](https://github.com/loomnetwork/loom-js) 在Loom DApp链上构建社交网络。 在这个简单的社交网络中, 用户可以发布和评论帖子。 源代码可在 [Github](https://github.com/loomnetwork/solidity-social-example) 找到。
 
 ![](https://dzwonsemrish7.cloudfront.net/items/2W3c2O3G2A1q1l3f3D3d/Screen%20Recording%202018-05-29%20at%2003.35%20PM.gif)
 
-> The smart contract compiled for this example uses the Solidity version 0.4.24 (SimpleSocialNetwork.sol)
+> 为此示例编译的智能合约使用Solidity版本0.4.24（SimpleSocialNetwork.sol）
 
-## Development
+## 开发
 
-### 1.) Run your own DappChain
+### 1. 运行你自己的 Dapp 链
 
 Please ensure you've installed Golang as documented in the [prerequisites](https://loomx.io/developers/docs/en/prereqs.html).
 
