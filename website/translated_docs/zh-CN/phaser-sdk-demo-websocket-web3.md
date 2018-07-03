@@ -55,4 +55,4 @@ yarn start
 
 ### 5.) 运行
 
-Tiles-Chain 网络界面将在 `http://localhost:9000` 上提供
+Tiles-Chain web 界面将在 `http://localhost:9000` 上提供
