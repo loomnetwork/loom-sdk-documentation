@@ -1,11 +1,11 @@
 ---
 id: prereqs-ubuntu
-title: Prerequisites (Ubuntu)
-sidebar_label: Installation (Ubuntu)
+title: 环境依赖 (Ubuntu)
+sidebar_label: 安装 (Ubuntu)
 ---
-Installing and setting up Loom on Ubuntu
+在 Ubuntu 上安装和设置 Loom
 
-## Ubuntu Packages
+## Ubuntu 包
 
 ```bash
 sudo apt -y install curl unzip make git
@@ -13,14 +13,14 @@ sudo apt -y install curl unzip make git
 
 ## Golang
 
-### The official way
+### 官方途径
 
 ```bash
 curl -O https://dl.google.com/go/go1.10.2.linux-amd64.tar.gz
 sudo tar -C /usr/local -xzf go1.10.2.linux-amd64.tar.gz
 ```
 
-Assuming you are on bash, if zsh do to `~/.zshrc`:
+假设你使用 bash，如果 zsh 执行 `~/.zshrc`：
 
 ```bash
 echo -e "\nexport PATH=\$PATH:/usr/local/go/bin:~/gopath/bin" >>  ~/.bashrc
@@ -46,7 +46,7 @@ export GOPATH=~/gopath
 curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
 ```
 
-## Installation
+## 安装
 
 ```bash
 curl -OL https://private.delegatecall.com/loom/linux/build-209/loom
@@ -65,15 +65,15 @@ cd build
 cp ../genesis.example.json genesis.json
 ```
 
-## Run Blockchain
+## 运行区块链：
 
 ```bash
 ../../loom run
 ```
 
-## Send transactions
+## 发送事务
 
-Open a second console
+打开第二个控制台
 
 This will generate a private key. Create an account. Then set a value, and then read the value from the blockchain.
 
