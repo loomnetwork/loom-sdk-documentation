@@ -1,11 +1,11 @@
 ---
 id: goloompermissions
-title: Working with permissions helpers in go-loom
-sidebar_label: Permission Helpers
+title: 和权限助手一起使用go-loom
+sidebar_label: 权限助手
 ---
-## Using permissions in contracts with go-loom
+## 使用go-loom合同中的权限
 
-Contracts written with go-loom can use helper functions for setting and checking permissions on arbitrary tokens.
+用go-loom编写的合同可以使用辅助函数来设置和检查任意标记的权限。
 
 This is somewhat similiar to in Solidity the Ownable concept from [OpenZeppelin](https://github.com/OpenZeppelin/openzeppelin-solidity/blob/master/contracts/ownership/Ownable.sol).
 
