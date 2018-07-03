@@ -524,7 +524,7 @@ func getEvmContract(contractName string) (*client.EvmContract, error) {
 
 可以使用Solidty编译器`solc --bin -o . mySolidityProgram.sol` 将Solidity合约转换为字节代码。
 
-`hex.DecodeString` can be used to convert a hex string to a []byte array. We can then use the client.DeployContract to deploy our contract. and return an EVMContract handle. The second return parameter is a [transaction hash](https://loomx.io/developers/docs/en/evm.html#transaction-receipt) that can be used to retrive a reciept of the transaction using the TxHash Query.
+`hex.DecodeString` 可用于将十六进制字符串转换为 [] 字节数组。 然后, 我们可以使用 client.DeployContract 来部署我们的合约。 然后返回一个 EVMContract 的代号。 The second return parameter is a [transaction hash](https://loomx.io/developers/docs/en/evm.html#transaction-receipt) that can be used to retrive a reciept of the transaction using the TxHash Query.
 
 ```go
 import (
