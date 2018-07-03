@@ -4,7 +4,7 @@ title: EVM-based Smart Contract Quickstart
 sidebar_label: EVM-based Smart Contract Quickstart
 ---
 
-Loom supports EVM ([Ethereum Virtual Machine](evm.html)) and plugin-based smart contracts. Plugin-based smart contracts can be created with (go-loom)[https://github.com/loomnetwork/go-loom], for example.
+Loom supports EVM ([Ethereum Virtual Machine](evm.html)) and plugin-based smart contracts. Plugin-based smart contracts can be created with [go-loom](https://github.com/loomnetwork/go-loom), for example.
 
 In this example, we will demostrate how to use the Unity SDK to communicate with EVM-based smart contracts.
 
