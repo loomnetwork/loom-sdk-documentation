@@ -59,6 +59,6 @@ SDK包含了一些高层的区块链服务：
 * 支持游戏引擎，如Cocos，Unity以及Phaser
 * 转移网关集成
 * Plasma集成
-* Cron（即将到来）
-* 限速（早起阶段）
-* Hard fork Manager (coming July)
+* Cron定时执行（即将推出）
+* 限速（早期阶段）
+* 硬叉管理（7月发布）
