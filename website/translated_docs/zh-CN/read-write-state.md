@@ -1,11 +1,11 @@
 ---
 id: goloomstate
-title: Saving and reading state in go-loom contracts
-sidebar_label: Saving and reading state
+title: go-loom 合约中保存和读取状态
+sidebar_label: 保存和读取状态
 ---
-## The contract state
+## 合约状态
 
-Each contract has access to a sandboxed state for storage of data. The write actions on the state are rolled back in case the contract operation returns an error. If a transaction is successfully commited, it contains the hash of the state root so that any given state is commited to the blockchain.
+每个合约都可以访问沙盒状态以存储数据。 The write actions on the state are rolled back in case the contract operation returns an error. If a transaction is successfully commited, it contains the hash of the state root so that any given state is commited to the blockchain.
 
 ## Writing to the state
 
