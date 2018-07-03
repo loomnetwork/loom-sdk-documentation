@@ -155,19 +155,19 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 #### 参数
 
-1. `QUANTITY|TAG` - integer of a block number, or the string "earliest", "latest" or "pending", as in the default block parameter.
-2. `Boolean` - If true it returns the full transaction objects, if false only the hashes of the transactions.
+1. `QUANTITY|TAG` -块编号的整数，或“最早”，“最新”，“待定”的默认块参数字符串。
+2. `Boolean` - 如果为true，则返回完整的事务对象，如果为false，则仅返回事务的哈希值。
 
 #### 返回值
 
 `Object` - A block object, or `null` when no block was found:
 
-- `number`: `QUANTITY` - the block number. null when its pending block.
-- `hash`: `DATA`, 32 Bytes - hash of the block. null when its pending block.
-- `parentHash`: DATA`, 32 Bytes - hash of the parent block.
-- `logsBloom`: `DATA`, 256 Bytes - the bloom filter for the logs of the block. null when its pending block.
-- `timestamp`: `QUANTITY` - the unix timestamp for when the block was collated.
-- `transactions`: `Array` - Array of transaction objects, or 32 Bytes transaction hashes depending on the last given parameter.
+- `number`: `QUANTITY` - 块号。当挂起块时为null。
+- `hash`: `DATA`, 32 字节 - 块的哈希值。当挂起块时为null。
+- `parentHash`: DATA`, 32字节 - 父块的哈希值。
+- `logsBloom`: `DATA`, 256字节 - 块日志的Bloom过滤器。 当挂起块时为null。
+- `timestamp`: `QUANTITY` - 整理块时的unix时间戳。
+- `transactions`: `Array` - 事务对象数组。 或32字节事务哈希，具体取决于给定的最新参数。
 
 #### 示例
 
@@ -201,12 +201,12 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 #### 说明
 
-Returns information about a block by hash.
+通过哈希返回有关块的信息。
 
 #### 参数
 
-1. `DATA` - `32 Bytes` - Hash of a block.
-2. `Boolean` - If `true` it returns the full transaction objects, if `false` only the hashes of the transactions.
+1. `DATA` - `32字节` - 块的哈希。
+2. `Boolean` - 如果为true，则返回完整的事务对象，如果为false，则仅返回事务的哈希值。
 
 #### 返回值
 
