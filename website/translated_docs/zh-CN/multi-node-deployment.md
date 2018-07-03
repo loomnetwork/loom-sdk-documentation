@@ -1,37 +1,37 @@
 ---
 id: multi-node-deployment
-title: Example Deployment
-sidebar_label: Multi Node Deployment
+title: 部署示例
+sidebar_label: 多节点部署
 ---
-# Multi Node Deployment
+# 多节点部署
 
-This documentation describes how to run loom in a multi node setup.
+本文档介绍了如何在多节点设置中运行 loom。
 
-## Installation
+## 安装
 
-These steps need to be executed on each node.
+需要在每个节点上执行这些步骤。
 
-1. Choose a working directory of your choice. In this example we are using `/home/ubuntu` 
+1. 选择一个你喜欢的工作目录。在这个例子中, 我们使用 `/home/ubuntu` 
         bash
         cd /home/ubuntu
 
-2. Download the binaries: 
+2. 下载二进制文件: 
         bash
         wget https://private.delegatecall.com/loom/linux/build-208/loom
         chmod +x loom
 
-3. Execute `./loom init` in the working directory to initialize config files.
-4. Add `loom.yml` in the working directory: 
+3. 在工作目录中执行 `./loom init` 以初始化配置文件。
+4. 添加 `loom.yml` 到工作目录中 
         yaml
         QueryServerHost: "tcp://0.0.0.0:9999"
 
-## Configuration
+## 配置
 
-There are two genesis.json files that needs to be combined.
+有两个 genesis.json 文件需要组合。
 
-### genesis.json #1 - in the working directory
+### genesis.json #1 - 在公作目录中
 
-The `genesis.json` file looks like this:
+`genesis.json` 文件如下所示：
 
 ```json
 {
@@ -66,7 +66,7 @@ The `genesis.json` file looks like this:
 }
 ```
 
-Next, collect all `validators` from each node, then combine them into an array. This file will now need to be replaced with the combined file, in all nodes. For a two node cluster, it should now look like this:
+接下来，从每个节点收集所有 `validators`，然后将它们组合成一个数组。 此文件现在需要在所有节点中替换为组合文件。 对于双节点群集，它现在应该如下所示：
 
 ```json
 {
@@ -105,9 +105,9 @@ Next, collect all `validators` from each node, then combine them into an array. 
 }
 ```
 
-### genesis.json #2 - inside chaindata/config
+### genesis.json＃2 - 在 chaindata / config 中
 
-You will find a file named `genesis.json`. It is not to be confused with the one in the working directory. It should look like this:
+您将找到名为 `genesis.json` 的文件。 不要与工作目录中的那个混淆。 它应该如下所示：
 
 ```json
 {
@@ -127,7 +127,7 @@ You will find a file named `genesis.json`. It is not to be confused with the one
 }
 ```
 
-Next, collect all the `validators` from each node, then combine them into an array. This file will now need to be replaced with the combined file, in all nodes. For a two node cluster, it should now look like this:
+接下来，从每个节点收集所有 `validators`，然后将它们组合成一个数组。 此文件现在需要在所有节点中替换为组合文件。 对于双节点群集，它现在应该如下所示：
 
 ```json
 {
@@ -155,7 +155,7 @@ Next, collect all the `validators` from each node, then combine them into an arr
 }
 ```
 
-## Running
+## 运行
 
 First, we need to get node keys from each node. Go to the working directory and run `loom nodekey`:
 
