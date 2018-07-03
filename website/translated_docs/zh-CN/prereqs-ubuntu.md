@@ -75,9 +75,9 @@ cp ../genesis.example.json genesis.json
 
 打开第二个控制台
 
-This will generate a private key. Create an account. Then set a value, and then read the value from the blockchain.
+这将生成私钥。 创建一个帐户。 然后设置一个值，接着从区块链中读取值。
 
-You can read the source of the [blueprint contract here](https://github.com/loomnetwork/weave-blueprint)
+你可以在这里读取 [blueprint 合约](https://github.com/loomnetwork/weave-blueprint) 源代码
 
 ```bash
 cd blueprint/build
