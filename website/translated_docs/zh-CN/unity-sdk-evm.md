@@ -67,7 +67,7 @@ public class LoomEvmQuickStartSample : MonoBehaviour
 
 要改变智能合约的状态，您需要调用其公共方法之一，为此必须将签名的事务发送到DApp链并由其进行验证。 幸运的是，当你使用`EvmContract.Call*Async()`系列方法时， `EvmContract`类会处理大部分内容。
 
-The [TilesChain](https://github.com/loomnetwork/unity-tiles-chain-evm/blob/master/dappchain/TilesChain.sol) smart contract has a public `SetTileMapState` method that can be called to store an string value, note that this method doesn't return anything. Let's add a method to the `LoomEvmQuickStartSample` class that calls `TilesChain.SetTileMapState()`.
+[TilesChain](https://github.com/loomnetwork/unity-tiles-chain-evm/blob/master/dappchain/TilesChain.sol) 智能合约有一个公共`SetTileMapState` 方法，可以调用该方法来存储键和值之间的关联，请注意，此方法不返回任何内容。 Let's add a method to the `LoomEvmQuickStartSample` class that calls `TilesChain.SetTileMapState()`.
 
 ```csharp
 public async Task CallContract(EvmContract contract)
