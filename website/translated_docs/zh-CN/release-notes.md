@@ -32,16 +32,16 @@ Reverse chronology order of release notes
 
 ## 发布 155-6月6日
 
-* [Cocos SDK is Live](cocos-sdk-quickstart.html)
-* [Truffle Support available](truffle-deploy.html)
-* Static calls to EVM now allow caller
-* EVM Fixes for a lot of scenarios 
+* [Cocos SDK 上线](cocos-sdk-quickstart.html)
+* [Truffle 支持可用](truffle-deploy.html)
+* 对EVM的静态调用现允许调用者
+* 针对很多场景的 EVM 修复 
 
-## Release 143 - June 1st
+## 发布143 - 6月1日
 
-* [BluePrint Docker Images Available](docker-blueprint.html)
-* [Japanese Hackathon Results](https://medium.com/loom-network/highlights-from-the-first-loom-unity-sdk-hackathon-tokyo-edition-6ed723747c19)
-* [Docker Images for some of Loom SDK Projects](https://hub.docker.com/r/loomnetwork/)
+* [BluePrint Docker 图像可用](docker-blueprint.html)
+* [日本黑客松成果](https://medium.com/loom-network/highlights-from-the-first-loom-unity-sdk-hackathon-tokyo-edition-6ed723747c19)
+* [针对一些Loom SDK项目的Docker图像](https://hub.docker.com/r/loomnetwork/)
 * Evm TX Reciepts fixes 
 
 ## Release 137 - May 30th
