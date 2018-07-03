@@ -1,13 +1,13 @@
 ---
 id: json-rpc-methods
-title: JSON RPC Methods
-sidebar_label: JSON RPC Methods
+title: JSON RPC方法
+sidebar_label: JSON RPC方法
 ---
-## Overview
+## 概述
 
-In order to be compatible with [Web3.js](https://github.com/ethereum/web3.js) LoomProvider added some methods that are quite compatible with [Ethereum JSON RPC Methods](https://github.com/ethereum/wiki/wiki/JSON-RPC#json-rpc-api), those methods are callable directly by the Loom `QueryService` or by `LoomProvider`, on this tutorial we're going to talk about `LoomProvider`
+为了与[Web3.js](https://github.com/ethereum/web3.js)兼容，LoomProvider添加了一些与 [以太坊JSON RPC方法](https://github.com/ethereum/wiki/wiki/JSON-RPC#json-rpc-api)完全兼容的方法，这些方法可以由Loom `QueryService`或`LoomProvider`直接调用，在本教程中我们将讨论`LoomProvider`。
 
-### LoomProvider calling JSON RPC Methods
+### LoomProvider 调用 JSON RPC 方法
 
 The provider should be the bridge between client and the Loom DAppChain, the code below is an example of `LoomProvider` been instantiated and calling the `JSON RPC` to get accounts with `eth_accounts`
 
