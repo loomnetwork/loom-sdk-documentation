@@ -58,29 +58,29 @@ chmod +x loom
 ## 部署 Truffle
 
 ```bash
-# On second terminal
+# 在第二个终端
 
-# Deploy Migrations.sol and SimpleStore.sol
+# 部署 Migrations.sol 和 SimpleStore.sol
 yarn deploy
 
-# Running test on directory /test
+# 在 /test 目录上运行测试
 yarn test
 ```
 
-> In order to correctly redeploy the contracts there's a command "yarn deploy:reset"
+> 为了正确地重新部署合同，有一个命令 “yarn deploy: reset”
 > 
-> Also is possible to call truffle command directly by call "yarn truffle"
+> 也可以通过调用 "yarn truffle" 直接调用truffle命令
 > 
-> We're not versioning the build directory for this particular example, although is recommended to versioning, the limitation can be removed by editing .gitignore
+> 我们没有对这个特定示例的构建目录进行版本控制，虽然建议进行版本控制，但可以通过编辑 .gitignore 来消除限制。
 
-## Current limitations
+## 当前的局限
 
-* Events declared on smart contracts should have an named parameter like `NewValueSet(uint _value)` in the contract `SimpleStore.sol`. Also it helps to dealing with events
+* 在智能合约上声明的事件应该有命名参数，如在合同`SimpleStore.sol`中的`NewValueSet(uint _value)` 。 它也有助于处理事件。
 
 ## Loom Network
 
 <https://loomx.io>
 
-## License
+## 许可证
 
-BSD 3-Clause License
+BSD 3-条款许可证
