@@ -9,32 +9,32 @@ sidebar_label: JSON RPC方法
 
 ### LoomProvider 调用 JSON RPC 方法
 
-The provider should be the bridge between client and the Loom DAppChain, the code below is an example of `LoomProvider` been instantiated and calling the `JSON RPC` to get accounts with `eth_accounts`
+提供程序应该是客户端和Loom DAppChain之间的桥梁，下面的代码是`LoomProvider`实例化的示例，并调用`JSON RPC`来获取`eth_accounts`的帐户。
 
 ```javascript
 const privateKey = CryptoUtils.generatePrivateKey();
 const publicKey = CryptoUtils.publicKeyFromPrivateKey(privateKey);
 
-// Create the client
+// 创建客户端
 const client = new Client(
   "default",
   "ws://127.0.0.1:46657/websocket",
   "ws://127.0.0.1:9999/queryws"
 );
 
-// The address for the caller of the function
+// 函数调用者的地址
 const from = LocalAddress.fromPublicKey(publicKey).toString();
 
-// Instantiate loom provider
+//实例化Loom提供程序
 const loomProvider = new LoomProvider(client, privateKey);
 
-// eth_accounts JSON RPC call
+// eth_accounts JSON RPC 调用
 const jsonRPCString = '{"id": 1,"jsonrpc": "2.0", "method": "eth_accounts", "params": []}'
 
-// Parse JSON is a necessary step before send
+// Parse JSON是发送之前的必要步骤
 await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
-// Return should be something like
+// 返回应该是这样的
 // {
 //   "id":1,
 //   "jsonrpc": "2.0",
@@ -46,9 +46,9 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 * * *
 
-#### Description
+#### 说明
 
-Returns a list of addresses owned by the LoomProvider
+返回 LoomProvider 拥有的地址列表。
 
 #### Parameters
 
