@@ -5,16 +5,16 @@ sidebar_label: 保存和读取状态
 ---
 ## 合约状态
 
-每个合约都可以访问沙盒状态以存储数据。 The write actions on the state are rolled back in case the contract operation returns an error. If a transaction is successfully commited, it contains the hash of the state root so that any given state is commited to the blockchain.
+每个合约都可以访问沙盒状态以存储数据。 如果合同操作返回错误，则回滚对状态的写入操作。 如果事务成功提交，它将包含状态根的哈希值，以便将任何给定状态提交给区块链。
 
-## Writing to the state
+## 写入状态
 
-Use the `Set` operation on the contract context to save to the state.
+使用合同上下文中的 `Set` 操作保存到状态。
 
     Set(key []byte, pb proto.Message) error
     
 
-go-loom mandates that the data being saved is a protobuf object.
+go-loom 命令保存的数据是 protobuf 对象。
 
 ## Reading from the state
 
