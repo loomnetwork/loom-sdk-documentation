@@ -9,18 +9,18 @@ Reverse chronology order of release notes
 
 ## 发布209 - 6月20日
 
-Major release * Plasma Cash initial integration - Demos coming next week * Multinode fixes and performance increases * Ansible updates for multinode * Querying / Filtering on EVM supports more types * Unity SDK updates for EVM * Loom-JS updates for EVM
+主要发布 * Plasma Cash初始整合 - 下周演示 * 多节点修复和性能提升 * 多节点的 Ansible 更新 * EVM上的查询/过滤支持更多类型 * 针对EVM的Unity SDK更新 * 针对EVM的Loom-JS更新
 
 ## Release 186 - June 19th
 
-* [EVM Unity Example app](https://loomx.io/developers/docs/en/unity-sample-tiles-chain-evm.html)
-* Unity SDK support for Solidity Apps
-* Many fixes for Filtering/Querying Ethereum Events
+* [EVM Unity 示例应用程序](https://loomx.io/developers/docs/en/unity-sample-tiles-chain-evm.html)
+* 针对 Solidity 应用的 Unity SDK 支持
+* 对过滤/查询以太坊事件的诸多修复
 
-## Release 163 - June 11th
+## 发布163 - 6月11日
 
-* Support for latest Build of Truffle
-* [Updated truffle example](https://github.com/loomnetwork/loom-truffle-provider)
+* 对 Truffle 最新构建的支持
+* [更新的 Truffle 示例](https://github.com/loomnetwork/loom-truffle-provider)
 * Initial Implementation of Sybil resistance framework
 * Websocket events now support topics 
 * Loom-JS 1.8.0 Release with updated websocket topic support
