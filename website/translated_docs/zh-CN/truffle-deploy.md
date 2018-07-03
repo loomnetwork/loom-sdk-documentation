@@ -27,14 +27,14 @@ git clone https://github.com/loomnetwork/truffle-dappchain-example
 cd truffle-dappchain-example
 
 yarn install
-# or
+# 或
 npm install
 ```
 
 ### Unbox 方法
 
 ```bash
-# Install Truffle if not installed
+# 如果还没安装 Truffle 就先安装
 npm install -g truffle
 
 mkdir truffle-dappchain-example
@@ -43,19 +43,19 @@ cd truffle-dappchain-example
 truffle unbox loomnetwork/truffle-dappchain-example
 ```
 
-## 启动 Dapp链
+## 启动 Dapp 链
 
 ```bash
-# Download
+# 下载
 wget https://private.delegatecall.com/loom/osx/build-209/loom
 chmod +x loom
 
-# Run
+# 运行
 ./loom init
 ./loom run
 ```
 
-## Deploy Truffle
+## 部署 Truffle
 
 ```bash
 # On second terminal
