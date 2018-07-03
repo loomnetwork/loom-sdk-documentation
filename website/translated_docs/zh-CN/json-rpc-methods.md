@@ -163,7 +163,7 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 `Object` - 区块对象，或`null`当没有找到任何区块时：
 
 - `number`: `QUANTITY` - 块号。当挂起块时为null。
-- `hash`: `DATA`, 32 字节 - 块的哈希值。当挂起块时为null。
+- `hash`: `DATA`, 32 字节 - 区块的哈希值。当区块待处理时为null。
 - `parentHash`: DATA`, 32字节 - 父块的哈希值。
 - `logsBloom`: `DATA`, 256字节 - 块日志的Bloom过滤器。 当挂起块时为null。
 - `timestamp`: `QUANTITY` - 整理块时的unix时间戳。
@@ -210,10 +210,10 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 #### 返回值
 
-`Object` - A block object, or `null` when no block was found:
+`Object` - 区块对象，或`null`当没有找到任何区块时：
 
-- `number`: `QUANTITY` - 块号。当挂起时为null。
-- `hash`: `DATA`, 32 字节 - 块的哈希值。当挂起块时为null。
+- `number`: `QUANTITY` - 块号。当区块待处理时为null。
+- `hash`: `DATA`, 32 字节 - 区块的哈希值。当区块待处理时为null。
 - `parentHash`: `DATA`, 32字节 - 父块的哈希值。
 - `logsBloom`: `DATA`, 256字节 - 块日志的Bloom过滤器。 当挂起块时为null。
 - `timestamp`: `QUANTITY` - 整理块时的unix时间戳。
@@ -301,7 +301,7 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 <ul>
 <li><code>removed`: `TAG` - 由于链重新配置而删除日志时` true </ 0>。 如果启用了日志记录，则<code> false </ 0>。</li>
 <li><code> logIndex </ code>：<code> QUANTITY </ code> - 日志中阻止的索引位置的整数。 对于未处理的日志，它为null。</li>
-<li><code>transactionIndex`: `QUANTITY` - integer of the transactions index position log was created from. null when its pending log.</li> 
+<li><code> transactionIndex`：` QUANTITY ` - 事务索引位置日志的整数是由此创建的。当log待处理时为null。</li> 
     
     - `transactionHash`: `DATA`, 32 Bytes - hash of the transactions this log was created from. null when its pending log.
     - `blockHash`: `DATA`, 32 Bytes - hash of the block where this log was in. null when its pending. null when its pending log.
