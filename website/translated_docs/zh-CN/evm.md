@@ -488,11 +488,11 @@ go-loom和loom-js用一个RPC客户端为与一个运行中的DApp链的交互�
 
 ### go-loom
 
-This works in much the same way as described for [go-loom Contract](https://loomx.io/developers/docs/en/go-loom-clients.html#connecting-to-a-dappchain)
+这个工作的方式和[go-loom Contract](https://loomx.io/developers/docs/en/go-loom-clients.html#connecting-to-a-dappchain) 中所述的类似。
 
-#### Connecting to a Solidity contract on a DAppChain
+#### 连接到 DApp链上的Solidity合约
 
-So to connect to an existing solidity smart contact running on a DAppChain EVM we can use
+因此，要连接到一个现有的运行在DApp链EVM上的Solidity智能合约，我们可以使用
 
 ```go
 package main
@@ -503,8 +503,7 @@ import (
   "github.com/loomnetwork/go-loom/vm"
 )
 
-// getContract creates a new `Contract` instance that can be used to interact
- with a smart contract deployed on a DAppChain's EVM.
+// getContract 创建一个新的“合约”实例，它可用于与部署在DApp链上EVM的智能合约交互。
 func getEvmContract(contractName string) (*client.EvmContract, error) {
   rpcClient := client.NewDAppChainRPCClient(
     "default",
@@ -519,11 +518,11 @@ func getEvmContract(contractName string) (*client.EvmContract, error) {
 }
 ```
 
-#### Deploying a Solidity contract to a DAppChain
+#### 将Solidity合约部署到一个DApp链上
 
-We can also deploy a new smart contract to a running DAppChain EVM. For this we need the contracts bytecode.
+我们还可以将新的智能合约部署到运行的 DApp链EVM。为此，我们需要合约字节码。
 
-A solidity contract can be converted to byte code using the solidity compiler `solc --bin -o . mySolidityProgram.sol`
+可以使用Solidty编译器`solc --bin -o . mySolidityProgram.sol` 将Solidity合约转换为字节代码。
 
 `hex.DecodeString` can be used to convert a hex string to a []byte array. We can then use the client.DeployContract to deploy our contract. and return an EVMContract handle. The second return parameter is a [transaction hash](https://loomx.io/developers/docs/en/evm.html#transaction-receipt) that can be used to retrive a reciept of the transaction using the TxHash Query.
 
