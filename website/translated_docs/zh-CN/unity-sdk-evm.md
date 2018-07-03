@@ -13,7 +13,7 @@ Loom支持EVM（[以太坊虚拟机](evm.html)）和基于插件的智能合约�
 
 ## 连接到 DApp链
 
-The `EvmContract` class provides a convenient way to interact with a smart contract running on a Loom DAppChain running an EVM-compatible smart contract. Let's write a method that creates an `EvmContract` instance to interact with the sample [TilesChain](https://github.com/loomnetwork/unity-tiles-chain-evm/blob/master/dappchain/TilesChain.sol) smart contract.
+`EvmContract` 类提供了一种方便的方式与在运行着EVM-兼容智能合约的 Loom DApp 链上运行的智能合约进行交互。 Let's write a method that creates an `EvmContract` instance to interact with the sample [TilesChain](https://github.com/loomnetwork/unity-tiles-chain-evm/blob/master/dappchain/TilesChain.sol) smart contract.
 
 ```csharp
 // LoomEvmQuickStartSample.cs
