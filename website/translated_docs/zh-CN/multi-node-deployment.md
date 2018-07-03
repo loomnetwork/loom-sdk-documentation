@@ -203,7 +203,7 @@ loom run tcp://47cd3e4cc27ac621ff8bc59b776fa228adab827e@10.2.3.4:46656,tcp://495
 
 以下启动脚本可通过使用systemd来控制服务。对 `WorkingDirectory` 和/或 `ExecStart` 进行更改以反映你的设置。
 
-Notice `ExecStart`, it is constructed using the same concept from the previous section when running loom directly. This means each node has a different startup script.
+注意 `ExecStart`，它直接运行 loom 时使用与上一节相同的概念进行构造。 这意味着每个节点都有不同的启动脚本。
 
 ```ini
 [Unit]
@@ -226,30 +226,30 @@ StandardError=syslog
 WantedBy=multi-user.target
 ```
 
-Save it to `/etc/systemd/system/loom.service`. Run these to activate it:
+把它保存到 `/etc/systemd/system/loom.service`。运行这些操作以激活它:
 
 ```bash
 sudo systemctl daemon-reload
 sudo systemctl start loom.service
 ```
 
-You may now inspect the output using:
+你现在可以使用以下方法检查输出:
 
 ```bash
 sudo journalctl -u loom.service
 ```
 
-When satisfied everything is running as intended, executing the following will enable the service so that it is started at boot:
+当你满足一切都按预期运行时, 执行以下操作将启用该服务, 以便在启动时开始:
 
 ```bash
 sudo systemctl enable loom.service
 ```
 
-## Verifying
+## 验证
 
-### Listening ports
+### 监听端口
 
-If all is well, you will be able to see these ports opened in each node.
+如果一切顺利, 你将能够看到这些端口在每个节点上打开。
 
 ```bash
 $ sudo netstat -tpnl
@@ -261,21 +261,21 @@ tcp6       0      0 :::46657                :::*                    LISTEN      
 tcp6       0      0 :::46658                :::*                    LISTEN      2135/loom
 ```
 
-## Automation
+## 自动化
 
-If combining the configuration files and startup commands seems to be a lot of work, we have a way to automate it using Ansible.
+如果组合配置文件和启动命令似乎需要做很多工作，我们可以使用 Ansible 自动化它。
 
-Ansible needs to be installed locally.
+Ansible 需要在本地安装。
 
-The playbook is available [here](https://github.com/loomnetwork/loom-playbooks/blob/master/loom-playbook.yml)
+手册在[这里](https://github.com/loomnetwork/loom-playbooks/blob/master/loom-playbook.yml)可见。
 
-You will need to change the inventory to match your nodes and preferred working directory.
+您需要更改清单以匹配你的节点和首选工作目录。
 
-**Please ensure SSH and sudo access to the nodes are available**
+**请确保 SSH 和 sudo 访问节点可用**
 
-### Inventory: inventory.yaml
+### 清单：inventory.yaml
 
-The inventory specifies the nodes and their IP addresses. If the node only have one IP, use same for both `ansible_host` and `private_ip`. `ansible_host` is used by Ansible to connect to the host, while `private_ip` is used by the nodes to communicate with each other.
+清单指定节点及其IP地址。 如果节点只有一个IP，则对`ansible_host`和`private_ip`使用相同的IP。 Ansible 使用`ansible_host`连接到主机，而节点使用`private_ip`进行相互通信。
 
 ```yaml
 ---
@@ -300,19 +300,19 @@ all:
       private_ip: 10.7.6.5
 ```
 
-After modifying the inventory with the details of the nodes, execute the playbook:
+使用节点的详细信息修改清单后，执行手册：
 
 ```bash
 ansible-playbook -i inventory.yml -vv loom-playbook.yml
 ```
 
-## More Automation: Vagrant
+## 更多自动化：Vagrant
 
-There is also a Vagrantfile included to provision a full cluster. Ansible needs to be installed on the host machine.
+还包含一个 Vagrantfile 来配置完整群集。 Ansible 需要安装在主机上。
 
-It is tested with VirtualBox provider. It takes less than two minutes on a decent machine to create and provision 4 nodes.
+它使用 VirtualBox provider 进行测试。 在一台像样的机器上创建和配置4个节点只需不到两分钟。
 
-The following variables may be changed when needed.
+在需要时, 可能会更改下列变量。
 
 ```ruby
 # Size of the cluster created by Vagrant
