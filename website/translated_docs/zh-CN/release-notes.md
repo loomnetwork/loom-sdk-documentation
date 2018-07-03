@@ -1,13 +1,13 @@
 ---
 id: release-notes
-title: Release Notes
-sidebar_label: Release Notes
+title: 发布日志
+sidebar_label: 发布日志
 ---
-## Overview
+## 概述
 
 Reverse chronology order of release notes
 
-## Release 209 - June 20th
+## 发布209 - 6月20日
 
 Major release * Plasma Cash initial integration - Demos coming next week * Multinode fixes and performance increases * Ansible updates for multinode * Querying / Filtering on EVM supports more types * Unity SDK updates for EVM * Loom-JS updates for EVM
 
