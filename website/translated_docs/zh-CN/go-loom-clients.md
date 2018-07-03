@@ -54,14 +54,13 @@ make example-cli
 ```go
 package main
 
+
 import (
   "github.com/loomnetwork/go-loom/auth"
   "github.com/loomnetwork/go-loom/client"
   "github.com/loomnetwork/go-loom/examples/types"
-  "golang.org/x/crypto/ed25519"
 )
-
-// getContract creates a new `Contract` instance that can be used to interact with a smart contract.
+// getContract 创建一个新的“Contract”实例，可用于与智能合约交互。
 func getContract(contractName string) (*client.Contract, error) {
   rpcClient := client.NewDAppChainRPCClient(
     "default",
@@ -74,6 +73,8 @@ func getContract(contractName string) (*client.Contract, error) {
   }
   return client.NewContract(rpcClient, contractAddr.Local), nil
 }
+ 
+
 ```
 
 ## Writing data to a DAppChain
