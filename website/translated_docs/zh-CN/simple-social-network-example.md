@@ -11,9 +11,9 @@ sidebar_label: 简单的社交网络示例
 
 ## 开发
 
-### 1. 运行你自己的 Dapp 链
+### 1.) 运行你自己的 Dapp 链
 
-Please ensure you've installed Golang as documented in the [prerequisites](https://loomx.io/developers/docs/en/prereqs.html).
+请确保您已按照[必须条件](https://loomx.io/developers/docs/en/prereqs.html)中的说明安装了Golang。
 
 ```bash
 git clone https://github.com/loomnetwork/solidity-social-example
@@ -32,9 +32,9 @@ cp genesis.example.json genesis.json
 ./loom run
 ```
 
-### 2.) Start ElasticSearch and Redis
+### 2.) 启动 ElasticSearch 和 Redis
 
-> Notice that both services are required in order to correct run and interact with the application
+> 请注意，为了纠正运行并与应用程序交互，需要这两个服务
 
 ```bash
 # macOS
