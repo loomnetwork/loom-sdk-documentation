@@ -151,14 +151,14 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 #### 说明
 
-Returns information about a block by block number.
+按块编号返回有关块的信息。
 
-#### Parameters
+#### 参数
 
 1. `QUANTITY|TAG` - integer of a block number, or the string "earliest", "latest" or "pending", as in the default block parameter.
 2. `Boolean` - If true it returns the full transaction objects, if false only the hashes of the transactions.
 
-#### Returns
+#### 返回值
 
 `Object` - A block object, or `null` when no block was found:
 
