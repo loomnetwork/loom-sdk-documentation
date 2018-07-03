@@ -9,9 +9,9 @@ Loom支持EVM（[以太坊虚拟机](evm.html)）和基于插件的智能合约�
 
 ## 示例代码
 
-这个示例使用了来自[`unity-tiles-chain-evm` demo](https://github.com/loomnetwork/unity-tiles-chain-evm) 的合约。 For the purpose of this sample, we will use this sample contract just to store a text string.
+这个示例使用了来自[`unity-tiles-chain-evm` 演示 ](https://github.com/loomnetwork/unity-tiles-chain-evm) 的Solidity 合约。 出于此示例的目的，我们将使用此示例合约来存储文本字符串。
 
-## Connecting to a DAppChain
+## 连接到 DApp链
 
 The `EvmContract` class provides a convenient way to interact with a smart contract running on a Loom DAppChain running an EVM-compatible smart contract. Let's write a method that creates an `EvmContract` instance to interact with the sample [TilesChain](https://github.com/loomnetwork/unity-tiles-chain-evm/blob/master/dappchain/TilesChain.sol) smart contract.
 
