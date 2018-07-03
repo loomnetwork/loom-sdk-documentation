@@ -5,13 +5,13 @@ sidebar_label: 发布日志
 ---
 ## 概述
 
-Reverse chronology order of release notes
+倒序的发布日志
 
 ## 发布209 - 6月20日
 
 主要发布 * Plasma Cash初始整合 - 下周演示 * 多节点修复和性能提升 * 多节点的 Ansible 更新 * EVM上的查询/过滤支持更多类型 * 针对EVM的Unity SDK更新 * 针对EVM的Loom-JS更新
 
-## Release 186 - June 19th
+## 发布186 - 6月19日
 
 * [EVM Unity 示例应用程序](https://loomx.io/developers/docs/en/unity-sample-tiles-chain-evm.html)
 * 对 Solidity 应用的 Unity SDK 支持
@@ -80,7 +80,7 @@ Reverse chronology order of release notes
 
 ## 发布128 - 5月19日
 
-* 稳定 Beta 版
-* Updating logging to default to multiple files 
-* Moving all RPC to a single interface
-* Updated External Process interface
+* 稳定版 Beta 发布
+* 将多个文件的日志更新为默认模式 
+* 将所有 RPC 转移到单个接口
+* 更新了外部进程接口
