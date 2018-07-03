@@ -1,11 +1,11 @@
 ---
 id: unity-sdk-evm
-title: EVM-based Smart Contract Quickstart
-sidebar_label: EVM-based Smart Contract Quickstart
+title: 基于EVM的智能合约快速入门
+sidebar_label: 基于EVM的智能合约快速入门
 ---
-Loom supports EVM ([Ethereum Virtual Machine](evm.html)) and plugin-based smart contracts. Plugin-based smart contracts can be created with (go-loom)[https://github.com/loomnetwork/go-loom], for example.
+Loom支持EVM（[以太坊虚拟机](evm.html)）和基于插件的智能合约。 比如，可以使用（go-loom）[https://github.com/loomnetwork/go-loom] 创建基于插件的智能合约。
 
-In this example, we will demostrate how to use the Unity SDK to communicate with EVM-based smart contracts.
+在此示例中，我们将演示如何使用Unity SDK与基于EVM的智能合约进行通信。
 
 ## Sample Code
 
