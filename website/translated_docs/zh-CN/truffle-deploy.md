@@ -1,23 +1,23 @@
 ---
 id: truffle-deploy
-title: Truffle DAppChain Example
-sidebar_label: Truffle Deploy
+title: Truffle DApp链示例
+sidebar_label: Truffle部署
 ---
 ![http://truffleframework.com](/developers/img/truffle.jpg)
 
-Simple example of Truffle interacting with Loom DAppChain, this example uses [loom-truffle-provider](https://github.com/loomnetwork/loom-truffle-provider) (check LoomTruffleProvider repository for more details)
+Truffle 与 Loom DApp 链交互的简单示例，此示例使用 [loom-truffle-provider](https://github.com/loomnetwork/loom-truffle-provider)（有关详细信息，请查看 LoomTruffleProvider 代码库）
 
-## Requirements
+## 需求
 
 ```bash
 Node >= 8
 ```
 
-## Install
+## 安装
 
-In order to download the Truffle DAppChain Example there're two methods Git or Unbox
+下载 Truffle DApp 链 示例有两种方法：Git 或 Unbox
 
-### Git method
+### Git 方法
 
 ```bash
 git clone https://github.com/loomnetwork/truffle-dappchain-example
@@ -31,7 +31,7 @@ yarn install
 npm install
 ```
 
-### Unbox method
+### Unbox 方法
 
 ```bash
 # Install Truffle if not installed
@@ -43,7 +43,7 @@ cd truffle-dappchain-example
 truffle unbox loomnetwork/truffle-dappchain-example
 ```
 
-## Start DappChain
+## 启动 Dapp链
 
 ```bash
 # Download
