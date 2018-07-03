@@ -484,7 +484,7 @@ func (c *EvmExample) GetValue(ctx contractpb.Context, req *types.Dummy) (*types.
 
 ## EvmContract
 
-go-loom and loom-js provide help for communicating with a running DAppChain using a RPC client.
+go-loom和loom-js用一个RPC客户端为与一个运行中的DApp链的交互提供帮助。
 
 ### go-loom
 
