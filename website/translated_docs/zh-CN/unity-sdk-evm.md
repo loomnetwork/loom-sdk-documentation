@@ -7,9 +7,9 @@ Loom支持EVM（[以太坊虚拟机](evm.html)）和基于插件的智能合约�
 
 在此示例中，我们将演示如何使用Unity SDK与基于EVM的智能合约进行通信。
 
-## Sample Code
+## 示例代码
 
-This sample uses the Solidity contract from [`unity-tiles-chain-evm` demo](https://github.com/loomnetwork/unity-tiles-chain-evm). For the purpose of this sample, we will use this sample contract just to store a text string.
+这个示例使用了来自[`unity-tiles-chain-evm` demo](https://github.com/loomnetwork/unity-tiles-chain-evm) 的合约。 For the purpose of this sample, we will use this sample contract just to store a text string.
 
 ## Connecting to a DAppChain
 
