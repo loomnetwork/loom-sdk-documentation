@@ -1,7 +1,7 @@
 ---
 id: goloomevents
-title: Emitting events from go-loom contracts
-sidebar_label: Emitting events
+title: 从go-loom合同中发出事件
+sidebar_label: 发送事件
 ---
 ## Emitting events from go-plugins
 
