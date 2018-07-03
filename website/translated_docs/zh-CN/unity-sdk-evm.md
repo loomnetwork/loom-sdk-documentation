@@ -113,7 +113,7 @@ public async Task StaticCallContract(EvmContract contract)
 
 ## 从DApp链接收事件
 
-DApp链可以触发事件来响应调用智能合约。 To be notified of new events, you must subscribe to the `EvmContract.EventReceived` event. But first, we need to define a DTO (Data Transfer Object) that specifies the event parameters.
+DApp链可以触发事件来响应调用智能合约。 要收到有关新事件的通知，您必须订阅`EvmContract.EventReceived`事件。 但首先，我们需要定义一个指定事件参数的DTO（数据传输对象）。
 
 ```csharp
 public class OnTileMapStateUpdateEvent
@@ -133,16 +133,16 @@ private void ContractEventReceived(object sender, EvmChainEventArgs e)
 }
 ```
 
-## Putting it all together
+## 放在一起
 
-Add the following method to the `LoomEvmQuickStartSample` class.
+将以下方法添加到 `LoomEvmQuickStartSample`类中。
 
 ```csharp
 async void Start()
 {
-    // The private key is used to sign transactions sent to the DAppChain.
-    // Usually you'd generate one private key per player, or let them provide their own.
-    // In this sample we just generate a new key every time.
+    // 私钥用于签署发送到DApp链的事务。
+    // 通常你会为每个玩家生成一个私钥，或让他们提供自己的私钥。
+    // 在此示例中，我们每次都会生成一个新密钥。
     var privateKey = CryptoUtils.GeneratePrivateKey();
     var publicKey = CryptoUtils.PublicKeyFromPrivateKey(privateKey);
 
@@ -157,4 +157,4 @@ async void Start()
 }
 ```
 
-Now that we have all the code in place let's test it out: 1. Create an empty `GameObject` in a Unity scene and attach the `LoomEvmQuickStartSample` script to it. 2. Deploy the [TilesChain](https://github.com/loomnetwork/unity-tiles-chain-evm/blob/master/dappchain/TilesChain.sol) smart contract on a local Loom DAppChain node. 3. Hit `Play` in the Unity Editor.
+现在我们已经准备好了所有代码，让我们测试一下： 1. 在Unity场景中创建一个空的`GameObject`并将 `LoomEvmQuickStartSample`脚本添加进去。 2. 在本地Loom DApp链节点上部署 [TilesChain](https://github.com/loomnetwork/unity-tiles-chain-evm/blob/master/dappchain/TilesChain.sol) 智能合约。 3. 在Unity编辑器中点击 `Play`。
