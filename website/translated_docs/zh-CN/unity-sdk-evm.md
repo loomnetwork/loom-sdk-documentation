@@ -3,7 +3,7 @@ id: unity-sdk-evm
 title: 基于EVM的智能合约快速入门
 sidebar_label: 基于EVM的智能合约快速入门
 ---
-Loom支持EVM（[以太坊虚拟机](evm.html)）和基于插件的智能合约。 比如，可以使用（go-loom）[https://github.com/loomnetwork/go-loom] 创建基于插件的智能合约。
+Loom支持EVM（[以太坊虚拟机](evm.html)）和基于插件的智能合约。 Plugin-based smart contracts can be created with [go-loom](https://github.com/loomnetwork/go-loom), for example.
 
 在此示例中，我们将演示如何使用Unity SDK与基于EVM的智能合约进行通信。
 
