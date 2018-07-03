@@ -408,13 +408,13 @@ When you compile Solidity you not only get the bytecode that runs on the EVM, bu
     input, err := abiSimpleStore.Pack("set", big.NewInt(value.Value))
 ```
 
-Here we have the SimpleContract ABI in the `SimpleStoreABI` variable. We could either read it in from a file, or hard code into the source.
+在这里，我们在`SimpleStoreABI` 变量中有SimpleContract ABI。我们可以从文件中读取，或者将其硬代码入源中。
 
-The Pack method takes the function signature and a list of the arguments and returns the encoded input.
+Pack 方法采用函数签名和参数列表, 并返回编码的输入。
 
-### Putting it together
+### 整理一下
 
-Now we know how to get the input, and contact address we can give an example of our SetValue method. Error checking removed for clarity.
+现在我们知道如何得到输入和合约地址，我们可以给出一个SetValue方法的例子。为了清晰起见, 删除了错误检查。
 
 ```go
 func (c *EvmExample) SetValue(ctx contractpb.Context, value *types.WrapValue) error {
@@ -428,7 +428,7 @@ func (c *EvmExample) SetValue(ctx contractpb.Context, value *types.WrapValue) er
 }
 ```
 
-This function could be called in Go using Go-loom with.
+这个函数可以用Go-loom的Go语言调用。
 
 ```go
     rpcClient := client.NewDAppChainRPCClient(chainId, writeUri, readUri)
@@ -440,7 +440,7 @@ This function could be called in Go using Go-loom with.
 
 ```
 
-The GetValue function now works in a similar fashion. We now have to unwrap the output from the solidity contract and return it in a WrapValue message . `StaticCallEvm` is used as `get` is a view or constant function.
+GetValue 函数以类似的方式工作。 我们现在必须从Solidity合约中打开输出，并在WrapValue 消息中返回。 `StaticCallEvm` 用作 `get` 是一个view或者常量函数。
 
 ```go
 import (
