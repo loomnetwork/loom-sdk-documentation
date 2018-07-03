@@ -114,7 +114,7 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 #### 说明
 
-Executes a new message call immediately without creating a transaction on the block chain.
+立即执行一个新的信息调用，而不在区块俩上创建事务。
 
 #### 参数
 
@@ -160,7 +160,7 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 #### 返回值
 
-`Object` - A block object, or `null` when no block was found:
+`Object` - 区块对象，或`null`当没有找到任何区块时：
 
 - `number`: `QUANTITY` - 块号。当挂起块时为null。
 - `hash`: `DATA`, 32 字节 - 块的哈希值。当挂起块时为null。
