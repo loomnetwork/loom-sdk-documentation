@@ -169,16 +169,16 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 - `timestamp`: `QUANTITY` - the unix timestamp for when the block was collated.
 - `transactions`: `Array` - Array of transaction objects, or 32 Bytes transaction hashes depending on the last given parameter.
 
-#### Example
+#### 示例
 
 ```Javascript
-// eth_getBlockByNumber JSON RPC call
+// eth_getBlockByNumber JSON RPC调用
 const jsonRPCString = '{"jsonrpc":"2.0","method":"eth_getBlockByNumber","params":["0x1b4", true],"id":1}'
 
-// Parse JSON is a necessary step before send
+// Parse JSON是发送之前的必要步骤
 await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
-// Return should be something like
+// 返回将是这样的
 // {
 // "id":1,
 // "jsonrpc":"2.0",
@@ -190,6 +190,8 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 //     "timestamp": "0x54e34e8e" // 1424182926
 //     "transactions": [{...},{ ... }]
 //   }
+// } }]
+//   }
 // }
 ```
 
@@ -197,16 +199,16 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 * * *
 
-#### Description
+#### 说明
 
 Returns information about a block by hash.
 
-#### Parameters
+#### 参数
 
 1. `DATA` - `32 Bytes` - Hash of a block.
 2. `Boolean` - If `true` it returns the full transaction objects, if `false` only the hashes of the transactions.
 
-#### Returns
+#### 返回值
 
 `Object` - A block object, or `null` when no block was found:
 
@@ -217,16 +219,16 @@ Returns information about a block by hash.
 - `timestamp`: `QUANTITY` - the unix timestamp for when the block was collated.
 - `transactions`: `Array` - Array of transaction objects, or 32 Bytes transaction hashes depending on the last given parameter.
 
-#### Example
+#### 示例
 
 ```Javascript
-// eth_getBlockByHash JSON RPC call
+// eth_getBlockByHash JSON RPC调用
 const jsonRPCString = '{"jsonrpc":"2.0","method":"eth_getTransactionByHash","params":["0xb903239f8543d04b5dc1ba6579132b143087c68db1b2168786408fcbce568238"],"id":1}'
 
-// Parse JSON is a necessary step before send
+// Parse JSON是发送之前的必要步骤
 await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
-// Return should be something like
+// 返回将是这样的
 // {
 // "id":1,
 // "jsonrpc":"2.0",
@@ -236,7 +238,8 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 //     "parentHash": "0x9646252be9520f6e71339a8df9c55e4d7619deeb018d2a3f2d21fc165dde5eb5",
 //     "logsBloom": "0xe670ec64341771606e55d6b4ca35a1a6b75ee3d5145a99d05921026d1527331",
 //     "timestamp": "0x54e34e8e" // 1424182926
-//     "transactions": [{...},{ ... }]
+//     "transactions": [{...},{ ...
+  }]
 //   }
 // }
 ```
@@ -245,19 +248,19 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 * * *
 
-#### Description
+#### 说明
 
-Returns code at a given address.
+返回给定地址处的代码。
 
-#### Parameters
+#### 参数
 
-1. `DATA`, `20 Bytes` - address
+1. `DATA`,`20字节` - 地址
 
-#### Returns
+#### 返回值
 
 `DATA` - the code from the given address.
 
-#### Example
+#### 示例
 
 ```Javascript
 // eth_getCode JSON RPC call
