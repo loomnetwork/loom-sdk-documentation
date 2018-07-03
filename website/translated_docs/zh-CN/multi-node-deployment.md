@@ -157,25 +157,25 @@ sidebar_label: 多节点部署
 
 ## 运行
 
-First, we need to get node keys from each node. Go to the working directory and run `loom nodekey`:
+首先，我们需要从每个节点获取节点密钥。 转到工作目录并运行 `loom nodekey`：
 
 ```bash
 $ loom nodekey
 47cd3e4cc27ac621ff8bc59b776fa228adab827e
 ```
 
-Do remember to clearly make note which node key is for which node. Also important is the private IP (or any IP that are available for the nodes to communicate with each other). Generally, in a cloud environment we use public IPs for security and latency reasons.
+请记住清楚地记下哪个节点密钥用于哪个节点。 同样重要的是私有IP（或任何可用于节点彼此通信的IP）。 通常，在云环境中，出于安全性和延迟原因，我们使用公共IP。
 
-Now, let's use an example with 4 nodes:
+现在，让我们使用一个包含4个节点的示例：
 
-| Node | IP       | Node key                                 |
-| ---- | -------- | ---------------------------------------- |
-| 1    | 10.2.3.4 | 47cd3e4cc27ac621ff8bc59b776fa228adab827e |
-| 2    | 10.6.7.8 | e728bada822af677b95cb8ff126ca72cc4e3dc74 |
-| 3    | 10.3.2.1 | 4953e5726664985cc1cc92ae2edcfc6e089ba50d |
-| 4    | 10.7.6.5 | 02c90b57d241c3c014755ecb07e0c0d232e07fff |
+| 节点 | IP       | 节点密钥                                     |
+| -- | -------- | ---------------------------------------- |
+| 1  | 10.2.3.4 | 47cd3e4cc27ac621ff8bc59b776fa228adab827e |
+| 2  | 10.6.7.8 | e728bada822af677b95cb8ff126ca72cc4e3dc74 |
+| 3  | 10.3.2.1 | 4953e5726664985cc1cc92ae2edcfc6e089ba50d |
+| 4  | 10.7.6.5 | 02c90b57d241c3c014755ecb07e0c0d232e07fff |
 
-To run loom, we need to tell each node about its peers. The general format is:
+要运行loom，我们需要告诉每个节点它的对等体。 一般格式是：
 
 ```bash
 loom run tcp://<node1_key>@<node1_ip>:46656,tcp://<node2_key>@<node2_ip>:46656,...tcp://<nodeN_key>@<nodeN_ip>:46656
