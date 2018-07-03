@@ -212,12 +212,12 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 `Object` - A block object, or `null` when no block was found:
 
-- `number`: `QUANTITY` - the block number. null when its pending block.
-- `hash`: `DATA`, 32 Bytes - hash of the block. null when its pending block.
-- `parentHash`: `DATA`, 32 Bytes - hash of the parent block.
-- `logsBloom`: `DATA`, 256 Bytes - the bloom filter for the logs of the block. null when its pending block.
-- `timestamp`: `QUANTITY` - the unix timestamp for when the block was collated.
-- `transactions`: `Array` - Array of transaction objects, or 32 Bytes transaction hashes depending on the last given parameter.
+- `number`: `QUANTITY` - 块号。当挂起时为null。
+- `hash`: `DATA`, 32 字节 - 块的哈希值。当挂起块时为null。
+- `parentHash`: `DATA`, 32字节 - 父块的哈希值。
+- `logsBloom`: `DATA`, 256字节 - 块日志的Bloom过滤器。 当挂起块时为null。
+- `timestamp`: `QUANTITY` - 整理块时的unix时间戳。
+- `transactions`: `Array` - 事务对象数组。 或32字节事务哈希，具体取决于给定的最新参数。
 
 #### 示例
 
@@ -258,7 +258,7 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 #### 返回值
 
-`DATA` - the code from the given address.
+`DATA` - 来自给定地址的代码。
 
 #### 示例
 
@@ -284,17 +284,17 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 #### 说明
 
-Polling method for a filter, which returns an array of logs which occurred since last poll.
+过滤器的轮询方法，返回自上次轮询以来发生的日志数组。
 
 #### 参数
 
-1. `QUANTITY` - the filter id.
+1. `QUANTITY` - 过滤器ID。
 
 #### 返回值
 
-`Array` - Array of log objects, or an empty array if nothing has changed since last poll.
+`Array` -日志对象数组, 如果自上次轮询以来没有任何更改, 则为空数组。
 
-- For filters created with `eth_newBlockFilter` the return are block hashes (`DATA`, 32 Bytes), e.g. `["0x3454645634534..."]`.
+- 对于使用 `eth_newBlockFilter` 创建的过滤器, 返回是块的哈希值 (`数据`, 32 字节), 例如 `["0x3454645634534......"]`。
 - For filters created with `eth_newPendingTransactionFilter` the return are transaction hashes (`DATA`, 32 Bytes), e.g. `["0x6345343454645..."]`.
 - For filters created with `eth_newFilter` logs are objects with following params:
     
