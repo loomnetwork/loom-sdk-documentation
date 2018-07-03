@@ -29,15 +29,15 @@ Loom 有内建的可配置的日志记录。 用户可以配置日志的层级�
     LogDestination: "file://loom.log" # loom.log 也是默认的日志文件名
     
 
-To log to stderr, specify the destination as `file://-`
+要记录到 stderr， 指定目录为 `file://-`
 
-## Contract logging
+## 合约日志
 
-Configurations like log level and destination are seperate for contracts. These are set using environment variables. Example: `CONTRACT_LOG_LEVEL=debug CONTRACT_LOG_DESTINATION="file://-" $LOOM_EXE run`
+诸如日志层级和目录的配置对合约来说是分开的。 这些是使用环境变量。 例如： `CONTRACT_LOG_LEVEL=debug CONTRACT_LOG_DESTINATION="file://-" $LOOM_EXE run`
 
-This will set the contract log level to `debug` and the destination to stderr. The default for log level and destination are `info` and `file://contract.log` respectively.
+而这将配置合约日志的目录为 stderr，并将事件层级配置为`debug` 日志层级和目录的默认值分别是`info` and `file://contract.log` 。
 
-### Logging from the contract
+### 在合约中记录日志
 
 The contract context has a pre-configured logger that can be used for structured logging. For example
 
