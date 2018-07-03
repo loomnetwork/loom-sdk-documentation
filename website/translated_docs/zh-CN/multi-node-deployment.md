@@ -181,27 +181,27 @@ $ loom nodekey
 loom run tcp://<node1_key>@<node1_ip>:46656,tcp://<node2_key>@<node2_ip>:46656,...tcp://<nodeN_key>@<nodeN_ip>:46656
 ```
 
-Let's see examples by using the table above.
+让我们使用上表来查看示例。
 
-On node 1:
+在节点1上
 
 ```bash
 loom run tcp://e728bada822af677b95cb8ff126ca72cc4e3dc74@10.6.7.8:46656,tcp://4953e5726664985cc1cc92ae2edcfc6e089ba50d@10.3.2.1:46656,tcp://4953e5726664985cc1cc92ae2edcfc6e089ba50d@10.7.6.5:46656
 ```
 
-On node 2:
+在节点2上
 
 ```bash
 loom run tcp://47cd3e4cc27ac621ff8bc59b776fa228adab827e@10.2.3.4:46656,tcp://4953e5726664985cc1cc92ae2edcfc6e089ba50d@10.3.2.1:46656,tcp://4953e5726664985cc1cc92ae2edcfc6e089ba50d@10.7.6.5:46656
 ```
 
-The same goes for node 3 and node 4. We exclude the node's own key and IP address.
+节点3和节点4也是如此。我们排除节点自己的密钥和IP地址。
 
-**Please remember that all commands need to be executed from within the working directory.**
+**请记住，所有命令都需要在工作目录中执行。**
 
-### systemd Startup Script
+### systemd 启动脚本
 
-The following startup script can be used to control the service using systemd. Make changes to `WorkingDirectory` and/or `ExecStart` to reflect your setup.
+以下启动脚本可通过使用systemd来控制服务。对 `WorkingDirectory` 和/或 `ExecStart` 进行更改以反映你的设置。
 
 Notice `ExecStart`, it is constructed using the same concept from the previous section when running loom directly. This means each node has a different startup script.
 
