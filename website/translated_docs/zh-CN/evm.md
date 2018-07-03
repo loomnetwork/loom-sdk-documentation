@@ -1,17 +1,17 @@
 ---
 id: evm
-title: 以太坊虚拟机器
+title: 以太坊虚拟机
 sidebar_label: EVM
 ---
 ## 概括
 
-loom DApp链包含一个以太坊虚拟机器（EVM）并使你可以部署以及运行将编译成EVM字节码的智能合约。
+loom DApp链包含一个以太坊虚拟机（EVM）并使你可以部署以及运行将编译成EVM字节码的智能合约。
 
-### 以太坊虚拟机器
+### 以太坊虚拟机
 
 一个EVM由一个数据库以及EVM字节码解释器组成。
 
-解释器运行EVM字节码，专为创建适合区块链的安全的确定性程序而设计。 编码EVM智能合约最受欢迎的语言是Solidity，然而任何编译为EVM字节码的语言都可以由EVM解释器运行。
+解释器运行EVM字节码，专为创建适合区块链的安全的确定性程序而设计。 编码EVM智能合约最受欢迎的语言是Solidity，不过任何编译为EVM字节码的语言都可以由EVM解释器运行。
 
 该数据库由EVM上已部署的每个程序的地址键入。 该值包含程序的字节码和任何相关数据。
 
@@ -25,9 +25,9 @@ loom DApp链包含一个以太坊虚拟机器（EVM）并使你可以部署以�
 4. 在Go里你可以用go-loom的EvmContract对象。
 5. 在TypeScript或JavaScript中你使用loom-js的EvmContract对象。
     
-    EVM智能合约以编译的字节码的形式部署到DApp链中。 这使得链无法得知父语言。 Solidity智能合约方法调用的参数是以在[Solidity网站上记录的](https://solidity.readthedocs.io/en/develop/abi-spec.html).应用程序二进制接口(ABI) 来进行编码的。 ABI可以变得相当复杂，但是正如我们以后看到的，以太坊实现应该给出了支持参数生成的功能。
+    EVM智能合约以编译的字节码的形式部署到DApp链中。 这使得链无法得知父语言。 Solidity智能合约方法调用的参数是以在[Solidity网站上有详细文档的](https://solidity.readthedocs.io/en/develop/abi-spec.html)应用程序二进制接口(ABI) 来进行编码的。 ABI可以变得相当复杂，但是正如我们以后看到的，以太坊实现应该给出了支持参数生成的功能。
     
-    ## Deploy on Boot up.
+    ## 在启动时部署
     
     通过将已编译的代码放入合约目录中并链接 `genesis.json`文件, 可以在启动时在DApp链上部署合约。
     
@@ -39,7 +39,7 @@ loom DApp链包含一个以太坊虚拟机器（EVM）并使你可以部署以�
     
     ] }
 
-    在顶部序列中有两个合约。 第一个是EVM合约，第二个是插件。
+    在顶部的数组中有两个合约。 第一个是EVM合约，第二个是插件。
     * ' vm: ' 用于运行合约的虚拟机。 目前有两种选择。
       1. "plugin" 用户创建了合约。
       2. `EVM` 合约运行在DApp链虚拟机上。
