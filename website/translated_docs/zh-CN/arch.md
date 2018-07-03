@@ -2,7 +2,7 @@
 id: arch
 title: DAppChain架构
 ---
-Loom SDK是一个可插入的Blockchain开发工具。可以在共识层和合同层插入。
+Loom SDK是一个可插入的Blockchain开发工具。可以在共识层和合约层插入。
 
 ## 共识
 
