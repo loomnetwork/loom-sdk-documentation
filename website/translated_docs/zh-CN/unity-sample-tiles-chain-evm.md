@@ -40,6 +40,6 @@ cp genesis.example.json genesis.json
 ./loom run
 ```
 
-### 4.) Build the Unity client
+### 4. 建立Unity客户端
 
-Open the Unity project located in `unityclient` folder. Open the `LoomTilesChainEvm` scene and build it.
+打开位于 `unityclient` 文件夹中的Unity项目。打开 `LoomTilesChainEvm` 场景并构建它。
