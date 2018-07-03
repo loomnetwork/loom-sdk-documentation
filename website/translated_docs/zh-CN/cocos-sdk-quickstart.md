@@ -1,7 +1,7 @@
 ---
 id: cocos-sdk-quickstart
-title: Cocos Creator的Loom SDK
-sidebar_label: Cocos SDK快速开始
+title: 用于 Cocos Creator 的 Loom SDK
+sidebar_label: Cocos SDK快速上手
 ---
 ## 内容：
 
@@ -112,4 +112,4 @@ Cocos Creator基于开源框架Cocos2d-x，实现了一体化、可扩展、可�
 ## 说明
 
 - `Loom Block Chain` 的配置, 运行, 合约的使用, 参见[这里](https://loomx.io/developers/docs/en/prereqs.html)
-- Sample `dark-slash` 来自于`Cocos Creator`的[样例工程](https://github.com/cocos-creator/tutorial-dark-slash)
+- 示例 `dark-slash` 来自于`Cocos Creator`的[样例工程](https://github.com/cocos-creator/tutorial-dark-slash)
