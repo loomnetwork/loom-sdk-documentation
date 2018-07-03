@@ -27,7 +27,7 @@ Reverse chronology order of release notes
 
 ## 发布161 - 6月7日
 
-* Tons of Truffle Fixes
+* 大量 Truffle 修复
 * 针对 Loom-Js provider 的大量 web3.js 修复
 
 ## 发布 155-6月6日
@@ -39,20 +39,20 @@ Reverse chronology order of release notes
 
 ## 发布143 - 6月1日
 
-* [BluePrint Docker 图像可用](docker-blueprint.html)
+* [BluePrint Docker 映像可用](docker-blueprint.html)
 * [日本黑客松成果](https://medium.com/loom-network/highlights-from-the-first-loom-unity-sdk-hackathon-tokyo-edition-6ed723747c19)
-* [针对一些Loom SDK项目的Docker图像](https://hub.docker.com/r/loomnetwork/)
-* Evm TX Reciepts fixes 
+* [针对一些 Loom SDK 项目的 Docker 映像](https://hub.docker.com/r/loomnetwork/)
+* Evm TX Reciepts 修复 
 
-## Release 137 - May 30th
+## 发布137 - 5月30日
 
-* Go Clients can Access EVM Contracts
-* Numerous bug fixes for EVM
-* [Social Network Example App - Solidity](simple-social-network-example.html)
+* Go 客户端可以访问 EVM 合约
+* 针对 EVM 的大量错误修复
+* [社交网络示例应用程序 - Solidity](simple-social-network-example.html)
 
-## Release 136 - May 28th
+## 发布136 - 5月28日
 
-* Initial Solidity Alpha test build, you can now deploy solidity contracts
+* 初始 Solidity Alpha 测试构建，你现在可以部署 solidity 合约
 * Websocket eventing support for solidity 
 * [Example Project for solidity Events](phaser-sdk-demo-web3-websocket.html)
 * [Multinode deployment guide](multi-node-deployment.html)
