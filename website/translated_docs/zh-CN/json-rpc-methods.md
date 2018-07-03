@@ -300,11 +300,11 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 <ul>
 <li><code>removed`: `TAG` - 由于链重新配置而删除日志时` true </ 0>。 如果启用了日志记录，则<code> false </ 0>。</li>
-<li><code> logIndex </ code>：<code> QUANTITY </ code> - 日志中阻止的索引位置的整数。 对于未处理的日志，它为null。</li>
-<li><code> transactionIndex`：` QUANTITY ` - 事务索引位置日志的整数是由此创建的。当log待处理时为null。</li> 
+<li><code> logIndex </ code>：<code> QUANTITY </ code> - 区块中日志索引位置的整数。 当日志为待处理时为null。</li>
+<li><code> transactionIndex`：` QUANTITY ` - 事务索引位置日志的整数是由此创建的。当日志为待处理时为null。</li> 
     
-    - `transactionHash`: `DATA`, 32 Bytes - hash of the transactions this log was created from. null when its pending log.
-    - `blockHash`: `DATA`, 32 Bytes - hash of the block where this log was in. null when its pending. null when its pending log.
+    - ` transactionHash`：` DATA`，32字节 - 这个日志的事务哈希是由此创建的。当日志为待处理时为null。
+    - `blockHash`: `DATA`, 32 字节 - 这个日志所在区块的哈希。当它待处理时为null。当日志待处理时为null。
     - `blockNumber`: `QUANTITY` - the block number where this log was in. null when its pending. null when its pending log.
     - `address`: `DATA`, 20 Bytes - address from which this log originated.
     - `data`: `DATA` - contains one or more 32 Bytes non-indexed arguments of the log.
