@@ -313,13 +313,13 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
     #### 示例
     
     ```Javascript
-    // eth_getFilterChanges JSON RPC call
+    // eth_getFilterChanges JSON RPC调用
     const jsonRPCString = '{"jsonrpc":"2.0","method":"eth_getFilterChanges","params":["0x16"],"id":73}'
     
-    // Parse JSON is a necessary step before send
+    // Parse JSON是发送之前的必要步骤
     await loomProvider.sendAsync(JSON.parse(jsonRPCString))
     
-    // Return should be something like
+    // 返回将是这样的
     // {
     //   "id":1,
     //   "jsonrpc":"2.0",
@@ -342,7 +342,7 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
     
     * * *
     
-    #### Description
+    #### 说明
     
     Returns an array of all logs matching a given filter object.
     
