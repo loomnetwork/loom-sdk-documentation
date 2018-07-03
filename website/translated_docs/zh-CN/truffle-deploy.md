@@ -1,23 +1,23 @@
 ---
 id: truffle-deploy
-title: Truffle DAppChain Example
-sidebar_label: Truffle Deploy
+title: Truffle DApp链示例
+sidebar_label: Truffle部署
 ---
 ![http://truffleframework.com](/developers/img/truffle.jpg)
 
-Simple example of Truffle interacting with Loom DAppChain, this example uses [loom-truffle-provider](https://github.com/loomnetwork/loom-truffle-provider) (check LoomTruffleProvider repository for more details)
+Truffle 与 Loom DApp 链交互的简单示例，此示例使用 [loom-truffle-provider](https://github.com/loomnetwork/loom-truffle-provider)（有关详细信息，请查看 LoomTruffleProvider 代码库）
 
-## Requirements
+## 需求
 
 ```bash
 Node >= 8
 ```
 
-## Install
+## 安装
 
-In order to download the Truffle DAppChain Example there're two methods Git or Unbox
+下载 Truffle DApp 链 示例有两种方法：Git 或 Unbox
 
-### Git method
+### Git 方法
 
 ```bash
 git clone https://github.com/loomnetwork/truffle-dappchain-example
@@ -27,14 +27,14 @@ git clone https://github.com/loomnetwork/truffle-dappchain-example
 cd truffle-dappchain-example
 
 yarn install
-# or
+# 或
 npm install
 ```
 
-### Unbox method
+### Unbox 方法
 
 ```bash
-# Install Truffle if not installed
+# 如果还没安装 Truffle 就先安装
 npm install -g truffle
 
 mkdir truffle-dappchain-example
@@ -43,44 +43,44 @@ cd truffle-dappchain-example
 truffle unbox loomnetwork/truffle-dappchain-example
 ```
 
-## Start DappChain
+## 启动 Dapp 链
 
 ```bash
-# Download
+# 下载
 wget https://private.delegatecall.com/loom/osx/build-209/loom
 chmod +x loom
 
-# Run
+# 运行
 ./loom init
 ./loom run
 ```
 
-## Deploy Truffle
+## 部署 Truffle
 
 ```bash
-# On second terminal
+# 在第二个终端
 
-# Deploy Migrations.sol and SimpleStore.sol
+# 部署 Migrations.sol 和 SimpleStore.sol
 yarn deploy
 
-# Running test on directory /test
+# 在 /test 目录上运行测试
 yarn test
 ```
 
-> In order to correctly redeploy the contracts there's a command "yarn deploy:reset"
+> 为了正确地重新部署合同，有一个命令 “yarn deploy: reset”
 > 
-> Also is possible to call truffle command directly by call "yarn truffle"
+> 也可以通过调用 "yarn truffle" 直接调用truffle命令
 > 
-> We're not versioning the build directory for this particular example, although is recommended to versioning, the limitation can be removed by editing .gitignore
+> 我们没有对这个特定示例的构建目录进行版本控制，虽然建议进行版本控制，但可以通过编辑 .gitignore 来消除限制。
 
-## Current limitations
+## 当前的局限
 
-* Events declared on smart contracts should have an named parameter like `NewValueSet(uint _value)` in the contract `SimpleStore.sol`. Also it helps to dealing with events
+* 在智能合约上声明的事件应该有命名参数，如在合同`SimpleStore.sol`中的`NewValueSet(uint _value)` 。 它也有助于处理事件。
 
 ## Loom Network
 
 <https://loomx.io>
 
-## License
+## 许可证
 
-BSD 3-Clause License
+BSD 3-条款许可证

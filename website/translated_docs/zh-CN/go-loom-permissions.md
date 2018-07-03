@@ -1,37 +1,38 @@
 ---
 id: goloompermissions
-title: Working with permissions helpers in go-loom
-sidebar_label: Permission Helpers
+title: 和权限助手一起使用go-loom
+sidebar_label: 权限助手
 ---
-## Using permissions in contracts with go-loom
+## 使用go-loom合同中的权限
 
-Contracts written with go-loom can use helper functions for setting and checking permissions on arbitrary tokens.
+用go-loom编写的合同可以使用辅助函数来设置和检查任意标记的权限。
 
-This is somewhat similiar to in Solidity the Ownable concept from [OpenZeppelin](https://github.com/OpenZeppelin/openzeppelin-solidity/blob/master/contracts/ownership/Ownable.sol).
+这有点类似于OpenZeppelin</a>.  的 Solidity the Ownable概念。</p> 
 
-Every permission has three attributes: 1. address 2. token 3. role
+每个权限都有三属性: 1. 地址 2. 代币 3. 角色
 
-A token can be any string or byte sequence, which represents an object to be owned. For example a persons username can be a token, that they have ownership over. Other things like tokens could also have ownership.
+代币可以是任何字符或字节序列，表示要拥有的对象。 例如, 用户名可以是一个代币, 用户拥有所有权。 其他类似于代币的东西也可以拥有所有权。
 
-A permission `role` is granted to an `address` on a `token`. For example, when creating an account, the `owner` permission can be given to the sender address on the `username` token.
+A permission `role` is granted to an `address` on a `token`. 例如, 创建帐户时, 可以将 `owner` 权限授予 `username` 标记上的发件人地址。.
 
-For example
+例如
 
         ctx.GrantPermission([]byte(userName), []string{"owner"})
     
 
-will grant a `owner` permission on a `userName` (token) to the sender address of the transaction. The roles is an array to grant multiple permissions in a single call.
+这会将` userName </ code>（代币）的<code>所有者</ code>权限授予事务的发件人地址。此角色是一个用于通过一次调用授予多个权限的阵列。</p>
 
-To check for a permission for the sender of a transaction,
+<p>要检查事务发件人的访问权限，</p>
 
-        if ok, _ := ctx.HasPermission([]byte(userName), []string{"owner"}); !ok {
-            return errors.New("User unverified")
-        }
-    
+<pre><code>    if ok, _ := ctx.HasPermission([]byte(userName), []string{"owner"}); !ok {
+        return errors.New("User unverified")
+    }
+`</pre> 
 
-The HasPermission returns a bool (to indicate a match) and a subset of the roles that were matched for the combination of `address` and `role`
+在HasPermission中，返回与bool值（指示匹配）以及` address </ code>和<code> role </ code>的组合匹配的角色子集。</p>
 
-There are 2 other low level functions to work with permissions on arbitrary addresses
+<p>还有另外两个低级函数以任意地址的权限运行。</p>
 
-        HasPermissionFor(addr loom.Address, token []byte, roles []string) (bool, []string)
-        GrantPermissionTo(addr loom.Address, token []byte, role string)
+<pre><code>    HasPermissionFor(addr loom.Address, token []byte, roles []string) (bool, []string)
+    GrantPermissionTo(addr loom.Address, token []byte, role string)
+`</pre>

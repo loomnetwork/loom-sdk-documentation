@@ -1,37 +1,37 @@
 ---
 id: goloomstate
-title: Saving and reading state in go-loom contracts
-sidebar_label: Saving and reading state
+title: go-loom 合约中保存和读取状态
+sidebar_label: 保存和读取状态
 ---
-## The contract state
+## 合约状态
 
-Each contract has access to a sandboxed state for storage of data. The write actions on the state are rolled back in case the contract operation returns an error. If a transaction is successfully commited, it contains the hash of the state root so that any given state is commited to the blockchain.
+每个合约都可以访问沙盒状态以存储数据。 如果合同操作返回错误，则回滚对状态的写入操作。 如果事务成功提交，它将包含状态根的哈希值，以便将任何给定状态提交给区块链。
 
-## Writing to the state
+## 写入到状态中
 
-Use the `Set` operation on the contract context to save to the state.
+使用合同上下文中的 `Set` 操作保存到状态。
 
     Set(key []byte, pb proto.Message) error
     
 
-go-loom mandates that the data being saved is a protobuf object.
+go-loom 命令保存的数据是 protobuf 对象。
 
-## Reading from the state
+## 从状态中读取
 
-Use the `Has` operation to check whether a particular key exists in the state
+使用 `Has` 操作检查状态中是否存在特定密钥
 
     Has(key []byte) bool
     
 
-To read the value saved at a key use the `Get` operation
+要读取保存在键上的值, 请使用 `Get` 操作
 
     Get(key []byte, pb proto.Message) error
     
 
-Get will unmarshal the saved data into a protobuf struct
+Get 会将保存的数据解编为 protobuf 结构
 
-## Deleting a key
+## 删除键
 
-Data saved at a key can be delete with
+保存在键上的数据可以被删除
 
     Delete(key []byte)
