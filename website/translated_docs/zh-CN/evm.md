@@ -366,7 +366,7 @@ message WrapValue {
 
 别害怕，go-ethereum 可以帮助我们。
 
-When you compile Solidity you not only get the bytecode that runs on the EVM, but you get a ABI. The ABI is a json object that describes the contracts interface. Here is the ABI for our SimpleStore
+当你编译Solidity的时候，你不仅获得了运行在EVM上的字节码，你还得到了一个ABI。ABI是一个描述合约接口的json事物。这里是给我们SimpleStore的ABI
 
 ```json
 [
@@ -524,7 +524,7 @@ func getEvmContract(contractName string) (*client.EvmContract, error) {
 
 可以使用Solidty编译器`solc --bin -o . mySolidityProgram.sol` 将Solidity合约转换为字节代码。
 
-`hex.DecodeString` 可用于将十六进制字符串转换为 [] 字节数组。 然后, 我们可以使用 client.DeployContract 来部署我们的合约。 然后返回一个 EVMContract 的代号。 The second return parameter is a [transaction hash](https://loomx.io/developers/docs/en/evm.html#transaction-receipt) that can be used to retrive a reciept of the transaction using the TxHash Query.
+`hex.DecodeString` 可用于将十六进制字符串转换为 [] 字节数组。 然后, 我们可以使用 client.DeployContract 来部署我们的合约。 然后返回一个 EVMContract 的代号。 第二个返回的参数是一个[transaction hash](https://loomx.io/developers/docs/en/evm.html#transaction-receipt)，它可以被用来取回使用TxHash Query的事务回执。
 
 ```go
 import (
@@ -546,9 +546,9 @@ func deployEvmContract(name string, byteHex string, signer auth.Signer)
 }
 ```
 
-#### Retrieving Solidity contract's code
+#### 取回Solidity合约的代码
 
-You can retrieve the runtime bytecode for a deployed solidity contract using the DAppChains QueryInterface method GetCode.
+你可以使用DAppChains QueryInterface的方法 GetCode 来取回一个已部署Solidity合约的运行时字节码。
 
 ```go
 // GetCode returns the runtime byte-code of a contract running on a DAppChain's EVM.
