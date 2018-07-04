@@ -13,7 +13,7 @@ sidebar_label: JS WebSockets + EVM Web3 演示
 
 ## 开发
 
-### 1.) 运行你自己的 Dapp 链
+### 1.) 运行你自己的 Dapp链
 
 有关运行Dapp链的更多说明，请参阅[Loom SDK 文档](https://loomx.io/developers/docs/en/prereqs.html)。
 
@@ -23,7 +23,7 @@ sidebar_label: JS WebSockets + EVM Web3 演示
 git clone https://github.com/loomnetwork/tiles-chain-evm
 ```
 
-### 3.) 启动 Dapp 链
+### 3.) 启动 Dapp链
 
 ```bash
 cd tiles-chain-evm
