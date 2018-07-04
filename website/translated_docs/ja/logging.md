@@ -6,7 +6,7 @@ id: logging title: ロギング sidebar_label: ロギング
 
 ## 概要
 
-Loomには設定可能なロギング機能が組み込まれている。 ユーザーはログのレベルと出力先を設定できる。
+Loomには設定可能なロギング機能が組み込まれている。 The user can configure the log level and the log destination.
 
 ## Loom SDKのロギング
 
@@ -14,19 +14,19 @@ Loomには設定可能なロギング機能が組み込まれている。 ユー
 
 Loom SDKには2タイプのログがある。 1つ目は、ブロックチェーンのトランザクションとコンセンサス・イベントのログである。 2つ目はLoom SDKによって生成されたログで、出力されたイベントのようなものだ。
 
-以下を`loom.yaml`に設定して、ログレベルを設定しよう。
+Set the following in your `loom.yaml` to set logging levels.
 
-    LoomLogLevel: debug # LoomSDKによって出力されるイベントのログレベルを設定
-    BlockchainLogLevel: error # ブロックチェーンのログのログレベルを設定
+    LoomLogLevel: debug # sets log level for events emitted from the loom sdk
+    BlockchainLogLevel: error # sets log level for the blockchain logs.
     
 
-`LoomLegLevel`と`BlockchainLogLevel`のデフォルトは、それぞれ`info`と`error`である。
+Defaults for the `LoomLogLevel` and `BlockchainLogLevel` are `info` and `error` respectively.
 
 ### ログ出力先の設定
 
 現在Loomログ用にファイルターゲットがサポートされてている。
 
-    LogDestination: "file://loom.log" # loom.log は同じくデフォルトターゲット
+    LogDestination: "file://loom.log" # loom.log is also the default target.
     
 
 ログを標準エラー出力するには、出力先を`file://-`と指定しよう。
