@@ -1,6 +1,6 @@
 ---
 id: loom-yaml
-title: Loom Yaml and Configuration options
+title: Loom Yamlと設定オプション
 sidebar_label: Loom Yaml and Configuration options
 ---
 # loom.yaml
@@ -22,23 +22,23 @@ sidebar_label: Loom Yaml and Configuration options
     # EthereumURI: ws://127.0.0.1:8545"
     
 
-remove the # from lines you want to change
+変更したい1行があれば、そこの # を消去しよう。
 
 ## LoomLogLevel
 
-Options: debug, info, warn, error
+オプション: debug, info, warn, error
 
-General logging for the Loom Blockchain
+Loomブロックチェーン用の一般的なロギング。
 
 ## ContractLogLevel
 
-Options: debug, info, warn, error
+オプション: debug, info, warn, error
 
-General logging for the Go Based Smart contracts.
+Goベースのスマートコントラクト用の一般的なロギング。
 
 ## BFTLogLevel
 
-Options: debug, info, warn, error
+オプション: debug, info, warn, error
 
 General logging for the BFT Layer Blockchain. This may change based on which BFT engine you are using.
 
