@@ -99,7 +99,7 @@ module.exports = function(deployer) {
 
 ### 下载并配置 Loom Truffle Provider
 
-The last cog to be added is the `Loom Truffle Provider`, that plugin provides the connection between `Truffle` and Loom DAppChain (and it also has the `LoomProvider` underneath). Let's install:
+要添加的最后一个部件是 `Loom Truffle Provider`，该插件提供 `Truffle` 和 Loom DApp 链之间的连接（它下面还有 `LoomProvider`）。 我们安装吧：
 
 ```bash
 npm install loom-truffle-provider --save
@@ -107,7 +107,7 @@ npm install loom-truffle-provider --save
 yarn add loom-truffle-provider
 ```
 
-And let's edit the file `truffle.js` to add the necessary configuration, as the following example:
+让我们编辑文件 `truffle.js` 添加必要的配置, 如下面的示例所示:
 
 ```javascript
 const { readFileSync } = require('fs')
@@ -130,21 +130,21 @@ module.exports = {
 }
 ```
 
-> Don't forget to generate yours keys using the command `loom genkey -a public_key -k private_key`
+> 不要忘记使用命令 `loom genkey -a public_key -k private_key` 生成你的密钥
 
-### Running Truffle deploy command
+### 运行 Truffle 部署命令
 
-Now we're good to run the deploy command:
+现在, 我们准备好了运行部署命令:
 
-> But before you need to start the Loom DAppChain
+> 但之前你需要启动 Loom DApp链
 
 ```bash
 truffle deploy --network loom_dapp_chain
 ```
 
-> If you already deployed and wants to reset the deployment you can run the command `truffle deploy --reset --network loom_dapp_chain`
+> 如果您已部署并希望重置部署，则可以运行该命令 `truffle deploy --reset --network loom_dapp_chain`
 
-### Adding more accounts
+### 添加更多帐户
 
 In order to access accounts on `LoomTruffleProvider` you should use the function `getProviderEngine` which will return the `LoomProvider` giving access to properties `accountsAddrList` and `accounts``
 
