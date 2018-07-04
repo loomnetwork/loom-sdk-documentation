@@ -65,7 +65,7 @@ truffle init
 
 ### 添加合约和迁移
 
-On the `contracts` directory we should create our contract in [Solidity](http://solidity.readthedocs.io/en/v0.4.22/), we're going to use the famous `SimpleStore.sol` which has a `set` function for a parameter `value` also for an state change, a `get` function for the read only and no state change call and an event called `NewValueSet` which will have the parameter `value`, as the following example:
+在 `contracts` 目录上，我们应该在[Solidity](http://solidity.readthedocs.io/en/v0.4.22/)中创建合约，我们将使用著名的`SimpleStore.sol` ，它具有一个参数`value`的`set`函数，也用于状态更改，`get` 函数用于只读，没有状态更改调用，以及一个名为`NewValueSet` 的事件，它将具有参数值，如下例所示：
 
     pragma solidity ^0.4.22;
     
@@ -85,7 +85,7 @@ On the `contracts` directory we should create our contract in [Solidity](http://
     }
     
 
-Next let's add an migration, `Truffle` works with the concept of migrations, which makes useful for track changes and updates. The file should be created on migrations directory and it should be `JavaScript` file and the file name should start with the number `2` becoming `2_simple_store.js`, and the content should be the following:
+接下来让我们添加一个迁移，Truffle 使用迁移的概念，这对跟踪更改和更新很有用。 该文件应该在迁移目录中创建，它应该是 `JavaScript` 文件，文件名应该从数字 `2` 开始变为 `2_simple_store.js`，内容应该如下：
 
 ```Javascript
 var SimpleStore = artifacts.require("./SimpleStore.sol");
@@ -95,9 +95,9 @@ module.exports = function(deployer) {
 };
 ```
 
-> There's a complete example of Truffle integration available on https://github.com/loomnetwork/truffle-dappchain-example
+> 在 https://github.com/loomnetwork/truffle-dappchain-example 上有一个完整的 Truffle 集成示例
 
-### Download and configure Loom Truffle Provider
+### 下载并配置 Loom Truffle Provider
 
 The last cog to be added is the `Loom Truffle Provider`, that plugin provides the connection between `Truffle` and Loom DAppChain (and it also has the `LoomProvider` underneath). Let's install:
 
