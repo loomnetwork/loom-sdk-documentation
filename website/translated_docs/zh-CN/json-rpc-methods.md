@@ -305,7 +305,7 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
     
     - ` transactionHash`：` DATA`，32字节 - 事务的哈希，这个日志根据此创建。当日志为待处理时为null。
     - `blockHash`: `DATA`, 32 字节 - 这个日志所在区块的哈希。当它待处理时为null。当日志待处理时为null。
-    - `blockNumber`: `QUANTITY` - 这个日志所在的区块号。当它待处理时为null。当日志待处理时为null。
+    - `blockNumber`: `QUANTITY` - 这个日志所在的区块编号。当它待处理时为null。当日志待处理时为null。
     - `address`: `DATA`, 20 字节 - 这个日志起源的地址。
     - `data`: `DATA` - 包含日志的一个或多个32字节的非索引参数。
     - `topics`: `Array of DATA` - 数组0到 4 32 字节 索引日志参数的`DATA`。 （在Solidity：第一个topic是事件（例如Deposit(address,bytes32,uint256)）签名的哈希，除非你用匿名说明符声明了该事件。）</ul></li> </ul> 
@@ -350,8 +350,8 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
     
     1. `Object` - 过滤器选项：
     
-    - `fromBlock`: `QUANTITY|TAG` - (可选，默认：`"latest"`) 整数区块号，或最后挖出来的区块链或”pending 待处理“为“latest“，还没有挖的事务为”earliest“。
-    - `toBlock`: `QUANTITY|TAG` - (可选，默认：`"latest"`) 整数区块号，或最后挖出来的区块链或”pending 待处理“为“latest“，还没有挖的事务为”earliest“。
+    - `fromBlock`: `QUANTITY|TAG` - (可选，默认：`"latest"`) 整数区块号，或最后挖出来的区块链或”pending“（待处理）为“latest“（最新），还没有挖的事务为”earliest“（最早）。
+    - `toBlock`: `QUANTITY|TAG` - (可选，默认：`"latest"`) 整数区块号，或最后挖出来的区块链或”pending“（待处理）为“latest“（最新），还没有挖的事务为”earliest“（最早）。
     - `address`: `DATA`|数组, 20 字节 - (可选) 合约地址或者日志应该由此起源的地址列表。
     - `topics`: `DATA`的数组 - (可选) 32 字节的`DATA` 主题的数组。 主题是与顺序相关的。 每个主题也可以是 `DATA` 的数组，其中有 "or" 选项。
     - `blockhash`: `DATA`, 32 字节 - (可选, 未来) 添加 EIP-234 后，blockhash 将成为新的过滤器选项，它使用32字节的哈希 blockHash 来限制返回到单个区块的日志。 使用 blockHash 等同于 fromBlock = toBlock = 带有哈希 blockHash 的区块号。 如果过滤器条件中出现了 blockHash，则 fromBlock 和 toBlock 都不会被允许。
