@@ -166,7 +166,7 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 - `hash`: `DATA`, 32 字节 - 区块的哈希值。当区块待处理时为null。
 - `parentHash`: DATA`, 32字节 - 父块的哈希值。
 - `logsBloom`: `DATA`, 256字节 - 块日志的Bloom过滤器。 当区块未处理时为null。
-- `timestamp`: `QUANTITY` - 整理块时的unix时间戳。
+- `timestamp`: `QUANTITY` - 用于核对区块的unix时间戳。
 - `transactions`: `Array` - 事务对象数组。 或32字节事务哈希，具体取决于给定的最新参数。
 
 #### 示例
@@ -201,22 +201,22 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 #### 说明
 
-通过哈希返回有关块的信息。
+通过哈希返回有关区块的信息。
 
 #### 参数
 
-1. `DATA` - `32字节` - 块的哈希。
-2. `Boolean` - 如果为true，则返回完整的事务对象，如果为false，则仅返回事务的哈希值。
+1. `DATA` - `32字节` - 区块的哈希。
+2. `Boolean` - 如果为`true`，则返回完整的事务对象，如果为`false`，则仅返回事务的哈希值。
 
 #### 返回值
 
-`Object` - 区块对象，或`null`当没有找到任何区块时：
+`Object` - 区块对象，或当没有找到任何区块时为`null`：
 
-- `number`: `QUANTITY` - 块号。当区块待处理时为null。
+- `number`: `QUANTITY` - 区块遍号。当区块待处理时为null。
 - `hash`: `DATA`, 32 字节 - 区块的哈希值。当区块待处理时为null。
 - `parentHash`: `DATA`, 32字节 - 父块的哈希值。
-- `logsBloom`: `DATA`, 256字节 - 块日志的Bloom过滤器。 当挂起块时为null。
-- `timestamp`: `QUANTITY` - 整理块时的unix时间戳。
+- `logsBloom`: `DATA`, 256字节 - 区块日志的Bloom过滤器。 当区块未处理时为null。
+- `timestamp`: `QUANTITY` - 用于核对区块的unix时间戳。
 - `transactions`: `Array` - 事务对象数组。 或32字节事务哈希，具体取决于给定的最新参数。
 
 #### 示例
@@ -250,7 +250,7 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 #### 说明
 
-返回给定地址处的代码。
+在给定地址处返回代码。
 
 #### 参数
 
@@ -295,11 +295,11 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 `Array` -日志对象数组, 如果自上次轮询以来没有任何更改, 则为空数组。
 
 - 对于使用 `eth_newBlockFilter` 创建的过滤器, 返回是块的哈希值 (`数据`, 32 字节), 例如 `["0x3454645634534......"]`。
-- 对于使用 `eth_newBlockFilter` 创建的过滤器, 返回是事务的哈希值 (`数据`, 32 字节), 例如 `["0x6345343454645......"]`。
+- 对于使用 `eth_newBlockFilter` 创建的过滤器, 返回是事务的哈希值 (`DATA`, 32 字节), 例如 `["0x6345343454645......"]`。
 - 对于使用` eth_newFilter </ code>创建的过滤器，日志将是具有以下参数的对象：</p>
 
 <ul>
-<li><code>removed`: `TAG` - 由于链重新配置而删除日志时` true </ 0>。 如果启用了日志记录，则<code> false </ 0>。</li>
+<li><code>removed`: `TAG` - 由于链重新配置而删除日志时为` true </ 0>。 如果它是一个有效日志，则为<code> false </ 0>。</li>
 <li><code> logIndex </ code>：<code> QUANTITY </ code> - 区块中日志索引位置的整数。 当日志为待处理时为null。</li>
 <li><code> transactionIndex`：` QUANTITY ` - 事务索引位置的整数，日志是由此创建的。当日志为待处理时为null。</li> 
     
