@@ -44,7 +44,7 @@ BFTレイヤーブロックチェーン用の一般的なロギング。使用�
 
 ## QueryServerHost
 
-Options: url for example "tcp://0.0.0.0:9999"
+オプション: URLの例 "tcp://0.0.0.0:9999"
 
 This is the nterface to the blockchain, set a bind port, default port is 9999
 
@@ -74,6 +74,6 @@ Port for tendermint bft engine
 
 ## RPCAddress
 
-Options: "http://127.0.0.1:45668"
+オプション: "http://127.0.0.1:45668"
 
-Note this has to match the RPCProxyPort in the loom.yaml
+これはloom.yamlのRPCProxyPortとマッチしなくてはならない。
