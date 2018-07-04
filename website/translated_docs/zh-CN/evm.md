@@ -695,14 +695,14 @@ loom-js: `async getTxReceiptAsync(txHash: Uint8Array): Promise<EvmTxReceipt | nu
 
 以下是事务回执对象的详细信息。 
 
-| 字段                | 内容                                             |
-| ----------------- |:---------------------------------------------- |
-| TransactionIndex  | 此区块的事务编号                                       |
-| BlockHash         | Hash of the last block                         |
-| BlockNumber       | Block height                                   |
-| CumulativeGasUsed | Currently not used                             |
-| GasUsed           | Currently not used                             |
-| ContractAddress   | Address of the contract called                 |
-| Logs              | Events, encoded as an array of Event protobufs |
-| LogsBloom         | Not used                                       |
-| Status            | 1 = success or 0 = failier                     |
+| 字段                | 内容                   |
+| ----------------- |:-------------------- |
+| TransactionIndex  | 此区块的事务编号             |
+| BlockHash         | 上一区块的哈希              |
+| BlockNumber       | 区块高度                 |
+| CumulativeGasUsed | 目前尚未使用               |
+| GasUsed           | 目前尚未使用               |
+| ContractAddress   | 被调用合约的地址             |
+| Logs              | 事件，编码为事件protobufs的数组 |
+| LogsBloom         | 尚未使用                 |
+| Status            | 1 = 成功 或 0 = 失败      |
