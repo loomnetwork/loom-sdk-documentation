@@ -588,17 +588,17 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
     
     #### 说明
     
-    卸载具有给定id的过滤器。 Should always be called when watch is no longer needed. Additonally Filters timeout when they aren't requested with [eth_getFilterChanges](#eth-getfilterchanges) for a period of time.
+    卸载具有给定id的过滤器。 Should always be called when watch is no longer needed. 另外，当过滤器在一段时间不被[eth_getFilterChanges](#eth-getfilterchanges) 请求的话将过期。
     
-    #### Parameters
+    #### 参数
     
-    1. `QUANTITY` - The filter id
+    1. `QUANTITY` - 过滤器ID。
     
-    #### Returns
+    #### 返回值
     
-    `Boolean` - `true` if the filter was successfully uninstalled, otherwise `false`.
+    `Boolean` - `true` 如果过滤器成功被卸载，否则 `false`。
     
-    #### Example
+    #### 示例
     
     ```Javascript
     // eth_uninstallFilter JSON RPC call
@@ -619,21 +619,21 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
     
     * * *
     
-    #### Description
+    #### 说明
     
-    Returns the current network id.
+    返回当前网络id。
     
-    #### Parameters
+    #### 参数
     
-    None
+    无
     
-    #### Returns
+    #### 返回值
     
-    `String` - The current network id.
+    `String` - 当前网络id。
     
-    - "474747": Currently there's now network id defined, the number returned is simply `474747`
+    - "474747": 当前已定义网络id, 返回的数字仅为 `474747`
     
-    #### Example
+    #### 示例
     
     ```Javascript
     // net_version JSON RPC call
