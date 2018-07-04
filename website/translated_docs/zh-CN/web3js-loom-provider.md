@@ -146,7 +146,7 @@ truffle deploy --network loom_dapp_chain
 
 ### 添加更多帐户
 
-In order to access accounts on `LoomTruffleProvider` you should use the function `getProviderEngine` which will return the `LoomProvider` giving access to properties `accountsAddrList` and `accounts``
+为了访问 `LoomTruffleProvider` 上的帐户, 应使用函数 `getProviderEngine`, 这将返回 `LoomProvider` 授予对属性 `accountsAddrList` 和 "帐户" 的访问权限
 
 ```js
 const loomTruffleProvider = new LoomTruffleProvider(chainId, writeUrl, readUrl, privateKey)
@@ -156,36 +156,36 @@ console.log("Accounts list", loomProvider.accountsAddrList)
 console.log("Accounts and Private Keys", loomProvider.accounts)
 ```
 
-And add more accounts just use function `createExtraAccounts`
+并添加更多帐户只需使用函数 `createExtraAccounts`
 
 ```js
 const loomTruffleProvider = new LoomTruffleProvider(chainId, writeUrl, readUrl, privateKey)
 loomTruffleProvider.createExtraAccounts(10)
 ```
 
-## Configuring and running Web3.js + LoomProvider
+## 配置和运行 Web3.js + LoomProvider
 
-### Download and Install
+### 下载和安装
 
-You can download the `Web3.js` latest version using `npm`
+你可以用 `npm` 下载 `Web3.js` 最新版
 
 ```bash
 npm install web3 --save
-# or
+# 或
 yarn add web3
 ```
 
-And download and install `LoomProvider` (which lives on `loom-js`)
+下载并安装 `LoomProvider`（它位于 `loom-js`上）
 
 ```bash
 npm install loom-js --save
-# or
+# 或
 yarn add loom-js
 ```
 
-### Adding to project and configuring
+### 添加到项目和配置
 
-Adding `Web3.js` to Node.js project (running on Node.js version 8 or greater) is fairly simple after the install, it should be simple as well for projects using `Webpack` also:
+将 `Node3.js` 添加到 Node.js 项目（在 Node.js 版本8或更高版本上运行）在安装后相当简单，对于使用 `Webpack` 的项目也应该很简单：
 
 ```Javascript
 // Node.JS 8 or greater
@@ -195,7 +195,7 @@ const Web3 = require('web3')
 import Web3 from 'web3'
 ```
 
-Next step is to configure the `LoomProvider`, is quite similar from the example on `NodeJS & Browser Quick Start`.
+下一步是配置 `LoomProvider`，与 `NodeJS & Browser Quick Start` 上的示例非常相似。
 
 ```Javascript
 const privateKey = CryptoUtils.generatePrivateKey()
@@ -222,9 +222,9 @@ const contractAddress = '0x...'
 const contract = new web3.eth.Contract(ABI, contractAddress, {from})
 ```
 
-### Running Web3 contract instance
+### 运行 Web3 合约实例
 
-Let's assume that is the `SimpleStore.sol` which was declared up above, so we can call `set` and `get` functions easier:
+我们假设这是上面声明的 `SimpleStore.sol`，可以更容易地调用`set`和`get`函数：
 
 ```Javascript
 // Set the value 47
