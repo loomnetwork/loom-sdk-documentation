@@ -591,7 +591,7 @@ func store(contract *client.EvmContract, key, abi string, value int) ([]byte, er
 
 #### 从在DApp链上的Solidity合约读取
 
-To get information from an EVM smart contract you need to call a view method using the EvmContract's staticCall. This returns the result in an ABI encoded []byte. As for other EVM methods the function signature and input arguments are [ABI encoded](https://solidity.readthedocs.io/en/develop/abi-spec.html). The caller field in StaticCall is optional, and using an empty loom.Address is fine.
+想从EVM智能合约得到信息，你需要使用EvmContract的 staticCall 来调用 view 方法。 这会返回ABI编码[]字节形式的结果。 对于其他EVM方法，函数签名和输入变量是 [ABI编码](https://solidity.readthedocs.io/en/develop/abi-spec.html)的。 StaticCall的调用方字段是可选的，并且用空的 loom.Address 也可以。
 
 ```go
  input (
@@ -616,14 +616,11 @@ To get information from an EVM smart contract you need to call a view method usi
 
 ### loom-js
 
-In JavaScript and TypeScript you can Call methods contracts deployed on the EVM 
-of a DAppChain in a similar way as for non-EVM plugins, outlined in the 
-[loom-js quickstart](https://loomx.io/developers/docs/en/loom-js-quickstart.html#connecting-to-a-dappchain)
+在JavaScript和TypeScript中，你可以类似于非EVM插件那样在部署在DApp链EVM上的合约上调用方法，大纲在[loom-js quickstart](https://loomx.io/developers/docs/en/loom-js-quickstart.html#connecting-to-a-dappchain) 
 
-#### Connecting to a Solidity contract on a DAppChain
+#### 链接在DApp链上的智能合约
 
-We use the EvmContract class instead of the Contract class. So the loom-js
- quick-start getEvmContract could looks like:
+我们使用 EvmContract 而不是 Contract class。 所以 loom-js 快速启动 getEvmContract 可以像是：
 ```js
 const {
   NonceTxMiddleware, SignedTxMiddleware, Client,
@@ -633,11 +630,10 @@ const {
 const { MapEntry } = require('./helloworld_pb')
 
 /**
- * Creates a new `EvmContract` instance that can be used to interact with a 
- smart contract running on a DAppChain's EVM.
- * @param privateKey Private key that will be used to sign transactions sent to the contract.
- * @param publicKey Public key that corresponds to the private key.
- * @returns `EvmContract` instance.
+ * 创建一个新的“EvmContract”示例，其可以用以于在DApp链EVM上运行的智能合约交互。
+ * @param privateKey 将用于签署发送到合约的事务的私钥。
+ * @param publicKey 与私钥相对应的公钥。
+ * @returns `EvmContract` 示例.
  */
 async function getContract(privateKey, publicKey) {
   const client = new Client(
