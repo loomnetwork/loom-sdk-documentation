@@ -520,16 +520,16 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
     1. `Object` - 事务对象
     
     - `from`: `DATA`, 20 字节 - 发送事务的地址。
-    - `to`: `DATA`, 20 Bytes - (optional when creating new contract) The address the transaction is directed to.
-    - `data`: `DATA` - The compiled code of a contract OR the hash of the invoked method signature and encoded parameters. For details see Ethereum Contract ABI
+    - `到`: `数据`20 字节-(创建新合约时可选) 将事务发送到的地址。
+    - `data`: `DATA` - 已编译的合约代码 或 调用方法签名和编码参数的哈希。详情见Ethereum Contract ABI
     
-    #### Returns
+    #### 返回值
     
-    `DATA`, 32 Bytes - the transaction hash, or the zero hash if the transaction is not yet available.
+    `DATA`, 32 字节 - 事务哈希，或如果事务尚未可用，则为零哈希。
     
-    Use [eth_getTransactionReceipt](#eth-gettransactionreceipt) to get the contract address, after the transaction was mined, when you created a contract.
+    在创建合约后, 使用 [eth_getTransactionReceipt](#eth-gettransactionreceipt) 获取合约地址 (在事务被挖后)。
     
-    #### Example
+    #### 示例
     
     ```Javascript
     // eth_sendTransaction JSON RPC call
@@ -550,9 +550,9 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
     
     * * *
     
-    #### Description
+    #### 说明
     
-    It works by subscribing to particular events. The node will return a subscription id. For each event that matches the subscription a notification with relevant data is send together with the subscription id.
+    通过订阅特定事件运行。 节点会返回订阅id。 For each event that matches the subscription a notification with relevant data is send together with the subscription id.
     
     #### Parameters
     
