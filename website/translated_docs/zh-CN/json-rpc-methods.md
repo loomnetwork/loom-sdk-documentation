@@ -375,31 +375,31 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
     
     * * *
     
-    #### 描述
+    #### 说明
     
-    通过事务哈希返回事务的收据。
+    通过事务哈希返回事务的回执。
     
-    **注意** 该收据对于待处理事务记录不可用。
+    **注意** 该回执对于待处理事务记录不可用。
     
     #### 参数
     
     1. `DATA`，32 字节 - 事务哈希
     
-    #### Returns
+    #### 返回值
     
-    `Object` - A transaction receipt object, or `null` when no receipt was found:
+    `Object` - 事务收据对象，或`null`当没有找到任何回执时：
     
-    - `transactionHash`: `DATA`, 32 Bytes - hash of the transaction.
-    - `transactionIndex`: `QUANTITY` - integer of the transactions index position in the block.
-    - `blockHash`: `DATA`, 32 Bytes - hash of the block where this transaction was in.
-    - `blockNumber`: `QUANTITY` - block number where this transaction was in.
-    - `from`: `DATA`, 20 Bytes - address of the sender.
-    - `to`: `DATA`, 20 Bytes - address of the receiver. null when its a contract creation transaction.
-    - `contractAddress`: `DATA`, 20 Bytes - The contract address created, if the transaction was a contract creation, otherwise null.
-    - `logs`: `Array` - Array of log objects, which this transaction generated.
-    - `status`: `QUANTITY` either 1 (success) or 0 (failure)
+    - `transactionHash`: `DATA`, 32字节 - 事务哈希。
+    - `transactionIndex`: `QUANTITY` - 区块中事务索引位置的整数。
+    - `blockHash`: `DATA`, 32 字节 - 此事务所在区块的哈希。
+    - `blockNumber`: `QUANTITY` - 此事务所在的区块号。
+    - `from`: `DATA`, 20 字节 - 发送者的地址。
+    - `to`: `DATA`, 20 字节 - 接受者的地址。当它是一个合约创建事务时为null。 
+    - `contractAddress`: `DATA`, 20 字节 - 如果事务是一个合约创建，则合约地址被创建，否则为null。
+    - `logs`: `Array` - 日志对象的数组，这个事务被生成。
+    - `status`: `QUANTITY` 1 (成功) 或 0 (失败)
     
-    #### Example
+    #### 示例
     
     ```Javascript
     // eth_getTransactionReceipt JSON RPC call
@@ -430,7 +430,7 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
     
     * * *
     
-    #### Description
+    #### 说明
     
     Creates a filter in the node, to notify when new pending transactions arrive. To check if the state has changed, call [eth_getFilterChanges](#eth-getfilterchanges).
     
