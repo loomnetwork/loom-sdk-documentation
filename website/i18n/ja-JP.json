@@ -35,8 +35,8 @@
     "Loom.js + Web3.js": "Loom.js + Web3.js",
     "loom-js-quickstart": "NodeJSとブラウザのクイックスタート",
     "NodeJS & Browser Quick Start": "NodeJSとブラウザのクイックスタート",
-    "loom-yaml": "Loom Yaml and Configuration options",
-    "Loom Yaml and Configuration options": "Loom Yaml and Configuration options",
+    "loom-yaml": "Loom Yamlと設定オプション",
+    "Loom Yaml and Configuration options": "Loom Yamlと設定オプション",
     "metrics": "メトリクス",
     "Metrics": "メトリクス",
     "multi-node-deployment": "サンプルデプロイメント",
@@ -88,7 +88,7 @@
     "Example Games & Apps": "サンプルゲーム＆アプリ",
     "Deployment": "デプロイ",
     "Frequently Asked Questions": "よくある質問",
-    "Advanced and Internal": "Advanced and Internal"
+    "Advanced and Internal": "さらなる詳細と内部"
   },
   "pages-strings": {
     "Learn more using the [documentation on this site.](/test-site/docs/en/doc1.html)|no description given": "[このサイトのドキュメンテーション](/test-site/docs/en/doc1.html) を使ってもっと学ぼう。",
