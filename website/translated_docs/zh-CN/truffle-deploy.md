@@ -5,9 +5,9 @@ sidebar_label: Truffle部署
 ---
 ![http://truffleframework.com](/developers/img/truffle.jpg)
 
-Truffle 与 Loom DApp 链交互的简单示例，此示例使用 [loom-truffle-provider](https://github.com/loomnetwork/loom-truffle-provider)（有关详细信息，请查看 LoomTruffleProvider 代码库）
+Truffle 与 Loom DApp链交互的简单示例，此示例使用 [loom-truffle-provider](https://github.com/loomnetwork/loom-truffle-provider)（有关详细信息，请查看 LoomTruffleProvider 代码库）
 
-## 需求
+## 要求
 
 ```bash
 Node >= 8
@@ -15,7 +15,7 @@ Node >= 8
 
 ## 安装
 
-下载 Truffle DApp 链 示例有两种方法：Git 或 Unbox
+下载 Truffle DApp链示例 有两种方法：Git 或 Unbox
 
 ### Git 方法
 
