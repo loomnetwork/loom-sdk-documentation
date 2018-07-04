@@ -96,9 +96,9 @@ scrape_configs:
 
 ## 所有度量列表
 
-The following are the list of metrics exposed by Loom SDK:
+以下是由 Loom SDK 公开的度量列表:
 
-| Metrics                                                  | Type    | Description                                      |
-| -------------------------------------------------------- | ------- | ------------------------------------------------ |
-| loomchain_query_service_request_count                | Counter | Number of query requests received                |
-| loomchain_query_service_request_latency_microseconds | Summary | Total duration of query requests in microseconds |
+| 度量                                                       | 类型  | 描述：               |
+| -------------------------------------------------------- | --- | ----------------- |
+| loomchain_query_service_request_count                | 计数器 | 收到的查询请求数          |
+| loomchain_query_service_request_latency_microseconds | 摘要  | 查询请求的总持续时间 (以微秒计) |
