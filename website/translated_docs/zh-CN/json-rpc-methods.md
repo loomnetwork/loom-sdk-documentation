@@ -89,7 +89,7 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 #### 返回值
 
-`QUANTITY` - 客户端所在的当前区块编号。
+`QUANTITY` - 客户端所在的当前区块编号的整数。
 
 #### 示例
 
@@ -114,15 +114,15 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 #### 说明
 
-立即执行一个新的信息调用，而不在区块俩上创建事务。
+立即执行一个新的信息调用，而不在区块链上创建事务。
 
 #### 参数
 
 1. Object - 事务调用对象
 
-- from: DATA, 20个字节 - 事务发送的地址
-- to: DATA, 20个字节 - 交易所针对的地址。
-- data: DATA - 散列方法签名和编码参数。 有关详细信息，请参阅以太坊合同ABI
+- from: DATA, 20个字节 - 发送事务的地址
+- to: DATA, 20个字节 - 事务指向的地址。
+- data: DATA - 方法签名和被编码参数的哈希。详细信息请参阅Ethereum Contract ABI
 
 #### 返回值
 
