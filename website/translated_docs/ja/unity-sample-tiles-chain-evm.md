@@ -9,7 +9,7 @@ sidebar_label: TilesのEVMサンプル
 
 ## ゲームの説明
 
-マウスカーソルを使って黒いキャンバス領域をクリックし、色のついたタイルを作る。新しいプレイヤーはそれぞれ異なる色のキャンバスを持つこととなり、キャンバスは全てのプレイヤーから共有される。
+Use the mouse cursor to click on the black canvas area to create colored tiles, each new player will have a different color on the canvas which is shared amongst all players.
 
 ## 開発
 
@@ -40,6 +40,6 @@ cp genesis.example.json genesis.json
 ./loom run
 ```
 
-### 4. Unityクライアントの構築
+### 4. Build the Unity client
 
 `unityclient`フォルダ内にあるUnityプロジェクトを開き、`LoomTilesChainEvm` シーンを開いてビルドしよう。
