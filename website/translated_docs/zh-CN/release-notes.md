@@ -5,19 +5,19 @@ sidebar_label: 发布日志
 ---
 ## 概述
 
-倒序的发布日志
+发布日志（最新的在顶部）
 
-## 发布209 - 6月20日
+## 209版发布 - 6月20日
 
 主要发布 * Plasma Cash初始整合 - 下周演示 * 多节点修复和性能提升 * 多节点的 Ansible 更新 * EVM上的查询/过滤支持更多类型 * 针对EVM的Unity SDK更新 * 针对EVM的Loom-JS更新
 
-## 发布186 - 6月19日
+## 186版发布 - 6月19日
 
 * [EVM Unity 示例应用程序](https://loomx.io/developers/docs/en/unity-sample-tiles-chain-evm.html)
-* 对 Solidity 应用的 Unity SDK 支持
+* 对 Solidity应用的 Unity SDK 支持
 * 对过滤/查询以太坊事件的诸多修复
 
-## 发布163 - 6月11日
+## 163版发布 - 6月11日
 
 * 对 Truffle 最新构建的支持
 * [更新的 Truffle 示例](https://github.com/loomnetwork/loom-truffle-provider)
@@ -25,15 +25,15 @@ sidebar_label: 发布日志
 * Websocket事件现在支持主题 
 * Loom-JS 1.8.0版本，带有更新的 websocket 主题支持
 
-## 发布161 - 6月7日
+## 161版发布 - 6月7日
 
 * 大量 Truffle 修复
 * 对 Loom-Js provider 的大量 web3.js 修复
 
-## 发布 155-6月6日
+## 155版发布 - 6月6日
 
 * [Cocos SDK 上线](cocos-sdk-quickstart.html)
-* [Truffle 支持可用](truffle-deploy.html)
+* [Truffle支持可用](truffle-deploy.html)
 * 对EVM的静态调用现允许调用者
 * 对很多场景的 EVM 修复 
 
