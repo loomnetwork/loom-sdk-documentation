@@ -5,7 +5,7 @@ sidebar_label: 度量
 ---
 ## 概述
 
-Loom 监控度量并将度量值公开给外部监控服务。 Middleware layer is introduced to enable separation of concern between application services and instrumenting. Loom SDK utilizes go-kit's `metrics` package to instrument metrics.
+Loom 检测度量并将度量值公开给外部监控服务。 引入中间件层以实现应用程序服务和检测之间的关注分离。 Loom SDK utilizes go-kit's `metrics` package to instrument metrics.
 
 ## Loom SDK Metrics
 
