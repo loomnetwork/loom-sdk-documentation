@@ -9,7 +9,7 @@ sidebar_label: JS Websocket + EVM Web3 デモ
 
 ## ゲームの説明
 
-マウスカーソルを使って黒いキャンバス領域をクリックし、色のついたタイルを作る。新しいプレイヤーはそれぞれ異なる色のキャンバスを持つこととなり、キャンバスは全てのプレイヤーから共有される。
+Use the mouse cursor to click on the black canvas area to create colored tiles, each new player will have a different color on the canvas which is shared amongst all players
 
 ## 開発
 
