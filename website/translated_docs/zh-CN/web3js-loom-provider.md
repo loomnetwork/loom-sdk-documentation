@@ -19,11 +19,11 @@ sidebar_label: Web3, LoomProvider 和 Truffle
 
 `Provider` 是将 `Web3.js` API 连接到以太坊节点的桥梁，为了使 `Web3.js` 调用与 Loom DApp 链兼容，你应该使用LoomProvider。
 
-结合 `Web3` 和 `LoomProvider` 是一个很好的选择, 可以与部署在Loom DApp链上的智能合同进行交互,因为 `Web3` 抽象了 API 调用的构造, 不需要手动解释 [ABI](https://solidity.readthedocs.io/en/develop/abi-spec.html)。
+结合 `Web3` 和 `LoomProvider` 是一个很好的选择, 可以与部署在Loom DApp链上的智能合同进行交互,因为 `Web3` 抽象了 API 调用的构造, 不需要手动说明 [ABI](https://solidity.readthedocs.io/en/develop/abi-spec.html)。
 
 ### Truffle 框架
 
-所以 `Truffle` 的官方网站说：
+`Truffle` 的官方网站如是说：
 
 > Truffle 是以太坊最受欢迎的开发框架，其使命就是让您的生活更轻松。
 
@@ -65,7 +65,7 @@ truffle init
 
 ### 添加合约和迁移
 
-在 `contracts` 目录上，我们应该在[Solidity](http://solidity.readthedocs.io/en/v0.4.22/)中创建合约，我们将使用著名的`SimpleStore.sol` ，它具有一个参数`value`的`set`函数，也用于状态更改，`get` 函数用于只读，没有状态更改调用，以及一个名为`NewValueSet` 的事件，它将具有参数值，如下例所示：
+在 `contracts` 目录上，我们应该在[Solidity](http://solidity.readthedocs.io/en/v0.4.22/)中创建合约，我们将使用著名的`SimpleStore.sol` ，它具有一个参数`value`的`set`函数，也用于状态更改，`get` 函数用于只读，没有状态更改调用，以及一个名为`NewValueSet` 的事件，它将具有参数`value`，如下例所示：
 
     pragma solidity ^0.4.22;
     
@@ -85,7 +85,7 @@ truffle init
     }
     
 
-接下来让我们添加一个迁移，Truffle 使用迁移的概念，这对跟踪更改和更新很有用。 该文件应该在迁移目录中创建，它应该是 `JavaScript` 文件，文件名应该从数字 `2` 开始变为 `2_simple_store.js`，内容应该如下：
+接下来让我们添加一个迁移，`Truffle` 使用迁移的概念，这对跟踪更改和更新很有用。 该文件应该在迁移目录中创建，它应该是 `JavaScript` 文件，文件名应该从数字 `2` 开始变为 `2_simple_store.js`，内容应该如下：
 
 ```Javascript
 var SimpleStore = artifacts.require("./SimpleStore.sol");
@@ -99,7 +99,7 @@ module.exports = function(deployer) {
 
 ### 下载并配置 Loom Truffle Provider
 
-要添加的最后一个部件是 `Loom Truffle Provider`，该插件提供 `Truffle` 和 Loom DApp 链之间的连接（它下面还有 `LoomProvider`）。 我们安装吧：
+要添加的最后一个部件是 `Loom Truffle Provider`，该插件提供 `Truffle` 和 Loom DApp链之间的连接（它下面还有 `LoomProvider`）。 我们安装吧：
 
 ```bash
 npm install loom-truffle-provider --save
