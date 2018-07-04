@@ -13,8 +13,8 @@ Loom 获取并公开了4种不同类型的度量：
 
 - `Counter` 仅上升的单个数值
 - `Gauge` 上升和下降的单个数值
-- `Histogram` a sample of observation grouped into buckets over a sliding time window
-- `Summary` a sample of observation grouped into buckets with quantiles over a sliding time window
+- `Histogram` 在滑动时间窗口上分组到桶中的观察样本
+- `Summary` 在滑动时间窗口分组到具有分位数的桶中的观察示例
 
 The following Go code shows an example of how Loom creates metrics with `go-kit`. The `Namespace` is prefixed with *loomchain*. The `Subsystem` can be either *query_service or *backend_service*.
 
