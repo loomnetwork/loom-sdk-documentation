@@ -552,20 +552,20 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
     
     #### 说明
     
-    通过订阅特定事件运行。 节点会返回订阅id。 For each event that matches the subscription a notification with relevant data is send together with the subscription id.
+    通过订阅特定事件运行。 节点会返回订阅id。 对于与订阅匹配的每个事件，与相关数据一起的通知与订阅ID将被一起发送。
     
-    #### Parameters
+    #### 参数
     
-    1. `object` with the following (optional) fields
+    1. `object`, 具有以下 (可选) 字段
     
-    - `address`, either an address or an array of addresses. Only logs that are created from these addresses are returned (optional)
-    - `topics`, only logs which match the specified topics (optional)
+    - `address`, 地址或地址数组。仅返回从这些地址创建的日志 (可选)
+    - `topics`, 仅与指定主题匹配的日志 (可选)
     
-    #### Returns
+    #### 返回值
     
-    Subscription id
+    订阅 id
     
-    #### Example
+    #### 示例
     
     ```Javascript
     // eth_subscribe JSON RPC call
@@ -586,9 +586,9 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
     
     * * *
     
-    #### Description
+    #### 说明
     
-    Uninstalls a filter with given id. Should always be called when watch is no longer needed. Additonally Filters timeout when they aren't requested with [eth_getFilterChanges](#eth-getfilterchanges) for a period of time.
+    卸载具有给定id的过滤器。 Should always be called when watch is no longer needed. Additonally Filters timeout when they aren't requested with [eth_getFilterChanges](#eth-getfilterchanges) for a period of time.
     
     #### Parameters
     
