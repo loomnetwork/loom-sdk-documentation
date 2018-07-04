@@ -40,7 +40,7 @@ sidebar_label: Web3, LoomProvider 和 Truffle
 npm install -g truffle
 ```
 
-Once `Truffle` is installed let's create a directory and initialize a project:
+安装 `Truffle` 后, 让我们创建一个目录并初始化一个项目:
 
 ```bash
 # Create directory and access
