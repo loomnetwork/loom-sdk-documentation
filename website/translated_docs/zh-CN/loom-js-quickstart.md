@@ -1,21 +1,21 @@
 ---
-id: oom-js-quickstart
-title: NodeJS & Browser Quick Start
-sidebar_label: NodeJS & Browser Quick Start
+id: loom-js-quickstart
+title: NodeJS & 浏览器快速启动
+sidebar_label: NodeJS & 浏览器快速启动
 ---
-## Overview
+## 概述
 
-The `loom-js` library contains everything you need to build web apps and NodeJS services that interact with smart contracts running on Loom DAppChains.
+`loom-js` 库包含构建Web应用程序所需的一切，以及与Loom DApp链上运行的智能合约交互的NodeJS 服务。
 
-To get started install `loom-js` from NPM:
+首先从NPM 安装 `loom-js`
 
 ```shell
 yarn add loom-js
-# or if you prefer...
+# 或者若你更喜欢用npm的话...
 npm install loom-js
 ```
 
-## Sample Code
+## 示例代码
 
 You can find all the code on this page the [Loom JS samples repo](https://github.com/loomnetwork/loom-js-samples) in the `quickstart` directory.
 
