@@ -76,4 +76,4 @@ Tendermint bft 引擎的端口
 
 选项: "http://127.0.0.1:45668"
 
-Note this has to match the RPCProxyPort in the loom.yaml
+注意这必须与 loom.yaml 中的 RPCProxyPort 相匹配
