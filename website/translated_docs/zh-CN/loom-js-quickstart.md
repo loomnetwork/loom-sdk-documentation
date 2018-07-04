@@ -17,11 +17,11 @@ npm install loom-js
 
 ## 示例代码
 
-You can find all the code on this page the [Loom JS samples repo](https://github.com/loomnetwork/loom-js-samples) in the `quickstart` directory.
+您可以在 `quickstart` 目录中的 [Loom JS samples repo](https://github.com/loomnetwork/loom-js-samples) 页面上找到所有代码。
 
-## Connecting to a DAppChain
+## 连接到DApp链
 
-The `Contract` class provides a convenient way to interact with a smart contract running on a Loom DAppChain. Let's write a function that creates a `Contract` instance to interact with the sample [BluePrint](https://github.com/loomnetwork/weave-blueprint/blob/master/src/blueprint.go) smart contract from the Loom SDK...
+`Contract` 类提供了一种方便的方式与Loom DApp链上运行的智能合约进行交互。 让我们编写一个函数，来创建一个与Loom SDK中提供的示例[BluePrint](https://github.com/loomnetwork/weave-blueprint/blob/master/src/blueprint.go) 智能合约进行交互的`Contract`实例......
 
 ```js
 const {
@@ -58,11 +58,11 @@ async function getContract(privateKey, publicKey) {
 }
 ```
 
-## Writing data to a DAppChain
+## 将数据写入 DApp链
 
-To mutate the state of a smart contract you need to call one of its public methods, to do so a signed transaction must be sent to and validated by the DAppChain. Fortunately the `Contract` class takes care of most of this when you use the `Contract.callAsync()` method.
+要改变智能合约的状态，您需要调用其公共方法之一，为此必须将签名的事务发送到DApp链并由其进行验证。 幸运的是, 当您使用 `Contract.callAsync()` 方法时， `Contract`类将处理其中的大部分问题。
 
-The [BluePrint](https://github.com/loomnetwork/weave-blueprint/blob/master/src/blueprint.go) smart contract has a public `SetMsg` method that can be called to store an association between a key and a value. Let's write a function that calls this method...
+[BluePrint](https://github.com/loomnetwork/weave-blueprint/blob/master/src/blueprint.go)智能合约具有公共 `SetMsg` 方法，可以调用该方法来储存键和值之间的关联。 让我们编写一个调用此方法的函数......
 
 ```js
 /**
@@ -78,11 +78,11 @@ async function store(contract, key, value) {
 
 ```
 
-## Reading data from a DAppChain
+## 从DApp链读取数据
 
-To read the state of a smart contract you need to call one of its public read-only methods, you can do so by using the `Contract.staticCallAsync()` method.
+要读取智能合约的状态，您需要调用其公共只读方法之一，您可以使用 `Contract.staticCallAsync()` 方法。
 
-The [BluePrint](https://github.com/loomnetwork/weave-blueprint/blob/master/src/blueprint.go) smart contract has a public `GetMsg` method that can be called to look up an association between a key and a value. Let's write a function that calls this method...
+[BluePrint](https://github.com/loomnetwork/weave-blueprint/blob/master/src/blueprint.go)智能合约具有公共 `GetMsg`方法，可以调用该方法来查找键和值之间的关联。 让我们编写一个调用此方法的函数......
 
 ```js
 /**
@@ -98,9 +98,9 @@ async function load(contract, key) {
 }
 ```
 
-## Putting it all together
+## 放在一起
 
-Now that we have all the pieces in place make sure that you have the DAppChain running and then run the following code, you should see `Value: hello!` printed to the console.
+现在, 我们已经有了所有的方法来确保您的 DApp链 运行, 然后运行下面的代码, 您将看到 `Value: hello!` 在控制台出现。
 
 ```js
 (async function () {
