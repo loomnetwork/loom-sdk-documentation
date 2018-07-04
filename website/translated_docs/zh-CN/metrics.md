@@ -36,9 +36,9 @@ requestLatency := kitprometheus.NewSummaryFrom(stdprometheus.SummaryOpts{
 }, fieldKeys)
 ```
 
-Loom 还为每个度量提供两个不同的字段名称，以创建度量值的变体。 The first one is `method` which is the name of the method call. The second one is `error` which will be true if the method call returns an error.
+Loom 还为每个度量提供两个不同的字段名称，以创建度量值的变体。 第一个是 `method`, 它是方法调用的名称。 第二个是 `error`, 如果方法调用返回错误, 则为 true。
 
-The followings are the example of the exposed metrics with different fields.
+以下是具有不同字段的公开度量的示例。
 
     loomchain_query_service_request_count{error="false",method="Nonce"}
     loomchain_query_service_request_count{error="true",method="Nonce"}
@@ -46,7 +46,7 @@ The followings are the example of the exposed metrics with different fields.
     loomchain_query_service_request_count{error="true",method="Query"}
     
 
-## Metric Endpoint
+## 度量端点
 
 When running a smart contract using `loom run` command, the default metrics endpoint is `127.0.0.1:9999/metrics`. The endpoint is configurable using the configuration key `QueryServerHost` in the configuration file.
 
