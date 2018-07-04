@@ -43,7 +43,7 @@ cd truffle-dappchain-example
 truffle unbox loomnetwork/truffle-dappchain-example
 ```
 
-## 启动 Dapp 链
+## 启动 Dapp链
 
 ```bash
 # 下载
@@ -67,7 +67,7 @@ yarn deploy
 yarn test
 ```
 
-> 为了正确地重新部署合同，有一个命令 “yarn deploy: reset”
+> 为了正确地重新部署合约，有一个命令 “yarn deploy: reset”
 > 
 > 也可以通过调用 "yarn truffle" 直接调用truffle命令
 > 
@@ -75,7 +75,7 @@ yarn test
 
 ## 当前的局限
 
-* 在智能合约上声明的事件应该有命名参数，如在合同`SimpleStore.sol`中的`NewValueSet(uint _value)` 。 它也有助于处理事件。
+* 在智能合约上声明的事件应该有命名参数，如在合约`SimpleStore.sol`中的`NewValueSet(uint _value)` 。 它也有助于处理事件。
 
 ## Loom Network
 
