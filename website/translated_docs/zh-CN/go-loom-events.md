@@ -1,6 +1,6 @@
 ---
 id: goloomevents
-title: 从go-loom合同中发送事件
+title: 从go-loom合约中发送事件
 sidebar_label: 发送事件
 ---
 ## 从go-plugins发送事件
@@ -18,7 +18,7 @@ Loom SDK提供了在合同上生成事件的功能，可用于多种目的，例
 
 <h3>发送事件</h3>
 
-<p>以下代码段是一个从合同生成事件的示例代码。</p>
+<p>以下代码段是一个从合约生成事件的示例代码。</p>
 
 <pre><code class="go">    emitMsg := struct {
         Owner  string
