@@ -40,7 +40,7 @@ Goベースのスマートコントラクト用の一般的なロギング。
 
 オプション: debug, info, warn, error
 
-General logging for the BFT Layer Blockchain. This may change based on which BFT engine you are using.
+BFTレイヤーブロックチェーン用の一般的なロギング。使用するBFTエンジンに基づき、変更となる可能性がある。
 
 ## QueryServerHost
 
