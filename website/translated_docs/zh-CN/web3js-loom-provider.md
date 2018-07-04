@@ -43,27 +43,27 @@ npm install -g truffle
 安装 `Truffle` 后, 让我们创建一个目录并初始化一个项目:
 
 ```bash
-# Create directory and access
+# 创建目录和访问
 mkdir simple-store
 cd simple-store
 
-# Initialize a project from zero with truffle
+# 使用 truffle 从零开始初始化项目
 truffle init
 ```
 
-The new directory structure will looks like:
+新的目录结构将如下所示:
 
     .
     ├── contracts
-    │   └── Migrations.sol
+    │ └── Migrations.sol
     ├── migrations
-    │   └── 1_initial_migration.js
+    │ └── 1_initial_migration.js
     ├── test
     ├── truffle-config.js
     └── truffle.js
     
 
-### Adding contract and migration
+### 添加合约和迁移
 
 On the `contracts` directory we should create our contract in [Solidity](http://solidity.readthedocs.io/en/v0.4.22/), we're going to use the famous `SimpleStore.sol` which has a `set` function for a parameter `value` also for an state change, a `get` function for the read only and no state change call and an event called `NewValueSet` which will have the parameter `value`, as the following example:
 
