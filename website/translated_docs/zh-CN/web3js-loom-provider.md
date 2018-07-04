@@ -107,7 +107,7 @@ npm install loom-truffle-provider --save
 yarn add loom-truffle-provider
 ```
 
-让我们编辑文件 `truffle.js` 添加必要的配置, 如下面的示例所示:
+让我们编辑文件 `truffle.js` 来添加必要的配置, 如下面的示例所示:
 
 ```javascript
 const { readFileSync } = require('fs')
