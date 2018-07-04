@@ -48,19 +48,19 @@ Loom 还为每个度量提供两个不同的字段名称，以创建度量值的
 
 ## 度量端点
 
-When running a smart contract using `loom run` command, the default metrics endpoint is `127.0.0.1:9999/metrics`. The endpoint is configurable using the configuration key `QueryServerHost` in the configuration file.
+使用 `loom run`命令运行智能合约时，默认度量标准端点为`127.0.0.1:9999/metrics`。 可以使用配置文件中的配置键`QueryServerHost`配置端点。
 
-You can poll the the metrics from the endpoint using http clients or web browsers. The server running on `127.0.0.1:9999` will show the request count and latency metrics as followed.
+您可以使用 http 客户端或 Web 浏览器从端点轮询度量。 运行在`127.0.0.1:9999`上的服务器将显示请求计数和延迟度量，如下所示。
 
 ```sh
 curl 127.0.0.1:9999/metrics
 
-# HELP loomchain_query_service_request_count Number of requests received.
-# TYPE loomchain_query_service_request_count counter
+# 帮助 loomchain_query_service_request_count 收到请求数.
+# 键入 loomchain_query_service_request_count 计数器
 loomchain_query_service_request_count{error="false",method="Nonce"} 2
 loomchain_query_service_request_count{error="true",method="Query"} 2
-# HELP loomchain_query_service_request_latency_microseconds Total duration of requests in microseconds.
-# TYPE loomchain_query_service_request_latency_microseconds summary
+# 帮助 loomchain_query_service_request_latency_microseconds 请求的总持续时间（以微秒为单位）。
+# 键入 loomchain_query_service_request_latency_microseconds 摘要
 loomchain_query_service_request_latency_microseconds{error="false",method="Nonce",quantile="0.5"} 1.0352e-05
 loomchain_query_service_request_latency_microseconds{error="false",method="Nonce",quantile="0.9"} 2.4728e-05
 loomchain_query_service_request_latency_microseconds{error="false",method="Nonce",quantile="0.99"} 2.4728e-05
@@ -74,15 +74,15 @@ loomchain_query_service_request_latency_microseconds_count{error="true",method="
 
 ```
 
-## Monitoring Metrics
+## 监控度量
 
-Loom does not store the metrics but only exposes the metric values at the moment. To get metrics, you can either poll the metrics from the endpoint to your monitoring system or you can use [Prometheus](https://prometheus.io/docs/prometheus/latest/installation/).
+Loom不存储度量，仅显示当前度量值。 若要获取度量值, 可以从端点向监视系统轮询度量, 也可以使用 [Prometheus](https://prometheus.io/docs/prometheus/latest/installation/)。
 
-You can also visualize the metrics using tools like [Grafana](https://grafana.com/) or [Kibana](https://www.elastic.co/products/kibana).
+你还可以使用 [Grafana](https://grafana.com/) 或 [Kibana](https://www.elastic.co/products/kibana) 等工具可视化度量。
 
-### Prometheus
+### 普罗米修斯
 
-To configure prometheus server, add the following to your config file:
+要配置普罗米修斯服务器, 请将以下内容添加到配置文件中:
 
 ```yaml
 scrape_configs:
@@ -94,7 +94,7 @@ scrape_configs:
       - 127.0.0.1:9999 # The IP address to the query server host
 ```
 
-## List of All Metrics
+## 所有度量列表
 
 The following are the list of metrics exposed by Loom SDK:
 
