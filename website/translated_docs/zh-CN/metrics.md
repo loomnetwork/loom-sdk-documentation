@@ -16,9 +16,9 @@ Loom 获取并公开了4种不同类型的度量：
 - `Histogram` 在滑动时间窗口上分组到桶中的观察样本
 - `Summary` 在滑动时间窗口分组到具有分位数的桶中的观察示例
 
-The following Go code shows an example of how Loom creates metrics with `go-kit`. The `Namespace` is prefixed with *loomchain*. The `Subsystem` can be either *query_service or *backend_service*.
+以下 Go 代码显示了 Loom 如何使用 `go-kit`创建度量的一个示例。 `Namespace` 以 *loomchain* 为前缀。 `Subsystem` 可以是 *query_service 或 *backend_service*.
 
-For example, the requestCounte metric key is referred as `loomchain_query_service_request_count` and the requestLatency metric key is `loomchain_query_service_request_latency_microseconds`. All the keys are unique.
+例如，requestCounte 度量密钥称为 `loomchain_query_service_request_count`，requestLatency 度量密钥为 `loomchain_query_service_request_latency_microseconds`。 所有的密钥都是独一无二的。
 
 ```Go
 fieldKeys := []string{"method", "error"}
@@ -36,7 +36,7 @@ requestLatency := kitprometheus.NewSummaryFrom(stdprometheus.SummaryOpts{
 }, fieldKeys)
 ```
 
-Loom also provides the two different field names for each metrics to create variation of metric values. The first one is `method` which is the name of the method call. The second one is `error` which will be true if the method call returns an error.
+Loom 还为每个度量提供两个不同的字段名称，以创建度量值的变体。 The first one is `method` which is the name of the method call. The second one is `error` which will be true if the method call returns an error.
 
 The followings are the example of the exposed metrics with different fields.
 
