@@ -588,7 +588,7 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
     
     #### 说明
     
-    卸载具有给定id的过滤器。 Should always be called when watch is no longer needed. 另外，当过滤器在一段时间不被[eth_getFilterChanges](#eth-getfilterchanges) 请求的话将过期。
+    卸载具有给定id的过滤器。 当不再需要监视的时候，应该总是被调用。 另外，当过滤器在一段时间不被[eth_getFilterChanges](#eth-getfilterchanges) 请求的话将过期。
     
     #### 参数
     
