@@ -9,7 +9,7 @@ sidebar_label: 图块EVM示例
 
 ## 游戏说明
 
-使用鼠标光标单击黑色画布区域以创建彩色图块，每个新玩家将在画布上有不同的颜色，并在所有玩家之间共享。
+Use the mouse cursor to click on the black canvas area to create colored tiles, each new player will have a different color on the canvas which is shared amongst all players.
 
 ## 开发
 
@@ -40,6 +40,6 @@ cp genesis.example.json genesis.json
 ./loom run
 ```
 
-### 4. 建立Unity客户端
+### 4. Build the Unity client
 
 打开位于 `unityclient` 文件夹中的Unity项目。打开 `LoomTilesChainEvm` 场景并构建它。
