@@ -9,7 +9,7 @@ sidebar_label: JS WebSockets + EVM Web3 演示
 
 ## 游戏说明
 
-使用鼠标光标单击黑色画布区域以创建彩色图块，每个新玩家将在画布上有不同的颜色，并在所有玩家之间共享。
+Use the mouse cursor to click on the black canvas area to create colored tiles, each new player will have a different color on the canvas which is shared amongst all players
 
 ## 开发
 
