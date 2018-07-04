@@ -126,7 +126,7 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 #### 返回值
 
-`DATA` -已执行合同的返回值。
+`DATA` - 已执行合约的返回值。
 
 #### 示例
 
@@ -155,17 +155,17 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 #### 参数
 
-1. `QUANTITY|TAG` -块编号的整数，或“最早”，“最新”，“待定”的默认块参数字符串。
+1. `QUANTITY|TAG` - 块编号的整数，或“最早”、“最新”、“未决”的默认块参数字符串。
 2. `Boolean` - 如果为true，则返回完整的事务对象，如果为false，则仅返回事务的哈希值。
 
 #### 返回值
 
 `Object` - 区块对象，或`null`当没有找到任何区块时：
 
-- `number`: `QUANTITY` - 块号。当挂起块时为null。
+- `number`: `QUANTITY` - 块号。当区块待处理时为null。
 - `hash`: `DATA`, 32 字节 - 区块的哈希值。当区块待处理时为null。
 - `parentHash`: DATA`, 32字节 - 父块的哈希值。
-- `logsBloom`: `DATA`, 256字节 - 块日志的Bloom过滤器。 当挂起块时为null。
+- `logsBloom`: `DATA`, 256字节 - 块日志的Bloom过滤器。 当区块未处理时为null。
 - `timestamp`: `QUANTITY` - 整理块时的unix时间戳。
 - `transactions`: `Array` - 事务对象数组。 或32字节事务哈希，具体取决于给定的最新参数。
 
