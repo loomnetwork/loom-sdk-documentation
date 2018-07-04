@@ -13,7 +13,7 @@ sidebar_label: 权限助手
 
 代币可以是任何字符或字节序列，表示要拥有的对象。 例如, 用户名可以是一个代币, 用户拥有所有权。 其他类似于代币的东西也可以拥有所有权。
 
-A permission `role` is granted to an `address` on a `token`. 例如, 创建帐户时, 可以将 `owner` 权限授予 `username` 标记上的发件人地址。.
+权限 `role` 被授予给 `token`上的`address`。 例如, 创建帐户时, 可以将 `owner` 权限授予 `username` 标记上的发件人地址。.
 
 例如
 
