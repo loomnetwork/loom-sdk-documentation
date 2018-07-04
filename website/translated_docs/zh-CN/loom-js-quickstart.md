@@ -32,10 +32,10 @@ const {
 const { MapEntry } = require('./helloworld_pb')
 
 /**
- * Creates a new `Contract` instance that can be used to interact with a smart contract.
- * @param privateKey Private key that will be used to sign transactions sent to the contract.
- * @param publicKey Public key that corresponds to the private key.
- * @returns `Contract` instance.
+ * 创建一个新`Contract`实例，它可以被用于和智能合约交互。
+ * @param privateKey 将用于签署发送到合约的事务的私钥。
+ * @param publicKey 与私钥相对应的公钥。
+ * @returns `Contract` 实例。
  */
 async function getContract(privateKey, publicKey) {
   const client = new Client(
@@ -66,8 +66,8 @@ async function getContract(privateKey, publicKey) {
 
 ```js
 /**
- * Stores an association between a key and a value in a smart contract.
- * @param contract Contract instance returned from `getContract()`.
+ * 在智能合约中存储键和值之间的关联。
+ * @param contract 从`getContract()`返回合约实例。
  */
 async function store(contract, key, value) {
   const params = new MapEntry()
@@ -86,12 +86,12 @@ async function store(contract, key, value) {
 
 ```js
 /**
- * Loads the value associated with a key in a smart contract.
- * @param contract Contract instance returned from `getContract()`.
+ * 在智能合约中加载与键相关联的值。
+ * @param contract 从`getContract()`返回合约实例。
  */
 async function load(contract, key) {
   const params = new MapEntry()
-  // The smart contract will look up the value stored under this key.
+  // 智能合约会查找存储在键之下的值。
   params.setKey(key)
   const result = await contract.staticCallAsync('GetMsg', params, new MapEntry())
   return result.getValue()
