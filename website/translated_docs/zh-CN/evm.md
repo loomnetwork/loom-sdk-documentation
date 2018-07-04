@@ -589,7 +589,7 @@ func store(contract *client.EvmContract, key, abi string, value int) ([]byte, er
 
 ```
 
-#### 从在DApp链上的Solidity合约读取
+#### 读取DApp链上的Solidity合约
 
 想从EVM智能合约得到信息，你需要使用EvmContract的 staticCall 来调用 view 方法。 这会返回ABI编码[]字节形式的结果。 对于其他EVM方法，函数签名和输入变量是 [ABI编码](https://solidity.readthedocs.io/en/develop/abi-spec.html)的。 StaticCall的调用方字段是可选的，并且用空的 loom.Address 也可以。
 
@@ -656,49 +656,48 @@ async function getContract(privateKey, publicKey) {
 }
 ```
 
-#### Writing to a Solidity contract on a DAppChain
+#### 在DApp链上编写Solidity合约
 
-Calling an EVM smart contract's method that mutates the state works the same as [writiing data to a DAppChain](https://loomx.io/developers/docs/en/loom-js-quickstart.html#writing-data-to-a-dappchain) The main difference in the case of an EvmContract is that the input takes the format of an [ABI encoded](https://solidity.readthedocs.io/en/develop/abi-spec.html) array.
+调用EVM智能合约改变状态的方法类似于[将数据写入DApp链](https://loomx.io/developers/docs/en/loom-js-quickstart.html#writing-data-to-a-dappchain)。在EvmContract例子中最主要的区别是输入的形式是[ABI编码](https://solidity.readthedocs.io/en/develop/abi-spec.html)的数组。
 
 ```go
     let txHash = await evmContract.callAsync(abiEncodedInput)
 ```
 
-The return value is a [transaction hash](https://loomx.io/developers/docs/en/evm.html#transaction-hash) You can use the transaction hsh retrive more information about the contract using the `GetEvmTxReceipt` method. This returns a [transaction receipt, EvmTxReceipt](https://loomx.io/developers/docs/en/evm.html#transaction-receipt) object
+返回值是一个[事务哈希](https://loomx.io/developers/docs/en/evm.html#transaction-hash)。你可以通过`GetEvmTxReceipt`方法用事务哈希取回更多关与合约的信息。 这会返回一个[transaction receipt, EvmTxReceipt](https://loomx.io/developers/docs/en/evm.html#transaction-receipt)对象。
 
 ```text
     let receipt = await client.getTxReceiptAsync(rtv)
 ```
 
-#### Reading from a Solidity contract on a DAppCahin
+#### 读取DApp链上的Solidity合约
 
-To get information from an EVM smart contract you need to call a view method using the EvmContract's staticCall. This returns the result in an ABI encoded []byte. As for other EVM methods the function signature and input arguments are [ABI encoded](https://solidity.readthedocs.io/en/develop/abi-spec.html).
+想从EVM智能合约得到信息，你需要使用EvmContract的 staticCall 来调用 view 方法。 这会返回ABI编码[]字节形式的结果。 对于其他EVM方法，函数签名和输入变量是 [ABI编码](https://solidity.readthedocs.io/en/develop/abi-spec.html)的。
 
 ```go
     let txResult = await evmContract.staticCallAsync(abiEncodedInput)
 ```
 
-## Transaction hash
+## 事务哈希
 
-Writing to a DAppChain using a `Call` transactions that can modify the state returns a transaction hash. This is a unique hash of the transaction details. No two contracts should return the same hash. It can be used to retrieve details of the transaction.
+使用可以修改状态的`Call`事务来写入DApp链返回事务哈希。 这是事务详细信息的唯一哈希。 没有两个合约能返回相同的哈希。 它可用于取回事务的详细信息。
 
-### Transaction receipt
+### 事务回执
 
-Details of each EVM call transaction are stored on the loomchain and can be accessed using the transaction hash.
+每个 EVM 调用事务的详细信息存储在 loomchain 上, 可以使用事务哈希访问。
 
-The loom chain `QueryService` has the method `TxReceipt(txHash []byte) 
-([]byte, error)` which returns the receipt in a protobuf form. go-loom and loom-js provide an API for this query.
+Loom chain 的`QueryService` 有返回protobuf形式回执的`TxReceipt(txHash []byte) ([]byte, error)`方法。 go-loom 和 loom-js 为此查询提供API。
 
 go-loom:`func (c *DAppChainRPCClient) GetEvmTxReceipt(txHash []byte) (vm
 .EvmTxReceipt, error)`
 
 loom-js: `async getTxReceiptAsync(txHash: Uint8Array): Promise<EvmTxReceipt | null>`
 
-Details of the transaction receipt objects follow. 
+以下是事务回执对象的详细信息。 
 
-| Field             | Contents                                       |
+| 字段                | 内容                                             |
 | ----------------- |:---------------------------------------------- |
-| TransactionIndex  | transaction number this block                  |
+| TransactionIndex  | 此区块的事务编号                                       |
 | BlockHash         | Hash of the last block                         |
 | BlockNumber       | Block height                                   |
 | CumulativeGasUsed | Currently not used                             |
