@@ -482,8 +482,8 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
     1. `Object` - 过滤器选项：
     
     - `fromBlock`: `QUANTITY|TAG` - (可选，默认："latest") 整数区块号，或最后挖出来的区块链或”pending“（待处理）为“latest“（最新），还没有挖的事务为”earliest“（最早）。
-    - `toBlock`: `QUANTITY|TAG` - (可选，默认：`"latest"`) 整数区块号，或最后挖出来的区块链或”pending 待处理“为“latest“，还没有挖的事务为”earliest“。
-    - `address`: `DATA`|数组, 20 字节 - (可选) 合约地址或者日志应该由此起源的地址列表。
+    - `toBlock`: `QUANTITY|TAG` - (可选，默认：`"latest"`) 整数区块号，或最后挖出来的区块链或”pending“（待处理）为“latest“（最新），还没有挖的事务为”earliest“（最早）。
+    - `address`: `DATA`|数组, 20 字节 - (可选) 合约地址或者日志应该起源的地址列表。
     - `topics`: `Array of DATA`, - (可选) 32字节DATA主题的数组。主题是依赖于顺序的。每个主题也可以是带有“or”选项的DATA数组。
     
     #### 返回值
@@ -520,7 +520,7 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
     1. `Object` - 事务对象
     
     - `from`: `DATA`, 20 字节 - 发送事务的地址。
-    - `到`: `数据`20 字节-(创建新合约时可选) 将事务发送到的地址。
+    - `to`: `DATA`，20 字节 - (创建新合约时可选) 事务指向的地址。
     - `data`: `DATA` - 已编译的合约代码 或 调用方法签名和编码参数的哈希。详情见Ethereum Contract ABI
     
     #### 返回值
