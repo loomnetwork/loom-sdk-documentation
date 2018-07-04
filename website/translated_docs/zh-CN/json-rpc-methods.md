@@ -114,7 +114,7 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 #### 说明
 
-Executes a new message call immediately without creating a transaction on the block chain.
+立即执行一个新的信息调用，而不在区块俩上创建事务。
 
 #### 参数
 
@@ -160,10 +160,10 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 #### 返回值
 
-`Object` - A block object, or `null` when no block was found:
+`Object` - 区块对象，或`null`当没有找到任何区块时：
 
 - `number`: `QUANTITY` - 块号。当挂起块时为null。
-- `hash`: `DATA`, 32 字节 - 块的哈希值。当挂起块时为null。
+- `hash`: `DATA`, 32 字节 - 区块的哈希值。当区块待处理时为null。
 - `parentHash`: DATA`, 32字节 - 父块的哈希值。
 - `logsBloom`: `DATA`, 256字节 - 块日志的Bloom过滤器。 当挂起块时为null。
 - `timestamp`: `QUANTITY` - 整理块时的unix时间戳。
@@ -210,10 +210,10 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 #### 返回值
 
-`Object` - A block object, or `null` when no block was found:
+`Object` - 区块对象，或`null`当没有找到任何区块时：
 
-- `number`: `QUANTITY` - 块号。当挂起时为null。
-- `hash`: `DATA`, 32 字节 - 块的哈希值。当挂起块时为null。
+- `number`: `QUANTITY` - 块号。当区块待处理时为null。
+- `hash`: `DATA`, 32 字节 - 区块的哈希值。当区块待处理时为null。
 - `parentHash`: `DATA`, 32字节 - 父块的哈希值。
 - `logsBloom`: `DATA`, 256字节 - 块日志的Bloom过滤器。 当挂起块时为null。
 - `timestamp`: `QUANTITY` - 整理块时的unix时间戳。
@@ -300,15 +300,15 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 <ul>
 <li><code>removed`: `TAG` - 由于链重新配置而删除日志时` true </ 0>。 如果启用了日志记录，则<code> false </ 0>。</li>
-<li><code> logIndex </ code>：<code> QUANTITY </ code> - 日志中阻止的索引位置的整数。 对于未处理的日志，它为null。</li>
-<li><code>transactionIndex`: `QUANTITY` - integer of the transactions index position log was created from. null when its pending log.</li> 
+<li><code> logIndex </ code>：<code> QUANTITY </ code> - 区块中日志索引位置的整数。 当日志为待处理时为null。</li>
+<li><code> transactionIndex`：` QUANTITY ` - 事务索引位置的整数，日志是由此创建的。当日志为待处理时为null。</li> 
     
-    - `transactionHash`: `DATA`, 32 Bytes - hash of the transactions this log was created from. null when its pending log.
-    - `blockHash`: `DATA`, 32 Bytes - hash of the block where this log was in. null when its pending. null when its pending log.
-    - `blockNumber`: `QUANTITY` - the block number where this log was in. null when its pending. null when its pending log.
-    - `address`: `DATA`, 20 Bytes - address from which this log originated.
-    - `data`: `DATA` - contains one or more 32 Bytes non-indexed arguments of the log.
-    - `topics`: `Array of DATA` - Array of 0 to 4 32 Bytes `DATA` of indexed log arguments. (In solidity: The first topic is the hash of the signature of the event (e.g. Deposit(address,bytes32,uint256)), except you declared the event with the anonymous specifier.)</ul></li> </ul> 
+    - ` transactionHash`：` DATA`，32字节 - 事务的哈希，这个日志根据此创建。当日志为待处理时为null。
+    - `blockHash`: `DATA`, 32 字节 - 这个日志所在区块的哈希。当它待处理时为null。当日志待处理时为null。
+    - `blockNumber`: `QUANTITY` - 这个日志所在的区块号。当它待处理时为null。当日志待处理时为null。
+    - `address`: `DATA`, 20 字节 - 这个日志起源的地址。
+    - `data`: `DATA` - 包含日志的一个或多个32字节的非索引参数。
+    - `topics`: `Array of DATA` - 数组0到 4 32 字节 索引日志参数的`DATA`。 （在Solidity：第一个topic是事件（例如Deposit(address,bytes32,uint256)）签名的哈希，除非你用匿名说明符声明了该事件。）</ul></li> </ul> 
     
     #### 示例
     
@@ -344,30 +344,29 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
     
     #### 说明
     
-    Returns an array of all logs matching a given filter object.
+    返回与给定过滤器对象匹配的所有日志的数组。
     
-    #### Parameters
+    #### 参数
     
-    1. `Object` - The filter options:
+    1. `Object` - 过滤器选项：
     
-    - `fromBlock`: `QUANTITY|TAG` - (optional, default: `"latest"`) Integer block number, or "latest" for the last mined block or "pending", "earliest" for not yet mined transactions.
-    - `toBlock`: `QUANTITY|TAG` - (optional, default: "latest") Integer block number, or "latest" for the last mined block or "pending", "earliest" for not yet mined transactions.
-    - `address`: `DATA`|Array, 20 Bytes - (optional) Contract address or a list of addresses from which logs should originate.
-    - `topics`: Array of `DATA`, - (optional) Array of 32 Bytes `DATA` topics. Topics are order-dependent. Each topic can also be an array of `DATA` with "or" options.
-    - `blockhash`: `DATA`, 32 Bytes - (optional, future) With the addition of EIP-234, blockHash will be a new filter option which restricts the logs returned to the single block with the 32-byte hash blockHash. Using blockHash is equivalent to fromBlock = toBlock = the block number with hash blockHash. If blockHash is present in in the filter criteria, then neither fromBlock nor toBlock are allowed.
+    - `fromBlock`: `QUANTITY|TAG` - (可选，默认：`"latest"`) 整数区块号，或最后挖出来的区块链或”pending 待处理“为“latest“，还没有挖的事务为”earliest“。
+    - `toBlock`: `QUANTITY|TAG` - (可选，默认：`"latest"`) 整数区块号，或最后挖出来的区块链或”pending 待处理“为“latest“，还没有挖的事务为”earliest“。
+    - `address`: `DATA`|数组, 20 字节 - (可选) 合约地址或者日志应该由此起源的地址列表。
+    - `topics`: `DATA`的数组 - (可选) 32 字节的`DATA` 主题的数组。 主题是与顺序相关的。 每个主题也可以是 `DATA` 的数组，其中有 "or" 选项。
+    - `blockhash`: `DATA`, 32 字节 - (可选, 未来) 添加 EIP-234 后，blockhash 将成为新的过滤器选项，它使用32字节的哈希 blockHash 来限制返回到单个区块的日志。 使用 blockHash 等同于 fromBlock = toBlock = 带有哈希 blockHash 的区块号。 如果过滤器条件中出现了 blockHash，则 fromBlock 和 toBlock 都不会被允许。
     
-    #### Returns
+    #### 返回值
     
-    See [eth_getFilterChanges](#eth-getfilterchanges)
+    请参见 [eth_getFilterChanges](#eth-getfilterchanges)
     
-    #### Example
+    #### 示例
     
     ```Javascript
     // eth_getFilterChanges JSON RPC call
     const jsonRPCString = '{"jsonrpc":"2.0","method":"eth_getLogs","params":[{"topics":["0x000000000000000000000000a94f5374fce5edbc8e2a8697c15331677e6ebf0b"]}],"id":74}'
     
-    // Parse JSON is a necessary step before send
-    await loomProvider.sendAsync(JSON.parse(jsonRPCString))
+    // 解析JSON是发送等待loomProvider.sendAsync(JSON.parse(jsonRPCString)之前的必要步骤)
     ```
     
     Result see [eth_getFilterChanges](#eth-getfilterchanges)

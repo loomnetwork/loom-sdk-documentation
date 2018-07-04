@@ -35,6 +35,8 @@
     "Loom.js + Web3.js": "Loom.js + Web3.js",
     "loom-js-quickstart": "NodeJS & Browser Quick Start",
     "NodeJS & Browser Quick Start": "NodeJS & Browser Quick Start",
+    "loom-yaml": "Loom Yaml and Configuration options",
+    "Loom Yaml and Configuration options": "Loom Yaml and Configuration options",
     "metrics": "Metrics",
     "Metrics": "Metrics",
     "multi-node-deployment": "Example Deployment",
@@ -83,10 +85,10 @@
     "Consensus": "Consensus",
     "Monitoring": "Monitoring",
     "Solidity & EVM": "Solidity & EVM",
-    "EVM JSON RPC": "EVM JSON RPC",
     "Example Games & Apps": "Example Games & Apps",
     "Deployment": "Deployment",
-    "Frequently Asked Questions": "Frequently Asked Questions"
+    "Frequently Asked Questions": "Frequently Asked Questions",
+    "Advanced and Internal": "Advanced and Internal"
   },
   "pages-strings": {
     "Learn more using the [documentation on this site.](/test-site/docs/en/doc1.html)|no description given": "Learn more using the [documentation on this site.](/test-site/docs/en/doc1.html)",

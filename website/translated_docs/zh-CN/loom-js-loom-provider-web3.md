@@ -5,7 +5,7 @@ sidebar_label: Loom.js + Web3.js
 ---
 # 概览
 
-The `loom-js` comes with the `LoomProvider` which makes possible to connect with `Web3.js` as a provider allowing Ethereum developers to deploy and send transactions to smart contracts, listen for smart contracts events running inside the Loom DAppChains, for further details check out [EVM page](evm)
+带有 `LoomProvider` 的 `loom-js` 可以以和 `Web.js` 作为 提供者连接，这样以太坊开发者就可以部署合约并向其发送事务，也可以监听运行在Loom DApp链上的智能合约事件。更多详情请阅读 [EVM 页面](evm)
 
 首先从NPM 安装 `loom-js`
 
