@@ -551,16 +551,16 @@ func deployEvmContract(name string, byteHex string, signer auth.Signer)
 你可以使用DAppChains QueryInterface的方法 GetCode 来取回一个已部署Solidity合约的运行时字节码。
 
 ```go
-// GetCode returns the runtime byte-code of a contract running on a DAppChain's EVM.
-// Gives an error for non-EVM contracts.
-// contract - address of the contract in the form of a string. (Use loom.Address.String() to convert)
-// return []byte - runtime bytecode of the contract.
+// GetCode 返回在 DAppChain 的 EVM 上运行的协定的运行时字节代码。
+// 为非 EVM 合约提供error。
+// 合约 - 字符串形式的合约地址。 (使用 loom.Address.String() 来转换)
+// 返回 []byte - 合约运行时的字节码。
 func (c *DAppChainRPCClient) GetCode(contract string) ([]byte, error) 
 ```
 
-The runtime code is the inital contract's binary with the code for starting and construting the contract removed as its no longer needed.
+运行时代码是初始合约的二进制文件, 其中移除启动和构建的合约代码，因为不再需要了。
 
-#### Writing to a Solidity contract on a DAppChain
+#### 在DApp链上编写Solidity合约
 
 Writing and reading to a smart contract deployed on a DAppChain's EVM works in a similar way to [writing](https://loomx.io/developers/docs/en/go-loom-clients.html#writing-data-to-a-dappchain) and [reading](https://loomx.io/developers/docs/en/go-loom-clients.html#reading-data-from-a-dappchain) to non-EVM plugins. The main difference is that the function signature and input parameters need to be converted to bytecode using [ABI encoding](https://solidity.readthedocs.io/en/develop/abi-spec.html). You can use the go-ethereum [abi.JSON](https://godoc.org/github.com/obscuren/go-ethereum/accounts/abi#JSON) function to encode input using your contracts ABI which you can get from `solc --abi -o. MySolidiityProgram.sol`
 
