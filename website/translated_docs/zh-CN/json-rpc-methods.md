@@ -369,21 +369,21 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
     // 解析JSON是发送等待loomProvider.sendAsync(JSON.parse(jsonRPCString)之前的必要步骤)
     ```
     
-    Result see [eth_getFilterChanges](#eth-getfilterchanges)
+    结果请参见 [eth_getFilterChanges](#eth-getfilterchanges)
     
     ## eth_getTransactionReceipt
     
     * * *
     
-    #### Description
+    #### 描述
     
-    Returns the receipt of a transaction by transaction hash.
+    通过事务哈希返回事务的收据。
     
-    **Note** That the receipt is not available for pending transactions.
+    **注意** 该收据对于待处理事务记录不可用。
     
-    #### Parameters
+    #### 参数
     
-    1. `DATA`, 32 Bytes - hash of a transaction
+    1. `DATA`，32 字节 - 事务哈希
     
     #### Returns
     
