@@ -65,7 +65,7 @@ SDK includes a number of high level blockchain services
 * Solidity + Ethereum Virtual Machine
 * Support for game engines like Cocos, Unity, and Phaser
 * Transfer Gateway integration
-* Plasma integration (coming late June)
+* Plasma integration
 * Cron  (coming soon)
 * Rate limiting (early phases)
 * Hard fork Manager (coming July)
