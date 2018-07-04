@@ -234,14 +234,13 @@ const tx = await contract.methods.set(47).send()
 const value = await contract.methods.get().call()
 ```
 
-Also listen for events, in that case for the event `NewValueSet`:
+还要监听事件，在这种情况下针对事件 ` NewValueSet </ code>：</p>
 
-```Javascript
-contract.events.NewValueSet({}, (err, event) => {
+<pre><code class="Javascript">contract.events.NewValueSet({}, (err, event) => {
   if (err) {
     return console.error(err)
   }
 
   console.log('New value set', event.returnValues._value)
 })
-```
+`</pre>
