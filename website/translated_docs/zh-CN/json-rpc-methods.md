@@ -354,7 +354,7 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
     - `toBlock`: `QUANTITY|TAG` - (可选，默认：`"latest"`) 整数区块号，或最后挖出来的区块链或”pending“（待处理）为“latest“（最新），还没有挖的事务为”earliest“（最早）。
     - `address`: `DATA`|数组, 20 字节 - (可选) 合约地址或者日志应该由此起源的地址列表。
     - `topics`: `DATA`的数组 - (可选) 32 字节的`DATA` 主题的数组。 主题是与顺序相关的。 每个主题也可以是 `DATA` 的数组，其中有 "or" 选项。
-    - `blockhash`: `DATA`, 32 字节 - (可选, 未来) 添加 EIP-234 后，blockhash 将成为新的过滤器选项，它使用32字节的哈希 blockHash 来限制返回到单个区块的日志。 使用 blockHash 等同于 fromBlock = toBlock = 带有哈希 blockHash 的区块号。 如果过滤器条件中出现了 blockHash，则 fromBlock 和 toBlock 都不会被允许。
+    - `blockhash`: `DATA`, 32 字节 - (可选, 未来) 添加 EIP-234 后，blockHash 将成为新的过滤器选项，它使用32字节的哈希 blockHash 来限制返回到单个区块的日志。 使用 blockHash 等同于 fromBlock = toBlock = 带有哈希 blockHash 的区块号。 如果过滤器条件中出现了 blockHash，则 fromBlock 和 toBlock 都不会被允许。
     
     #### 返回值
     
@@ -465,23 +465,23 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
     
     #### 说明
     
-    基于过滤器选项，创建一个过滤器对象，当状态改变（记录）时通知。想查询状态是够已经改变，调用 [eth_getFilterChanges](#eth-getfilterchanges)。
+    基于过滤器选项，创建一个过滤器对象，当状态改变（记录）时通知。想查询状态是否已经改变，调用 [eth_getFilterChanges](#eth-getfilterchanges)。
     
     ##### 关于指定主题过滤器的注释：
     
     主题是依赖于顺序的。具有主题[a，b] 的日志的事务将由以下主题过滤器匹配：
     
-    - `[]` "任何都可以"
-    - `[A]` "A 在首位 (后面任何都可以)"
-    - `[null, B]` "首位任何都可以 AND B 在第二位 (然后后面任何都可以)"
-    - `[A, B]` "A 在首位 AND B 在第二位 (然后后面任何都可以)"
-    - `[[A, B], [A, B]]` "(A OR B) 在首位 AND (A OR B) 在第二位 (后面任何都可以)"
+    - `[]` "任意"
+    - `[A]` "A 在首位 (后面任意)"
+    - `[null, B]` "首位任何都可以 AND B 在第二位 (然后后面任意)"
+    - `[A, B]` "A 在首位 AND B 在第二位 (然后后面任意)"
+    - `[[A, B], [A, B]]` "(A OR B) 在首位 AND (A OR B) 在第二位 (后面任意)"
     
     #### 参数
     
     1. `Object` - 过滤器选项：
     
-    - `fromBlock`: `QUANTITY|TAG` - (可选，默认："latest") 整数区块号，或最后挖出来的区块链或”pending 待处理“为“latest“，还没有挖的事务为”earliest“。
+    - `fromBlock`: `QUANTITY|TAG` - (可选，默认："latest") 整数区块号，或最后挖出来的区块链或”pending“（待处理）为“latest“（最新），还没有挖的事务为”earliest“（最早）。
     - `toBlock`: `QUANTITY|TAG` - (可选，默认：`"latest"`) 整数区块号，或最后挖出来的区块链或”pending 待处理“为“latest“，还没有挖的事务为”earliest“。
     - `address`: `DATA`|数组, 20 字节 - (可选) 合约地址或者日志应该由此起源的地址列表。
     - `topics`: `Array of DATA`, - (可选) 32字节DATA主题的数组。主题是依赖于顺序的。每个主题也可以是带有“or”选项的DATA数组。
