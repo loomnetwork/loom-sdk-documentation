@@ -1,7 +1,7 @@
 ---
 id: loom-yaml
-title: Loom Yaml and Configuration options
-sidebar_label: Loom Yaml and Configuration options
+title: Loom Yaml 和配置选项
+sidebar_label: Loom Yaml 和配置选项
 ---
 # loom.yaml
 
@@ -22,17 +22,17 @@ sidebar_label: Loom Yaml and Configuration options
     # EthereumURI: ws://127.0.0.1:8545"
     
 
-remove the # from lines you want to change
+从要更改的行中删除 #
 
 ## LoomLogLevel
 
-Options: debug, info, warn, error
+选项: 调试、信息、警告、错误
 
-General logging for the Loom Blockchain
+Loom 区块链的常规日志记录
 
 ## ContractLogLevel
 
-Options: debug, info, warn, error
+选项: 调试、信息、警告、错误
 
 General logging for the Go Based Smart contracts.
 
