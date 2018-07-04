@@ -5,15 +5,15 @@ sidebar_label: Web3, LoomProvider 和 Truffle
 ---
 ## 概述
 
-The `loom-js` also comes with the `LoomProvider` which allows you to integrate with the [Web3.js](https://github.com/ethereum/web3.js), thus making easier the integration with [EVM](evm.html) contained on Loom DAppChain, also is possible to use [Truffle Framework](http://truffleframework.com/) to manage tests, deployments and solidity smart contracts.
+`LoomProvider` 还附带了`loom-js` ，它允许你与 [Web3.js](https://github.com/ethereum/web3.js) 集成，从而更容易与 Loom DApp 链中包含的 [EVM](evm.html) 集成，也可以使用 [Truffle Framework](http://truffleframework.com/) 来管理测试，部署和 solidity 智能合约。</p> 
 
 ### Web3
 
-As the official documentation for `Web3.js` states:
+正如 `Web3.js` 的官方文档所述：
 
-> `Web3.js` is a collection of libraries which allow you to interact with a local or remote ethereum node, using a HTTP or IPC connection.
+> `Web3.js` 是一个库集合，允许你使用 HTTP 或 IPC 连接与本地或远程以太坊节点进行交互。
 
-For the Loom DAppChains the communication happens using `WebSockets` instead `HTTP` or `IPC`, however the deeper knowledge of the communication isn't required since `Web3.js` abstracts that part.
+对于 Loom DApp 链，使用 `WebSockets` 而不是 `HTTP` 或 `IPC` 进行通信，由于 `Web3.js` 抽象了该部分，所以不需要更深入的通信知识。
 
 ### LoomProvider
 
