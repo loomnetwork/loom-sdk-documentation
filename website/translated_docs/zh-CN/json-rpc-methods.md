@@ -432,17 +432,17 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
     
     #### 说明
     
-    Creates a filter in the node, to notify when new pending transactions arrive. To check if the state has changed, call [eth_getFilterChanges](#eth-getfilterchanges).
+    在节点内创建一个过滤器，当新的未决事务抵达的时候通知。想查询状态是否已经改变，调用[eth_getFilterChanges](#eth-getfilterchanges)。
     
-    #### Parameters
+    #### 参数
     
-    None
+    无
     
-    #### Returns
+    #### 返回值
     
-    `QUANTITY` - A filter id.
+    `QUANTITY` - 过滤器ID。
     
-    #### Example
+    #### 示例
     
     ```Javascript
     // eth_newBlockFilter JSON RPC call
@@ -463,34 +463,34 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
     
     * * *
     
-    #### Description
+    #### 说明
     
-    Creates a filter object, based on filter options, to notify when the state changes (logs). To check if the state has changed, call [eth_getFilterChanges](#eth-getfilterchanges).
+    基于过滤器选项，创建一个过滤器对象，当状态改变（记录）时通知。想查询状态是够已经改变，调用 [eth_getFilterChanges](#eth-getfilterchanges)。
     
-    ##### A note on specifying topic filters:
+    ##### 关于指定主题过滤器的注释：
     
-    Topics are order-dependent. A transaction with a log with topics [A, B] will be matched by the following topic filters:
+    主题是依赖于顺序的。具有主题[a，b] 的日志的事务将由以下主题过滤器匹配：
     
-    - `[]` "anything"
-    - `[A]` "A in first position (and anything after)"
-    - `[null, B]` "anything in first position AND B in second position (and anything after)"
-    - `[A, B]` "A in first position AND B in second position (and anything after)"
-    - `[[A, B], [A, B]]` "(A OR B) in first position AND (A OR B) in second position (and anything after)"
+    - `[]` "任何都可以"
+    - `[A]` "A 在首位 (后面任何都可以)"
+    - `[null, B]` "首位任何都可以 AND B 在第二位 (然后后面任何都可以)"
+    - `[A, B]` "A 在首位 AND B 在第二位 (然后后面任何都可以)"
+    - `[[A, B], [A, B]]` "(A OR B) 在首位 AND (A OR B) 在第二位 (后面任何都可以)"
     
-    #### Parameters
+    #### 参数
     
-    1. `Object` - The filter options:
+    1. `Object` - 过滤器选项：
     
-    - `fromBlock`: `QUANTITY|TAG` - (optional, default: "latest") Integer block number, or "latest" for the last mined block or "pending", "earliest" for not yet mined transactions.
-    - `toBlock`: `QUANTITY|TAG` - (optional, default: "latest") Integer block number, or "latest" for the last mined block or "pending", "earliest" for not yet mined transactions.
-    - `address`: `DATA|Array`, 20 Bytes - (optional) Contract address or a list of addresses from which logs should originate.
-    - `topics`: `Array of DATA`, - (optional) Array of 32 Bytes DATA topics. Topics are order-dependent. Each topic can also be an array of DATA with "or" options.
+    - `fromBlock`: `QUANTITY|TAG` - (可选，默认："latest") 整数区块号，或最后挖出来的区块链或”pending 待处理“为“latest“，还没有挖的事务为”earliest“。
+    - `toBlock`: `QUANTITY|TAG` - (可选，默认：`"latest"`) 整数区块号，或最后挖出来的区块链或”pending 待处理“为“latest“，还没有挖的事务为”earliest“。
+    - `address`: `DATA`|数组, 20 字节 - (可选) 合约地址或者日志应该由此起源的地址列表。
+    - `topics`: `Array of DATA`, - (可选) 32字节DATA主题的数组。主题是依赖于顺序的。每个主题也可以是带有“or”选项的DATA数组。
     
-    #### Returns
+    #### 返回值
     
-    `QUANTITY` - A filter id
+    `QUANTITY` - 过滤器ID。
     
-    #### Example
+    #### 示例
     
     ```Javascript
     // eth_newFilter JSON RPC call
@@ -511,15 +511,15 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
     
     * * *
     
-    #### Description
+    #### 说明
     
-    Creates new message call transaction or a contract creation, if the data field contains code.
+    如果数据字段包含代码, 则创建新的消息调用事务或创建合约。
     
-    #### Parameters
+    #### 参数
     
-    1. `Object` - The transaction object
+    1. `Object` - 事务对象
     
-    - `from`: `DATA`, 20 Bytes - The address the transaction is send from.
+    - `from`: `DATA`, 20 字节 - 发送事务的地址。
     - `to`: `DATA`, 20 Bytes - (optional when creating new contract) The address the transaction is directed to.
     - `data`: `DATA` - The compiled code of a contract OR the hash of the invoked method signature and encoded parameters. For details see Ethereum Contract ABI
     
