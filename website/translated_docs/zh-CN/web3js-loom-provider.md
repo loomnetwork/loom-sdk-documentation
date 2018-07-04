@@ -17,19 +17,19 @@ sidebar_label: Web3, LoomProvider 和 Truffle
 
 ### LoomProvider
 
-An `Provider` is a bridge that connects the `Web3.js` API to the Ethereum node, in order to make `Web3.js` calls compatible with Loom DAppChain you should use the `LoomProvider`
+`Provider` 是将 `Web3.js` API 连接到以太坊节点的桥梁，为了使 `Web3.js` 调用与 Loom DApp 链兼容，你应该使用LoomProvider。
 
-Combining `Web3.js` and `LoomProvider` is a good option to interact with smart contracts deployed on Loom DAppChain, because `Web3.js` abstracts the construction of API calls not needing the interpretation of the [ABI](https://solidity.readthedocs.io/en/develop/abi-spec.html) manually.
+结合 `Web3` 和 `LoomProvider` 是一个很好的选择, 可以与部署在Loom DApp链上的智能合同进行交互,因为 `Web3` 抽象了 API 调用的构造, 不需要手动解释 [ABI](https://solidity.readthedocs.io/en/develop/abi-spec.html)。
 
-### Truffle framework
+### Truffle 框架
 
-So the official site for `Truffle` says:
+所以 `Truffle` 的官方网站说：
 
-> Truffle is the most popular development framework for Ethereum with a mission to make your life a whole lot easier.
+> Truffle 是以太坊最受欢迎的开发框架，其使命就是让您的生活更轻松。
 
-And that is pure true, because `Truffle` can: `compile`, `deploy`, `test`, `debug` and much more.
+这完全是真的，因为 `Truffle` 可以：`编译`，`部署`，`测试`，`调试`等等。
 
-## Deploying and run from Truffle
+## 从 Truffle 部署和运行
 
 ### Download and Install
 
