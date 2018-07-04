@@ -5,14 +5,14 @@ sidebar_label: 度量
 ---
 ## 概述
 
-Loom 检测度量并将度量值公开给外部监控服务。 引入中间件层以实现应用程序服务和检测之间的关注分离。 Loom SDK utilizes go-kit's `metrics` package to instrument metrics.
+Loom 检测度量并将度量值公开给外部监控服务。 引入中间件层以实现应用程序服务和检测之间的关注分离。 Loom SDK 利用 go-kit 的 `metrics` 包来检测度量。
 
-## Loom SDK Metrics
+## Loom SDK 度量
 
-Loom captures and exposes 4 different types of metrics:
+Loom 获取并公开了4种不同类型的度量：
 
-- `Counter` a single numerical value that goes up only
-- `Gauge` a single numerical value that goes up and down
+- `Counter` 仅上升的单个数值
+- `Gauge` 上升和下降的单个数值
 - `Histogram` a sample of observation grouped into buckets over a sliding time window
 - `Summary` a sample of observation grouped into buckets with quantiles over a sliding time window
 
