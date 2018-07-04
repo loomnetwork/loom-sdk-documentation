@@ -31,12 +31,12 @@ sidebar_label: Web3, LoomProvider 和 Truffle
 
 ## 从 Truffle 部署和运行
 
-### Download and Install
+### 下载和安装
 
-First you'll need to install `Truffle`:
+首先, 你需要安装 `Truffle`:
 
 ```bash
-# Currently supported version
+# 当前支持的版本 
 npm install -g truffle
 ```
 
