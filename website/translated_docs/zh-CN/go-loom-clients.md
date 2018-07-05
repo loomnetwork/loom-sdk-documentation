@@ -36,7 +36,7 @@ make example-cli
 ./example-cli call get_msg -k 123 -p [priv_key]
 ```
 
-您将看到以下响应：
+您将看到以下回应：
 
 ```js
 {
@@ -45,11 +45,11 @@ make example-cli
 }
 ```
 
-这就结束了我们对示例CLI app功能的演示，现在是时候看一下用于实现它的` go-loom </ 0> API的各个部分。</p>
+这就结束了我们对示例CLI app功能的演示，现在是时候看一下用于实现它的` go-loom ` API的各个部分。
 
-<h2>连接到DApp链</h2>
+## 连接到DApp链
 
-<p><code>Contract` 类提供了一种与Loom DApp链上运行的智能合约进行交互的便捷方式。 让我们编写一个创建client.Contract实例的方法来与Loom SDK中的示例 [helloworld](https://github.com/loomnetwork/go-loom/blob/master/examples/plugins/helloworld/helloworld.go) 智能合同从Loom SDK 进行交互...
+`Contract` 类提供了一种与Loom DApp链上运行的智能合约进行交互的便捷方式。 让我们编写一个创建client.Contract实例的方法来与Loom SDK中的示例 [helloworld](https://github.com/loomnetwork/go-loom/blob/master/examples/plugins/helloworld/helloworld.go) 智能合同从Loom SDK 进行交互...
 
 ```go
 package main
