@@ -219,7 +219,7 @@ func (c *HelloWorld) Meta() (plugin.Meta, error) {
 }
 ```
 
-这里是一些需要注意的地方。 1. 第一，合约必须是package main。 2. 将我们名为Hello World的合约定义为结构。 3. 实现`Meta()` 函数，返回合约名和版本号。 4. 需要定义变量`Contract`。 函数`contract.MakePluginContract` 将我们简单的大纲转换为一个DApp链能与之交互的东西。 5. 然后，主例程可以将合约设置为工作服务器。
+这里是一些需要注意的地方。 1. 第一，合约必须是package main。 2. 将我们名为 Hello World 的合约定义为结构。 3. 实现`Meta()` 函数，返回合约名和版本号。 4. 需要定义变量`Contract`。 函数`contract.MakePluginContract` 将我们简单的大纲转换为一个DApp链能与之交互的东西。 5. 然后，主例程可以将合约设置为工作服务器。
 
 当然了，我们的合约没有任何功能所以什么也做不了。 下一步就是为其添加一些功能。 然后，MakePluginContract函数可以使用反射来学习我们为合约提供的所有新方法。
 
