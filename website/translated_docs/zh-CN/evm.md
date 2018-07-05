@@ -3,7 +3,7 @@ id: evm
 title: 以太坊虚拟机
 sidebar_label: EVM
 ---
-## 概括
+## 概述
 
 loom DApp链包含一个以太坊虚拟机（EVM）并使你可以部署以及运行将编译成EVM字节码的智能合约。
 
@@ -83,19 +83,19 @@ loom DApp链包含一个以太坊虚拟机（EVM）并使你可以部署以及�
 
 -b 给出了保存合约的原始EVM字节码的文件。 这可以用Solidity编译器，如 `solc --bin -o. MySolProgram.sol`
 
--n 允许你为合约输入名称。这将是一个比合同地址更用户友好的代号。
+-n 允许你为合约输入名称。这将是一个比合约地址更用户友好的代号。
 
 示例： 
 
-    text
+    文本
      ./loom deploy -a ./data/pub -k ./data/pri -b ./data/bytecode.bin  -w \
       http://localhost:46657 -r http://localhost:9999
 
   
-如果一切正常，你应该看到类似以下的内容： ```文本 新合约部署地址： 默认: 0x71A53d11A3b77e369463804FEE9B17ba7E24d98B Runtime字节码: [96 96 96 64 82 ... 84 226 214 187 0 41] 事务收据: [10 178 198 52 108 ... 141 155 79 250 97 129 104 243]
+如果一切正常，你应该看到类似以下的内容： ```文本 新合约部署地址： 默认: 0x71A53d11A3b77e369463804FEE9B17ba7E24d98B Runtime字节码: [96 96 96 64 82 ... 84 226 214 187 0 41] 事务回执: [10 178 198 52 108 ... 141 155 79 250 97 129 104 243]
 
     输出合约地址可用于调用命令中调用合约上的方法。
-    独特的 [事务哈希] (https://loomx.io/developers/docs/en/evm.html#transaction-receipt) 可用于检索部署事务的收据。 
+    独特的 [事务哈希] (https://loomx.io/developers/docs/en/evm.html#transaction-receipt) 可用于检索部署事务的回执。 
     
     ### 调用
     
@@ -126,7 +126,7 @@ loom DApp链包含一个以太坊虚拟机（EVM）并使你可以部署以及�
 
 示例 ```文本 call -a ./data/pub -k ./data/pri -i ./cmd/loom/data/inputSet.bin \ -c 0xbD770416A3345f91E4b34576Cb804a576Fa48eB1 \ -w http://localhost:46657 -r http://localhost:9999
 
-    完成后, 这将返回 [事务哈希](https://loomx.io/developers/docs/en/evm.html#transaction-receipt), 这对于每个事务调用都应该是唯一的。 它可用于返回事务的收据。
+    完成后, 这将返回 [事务哈希](https://loomx.io/developers/docs/en/evm.html#transaction-receipt), 这对于每个事务调用都应该是唯一的。 它可用于返回事务的回执。
     
     ### static-call
     在合约上调用只读方法。 返回方法的返回值。
