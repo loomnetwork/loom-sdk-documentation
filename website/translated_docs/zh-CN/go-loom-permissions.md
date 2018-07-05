@@ -20,19 +20,18 @@ sidebar_label: 权限助手
         ctx.GrantPermission([]byte(userName), []string{"owner"})
     
 
-这会将` userName </ code>（代币）的<code>所有者</ code>权限授予事务的发件人地址。此角色是一个用于通过一次调用授予多个权限的阵列。</p>
+这会将`userName` （代币）的权限授予`owner` 到事务的发送者地址。这个角色是一个通过一次调用授予多个权限的数组。
 
-<p>要检查事务发件人的访问权限，</p>
+要检查事务发送者的权限，
 
-<pre><code>    if ok, _ := ctx.HasPermission([]byte(userName), []string{"owner"}); !ok {
-        return errors.New("User unverified")
-    }
-`</pre> 
+        if ok, _ := ctx.HasPermission([]byte(userName), []string{"owner"}); !ok {
+            return errors.New("User unverified")
+        }
+    
 
-在HasPermission中，返回与bool值（指示匹配）以及` address </ code>和<code> role </ code>的组合匹配的角色子集。</p>
+HasPermission 返回一个布尔值（来表明匹配关系）和一个` address `和` role ` 组合匹配的角色子集。
 
-<p>还有另外两个低级函数以任意地址的权限运行。</p>
+还有另外两个低级函数以任意地址的权限运行。
 
-<pre><code>    HasPermissionFor(addr loom.Address, token []byte, roles []string) (bool, []string)
-    GrantPermissionTo(addr loom.Address, token []byte, role string)
-`</pre>
+        HasPermissionFor(addr loom.Address, token []byte, roles []string) (bool, []string)
+        GrantPermissionTo(addr loom.Address, token []byte, role string)
