@@ -9,7 +9,7 @@ sidebar_label: Phaser + Websocketsのデモ
 
 ## ゲームの説明
 
-Use the mouse cursor to click on the black canvas area to create colored tiles, each new player will have a different color on the canvas which is shared amongst all players
+マウスカーソルを使って黒いキャンバス領域をクリックし、色のついたタイルを作る。新しいプレイヤーはキャンバス上でそれぞれ異なる色を持つち、キャンバスは全てのプレイヤーから共有される。
 
 ## 開発
 
