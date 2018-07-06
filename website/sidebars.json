@@ -4,7 +4,7 @@
     "Javascript Client SDK": ["loom-js-quickstart", "web3js-loom-provider-truffle"],
     "Go Contract SDK": ["go-loom-clients", "goloomstate", "goloomevents", "goloompermissions", "builtin"],
     "Game SDKs": ["cocos-sdk-quickstart"],
-    "Unity SDK": ["unity-sdk-overview", "unity-sdk-plugin", "unity-sdk-evm", "unity-sample-tiles-chain-evm"],
+    "Unity SDK": ["unity-quick-start","unity-sdk-overview", "unity-sdk-plugin", "unity-sdk-evm", "unity-sample-tiles-chain-evm"],
     "Events": ["loomevents"],
     "Consensus": ["delegated-proof-of-stake"],
     "Monitoring": ["metrics", "logging"],
