@@ -1,9 +1,9 @@
 ---
 id: go-loom-clients
-title: 在Golang中构建DApp链用户
+title: 在Golang中构建DApp客户端
 sidebar_label: 构建DApp链客户端
 ---
-## 概括
+## 概述
 
 go-loom 库包含构建与Loom DApp链交互的Go app和服务以及构建存在在这些DApp链上的智能合约所需的一切。
 
@@ -15,10 +15,10 @@ go-loom 库包含构建与Loom DApp链交互的Go app和服务以及构建存在
 
 在本节中，您将了解用于编写与Loom DApp链交互的Go代码的 go-loom API，在Go中编写智能合约将在后面的部分中介绍。
 
-在 go-loom 程序包中，您将找到许多示例, examples / cli 包含一个CLI app，可用于与 examples / plugins / helloworld 智能合约进行交互。 我们将从构建和测试驱动CLI app开始，然后我们将向您介绍用于构建它的 go-loom API。
+在`go-loom`程序包中，您将找到许多示例, ` examples/cli`包含一个CLI app，可用于与`examples / plugins / helloworld`智能合约进行交互。 我们将从构建和测试驱动CLI app开始，然后我们将向您介绍用于构建它的`go-loom`API。
 
 ```shell
-#这将生成./example-cli可执行文件
+#这将生成 ./example-cli 可执行文件
 make example-cli
 ```
 
@@ -36,7 +36,7 @@ make example-cli
 ./example-cli call get_msg -k 123 -p [priv_key]
 ```
 
-您将看到以下响应：
+您将看到以下回应：
 
 ```js
 {
@@ -45,11 +45,11 @@ make example-cli
 }
 ```
 
-这就结束了我们对示例CLI app功能的演示，现在是时候看一下用于实现它的` go-loom </ 0> API的各个部分。</p>
+这就结束了我们对示例CLI app功能的演示，现在是时候看一下用于实现它的` go-loom ` API的各个部分。
 
-<h2>连接到DApp链</h2>
+## 连接到DApp链
 
-<p><code>Contract` 类提供了一种与Loom DApp链上运行的智能合约进行交互的便捷方式。 让我们编写一个创建client.Contract实例的方法来与Loom SDK中的示例 [helloworld](https://github.com/loomnetwork/go-loom/blob/master/examples/plugins/helloworld/helloworld.go) 智能合同从Loom SDK 进行交互...
+`Contract` 类提供了一种与Loom DApp链上运行的智能合约进行交互的便捷方式。 让我们编写一个创建client.Contract实例的方法来与Loom SDK中的示例 [helloworld](https://github.com/loomnetwork/go-loom/blob/master/examples/plugins/helloworld/helloworld.go) 智能合同从Loom SDK 进行交互...
 
 ```go
 package main
