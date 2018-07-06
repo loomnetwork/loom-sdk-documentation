@@ -29,7 +29,7 @@ sidebar_label: 多节点部署
 
 有两个 genesis.json 文件需要组合。
 
-### genesis.json #1 - 在公作目录中
+### genesis.json #1 - 在工作目录中
 
 `genesis.json` 文件如下所示：
 

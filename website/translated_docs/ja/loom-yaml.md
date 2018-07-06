@@ -1,7 +1,7 @@
 ---
 id: loom-yaml
 title: Loom Yamlと設定オプション
-sidebar_label: Loom Yaml and Configuration options
+sidebar_label: Loom Yamlと設定オプション
 ---
 # loom.yaml
 
@@ -60,7 +60,7 @@ BFTレイヤーブロックチェーン用の一般的なロギング。使用�
 
 これはブロックチェーン用RPCポートの１つである。
 
-NOTE: this will be changing to a bind interface style in next release
+注: 次のリリースにて、これはバインドインターフェーススタイルへと変更される予定だ。
 
 # config.toml
 

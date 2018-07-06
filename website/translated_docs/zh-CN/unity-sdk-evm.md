@@ -13,7 +13,7 @@ Loom支持EVM（[以太坊虚拟机](evm.html)）和基于插件的智能合约�
 
 ## 连接到 DApp链
 
-`EvmContract` 类提供了一种方便的方式与在运行着EVM-兼容智能合约的 Loom DApp 链上运行的智能合约进行交互。 让我们编写一个创建`EvmContract` 实例的方法来与示例[TilesChain](https://github.com/loomnetwork/unity-tiles-chain-evm/blob/master/dappchain/TilesChain.sol) 智能合约进行交互。
+`EvmContract` 类提供了一种方便的方式与在运行着EVM-兼容智能合约的 Loom DApp链上运行的智能合约进行交互。 让我们编写一个创建`EvmContract` 实例的方法来与示例[TilesChain](https://github.com/loomnetwork/unity-tiles-chain-evm/blob/master/dappchain/TilesChain.sol) 智能合约进行交互。
 
 ```csharp
 // LoomEvmQuickStartSample.cs
@@ -113,7 +113,7 @@ public async Task StaticCallContract(EvmContract contract)
 
 ## 从DApp链接收事件
 
-DApp链可以触发事件来响应调用智能合约。 要收到有关新事件的通知，您必须订阅`EvmContract.EventReceived`事件。 但首先，我们需要定义一个指定事件参数的DTO（数据传输对象）。
+DApp链可以触发事件来回应调用智能合约。 要收到有关新事件的通知，您必须订阅`EvmContract.EventReceived`事件。 但首先，我们需要定义一个指定事件参数的DTO（数据传输对象）。
 
 ```csharp
 public class OnTileMapStateUpdateEvent

@@ -17,16 +17,16 @@ Loom SDKには2タイプのログがある。 1つ目は、ブロックチェー
 以下を`loom.yaml`に設定して、ログレベルを設定しよう。
 
     LoomLogLevel: debug # LoomSDKによって出力されるイベントのログレベルを設定
-    BlockchainLogLevel: error # ブロックチェーンのログのログレベルを設定
+    BlockchainLogLevel: error # ブロックチェーンのログのログレベルを設定.
     
 
-`LoomLegLevel`と`BlockchainLogLevel`のデフォルトは、それぞれ`info`と`error`である。
+`LoomLogLevel`と`BlockchainLogLevel`のデフォルトは、それぞれ`info`と`error`である。
 
 ### ログ出力先の設定
 
 現在Loomログ用にファイルターゲットがサポートされてている。
 
-    LogDestination: "file://loom.log" # loom.log は同じくデフォルトターゲット
+    LogDestination: "file://loom.log" # loom.log は同じくデフォルトターゲット.
     
 
 ログを標準エラー出力するには、出力先を`file://-`と指定しよう。

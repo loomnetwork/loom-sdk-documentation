@@ -3,7 +3,7 @@ id: evm
 title: 以太坊虚拟机
 sidebar_label: EVM
 ---
-## 概括
+## 概述
 
 loom DApp链包含一个以太坊虚拟机（EVM）并使你可以部署以及运行将编译成EVM字节码的智能合约。
 
@@ -83,19 +83,19 @@ loom DApp链包含一个以太坊虚拟机（EVM）并使你可以部署以及�
 
 -b 给出了保存合约的原始EVM字节码的文件。 这可以用Solidity编译器，如 `solc --bin -o. MySolProgram.sol`
 
--n 允许你为合约输入名称。这将是一个比合同地址更用户友好的代号。
+-n 允许你为合约输入名称。这将是一个比合约地址更用户友好的代号。
 
 示例： 
 
-    text
+    文本
      ./loom deploy -a ./data/pub -k ./data/pri -b ./data/bytecode.bin  -w \
       http://localhost:46657 -r http://localhost:9999
 
   
-如果一切正常，你应该看到类似以下的内容： ```文本 新合约部署地址： 默认: 0x71A53d11A3b77e369463804FEE9B17ba7E24d98B Runtime字节码: [96 96 96 64 82 ... 84 226 214 187 0 41] 事务收据: [10 178 198 52 108 ... 141 155 79 250 97 129 104 243]
+如果一切正常，你应该看到类似以下的内容： ```文本 新合约部署地址： 默认: 0x71A53d11A3b77e369463804FEE9B17ba7E24d98B Runtime字节码: [96 96 96 64 82 ... 84 226 214 187 0 41] 事务回执: [10 178 198 52 108 ... 141 155 79 250 97 129 104 243]
 
     输出合约地址可用于调用命令中调用合约上的方法。
-    独特的 [事务哈希] (https://loomx.io/developers/docs/en/evm.html#transaction-receipt) 可用于检索部署事务的收据。 
+    独特的 [事务哈希] (https://loomx.io/developers/docs/en/evm.html#transaction-receipt) 可用于检索部署事务的回执。 
     
     ### 调用
     
@@ -126,7 +126,7 @@ loom DApp链包含一个以太坊虚拟机（EVM）并使你可以部署以及�
 
 示例 ```文本 call -a ./data/pub -k ./data/pri -i ./cmd/loom/data/inputSet.bin \ -c 0xbD770416A3345f91E4b34576Cb804a576Fa48eB1 \ -w http://localhost:46657 -r http://localhost:9999
 
-    完成后, 这将返回 [事务哈希](https://loomx.io/developers/docs/en/evm.html#transaction-receipt), 这对于每个事务调用都应该是唯一的。 它可用于返回事务的收据。
+    完成后, 这将返回 [事务哈希](https://loomx.io/developers/docs/en/evm.html#transaction-receipt), 这对于每个事务调用都应该是唯一的。 它可用于返回事务的回执。
     
     ### static-call
     在合约上调用只读方法。 返回方法的返回值。
@@ -219,7 +219,7 @@ func (c *HelloWorld) Meta() (plugin.Meta, error) {
 }
 ```
 
-这里是一些需要注意的地方。 1. 第一，合约必须是package main。 2. 将我们名为Hello World的合约定义为结构。 3. 实现`Meta()` 函数，返回合约名和版本号。 4. 需要定义变量`Contract`。 函数`contract.MakePluginContract` 将我们简单的大纲转换为一个DApp链能与之交互的东西。 5. 然后，主例程可以将合约设置为工作服务器。
+这里是一些需要注意的地方。 1. 第一，合约必须是package main。 2. 将我们名为 Hello World 的合约定义为结构。 3. 实现`Meta()` 函数，返回合约名和版本号。 4. 需要定义变量`Contract`。 函数`contract.MakePluginContract` 将我们简单的大纲转换为一个DApp链能与之交互的东西。 5. 然后，主例程可以将合约设置为工作服务器。
 
 当然了，我们的合约没有任何功能所以什么也做不了。 下一步就是为其添加一些功能。 然后，MakePluginContract函数可以使用反射来学习我们为合约提供的所有新方法。
 
@@ -366,7 +366,7 @@ message WrapValue {
 
 别害怕，go-ethereum 可以帮助我们。
 
-When you compile Solidity you not only get the bytecode that runs on the EVM, but you get a ABI. The ABI is a json object that describes the contracts interface. Here is the ABI for our SimpleStore
+当你编译Solidity的时候，你不仅获得了运行在EVM上的字节码，你还得到了一个ABI。ABI是一个描述合约接口的json事物。这里是给我们SimpleStore的ABI
 
 ```json
 [
@@ -524,7 +524,7 @@ func getEvmContract(contractName string) (*client.EvmContract, error) {
 
 可以使用Solidty编译器`solc --bin -o . mySolidityProgram.sol` 将Solidity合约转换为字节代码。
 
-`hex.DecodeString` 可用于将十六进制字符串转换为 [] 字节数组。 然后, 我们可以使用 client.DeployContract 来部署我们的合约。 然后返回一个 EVMContract 的代号。 The second return parameter is a [transaction hash](https://loomx.io/developers/docs/en/evm.html#transaction-receipt) that can be used to retrive a reciept of the transaction using the TxHash Query.
+`hex.DecodeString` 可用于将十六进制字符串转换为 [] 字节数组。 然后, 我们可以使用 client.DeployContract 来部署我们的合约。 然后返回一个 EVMContract 的代号。 第二个返回的参数是一个[transaction hash](https://loomx.io/developers/docs/en/evm.html#transaction-receipt)，它可以被用来取回使用TxHash Query的事务回执。
 
 ```go
 import (
@@ -546,28 +546,28 @@ func deployEvmContract(name string, byteHex string, signer auth.Signer)
 }
 ```
 
-#### Retrieving Solidity contract's code
+#### 取回Solidity合约的代码
 
-You can retrieve the runtime bytecode for a deployed solidity contract using the DAppChains QueryInterface method GetCode.
+你可以使用DAppChains QueryInterface的方法 GetCode 来取回一个已部署Solidity合约的运行时字节码。
 
 ```go
-// GetCode returns the runtime byte-code of a contract running on a DAppChain's EVM.
-// Gives an error for non-EVM contracts.
-// contract - address of the contract in the form of a string. (Use loom.Address.String() to convert)
-// return []byte - runtime bytecode of the contract.
+// GetCode 返回在 DAppChain 的 EVM 上运行的协定的运行时字节代码。
+// 为非 EVM 合约提供error。
+// 合约 - 字符串形式的合约地址。 (使用 loom.Address.String() 来转换)
+// 返回 []byte - 合约运行时的字节码。
 func (c *DAppChainRPCClient) GetCode(contract string) ([]byte, error) 
 ```
 
-The runtime code is the inital contract's binary with the code for starting and construting the contract removed as its no longer needed.
+运行时代码是初始合约的二进制文件, 其中移除启动和构建的合约代码，因为不再需要了。
 
-#### Writing to a Solidity contract on a DAppChain
+#### 在DApp链上编写Solidity合约
 
-Writing and reading to a smart contract deployed on a DAppChain's EVM works in a similar way to [writing](https://loomx.io/developers/docs/en/go-loom-clients.html#writing-data-to-a-dappchain) and [reading](https://loomx.io/developers/docs/en/go-loom-clients.html#reading-data-from-a-dappchain) to non-EVM plugins. The main difference is that the function signature and input parameters need to be converted to bytecode using [ABI encoding](https://solidity.readthedocs.io/en/develop/abi-spec.html). You can use the go-ethereum [abi.JSON](https://godoc.org/github.com/obscuren/go-ethereum/accounts/abi#JSON) function to encode input using your contracts ABI which you can get from `solc --abi -o. MySolidiityProgram.sol`
+编写和读取部署在DApp链EVM上的智能合约类似于[编写](https://loomx.io/developers/docs/en/go-loom-clients.html#writing-data-to-a-dappchain)和[读取](https://loomx.io/developers/docs/en/go-loom-clients.html#reading-data-from-a-dappchain)非EVM插件。 主要区别在于函数签名和输入参数需要用[ABI 编码](https://solidity.readthedocs.io/en/develop/abi-spec.html)转换为字节码。 你可以用 go-ethereum [abi.JSON](https://godoc.org/github.com/obscuren/go-ethereum/accounts/abi#JSON) 函数使用你的合约ABI（可以从`solc --abi -o.MySolidiityProgram.sol ` 获取）来对输入进行编码。 
 
-EvmContract's Call method is used for methods that mutate the DAppChain's state. ```go input ( "github.com/loomnetwork/go-loom/auth" "github.com/loomnetwork/go-loom/client" "github.com/loomnetwork/go-loom/vm "github.com/ethereum/go-ethereum/accounts/abi"  
+EvmContract的调用方法是用于改变DApp链状态的方法。 ```go input ( "github.com/loomnetwork/go-loom/auth" "github.com/loomnetwork/go-loom/client" "github.com/loomnetwork/go-loom/vm "github.com/ethereum/go-ethereum/accounts/abi"  
 )
 
-func store(contract *client.EvmContract, key, abi string, value int) ([]byte, error) { abiSS, err := abi.JSON(strings.NewReader(SimpleStoreABI)) if err != nil { return []byte{}, err } input, err := abiSS.Pack("set", big.NewInt(value.Value)) if err != nil { return []byte[], err ] return contract.Call(input, key) } ``` The Call method returns a [transaction hash](https://loomx.io/developers/docs/en/evm.html#transaction-hash) You can use the transaction hash retrieve more information about the contract using the `GetEvmTxReceipt` method. This returns a [transcation recieipt, vm.EvmTxReceipt](https://loomx.io/developers/docs/en/evm.html#transaction-receipt) object.
+func store(contract *client.EvmContract, key, abi string, value int) ([]byte, error) { abiSS, err := abi.JSON(strings.NewReader(SimpleStoreABI)) if err != nil { return []byte{}, err } input, err := abiSS.Pack("set", big.NewInt(value.Value)) if err != nil { return []byte[], err ] return contract.Call(input, key) } ``` The Call method returns a [transaction hash](https://loomx.io/developers/docs/en/evm.html#transaction-hash) 你可以通过`GetEvmTxReceipt`方法用事务回执来取回更多关于合约的信息。 这会返回一个[transcation recieipt, vm.EvmTxReceipt](https://loomx.io/developers/docs/en/evm.html#transaction-receipt)对象。
 
 ```go
  input (
@@ -589,9 +589,9 @@ func store(contract *client.EvmContract, key, abi string, value int) ([]byte, er
 
 ```
 
-#### Reading from a Solidity contract on a DAppCahin
+#### 读取DApp链上的Solidity合约
 
-To get information from an EVM smart contract you need to call a view method using the EvmContract's staticCall. This returns the result in an ABI encoded []byte. As for other EVM methods the function signature and input arguments are [ABI encoded](https://solidity.readthedocs.io/en/develop/abi-spec.html). The caller field in StaticCall is optional, and using an empty loom.Address is fine.
+想从EVM智能合约得到信息，你需要使用EvmContract的 staticCall 来调用 view 方法。 这会返回ABI编码[]字节形式的结果。 对于其他EVM方法，函数签名和输入变量是 [ABI编码](https://solidity.readthedocs.io/en/develop/abi-spec.html)的。 StaticCall的调用方字段是可选的，并且用空的 loom.Address 也可以。
 
 ```go
  input (
@@ -616,14 +616,11 @@ To get information from an EVM smart contract you need to call a view method usi
 
 ### loom-js
 
-In JavaScript and TypeScript you can Call methods contracts deployed on the EVM 
-of a DAppChain in a similar way as for non-EVM plugins, outlined in the 
-[loom-js quickstart](https://loomx.io/developers/docs/en/loom-js-quickstart.html#connecting-to-a-dappchain)
+在JavaScript和TypeScript中，你可以类似于非EVM插件那样在部署在DApp链EVM上的合约上调用方法，大纲在[loom-js quickstart](https://loomx.io/developers/docs/en/loom-js-quickstart.html#connecting-to-a-dappchain) 
 
-#### Connecting to a Solidity contract on a DAppChain
+#### 链接在DApp链上的智能合约
 
-We use the EvmContract class instead of the Contract class. So the loom-js
- quick-start getEvmContract could looks like:
+我们使用 EvmContract 而不是 Contract class。 所以 loom-js 快速启动 getEvmContract 可以像是：
 ```js
 const {
   NonceTxMiddleware, SignedTxMiddleware, Client,
@@ -633,11 +630,10 @@ const {
 const { MapEntry } = require('./helloworld_pb')
 
 /**
- * Creates a new `EvmContract` instance that can be used to interact with a 
- smart contract running on a DAppChain's EVM.
- * @param privateKey Private key that will be used to sign transactions sent to the contract.
- * @param publicKey Public key that corresponds to the private key.
- * @returns `EvmContract` instance.
+ * 创建一个新的“EvmContract”示例，其可以用以于在DApp链EVM上运行的智能合约交互。
+ * @param privateKey 将用于签署发送到合约的事务的私钥。
+ * @param publicKey 与私钥相对应的公钥。
+ * @returns `EvmContract` 示例.
  */
 async function getContract(privateKey, publicKey) {
   const client = new Client(
@@ -660,54 +656,53 @@ async function getContract(privateKey, publicKey) {
 }
 ```
 
-#### Writing to a Solidity contract on a DAppChain
+#### 在DApp链上编写Solidity合约
 
-Calling an EVM smart contract's method that mutates the state works the same as [writiing data to a DAppChain](https://loomx.io/developers/docs/en/loom-js-quickstart.html#writing-data-to-a-dappchain) The main difference in the case of an EvmContract is that the input takes the format of an [ABI encoded](https://solidity.readthedocs.io/en/develop/abi-spec.html) array.
+调用EVM智能合约改变状态的方法类似于[将数据写入DApp链](https://loomx.io/developers/docs/en/loom-js-quickstart.html#writing-data-to-a-dappchain)。在EvmContract例子中最主要的区别是输入的形式是[ABI编码](https://solidity.readthedocs.io/en/develop/abi-spec.html)的数组。
 
 ```go
     let txHash = await evmContract.callAsync(abiEncodedInput)
 ```
 
-The return value is a [transaction hash](https://loomx.io/developers/docs/en/evm.html#transaction-hash) You can use the transaction hsh retrive more information about the contract using the `GetEvmTxReceipt` method. This returns a [transaction receipt, EvmTxReceipt](https://loomx.io/developers/docs/en/evm.html#transaction-receipt) object
+返回值是一个[事务哈希](https://loomx.io/developers/docs/en/evm.html#transaction-hash)。你可以通过`GetEvmTxReceipt`方法用事务哈希取回更多关与合约的信息。 这会返回一个[transaction receipt, EvmTxReceipt](https://loomx.io/developers/docs/en/evm.html#transaction-receipt)对象。
 
 ```text
     let receipt = await client.getTxReceiptAsync(rtv)
 ```
 
-#### Reading from a Solidity contract on a DAppCahin
+#### 读取DApp链上的Solidity合约
 
-To get information from an EVM smart contract you need to call a view method using the EvmContract's staticCall. This returns the result in an ABI encoded []byte. As for other EVM methods the function signature and input arguments are [ABI encoded](https://solidity.readthedocs.io/en/develop/abi-spec.html).
+想从EVM智能合约得到信息，你需要使用EvmContract的 staticCall 来调用 view 方法。 这会返回ABI编码[]字节形式的结果。 对于其他EVM方法，函数签名和输入变量是 [ABI编码](https://solidity.readthedocs.io/en/develop/abi-spec.html)的。
 
 ```go
     let txResult = await evmContract.staticCallAsync(abiEncodedInput)
 ```
 
-## Transaction hash
+## 事务哈希
 
-Writing to a DAppChain using a `Call` transactions that can modify the state returns a transaction hash. This is a unique hash of the transaction details. No two contracts should return the same hash. It can be used to retrieve details of the transaction.
+使用可以修改状态的`Call`事务来写入DApp链返回事务哈希。 这是事务详细信息的唯一哈希。 没有两个合约能返回相同的哈希。 它可用于取回事务的详细信息。
 
-### Transaction receipt
+### 事务回执
 
-Details of each EVM call transaction are stored on the loomchain and can be accessed using the transaction hash.
+每个 EVM 调用事务的详细信息存储在 loomchain 上, 可以使用事务哈希访问。
 
-The loom chain `QueryService` has the method `TxReceipt(txHash []byte) 
-([]byte, error)` which returns the receipt in a protobuf form. go-loom and loom-js provide an API for this query.
+Loom chain 的`QueryService` 有返回protobuf形式回执的`TxReceipt(txHash []byte) ([]byte, error)`方法。 go-loom 和 loom-js 为此查询提供API。
 
 go-loom:`func (c *DAppChainRPCClient) GetEvmTxReceipt(txHash []byte) (vm
 .EvmTxReceipt, error)`
 
 loom-js: `async getTxReceiptAsync(txHash: Uint8Array): Promise<EvmTxReceipt | null>`
 
-Details of the transaction receipt objects follow. 
+以下是事务回执对象的详细信息。 
 
-| Field             | Contents                                       |
-| ----------------- |:---------------------------------------------- |
-| TransactionIndex  | transaction number this block                  |
-| BlockHash         | Hash of the last block                         |
-| BlockNumber       | Block height                                   |
-| CumulativeGasUsed | Currently not used                             |
-| GasUsed           | Currently not used                             |
-| ContractAddress   | Address of the contract called                 |
-| Logs              | Events, encoded as an array of Event protobufs |
-| LogsBloom         | Not used                                       |
-| Status            | 1 = success or 0 = failier                     |
+| 字段                | 内容                   |
+| ----------------- |:-------------------- |
+| TransactionIndex  | 此区块的事务编号             |
+| BlockHash         | 上一区块的哈希              |
+| BlockNumber       | 区块高度                 |
+| CumulativeGasUsed | 目前尚未使用               |
+| GasUsed           | 目前尚未使用               |
+| ContractAddress   | 被调用合约的地址             |
+| Logs              | 事件，编码为事件protobufs的数组 |
+| LogsBloom         | 尚未使用                 |
+| Status            | 1 = 成功 或 0 = 失败      |

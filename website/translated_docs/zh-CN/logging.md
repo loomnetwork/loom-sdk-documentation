@@ -6,7 +6,7 @@ id: logging title: 日志记录 sidebar_label: 日志记录
 
 ## 概览
 
-Loom 有内建的可配置的日志记录。 用户可以配置日志的层级和日志的存储位置。
+Loom 有内建的可配置的日志记录。 用户可以配置日志的等级和日志的存储位置。
 
 ## Loom SDK 日志
 
@@ -14,19 +14,19 @@ Loom 有内建的可配置的日志记录。 用户可以配置日志的层级�
 
 在 Loom SDK 中有两种日志类型 第一种是区块链事物和共识事件的日志。 第二种是 Loom SDK 创建的日志，记录例如激发事件等内容。
 
-在你的 `loom.yaml` 中设置以下内容来配置日志层级。
+在你的`loom.yaml`中设置以下内容来配置日志等级。
 
-    LoomLogLevel: debug # 为 Loom SDK 中的事件激发设置日志层级
-    BlockchainLogLevel: error # 为区块链日志设置日志层级
+    LoomLogLevel: debug # sets log level for events emitted from the loom sdk
+    BlockchainLogLevel: error # sets log level for the blockchain logs.
     
 
-默认的，`LoomLogLevel ` 和 `BlockchainLogLevel ` 的层级分别是 `info ` 和 `error `。
+`LoomLogLevel` 和 `BlockchainLogLevel` 的默认分别是`info` 和 `error`
 
 ### 配置日志目录
 
 目前，Loom 日志支持指定文件作为日志存储目标。
 
-    LogDestination: "file://loom.log" # loom.log 也是默认的日志文件名
+    LogDestination: "file://loom.log" # loom.log is also the default target.
     
 
 要记录到 stderr， 指定目录为 `file://-`

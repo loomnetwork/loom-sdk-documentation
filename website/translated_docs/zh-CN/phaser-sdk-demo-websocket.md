@@ -19,7 +19,7 @@ sidebar_label: Phaser + Websockets 演示
 git clone https://github.com/loomnetwork/tiles-chain
 ```
 
-### 2.) 启动 Dapp 链
+### 2.) 启动 Dapp链
 
 ```bash
 cd tiles-chain

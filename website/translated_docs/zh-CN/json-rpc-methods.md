@@ -89,7 +89,7 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 #### 返回值
 
-`QUANTITY` - 客户端所在的当前区块编号。
+`QUANTITY` - 客户端所在的当前区块编号的整数。
 
 #### 示例
 
@@ -114,19 +114,19 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 #### 说明
 
-立即执行一个新的信息调用，而不在区块俩上创建事务。
+立即执行一个新的信息调用，而不在区块链上创建事务。
 
 #### 参数
 
 1. Object - 事务调用对象
 
-- from: DATA, 20个字节 - 事务发送的地址
-- to: DATA, 20个字节 - 交易所针对的地址。
-- data: DATA - 散列方法签名和编码参数。 有关详细信息，请参阅以太坊合同ABI
+- from: DATA, 20个字节 - 发送事务的地址
+- to: DATA, 20个字节 - 事务指向的地址。
+- data: DATA - 方法签名和被编码参数的哈希。详细信息请参阅Ethereum Contract ABI
 
 #### 返回值
 
-`DATA` -已执行合同的返回值。
+`DATA` - 已执行合约的返回值。
 
 #### 示例
 
@@ -155,18 +155,18 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 #### 参数
 
-1. `QUANTITY|TAG` -块编号的整数，或“最早”，“最新”，“待定”的默认块参数字符串。
+1. `QUANTITY|TAG` - 块编号的整数，或“最早”、“最新”、“未决”的默认块参数字符串。
 2. `Boolean` - 如果为true，则返回完整的事务对象，如果为false，则仅返回事务的哈希值。
 
 #### 返回值
 
 `Object` - 区块对象，或`null`当没有找到任何区块时：
 
-- `number`: `QUANTITY` - 块号。当挂起块时为null。
+- `number`: `QUANTITY` - 块号。当区块待处理时为null。
 - `hash`: `DATA`, 32 字节 - 区块的哈希值。当区块待处理时为null。
 - `parentHash`: DATA`, 32字节 - 父块的哈希值。
-- `logsBloom`: `DATA`, 256字节 - 块日志的Bloom过滤器。 当挂起块时为null。
-- `timestamp`: `QUANTITY` - 整理块时的unix时间戳。
+- `logsBloom`: `DATA`, 256字节 - 块日志的Bloom过滤器。 当区块未处理时为null。
+- `timestamp`: `QUANTITY` - 用于核对区块的unix时间戳。
 - `transactions`: `Array` - 事务对象数组。 或32字节事务哈希，具体取决于给定的最新参数。
 
 #### 示例
@@ -201,22 +201,22 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 #### 说明
 
-通过哈希返回有关块的信息。
+通过哈希返回有关区块的信息。
 
 #### 参数
 
-1. `DATA` - `32字节` - 块的哈希。
-2. `Boolean` - 如果为true，则返回完整的事务对象，如果为false，则仅返回事务的哈希值。
+1. `DATA` - `32字节` - 区块的哈希。
+2. `Boolean` - 如果为`true`，则返回完整的事务对象，如果为`false`，则仅返回事务的哈希值。
 
 #### 返回值
 
-`Object` - 区块对象，或`null`当没有找到任何区块时：
+`Object` - 区块对象，或当没有找到任何区块时为`null`：
 
-- `number`: `QUANTITY` - 块号。当区块待处理时为null。
+- `number`: `QUANTITY` - 区块遍号。当区块待处理时为null。
 - `hash`: `DATA`, 32 字节 - 区块的哈希值。当区块待处理时为null。
 - `parentHash`: `DATA`, 32字节 - 父块的哈希值。
-- `logsBloom`: `DATA`, 256字节 - 块日志的Bloom过滤器。 当挂起块时为null。
-- `timestamp`: `QUANTITY` - 整理块时的unix时间戳。
+- `logsBloom`: `DATA`, 256字节 - 区块日志的Bloom过滤器。 当区块未处理时为null。
+- `timestamp`: `QUANTITY` - 用于核对区块的unix时间戳。
 - `transactions`: `Array` - 事务对象数组。 或32字节事务哈希，具体取决于给定的最新参数。
 
 #### 示例
@@ -250,7 +250,7 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 #### 说明
 
-返回给定地址处的代码。
+在给定地址处返回代码。
 
 #### 参数
 
@@ -295,17 +295,17 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 `Array` -日志对象数组, 如果自上次轮询以来没有任何更改, 则为空数组。
 
 - 对于使用 `eth_newBlockFilter` 创建的过滤器, 返回是块的哈希值 (`数据`, 32 字节), 例如 `["0x3454645634534......"]`。
-- 对于使用 `eth_newBlockFilter` 创建的过滤器, 返回是事务的哈希值 (`数据`, 32 字节), 例如 `["0x6345343454645......"]`。
+- 对于使用 `eth_newBlockFilter` 创建的过滤器, 返回是事务的哈希值 (`DATA`, 32 字节), 例如 `["0x6345343454645......"]`。
 - 对于使用` eth_newFilter </ code>创建的过滤器，日志将是具有以下参数的对象：</p>
 
 <ul>
-<li><code>removed`: `TAG` - 由于链重新配置而删除日志时` true </ 0>。 如果启用了日志记录，则<code> false </ 0>。</li>
+<li><code>removed`: `TAG` - 由于链重新配置而删除日志时为` true </ 0>。 如果它是一个有效日志，则为<code> false </ 0>。</li>
 <li><code> logIndex </ code>：<code> QUANTITY </ code> - 区块中日志索引位置的整数。 当日志为待处理时为null。</li>
 <li><code> transactionIndex`：` QUANTITY ` - 事务索引位置的整数，日志是由此创建的。当日志为待处理时为null。</li> 
     
     - ` transactionHash`：` DATA`，32字节 - 事务的哈希，这个日志根据此创建。当日志为待处理时为null。
     - `blockHash`: `DATA`, 32 字节 - 这个日志所在区块的哈希。当它待处理时为null。当日志待处理时为null。
-    - `blockNumber`: `QUANTITY` - 这个日志所在的区块号。当它待处理时为null。当日志待处理时为null。
+    - `blockNumber`: `QUANTITY` - 这个日志所在的区块编号。当它待处理时为null。当日志待处理时为null。
     - `address`: `DATA`, 20 字节 - 这个日志起源的地址。
     - `data`: `DATA` - 包含日志的一个或多个32字节的非索引参数。
     - `topics`: `Array of DATA` - 数组0到 4 32 字节 索引日志参数的`DATA`。 （在Solidity：第一个topic是事件（例如Deposit(address,bytes32,uint256)）签名的哈希，除非你用匿名说明符声明了该事件。）</ul></li> </ul> 
@@ -350,11 +350,11 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
     
     1. `Object` - 过滤器选项：
     
-    - `fromBlock`: `QUANTITY|TAG` - (可选，默认：`"latest"`) 整数区块号，或最后挖出来的区块链或”pending 待处理“为“latest“，还没有挖的事务为”earliest“。
-    - `toBlock`: `QUANTITY|TAG` - (可选，默认：`"latest"`) 整数区块号，或最后挖出来的区块链或”pending 待处理“为“latest“，还没有挖的事务为”earliest“。
+    - `fromBlock`: `QUANTITY|TAG` - (可选，默认：`"latest"`) 整数区块号，或最后挖出来的区块链或”pending“（待处理）为“latest“（最新），还没有挖的事务为”earliest“（最早）。
+    - `toBlock`: `QUANTITY|TAG` - (可选，默认：`"latest"`) 整数区块号，或最后挖出来的区块链或”pending“（待处理）为“latest“（最新），还没有挖的事务为”earliest“（最早）。
     - `address`: `DATA`|数组, 20 字节 - (可选) 合约地址或者日志应该由此起源的地址列表。
     - `topics`: `DATA`的数组 - (可选) 32 字节的`DATA` 主题的数组。 主题是与顺序相关的。 每个主题也可以是 `DATA` 的数组，其中有 "or" 选项。
-    - `blockhash`: `DATA`, 32 字节 - (可选, 未来) 添加 EIP-234 后，blockhash 将成为新的过滤器选项，它使用32字节的哈希 blockHash 来限制返回到单个区块的日志。 使用 blockHash 等同于 fromBlock = toBlock = 带有哈希 blockHash 的区块号。 如果过滤器条件中出现了 blockHash，则 fromBlock 和 toBlock 都不会被允许。
+    - `blockhash`: `DATA`, 32 字节 - (可选, 未来) 添加 EIP-234 后，blockHash 将成为新的过滤器选项，它使用32字节的哈希 blockHash 来限制返回到单个区块的日志。 使用 blockHash 等同于 fromBlock = toBlock = 带有哈希 blockHash 的区块号。 如果过滤器条件中出现了 blockHash，则 fromBlock 和 toBlock 都不会被允许。
     
     #### 返回值
     
@@ -369,37 +369,37 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
     // 解析JSON是发送等待loomProvider.sendAsync(JSON.parse(jsonRPCString)之前的必要步骤)
     ```
     
-    Result see [eth_getFilterChanges](#eth-getfilterchanges)
+    结果请参见 [eth_getFilterChanges](#eth-getfilterchanges)
     
     ## eth_getTransactionReceipt
     
     * * *
     
-    #### Description
+    #### 说明
     
-    Returns the receipt of a transaction by transaction hash.
+    通过事务哈希返回事务的回执。
     
-    **Note** That the receipt is not available for pending transactions.
+    **注意** 该回执对于待处理事务记录不可用。
     
-    #### Parameters
+    #### 参数
     
-    1. `DATA`, 32 Bytes - hash of a transaction
+    1. `DATA`，32 字节 - 事务哈希
     
-    #### Returns
+    #### 返回值
     
-    `Object` - A transaction receipt object, or `null` when no receipt was found:
+    `Object` - 事务收据对象，或`null`当没有找到任何回执时：
     
-    - `transactionHash`: `DATA`, 32 Bytes - hash of the transaction.
-    - `transactionIndex`: `QUANTITY` - integer of the transactions index position in the block.
-    - `blockHash`: `DATA`, 32 Bytes - hash of the block where this transaction was in.
-    - `blockNumber`: `QUANTITY` - block number where this transaction was in.
-    - `from`: `DATA`, 20 Bytes - address of the sender.
-    - `to`: `DATA`, 20 Bytes - address of the receiver. null when its a contract creation transaction.
-    - `contractAddress`: `DATA`, 20 Bytes - The contract address created, if the transaction was a contract creation, otherwise null.
-    - `logs`: `Array` - Array of log objects, which this transaction generated.
-    - `status`: `QUANTITY` either 1 (success) or 0 (failure)
+    - `transactionHash`: `DATA`, 32字节 - 事务哈希。
+    - `transactionIndex`: `QUANTITY` - 区块中事务索引位置的整数。
+    - `blockHash`: `DATA`, 32 字节 - 此事务所在区块的哈希。
+    - `blockNumber`: `QUANTITY` - 此事务所在的区块号。
+    - `from`: `DATA`, 20 字节 - 发送者的地址。
+    - `to`: `DATA`, 20 字节 - 接受者的地址。当它是一个合约创建事务时为null。 
+    - `contractAddress`: `DATA`, 20 字节 - 如果事务是一个合约创建，则合约地址被创建，否则为null。
+    - `logs`: `Array` - 日志对象的数组，这个事务被生成。
+    - `status`: `QUANTITY` 1 (成功) 或 0 (失败)
     
-    #### Example
+    #### 示例
     
     ```Javascript
     // eth_getTransactionReceipt JSON RPC call
@@ -430,19 +430,19 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
     
     * * *
     
-    #### Description
+    #### 说明
     
-    Creates a filter in the node, to notify when new pending transactions arrive. To check if the state has changed, call [eth_getFilterChanges](#eth-getfilterchanges).
+    在节点内创建一个过滤器，当新的未决事务抵达的时候通知。想查询状态是否已经改变，调用[eth_getFilterChanges](#eth-getfilterchanges)。
     
-    #### Parameters
+    #### 参数
     
-    None
+    无
     
-    #### Returns
+    #### 返回值
     
-    `QUANTITY` - A filter id.
+    `QUANTITY` - 过滤器ID。
     
-    #### Example
+    #### 示例
     
     ```Javascript
     // eth_newBlockFilter JSON RPC call
@@ -463,34 +463,34 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
     
     * * *
     
-    #### Description
+    #### 说明
     
-    Creates a filter object, based on filter options, to notify when the state changes (logs). To check if the state has changed, call [eth_getFilterChanges](#eth-getfilterchanges).
+    基于过滤器选项，创建一个过滤器对象，当状态改变（记录）时通知。想查询状态是否已经改变，调用 [eth_getFilterChanges](#eth-getfilterchanges)。
     
-    ##### A note on specifying topic filters:
+    ##### 关于指定主题过滤器的注释：
     
-    Topics are order-dependent. A transaction with a log with topics [A, B] will be matched by the following topic filters:
+    主题是依赖于顺序的。具有主题[a，b] 的日志的事务将由以下主题过滤器匹配：
     
-    - `[]` "anything"
-    - `[A]` "A in first position (and anything after)"
-    - `[null, B]` "anything in first position AND B in second position (and anything after)"
-    - `[A, B]` "A in first position AND B in second position (and anything after)"
-    - `[[A, B], [A, B]]` "(A OR B) in first position AND (A OR B) in second position (and anything after)"
+    - `[]` "任意"
+    - `[A]` "A 在首位 (后面任意)"
+    - `[null, B]` "首位任何都可以 AND B 在第二位 (然后后面任意)"
+    - `[A, B]` "A 在首位 AND B 在第二位 (然后后面任意)"
+    - `[[A, B], [A, B]]` "(A OR B) 在首位 AND (A OR B) 在第二位 (后面任意)"
     
-    #### Parameters
+    #### 参数
     
-    1. `Object` - The filter options:
+    1. `Object` - 过滤器选项：
     
-    - `fromBlock`: `QUANTITY|TAG` - (optional, default: "latest") Integer block number, or "latest" for the last mined block or "pending", "earliest" for not yet mined transactions.
-    - `toBlock`: `QUANTITY|TAG` - (optional, default: "latest") Integer block number, or "latest" for the last mined block or "pending", "earliest" for not yet mined transactions.
-    - `address`: `DATA|Array`, 20 Bytes - (optional) Contract address or a list of addresses from which logs should originate.
-    - `topics`: `Array of DATA`, - (optional) Array of 32 Bytes DATA topics. Topics are order-dependent. Each topic can also be an array of DATA with "or" options.
+    - `fromBlock`: `QUANTITY|TAG` - (可选，默认："latest") 整数区块号，或最后挖出来的区块链或”pending“（待处理）为“latest“（最新），还没有挖的事务为”earliest“（最早）。
+    - `toBlock`: `QUANTITY|TAG` - (可选，默认：`"latest"`) 整数区块号，或最后挖出来的区块链或”pending“（待处理）为“latest“（最新），还没有挖的事务为”earliest“（最早）。
+    - `address`: `DATA`|数组, 20 字节 - (可选) 合约地址或者日志应该起源的地址列表。
+    - `topics`: `Array of DATA`, - (可选) 32字节DATA主题的数组。主题是依赖于顺序的。每个主题也可以是带有“or”选项的DATA数组。
     
-    #### Returns
+    #### 返回值
     
-    `QUANTITY` - A filter id
+    `QUANTITY` - 过滤器ID。
     
-    #### Example
+    #### 示例
     
     ```Javascript
     // eth_newFilter JSON RPC call
@@ -511,25 +511,25 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
     
     * * *
     
-    #### Description
+    #### 说明
     
-    Creates new message call transaction or a contract creation, if the data field contains code.
+    如果数据字段包含代码, 则创建新的消息调用事务或创建合约。
     
-    #### Parameters
+    #### 参数
     
-    1. `Object` - The transaction object
+    1. `Object` - 事务对象
     
-    - `from`: `DATA`, 20 Bytes - The address the transaction is send from.
-    - `to`: `DATA`, 20 Bytes - (optional when creating new contract) The address the transaction is directed to.
-    - `data`: `DATA` - The compiled code of a contract OR the hash of the invoked method signature and encoded parameters. For details see Ethereum Contract ABI
+    - `from`: `DATA`, 20 字节 - 发送事务的地址。
+    - `to`: `DATA`，20 字节 - (创建新合约时可选) 事务指向的地址。
+    - `data`: `DATA` - 已编译的合约代码 或 调用方法签名和编码参数的哈希。详情见Ethereum Contract ABI
     
-    #### Returns
+    #### 返回值
     
-    `DATA`, 32 Bytes - the transaction hash, or the zero hash if the transaction is not yet available.
+    `DATA`, 32 字节 - 事务哈希，或如果事务尚未可用，则为零哈希。
     
-    Use [eth_getTransactionReceipt](#eth-gettransactionreceipt) to get the contract address, after the transaction was mined, when you created a contract.
+    在创建合约后, 使用 [eth_getTransactionReceipt](#eth-gettransactionreceipt) 获取合约地址 (在事务被挖后)。
     
-    #### Example
+    #### 示例
     
     ```Javascript
     // eth_sendTransaction JSON RPC call
@@ -550,22 +550,22 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
     
     * * *
     
-    #### Description
+    #### 说明
     
-    It works by subscribing to particular events. The node will return a subscription id. For each event that matches the subscription a notification with relevant data is send together with the subscription id.
+    通过订阅特定事件运行。 节点会返回订阅id。 对于与订阅匹配的每个事件，与相关数据一起的通知与订阅ID将被一起发送。
     
-    #### Parameters
+    #### 参数
     
-    1. `object` with the following (optional) fields
+    1. `object`, 具有以下 (可选) 字段
     
-    - `address`, either an address or an array of addresses. Only logs that are created from these addresses are returned (optional)
-    - `topics`, only logs which match the specified topics (optional)
+    - `address`, 地址或地址数组。仅返回从这些地址创建的日志 (可选)
+    - `topics`, 仅与指定主题匹配的日志 (可选)
     
-    #### Returns
+    #### 返回值
     
-    Subscription id
+    订阅 id
     
-    #### Example
+    #### 示例
     
     ```Javascript
     // eth_subscribe JSON RPC call
@@ -586,19 +586,19 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
     
     * * *
     
-    #### Description
+    #### 说明
     
-    Uninstalls a filter with given id. Should always be called when watch is no longer needed. Additonally Filters timeout when they aren't requested with [eth_getFilterChanges](#eth-getfilterchanges) for a period of time.
+    卸载具有给定id的过滤器。 当不再需要监视的时候，应该总是被调用。 另外，当过滤器在一段时间不被[eth_getFilterChanges](#eth-getfilterchanges) 请求的话将过期。
     
-    #### Parameters
+    #### 参数
     
-    1. `QUANTITY` - The filter id
+    1. `QUANTITY` - 过滤器ID。
     
-    #### Returns
+    #### 返回值
     
-    `Boolean` - `true` if the filter was successfully uninstalled, otherwise `false`.
+    `Boolean` - `true` 如果过滤器成功被卸载，否则 `false`。
     
-    #### Example
+    #### 示例
     
     ```Javascript
     // eth_uninstallFilter JSON RPC call
@@ -619,21 +619,21 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
     
     * * *
     
-    #### Description
+    #### 说明
     
-    Returns the current network id.
+    返回当前网络id。
     
-    #### Parameters
+    #### 参数
     
-    None
+    无
     
-    #### Returns
+    #### 返回值
     
-    `String` - The current network id.
+    `String` - 当前网络id。
     
-    - "474747": Currently there's now network id defined, the number returned is simply `474747`
+    - "474747": 当前已定义网络id, 返回的数字仅为 `474747`
     
-    #### Example
+    #### 示例
     
     ```Javascript
     // net_version JSON RPC call

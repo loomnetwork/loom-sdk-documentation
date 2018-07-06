@@ -80,9 +80,9 @@ Loom不存储度量，仅显示当前度量值。 若要获取度量值, 可以�
 
 你还可以使用 [Grafana](https://grafana.com/) 或 [Kibana](https://www.elastic.co/products/kibana) 等工具可视化度量。
 
-### 普罗米修斯
+### Prometheus
 
-要配置普罗米修斯服务器, 请将以下内容添加到配置文件中:
+要配置Prometheus服务器, 请将以下内容添加到配置文件中:
 
 ```yaml
 scrape_configs:
