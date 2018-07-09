@@ -1,12 +1,13 @@
 ---
 id: unity-truffle-loom-sample
 title: Unity Truffle Loom 快速上手
-sidebar_label: 快Unity Truffle Loom 快速上手
+sidebar_label: Unity Truffle Loom 快速上手
 ---
 
-## Loom, Truffle 和 Unity 起步
 
 ![](/developers/img/unity_truffle_loom.png)
+
+本文来自我们社区里的开发者Zac Holland，原文链接： [Getting started with Loom, Truffle and Unity](https://medium.com/@zacharyholland_17606/getting-started-with-loom-truffle-and-unity-f2558ad9d213)
 
 我未来几个星期的目标是用Loom编写一个区块链游戏。我心目中的最佳组合是用Truffle来做合约开发，用Unity来为客户端赋予血肉。
 我刚刚花了8个小时来确定好怎么做。从Loom的团队和社区里获得了很多帮助，于是我决定把自己的开发进程记录在这里，好帮助那些有可能在卡在这个地方的人。
@@ -192,5 +193,7 @@ Exception: JSON-RPC Error -32603 (Internal error): name is not registered
 如果你在Unity里面遇到这个问题，意味着你在尝试用名字来访问你的合约，请尝试使用它的地址来访问。 只有Go-loom 插件可以用名字访问， Solidity虚拟机合约只能用地址来访问。在这里你只需要用第六步里面的代码第58行来用你的合约地址来实例化你的EvmContract
 
 源代码：
+
 [CryptoRealmChain](https://github.com/zandk/CryptoRealmChain)
+
 [CryptoRealmClient](https://github.com/zandk/CryptoRealmClient)
