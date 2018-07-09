@@ -3,7 +3,7 @@ id: unity-quick-start
 title: Unityクイックスタート
 sidebar_label: Unityクイックスタート
 ---
-So you are a game developer, that's awesome! We've made it our mission to provide tools to let you build the games you want on the blockchain.
+あなたがゲーム開発者であるとは、非常に素晴らしい！我々が使命としているのは、ゲーム開発者のあなた方へツールを提供し、ブロックチェーン上に望むようなゲームを構築できるようにすることだ。
 
 **If you have previous Solidity programming experience**, then you should start with this [truffle + unity tutorial](https://medium.com/@zacharyholland_17606/getting-started-with-loom-truffle-and-unity-f2558ad9d213)
 
