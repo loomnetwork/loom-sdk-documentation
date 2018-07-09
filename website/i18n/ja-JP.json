@@ -71,6 +71,8 @@
     "Overview": "概要",
     "unity-sdk-plugin": "プラグインベースのスマートコントラクトクイックスタート",
     "Plugin-based Smart Contract Quickstart": "プラグインベースのスマートコントラクトクイックスタート",
+    "unity-truffle-loom-sample": "Unity + Truffle + Loom Quick Start",
+    "Unity + Truffle + Loom Quick Start": "Unity + Truffle + Loom Quick Start",
     "web3js-loom-provider-truffle": "Web3、LoomProviderとTruffle",
     "Web3, LoomProvider and Truffle": "Web3、LoomProviderとTruffle",
     "what-are-dappchains": "DAppチェーンの紹介",
@@ -90,7 +92,9 @@
     "Example Games & Apps": "サンプルゲーム＆アプリ",
     "Deployment": "デプロイ",
     "Frequently Asked Questions": "よくある質問",
-    "Advanced and Internal": "さらなる詳細と内部"
+    "Advanced and Internal": "さらなる詳細と内部",
+    "Unity": "Unity",
+    "unity-tuffle-loom-sample": "Unity + Truffle + Loom Quick Start"
   },
   "pages-strings": {
     "Learn more using the [documentation on this site.](/test-site/docs/en/doc1.html)|no description given": "[このサイトのドキュメンテーション](/test-site/docs/en/doc1.html) を使ってもっと学ぼう。",
