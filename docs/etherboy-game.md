@@ -134,9 +134,9 @@ DAppChain host & port:
 }
 ```
 
-[MacOS prerequisites]: prereqs.md
-[Ubuntu prerequisites]: prereqs-ubuntu.md
+[MacOS prerequisites]: prereqs.html
+[Ubuntu prerequisites]: prereqs-ubuntu.html
 [Windows Subsystem for Linux]: https://docs.microsoft.com/en-us/windows/wsl/install-win10
-[Loom Unity SDK]: unity-sdk.md
+[Loom Unity SDK]: unity-sdk.html
 [Etherboy game]: https://github.com/loomnetwork/Etherboy
 [Etherboy smart contract]: https://github.com/loomnetwork/etherboy-core
