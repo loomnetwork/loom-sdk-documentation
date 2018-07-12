@@ -267,7 +267,7 @@ the end application that make use of the DAppChain.
 
 In the following we will assume that Go is being used for the end 
 application and the smart contracts are written either in Go for plugins or 
-solidity for EVM. Refer to loom-js-quickstart.md for a javascript solution.
+solidity for EVM. Refer to [loom-js-quickstart](loom-js-quickstart.html) for a javascript solution.
 
 ### Minimal plugin
 
