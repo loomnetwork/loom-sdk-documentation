@@ -12,6 +12,7 @@
     "Example Games & Apps": ["etherboy-game", "phaser-sdk-demo", "phaser-sdk-demo-websocket", "phaser-sdk-demo-web3-websocket", "simple-social-network-example"],
     "Deployment": ["etherboy-backend", "multi-node-deployment", "docker-blueprint-phaser"],
     "Frequently Asked Questions": ["arch", "release-notes", "common-issues"],
-    "Advanced and Internal": ["loom-yaml", "json-rpc-methods"]
+    "Advanced and Internal": ["loom-yaml", "json-rpc-methods"],
+    "Block Explorer": ["block-explorer-tutorial"]
   }
 }

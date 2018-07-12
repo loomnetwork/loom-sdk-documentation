@@ -5,6 +5,8 @@
     "previous": "Previous",
     "tagline": "Build decentralized worlds",
     "arch": "Architecture of a DAppChain",
+    "block-explorer-tutorial": "Block Explorer Tutorial",
+    "Block Explorer Tutorial": "Block Explorer Tutorial",
     "builtin": "Built-in Smart Contracts",
     "cocos-sdk-quickstart": "Loom SDK for Cocos Creator",
     "Cocos SDK Quickstart": "Cocos SDK Quickstart",
@@ -93,6 +95,7 @@
     "Deployment": "Deployment",
     "Frequently Asked Questions": "Frequently Asked Questions",
     "Advanced and Internal": "Advanced and Internal",
+    "Block Explorer": "Block Explorer",
     "Unity": "Unity",
     "unity-tuffle-loom-sample": "Unity + Truffle + Loom Quick Start"
   },
