@@ -5,6 +5,8 @@
     "previous": "前へ",
     "tagline": "分散化された世界を作っていこう",
     "arch": "DAppチェーンのアーキテクチャ",
+    "block-explorer-tutorial": "Block Explorer Tutorial",
+    "Block Explorer Tutorial": "Block Explorer Tutorial",
     "builtin": "ビルトインのスマートコントラクト",
     "cocos-sdk-quickstart": "Cocos Creator用Loom SDK",
     "Cocos SDK Quickstart": "Cocos SDKクイックスタート",
@@ -93,8 +95,7 @@
     "Deployment": "デプロイ",
     "Frequently Asked Questions": "よくある質問",
     "Advanced and Internal": "さらなる詳細と内部",
-    "Unity": "Unity",
-    "unity-tuffle-loom-sample": "Unity + Truffle + Loomクイックスタート"
+    "Block Explorer": "Block Explorer"
   },
   "pages-strings": {
     "Learn more using the [documentation on this site.](/test-site/docs/en/doc1.html)|no description given": "[このサイトのドキュメンテーション](/test-site/docs/en/doc1.html) を使ってもっと学ぼう。",
