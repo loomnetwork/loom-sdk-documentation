@@ -10,7 +10,7 @@ This Block Explorer helps you to check the block data on your DAppChain.
 ![](/developers/img/block_explorer.png)![](/developers/img/block_explorer_details.png)
 
 ## Online explorer
-You can just visit [Loom Block Explorer](https://loomx.io/developers/blockexplorer),
+You can just visit [Loom Block Explorer](https://blockexplorer.loomx.io),
 If you have a Loom DAppChain running on your local machine, you should see the block data there.
 
 If you are running Loom DApp Chain on another machine, you can input your
