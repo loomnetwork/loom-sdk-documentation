@@ -31,7 +31,7 @@ sidebar_label: Etherboyゲーム
 1. Install Golang by following the steps in [MacOS prerequisites](prereqs.html) (if you haven't done so already).
 2. Loom DAppチェーンのバイナリをダウンロード 
         bash
-        wget https://private.delegatecall.com/loom/osx/build-209/loom
+        wget https://private.delegatecall.com/loom/osx/build-276/loom
         chmod +x loom
         export LOOM_BIN=`pwd`/loom
 
@@ -40,7 +40,7 @@ sidebar_label: Etherboyゲーム
 1. Install Golang by follwing the steps in [Ubuntu prerequisites](prereqs-ubuntu.html) (if you haven't done so already).
 2. Loom DAppチェーンのバイナリをダウンロード 
         bash
-        curl -OL https://private.delegatecall.com/loom/linux/build-209/loom
+        curl -OL https://private.delegatecall.com/loom/linux/build-276/loom
         chmod +x loom
         export LOOM_BIN=`pwd`/loom
 
