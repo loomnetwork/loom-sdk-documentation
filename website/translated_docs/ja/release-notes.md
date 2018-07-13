@@ -7,7 +7,7 @@ sidebar_label: リリースノート
 
 新着順。
 
-## Release 275 - July 13th
+## Release 276 - July 13th
 
 * [New Block Explorer](block-explorer-tutorial.html)
 * Multinode EVM fixes 
