@@ -95,9 +95,7 @@
     "Deployment": "Deployment",
     "Frequently Asked Questions": "Frequently Asked Questions",
     "Advanced and Internal": "Advanced and Internal",
-    "Block Explorer": "Block Explorer",
-    "Unity": "Unity",
-    "unity-tuffle-loom-sample": "Unity + Truffle + Loom Quick Start"
+    "Block Explorer": "Block Explorer"
   },
   "pages-strings": {
     "Learn more using the [documentation on this site.](/test-site/docs/en/doc1.html)|no description given": "Learn more using the [documentation on this site.](/test-site/docs/en/doc1.html)",
