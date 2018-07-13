@@ -426,7 +426,7 @@ const Download = props => (
       </li>
       <li className="border-left">
       <a className="download-btn" href={docUrl('prereqs.html', props.language)}><translate>Get Started!</translate></a>
-           */}   {/* <a className="download-btn" href="https://private.delegatecall.com/loom/osx/build-209/loom">Download OSX</a> */}
+           */}   {/* <a className="download-btn" href="https://private.delegatecall.com/loom/osx/build-276/loom">Download OSX</a> */}
     {/*   </li>
     </ul> */}
     {/* <div className="link-container center-text">
