@@ -7,7 +7,7 @@ sidebar_label: 发布日志
 
 发布日志（最新的在顶部）
 
-## Release 275 - July 13th
+## Release 276 - July 13th
 
 * [New Block Explorer](block-explorer-tutorial.html)
 * Multinode EVM fixes 
