@@ -27,20 +27,20 @@ mkdir tmpgopath
 export GOPATH=`pwd`/tmpgopath
 
 cd dappchain
-wget https://private.delegatecall.com/loom/osx/build-209/loom
+wget https://private.delegatecall.com/loom/osx/build-276/loom
 chmod +x loom
 
-# 编译
+# Compile
 export GOPATH=$GOPATH:`pwd`
 make deps
 make
 
-# 配置
+# Configure
 cd build
 ../loom init
 cp ../genesis.example.json genesis.json
 
-# 运行
+# Run
 ../loom run
 ```
 
