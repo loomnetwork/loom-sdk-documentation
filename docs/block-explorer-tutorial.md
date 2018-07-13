@@ -60,7 +60,7 @@ But if it's not, it will just show in a raw text view and not easy to read.
 So you might want to build your own explorer, just like what we did for [delegatecall.com](http://blockchain.delegatecall.com).
 
 You need to know `Vue`, `TypeScript` and also `Google Protobuf` to start.
-Reading the source code of [DelagateCall Block Explorer](https://github.com/loomnetwork/vue-block-explorer/tree/new-dc-version)would make it easier.
+Reading the source code of [DelagateCall Block Explorer](https://github.com/loomnetwork/vue-block-explorer/tree/dc-2) would make it easier.
 
 To get started:
 1. Find your own `.proto` file for your DApp.It defined your DApp data structure. Put it in the `src/pbs` folder of the `vue-block-explorer`.
