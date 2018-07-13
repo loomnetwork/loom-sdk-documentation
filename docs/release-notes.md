@@ -8,6 +8,14 @@ sidebar_label: Release Notes
 
 Reverse chronology order of release notes
 
+## Release 275 - July 13th
+
+* [New Block Explorer](block-explorer-tutorial.html)
+* Multinode EVM fixes 
+* Loom-JS updates for Plasma cash
+* Zombiechain testnet fixes
+* DPoS Updates
+
 ## Release 209 - June 20th
 
 Major release
