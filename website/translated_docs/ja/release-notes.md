@@ -7,12 +7,12 @@ sidebar_label: リリースノート
 
 新着順。
 
-## Release 276 - July 13th
+## リリース 276 -7月13日
 
-* [New Block Explorer](block-explorer-tutorial.html)
-* Multinode EVM fixes 
-* Loom-JS updates for Plasma cash
-* Zombiechain testnet fixes
+* [新たなBlock Explorer](block-explorer-tutorial.html)
+* マルチノードEVMを修正 
+* Plasma Cash向けにLoom-JSをアップデート
+* ZombieChainテストネットの修正
 * DPoS Updates
 
 ## Release 209 - June 20th
