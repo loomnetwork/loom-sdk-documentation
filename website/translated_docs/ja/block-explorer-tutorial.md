@@ -21,12 +21,12 @@ sidebar_label: Block Explorerチュートリアル
 
 Block explorer はローカルで実行することも可能だ。
 
-To get started, clone the repo from our Github:
+Githubのリポジトリをクローンしてスタートしよう:
 
     git clone https://github.com/loomnetwork/vue-block-explorer.git
     
 
-Then install the dependencies and start the dev server:
+その後依存ファイルをインストールし、開発サーバーをスタートしよう:
 
     yarn install
     yarn run serve
