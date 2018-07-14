@@ -1,25 +1,25 @@
 ---
 id: block-explorer-tutorial
-title: Block Explorer Tutorial
-sidebar_label: Block Explorer Tutorial
+title: Block Explorerチュートリアル
+sidebar_label: Block Explorerチュートリアル
 ---
-## Overview:
+## 概要:
 
-This Block Explorer helps you to check the block data on your DAppChain.
+このBlock Explorerは、DAppチェーン上のブロックデータチェックに役立ちます。 
 
 ![](/developers/img/block_explorer.png)![](/developers/img/block_explorer_details.png)
 
-## Online explorer
+## オンラインエクスプローラー
 
-You can just visit [Loom Block Explorer](https://blockexplorer.loomx.io), If you have a Loom DAppChain running on your local machine, you should see the block data there.
+[Loom Block Explorer](https://blockexplorer.loomx.io)にアクセスするだけでよい。 DAppチェーンをローカルマシンで実行している場合は、こちらでブロックデータを参照しよう。
 
-If you are running Loom DApp Chain on another machine, you can input your Loom DApp Chain RPC server URL into the bottom left corner of the list, Normally the URL should be `http://YOUR_DAPP_CHAIN_SERVER_IP:46657`.
+別のマシン上でLoom DAppチェーンを実行している場合は、Loom DAppチェーンRPCサーバーのURLを、リストの左下隅に入力しよう。通常は次のURLとなる: `http://YOUR_DAPP_CHAIN_SERVER_IP:46657` 
 
-Make sure your server is accessible from outside.
+あなたのサーバーが外部よりアクセス可能であることを確認しよう。
 
-## Local Explorer
+## ローカルエクスプロラー
 
-You can also run the block explorer locally.
+Block explorer はローカルで実行することも可能だ。
 
 To get started, clone the repo from our Github:
 
