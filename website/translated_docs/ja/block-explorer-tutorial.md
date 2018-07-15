@@ -46,13 +46,13 @@ Devサーバーは以下で実行し `http://127.0.0.1:8080`, もし`8080` ポ�
 
 ブロックエクスプローラーはブロックデータを生のJSONで以下のように表示する。
 
-Normally if your DApp data is arranged well in valid JSON format, it would be fine. But if it's not, it will just show in a raw text view and not easy to read.
+通常、あなたのDAppデータは有効なJSONフォーマットで配置され、有効である。しかし、そうでないなら、生のテキストで表示され可読性がない。
 
-So you might want to build your own explorer, just like what we did for [delegatecall.com](http://blockchain.delegatecall.com).
+そのためあなたは私たちが行ったのと同様に自身のエクスプローラーをビルドしたくなるだろう、 [delegatecall.com](http://blockchain.delegatecall.com)。
 
-You need to know `Vue`, `TypeScript` and also `Google Protobuf` to start. Reading the source code of [DelagateCall Block Explorer](https://github.com/loomnetwork/vue-block-explorer/tree/dc-2) would make it easier.
+開始するためにはあなたは `Vue`、 `TypeScript` 、 `Google Protobuf` について知る必要がある。 ソースを読むには [DelagateCall ブロックエクスプローラー](https://github.com/loomnetwork/vue-block-explorer/tree/dc-2)が理解しやすい。
 
-To get started: 1. Find your own `.proto` file for your DApp.It defined your DApp data structure. Put it in the `src/pbs` folder of the `vue-block-explorer`. then run `yarn proto` (assume you already run `yarn install` before). 2. You will get 2 new files `YOUR_PROTO_FILE_NAME_pb.d.ts` and `YOUR_PROTO_FILE_NAME_pb.js` 3. In `transaction-reader.ts`, import the classes in your `.proto` file:
+まず始めに: 1. あなた自身のDAppのための `.proto` ファイルを探し、 DAppのデータ構造を定義する。 それを`vue-block-explorer`の`src/pbs`フォルダーに置く。 そして、 `yarn proto`を実行する (すでに`yarn install` を実行済みと想定)。 2. あなたは以下の２つの新しいファイルを得る `YOUR_PROTO_FILE_NAME_pb.d.ts` 、 `YOUR_PROTO_FILE_NAME_pb.js` 3. `transaction-reader.ts`の中で `.proto` ファイルの中のクラスをインポートする:
 
     import * as DC from '@/pbs/YOUR_PROTO_FILE_NAME_pb'
     
