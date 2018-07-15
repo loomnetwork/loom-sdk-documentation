@@ -57,7 +57,7 @@ Devサーバーは以下で実行し `http://127.0.0.1:8080`, もし`8080` ポ�
     import * as DC from '@/pbs/YOUR_PROTO_FILE_NAME_pb'
     
 
-1. You can use your own protobuf decoders to decode the block data now. You might want to write different decoding function for different data(take *delegatecall* for example):
+1. ブロックデータを今デコードするためにあなた自身のprotobuf デコーダーを使うことができる。 異なるデータ( 例えば*delegatecall*) のためにデーコード関数を書きたいかもしれない。
     
         function readDCProtoData(cmc: ContractMethodCall): DelegateCallTx {
           const methodName = cmc.toObject().method
@@ -78,7 +78,7 @@ Devサーバーは以下で実行し `http://127.0.0.1:8080`, もし`8080` ポ�
         }
         
     
-    For each of these decoding functions, use relative protobuf function to decode:
+    それぞれのデコード関数のために、関係のあるprotobuf関数をデコードするのに使う
     
         function readVoteTxPayload(r: Uint8Array): IVoteTx {
           const DCVoteTX = DC.DelegatecallVoteTx.deserializeBinary(r).toObject()
@@ -92,4 +92,4 @@ Devサーバーは以下で実行し `http://127.0.0.1:8080`, もし`8080` ポ�
         }
         
 
-More scripts like `run`, `build` or `format` the code, you can read the `README.MD` file in the block explorer.
+以下のような追加のスクリプト `run`, `build`、 `format` コードは、ブロックエクスプローラの`README.MD` ファイルで読むことができる。
