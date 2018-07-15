@@ -32,11 +32,11 @@ Githubのリポジトリをクローンしてスタートしよう:
     yarn run serve
     
 
-The dev server should run at `http://127.0.0.1:8080`, if the `8080` port is used by other programs, it will pick another one.
+Devサーバーは以下で実行し `http://127.0.0.1:8080`, もし`8080` ポートが他のプログラムで使われていたら別のものを選ぶ。
 
-By default, it will read block data from `http://127.0.0.1:46657`, if you are running the server on another IP, you can change it in the server list as in online version.
+デフォルトでは、ブロックデータを以下から読み取り`http://127.0.0.1:46657`, もしサーバを他のIPで実行中なら、オンラインバージョンのサーバーリストの中から変更可能。
 
-## Search By Block Height
+## ブロック高で検索
 
 The explorer would show all blocks in current DApp Chain, so if you are running a shared blockchain, like running Loom DApp Chain, it'll be hard to check your own block data since there are too many of them.
 
