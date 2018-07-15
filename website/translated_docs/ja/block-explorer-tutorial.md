@@ -38,13 +38,13 @@ Devサーバーは以下で実行し `http://127.0.0.1:8080`, もし`8080` ポ�
 
 ## ブロック高で検索
 
-The explorer would show all blocks in current DApp Chain, so if you are running a shared blockchain, like running Loom DApp Chain, it'll be hard to check your own block data since there are too many of them.
+エクスプローラーは現在のDAppチェーンないの全てのブロックを表示する。もしLoom DAppチェーンのような共有ブロックチェーンを実行中なら、数が多すぎて、あなた自身のブロックデータをチェックするのは難しくなるだろう。
 
-Therefore you need to search by the `block height`: 1. Open your loom terminal (where you run the `loom run` command) 2. Find the blockchain log you just created, the `index` is the block height 3. In the top right corner of the block list, there is a search input, put the block height and search it.
+それゆえ`block height`で検索する必要がある。 1. loomターミナルを開く(`loom run`コマンドを実行している場所) 2. あなたが今作ったブロックチェーンログを探す 3. ブロックリストの右上で検索の入力にブロック高を入力して検索する。
 
-## Build Your Own Explorer
+## あなた自身のエクスプローラーをビルドする
 
-The block explorer would display the block data in a raw JSON view, like this:
+ブロックエクスプローラーはブロックデータを生のJSONで以下のように表示する。
 
 Normally if your DApp data is arranged well in valid JSON format, it would be fine. But if it's not, it will just show in a raw text view and not easy to read.
 
