@@ -3,7 +3,7 @@ id: etherboy-game
 title: Etherboyゲーム
 sidebar_label: Etherboyゲーム
 ---
-![Header](/developers/img/ebw_splash.jpg) Etherboy is a multi-platform 2D game built in Unity, using the [Loom Unity SDK](unity-sdk.html) to interact with a smart contract written in Golang and running on a Loom DAppChain.
+![Header](/developers/img/ebw_splash.jpg) EtherboyはUnityで構築されたマルチプラットフォームの2Dゲームで、DAppチェーン上で稼働し、また[Loom Unity SDK](unity-sdk.html)を使用してGo言語で書かれたスマートコントラクトと対話する。
 
 ## ゲームコントロール
 
@@ -28,7 +28,7 @@ sidebar_label: Etherboyゲーム
 
 ### MacOS
 
-1. Install Golang by following the steps in [MacOS prerequisites](prereqs.html) (if you haven't done so already).
+1. [MacOSの前提条件](prereqs.html)にある手順通りにGolangをインストールしよう(もしまだインストールしていなければ)。
 2. Loom DAppチェーンのバイナリをダウンロード 
         bash
         wget https://private.delegatecall.com/loom/osx/build-276/loom
@@ -37,7 +37,7 @@ sidebar_label: Etherboyゲーム
 
 ### Linux
 
-1. Install Golang by follwing the steps in [Ubuntu prerequisites](prereqs-ubuntu.html) (if you haven't done so already).
+1. [Ubuntuの前提条件](prereqs-ubuntu.html)にある手順通りにGolangをインストールしよう(もしまだインストールしていなければ)。
 2. Loom DAppチェーンのバイナリをダウンロード 
         bash
         curl -OL https://private.delegatecall.com/loom/linux/build-276/loom
