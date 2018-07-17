@@ -6,7 +6,7 @@ sidebar_label: Cocos SDKクイックスタート
 ## コンテンツ:
 
 - 日本語 
- - [前提条件](#前提条件)
+ - [前提条件](#prerequisites)
  - [Loom Cocos SDK](#loom-cocos-sdk)
  - [LoomJS SDKの生成](#generate-loomjs-sdk)
  - [Loomのインストール](#install-loom)
@@ -115,4 +115,4 @@ Cocos Creatorは、UIシステムやアニメーションエディタといっ�
 ## 注意点
 
 - `Loom Block Chain`の設定、Contractの使用については、[こちら](https://loomx.io/developers/docs/en/prereqs.html)を参照。
-- Sample `dark-slash` come from `Cocos Creator` [Tutorial Project](https://github.com/cocos-creator/tutorial-dark-slash)
+- `dark-slash`のサンプルは、`Cocos Creator`の[チュートリアルプロジェクト](https://github.com/cocos-creator/tutorial-dark-slash)のものである。
