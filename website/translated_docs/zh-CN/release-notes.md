@@ -7,6 +7,13 @@ sidebar_label: 发布日志
 
 发布日志（最新的在顶部）
 
+## Release 285 - July 17th
+
+* [EVM indexed filter](https://loomx.io/developers/docs/en/web3js-event-filters.html)
+* EVM filter pool fixes and event system
+* Loom-JS EVM updates for indexed filters
+* Loom-JS EVM fixes for getting block by hash
+
 ## Release 276 - July 13th
 
 * [New Block Explorer](block-explorer-tutorial.html)
@@ -17,7 +24,14 @@ sidebar_label: 发布日志
 
 ## Release 209 - June 20th
 
-主要发布 * Plasma Cash初始整合 - 下周演示 * 多节点修复和性能提升 * 多节点的 Ansible 更新 * EVM上的查询/过滤支持更多类型 * 针对EVM的Unity SDK更新 * 针对EVM的Loom-JS更新
+Major release
+
+* Plasma Cash initial integration - Demos coming next week
+* Multinode fixes and performance increases
+* Ansible updates for multinode
+* Querying / Filtering on EVM supports more types 
+* Unity SDK updates for EVM 
+* Loom-JS updates for EVM
 
 ## Release 186 - June 19th
 
