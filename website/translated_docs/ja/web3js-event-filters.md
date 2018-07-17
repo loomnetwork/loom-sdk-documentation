@@ -5,11 +5,11 @@ sidebar_label: Web3イベントフィルター
 ---
 ## 概要
 
-The [Web3.js](https://github.com/ethereum/web3.js) library allows developers to easily listen for events from the [EVM](evm.html) contained on Loom DAppChain. Also is possible to create filter for indexed values.
+[Web3.js](https://github.com/ethereum/web3.js)ライブラリで、開発者はLoom DAppチェーン上の[EVM](evm.html)からイベントを簡単にリッスンできるようになる。 またインデックス済みバリューのためのフィルターを作成することも可能だ。
 
 ## フィルタリング
 
-Let's create a filter to get latest block created on Loom DAppChain and continuously print the block hash on console
+フィルタを作成して、Loom DAppチェーン上で生成された最新ブロックを取得し、常にコンソール上にブロックハッシュをプリントしよう。
 
 ```js
 const {
@@ -41,9 +41,9 @@ filter.watch(function (error, result) {
     console.log('Block hash', result)
 ```
 
-## Filtering by indexed values
+## インデックスされたバリューによるフィルタリング
 
-Another great feature is filtering by `indexed` values, which can be used to trigger event handlers when a specific `indexed` value is emitted.
+もう一つの素晴らしい機能は、`indexed`バリューでのフィルタリングである。これは特定の`indexed`バリューが送信された際に、イベントハンドラーをトリガするのに使用できる。
 
 For the following contract:
 
@@ -69,24 +69,24 @@ contract SimpleStore {
 It's possible to setup an event handler for the `NewValueSet` event that's only triggered when the `value` emitted is `10`, and it won't be triggered if the contract emits any other value.
 
 ```js
-// Generate public and private keys
+// 公開鍵と秘密鍵を生成
 const privateKey = CryptoUtils.generatePrivateKey()
 const publicKey = CryptoUtils.publicKeyFromPrivateKey(privateKey)
 
-// Create the client
+// クライアントを作成
 const client = new Client(
   'default',
   'ws://127.0.0.1:46657/websocket',
   'ws://127.0.0.1:9999/queryws',
 )
 
-// The address for the caller of the function
+// 関数呼び出し元のアドレス
 const from = LocalAddress.fromPublicKey(publicKey).toString()
 
-// Instantiate web3 client using LoomProvider
+// LoomProviderを使用し、web3クライアントをインスタンス化
 const web3 = new Web3(new LoomProvider(client, privateKey))
 
-// ABI for the contract
+// コントラクトのABI
 const ABI = [
   {
     constant: false,
@@ -106,13 +106,13 @@ const ABI = [
   }
 ]
 
-// Address of the contract deployed
+// デプロイ済みコントラクトのアドレス
 const contractAddress = '0x...'
 
-// Instantiate the contract and let it ready to be used
+// コントラクトをインスタンス化し、使用できるよう準備
 const contract = new web3.eth.Contract(ABI, contractAddress, {from})
 
-// Subscribe for listen the event NewValueSet
+// イベントNewValueSetをリッスンするようサブスクライブ
 contract.events.NewValueSet({ filter: { _value: 10 } }, (err: Error, event: any) => {
   if (err) t.error(err)
   else {
