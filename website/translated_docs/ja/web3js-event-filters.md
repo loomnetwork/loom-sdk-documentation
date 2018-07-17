@@ -45,7 +45,7 @@ filter.watch(function (error, result) {
 
 もう一つの素晴らしい機能は、`indexed`バリューでのフィルタリングである。これは特定の`indexed`バリューが送信された際に、イベントハンドラーをトリガするのに使用できる。
 
-For the following contract:
+次のコントラクトでは:
 
 ```solidity
 pragma solidity ^0.4.22;
@@ -66,7 +66,7 @@ contract SimpleStore {
 }
 ```
 
-It's possible to setup an event handler for the `NewValueSet` event that's only triggered when the `value` emitted is `10`, and it won't be triggered if the contract emits any other value.
+イベントハンドラーをセットアップして、出力された`value`が`10`である場合のみ`NewValueSet`イベントがトリガされ、コントラクトの出力値がその他の場合はトリガされないようにすることが可能である。
 
 ```js
 // 公開鍵と秘密鍵を生成
