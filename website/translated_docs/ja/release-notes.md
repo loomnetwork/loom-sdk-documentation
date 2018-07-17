@@ -7,12 +7,12 @@ sidebar_label: リリースノート
 
 新着順。
 
-## Release 285 - July 17th
+## リリース 285 -7月17日
 
-* [EVM indexed filter](https://loomx.io/developers/docs/en/web3js-event-filters.html)
-* EVM filter pool fixes and event system
-* Loom-JS EVM updates for indexed filters
-* Loom-JS EVM fixes for getting block by hash
+* [EVMインデックスフィルター](https://loomx.io/developers/docs/en/web3js-event-filters.html)
+* EVMフィルタープールの修正とイベントシステム
+* インデックスフィルタ向けにLoom-JS EVMをアップデート
+* ハッシュでブロックを取得できるよう、Loom-JS EVMを修正
 
 ## リリース 276 -7月13日
 
@@ -98,11 +98,11 @@ sidebar_label: リリースノート
 
 ## リリース 128 - 5月21日
 
-* Lots of bug fixes for Etherboy
+* Etherboyのバグを修正
 
-## Release 128 - May 19th
+## リリース 128 - 5月19日
 
-* Stable Beta Release
-* Updating logging to default to multiple files 
-* Moving all RPC to a single interface
-* Updated External Process interface
+* 安定したベータ版をリリース
+* ロギングをデフォルトで複数ファイルでできるようアップデート 
+* 全RPCを一つのインターフェースへ移動
+* 外部プロセスインターフェースのアップデート
