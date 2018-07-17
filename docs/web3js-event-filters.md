@@ -43,14 +43,13 @@ filter.watch(function (error, result) {
     console.log('Block hash', result)
 ```
 
-## Filtering indexed values
+## Filtering by indexed values
 
-Another great feature is the filtering by `indexed` values, which can be used to filter specific events on contracts, for instance 
-on a contract that a specific event is only triggered if a certain `indexed` value happen.
+Another great feature is filtering by `indexed` values, which can be used to trigger event handlers when a specific `indexed` value is emitted.
 
 For the following contract:
 
-```js
+```solidity
 pragma solidity ^0.4.22;
 
 contract SimpleStore {
@@ -60,7 +59,7 @@ contract SimpleStore {
       value = 10;
   }
 
-  event NewValueSet(uint _value);
+  event NewValueSet(uint indexed _value);
 
   function set(uint _value) public {
     value = _value;
@@ -69,7 +68,8 @@ contract SimpleStore {
 }
 ```
 
-Is possible to use the following code to subscribe and filter `indexed` values on events.
+It's possible to setup an event handler for the `NewValueSet` event that's only triggered when the `value` emitted is `10`, and it won't be triggered if the contract emits any other value.
+
 
 ```js
 // Generate public and private keys
