@@ -8,6 +8,13 @@ sidebar_label: Release Notes
 
 Reverse chronology order of release notes
 
+## Release 285 - July 17th
+
+* [EVM indexed filter](https://loomx.io/developers/docs/en/web3js-event-filters.html)
+* EVM filter pool fixes and event system
+* Loom-JS EVM updates for indexed filters
+* Loom-JS EVM fixes for getting block by hash
+
 ## Release 276 - July 13th
 
 * [New Block Explorer](block-explorer-tutorial.html)
