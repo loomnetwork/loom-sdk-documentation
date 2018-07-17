@@ -17,23 +17,23 @@ const {
 } = require('loom-js')
 const Web3 = require('web3')
 
-// Create the client
+// クライアントを作成
 const client = new Client(
   'default',
   'ws://127.0.0.1:46657/websocket',
   'ws://127.0.0.1:9999/queryws',
 );
 
-// Create private key for first account
+// 最初のアカウントの秘密鍵を作成
 const privateKey = CryptoUtils.generatePrivateKey()
 
-// Instantiate web3 client using LoomProvider as provider
+// LoomProviderをプロバイダとして使用し、Web3クライアントをインスタンス化
 const web3 = new Web3(new LoomProvider(client, privateKey));
 
-// Create filter to get the latest block
+// 最新ブロックを取得するようフィルターを作成
 const filter = web3.eth.filter('latest');
 
-// Watch filter will return the hash of the latest block continuously 
+// フィルターが最新ブロックのハッシュを常に返却するのをWatchする 
 filter.watch(function (error, result) {
   if (error) {
     console.error(error)
