@@ -49,7 +49,7 @@ Loom Cocos SDK软件结构
 
 ## 安装Loom
 
-    wget https://private.delegatecall.com/loom/osx/build-276/loom
+    wget https://private.delegatecall.com/loom/osx/build-285/loom
     chmod +x loom
     
     mkdir tmpgopath
@@ -99,17 +99,20 @@ Cocos Creator基于开源框架Cocos2d-x，实现了一体化、可扩展、可�
 
 ## Sample:
 
-本工程中有带有两个`Sample`: * `loomDemoForCreator`简单直接的调用合约接口, 更偏向于功能测试与只关注使用方式 * `dark-slash`以更真实的游戏的方式来调用合约接口
+there have two `Sample` project:
+
+- `loomDemoForCreator` simplely use loom sdk
+- `dark-slash` use loom sdk in a real game
 
 测试步骤
 
-- 更新 git 子工程, 运行`git submodule update --init`, 已更新的话，可以跳过
-- 生成并打包`Loom Cocos SDK`, 运行`./tools/genCocoSDK.py`
-- 同步生成好的包到`sample/loomDemoForCreator`, `sample/dark-slash`, 运行`./tools/syncLoomJSToSample.py`
-- 切换到`blueprint/build`目录, 运行`Loom Block Chain`服务, 运行`../../loom run`, 已运行，可以跳过
-- 用`Cocos Creator`打开`sample/loomDemoForCreator`或 `sample/dark-slash`, 运行
+- update git submodule, run command `git submodule update --init`, if you have done this, skip this.
+- generate and pack `Loom Cocos SDK`, run command `./tools/genCocoSDK.py`
+- sync `Loom Cocos SDK` to `sample/loomDemoForCreator` and `sample/dark-slash`, run command `./tools/syncLoomJSToSample.py`
+- entry directory `blueprint/build`, run `Loom Block Chain` services, run command `../../loom run`, if you have done this, skip this.
+- open `sample/loomDemoForCreator` or `sample/dark-slash` with `Cocos Creator` and run
 
 ## 说明
 
-- `Loom Block Chain` 的配置, 运行, 合约的使用, 参见[这里](https://loomx.io/developers/docs/en/prereqs.html)
-- 示例 `dark-slash` 来自于`Cocos Creator`的[样例工程](https://github.com/cocos-creator/tutorial-dark-slash)
+- `Loom Block Chain` configuration, Contract's usage, take a look at [this](https://loomx.io/developers/docs/en/prereqs.html)
+- Sample `dark-slash` come from `Cocos Creator` [Tutorial Project](https://github.com/cocos-creator/tutorial-dark-slash)
