@@ -1,15 +1,15 @@
 ---
 id: web3js-event-filters
-title: Web3 event filters
-sidebar_label: Web3 event filters
+title: Web3 事件过滤器
+sidebar_label: Web3 事件过滤器
 ---
-## Overview
+## 概述
 
-The [Web3.js](https://github.com/ethereum/web3.js) library allows developers to easily listen for events from the [EVM](evm.html) contained on Loom DAppChain. Also is possible to create filter for indexed values.
+使用[Web3](https://github.com/ethereum/web3.js) 库，开发人员能够轻松地从 DAppChain 上的 [EVM](evm.html) 中收听事件， 也可以为索引值创建过滤器。
 
-## Filtering
+## 过滤
 
-Let's create a filter to get latest block created on Loom DAppChain and continuously print the block hash on console
+让我们创建一个过滤器，获取在Loom DApp链上生成的最新块，并在控制台上连续打印块哈希。
 
 ```js
 const {
