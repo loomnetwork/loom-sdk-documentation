@@ -70,30 +70,30 @@ sidebar_label: 发布日志
 
 * Go客户端使其可以访问EVM 合约
 * 对 EVM 的大量 bug 修复
-* [Social Network Example App - Solidity](simple-social-network-example.html)
+* [社交网络的示例应用 - Solidity](simple-social-network-example.html)
 
-## Release 136 - May 28th
+## 第136次更新-5月28日
 
-* Initial Solidity Alpha test build, you can now deploy solidity contracts
-* Websocket eventing support for solidity 
-* [Example Project for solidity Events](phaser-sdk-demo-web3-websocket.html)
-* [Multinode deployment guide](multi-node-deployment.html)
+* 初始 Solidity Alpha 测试构建，您现在可以部署 Solidity 合同
+* 对 Solidity 的 Websocket 事件支持 
+* [Solidity 事件的示例](phaser-sdk-demo-web3-websocket.html)
+* [多节点部署指南](multi-node-deployment.html)
 
-## Release 133 - May 24th
+## 第133次更新-5月24日
 
-* [Etherboy Demo released](https://loomx.io/developers/docs/en/etherboy-game.html)
-* [Japanese Docs released](https://loomx.io/developers/ja)
-* Updated Homepage for [docs site](https://loomx.io/developers/en/) 
+* [发布 Etherboy 演示](https://loomx.io/developers/docs/en/etherboy-game.html)
+* [发布日语文档](https://loomx.io/developers/ja)
+* 更新了 [docs site](https://loomx.io/developers/en/) 的主页 
 
-## Release 132 - May 23rd
+## 第132次更新-5月23日
 
-* Websocket performance fixes
-* New Websocket Demo App - TilesChain - [Github](https://github.com/loomnetwork/tiles-chain) 
+* Websocket 性能修复
+* 新的 Websocket 演示应用 - TilesChain - [Github](https://github.com/loomnetwork/tiles-chain) 
 
-## Release 129 - May 22rd
+## 第129次更新-5月22日
 
-* Websocket support for eventing
-* Updates to indexing layer for solidty contracts
+* Websocket 支持事件
+* 对 Solidty 合约的索引层更新
 * Phaser Game Dame - [Github](https://github.com/loomnetwork/phaser-sdk-demo)
 
 ## Release 128 - May 21th
