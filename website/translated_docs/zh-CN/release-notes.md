@@ -7,7 +7,7 @@ sidebar_label: 发布日志
 
 发布日志（最新的在顶部）
 
-## 第285次更新-7月17日
+## Release 288 - July 17th
 
 * [EVM 索引过滤器](https://loomx.io/developers/docs/en/web3js-event-filters.html)
 * EVM 过滤器池修复和事件系统
