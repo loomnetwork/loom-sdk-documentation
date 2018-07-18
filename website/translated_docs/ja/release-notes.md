@@ -7,7 +7,7 @@ sidebar_label: リリースノート
 
 新着順。
 
-## リリース 285 -7月17日
+## Release 288 - July 17th
 
 * [EVMインデックスフィルター](https://loomx.io/developers/docs/en/web3js-event-filters.html)
 * EVMフィルタープールの修正とイベントシステム
