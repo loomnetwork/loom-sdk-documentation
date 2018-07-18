@@ -14,7 +14,7 @@ sidebar_label: Etherboyバックエンド
 2. バイナリをダウンロード
     
     ```bash
-    wget https://private.delegatecall.com/loom/linux/build-285/loom
+    wget https://private.delegatecall.com/loom/linux/build-288/loom
     wget https://private.delegatecall.com/etherboy/linux/build-53/etherboycli
     chmod +x loom etherboycli
     
