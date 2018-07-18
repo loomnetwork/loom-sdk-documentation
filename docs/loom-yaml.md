@@ -17,6 +17,7 @@ GenesisFile: "genesis.json"
 PluginsDir: "contracts"
 ContractLogLevel: "debug"
 RPCProxyPort: 46658
+ChainID: "awesomechain"
 # Peers: ""
 # SessionMaxAccessCount: "0"
 # SessionDuration: "600"
@@ -82,3 +83,9 @@ Port for tendermint bft engine
 Options: "http://127.0.0.1:45668"
 
 Note this has to match the RPCProxyPort in the loom.yaml
+
+## ChainID
+
+Options: "awesomechain"
+
+This is the name of your chain, for example "eth", "zombiechain", "test-zombiechain", "delegatecall".
