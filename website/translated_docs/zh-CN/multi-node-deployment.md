@@ -281,7 +281,7 @@ Ansible 需要在本地安装。
 ---
 all:
   vars:
-    loom_build: build-285
+    loom_build: build-288
     ansible_ssh_common_args: '-o StrictHostKeyChecking=no'
     working_directory: /home/ubuntu
     user: ubuntu
