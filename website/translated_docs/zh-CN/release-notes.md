@@ -7,14 +7,14 @@ sidebar_label: 发布日志
 
 发布日志（最新的在顶部）
 
-## 第285次更新——7月17日
+## 第285次更新-7月17日
 
 * [EVM 索引过滤器](https://loomx.io/developers/docs/en/web3js-event-filters.html)
 * EVM 过滤器池修复和事件系统
 * 升级了 Loom-JS EVM 索引过滤器
 * 修复了 Loom-JS EVM 通过哈希获取块的方法
 
-## 第276次更新——7月13日
+## 第276次更新-7月13日
 
 * [新区块浏览器](block-explorer-tutorial.html)
 * 多节点 EVM 修复 
@@ -22,40 +22,40 @@ sidebar_label: 发布日志
 * 僵尸链测试网修复
 * DPoS更新
 
-## Release 209 - June 20th
+## 第209次更新 - 6月20日
 
-Major release
+主要发布
 
-* Plasma Cash initial integration - Demos coming next week
-* Multinode fixes and performance increases
-* Ansible updates for multinode
-* Querying / Filtering on EVM supports more types 
-* Unity SDK updates for EVM 
-* Loom-JS updates for EVM
+* Plasma Cash初始整合-下周的演示
+* 多节点修复和性能提高
+* 多节点的 Ansible 更新
+* EVM上的查询/过滤支持更多类型 
+* 针对EVM 的 SDK 更新 
+* 针对 EVM 的Loom-JS 更新
 
-## Release 186 - June 19th
+## 第186次更新 - 6月19日
 
-* [EVM Unity Example app](https://loomx.io/developers/docs/en/unity-sample-tiles-chain-evm.html)
-* Unity SDK support for Solidity Apps
-* Many fixes for Filtering/Querying Ethereum Events
+* [EVM Unity 应用事例](https://loomx.io/developers/docs/en/unity-sample-tiles-chain-evm.html)
+* Unity SDK 可支持 Solidity 应用
+* 修复诸多以太坊事件的查询/过滤bug
 
-## Release 163 - June 11th
+## 第163次更新 - 6月11日
 
-* Support for latest Build of Truffle
-* [Updated truffle example](https://github.com/loomnetwork/loom-truffle-provider)
-* Initial Implementation of Sybil resistance framework
-* Websocket events now support topics 
-* Loom-JS 1.8.0 Release with updated websocket topic support
+* 对 Truffle 最新构建的支持
+* [更新了 Truffle 示例](https://github.com/loomnetwork/loom-truffle-provider)
+* Sybil 抵抗框架的初步实现
+* Websocket事件主题支持 
+* Loom-JS 1.8.0版本，带有更新的 websocket 主题支持
 
-## Release 161 - June 7th
+## 第161次更新 - 6月7日
 
-* Tons of Truffle Fixes
-* Tons of web3.js fixes for Loom-Js provider
+* 大量 Truffle 修复
+* 对 Loom-Js provider 的大量 web3.js 修复
 
-## Release 155 - June 6th
+## 第155次更新 - 6月6日
 
-* [Cocos SDK is Live](cocos-sdk-quickstart.html)
-* [Truffle Support available](truffle-deploy.html)
+* [发布 Cocos SDK ](cocos-sdk-quickstart.html)
+* [提供 Truffle 支持](truffle-deploy.html)
 * Static calls to EVM now allow caller
 * EVM Fixes for a lot of scenarios 
 
