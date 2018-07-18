@@ -96,13 +96,13 @@ sidebar_label: 发布日志
 * 对 Solidty 合约的索引层更新
 * Phaser Game Dame - [Github](https://github.com/loomnetwork/phaser-sdk-demo)
 
-## Release 128 - May 21th
+## 第128次更新-5月21日
 
-* Lots of bug fixes for Etherboy
+* 对 Etherboy 的大量 bug 修复
 
-## Release 128 - May 19th
+## 第128次更新-5月19日
 
-* Stable Beta Release
-* Updating logging to default to multiple files 
-* Moving all RPC to a single interface
-* Updated External Process interface
+* 发布 Beta 稳定版 
+* 将多个文件的日志更新为默认模式 
+* 将所有 RPC 转移到单个接口
+* 更新了外部进程接口
