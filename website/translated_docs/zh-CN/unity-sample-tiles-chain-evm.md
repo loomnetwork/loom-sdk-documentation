@@ -38,6 +38,7 @@ cp genesis.example.json genesis.json
 
 # Run
 ./loom run
+ 
 ```
 
 ### 4. 建立Unity客户端
