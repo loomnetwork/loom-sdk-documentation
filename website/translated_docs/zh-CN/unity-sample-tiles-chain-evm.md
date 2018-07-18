@@ -29,7 +29,7 @@ git clone https://github.com/loomnetwork/unity-tiles-chain-evm
 cd unity-tiles-chain-evm
 
 cd dappchain
-wget https://private.delegatecall.com/loom/osx/build-285/loom
+wget https://private.delegatecall.com/loom/osx/build-288/loom
 chmod +x loom
 
 # Configure
@@ -38,7 +38,6 @@ cp genesis.example.json genesis.json
 
 # Run
 ./loom run
- 
 ```
 
 ### 4. 建立Unity客户端
