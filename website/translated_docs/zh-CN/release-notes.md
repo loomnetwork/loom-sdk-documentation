@@ -56,20 +56,20 @@ sidebar_label: 发布日志
 
 * [发布 Cocos SDK ](cocos-sdk-quickstart.html)
 * [提供 Truffle 支持](truffle-deploy.html)
-* Static calls to EVM now allow caller
-* EVM Fixes for a lot of scenarios 
+* 允许调用者静态调用EVM
+* 对很多场景的 EVM 修复 
 
-## Release 143 - June 1st
+## 第143次更新 - 6月1日
 
-* [BluePrint Docker Images Available](docker-blueprint.html)
-* [Japanese Hackathon Results](https://medium.com/loom-network/highlights-from-the-first-loom-unity-sdk-hackathon-tokyo-edition-6ed723747c19)
-* [Docker Images for some of Loom SDK Projects](https://hub.docker.com/r/loomnetwork/)
-* Evm TX Reciepts fixes 
+* [BluePrint Docker图像可用](docker-blueprint.html)
+* [日本黑客松成果](https://medium.com/loom-network/highlights-from-the-first-loom-unity-sdk-hackathon-tokyo-edition-6ed723747c19)
+* [Loom SDK 项目的 Docker 图像](https://hub.docker.com/r/loomnetwork/)
+* Evm TX Reciepts 修复 
 
-## Release 137 - May 30th
+## 第137次更新-5月30日
 
-* Go Clients can Access EVM Contracts
-* Numerous bug fixes for EVM
+* Go客户端使其可以访问EVM 合约
+* 对 EVM 的大量 bug 修复
 * [Social Network Example App - Solidity](simple-social-network-example.html)
 
 ## Release 136 - May 28th
