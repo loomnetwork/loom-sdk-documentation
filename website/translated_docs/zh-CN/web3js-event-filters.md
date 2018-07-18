@@ -17,23 +17,23 @@ const {
 } = require('loom-js')
 const Web3 = require('web3')
 
-// Create the client
+// 创建客户端
 const client = new Client(
   'default',
   'ws://127.0.0.1:46657/websocket',
   'ws://127.0.0.1:9999/queryws',
 );
 
-// Create private key for first account
+// 为第一个账户创建密钥
 const privateKey = CryptoUtils.generatePrivateKey()
 
-// Instantiate web3 client using LoomProvider as provider
+//使用Loom Provider作为提供程序，实例化Web3客户端
 const web3 = new Web3(new LoomProvider(client, privateKey));
 
-// Create filter to get the latest block
+// 创建一个过滤器来获取最新的块
 const filter = web3.eth.filter('latest');
 
-// Watch filter will return the hash of the latest block continuously 
+// 请注意，过滤器始终将返回最新块的哈希值
 filter.watch(function (error, result) {
   if (error) {
     console.error(error)
@@ -41,11 +41,11 @@ filter.watch(function (error, result) {
     console.log('Block hash', result)
 ```
 
-## Filtering by indexed values
+## 按索引值过滤
 
-Another great feature is filtering by `indexed` values, which can be used to trigger event handlers when a specific `indexed` value is emitted.
+另一个很棒的功能是使用`索引`值进行过滤。 这可用于在发送特定`索引`值时触发事件处理程序。
 
-For the following contract:
+以下合约:
 
 ```solidity
 pragma solidity ^0.4.22;
@@ -66,7 +66,7 @@ contract SimpleStore {
 }
 ```
 
-It's possible to setup an event handler for the `NewValueSet` event that's only triggered when the `value` emitted is `10`, and it won't be triggered if the contract emits any other value.
+可以为 `NewValueSet` 事件设置事件处理程序, 只有当 `值` 发出时才触发div 类 = "notranslate" >> 4 </div> 10</code>, 如果合约发出任何其他值, 则不会触发该项。
 
 ```js
 // Generate public and private keys
