@@ -15,6 +15,7 @@ sidebar_label: Loom Yaml 和配置选项
     PluginsDir: "contracts"
     ContractLogLevel: "debug"
     RPCProxyPort: 46658
+    ChainID: "awesomechain"
     # Peers: ""
     # SessionMaxAccessCount: "0"
     # SessionDuration: "600"
@@ -77,3 +78,9 @@ Tendermint bft 引擎的端口
 选项: "http://127.0.0.1:45668"
 
 注意这必须与 loom.yaml 中的 RPCProxyPort 相匹配
+
+## ChainID
+
+Options: "awesomechain"
+
+This is the name of your chain, for example "eth", "zombiechain", "test-zombiechain", "delegatecall".
