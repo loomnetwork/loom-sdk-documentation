@@ -81,6 +81,6 @@ Tendermint bftエンジン用のポート
 
 ## ChainID
 
-Options: "awesomechain"
+オプション: "awesomechain"
 
-This is the name of your chain, for example "eth", "zombiechain", "test-zombiechain", "delegatecall".
+これはあなたのチェーンの名前である。例えば "eth"、"zombiechain"、"test-zombiechain"、"delegatecall"というようなものだ。
