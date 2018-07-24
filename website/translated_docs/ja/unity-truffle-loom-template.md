@@ -11,14 +11,14 @@ Unityクライアントを使用したLoom DAppチェーンのためのテンプ
 - Pre-configured Truffle project that automatically extracts ABIs and binaries of compiled contracts into corresponding folders.
 - Pre-configured optimally setup Unity project with `Blueprint` contract test scene, and an already included Loom SDK.
 
-# Template Structure
+# テンプレートの構造
 
 ```shell
 ├── DAppChain/
-│   ├── build/ # Loom binary and app/blockchain state data will be stored here
-│   │   ├── contracts/ # Compiled contracts .bin will go here
+│   ├── build/ # Loomバイナリとアプリ/ブロックチェーンの状態をここに保存
+│   │   ├── contracts/ # コンパイルされたcontracts .bin はここに来る
 │   │   └── ...
-│   ├── start-chain.sh # Starts the Loom DAppChain
+│   ├── start-chain.sh # Loom DAppチェーンをスタート
 │   ├── reset-and-start-chain.sh ## Resets app/blockchain state and starts the Loom DAppChain
 │   ├── genesis.json # Change this file when changing/adding contracts
 │   └── ...
@@ -49,28 +49,28 @@ git clone https://github.com/loomnetwork/loom-unity-project-template.git
 
 Feel free to rename the `loom-unity-project-template` folder right away according to the name of your project.
 
-## Building the Truffle Project
+## Truffleプロジェクトの構築
 
 ```shell
-# Build the Truffle project. This will extract the ABI files to the Unity client,
-# and compiled contracts to the DAppChain/build/ directory
+# Truffleプロジェクトを構築する。　これはUnityクライアントへABIファイルを、
+# さらにDAppChain/build/ディレクトリにコンパイル済みコントラクトを抽出する
 
 cd Truffle
 truffle build
 ```
 
-## Running the DAppChain
+## DAppチェーンの実行
 
 ```shell
-# Start the Loom DAppChain. Loom binary will be downloaded automatically
+# Loom DAppChainをスタートする。Loomバイナリは自動的にダウンロードされる
 
 cd DAppChain
 ./start-chain.sh
 ```
 
-## Running the Unity client
+## Unityクライアントの実行
 
-Open the Unity project located in `UnityClient`. Open the `Blueprint/BlueprintTest` scene and run/build it.
+`UnityClient`に置かれたUnityプロジェクトを開こう。`Blueprint/BlueprintTest`シーンを開き、それを実行/構築する。
 
 # Workflow
 
