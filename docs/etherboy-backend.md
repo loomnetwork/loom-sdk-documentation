@@ -15,7 +15,7 @@ This documentation explains how to run the Etherboy DAppChain in a single server
     ```
 1. Download the binaries:
     ```bash
-    wget https://private.delegatecall.com/loom/linux/build-288/loom
+    wget https://private.delegatecall.com/loom/linux/build-330/loom
     wget https://private.delegatecall.com/etherboy/linux/build-53/etherboycli
     chmod +x loom etherboycli
 

@@ -8,6 +8,19 @@ sidebar_label: Release Notes
 
 Reverse chronology order of release notes
 
+## Release 330 - July 30th
+
+* Fix for consensus problems on EVM 
+* Updates for Zombiechain TestNet
+* Added more telemetry to measure performance
+* Range queries on Go Contracts
+* Added ChainID to loom.yaml
+
+* [EVM indexed filter](https://loomx.io/developers/docs/en/web3js-event-filters.html)
+* EVM filter pool fixes and event system
+* Loom-JS EVM updates for indexed filters
+* Loom-JS EVM fixes for getting block by hash
+
 ## Release 288 - July 17th
 
 * [EVM indexed filter](https://loomx.io/developers/docs/en/web3js-event-filters.html)
