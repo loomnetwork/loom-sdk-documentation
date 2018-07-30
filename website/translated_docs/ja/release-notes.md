@@ -7,102 +7,116 @@ sidebar_label: リリースノート
 
 新着順。
 
-## リリース 288 -7月17日
+## Release 330 - July 30th
 
-* [EVMインデックスフィルター](https://loomx.io/developers/docs/en/web3js-event-filters.html)
-* EVMフィルタープールの修正とイベントシステム
-* インデックスフィルタ向けにLoom-JS EVMをアップデート
-* ハッシュでブロックを取得できるよう、Loom-JS EVMを修正
+* Fix for consensus problems on EVM 
+* Updates for Zombiechain TestNet
+* Added more telemetry to measure performance
+* Range queries on Go Contracts
+* Added ChainID to loom.yaml
 
-## リリース 276 -7月13日
+* [EVM indexed filter](https://loomx.io/developers/docs/en/web3js-event-filters.html)
 
-* [新たなBlock Explorer](block-explorer-tutorial.html)
-* マルチノードEVMを修正 
-* Plasma Cash向けにLoom-JSをアップデート
-* ZombieChainテストネットの修正
-* DPoSのアップデート
+* EVM filter pool fixes and event system
+* Loom-JS EVM updates for indexed filters
+* Loom-JS EVM fixes for getting block by hash
 
-## リリース 209 - 6月28日
+## Release 288 - July 17th
+
+* [EVM indexed filter](https://loomx.io/developers/docs/en/web3js-event-filters.html)
+* EVM filter pool fixes and event system
+* Loom-JS EVM updates for indexed filters
+* Loom-JS EVM fixes for getting block by hash
+
+## Release 276 - July 13th
+
+* [New Block Explorer](block-explorer-tutorial.html)
+* Multinode EVM fixes 
+* Loom-JS updates for Plasma cash
+* Zombiechain testnet fixes
+* DPoS Updates
+
+## Release 209 - June 20th
 
 メジャーリリース
 
-* Plasma Cash 初期インテグレーション - 次週デモを発表
-* マルチノード修正、パフォーマンス向上 
-* マルチノード向けのAnsible更新 
-* EVM上のクエリ/フィルタがより多くの型をサポート 
-* EVM向けのUnity SDK更新 
-* EVM向けのLoom-JS更新
+* Plasma Cash initial integration - Demos coming next week
+* Multinode fixes and performance increases
+* Ansible updates for multinode
+* Querying / Filtering on EVM supports more types 
+* Unity SDK updates for EVM 
+* Loom-JS updates for EVM
 
-## リリース 186 - 6月19日
+## Release 186 - June 19th
 
-* [EVM Unityサンプルアプリ](https://loomx.io/developers/docs/en/unity-sample-tiles-chain-evm.html)
-* Unity SDKのSolidityアプリ向けサポート
-* イーサリアム・イベントのフィルター/クエリ機能を大幅に修正
+* [EVM Unity Example app](https://loomx.io/developers/docs/en/unity-sample-tiles-chain-evm.html)
+* Unity SDK support for Solidity Apps
+* Many fixes for Filtering/Querying Ethereum Events
 
-## リリース 163 - 6月11日
+## Release 163 - June 11th
 
-* Truffleの最新ビルドをサポート
-* [Truffleサンプルをアップデート](https://github.com/loomnetwork/loom-truffle-provider)
-* シビル攻撃耐性フレームワークの初期実装
-* Websocketイベントのトピックサポート 
-* Loom-JS 1.8.0リリースで、websocketトピックをサポートするようアップデート
+* Support for latest Build of Truffle
+* [Updated truffle example](https://github.com/loomnetwork/loom-truffle-provider)
+* Initial Implementation of Sybil resistance framework
+* Websocket events now support topics 
+* Loom-JS 1.8.0 Release with updated websocket topic support
 
-## リリース 161 - 6月7日
+## Release 161 - June 7th
 
-* Truffleサポートを修正
-* Loom-Jsプロバイダのためのweb3.jsを修正
+* Tons of Truffle Fixes
+* Tons of web3.js fixes for Loom-Js provider
 
-## リリース 155 - 6月6日
+## Release 155 - June 6th
 
-* [Cocos SDKをリリース](cocos-sdk-quickstart.html)
-* [Truffleのサポートが利用可能に](truffle-deploy.html)
-* EVMへの静的コールで呼び出し元を許可
-* 多くのシナリオ用のEVMを修正 
+* [Cocos SDK is Live](cocos-sdk-quickstart.html)
+* [Truffle Support available](truffle-deploy.html)
+* Static calls to EVM now allow caller
+* EVM Fixes for a lot of scenarios 
 
-## リリース 143 - 6月1日
+## Release 143 - June 1st
 
-* [BluePrint Dockerイメージが利用可能](docker-blueprint.html)
-* [東京ハッカソンのレポート](https://medium.com/loom-network/highlights-from-the-first-loom-unity-sdk-hackathon-tokyo-edition-6ed723747c19)
-* [Loom SDKプロジェクト用のDockerイメージ](https://hub.docker.com/r/loomnetwork/)
-* Evmトランザクションレシートの修正 
+* [BluePrint Docker Images Available](docker-blueprint.html)
+* [Japanese Hackathon Results](https://medium.com/loom-network/highlights-from-the-first-loom-unity-sdk-hackathon-tokyo-edition-6ed723747c19)
+* [Docker Images for some of Loom SDK Projects](https://hub.docker.com/r/loomnetwork/)
+* Evm TX Reciepts fixes 
 
-## リリース 137 - 5月30日
+## Release 137 - May 30th
 
-* GoクライアントがEVMコントラクトへアクセス可能に
-* EVMのバグを多数修正
-* [ソーシャルネットワークのサンプルアプリ- Solidity](simple-social-network-example.html)
+* Go Clients can Access EVM Contracts
+* Numerous bug fixes for EVM
+* [Social Network Example App - Solidity](simple-social-network-example.html)
 
-## リリース 136 - 5月28日
+## Release 136 - May 28th
 
-* 初期Solidityアルファ版テストビルド。Solidityコントラクトがデプロイ可能に。
-* Splidityでのイベントサポート 
-* [Solidityイベントのサンプルプロジェクト](phaser-sdk-demo-web3-websocket.html)
-* [マルチノードデプロイメントガイド](multi-node-deployment.html)
+* Initial Solidity Alpha test build, you can now deploy solidity contracts
+* Websocket eventing support for solidity 
+* [Example Project for solidity Events](phaser-sdk-demo-web3-websocket.html)
+* [Multinode deployment guide](multi-node-deployment.html)
 
-## リリース 133 - 5月24日
+## Release 133 - May 24th
 
-* [Etherboyのデモをリリース](https://loomx.io/developers/docs/en/etherboy-game.html)
-* [日本語ドキュメンテーションをリリース](https://loomx.io/developers/ja)
-* [ドキュメンテーションサイト](https://loomx.io/developers/en/)をアップデート 
+* [Etherboy Demo released](https://loomx.io/developers/docs/en/etherboy-game.html)
+* [Japanese Docs released](https://loomx.io/developers/ja)
+* Updated Homepage for [docs site](https://loomx.io/developers/en/) 
 
-## リリース 132 - 5月23日
+## Release 132 - May 23rd
 
-* Websocketのパフォーマンスを修正
-* 新しいWebsocketのデモアプリ - TilesChain - [Github](https://github.com/loomnetwork/tiles-chain) 
+* Websocket performance fixes
+* New Websocket Demo App - TilesChain - [Github](https://github.com/loomnetwork/tiles-chain) 
 
-## リリース 129 - 5月22日
+## Release 129 - May 22rd
 
-* イベントでのWebsocketサポート
-* インデックスレイヤー機能をSolidityコントラクト向けにアップデート 
-* Phaserゲームデモ - [Github](https://github.com/loomnetwork/phaser-sdk-demo)
+* Websocket support for eventing
+* Updates to indexing layer for solidty contracts
+* Phaser Game Dame - [Github](https://github.com/loomnetwork/phaser-sdk-demo)
 
-## リリース 128 - 5月21日
+## Release 128 - May 21th
 
-* Etherboyのバグを修正
+* Lots of bug fixes for Etherboy
 
-## リリース 128 - 5月19日
+## Release 128 - May 19th
 
-* 安定したベータ版をリリース
-* ロギングをデフォルトで複数ファイルでできるようアップデート 
-* 全RPCを一つのインターフェースへ移動
-* 外部プロセスインターフェースのアップデート
+* Stable Beta Release
+* Updating logging to default to multiple files 
+* Moving all RPC to a single interface
+* Updated External Process interface
