@@ -1,11 +1,11 @@
 ---
 id: basic-install-linux
-title: Installation (Linux)
-sidebar_label: Installation (Linux)
+title: インストール (Linux)
+sidebar_label: インストール (Linux)
 ---
-Installing and setting up Loom on Linux
+LinuxでのLoomのインストールとセットアップ
 
-## Installation
+## インストール
 
 ```bash
 wget https://private.delegatecall.com/loom/linux/build-330/loom
@@ -14,21 +14,21 @@ chmod +x loom
 ./loom init
 ```
 
-## Run Blockchain
+## ブロックチェーンの起動
 
     ./loom run
     
 
-## To get started with Solidity + Truffle
+## Solidity + Truffleでスタートするには
 
-See our tutorial on [Truffle and Solidity](truffle-deploy.html)
+[TruffleとSolidity](truffle-deploy.html)のチュートリアルを参照すること。
 
-## To get started on Golang Contracts
+## Golangコントラクトでスタートするには
 
-See our [Golang Contracts](prereqs.html)
+[Golangコントラクト](prereqs.html)を参照すること。
 
-## Setup a production cluster
+## プロダクションクラスタのセットアップ
 
-*Note Linux is only supported OS for Production clusters
+*Linuxはプロダクションクラスタ向けに唯一サポートされたOSであることに注目。
 
-See docs on [Production clusters](multi-node-deployment.html)
+[プロダクションクラスタ](multi-node-deployment.html)にてドキュメンテーションを参照すること。
