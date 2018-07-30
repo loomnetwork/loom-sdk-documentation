@@ -46,11 +46,11 @@ truffle unbox loomnetwork/truffle-dappchain-example
 ## DAppチェーンのスタート
 
 ```bash
-# ダウンロード
-wget https://private.delegatecall.com/loom/osx/build-288/loom
+# Download
+wget https://private.delegatecall.com/loom/osx/build-330/loom
 chmod +x loom
 
-# 起動
+# Run
 ./loom init
 ./loom run
 ```
