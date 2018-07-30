@@ -1,8 +1,8 @@
 {
   "docs": {
-    "Prerequisites": ["prereqs", "prereqs-ubuntu", "prereqs-windows"],
+    "Installation": ["basic-install-osx", "basic-install-linux", "basic-install-windows"],
     "Javascript Client SDK": ["loom-js-quickstart", "web3js-loom-provider-truffle"],
-    "Go Contract SDK": ["go-loom-clients", "goloomstate", "goloomevents", "goloompermissions", "builtin"],
+    "Go Contract SDK": ["prereqs", "prereqs-ubuntu", "prereqs-windows", "go-loom-clients", "goloomstate", "goloomevents", "goloompermissions", "builtin"],
     "Game SDKs": ["cocos-sdk-quickstart"],
     "Unity SDK": ["unity-quick-start","unity-sdk-overview", "unity-sdk-plugin", "unity-sdk-evm", "unity-sample-tiles-chain-evm", "unity-truffle-loom-sample", "unity-truffle-loom-template"],
     "Events": ["loomevents", "web3js-event-filters"],
