@@ -19,10 +19,10 @@ chmod +x loom
     ./loom run
     
 
-## To get started with Solidity + Truffle
+## Solidity + Truffleでスタートするには
 
-See our tutorial on [Truffle and Solidity](truffle-deploy.html)
+[TruffleとSolidity](truffle-deploy.html)のチュートリアルを参照すること。
 
-## To get started on Golang Contracts
+## Golangコントラクトでスタートするには
 
-See our [Golang Contracts](prereqs.html)
+[Golangコントラクト](prereqs.html)を参照すること。
