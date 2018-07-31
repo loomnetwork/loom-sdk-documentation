@@ -243,11 +243,11 @@ const Docs = props => (
     <img src={imgUrl("zombie-docs.png")} />
   </div>   
   <div className="docs-copy-content">
-  <a className="download-btn" href={docUrl('prereqs.html', props.language)}>
+  <a className="download-btn" href={docUrl('basic-install-osx.html', props.language)}>
     <h3><translate>Docs</translate></h3>
   </a>
     <p>          
-      Check out the <a href={docUrl("prereqs.html", props.language)}>docs</a> to get started building decentralized apps on your own DappChain.
+      Check out the <a href={docUrl("basic-install-osx.html", props.language)}>docs</a> to get started building decentralized apps on your own DappChain.
     </p>
   </div>
 </div>
