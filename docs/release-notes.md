@@ -8,6 +8,18 @@ sidebar_label: Release Notes
 
 Reverse chronology order of release notes
 
+## Release 375 - Aug 10th
+
+*NOTE* This is a feature test release, with minor compatibility changes, please verify in staging environements before upgrading your production environment.   
+
+* Fixes for Eventing on EVM Contracts
+* Beta release of the [Transfer Gateway](transfer-gateway.html)
+* [Demo of Transfer Gateway](https://github.com/loomnetwork/cards-gateway-example)
+* Memory leak fixes
+* Minor api breakages, please upgrade go-loom/loom-js. Unity updates coming soon
+* Go-loom is upgraded for api breakages
+* loom-js is upgraded for this release. 
+
 ## Release 330 - July 30th
 
 * Fix for consensus problems on EVM 
