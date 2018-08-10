@@ -9,7 +9,6 @@
     "Consensus": ["delegated-proof-of-stake"],
     "Monitoring": ["metrics", "logging"],
     "Solidity & EVM": ["evm", "truffle-deploy"],
-    "Transfer Gateway": ["transfer-gateway"],
     "Example Games & Apps": ["etherboy-game", "phaser-sdk-demo", "phaser-sdk-demo-websocket", "phaser-sdk-demo-web3-websocket", "simple-social-network-example"],
     "Transfer Gateway": ["transfer-gateway", "tf-card-game"],
     "Deployment": ["etherboy-backend", "multi-node-deployment", "docker-blueprint-phaser"],
