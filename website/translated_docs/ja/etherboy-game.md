@@ -3,7 +3,7 @@ id: etherboy-game
 title: Etherboyゲーム
 sidebar_label: Etherboyゲーム
 ---
-![Header](/developers/img/ebw_splash.jpg) EtherboyはUnityで構築されたマルチプラットフォームの2Dゲームで、DAppチェーン上で稼働し、また[Loom Unity SDK](unity-sdk.md)を使用してGo言語で書かれたスマートコントラクトと対話する。
+![Header](/developers/img/ebw_splash.jpg) EtherboyはUnityで構築されたマルチプラットフォームの2Dゲームで、DAppチェーン上で稼働し、また[Loom Unity SDK](unity-sdk.html)を使用してGo言語で書かれたスマートコントラクトと対話する。
 
 ## ゲームコントロール
 
@@ -28,19 +28,19 @@ sidebar_label: Etherboyゲーム
 
 ### MacOS
 
-1. [MacOSの前提条件](prereqs.md)にある手順通りにGolangをインストールしよう(もしまだインストールしていなければ)。
+1. [MacOSの前提条件](prereqs.html)にある手順通りにGolangをインストールしよう(もしまだインストールしていなければ)。
 2. Loom DAppチェーンのバイナリをダウンロード 
         bash
-        wget https://private.delegatecall.com/loom/osx/build-209/loom
+        wget https://private.delegatecall.com/loom/osx/build-330/loom
         chmod +x loom
         export LOOM_BIN=`pwd`/loom
 
 ### Linux
 
-1. [Ubuntuの前提条件](prereqs-ubuntu.md)にある手順通りにGolangをインストールしよう(もしまだインストールしていなければ)。
+1. [Ubuntuの前提条件](prereqs-ubuntu.html)にある手順通りにGolangをインストールしよう(もしまだインストールしていなければ)。
 2. Loom DAppチェーンのバイナリをダウンロード 
         bash
-        curl -OL https://private.delegatecall.com/loom/linux/build-209/loom
+        curl -OL https://private.delegatecall.com/loom/linux/build-330/loom
         chmod +x loom
         export LOOM_BIN=`pwd`/loom
 

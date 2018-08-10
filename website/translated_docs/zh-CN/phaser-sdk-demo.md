@@ -18,7 +18,7 @@ sidebar_label: Phaser SDK 演示
 安装Loom
 
 ```bash
-wget https://private.delegatecall.com/loom/osx/build-209/loom
+wget https://private.delegatecall.com/loom/osx/build-330/loom
 chmod +x loom
 
 mkdir contracts

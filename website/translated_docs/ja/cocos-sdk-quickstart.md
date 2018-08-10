@@ -6,7 +6,7 @@ sidebar_label: Cocos SDKクイックスタート
 ## コンテンツ:
 
 - 日本語 
- - [前提条件](#前提条件)
+ - [前提条件](#prerequisites)
  - [Loom Cocos SDK](#loom-cocos-sdk)
  - [LoomJS SDKの生成](#generate-loomjs-sdk)
  - [Loomのインストール](#install-loom)
@@ -49,7 +49,7 @@ Loom Cocos SDK構成ダイアグラム
 
 ## Loomをインストール
 
-    wget https://private.delegatecall.com/loom/osx/build-209/loom
+    wget https://private.delegatecall.com/loom/osx/build-330/loom
     chmod +x loom
     
     mkdir tmpgopath
@@ -99,7 +99,10 @@ Cocos Creatorは、UIシステムやアニメーションエディタといっ�
 
 ## サンプル:
 
-２つの`Sample`プロジェクトがある: * `loomDemoForCreator`はLoom SDKをシンプルに使用している。 * `dark-slash`はLoom SDKを実際のゲームにて使用している。
+２つの`Sample` プロジェクトがある:
+
+- `loomDemoForCreator` はLoom SDKをシンプルに使用している。
+- `dark-slash` は実際のゲームにてLoom SDKを使用している。
 
 テストの手順
 

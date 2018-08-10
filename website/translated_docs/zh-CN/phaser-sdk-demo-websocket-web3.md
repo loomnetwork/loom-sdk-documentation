@@ -29,14 +29,14 @@ git clone https://github.com/loomnetwork/tiles-chain-evm
 cd tiles-chain-evm
 
 cd dappchain
-wget https://private.delegatecall.com/loom/osx/build-209/loom
+wget https://private.delegatecall.com/loom/osx/build-330/loom
 chmod +x loom
 
-# 配置
+# Configure
 ./loom init
 cp genesis.example.json genesis.json
 
-# 运行
+# Run
 ./loom run
 ```
 

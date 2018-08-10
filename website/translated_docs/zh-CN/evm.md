@@ -178,7 +178,7 @@ loom DApp链包含一个以太坊虚拟机（EVM）并使你可以部署以及�
     
     用户提供两个代码项。 智能合约以及使用DApp链的终端应用程序。
     
-    在下面我们将假设，Go被用于终端应用程序，而插件的智能合约用Go写，EVM的智能合约用Solidity写。 参阅 loom-js-quickstart.md 来寻找javascript的解决方案。
+    在下面我们将假设，Go被用于终端应用程序，而插件的智能合约用Go写，EVM的智能合约用Solidity写。 Refer to [loom-js-quickstart](loom-js-quickstart.html) for a javascript solution.
     
     ### 最小插件
     

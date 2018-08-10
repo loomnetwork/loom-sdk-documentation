@@ -16,16 +16,14 @@ sidebar_label: マルチノードデプロイメント
         cd /home/ubuntu
 
 2. バイナリをダウンロード 
-    ```bash
-    wget https://private.delegatecall.com/loom/linux/build-208/loom
-    chmod +x loom
-    ```
+        bash
+        wget https://private.delegatecall.com/loom/linux/build-208/loom
+        chmod +x loom
 
 3. ワーキングディレクトリで`./loom init`を実行し、設定ファイルを初期化しよう。
 4. ワーキングディレクトリに `loom.yml` を追加しよう。 
-    ```yaml
-    QueryServerHost: "tcp://0.0.0.0:9999"
-    ```
+        yaml
+        QueryServerHost: "tcp://0.0.0.0:9999"
 
 ## 設定
 
@@ -283,7 +281,7 @@ Ansibleをローカルにインストールする必要がある。
 ---
 all:
   vars:
-    loom_build: build-209
+    loom_build: build-330
     ansible_ssh_common_args: '-o StrictHostKeyChecking=no'
     working_directory: /home/ubuntu
     user: ubuntu

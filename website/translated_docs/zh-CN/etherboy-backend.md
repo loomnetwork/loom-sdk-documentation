@@ -14,14 +14,12 @@ sidebar_label: Etherboy 后端
 2. 下载二进制文件:
     
     ```bash
-    (async function () {
-     const privateKey = CryptoUtils.generatePrivateKey()
-     const publicKey = CryptoUtils.publicKeyFromPrivateKey(privateKey)
+    wget https://private.delegatecall.com/loom/linux/build-330/loom
+    wget https://private.delegatecall.com/etherboy/linux/build-53/etherboycli
+    chmod +x loom etherboycli
     
-     const contract = await getContract(privateKey, publicKey)
-     await store(contract, '123', 'hello!')
-     const value = await load(contract, '123')
-     console.log('Value: ' + value)})()
+    mkdir contracts
+    wget -O contracts/etherboycore.so https://private.delegatecall.com/etherboy/linux/build-53/etherboycore.0.0.1
     ```
 
 3. 在工作目录中执行`loom init`以初始化配置文件。
@@ -135,6 +133,7 @@ $ ./etherboycli create-acct -k key
 <nil>
 $ ./etherboycli set -k key
 <nil>
+
 + ./etherboycli get -k key
 {"Value":0}
 ```
