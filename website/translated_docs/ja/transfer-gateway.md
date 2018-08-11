@@ -14,7 +14,11 @@ sidebar_label: トランスファーゲートウェイ
 - Loom DAppチェーン上のGoコントラクトアドレスマッパー
 - Oracleゲートウェイ (DAppチェーンノードのプロセス内、またはスタンドアロンプロセスで実行可能)
 
+![Diagram of ERC721 Transfer to DAppChain](/developers/img/transfer-gateway-erc721-to-dappchain.svg)
+
 When a user wishes to transfer a token from their Ethereum account to their DAppChain account they must first transfer it to the Mainnet Gateway, which in turns emits a deposit event. The deposit event is picked up by the Gateway Oracle which forwards it onto the DAppChain Gateway. The DAppChain Gateway then transfers the token to the DAppChain account of the user that deposited the token into the Mainnet Gateway.
+
+![Diagram of ERC721 Transfer to Ethereum](/developers/img/transfer-gateway-erc721-to-ethereum.svg)
 
 To get that same token back into their Ethereum account the user must first transfer the token back to the DAppChain Gateway, which creates a pending withdrawal. The pending withdrawal is picked up by the Gateway Oracle, which signs the withdrawal, and notifies the DAppChain Gateway. The DAppChain Gateway emits an event to let the user know they can withdraw their token from the Mainnet Gateway to their Ethereum account by providing the signed withdrawal record.
 
@@ -75,7 +79,7 @@ contract MyAwesomeToken is ERC721Token {
 }
 ```
 
-When you're happy with your contracts you can deploy them with Truffle to Ethereum and the DAppChain.
+When you're happy with your contracts you can deploy them with Truffle to Ethereum and the DAppChain, you may want to take a look at [loom-truffle-doc](web3js-loom-provider-truffle.html).
 
 ## Mapping Mainnet contracts to DAppChain contracts
 
