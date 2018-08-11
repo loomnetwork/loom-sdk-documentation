@@ -9,10 +9,10 @@ sidebar_label: トランスファーゲートウェイ
 
 トランスファーゲートウェイは、以下４つの主要コンポーネントから構成されている:
 
-- Gateway Solidity contract on Ethereum (Mainnet Gateway)
-- Gateway Go contract on the Loom DAppChain (DAppChain Gateway)
-- Address Mapper Go contract on the Loom DAppChain
-- Gateway Oracle (can run in-process on a DAppChain node, or as a standalone process)
+- イーサリアム上のSolidityコントラクトゲートウェイ (メインネットゲートウェイ)
+- Loom DAppチェーン上のGoコントラクトゲートウェイ (DAPpチェーンゲートウェイ)
+- Loom DAppチェーン上のGoコントラクトアドレスマッパー
+- Oracleゲートウェイ (DAppチェーンノードのプロセス内、またはスタンドアロンプロセスで実行可能)
 
 When a user wishes to transfer a token from their Ethereum account to their DAppChain account they must first transfer it to the Mainnet Gateway, which in turns emits a deposit event. The deposit event is picked up by the Gateway Oracle which forwards it onto the DAppChain Gateway. The DAppChain Gateway then transfers the token to the DAppChain account of the user that deposited the token into the Mainnet Gateway.
 
