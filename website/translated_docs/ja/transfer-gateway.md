@@ -1,13 +1,13 @@
 ---
 id: transfer-gateway
-title: Transfer Gateway
-sidebar_label: Transfer Gateway
+title: トランスファーゲートウェイ
+sidebar_label: トランスファーゲートウェイ
 ---
-## Overview
+## 概要
 
-The Transfer Gateway allows tokens to be transferred between Loom DAppChains and Ethereum networks. Currently only ERC721 tokens are supported, but support for ERC20 tokens, and ETH will be added in the near future.
+トランスファーゲートウェイでは、Loom DAppチェーンとイーサリアム・ネットワーク間のトークンを移転できる。 現在ERC721トークンのみのサポートであるが、今後近いうちにERC20トークン及びETHのサポートを追加していく。
 
-The Transfer Gateway consists of four main components:
+トランスファーゲートウェイは、以下４つの主要コンポーネントから構成されている:
 
 - Gateway Solidity contract on Ethereum (Mainnet Gateway)
 - Gateway Go contract on the Loom DAppChain (DAppChain Gateway)
