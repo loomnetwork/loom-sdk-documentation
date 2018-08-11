@@ -7,14 +7,14 @@ sidebar_label: リリースノート
 
 新着順。
 
-## Release 375 - Aug 10th
+## リリース 375 - 8月10日
 
-*NOTE* This is a feature test release, with minor compatibility changes, please verify in staging environements before upgrading your production environment.
+*注意* これは機能テストのためのリリースで、マイナーな互換性の変更を伴っている。運用環境をアップグレードする前に、ステージング環境にて検証を行うこと。
 
-* Fixes for Eventing on EVM Contracts
-* Beta release of the [Transfer Gateway](transfer-gateway.html)
-* [Demo of Transfer Gateway](https://github.com/loomnetwork/cards-gateway-example)
-* Memory leak fixes
+* EVMコントラクトのイベント処理の修正
+* [トランスファゲートウェイ](transfer-gateway.html)のベータ版リリース
+* [トランスファーゲートウェイのデモ](https://github.com/loomnetwork/cards-gateway-example)
+* メモリーリークの修正
 * Minor api breakages, please upgrade go-loom/loom-js. Unity updates coming soon
 * Go-loom is upgraded for api breakages
 * loom-js is upgraded for this release. 
