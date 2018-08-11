@@ -16,11 +16,15 @@ The Transfer Gateway consists of four main components:
 - Address Mapper Go contract on the Loom DAppChain
 - Gateway Oracle (can run in-process on a DAppChain node, or as a standalone process)
 
+![Diagram of ERC721 Transfer to DAppChain](/developers/img/transfer-gateway-erc721-to-dappchain.svg)
+
 When a user wishes to transfer a token from their Ethereum account to their DAppChain account they
 must first transfer it to the Mainnet Gateway, which in turns emits a deposit event. The deposit
 event is picked up by the Gateway Oracle which forwards it onto the DAppChain Gateway. The DAppChain
 Gateway then transfers the token to the DAppChain account of the user that deposited the token into
 the Mainnet Gateway.
+
+![Diagram of ERC721 Transfer to Ethereum](/developers/img/transfer-gateway-erc721-to-ethereum.svg)
 
 To get that same token back into their Ethereum account the user must first transfer the token back
 to the DAppChain Gateway, which creates a pending withdrawal. The pending withdrawal is picked up
@@ -91,7 +95,8 @@ contract MyAwesomeToken is ERC721Token {
 }
 ```
 
-When you're happy with your contracts you can deploy them with Truffle to Ethereum and the DAppChain.
+When you're happy with your contracts you can deploy them with Truffle to Ethereum and the DAppChain,
+you may want to take a look at [loom-truffle-doc].
 
 
 ## Mapping Mainnet contracts to DAppChain contracts
@@ -160,3 +165,4 @@ by [loom-js][].
 
 [Transfer Gateway Cards]: https://github.com/loomnetwork/cards-gateway-example
 [loom-js]: https://github.com/loomnetwork/loom-js
+[loom-truffle-doc]: web3js-loom-provider-truffle.html
