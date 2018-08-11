@@ -15,19 +15,19 @@ sidebar_label: リリースノート
 * [トランスファゲートウェイ](transfer-gateway.html)のベータ版リリース
 * [トランスファーゲートウェイのデモ](https://github.com/loomnetwork/cards-gateway-example)
 * メモリーリークの修正
-* Minor api breakages, please upgrade go-loom/loom-js. Unity updates coming soon
-* Go-loom is upgraded for api breakages
-* loom-js is upgraded for this release. 
+* APIの破損がわずかにあるので、go-loom/loom-jsのアップグレードが必要。Unityのアップグレードももうすぐリリース。
+* API破損のため、Go-loomをアップデート
+* このリリースのためにloom-jsをアップグレード 
 
-## Release 330 - July 30th
+## リリース 330 -7月30日
 
-* Fix for consensus problems on EVM 
-* Updates for Zombiechain TestNet
-* Added more telemetry to measure performance
-* Range queries on Go Contracts
-* Added ChainID to loom.yaml
+* EVMでのコンセンサスの問題を修正 
+* Zombieチェーンテストネットを更新
+* パフォーマンス測定のためテレメトリをさらに追加
+* Goコントラクトの範囲クエリ
+* loom.yamlにChainIDを追加
 
-* [EVM indexed filter](https://loomx.io/developers/docs/en/web3js-event-filters.html)
+* [EVMインデックスフィルター](https://loomx.io/developers/docs/en/web3js-event-filters.html)
 
 * EVM filter pool fixes and event system
 * Loom-JS EVM updates for indexed filters
