@@ -29,7 +29,7 @@ git clone https://github.com/loomnetwork/unity-tiles-chain-evm
 cd unity-tiles-chain-evm
 
 cd dappchain
-wget https://private.delegatecall.com/loom/osx/build-330/loom
+wget https://private.delegatecall.com/loom/osx/build-375/loom
 chmod +x loom
 
 # Configure
