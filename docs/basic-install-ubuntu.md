@@ -9,7 +9,7 @@ Installing and setting up Loom on Linux
 ## Installation
 
 ```bash
-wget https://private.delegatecall.com/loom/linux/build-330/loom
+wget https://private.delegatecall.com/loom/linux/build-375/loom
 chmod +x loom
 
 ./loom init
