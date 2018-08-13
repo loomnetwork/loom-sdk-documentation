@@ -30,17 +30,17 @@ cd dappchain
 wget https://private.delegatecall.com/loom/osx/build-375/loom
 chmod +x loom
 
-# Compile
+# コンパイル
 export GOPATH=$GOPATH:`pwd`
 make deps
 make
 
-# Configure
+# 設定
 cd build
 ../loom init
 cp ../genesis.example.json genesis.json
 
-# Run
+# 起動
 ../loom run
 ```
 
