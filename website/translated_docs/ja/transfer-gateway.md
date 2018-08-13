@@ -24,7 +24,7 @@ To get that same token back into their Ethereum account the user must first tran
 
 If you're a hands-on learner you might want to jump straight into the [Transfer Gateway Cards](https://github.com/loomnetwork/cards-gateway-example) example project before reading any further...
 
-## Setting up ERC721 contracts
+## ERC721コントラクトのセットアップ
 
 To transfer an ERC721 token from Ethereum to the DAppChain you'll need two of your own ERC721 contracts, one on Ethereum (Mainnet ERC721), and the other on the DAppChain (DAppChain ERC721).
 
