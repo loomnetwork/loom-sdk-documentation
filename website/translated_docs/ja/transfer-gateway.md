@@ -16,7 +16,7 @@ sidebar_label: トランスファーゲートウェイ
 
 ![Diagram of ERC721 Transfer to DAppChain](/developers/img/transfer-gateway-erc721-to-dappchain.png)
 
-When a user wishes to transfer a token from their Ethereum account to their DAppChain account they must first transfer it to the Mainnet Gateway, which in turns emits a deposit event. The deposit event is picked up by the Gateway Oracle which forwards it onto the DAppChain Gateway. The DAppChain Gateway then transfers the token to the DAppChain account of the user that deposited the token into the Mainnet Gateway.
+ユーザーがイーサリアムアカウントからDAppチェーンアカウントにトークンを移転したい場合、まずはメインネットゲートウェイに移転することが必要だ。 するとデポジットイベントが送信される。 The deposit event is picked up by the Gateway Oracle which forwards it onto the DAppChain Gateway. The DAppChain Gateway then transfers the token to the DAppChain account of the user that deposited the token into the Mainnet Gateway.
 
 ![Diagram of ERC721 Transfer to Ethereum](/developers/img/transfer-gateway-erc721-to-ethereum.png)
 
