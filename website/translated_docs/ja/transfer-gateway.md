@@ -93,13 +93,13 @@ DAppチェーンゲートウェイがコントラクトのマッピングリク�
 
 ## DAppチェーンへのERC721トークン移転
 
-アリスは、あなたのメインネット上トークンの取得を管理している。そして今、彼女は自身のDAppチェーンアカウントにそのトークンを移転しようとしている。 しかしその前に、彼女はAddress Mapperコントラクトにリクエストを送り、彼女のイーサリアムアカウントとDAppチェーンアカウント間のマッピングを作成しなくてはならない。 DAppチェーンゲートウェイと同じく、アリスが両アカウントの所有者であることの証明を提出できない場合Address Mapperはアカウントマッピングの作成を拒否する。
+アリスは、メインネット上トークンの取得を管理している。そして今、彼女は自身のDAppチェーンアカウントにそのトークンを移転しようとしている。 しかしその前に、彼女はAddress Mapperコントラクトにリクエストを送り、彼女のイーサリアムアカウントとDAppチェーンアカウント間のマッピングを作成しなくてはならない。 DAppチェーンゲートウェイと同じく、アリスが両アカウントの所有者であることの証明を提出できない場合Address Mapperはアカウントマッピングの作成を拒否する。
 
 メインネットアカウントの所有を証明するには、アリスは署名を提出しなくてはならない。この署名は、アカウントと紐づけられたイーサリアム秘密鍵を使用して、メッセージに署名することで生成される。 そしてDAppチェーンアカウントの所有を証明するには、彼女はDAppチェーンアカウントに送信されたリクエストに署名するだけでよい。その際、彼女のアカウントと紐づけられたDAppチェーン秘密鍵を使用して署名を行う。 Address Mapperはリクエストを受け取るとすぐ、リクエストされたアカウントマッピングを作成する。するとアリスは彼女のイーサリアムアカウントとDAppチェーンアカウント間でトークン移転を開始することができる。
 
 ## イーサリアムへのERC721トークンの移転
 
-Alice has had her fun on the DAppChain so she wants to transfer her token from her DAppChain account back to her Mainnet account. First she must grant approval to the DAppChain Gateway to take over ownership of the token she wants to transfer, she can do this by sending a request to the DAppChain ERC721 contract.
+アリスはDAppチェーン上での用が済んだので、DAppチェーンアカウントからメインネットアカウントにトークンを移転したい。 First she must grant approval to the DAppChain Gateway to take over ownership of the token she wants to transfer, she can do this by sending a request to the DAppChain ERC721 contract.
 
 Next, Alice should send a request to the DAppChain Gateway to start the token withdrawal process. When the DAppChain Gateway receives the request it creates a pending withdrawal record for Alice, and then waits for the Gateway Oracle to sign the pending withdrawal. After a small delay the Gateway Oracle signs the pending withdrawal, and submits the signature to the DAppChain Gateway, which in turn emits an event to notify Alice that her pending withdrawal has been signed.
 
