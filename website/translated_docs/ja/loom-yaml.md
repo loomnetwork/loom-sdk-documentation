@@ -5,6 +5,7 @@ sidebar_label: Loom Yamlと設定オプション
 ---
 # loom.yaml
 
+    RPCBindAddress: "tcp://0.0.0.0:46658"
     QueryServerHost: "tcp://0.0.0.0:9999"
     EventDispatcherURI: ""
     BFTLogLevel: "debug"
@@ -14,7 +15,6 @@ sidebar_label: Loom Yamlと設定オプション
     GenesisFile: "genesis.json"
     PluginsDir: "contracts"
     ContractLogLevel: "debug"
-    RPCProxyPort: 46658
     ChainID: "awesomechain"
     # Peers: ""
     # SessionMaxAccessCount: "0"
@@ -25,62 +25,56 @@ sidebar_label: Loom Yamlと設定オプション
 
 変更したい1行があれば、そこの # を消去しよう。
 
+## RPCBindAddress
+
+Options: "tcp://0.0.0.0:46658"
+
+This is the primary interface for binding RPC interface
+
 ## LoomLogLevel
 
 オプション: debug, info, warn, error
 
-Loomブロックチェーン用の一般的なロギング。
+General logging for the Loom Blockchain
 
 ## ContractLogLevel
 
 オプション: debug, info, warn, error
 
-Goベースのスマートコントラクト用の一般的なロギング。
+General logging for the Go Based Smart contracts.
 
 ## BFTLogLevel
 
-オプション: debug, info, warn, error
+Options: debug, info, warn, error
 
-BFTレイヤーブロックチェーン用の一般的なロギング。使用するBFTエンジンに基づき、変更となる可能性がある。
+General logging for the BFT Layer Blockchain. This may change based on which BFT engine you are using.
 
 ## QueryServerHost
 
-オプション: URLの例 "tcp://0.0.0.0:9999"
+*Deprecated, will be removed next release, don't use this
 
-これはブロックチェーン・インターフェースである。ポートの割り当てを設定しよう。デフォルトのポートは9999となっている。
+Options: url for example "tcp://0.0.0.0:9999"
+
+This is the nterface to the blockchain, set a bind port, default port is 9999
 
 ## EthereumURI
 
-オプション: "ws://127.0.0.1:8545"
+Options: "ws://127.0.0.1:8545"
 
-これはイーサリアム・ブロックチェーンのURLであり、Plasmaやトランスファーゲートウェイのためにデータを読み取る。 今後はinfuraのサポートも予定している。
-
-## RPCProxyPort
-
-オプション: "46658"
-
-これはブロックチェーン用RPCポートの１つである。
-
-注: 次のリリースにて、これはバインドインターフェーススタイルへと変更される予定だ。
-
-# config.toml
-
-Tendermint BFTエンジンをお使いであれば、このファイルを修正可能だ。そうでない場合はそのままにしておこう。
-
-## ABCIAddress
-
-オプション: "http://127.0.0.1:45667"
-
-Tendermint bftエンジン用のポート
-
-## RPCAddress
-
-オプション: "http://127.0.0.1:45668"
-
-これはloom.yamlのRPCProxyPortとマッチしなくてはならない。
+This is the url of the Ethereum Blockchain to read data for plasma and transfer gateway. In future we will have support for infura also.
 
 ## ChainID
 
-オプション: "awesomechain"
+Options: "awesomechain"
 
-これはあなたのチェーンの名前である。例えば "eth"、"zombiechain"、"test-zombiechain"、"delegatecall"というようなものだ。
+This is the name of your chain, for example "eth", "zombiechain", "test-zombiechain", "delegatecall".
+
+# config.toml
+
+If you are using tendermint BFT engine, you can modify this file, otherwise leave it alone.
+
+## ABCIAddress
+
+Options: "http://127.0.0.1:45667"
+
+Port for tendermint bft engine
