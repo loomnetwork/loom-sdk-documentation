@@ -27,8 +27,8 @@ chmod +x loom
 
 看看我们的 [Golang 合约](prereqs.html)
 
-## Setup a production cluster
+## 设置生产环境集群
 
-*Note Linux is only supported OS for Production clusters
+*注意：Linux 仅支持生产环境集群的操作系统
 
 See docs on [Production clusters](multi-node-deployment.html)
