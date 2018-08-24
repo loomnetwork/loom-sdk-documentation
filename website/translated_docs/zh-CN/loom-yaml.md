@@ -5,6 +5,7 @@ sidebar_label: Loom Yaml 和配置选项
 ---
 # loom.yaml
 
+    RPCBindAddress: "tcp://0.0.0.0:46658"
     QueryServerHost: "tcp://0.0.0.0:9999"
     EventDispatcherURI: ""
     BFTLogLevel: "debug"
@@ -14,7 +15,6 @@ sidebar_label: Loom Yaml 和配置选项
     GenesisFile: "genesis.json"
     PluginsDir: "contracts"
     ContractLogLevel: "debug"
-    RPCProxyPort: 46658
     ChainID: "awesomechain"
     # Peers: ""
     # SessionMaxAccessCount: "0"
@@ -25,62 +25,56 @@ sidebar_label: Loom Yaml 和配置选项
 
 从要更改的行中删除 #
 
+## RPCBindAddress
+
+Options: "tcp://0.0.0.0:46658"
+
+This is the primary interface for binding RPC interface
+
 ## LoomLogLevel
 
 选项: 调试、信息、警告、错误
 
-Loom 区块链的常规日志记录
+General logging for the Loom Blockchain
 
 ## ContractLogLevel
 
 选项: 调试、信息、警告、错误
 
-Go Based 智能合约的常规日志记录
+General logging for the Go Based Smart contracts.
 
 ## BFTLogLevel
 
-选项: 调试、信息、警告、错误
+Options: debug, info, warn, error
 
-BFT 层区块链的常规日志记录。这可能会根据你使用的 BFT 引擎而改变。
+General logging for the BFT Layer Blockchain. This may change based on which BFT engine you are using.
 
 ## QueryServerHost
 
-选项: url 例如 "tcp://0.0. 0.0: 9999"
+*Deprecated, will be removed next release, don't use this
 
-这是 区块链的接口, 设置一个绑定端口, 默认端口为9999
+Options: url for example "tcp://0.0.0.0:9999"
+
+This is the nterface to the blockchain, set a bind port, default port is 9999
 
 ## EthereumURI
 
-选项: "ws://127.0. 0.1: 8545"
+Options: "ws://127.0.0.1:8545"
 
-这是以太坊区块链的网址，用于读取 plasma 和传输网关的数据。 将来我们也会支持 infura。
-
-## RPCProxyPort
-
-选项: "46658"
-
-这是区块链的 rpc 端口之一。
-
-注意: 这将在下一个版本中更改为绑定接口样式
-
-# config.toml
-
-如果你使用的是 tendermint BFT 引擎, 则可以修改此文件, 否则请单独保留它。
-
-## ABCIAddress
-
-选项: "http://127.0.0.1:45667"
-
-Tendermint bft 引擎的端口
-
-## RPCAddress
-
-选项: "http://127.0.0.1:45668"
-
-注意这必须与 loom.yaml 中的 RPCProxyPort 相匹配
+This is the url of the Ethereum Blockchain to read data for plasma and transfer gateway. In future we will have support for infura also.
 
 ## ChainID
 
-选项："awesomechain"
+Options: "awesomechain"
 
 This is the name of your chain, for example "eth", "zombiechain", "test-zombiechain", "delegatecall".
+
+# config.toml
+
+If you are using tendermint BFT engine, you can modify this file, otherwise leave it alone.
+
+## ABCIAddress
+
+Options: "http://127.0.0.1:45667"
+
+Port for tendermint bft engine
