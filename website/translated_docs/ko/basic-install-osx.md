@@ -1,7 +1,7 @@
 ---
 id: basic-install-osx
-title: Prerequisites (OSX)
-sidebar_label: Installation (OSX)
+title: 필수요소 (OSX)
+sidebar_label: 설치하기 (OSX)
 ---
 OSX에서 Loom을 설치 및 세팅하기
 
@@ -21,7 +21,7 @@ chmod +x loom
 
 ## Solidity + Truffle로 시작하기
 
-See our tutorial on [Truffle and Solidity](truffle-deploy.html)
+[Truffle과 Solidity](truffle-deploy. html)에 관한 튜토리얼을 보세요
 
 ## Golang 컨트랙트에 관해서 시작하기
 
