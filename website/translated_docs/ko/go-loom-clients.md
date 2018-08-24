@@ -1,7 +1,7 @@
 ---
 id: go-loom-clients
-title: Building DAppChain clients in Golang
-sidebar_label: Building DAppChain Clients
+title: Golang으로 DAppChain 클라이언트를 구축하기
+sidebar_label: DAppChain 클라이언트 구축하기
 ---
 ## 개요
 
@@ -100,7 +100,7 @@ func store(contract *client.Contract, key, value string, signer auth.Signer) err
 
 스마트 컨트랙트의 상태를 읽어오기 위해서 여러분은 public read-only 메소드중 하나를 호출해주어야 합니다, `Contract.StaticCall()` 메소드를 사용해서 이런 것을 할 수 있습니다.
 
-The [helloworld](https://github.com/loomnetwork/go-loom/blob/master/examples/plugins/helloworld/helloworld.go) smart contract has a public `GetMsg` method that can be called to look up an association between a key and a value. Let's write a function that calls this method...
+[helloworld](https://github.com/loomnetwork/go-loom/blob/master/examples/plugins/helloworld/helloworld.go) 스마트 컨트랙트는 키에 연관된 값을 조회하는데 호출되는 public `GetMsg` 메소드를 제공합니다. 이 함수를 호출하는 함수를 작성해봅시다...
 
 ```go
 func load(contract *client.Contract, key string) (string, error) {
@@ -115,9 +115,9 @@ func load(contract *client.Contract, key string) (string, error) {
 }
 ```
 
-## Putting it all together
+## 한꺼번에 해보기
 
-Now that we have all the pieces in place make sure that you have the DAppChain running and then run the following code, you should see `Value: hello!` printed to the console.
+자 이제 모든 것을 가지고 DAppChain이 구동되었는지 확인하십시오 그리고 다음 코드를 실행시키세요, 그럼 여러분은 콘솔에 찍히는 `Value: hello!` 를 보실수 있을 것입니다.
 
 ```go
 func main() {
