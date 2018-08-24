@@ -21,11 +21,11 @@ chmod +x loom
 
 ## 开始使用 Solidity + Truffle
 
-看看 [Truffle 和 Solidity](truffle-deploy.html) 的相关教程
+看看我们的 [Truffle 和 Solidity](truffle-deploy.html) 相关教程
 
-## To get started on Golang Contracts
+## 开始使用 Golang 合约
 
-See our [Golang Contracts](prereqs.html)
+看看我们的 [Golang 合约](prereqs.html)
 
 ## Setup a production cluster
 
