@@ -49,7 +49,7 @@ CLI app 예제의 기능을 시험해보는것으로 마무리 짓습니다, 자
 
 ## DAppChain에 연결하기
 
-`client.Contract` 타입은 Loom DAppChain 에서 구동되는 스마트 컨트랙트와 상호작용하는 편리한 방법을 제공합니다. Let's write a function that creates a `client.Contract` instance to interact with the sample [helloworld](https://github.com/loomnetwork/go-loom/blob/master/examples/plugins/helloworld/helloworld.go) smart contract from the Loom SDK...
+`client.Contract` 타입은 Loom DAppChain 에서 구동되는 스마트 컨트랙트와 상호작용하는 편리한 방법을 제공합니다. Loom SDK의 [helloworld](https://github.com/loomnetwork/go-loom/blob/master/examples/plugins/helloworld/helloworld.go) 스마트 컨트랙트 예제와 상호작용하는 `client.Contract` 인스턴스를 만드는 함수를 작성해봅시다...
 
 ```go
 package main
@@ -61,7 +61,7 @@ import (
   "golang.org/x/crypto/ed25519"
 )
 
-// getContract creates a new `Contract` instance that can be used to interact with a smart contract.
+// getContract는 스마트 컨트랙트와 상호작용하는데 사용되는 새로운 `Contract` 인스턴스를 생성합니다.
 func getContract(contractName string) (*client.Contract, error) {
   rpcClient := client.NewDAppChainRPCClient(
     "default",
@@ -76,11 +76,11 @@ func getContract(contractName string) (*client.Contract, error) {
 }
 ```
 
-## Writing data to a DAppChain
+## DAppChain에 데이터를 쓰기
 
-To mutate the state of a smart contract you need to call one of its public methods, to do so a signed transaction must be sent to and validated by the DAppChain. Fortunately the `client.Contract` type takes care of most of this when you use the `Contract.Call()` method.
+스마트 컨트랙트의 상태를 변경시키기 위해서 여러분은 public 메소드중 하나를 호출해야 합니다. 그러기 위해서는 서명된 트랜젝션이 DAppChain 으로 보내져야 하고 검증되어야 합니다. 다행히도 `client.Contract` 타입은 여러분이 `Contract.Call()` 메소드를 사용할때 이런것들을 대부분 처리해 줍니다.
 
-The [helloworld](https://github.com/loomnetwork/go-loom/blob/master/examples/plugins/helloworld/helloworld.go) smart contract has a public `SetMsg` method that can be called to store an association between a key and a value. Let's write a function that calls this method...
+[helloworld](https://github.com/loomnetwork/go-loom/blob/master/examples/plugins/helloworld/helloworld.go) 스마트 컨트랙트는 키에 연관된 값을 저장하기 위해서 호출되는 public `SetMsg` 메소드를 제공한다. 이 메소드를 호출하는 함수를 작성해보자...
 
 ```go
 func store(contract *client.Contract, key, value string, signer auth.Signer) error {
@@ -96,9 +96,9 @@ func store(contract *client.Contract, key, value string, signer auth.Signer) err
 
 ```
 
-## Reading data from a DAppChain
+## DAppChain에서 데이터를 읽어오기
 
-To read the state of a smart contract you need to call one of its public read-only methods, you can do so by using the `Contract.StaticCall()` method.
+스마트 컨트랙트의 상태를 읽어오기 위해서 여러분은 public read-only 메소드중 하나를 호출해주어야 합니다, `Contract.StaticCall()` 메소드를 사용해서 이런 것을 할 수 있습니다.
 
 The [helloworld](https://github.com/loomnetwork/go-loom/blob/master/examples/plugins/helloworld/helloworld.go) smart contract has a public `GetMsg` method that can be called to look up an association between a key and a value. Let's write a function that calls this method...
 
