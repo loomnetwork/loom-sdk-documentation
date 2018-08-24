@@ -1,11 +1,11 @@
 ---
 id: basic-install-linux
-title: Installation (Linux)
-sidebar_label: Installation (Linux)
+title: 安装 (Linux)
+sidebar_label: 安装 (Linux)
 ---
-Installing and setting up Loom on Linux
+在 Linux 上安装和设置 Loom
 
-## Installation
+## 安装
 
 ```bash
 wget https://private.delegatecall.com/loom/linux/build-375/loom
@@ -14,14 +14,14 @@ chmod +x loom
 ./loom init
 ```
 
-## Run Blockchain
+## 运行区块链
 
     ./loom run
     
 
-## To get started with Solidity + Truffle
+## 开始使用 Solidity + Truffle
 
-See our tutorial on [Truffle and Solidity](truffle-deploy.html)
+看看 [Truffle 和 Solidity](truffle-deploy.html) 的相关教程
 
 ## To get started on Golang Contracts
 
