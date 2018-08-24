@@ -1,9 +1,9 @@
 ---
 id: basic-install-windows
-title: Installation (Windows)
-sidebar_label: Installation (Windows)
+title: 설치하기 (Windows)
+sidebar_label: 설치하기 (Windows)
 ---
-Installing and setting up Loom on Windows
+Windows에서 Loom을 설치 및 세팅하기
 
 Currently the only way to use Loom on windows is to use the [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
 
