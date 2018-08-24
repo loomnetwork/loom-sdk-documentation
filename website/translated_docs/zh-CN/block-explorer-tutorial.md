@@ -52,7 +52,7 @@ sidebar_label: 区块浏览器教程
 
 你需要了解 `Vue`, `TypeScript` 和 `Google Protobuf` 才能开始。 阅读 [DelagateCall Block Explorer](https://github.com/loomnetwork/vue-block-explorer/tree/dc-2) 的源代码，能让事情变得容易一些。
 
-开始吧： 1. 找到你的 DApp 的 `.proto` 文件。它定义了你的 DApp数据结构。 Put it in the `src/pbs` folder of the `vue-block-explorer`. 然后运行 `yarn proto` （假定你之前已经运行了 `yarn install`）。 2. 你会收到2个新文件`YOUR_PROTO_FILE_NAME_pb.d.ts` 和 `YOUR_PROTO_FILE_NAME_pb.js`。 3. 在 `transaction-reader.ts` 中，引入你的 `.proto` 文件中的类。
+开始吧： 1. 找到你的 DApp 的 `.proto` 文件。它定义了你的 DApp数据结构。 把它放入 `vue-block-explorer` 的 `src/pbs` 文件夹中。 然后运行 `yarn proto` （假定你之前已经运行了 `yarn install`）。 2. 你会收到2个新文件`YOUR_PROTO_FILE_NAME_pb.d.ts` 和 `YOUR_PROTO_FILE_NAME_pb.js`。 3. 在 `transaction-reader.ts` 中，引入你的 `.proto` 文件中的类。
 
     import * as DC from '@/pbs/YOUR_PROTO_FILE_NAME_pb'
     
@@ -92,4 +92,4 @@ sidebar_label: 区块浏览器教程
         }
         
 
-More scripts like `run`, `build` or `format` the code, you can read the `README.MD` file in the block explorer.
+更多的脚本，像 `run`, `build` 或 `format` 代码，你可以阅读区块浏览器中的 `README.MD` 文件。
