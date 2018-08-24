@@ -115,4 +115,4 @@ Cocos Creator基于开源框架Cocos2d-x，实现了一体化、可扩展、可�
 ## 说明
 
 - `Loom Block Chain` 的配置, 运行, 合约的使用, 参见[这里](https://loomx.io/developers/docs/en/prereqs.html)
-- Sample `dark-slash` come from `Cocos Creator` [Tutorial Project](https://github.com/cocos-creator/tutorial-dark-slash)
+- 示例 `dark-slash` 来自于 `Cocos Creator` 的 [样例项目](https://github.com/cocos-creator/tutorial-dark-slash)
