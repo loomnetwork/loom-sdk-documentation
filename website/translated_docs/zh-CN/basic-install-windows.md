@@ -12,7 +12,7 @@ sidebar_label: 安装 (Windows)
 ## 安装
 
 ```bash
-wget https://private.delegatecall.com/loom/linux/build-375/loom
+wget https://private.delegatecall.com/loom/linux/build-404/loom
 chmod +x loom
 
 ./loom init

@@ -49,7 +49,7 @@ curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
 ## 설치하기
 
 ```bash
-curl -OL https://private.delegatecall.com/loom/linux/build-375/loom
+curl -OL https://private.delegatecall.com/loom/linux/build-404/loom
 chmod +x loom
 
 export GOPATH=~/gopath

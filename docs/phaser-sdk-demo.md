@@ -23,7 +23,7 @@ Development
 Install Loom
 
 ```bash
-wget https://private.delegatecall.com/loom/osx/build-375/loom
+wget https://private.delegatecall.com/loom/osx/build-404/loom
 chmod +x loom
 
 mkdir contracts
