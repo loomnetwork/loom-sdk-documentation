@@ -40,17 +40,17 @@ sidebar_label: 区块浏览器教程
 
 浏览器会显示当前 DApp 链中的所有区块，因此，如果你运行的是共享型区块链，比如说 Loom DApp 链，则很难查看你自己的区块数据，因为区块数量庞大。
 
-因此，你需要按 `block height`: 1 来搜索。 打开你的 loom 终端（运行 `loom run` 命令的地方） Find the blockchain log you just created, the `index` is the block height 3. In the top right corner of the block list, there is a search input, put the block height and search it.
+因此，你需要按 `block height`: 1 来搜索。 打开你的 loom 终端（运行 `loom run` 命令的地方） 2. 找到你刚刚创建的区块链日志，`index` 就是区块高度 3. 在区块列表的右上角, 有一个搜索输入框, 填入区块高度并搜索它。
 
-## Build Your Own Explorer
+## 构建你自己的浏览器
 
-The block explorer would display the block data in a raw JSON view, like this:
+区块浏览器将在原始 JSON 视图中显示区块数据，如下所示：
 
-Normally if your DApp data is arranged well in valid JSON format, it would be fine. But if it's not, it will just show in a raw text view and not easy to read.
+通常，如果你的 DApp 数据排列良好，采用有效的 JSON 格式，那就没问题了。 但如果不是，它只会在原始文本视图中显示而且不易阅读。
 
-So you might want to build your own explorer, just like what we did for [delegatecall.com](http://blockchain.delegatecall.com).
+因此，你可能希望构建自己的区块浏览器，就像我们为 [delegatecall.com](http://blockchain.delegatecall.com) 所做的那样。
 
-You need to know `Vue`, `TypeScript` and also `Google Protobuf` to start. Reading the source code of [DelagateCall Block Explorer](https://github.com/loomnetwork/vue-block-explorer/tree/dc-2) would make it easier.
+你需要了解 `Vue`, `TypeScript` 和 `Google Protobuf` 才能开始。 阅读 [DelagateCall Block Explorer](https://github.com/loomnetwork/vue-block-explorer/tree/dc-2) 的源代码，能让事情变得容易一些。
 
 To get started: 1. Find your own `.proto` file for your DApp.It defined your DApp data structure. Put it in the `src/pbs` folder of the `vue-block-explorer`. then run `yarn proto` (assume you already run `yarn install` before). 2. You will get 2 new files `YOUR_PROTO_FILE_NAME_pb.d.ts` and `YOUR_PROTO_FILE_NAME_pb.js` 3. In `transaction-reader.ts`, import the classes in your `.proto` file:
 
