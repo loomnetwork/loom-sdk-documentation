@@ -103,7 +103,7 @@ you can download `Cocos Creator` from [here](http://www.cocos.com/creator) , and
 
 ## Sample:
 
-there have two `Sample` project:
+There are two `Sample` projects:
 * `loomDemoForCreator` simplely use loom sdk
 * `dark-slash` use loom sdk in a real game
 
