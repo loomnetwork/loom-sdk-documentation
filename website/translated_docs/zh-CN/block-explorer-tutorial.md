@@ -21,20 +21,20 @@ sidebar_label: 区块浏览器教程
 
 你也可以在本地运行区块浏览器。
 
-To get started, clone the repo from our Github:
+一开始，先从我们的 Github 复制代码库
 
     git clone https://github.com/loomnetwork/vue-block-explorer.git
     
 
-Then install the dependencies and start the dev server:
+然后安装依赖项并启动开发服务器:
 
     yarn install
     yarn run serve
     
 
-The dev server should run at `http://127.0.0.1:8080`, if the `8080` port is used by other programs, it will pick another one.
+开发服务器会运行在 `http://127.0.0.1:8080`，如果 `8080` 端口被其他程序使用，则会选择另一个。
 
-By default, it will read block data from `http://127.0.0.1:46657`, if you are running the server on another IP, you can change it in the server list as in online version.
+默认情况下, 它将从 `http://127.0.0.1:46657`中读取区块数据, 如果你在另一个 IP 上运行服务器, 则可以在服务器列表中将其更改为在线版本。
 
 ## Search By Block Height
 
