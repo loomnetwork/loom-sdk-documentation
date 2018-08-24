@@ -31,4 +31,4 @@ chmod +x loom
 
 *注意：Linux 仅支持生产环境集群的操作系统
 
-See docs on [Production clusters](multi-node-deployment.html)
+浏览 [生产环境集群](multi-node-deployment.html) 相关文档
