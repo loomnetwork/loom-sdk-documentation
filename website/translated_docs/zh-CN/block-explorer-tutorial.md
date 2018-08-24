@@ -13,13 +13,13 @@ sidebar_label: 区块浏览器教程
 
 你可以访问 [Loom 区块浏览器](https://blockexplorer.loomx.io), 如果你在本地计算机上运行了 Loom DApp链，你将在那里看到区块数据。
 
-如果你在另一台机器上运行Loom DApp链，可以输入你的 在列表的左下角Loom DApp链RPC服务器URL， 通常URL应该是`http://YOUR_DAPP_CHAIN_SERVER_IP:46657`.
+如果你在另一台机器上运行 Loom DApp链，可以在列表的左下角输入你的 Loom DApp链 RPC 服务器 URL，通常 URL 应该是`http://YOUR_DAPP_CHAIN_SERVER_IP:46657`.
 
-Make sure your server is accessible from outside.
+请确保你的服务器可以从外部访问。
 
-## Local Explorer
+## 本地浏览器
 
-You can also run the block explorer locally.
+你也可以在本地运行区块浏览器。
 
 To get started, clone the repo from our Github:
 
