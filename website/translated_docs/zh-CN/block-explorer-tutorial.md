@@ -5,15 +5,15 @@ sidebar_label: 区块浏览器教程
 ---
 ## 概述:
 
-此区块浏览器帮助你检查你的DApp链上的区块数据。
+此区块浏览器帮助你检查你的 DApp 链上的区块数据。
 
 ![](/developers/img/block_explorer.png)![](/developers/img/block_explorer_details.png)
 
 ## 在线浏览器
 
-你可以访问 [Loom 区块浏览器](https://blockexplorer.loomx.io), 如果你在本地计算机上运行了 Loom DApp链，你将在那里看到区块数据。
+你可以访问 [Loom 区块浏览器](https://blockexplorer.loomx.io), 如果你在本地计算机上运行了 Loom DApp 链，你将在那里看到区块数据。
 
-如果你在另一台机器上运行 Loom DApp链，可以在列表的左下角输入你的 Loom DApp链 RPC 服务器 URL，通常 URL 应该是`http://YOUR_DAPP_CHAIN_SERVER_IP:46657`.
+如果你在另一台机器上运行 Loom DApp 链，可以在列表的左下角输入你的 Loom DApp 链 RPC 服务器 URL，通常 URL 应该是`http://YOUR_DAPP_CHAIN_SERVER_IP:46657`.
 
 请确保你的服务器可以从外部访问。
 
@@ -36,11 +36,11 @@ sidebar_label: 区块浏览器教程
 
 默认情况下, 它将从 `http://127.0.0.1:46657`中读取区块数据, 如果你在另一个 IP 上运行服务器, 则可以在服务器列表中将其更改为在线版本。
 
-## Search By Block Height
+## 按区块高度搜索
 
-The explorer would show all blocks in current DApp Chain, so if you are running a shared blockchain, like running Loom DApp Chain, it'll be hard to check your own block data since there are too many of them.
+浏览器会显示当前 DApp 链中的所有区块，因此，如果你运行的是共享型区块链，比如说 Loom DApp 链，则很难查看你自己的区块数据，因为区块数量庞大。
 
-Therefore you need to search by the `block height`: 1. Open your loom terminal (where you run the `loom run` command) 2. Find the blockchain log you just created, the `index` is the block height 3. In the top right corner of the block list, there is a search input, put the block height and search it.
+因此，你需要按 `block height`: 1 来搜索。 打开你的 loom 终端（运行 `loom run` 命令的地方） Find the blockchain log you just created, the `index` is the block height 3. In the top right corner of the block list, there is a search input, put the block height and search it.
 
 ## Build Your Own Explorer
 
