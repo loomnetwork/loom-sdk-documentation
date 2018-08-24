@@ -27,7 +27,7 @@ mkdir tmpgopath
 export GOPATH=`pwd`/tmpgopath
 
 cd dappchain
-wget https://private.delegatecall.com/loom/osx/build-375/loom
+wget https://private.delegatecall.com/loom/osx/build-404/loom
 chmod +x loom
 
 # コンパイル

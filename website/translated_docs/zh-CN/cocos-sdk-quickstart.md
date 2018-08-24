@@ -49,7 +49,7 @@ Loom Cocos SDK软件结构
 
 ## 安装Loom
 
-    wget https://private.delegatecall.com/loom/osx/build-375/loom
+    wget https://private.delegatecall.com/loom/osx/build-404/loom
     chmod +x loom
     
     mkdir tmpgopath
