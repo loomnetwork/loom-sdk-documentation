@@ -1,19 +1,19 @@
 ---
 id: block-explorer-tutorial
-title: Block Explorer Tutorial
-sidebar_label: Block Explorer Tutorial
+title: 区块浏览器教程
+sidebar_label: 区块浏览器教程
 ---
-## Overview:
+## 概述:
 
-This Block Explorer helps you to check the block data on your DAppChain.
+此区块浏览器帮助你检查你的DApp链上的区块数据。
 
 ![](/developers/img/block_explorer.png)![](/developers/img/block_explorer_details.png)
 
-## Online explorer
+## 在线浏览器
 
-You can just visit [Loom Block Explorer](https://blockexplorer.loomx.io), If you have a Loom DAppChain running on your local machine, you should see the block data there.
+你可以访问 [Loom 区块浏览器](https://blockexplorer.loomx.io), 如果你在本地计算机上运行了 Loom DApp链，你将在那里看到区块数据。
 
-If you are running Loom DApp Chain on another machine, you can input your Loom DApp Chain RPC server URL into the bottom left corner of the list, Normally the URL should be `http://YOUR_DAPP_CHAIN_SERVER_IP:46657`.
+如果你在另一台机器上运行Loom DApp链，可以输入你的 在列表的左下角Loom DApp链RPC服务器URL， 通常URL应该是`http://YOUR_DAPP_CHAIN_SERVER_IP:46657`.
 
 Make sure your server is accessible from outside.
 
