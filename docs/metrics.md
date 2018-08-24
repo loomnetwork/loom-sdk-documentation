@@ -50,12 +50,12 @@ loomchain_query_service_request_count{error="true",method="Query"}
 
 ## Metric Endpoint
 
-When running a smart contract using `loom run` command, the default metrics endpoint is `127.0.0.1:9999/metrics`. The endpoint is configurable using the configuration key `QueryServerHost` in the configuration file.
+When running a smart contract using `loom run` command, the default metrics endpoint is `127.0.0.1:46658/metrics`. The endpoint is configurable using the configuration key `RPCBindAddress` in the configuration file.
 
-You can poll the the metrics from the endpoint using http clients or web browsers. The server running on `127.0.0.1:9999` will show the request count and latency metrics as followed.
+You can poll the the metrics from the endpoint using http clients or web browsers. The server running on `127.0.0.1:46658` will show the request count and latency metrics as followed.
 
 ```sh
-curl 127.0.0.1:9999/metrics
+curl 127.0.0.1:46658/metrics
 
 # HELP loomchain_query_service_request_count Number of requests received.
 # TYPE loomchain_query_service_request_count counter
@@ -93,7 +93,7 @@ scrape_configs:
     scrape_interval: "2s"
     static_configs:
     - targets:
-      - 127.0.0.1:9999 # The IP address to the query server host
+      - 127.0.0.1:46658 # The IP address to the query server host
 ```
 
 ## List of All Metrics

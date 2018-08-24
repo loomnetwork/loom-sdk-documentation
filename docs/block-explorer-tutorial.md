@@ -15,7 +15,7 @@ If you have a Loom DAppChain running on your local machine, you should see the b
 
 If you are running Loom DApp Chain on another machine, you can input your
 Loom DApp Chain RPC server URL into the bottom left corner of the list,
-Normally the URL should be `http://YOUR_DAPP_CHAIN_SERVER_IP:46657`.
+Normally the URL should be `http://YOUR_DAPP_CHAIN_SERVER_IP:46658`.
 
 Make sure your server is accessible from outside.
 
@@ -38,7 +38,7 @@ yarn run serve
 The dev server should run at `http://127.0.0.1:8080`,  if the `8080` port is used by
 other programs, it will pick another one.
 
-By default, it will read block data from `http://127.0.0.1:46657`, if you are running the server
+By default, it will read block data from `http://127.0.0.1:46658`, if you are running the server
 on another IP, you can change it in the server list as in online version.
 
 ## Search By Block Height
