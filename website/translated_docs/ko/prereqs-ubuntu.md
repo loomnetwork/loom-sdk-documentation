@@ -1,11 +1,11 @@
 ---
 id: prereqs-ubuntu
-title: Prerequisites (Ubuntu)
-sidebar_label: Installation (Ubuntu)
+title: 필수요소 (Ubuntu)
+sidebar_label: 설치하기 (Ubuntu)
 ---
-Installing and setting up Loom on Ubuntu
+Ubuntu에서 Loom을 설치 및 세팅하기
 
-## Ubuntu Packages
+## Ubuntu 패키지
 
 ```bash
 sudo apt -y install curl unzip make git
@@ -13,14 +13,14 @@ sudo apt -y install curl unzip make git
 
 ## Golang
 
-### The official way
+### 공식방법
 
 ```bash
 curl -O https://dl.google.com/go/go1.10.2.linux-amd64.tar.gz
 sudo tar -C /usr/local -xzf go1.10.2.linux-amd64.tar.gz
 ```
 
-Assuming you are on bash, if zsh do to `~/.zshrc`:
+bash를 가정한 설명이며, zsh를 사용한다면 `~/.zshrc`:
 
 ```bash
 echo -e "\nexport PATH=\$PATH:/usr/local/go/bin:~/gopath/bin" >>  ~/.bashrc
@@ -46,7 +46,7 @@ export GOPATH=~/gopath
 curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
 ```
 
-## Installation
+## 설치하기
 
 ```bash
 curl -OL https://private.delegatecall.com/loom/linux/build-404/loom
@@ -65,19 +65,19 @@ cd build
 cp ../genesis.example.json genesis.json
 ```
 
-## Run Blockchain
+## Blockchain 실행하기
 
 ```bash
 ../../loom run
 ```
 
-## Send transactions
+## 트랜잭션 보내기
 
-Open a second console
+두번째 콘솔을 여세요
 
-This will generate a private key. Create an account. Then set a value, and then read the value from the blockchain.
+이것은 프라이빗 키를 생성할 것입니다. 계정도 생성합니다. 그리고 값을 저장하고 블록체인으로 부터 값을 읽어옵니다.
 
-You can read the source of the [blueprint contract here](https://github.com/loomnetwork/weave-blueprint)
+여러분은 여기서 [blueprint 컨트랙트](https://github.com/loomnetwork/weave-blueprint) 소스를 볼 수 있습니다.
 
 ```bash
 cd blueprint/build
