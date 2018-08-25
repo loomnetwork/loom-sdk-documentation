@@ -1,9 +1,9 @@
 ---
 id: prereqs
-title: Prerequisites (OSX)
-sidebar_label: Installation (OSX)
+title: 필수요소 (OSX)
+sidebar_label: 설치하기 (OSX)
 ---
-Installing and setting up Loom on OSX
+OSX에 Loom을 설치 및 세팅하기
 
 ## wget
 
