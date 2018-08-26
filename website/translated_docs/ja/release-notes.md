@@ -7,22 +7,22 @@ sidebar_label: リリースノート
 
 新着順。
 
-## Release 404 - Aug 24th
+## リリース 404 - 8月24日
 
-** Features
+** 機能
 
-* ERC20 support upgraded in TransferGateway
-* Example ERC20 in Gateway - [Example](https://github.com/loomnetwork/cards-gateway-example)
-* Loom SDK Doc site in [Korean](https://loomx.io/developers/ko/)
-* EVM now has limited support for Payable functions, more coming next week 
-* Loom-JS updates for ERC20/ETH transfers with TransferGateway. 
-* Loom-JS integration to DPoS contracts 
-* Experimental Support for [Plasma Debits](https://github.com/loomnetwork/plasma-cash/pull/115)
+* TransferGatewayのERC20サポートをアップグレード
+* ゲートウェイのERC20サンプル - [サンプル](https://github.com/loomnetwork/cards-gateway-example)
+* Loom SDK [韓国語](https://loomx.io/developers/ko/)ドキュメンテーションサイト
+* 現在EVMはPayable関数を限定サポート。さらなるサポートは来週登場。 
+* TransferGatewayを使用したERC20/ETHトランスファー向けに、Loom-JSをアップデート 
+* DPoSコントラクトへLoom-JSを統合 
+* [Plasma Debits](https://github.com/loomnetwork/plasma-cash/pull/115)の実験的サポート
 
-** Breaking changes
+** 互換性を崩す変更
 
 * Deprecrating QueryServerHost, and consolidating all functions to the RPCServer.
-* New Config option: RPCBindAddress: "tcp://0.0.0.0:46658"
+* 新たなConfigオプション: RPCBindAddress: "tcp://0.0.0.0:46658"
 * Upgrades of PBFT engine, this may cause incompatibility issues on upgrades, please try in staging environments 
 
 ## Release 375 - Aug 10th
