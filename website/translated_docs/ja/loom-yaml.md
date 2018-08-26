@@ -27,54 +27,54 @@ sidebar_label: Loom Yamlと設定オプション
 
 ## RPCBindAddress
 
-Options: "tcp://0.0.0.0:46658"
+オプション: "tcp://0.0.0.0:46658"
 
-This is the primary interface for binding RPC interface
+これは、バインディングRPCインターフェイスのためのプライマリインターフェイスである。
 
 ## LoomLogLevel
 
 オプション: debug, info, warn, error
 
-General logging for the Loom Blockchain
+Loomブロックチェーン用の一般的なロギング。
 
 ## ContractLogLevel
 
 オプション: debug, info, warn, error
 
-General logging for the Go Based Smart contracts.
+Goベースのスマートコントラクト用の一般的なロギング。
 
 ## BFTLogLevel
 
-Options: debug, info, warn, error
+オプション: debug, info, warn, error
 
-General logging for the BFT Layer Blockchain. This may change based on which BFT engine you are using.
+BFTレイヤーブロックチェーン用の一般的なロギング。使用するBFTエンジンに基づき、変更となる可能性がある。
 
 ## QueryServerHost
 
-*Deprecated, will be removed next release, don't use this
+*撤廃予定。次回リリースにて削除されるので、これは使用しないこと。
 
-Options: url for example "tcp://0.0.0.0:9999"
+オプション: URLの例 "tcp://0.0.0.0:9999"
 
-This is the nterface to the blockchain, set a bind port, default port is 9999
+これはブロックチェーン・インターフェースである。ポートの割り当てを設定しよう。デフォルトのポートは9999となっている。
 
 ## EthereumURI
 
-Options: "ws://127.0.0.1:8545"
+オプション: "ws://127.0.0.1:8545"
 
-This is the url of the Ethereum Blockchain to read data for plasma and transfer gateway. In future we will have support for infura also.
+これはイーサリアム・ブロックチェーンのURLであり、Plasmaやトランスファーゲートウェイのためにデータを読み取る。 今後はinfuraのサポートも予定している。
 
 ## ChainID
 
-Options: "awesomechain"
+オプション: "awesomechain"
 
-This is the name of your chain, for example "eth", "zombiechain", "test-zombiechain", "delegatecall".
+これはあなたのチェーンの名前である。例えば "eth"、"zombiechain"、"test-zombiechain"、"delegatecall"というようなものだ。
 
 # config.toml
 
-If you are using tendermint BFT engine, you can modify this file, otherwise leave it alone.
+Tendermint BFTエンジンをお使いであれば、このファイルを修正可能だ。そうでない場合はそのままにしておこう。
 
 ## ABCIAddress
 
-Options: "http://127.0.0.1:45667"
+オプション: "http://127.0.0.1:45667"
 
-Port for tendermint bft engine
+Tendermint bftエンジン用のポート
