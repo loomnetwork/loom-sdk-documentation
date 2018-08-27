@@ -15,26 +15,26 @@ sidebar_label: JSON RPCメソッド
 const privateKey = CryptoUtils.generatePrivateKey();
 const publicKey = CryptoUtils.publicKeyFromPrivateKey(privateKey);
 
-// クライアントの作成
+// Create the client
 const client = new Client(
   "default",
-  "ws://127.0.0.1:46657/websocket",
-  "ws://127.0.0.1:9999/queryws"
+  "ws://127.0.0.1:46658/websocket",
+  "ws://127.0.0.1:46658/queryws"
 );
 
-// 関数呼び出し元のアドレス
+// The address for the caller of the function
 const from = LocalAddress.fromPublicKey(publicKey).toString();
 
-// Loom providerのインスタンス化
+// Instantiate loom provider
 const loomProvider = new LoomProvider(client, privateKey);
 
-// eth_accounts JSON RPCの呼び出し
+// eth_accounts JSON RPC call
 const jsonRPCString = '{"id": 1,"jsonrpc": "2.0", "method": "eth_accounts", "params": []}'
 
-// sendの前にJSONをパースするステップが必要
+// Parse JSON is a necessary step before send
 await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
-// このように返却されるはずだ
+// Return should be something like
 // {
 //   "id":1,
 //   "jsonrpc": "2.0",
