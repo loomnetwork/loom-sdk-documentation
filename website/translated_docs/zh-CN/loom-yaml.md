@@ -81,6 +81,6 @@ Tendermint bft 引擎的端口
 
 ## ChainID
 
-Options: "awesomechain"
+选项："awesomechain"
 
 This is the name of your chain, for example "eth", "zombiechain", "test-zombiechain", "delegatecall".

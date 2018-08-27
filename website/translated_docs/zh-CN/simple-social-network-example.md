@@ -21,7 +21,7 @@ git clone https://github.com/loomnetwork/solidity-social-example
 cd solidity-social-example
 
 cd dappchain
-wget https://private.delegatecall.com/loom/osx/build-330/loom
+wget https://private.delegatecall.com/loom/osx/build-404/loom
 chmod +x loom
 
 # Configure

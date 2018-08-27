@@ -7,6 +7,18 @@ sidebar_label: 发布日志
 
 发布日志（最新的在顶部）
 
+## Release 375 - Aug 10th
+
+*NOTE* This is a feature test release, with minor compatibility changes, please verify in staging environements before upgrading your production environment.
+
+* Fixes for Eventing on EVM Contracts
+* Beta release of the [Transfer Gateway](transfer-gateway.html)
+* [Demo of Transfer Gateway](https://github.com/loomnetwork/cards-gateway-example)
+* Memory leak fixes
+* Minor api breakages, please upgrade go-loom/loom-js. Unity updates coming soon
+* Go-loom is upgraded for api breakages
+* loom-js is upgraded for this release. 
+
 ## Release 330 - July 30th
 
 * Fix for consensus problems on EVM 
@@ -38,7 +50,7 @@ sidebar_label: 发布日志
 
 ## Release 209 - June 20th
 
-主要发布
+Major release
 
 * Plasma Cash initial integration - Demos coming next week
 * Multinode fixes and performance increases
