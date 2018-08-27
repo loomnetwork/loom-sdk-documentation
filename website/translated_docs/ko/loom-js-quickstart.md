@@ -1,9 +1,9 @@
 ---
 id: loom-js-quickstart
-title: NodeJS & Browser Quick Start
-sidebar_label: NodeJS & Browser Quick Start
+title: NodeJS & Browser 퀵스타트
+sidebar_label: NodeJS & Browser 퀵스타트
 ---
-## Overview
+## 개요
 
 The `loom-js` library contains everything you need to build web apps and NodeJS services that interact with smart contracts running on Loom DAppChains.
 
