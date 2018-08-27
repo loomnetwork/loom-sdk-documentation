@@ -36,7 +36,7 @@ Loom Cocos SDK 구조 다이어그램
 
 `Loom-Cocos-SDK`은 `loom-js`와 동일한 api, 동일한 protobuf, 비스한 컨트랙트를 가지고 있습니다.
 
-`Loom Cocos SDK` is base on [Loom-JS](https://github.com/loomnetwork/loom-js/) , and proting it to `Cocos Creator` .
+`Loom Cocos SDK` 은 [loom-js](https://github.com/loomnetwork/loom-js/)를 기반으로 되어 있으며, `Cocos Creator` 로 포팅됩니다.
 
 ### Generate LoomJS SDK
 
