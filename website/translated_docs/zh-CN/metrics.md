@@ -18,7 +18,7 @@ Loom 获取并公开了4种不同类型的度量：
 
 以下 Go 代码显示了 Loom 如何使用 `go-kit`创建度量的一个示例。 `Namespace` 以 *loomchain* 为前缀。 `Subsystem` 可以是 *query_service 或 *backend_service*.
 
-例如，requestCounte 度量密钥称为 `loomchain_query_service_request_count`，requestLatency 度量密钥为 `loomchain_query_service_request_latency_microseconds`。 所有的密钥都是独一无二的。
+For example, the requestCounter metric key is referred as `loomchain_query_service_request_count` and the requestLatency metric key is `loomchain_query_service_request_latency_microseconds`. 所有的密钥都是独一无二的。
 
 ```Go
 fieldKeys := []string{"method", "error"}
@@ -40,22 +40,22 @@ Loom 还为每个度量提供两个不同的字段名称，以创建度量值的
 
 以下是具有不同字段的公开度量的示例。
 
-    loomchain_query_service_request_count{error="false",method="Nonce"}
-    loomchain_query_service_request_count{error="true",method="Nonce"}
+    loomchain_query_service_request_count{error="false",method="Nonce"} 
+    loomchain_query_service_request_count{error="true",method="Nonce"} 
     loomchain_query_service_request_count{error="false",method="Query"}
     loomchain_query_service_request_count{error="true",method="Query"}
     
 
 ## 度量端点
 
-使用 `loom run`命令运行智能合约时，默认度量标准端点为`127.0.0.1:9999/metrics`。 可以使用配置文件中的配置键`QueryServerHost`配置端点。
+When running a smart contract using `loom run` command, the default metrics endpoint is `127.0.0.1:46658/metrics`. The endpoint is configurable using the configuration key `RPCBindAddress` in the configuration file.
 
-您可以使用 http 客户端或 Web 浏览器从端点轮询度量。 运行在`127.0.0.1:9999`上的服务器将显示请求计数和延迟度量，如下所示。
+You can poll the the metrics from the endpoint using http clients or web browsers. The server running on `127.0.0.1:46658` will show the request count and latency metrics as followed.
 
 ```sh
-curl 127.0.0.1:9999/metrics
+curl 127.0.0.1:46658/metrics
 
-# 帮助 loomchain_query_service_request_count 收到请求数.
+# HELP loomchain_query_service_request_count Number of requests received.
 # 键入 loomchain_query_service_request_count 计数器
 loomchain_query_service_request_count{error="false",method="Nonce"} 2
 loomchain_query_service_request_count{error="true",method="Query"} 2
@@ -86,12 +86,13 @@ Loom不存储度量，仅显示当前度量值。 若要获取度量值, 可以�
 
 ```yaml
 scrape_configs:
+
   - job_name: "loomchain"
     metrics_path: "/metrics"
     scrape_interval: "2s"
     static_configs:
     - targets:
-      - 127.0.0.1:9999 # The IP address to the query server host
+      - 127.0.0.1:46658 # The IP address to the query server host
 ```
 
 ## 所有度量列表
