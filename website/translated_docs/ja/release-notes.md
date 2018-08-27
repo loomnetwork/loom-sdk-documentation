@@ -7,6 +7,24 @@ sidebar_label: リリースノート
 
 新着順。
 
+## リリース 404 - 8月24日
+
+** 機能
+
+* TransferGatewayのERC20サポートをアップグレード
+* ゲートウェイのERC20サンプル - [サンプル](https://github.com/loomnetwork/cards-gateway-example)
+* Loom SDK [韓国語](https://loomx.io/developers/ko/)ドキュメンテーションサイト
+* 現在EVMはPayable関数を限定サポート。さらなるサポートは来週登場。 
+* TransferGatewayを使用したERC20/ETHトランスファー向けに、Loom-JSをアップデート 
+* DPoSコントラクトへLoom-JSを統合 
+* [Plasma Debits](https://github.com/loomnetwork/plasma-cash/pull/115)の実験的サポート
+
+** 互換性を崩す変更
+
+* QueryServerHostを廃止し、全関数をRPCサーバーへとコンソリデート。
+* 新たなConfigオプション: RPCBindAddress: "tcp://0.0.0.0:46658"
+* PBFTエンジンのアップグレード。アップグレードで非互換性の問題が起こる可能性があるため、ステージング環境にて試すこと。 
+
 ## リリース 375 - 8月10日
 
 *注意* これは機能テストのためのリリースで、マイナーな互換性の変更を伴っている。運用環境をアップグレードする前に、ステージング環境にて検証を行うこと。
@@ -119,7 +137,7 @@ sidebar_label: リリースノート
 ## リリース 129 - 5月22日
 
 * イベントでのWebsocketサポート
-* インデックスレイヤー機能をSolidityコントラクト向けにアップデート 
+* Solidityコントラクト用インデックスレイヤーをアップデート 
 * Phaserゲームデモ - [Github](https://github.com/loomnetwork/phaser-sdk-demo)
 
 ## リリース 128 - 5月21日
@@ -128,7 +146,7 @@ sidebar_label: リリースノート
 
 ## リリース 128 - 5月19日
 
-* 安定したベータ版リリース
+* 安定したベータ版をリリース
 * ロギングをデフォルトで複数ファイルでできるようアップデート 
 * 全RPCを一つのインターフェースへ移動
 * 外部プロセスインターフェースのアップデート

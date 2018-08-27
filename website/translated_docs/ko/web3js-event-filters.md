@@ -70,7 +70,6 @@ contract SimpleStore {
 
 It's possible to setup an event handler for the `NewValueSet` event that's only triggered when the `value` emitted is `10`, and it won't be triggered if the contract emits any other value.
 
-
 ```js
 // Generate public and private keys
 const privateKey = CryptoUtils.generatePrivateKey()

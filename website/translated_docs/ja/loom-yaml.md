@@ -5,6 +5,7 @@ sidebar_label: Loom Yamlと設定オプション
 ---
 # loom.yaml
 
+    RPCBindAddress: "tcp://0.0.0.0:46658"
     QueryServerHost: "tcp://0.0.0.0:9999"
     EventDispatcherURI: ""
     BFTLogLevel: "debug"
@@ -14,7 +15,6 @@ sidebar_label: Loom Yamlと設定オプション
     GenesisFile: "genesis.json"
     PluginsDir: "contracts"
     ContractLogLevel: "debug"
-    RPCProxyPort: 46658
     ChainID: "awesomechain"
     # Peers: ""
     # SessionMaxAccessCount: "0"
@@ -24,6 +24,12 @@ sidebar_label: Loom Yamlと設定オプション
     
 
 変更したい1行があれば、そこの # を消去しよう。
+
+## RPCBindAddress
+
+オプション: "tcp://0.0.0.0:46658"
+
+これは、バインディングRPCインターフェイスのためのプライマリインターフェイスである。
 
 ## LoomLogLevel
 
@@ -45,6 +51,8 @@ BFTレイヤーブロックチェーン用の一般的なロギング。使用�
 
 ## QueryServerHost
 
+*撤廃予定。次回リリースにて削除されるので、これは使用しないこと。
+
 オプション: URLの例 "tcp://0.0.0.0:9999"
 
 これはブロックチェーン・インターフェースである。ポートの割り当てを設定しよう。デフォルトのポートは9999となっている。
@@ -55,13 +63,11 @@ BFTレイヤーブロックチェーン用の一般的なロギング。使用�
 
 これはイーサリアム・ブロックチェーンのURLであり、Plasmaやトランスファーゲートウェイのためにデータを読み取る。 今後はinfuraのサポートも予定している。
 
-## RPCProxyPort
+## ChainID
 
-オプション: "46658"
+オプション: "awesomechain"
 
-これはブロックチェーン用RPCポートの１つである。
-
-注: 次のリリースにて、これはバインドインターフェーススタイルへと変更される予定だ。
+これはあなたのチェーンの名前である。例えば "eth"、"zombiechain"、"test-zombiechain"、"delegatecall"というようなものだ。
 
 # config.toml
 
@@ -72,15 +78,3 @@ Tendermint BFTエンジンをお使いであれば、このファイルを修正
 オプション: "http://127.0.0.1:45667"
 
 Tendermint bftエンジン用のポート
-
-## RPCAddress
-
-オプション: "http://127.0.0.1:45668"
-
-これはloom.yamlのRPCProxyPortとマッチしなくてはならない。
-
-## ChainID
-
-オプション: "awesomechain"
-
-これはあなたのチェーンの名前である。例えば "eth"、"zombiechain"、"test-zombiechain"、"delegatecall"というようなものだ。

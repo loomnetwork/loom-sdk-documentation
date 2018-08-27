@@ -3,17 +3,17 @@ id: cocos-sdk-quickstart
 title: Loom SDK for Cocos Creator
 sidebar_label: Cocos SDK Quickstart
 ---
-
 ## Content:
-- English
- * [Prerequisites](#prerequisites)
- * [Loom Cocos SDK](#loom-cocos-sdk)
- * [Generate LoomJS SDK](#generate-loomjs-sdk)
- * [Install Loom](#install-loom)
- * [Install Cocos Creator](#install-cocos-creator)
- * [Integrate to Creator Game](#integrate-to-creator-game)
- * [Sample](#sample)
- * [Notice](#notice)
+
+- English 
+ - [Prerequisites](#prerequisites)
+ - [Loom Cocos SDK](#loom-cocos-sdk)
+ - [Generate LoomJS SDK](#generate-loomjs-sdk)
+ - [Install Loom](#install-loom)
+ - [Install Cocos Creator](#install-cocos-creator)
+ - [Integrate to Creator Game](#integrate-to-creator-game)
+ - [Sample](#sample)
+ - [Notice](#notice)
 
 ## Prerequisites
 

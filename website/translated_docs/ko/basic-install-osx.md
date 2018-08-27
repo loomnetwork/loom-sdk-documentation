@@ -1,10 +1,9 @@
 ---
 id: basic-install-osx
-title: Prerequisites (OSX)
-sidebar_label: Installation (OSX)
+title: 필수요소 (OSX)
+sidebar_label: 설치하기 (OSX)
 ---
-OSX에서 Loom을 설치 및 세팅하기
-
+OSX에서 Loom 설치 및 설정하기
 
 ## 설치하기
 

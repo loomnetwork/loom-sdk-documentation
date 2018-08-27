@@ -3,11 +3,9 @@ id: truffle-deploy
 title: Truffle DAppChain Example
 sidebar_label: Truffle Deploy
 ---
-
 ![http://truffleframework.com](/developers/img/truffle.jpg)
 
 Simple example of Truffle interacting with Loom DAppChain, this example uses [loom-truffle-provider](https://github.com/loomnetwork/loom-truffle-provider) (check LoomTruffleProvider repository for more details)
-
 
 ## Requirements
 
@@ -33,10 +31,6 @@ npm install
 ```
 
 ### Unbox method
-```bash
-# Install Truffle if not installed
-npm install -g truffle
-
 mkdir truffle-dappchain-example
 cd truffle-dappchain-example
 

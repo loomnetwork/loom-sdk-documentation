@@ -1,10 +1,9 @@
 ---
 id: basic-install-linux
-title: Installation (Linux)
-sidebar_label: Installation (Linux)
+title: 설치하기 (Linux)
+sidebar_label: 설치하기 (Linux)
 ---
-Linux에서 Loom을 설치 및 세팅하기
-
+Linux에서 Loom 설치 및 설정하기
 
 ## 설치하기
 

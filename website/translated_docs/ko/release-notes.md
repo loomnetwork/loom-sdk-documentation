@@ -3,14 +3,31 @@ id: release-notes
 title: Release Notes
 sidebar_label: Release Notes
 ---
-
 ## Overview
 
 Reverse chronology order of release notes
 
+## Release 404 - Aug 24th
+
+** Features
+
+* ERC20 support upgraded in TransferGateway
+* Example ERC20 in Gateway - [Example](https://github.com/loomnetwork/cards-gateway-example)
+* Loom SDK Doc site in [Korean](https://loomx.io/developers/ko/)
+* EVM now has limited support for Payable functions, more coming next week 
+* Loom-JS updates for ERC20/ETH transfers with TransferGateway. 
+* Loom-JS integration to DPoS contracts 
+* Experimental Support for [Plasma Debits](https://github.com/loomnetwork/plasma-cash/pull/115)
+
+** Breaking changes
+
+* Deprecrating QueryServerHost, and consolidating all functions to the RPCServer.
+* New Config option: RPCBindAddress: "tcp://0.0.0.0:46658"
+* Upgrades of PBFT engine, this may cause incompatibility issues on upgrades, please try in staging environments 
+
 ## Release 375 - Aug 10th
 
-*NOTE* This is a feature test release, with minor compatibility changes, please verify in staging environements before upgrading your production environment.   
+*NOTE* This is a feature test release, with minor compatibility changes, please verify in staging environements before upgrading your production environment.
 
 * Fixes for Eventing on EVM Contracts
 * Beta release of the [Transfer Gateway](transfer-gateway.html)
@@ -84,7 +101,6 @@ Major release
 * Static calls to EVM now allow caller
 * EVM Fixes for a lot of scenarios 
 
-
 ## Release 143 - June 1st
 
 * [BluePrint Docker Images Available](docker-blueprint.html)
@@ -92,13 +108,11 @@ Major release
 * [Docker Images for some of Loom SDK Projects](https://hub.docker.com/r/loomnetwork/)
 * Evm TX Reciepts fixes 
 
-
 ## Release 137 - May 30th
 
 * Go Clients can Access EVM Contracts
 * Numerous bug fixes for EVM
 * [Social Network Example App - Solidity](simple-social-network-example.html)
-
 
 ## Release 136 - May 28th
 

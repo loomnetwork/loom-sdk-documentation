@@ -1,15 +1,13 @@
 ---
 id: go-loom-clients
-title: Building DAppChain clients in Golang
-sidebar_label: Building DAppChain Clients
+title: Golang으로 DAppChain 클라이언트를 구축하기
+sidebar_label: DAppChain 클라이언트 구축하기
 ---
-
 ## 개요
 
-`go-loom` 라이브러리는 Loom DAppChain과 상호작용할 수 있는 Go 앱과 서비스를 만드는데 필요한 모든것들을 제공하며, 이런 DAppChain 위에서 
-동작하는 스마트 컨트랙트를 만들 수도 있습니다.
+`go-loom` 라이브러리는 Loom DAppChain과 상호작용할 수 있는 Go 앱과 서비스를 만드는데 필요한 모든것들을 제공하며, 이런 DAppChain 위에서 동작하는 스마트 컨트랙트를 만들 수도 있습니다.
 
-`go-loom` 을 설치하는 것을 시작해보기:
+`go-loom`을 설치하는 것을 시작해보기:
 
 ```shell
 go get github.com/loomnetwork/go-loom
@@ -26,7 +24,7 @@ make example-cli
 
 ## CLI app 예제
 
-[helloworld][] 스마트 컨트랙트는 키에 연관된 깂을 저장하는데 호출되는 public `SetMsg` 메소드를 제공합니다.
+[helloworld](https://github.com/loomnetwork/go-loom/blob/master/examples/plugins/helloworld/helloworld.go) 스마트 컨트랙트는 키에 연관된 깂을 저장하는데 호출되는 public `SetMsg` 메소드를 제공합니다.
 
 ```shell
 ./example-cli call set_msg -k 123 -v 456 --contract [contract_name] -p [priv_key]
@@ -51,7 +49,7 @@ CLI app 예제의 기능을 시험해보는것으로 마무리 짓습니다, 자
 
 ## DAppChain에 연결하기
 
-`client.Contract` 타입은 Loom DAppChain 에서 구동되는 스마트 컨트랙트와 상호작용하는 편리한 방법을 제공합니다. Loom SDK의 [helloworld][] 스마트 컨트랙트 예제와 상호작용하는 `client.Contract` 인스턴스를 만드는 함수를 작성해봅시다...
+`client.Contract` 타입은 Loom DAppChain 에서 구동되는 스마트 컨트랙트와 상호작용하는 편리한 방법을 제공합니다. Loom SDK의 [helloworld](https://github.com/loomnetwork/go-loom/blob/master/examples/plugins/helloworld/helloworld.go) 스마트 컨트랙트 예제와 상호작용하는 `client.Contract` 인스턴스를 만드는 함수를 작성해봅시다...
 
 ```go
 package main
@@ -82,7 +80,7 @@ func getContract(contractName string) (*client.Contract, error) {
 
 스마트 컨트랙트의 상태를 변경시키기 위해서 여러분은 public 메소드중 하나를 호출해야 합니다. 그러기 위해서는 서명된 트랜젝션이 DAppChain 으로 보내져야 하고 검증되어야 합니다. 다행히도 `client.Contract` 타입은 여러분이 `Contract.Call()` 메소드를 사용할때 이런것들을 대부분 처리해 줍니다.
 
-[helloworld][] 스마트 컨트랙트는 키에 연관된 값을 저장하기 위해서 호출되는 public `SetMsg` 메소드를 제공한다. 이 메소드를 호출하는 함수를 작성해보자...
+[helloworld](https://github.com/loomnetwork/go-loom/blob/master/examples/plugins/helloworld/helloworld.go) 스마트 컨트랙트는 키에 연관된 값을 저장하기 위해서 호출되는 public `SetMsg` 메소드를 제공한다. 이 메소드를 호출하는 함수를 작성해보자...
 
 ```go
 func store(contract *client.Contract, key, value string, signer auth.Signer) error {
@@ -102,7 +100,7 @@ func store(contract *client.Contract, key, value string, signer auth.Signer) err
 
 스마트 컨트랙트의 상태를 읽어오기 위해서 여러분은 public read-only 메소드중 하나를 호출해주어야 합니다, `Contract.StaticCall()` 메소드를 사용해서 이런 것을 할 수 있습니다.
 
-[helloworld][] 스마트 컨트랙트는 키에 연관된 값을 조회하는데 호출되는 public `GetMsg` 메소드를 제공합니다. 이 함수를 호출하는 함수를 작성해봅시다...
+[helloworld](https://github.com/loomnetwork/go-loom/blob/master/examples/plugins/helloworld/helloworld.go) 스마트 컨트랙트는 키에 연관된 값을 조회하는데 호출되는 public `GetMsg` 메소드를 제공합니다. 이 함수를 호출하는 함수를 작성해봅시다...
 
 ```go
 func load(contract *client.Contract, key string) (string, error) {

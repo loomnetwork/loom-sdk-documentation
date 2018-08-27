@@ -18,22 +18,11 @@ This documentation explains how to run the Etherboy DAppChain in a single server
     wget https://private.delegatecall.com/loom/linux/build-404/loom
     wget https://private.delegatecall.com/etherboy/linux/build-53/etherboycli
     chmod +x loom etherboycli
-
-    mkdir contracts
-    wget -O contracts/etherboycore.so https://private.delegatecall.com/etherboy/linux/build-53/etherboycore.0.0.1
-    ```
-1. Execute `loom init` in the working directory to initialize config files.
-1. Update `genesis.json` in the working directory:
-    ```json
-    {
-        "contracts": [
-            {
                 "vm": "plugin",
                 "name": "etherboycore",
                 "format": "plugin",
                 "location": "etherboycore:0.0.1",
                 "init": {
-
                 }
             }
         ]

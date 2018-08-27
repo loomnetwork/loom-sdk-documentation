@@ -3,7 +3,6 @@ id: multi-node-deployment
 title: Example Deployment
 sidebar_label: Multi Node Deployment
 ---
-
 # Multi Node Deployment
 
 This documentation describes how to run loom in a multi node setup.
@@ -12,20 +11,19 @@ This documentation describes how to run loom in a multi node setup.
 
 These steps need to be executed on each node.
 
-1. Choose a working directory of your choice. In this example we are using `/home/ubuntu`
-    ```bash
-    cd /home/ubuntu
-    ```
-1. Download the binaries:
-    ```bash
-    wget https://private.delegatecall.com/loom/linux/build-208/loom
-    chmod +x loom
-    ```
-1. Execute `./loom init` in the working directory to initialize config files.
-1. Add `loom.yml` in the working directory:
-    ```yaml
-    QueryServerHost: "tcp://0.0.0.0:9999"
-    ```
+1. Choose a working directory of your choice. In this example we are using `/home/ubuntu` 
+        bash
+        cd /home/ubuntu
+
+2. Download the binaries: 
+        bash
+        wget https://private.delegatecall.com/loom/linux/build-208/loom
+        chmod +x loom
+
+3. Execute `./loom init` in the working directory to initialize config files.
+4. Add `loom.yml` in the working directory: 
+        yaml
+        QueryServerHost: "tcp://0.0.0.0:9999"
 
 ## Configuration
 
@@ -170,12 +168,12 @@ Do remember to clearly make note which node key is for which node. Also importan
 
 Now, let's use an example with 4 nodes:
 
-| Node | IP         | Node key           |
-| ---- | ---------- | -------------------|
-| 1    | 10.2.3.4   | 47cd3e4cc27ac621ff8bc59b776fa228adab827e |
-| 2    | 10.6.7.8   | e728bada822af677b95cb8ff126ca72cc4e3dc74 |
-| 3    | 10.3.2.1   | 4953e5726664985cc1cc92ae2edcfc6e089ba50d |
-| 4    | 10.7.6.5   | 02c90b57d241c3c014755ecb07e0c0d232e07fff |
+| Node | IP       | Node key                                 |
+| ---- | -------- | ---------------------------------------- |
+| 1    | 10.2.3.4 | 47cd3e4cc27ac621ff8bc59b776fa228adab827e |
+| 2    | 10.6.7.8 | e728bada822af677b95cb8ff126ca72cc4e3dc74 |
+| 3    | 10.3.2.1 | 4953e5726664985cc1cc92ae2edcfc6e089ba50d |
+| 4    | 10.7.6.5 | 02c90b57d241c3c014755ecb07e0c0d232e07fff |
 
 To run loom, we need to tell each node about its peers. The general format is:
 

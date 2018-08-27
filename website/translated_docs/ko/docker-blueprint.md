@@ -3,7 +3,6 @@ id: docker-blueprint-phaser
 title: Phaser Docker Example
 sidebar_label: Phaser Docker Exaample
 ---
-
 We have public Docker containers to run DappChain and demos directly. All you need is Docker installed.
 
 The Docker images are built each time the code is updated, so it is always current.
