@@ -1,15 +1,15 @@
 ---
 id: goloomevents
-title: Emitting events from go-loom contracts
-sidebar_label: Emitting events
+title: go-loom 컨트랙트에서 이벤트 내보내기
+sidebar_label: 이벤트 내보내기
 ---
-## Emitting events from go-plugins
+## go-plugin 으로 이벤트 내보내기
 
-The loom sdk gives gives a facility for the contracts to emit events that can be used for multiple purposes such as indexng. Currently the loom sdk supports emitting events into a Redis sorted set.
+Loom sdk는 indexing 같은 여러목적으로 사용될 수 있는 이벤트를 내보내기 위한 기능을 컨트랙트에 제공합니다. 현재 Loom sdk는 Redis sorted set에 이벤트 내보내기를 지원합니다.
 
-### Configuring the loom sdk
+### Loom sdk 설정하기
 
-By default the loom-sdk will only emit events to the log. To configure it to send it to a redis sorted set, add the following line to the loom.yaml config file.
+기본적으로 loom-sdk 은 이벤트를 로그로 내보냅니다. Redis sorted set에 내보내는 것으로 설정하려면, loom.yaml 파일에 아래 라인을 추가하세요.
 
     EventDispatcherURI: "redis://localhost:6379"
     
