@@ -14,20 +14,18 @@ chmod +x loom
 ./loom init
 ```
 
-## 블록체인을 실행하기
-```
-./loom run
-```
+## 블록체인 실행하기
 
+    ./loom run
+    
 
-## Solidity + Truffle로 시작하기
+## Solidity + Truffle 시작하기
 
 [Truffle과 Solidity](truffle-deploy.html)에 관한 튜토리얼을 보세요
 
+## Golang 컨트랙트 시작하기
 
-## Golang 컨트랙트에 관해서 시작하기
-
-[Golang 컨트랙트](prereqs.html) 편을 보세요
+[Golang 컨트랙트](prereqs.html)를 보세요
 
 ## Production cluster 설정하기
 
