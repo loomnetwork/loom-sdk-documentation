@@ -8,7 +8,7 @@ sidebar_label: Cocos SDK Quickstart
 - English
  * [Prerequisites](#prerequisites)
  * [Loom Cocos SDK](#loom-cocos-sdk)
- * [Generate LoomJS SDK](#generate-loomjs-sdk)
+ * [Generate Cocos SDK](#generate-cocos-sdk)
  * [Install Loom](#install-loom)
  * [Install Cocos Creator](#install-cocos-creator)
  * [Integrate to Creator Game](#integrate-to-creator-game)
@@ -38,7 +38,7 @@ Loom Cocos SDK structure diagram
 
 `Loom Cocos SDK` is based on [Loom-JS](https://github.com/loomnetwork/loom-js/) , and porting it to `Cocos Creator` .
 
-### Generate LoomJS SDK
+### Generate Cocos SDK
 * `git clone https://github.com/loomnetwork/cocos-sdk.git`
 * `cd cocos-sdk`
 * `git submodule update --init`, update git submodule
