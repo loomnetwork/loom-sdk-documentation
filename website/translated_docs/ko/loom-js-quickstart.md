@@ -60,14 +60,14 @@ async function getContract(privateKey, publicKey) {
 
 ## DAppChain에 데이터 쓰기
 
-스마트 컨트랙트의 상태를 변경시키기 위해서는 여러분은 public 메소드 호출이 필요합니다, 그렇게 하기 위해서는 서명된 트랜잭션이 반드시 DAppChain에 보내져서 검증이 되어야 합니다. 다행히도 `Contract` 클래스는 여러분이 `Contract.callAsync()` 메소드를 사용할때 이런 것들을 대부분 처리해줍니다.
+스마트 컨트랙트의 스테이트를 변경시키기 위해서는 여러분은 public 메소드 호출이 필요합니다, 그렇게 하기 위해서는 서명된 트랜잭션이 반드시 DAppChain에 보내져서 검증이 되어야 합니다. 다행히도 `Contract` 클래스는 여러분이 `Contract.callAsync()` 메소드를 사용할때 이런 것들을 대부분 처리해줍니다.
 
-The [BluePrint](https://github.com/loomnetwork/weave-blueprint/blob/master/src/blueprint.go) smart contract has a public `SetMsg` method that can be called to store an association between a key and a value. Let's write a function that calls this method...
+[BluePrint](https://github.com/loomnetwork/weave-blueprint/blob/master/src/blueprint.go) 스마트 컨트랙트는 키에 연관된 값을 저장하는데 사용될 수 있는 public `SetMsg` 메소드를 제공합니다. 이 함수를 호출하는 함수를 작성해 봅시다...
 
 ```js
 /**
- * Stores an association between a key and a value in a smart contract.
- * @param contract Contract instance returned from `getContract()`.
+ * 스마트 컨트랙트내의 키에 값을 저장합니다.
+ * @param contract `getContract()` 에서 반환되는 컨트랙트 인스턴스.
  */
 async function store(contract, key, value) {
   const params = new MapEntry()
@@ -78,27 +78,26 @@ async function store(contract, key, value) {
 
 ```
 
-## Reading data from a DAppChain
+## DAppChain에서 데이터 읽기
 
-To read the state of a smart contract you need to call one of its public read-only methods, you can do so by using the `Contract.staticCallAsync()` method.
+스마트 컨트랙트의 스테이트를 읽기 위해서는 여러분은 하나의 public read-only 메소드를 호출해야만 합니다, `Contract.staticCallAsync()` 메소드를 사용하는 것도 가능할 것입니다.
 
-The [BluePrint](https://github.com/loomnetwork/weave-blueprint/blob/master/src/blueprint.go) smart contract has a public `GetMsg` method that can be called to look up an association between a key and a value. Let's write a function that calls this method...
+[BluePrint](https://github.com/loomnetwork/weave-blueprint/blob/master/src/blueprint.go) 스마트 컨트랙트는 키에 연관된 값을 조회할 때 호출될 수 있는 public `GetMsg` 메소드를 가지고 있습니다... 이 메소드를 호출하는 함수를 작성해 봅시다...
 
 ```js
-/**
- * Loads the value associated with a key in a smart contract.
- * @param contract Contract instance returned from `getContract()`.
+스마트 컨트랙트 내에서 키에 연관된 값을 가져옵니다.
+ * @param contract `getContract()` 에서 반환된 컨트랙트 인스턴스.
  */
 async function load(contract, key) {
   const params = new MapEntry()
-  // The smart contract will look up the value stored under this key.
+  // 스마트 컨트랙트는 이 키로 저장된 값을 조회할 것입니다.
   params.setKey(key)
   const result = await contract.staticCallAsync('GetMsg', params, new MapEntry())
   return result.getValue()
 }
 ```
 
-## Putting it all together
+## 한꺼번에 해보기
 
 Now that we have all the pieces in place make sure that you have the DAppChain running and then run the following code, you should see `Value: hello!` printed to the console.
 
