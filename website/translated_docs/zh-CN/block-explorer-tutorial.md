@@ -13,7 +13,7 @@ sidebar_label: 区块浏览器教程
 
 你可以访问 [Loom 区块浏览器](https://blockexplorer.loomx.io), 如果你在本地计算机上运行了 Loom DApp 链，你将在那里看到区块数据。
 
-如果你在另一台机器上运行 Loom DApp 链，可以在列表的左下角输入你的 Loom DApp 链 RPC 服务器 URL，通常 URL 应该是`http://YOUR_DAPP_CHAIN_SERVER_IP:46657`.
+If you are running Loom DAppChain on another machine, you can input your Loom DAppChain RPC server URL into the bottom left corner of the list, Normally the URL should be `http://YOUR_DAPP_CHAIN_SERVER_IP:46657`.
 
 请确保你的服务器可以从外部访问。
 
@@ -38,9 +38,13 @@ sidebar_label: 区块浏览器教程
 
 ## 按区块高度搜索
 
-浏览器会显示当前 DApp 链中的所有区块，因此，如果你运行的是共享型区块链，比如说 Loom DApp 链，则很难查看你自己的区块数据，因为区块数量庞大。
+The explorer would show all blocks in current DAppChain, so if you are running a shared blockchain, like running Loom DAppChain, it'll be hard to check your own block data since there are too many of them.
 
-因此，你需要按 `block height`: 1 来搜索。 打开你的 loom 终端（运行 `loom run` 命令的地方） 2. 找到你刚刚创建的区块链日志，`index` 就是区块高度 3. 在区块列表的右上角, 有一个搜索输入框, 填入区块高度并搜索它。
+Therefore you need to search by the `block height`:
+
+1. Open your loom terminal (where you run the `loom run` command)
+2. Find the blockchain log you just created, the `index` is the block height
+3. In the top right corner of the block list, there is a search input, put the block height and search it.
 
 ## 构建你自己的浏览器
 
@@ -52,12 +56,16 @@ sidebar_label: 区块浏览器教程
 
 你需要了解 `Vue`, `TypeScript` 和 `Google Protobuf` 才能开始。 阅读 [DelagateCall Block Explorer](https://github.com/loomnetwork/vue-block-explorer/tree/dc-2) 的源代码，能让事情变得容易一些。
 
-开始吧： 1. 找到你的 DApp 的 `.proto` 文件。它定义了你的 DApp数据结构。 把它放入 `vue-block-explorer` 的 `src/pbs` 文件夹中。 然后运行 `yarn proto` （假定你之前已经运行了 `yarn install`）。 2. 你会收到2个新文件`YOUR_PROTO_FILE_NAME_pb.d.ts` 和 `YOUR_PROTO_FILE_NAME_pb.js`。 3. 在 `transaction-reader.ts` 中，引入你的 `.proto` 文件中的类。
+To get started:
+
+1. Find your own `.proto` file for your DApp.It defined your DApp data structure. Put it in the `src/pbs` folder of the `vue-block-explorer`. then run `yarn proto` (assume you already run `yarn install` before).
+2. You will get 2 new files `YOUR_PROTO_FILE_NAME_pb.d.ts` and `YOUR_PROTO_FILE_NAME_pb.js`
+3. In `transaction-reader.ts`, import the classes in your `.proto` file:
 
     import * as DC from '@/pbs/YOUR_PROTO_FILE_NAME_pb'
     
 
-1. 你现在可以使用自己的 protobuf 解码器来解码区块数据。 你可能希望为不同的数据编写不同的解码函数（以 *delegatecall* 为例）：
+1. You can use your own protobuf decoders to decode the block data now. You might want to write different decoding function for different data(take *delegatecall* for example):
     
         function readDCProtoData(cmc: ContractMethodCall): DelegateCallTx {
           const methodName = cmc.toObject().method
@@ -78,7 +86,7 @@ sidebar_label: 区块浏览器教程
         }
         
     
-    对于每一个解码函数，使用相应的 protobuf 函数进行解码：
+    For each of these decoding functions, use relative protobuf function to decode:
     
         function readVoteTxPayload(r: Uint8Array): IVoteTx {
           const DCVoteTX = DC.DelegatecallVoteTx.deserializeBinary(r).toObject()
