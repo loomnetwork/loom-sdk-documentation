@@ -29,12 +29,12 @@ public class LoomEvmQuickStartSample : MonoBehaviour
     {
         var writer = RPCClientFactory.Configure()
             .WithLogger(Debug.unityLogger)
-            .WithWebSocket("ws://127.0.0.1:46657/websocket")
+            .WithWebSocket("ws://127.0.0.1:46658/websocket")
             .Create();
 
         var reader = RPCClientFactory.Configure()
             .WithLogger(Debug.unityLogger)
-            .WithWebSocket("ws://127.0.0.1:9999/queryws")
+            .WithWebSocket("ws://127.0.0.1:46658/queryws")
             .Create();
 
         var client = new DAppChainClient(writer, reader)
@@ -157,4 +157,8 @@ async void Start()
 }
 ```
 
-Now that we have all the code in place let's test it out: 1. Create an empty `GameObject` in a Unity scene and attach the `LoomEvmQuickStartSample` script to it. 2. Deploy the [TilesChain](https://github.com/loomnetwork/unity-tiles-chain-evm/blob/master/dappchain/TilesChain.sol) smart contract on a local Loom DAppChain node. 3. Hit `Play` in the Unity Editor.
+Now that we have all the code in place let's test it out:
+
+1. Create an empty `GameObject` in a Unity scene and attach the `LoomEvmQuickStartSample` script to it.
+2. Deploy the [TilesChain](https://github.com/loomnetwork/unity-tiles-chain-evm/blob/master/dappchain/TilesChain.sol) smart contract on a local Loom DAppChain node.
+3. Hit `Play` in the Unity Editor.
