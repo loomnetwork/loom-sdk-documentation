@@ -105,7 +105,7 @@ func store(contract *client.Contract, key, value string, signer auth.Signer) err
 ```go
 func load(contract *client.Contract, key string) (string, error) {
   params := types.MapEntry{
-    Key: key, // 스마트 컨트랙트가 이 키로 저장된 값을 조회할 것입니다..
+    Key: key, // The smart contract will look up the value stored under this key.
   }
   var result types.MapEntry
   if _, err := contract.StaticCall("GetMsg", &params, contract.Address, &result); err != nil {
@@ -138,5 +138,3 @@ func main() {
   fmt.Printf("Value: %s\n", value)
 }
 ```
-
-[helloworld]: https://github.com/loomnetwork/go-loom/blob/master/examples/plugins/helloworld/helloworld.go
