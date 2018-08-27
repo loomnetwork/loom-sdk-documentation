@@ -5,17 +5,17 @@ sidebar_label: NodeJS & Browser 퀵스타트
 ---
 ## 개요
 
-The `loom-js` library contains everything you need to build web apps and NodeJS services that interact with smart contracts running on Loom DAppChains.
+`loom-js` 라이브러리는 여러분이 Loom DAppChain에서 구동되는 스마트 컨트랙트와 상호작용하는데 필요한 web 앱과 NodeJS 서비스를 개발하는데 필요한 모든 것을 제공합니다.
 
-To get started install `loom-js` from NPM:
+NPM을 통해서 `loom-js` 설치를 시작하기:
 
 ```shell
 yarn add loom-js
-# or if you prefer...
+# 혹은 여러분이 선호하는 것으로...
 npm install loom-js
 ```
 
-## Sample Code
+## 예제코드
 
 You can find all the code on this page the [Loom JS samples repo](https://github.com/loomnetwork/loom-js-samples) in the `quickstart` directory.
 
