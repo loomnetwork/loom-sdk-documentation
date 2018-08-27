@@ -99,7 +99,7 @@ Cocos Creator基于开源框架Cocos2d-x，实现了一体化、可扩展、可�
 
 ## Sample:
 
-这儿有两个 `Sample` 项目：
+There are two `Sample` projects:
 
 - `loomDemoForCreator` 使用 loom sdk
 - `dark-slash` 在真正的游戏中使用 loom sdk
