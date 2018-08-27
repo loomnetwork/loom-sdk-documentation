@@ -3,7 +3,7 @@ id: goloompermissions
 title: Working with permissions helpers in go-loom
 sidebar_label: Permission Helpers
 ---
-## Using permissions in contracts with go-loom
+## Go-loom으로 컨트랙트 내에서 퍼미션 사용하기
 
 Contracts written with go-loom can use helper functions for setting and checking permissions on arbitrary tokens.
 
