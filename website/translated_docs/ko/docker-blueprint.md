@@ -14,7 +14,7 @@ Note: The commands below exposes all available ports, but that may not be needed
 Considering that this is run on local machine, without any other web server running at port 80:
 
 ```bash
-docker run -d -p 46656:46656 -p 46657:46657 -p 46658:46658 -p 9999:9999 loomnetwork/weave-blueprint:latest
+docker run -d -p 46656:46656  -p 46658:46658  loomnetwork/weave-blueprint:latest
 
 docker run -d -p 80:3000 loomnetwork/phaser-sdk-demo:latest
 ```
