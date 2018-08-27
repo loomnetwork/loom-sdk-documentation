@@ -99,7 +99,7 @@ async function load(contract, key) {
 
 ## 한꺼번에 해보기
 
-Now that we have all the pieces in place make sure that you have the DAppChain running and then run the following code, you should see `Value: hello!` printed to the console.
+자 이제 모든 코드를 가지고 DAppChain이 구동되어 있는지 확인하고 다음 코드를 실행하세요, 그러면 여러분은 콘솔에서 `Value: hello!`이 출력되는 것을 볼 수 있을 것입니다.
 
 ```js
 (async function () {
