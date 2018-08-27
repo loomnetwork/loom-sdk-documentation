@@ -3,11 +3,9 @@ id: web3js-loom-provider-truffle
 title: Web3, LoomProvider and Truffle
 sidebar_label: Web3, LoomProvider and Truffle
 ---
-
 ## Overview
 
-The `loom-js` also comes with the `LoomProvider` which allows you to integrate with the [Web3.js](https://github.com/ethereum/web3.js),
-thus making easier the integration with [EVM](evm.html) contained on Loom DAppChain, also is possible to use [Truffle Framework](http://truffleframework.com/) to manage tests, deployments and solidity smart contracts.
+The `loom-js` also comes with the `LoomProvider` which allows you to integrate with the [Web3.js](https://github.com/ethereum/web3.js), thus making easier the integration with [EVM](evm.html) contained on Loom DAppChain, also is possible to use [Truffle Framework](http://truffleframework.com/) to manage tests, deployments and solidity smart contracts.
 
 ### Web3
 
@@ -55,39 +53,37 @@ truffle init
 
 The new directory structure will looks like:
 
-```
-.
-├── contracts
-│   └── Migrations.sol
-├── migrations
-│   └── 1_initial_migration.js
-├── test
-├── truffle-config.js
-└── truffle.js
-```
+    .
+    ├── contracts
+    │   └── Migrations.sol
+    ├── migrations
+    │   └── 1_initial_migration.js
+    ├── test
+    ├── truffle-config.js
+    └── truffle.js
+    
 
 ### Adding contract and migration
 
 On the `contracts` directory we should create our contract in [Solidity](http://solidity.readthedocs.io/en/v0.4.22/), we're going to use the famous `SimpleStore.sol` which has a `set` function for a parameter `value` also for an state change, a `get` function for the read only and no state change call and an event called `NewValueSet` which will have the parameter `value`, as the following example:
 
-```
-pragma solidity ^0.4.22;
-
-contract SimpleStore {
-  uint value;
-
-  event NewValueSet(uint _value);
-
-  function set(uint _value) public {
-    value = _value;
-    emit NewValueSet(value);
-  }
-
-  function get() public view returns (uint) {
-    return value;
-  }
-}
-```
+    pragma solidity ^0.4.22;
+    
+    contract SimpleStore {
+      uint value;
+    
+      event NewValueSet(uint _value);
+    
+      function set(uint _value) public {
+        value = _value;
+        emit NewValueSet(value);
+      }
+    
+      function get() public view returns (uint) {
+        return value;
+      }
+    }
+    
 
 Next let's add an migration, `Truffle` works with the concept of migrations, which makes useful for track changes and updates. The file should be created on migrations directory and it should be `JavaScript` file and the file name should start with the number `2` becoming `2_simple_store.js`, and the content should be the following:
 
