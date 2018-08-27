@@ -43,7 +43,7 @@ async function getContract(privateKey, publicKey) {
     'ws://127.0.0.1:46658/websocket',
     'ws://127.0.0.1:46658/queryws'
   )
-  // required middleware
+  // middleware가 요구됩니다.
   client.txMiddleware = [
     new NonceTxMiddleware(publicKey, client),
     new SignedTxMiddleware(privateKey)
