@@ -62,10 +62,6 @@ git clone https://github.com/loomnetwork/etherboy-core.git etherboy-core
 ```
 
 Build and deploy the contract
-<<<<<<< HEAD
-
-=======
->>>>>>> master
 ```bash
 cd etherboy-core
 make deps

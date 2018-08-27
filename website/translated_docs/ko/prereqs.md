@@ -87,8 +87,4 @@ cd blueprint/build
 ./blueprint call create-acct -p priv_key
 ./blueprint call set -v 1 -p priv_key
 ./blueprint call get
-<<<<<<< HEAD
 ```
-=======
-```
->>>>>>> master

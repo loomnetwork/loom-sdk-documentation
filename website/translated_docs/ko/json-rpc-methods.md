@@ -3,6 +3,7 @@ id: json-rpc-methods
 title: JSON RPC Methods
 sidebar_label: JSON RPC Methods
 ---
+
 ## Overview
 
 In order to be compatible with [Web3.js](https://github.com/ethereum/web3.js) LoomProvider added some methods that are quite compatible with [Ethereum JSON RPC Methods](https://github.com/ethereum/wiki/wiki/JSON-RPC#json-rpc-api), those methods are callable directly by the Loom `QueryService` or by `LoomProvider`, on this tutorial we're going to talk about `LoomProvider`
@@ -195,11 +196,7 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 ## eth_getBlockByHash
 
-<<<<<<< HEAD
-* * *
-=======
 ---
->>>>>>> master
 
 #### Description
 
@@ -207,13 +204,8 @@ Returns information about a block by hash.
 
 #### Parameters
 
-<<<<<<< HEAD
-1. `DATA` - `32 Bytes` - Hash of a block.
-2. `Boolean` - If `true` it returns the full transaction objects, if `false` only the hashes of the transactions.
-=======
 1.  `DATA` - `32 Bytes` - Hash of a block.
 2.  `Boolean` - If `true` it returns the full transaction objects, if `false` only the hashes of the transactions.
->>>>>>> master
 
 #### Returns
 
@@ -560,11 +552,11 @@ It works by subscribing to particular events. The node will return a subscriptio
 
 #### Parameters
 
-<<<<<<< HEAD
-1. `object` with the following (optional) fields
-=======
 1.  `object` with the following (optional) fields
+
+- `address`, either an address or an array of addresses. Only logs that are created from these addresses are returned (optional)
 - `topics`, only logs which match the specified topics (optional)
+
 #### Returns
 
 Subscription id
@@ -588,11 +580,7 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 ## eth_uninstallFilter
 
-<<<<<<< HEAD
-* * *
-=======
 ---
->>>>>>> master
 
 #### Description
 
@@ -600,11 +588,7 @@ Uninstalls a filter with given id. Should always be called when watch is no long
 
 #### Parameters
 
-<<<<<<< HEAD
-1. `QUANTITY` - The filter id
-=======
 1.  `QUANTITY` - The filter id
->>>>>>> master
 
 #### Returns
 
@@ -629,11 +613,7 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 ## net_version
 
-<<<<<<< HEAD
-* * *
-=======
 ---
->>>>>>> master
 
 #### Description
 
@@ -664,8 +644,4 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 //   "jsonrpc": "2.0",
 //   "result": "474747"
 // }
-<<<<<<< HEAD
 ```
-=======
-```
->>>>>>> master

@@ -23,10 +23,6 @@ This documentation explains how to run the Etherboy DAppChain in a single server
                 "format": "plugin",
                 "location": "etherboycore:0.0.1",
                 "init": {
-<<<<<<< HEAD
-=======
-
->>>>>>> master
                 }
             }
         ]
