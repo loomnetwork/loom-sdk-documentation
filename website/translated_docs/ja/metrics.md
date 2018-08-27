@@ -18,7 +18,7 @@ Loomは4つの異なるタイプのメトリクスをキャプチャ及び公開
 
 以下のGoコードは、`go-kit`を用いたLoomのメトリクス作成方法の例を示している。 `Namespace`は*loomchain*の前に書かれている。 `Subsystem`は*query_serviceもしくは*backend_service*のどちらも可能だ。
 
-例えば、requestCounteのメトリックキーは`loomchain_query_service_request_count`、及び requestLatencyのメトリックキーは`loomchain_query_service_request_latency_microseconds`というふうに参照される。 全てのキーは唯一のものであり同じものはない。
+For example, the requestCounter metric key is referred as `loomchain_query_service_request_count` and the requestLatency metric key is `loomchain_query_service_request_latency_microseconds`. 全てのキーは唯一のものであり同じものはない。
 
 ```Go
 fieldKeys := []string{"method", "error"}
@@ -40,22 +40,22 @@ requestLatency := kitprometheus.NewSummaryFrom(stdprometheus.SummaryOpts{
 
 以下は異なるフィールドで公開されているメトリクスの例である。
 
-    loomchain_query_service_request_count{error="false",method="Nonce"}
-    loomchain_query_service_request_count{error="true",method="Nonce"}
+    loomchain_query_service_request_count{error="false",method="Nonce"} 
+    loomchain_query_service_request_count{error="true",method="Nonce"} 
     loomchain_query_service_request_count{error="false",method="Query"}
     loomchain_query_service_request_count{error="true",method="Query"}
     
 
 ## メトリックのエンドポイント
 
-`loom run`コマンドを使用してスマートコントラクトを実行する際、デフォルトのメトリクスのエンドポイントは`127.0.0.1:9999/metrics`である。 このエンドポイントは、設定ファイル中の設定キー`QueryServerHost`を使って設定可能だ。
+When running a smart contract using `loom run` command, the default metrics endpoint is `127.0.0.1:46658/metrics`. The endpoint is configurable using the configuration key `RPCBindAddress` in the configuration file.
 
-httpクライアントやwebブラウザを使用して、エンドポイントからメトリクスをポーリングすることが可能だ。`127.0.0.1:9999`で動いているサーバーは、リクエストのカウントとレイテンシーのメトリクスを以下のように示す。
+You can poll the the metrics from the endpoint using http clients or web browsers. The server running on `127.0.0.1:46658` will show the request count and latency metrics as followed.
 
 ```sh
-curl 127.0.0.1:9999/metrics
+curl 127.0.0.1:46658/metrics
 
-# HELP loomchain_query_service_request_count 受け取ったリクエスト数。
+# HELP loomchain_query_service_request_count Number of requests received.
 # TYPE loomchain_query_service_request_count counter
 loomchain_query_service_request_count{error="false",method="Nonce"} 2
 loomchain_query_service_request_count{error="true",method="Query"} 2
@@ -86,12 +86,13 @@ Prometheusサーバーを設定するために、以下を設定ファイルに�
 
 ```yaml
 scrape_configs:
+
   - job_name: "loomchain"
     metrics_path: "/metrics"
     scrape_interval: "2s"
     static_configs:
     - targets:
-      - 127.0.0.1:9999 # クエリサーバーホストへのIPアドレス
+      - 127.0.0.1:46658 # The IP address to the query server host
 ```
 
 ## 全メトリクスのリスト
