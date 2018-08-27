@@ -137,7 +137,7 @@ Usage:
  Example:
  ```text
  ./loom deploy -a ./data/pub -k ./data/pri -b ./data/bytecode.bin  -w \
-  http://localhost:46657 -r http://localhost:9999
+  http://localhost:46658/rpc -r http://localhost:46658/query
  ```   
  If everything works you should see something like:
  ```text
@@ -186,7 +186,7 @@ Flags:
  ```text
 call -a ./data/pub -k ./data/pri -i ./cmd/loom/data/inputSet.bin \
   -c 0xbD770416A3345f91E4b34576Cb804a576Fa48eB1  \
-  -w http://localhost:46657 -r http://localhost:9999                         
+  -w http://localhost:46658/rpc -r http://localhost:46658/query                         
         
 ```
 On completion this will return the [transaction hash](https://loomx.io/developers/docs/en/evm.html#transaction-receipt), this should be unique
@@ -227,7 +227,7 @@ The -a and -k flags are used to identify the user with public and private
  ```text
 static-call -a ./data/pub -k ./data/pri -i ./cmd/loom/data/inputGet.bin \
   -c 0xbD770416A3345f91E4b34576Cb804a576Fa48eB1  \
-  -w http://localhost:46657 -r http://localhost:9999
+  -w http://localhost:46658/rpc -r http://localhost:46658/query
 
 ```
 
@@ -629,8 +629,8 @@ import (
 func getEvmContract(contractName string) (*client.EvmContract, error) {
   rpcClient := client.NewDAppChainRPCClient(
     "default",
-    "ws://127.0.0.1:46657/websocket",
-    "ws://127.0.0.1:9999/queryws",
+    "ws://127.0.0.1:46658/websocket",
+    "ws://127.0.0.1:46658/queryws",
   )
   contractAddr, err := rpcClient.Resolve(contractName)
   if err != nil {
@@ -806,8 +806,8 @@ const { MapEntry } = require('./helloworld_pb')
 async function getContract(privateKey, publicKey) {
   const client = new Client(
     'default',
-    'ws://127.0.0.1:46657/websocket',
-    'ws://127.0.0.1:9999/queryws'
+    'ws://127.0.0.1:46658/websocket',
+    'ws://127.0.0.1:46658/queryws'
   )
   // required middleware
   client.txMiddleware = [

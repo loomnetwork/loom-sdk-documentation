@@ -32,12 +32,12 @@ public class LoomEvmQuickStartSample : MonoBehaviour
     {
         var writer = RPCClientFactory.Configure()
             .WithLogger(Debug.unityLogger)
-            .WithWebSocket("ws://127.0.0.1:46657/websocket")
+            .WithWebSocket("ws://127.0.0.1:46658/websocket")
             .Create();
 
         var reader = RPCClientFactory.Configure()
             .WithLogger(Debug.unityLogger)
-            .WithWebSocket("ws://127.0.0.1:9999/queryws")
+            .WithWebSocket("ws://127.0.0.1:46658/queryws")
             .Create();
 
         var client = new DAppChainClient(writer, reader)
