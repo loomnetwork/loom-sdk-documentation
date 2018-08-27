@@ -14,11 +14,11 @@ Loom sdk는 indexing 같은 여러목적으로 사용될 수 있는 이벤트를
     EventDispatcherURI: "redis://localhost:6379"
     
 
-This will start emitting events to the redis server in a sorted set called `loomevents`. Each event is added to the sorted set with the score being the blockchain height.
+이것은 redis server의 `loomevents`이라 불리는 sorted set에 이벤트 내보내기를 시작합니다. 각 이벤트는 블록체인 height 가 되는 스코어와 함께 sorted set에 추가됩니다. 
 
-### Emitting events
+### 이벤트 내보내기
 
-The code snippet below shows sample code for emitting events from the contract.
+아래 코드조각은 컨트랙트로부터 이벤트 내보내기를 보여주는 예제 코드입니다.
 
 ```go
     emitMsg := struct {
@@ -33,6 +33,6 @@ The code snippet below shows sample code for emitting events from the contract.
     ctx.Emit(emitMsgJSON)
 ```
 
-### Subscribing to events
+### 이벤트 구독하기
 
-See [this page](loomevents.html) for more information on subscribing to events
+이벤트 구독하기에 관한 더 자세한 사항은 [이 페이지](loomevents.html)를 보세요
