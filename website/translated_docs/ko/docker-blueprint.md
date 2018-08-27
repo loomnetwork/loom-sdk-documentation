@@ -9,8 +9,6 @@ The Docker images are built each time the code is updated, so it is always curre
 
 Note: The commands below exposes all available ports, but that may not be needed all the time.
 
-
-
 ## [Phaser SDK Demo](https://github.com/loomnetwork/phaser-sdk-demo)
 
 Considering that this is run on local machine, without any other web server running at port 80:
@@ -31,8 +29,8 @@ The docker run parameter `-p` can be manipulated further according to needs.
 
 If you want to pull the individual images
 
-[Loom Base](https://hub.docker.com/r/loomnetwork/loom/) 
+[Loom Base](https://hub.docker.com/r/loomnetwork/loom/)
 
-[Blueprint Contract](https://hub.docker.com/r/loomnetwork/weave-blueprint/) 
+[Blueprint Contract](https://hub.docker.com/r/loomnetwork/weave-blueprint/)
 
 [Phaser SDK UI Example](https://hub.docker.com/r/loomnetwork/phaser-sdk-demo)
