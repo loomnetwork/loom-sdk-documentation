@@ -21,24 +21,23 @@ npm install loom-js
 
 Let's say that we have a Solidity contract, which is already compiled and deployed on Loom DAppChain
 
-```
-pragma solidity ^0.4.22;
-
-contract SimpleStore {
-  uint value;
-
-  event NewValueSet(uint);
-
-  function set(uint _value) public {
-    value = _value;
-    emit NewValueSet(value);
-  }
-
-  function get() public view returns (uint) {
-    return value;
-  }
-}
-```
+    pragma solidity ^0.4.22;
+    
+    contract SimpleStore {
+      uint value;
+    
+      event NewValueSet(uint);
+    
+      function set(uint _value) public {
+        value = _value;
+        emit NewValueSet(value);
+      }
+    
+      function get() public view returns (uint) {
+        return value;
+      }
+    }
+    
 
 With the binary compiled with the Solidity compiler the next step is to create a `genesis.json` for the Loom DappChain. (Don't forget to set the `location` to the compiled binary)
 
@@ -180,8 +179,7 @@ It is possible to add event listeners to the contract, although it don't support
 
 ## Putting it all together
 
-Now that we have all the pieces in place make sure that you have the DAppChain running and then
-run the following code, you should see `Value: hello!` printed to the console.
+Now that we have all the pieces in place make sure that you have the DAppChain running and then run the following code, you should see `Value: hello!` printed to the console.
 
 ```js
 import {
