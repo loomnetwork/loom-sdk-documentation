@@ -1,18 +1,22 @@
 ---
-id: arch
+id: arch 
 title: Architecture of a DAppChain
 ---
-Loom SDK is a pluggable Blockchain Development Kit. Pluggable both at the consensus and contract layer
 
-## Consensus
+Loom SDK is a pluggable Blockchain Development Kit.  Pluggable both at the consensus and contract layer
+
+## Consensus 
+
 
 Loom SDK has 2 layers of consensus. One at the P2P layer.
 
-Loom Backend supports different BPFT engines, like Tendermint. In future we will support Raft for PoA chains.
+Loom Backend supports different BPFT engines, like Tendermint. In future we will support Raft for PoA chains. 
 
 Loom Consensus layer support Loom DPoS or a configurable PoS/DPoS contract per Chain. Once Casper becomes available we will add support for this
 
 ![](/developers/img/loom-sdk-arch-overview.jpg)
+
+
 
 ## Smart contracts
 
@@ -22,7 +26,9 @@ Smart contracts can be embedded into the chain, like DPoS, Coin or EthereumVM.
 
 They can also be made as external processes, that the blockchain communicates to via GRPC.
 
+
 ![](/developers/img/loom-sdk-arch-contracts.jpg)
+
 
 ## Ethereum Integration
 
@@ -59,6 +65,6 @@ SDK includes a number of high level blockchain services
 * Support for game engines like Cocos, Unity, and Phaser
 * Transfer Gateway integration
 * Plasma integration
-* Cron (coming soon)
+* Cron  (coming soon)
 * Rate limiting (early phases)
 * Hard fork Manager (coming July)

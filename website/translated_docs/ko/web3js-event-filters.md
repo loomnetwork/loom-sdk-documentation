@@ -3,11 +3,13 @@ id: web3js-event-filters
 title: Web3 event filters
 sidebar_label: Web3 event filters
 ---
+
 ## Overview
 
-The [Web3.js](https://github.com/ethereum/web3.js) library allows developers to easily listen for events from the [EVM](evm.html) contained on Loom DAppChain. Also is possible to create filter for indexed values.
+The [Web3.js](https://github.com/ethereum/web3.js) library allows developers to easily listen for events from the [EVM](evm.html) 
+contained on Loom DAppChain. Also is possible to create filter for indexed values.
 
-## Filtering
+## Filtering 
 
 Let's create a filter to get latest block created on Loom DAppChain and continuously print the block hash on console
 
@@ -121,3 +123,11 @@ contract.events.NewValueSet({ filter: { _value: 10 } }, (err: Error, event: any)
   }
 })
 ```
+
+
+
+
+
+
+
+

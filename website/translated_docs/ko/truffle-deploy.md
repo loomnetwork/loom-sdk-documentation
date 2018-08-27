@@ -18,7 +18,6 @@ Node >= 8
 In order to download the Truffle DAppChain Example there're two methods Git or Unbox
 
 ### Git method
-
 ```bash
 git clone https://github.com/loomnetwork/truffle-dappchain-example
 ```
@@ -32,11 +31,6 @@ npm install
 ```
 
 ### Unbox method
-
-```bash
-# Install Truffle if not installed
-npm install -g truffle
-
 mkdir truffle-dappchain-example
 cd truffle-dappchain-example
 
@@ -68,19 +62,21 @@ yarn test
 ```
 
 > In order to correctly redeploy the contracts there's a command "yarn deploy:reset"
-> 
+
 > Also is possible to call truffle command directly by call "yarn truffle"
-> 
+
 > We're not versioning the build directory for this particular example, although is recommended to versioning, the limitation can be removed by editing .gitignore
 
 ## Current limitations
 
 * Events declared on smart contracts should have an named parameter like `NewValueSet(uint _value)` in the contract `SimpleStore.sol`. Also it helps to dealing with events
 
-## Loom Network
+Loom Network
+----
+[https://loomx.io](https://loomx.io)
 
-<https://loomx.io>
 
-## License
+License
+----
 
 BSD 3-Clause License

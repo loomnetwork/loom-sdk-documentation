@@ -12,7 +12,7 @@ Once you install that you can continue on below and run the Linux install steps.
 ## Installation
 
 ```bash
-wget https://private.delegatecall.com/loom/linux/build-330/loom
+wget https://private.delegatecall.com/loom/linux/build-404/loom
 chmod +x loom
 
 ./loom init

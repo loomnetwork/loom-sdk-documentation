@@ -112,3 +112,5 @@ async function load(contract, key) {
   console.log('Value: ' + value)
 })()
 ```
+
+[BluePrint]: https://github.com/loomnetwork/weave-blueprint/blob/master/src/blueprint.go

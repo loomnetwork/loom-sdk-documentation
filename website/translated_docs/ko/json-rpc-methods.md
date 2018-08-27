@@ -44,7 +44,7 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 ## eth_accounts
 
-* * *
+---
 
 #### Description
 
@@ -77,7 +77,7 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 ## eth_blockNumber
 
-* * *
+---
 
 #### Description
 
@@ -110,7 +110,7 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 ## eth_call
 
-* * *
+---
 
 #### Description
 
@@ -118,7 +118,7 @@ Executes a new message call immediately without creating a transaction on the bl
 
 #### Parameters
 
-1. Object - The transaction call object
+1.  Object - The transaction call object
 
 - from: DATA, 20 Bytes - The address the transaction is sent from.
 - to: DATA, 20 Bytes - The address the transaction is directed to.
@@ -147,7 +147,7 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 ## eth_getBlockByNumber
 
-* * *
+---
 
 #### Description
 
@@ -155,8 +155,8 @@ Returns information about a block by block number.
 
 #### Parameters
 
-1. `QUANTITY|TAG` - integer of a block number, or the string "earliest", "latest" or "pending", as in the default block parameter.
-2. `Boolean` - If true it returns the full transaction objects, if false only the hashes of the transactions.
+1.  `QUANTITY|TAG` - integer of a block number, or the string "earliest", "latest" or "pending", as in the default block parameter.
+2.  `Boolean` - If true it returns the full transaction objects, if false only the hashes of the transactions.
 
 #### Returns
 
@@ -195,7 +195,11 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 ## eth_getBlockByHash
 
+<<<<<<< HEAD
 * * *
+=======
+---
+>>>>>>> master
 
 #### Description
 
@@ -203,8 +207,13 @@ Returns information about a block by hash.
 
 #### Parameters
 
+<<<<<<< HEAD
 1. `DATA` - `32 Bytes` - Hash of a block.
 2. `Boolean` - If `true` it returns the full transaction objects, if `false` only the hashes of the transactions.
+=======
+1.  `DATA` - `32 Bytes` - Hash of a block.
+2.  `Boolean` - If `true` it returns the full transaction objects, if `false` only the hashes of the transactions.
+>>>>>>> master
 
 #### Returns
 
@@ -243,7 +252,7 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 ## eth_getCode
 
-* * *
+---
 
 #### Description
 
@@ -251,7 +260,7 @@ Returns code at a given address.
 
 #### Parameters
 
-1. `DATA`, `20 Bytes` - address
+1.  `DATA`, `20 Bytes` - address
 
 #### Returns
 
@@ -276,7 +285,7 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 ## eth_getFilterChanges
 
-* * *
+---
 
 #### Description
 
@@ -284,7 +293,7 @@ Polling method for a filter, which returns an array of logs which occurred since
 
 #### Parameters
 
-1. `QUANTITY` - the filter id.
+1.  `QUANTITY` - the filter id.
 
 #### Returns
 
@@ -293,16 +302,16 @@ Polling method for a filter, which returns an array of logs which occurred since
 - For filters created with `eth_newBlockFilter` the return are block hashes (`DATA`, 32 Bytes), e.g. `["0x3454645634534..."]`.
 - For filters created with `eth_newPendingTransactionFilter` the return are transaction hashes (`DATA`, 32 Bytes), e.g. `["0x6345343454645..."]`.
 - For filters created with `eth_newFilter` logs are objects with following params:
-    
-    - `removed`: `TAG` - `true` when the log was removed, due to a chain reorganization. `false` if its a valid log.
-    - `logIndex`: `QUANTITY` - integer of the log index position in the block. null when its pending log.
-    - `transactionIndex`: `QUANTITY` - integer of the transactions index position log was created from. null when its pending log.
-    - `transactionHash`: `DATA`, 32 Bytes - hash of the transactions this log was created from. null when its pending log.
-    - `blockHash`: `DATA`, 32 Bytes - hash of the block where this log was in. null when its pending. null when its pending log.
-    - `blockNumber`: `QUANTITY` - the block number where this log was in. null when its pending. null when its pending log.
-    - `address`: `DATA`, 20 Bytes - address from which this log originated.
-    - `data`: `DATA` - contains one or more 32 Bytes non-indexed arguments of the log.
-    - `topics`: `Array of DATA` - Array of 0 to 4 32 Bytes `DATA` of indexed log arguments. (In solidity: The first topic is the hash of the signature of the event (e.g. Deposit(address,bytes32,uint256)), except you declared the event with the anonymous specifier.)
+
+  - `removed`: `TAG` - `true` when the log was removed, due to a chain reorganization. `false` if its a valid log.
+  - `logIndex`: `QUANTITY` - integer of the log index position in the block. null when its pending log.
+  - `transactionIndex`: `QUANTITY` - integer of the transactions index position log was created from. null when its pending log.
+  - `transactionHash`: `DATA`, 32 Bytes - hash of the transactions this log was created from. null when its pending log.
+  - `blockHash`: `DATA`, 32 Bytes - hash of the block where this log was in. null when its pending. null when its pending log.
+  - `blockNumber`: `QUANTITY` - the block number where this log was in. null when its pending. null when its pending log.
+  - `address`: `DATA`, 20 Bytes - address from which this log originated.
+  - `data`: `DATA` - contains one or more 32 Bytes non-indexed arguments of the log.
+  - `topics`: `Array of DATA` - Array of 0 to 4 32 Bytes `DATA` of indexed log arguments. (In solidity: The first topic is the hash of the signature of the event (e.g. Deposit(address,bytes32,uint256)), except you declared the event with the anonymous specifier.)
 
 #### Example
 
@@ -334,7 +343,7 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 ## eth_getLogs
 
-* * *
+---
 
 #### Description
 
@@ -342,7 +351,7 @@ Returns an array of all logs matching a given filter object.
 
 #### Parameters
 
-1. `Object` - The filter options:
+1.  `Object` - The filter options:
 
 - `fromBlock`: `QUANTITY|TAG` - (optional, default: `"latest"`) Integer block number, or "latest" for the last mined block or "pending", "earliest" for not yet mined transactions.
 - `toBlock`: `QUANTITY|TAG` - (optional, default: "latest") Integer block number, or "latest" for the last mined block or "pending", "earliest" for not yet mined transactions.
@@ -368,7 +377,7 @@ Result see [eth_getFilterChanges](#eth-getfilterchanges)
 
 ## eth_getTransactionReceipt
 
-* * *
+---
 
 #### Description
 
@@ -378,7 +387,7 @@ Returns the receipt of a transaction by transaction hash.
 
 #### Parameters
 
-1. `DATA`, 32 Bytes - hash of a transaction
+1.  `DATA`, 32 Bytes - hash of a transaction
 
 #### Returns
 
@@ -423,7 +432,7 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 ## eth_newBlockFilter
 
-* * *
+---
 
 #### Description
 
@@ -456,7 +465,7 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 ## eth_newFilter
 
-* * *
+---
 
 #### Description
 
@@ -474,7 +483,7 @@ Topics are order-dependent. A transaction with a log with topics [A, B] will be 
 
 #### Parameters
 
-1. `Object` - The filter options:
+1.  `Object` - The filter options:
 
 - `fromBlock`: `QUANTITY|TAG` - (optional, default: "latest") Integer block number, or "latest" for the last mined block or "pending", "earliest" for not yet mined transactions.
 - `toBlock`: `QUANTITY|TAG` - (optional, default: "latest") Integer block number, or "latest" for the last mined block or "pending", "earliest" for not yet mined transactions.
@@ -504,7 +513,7 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 ## eth_sendTransaction
 
-* * *
+---
 
 #### Description
 
@@ -512,7 +521,7 @@ Creates new message call transaction or a contract creation, if the data field c
 
 #### Parameters
 
-1. `Object` - The transaction object
+1.  `Object` - The transaction object
 
 - `from`: `DATA`, 20 Bytes - The address the transaction is send from.
 - `to`: `DATA`, 20 Bytes - (optional when creating new contract) The address the transaction is directed to.
@@ -543,7 +552,7 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 ## eth_subscribe
 
-* * *
+---
 
 #### Description
 
@@ -551,11 +560,11 @@ It works by subscribing to particular events. The node will return a subscriptio
 
 #### Parameters
 
+<<<<<<< HEAD
 1. `object` with the following (optional) fields
-
-- `address`, either an address or an array of addresses. Only logs that are created from these addresses are returned (optional)
+=======
+1.  `object` with the following (optional) fields
 - `topics`, only logs which match the specified topics (optional)
-
 #### Returns
 
 Subscription id
@@ -579,7 +588,11 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 ## eth_uninstallFilter
 
+<<<<<<< HEAD
 * * *
+=======
+---
+>>>>>>> master
 
 #### Description
 
@@ -587,7 +600,11 @@ Uninstalls a filter with given id. Should always be called when watch is no long
 
 #### Parameters
 
+<<<<<<< HEAD
 1. `QUANTITY` - The filter id
+=======
+1.  `QUANTITY` - The filter id
+>>>>>>> master
 
 #### Returns
 
@@ -612,7 +629,11 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 ## net_version
 
+<<<<<<< HEAD
 * * *
+=======
+---
+>>>>>>> master
 
 #### Description
 
@@ -643,4 +664,8 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 //   "jsonrpc": "2.0",
 //   "result": "474747"
 // }
+<<<<<<< HEAD
 ```
+=======
+```
+>>>>>>> master

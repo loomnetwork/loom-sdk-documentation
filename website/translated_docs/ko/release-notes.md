@@ -46,7 +46,6 @@ Reverse chronology order of release notes
 * Added ChainID to loom.yaml
 
 * [EVM indexed filter](https://loomx.io/developers/docs/en/web3js-event-filters.html)
-
 * EVM filter pool fixes and event system
 * Loom-JS EVM updates for indexed filters
 * Loom-JS EVM fixes for getting block by hash
@@ -69,7 +68,10 @@ Reverse chronology order of release notes
 ## Release 209 - June 20th
 
 Major release
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
 * Plasma Cash initial integration - Demos coming next week
 * Multinode fixes and performance increases
 * Ansible updates for multinode
@@ -103,6 +105,10 @@ Major release
 * Static calls to EVM now allow caller
 * EVM Fixes for a lot of scenarios 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
 ## Release 143 - June 1st
 
 * [BluePrint Docker Images Available](docker-blueprint.html)
@@ -110,12 +116,20 @@ Major release
 * [Docker Images for some of Loom SDK Projects](https://hub.docker.com/r/loomnetwork/)
 * Evm TX Reciepts fixes 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
 ## Release 137 - May 30th
 
 * Go Clients can Access EVM Contracts
 * Numerous bug fixes for EVM
 * [Social Network Example App - Solidity](simple-social-network-example.html)
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
 ## Release 136 - May 28th
 
 * Initial Solidity Alpha test build, you can now deploy solidity contracts
@@ -129,12 +143,20 @@ Major release
 * [Japanese Docs released](https://loomx.io/developers/ja)
 * Updated Homepage for [docs site](https://loomx.io/developers/en/) 
 
+<<<<<<< HEAD
 ## Release 132 - May 23rd
+=======
+## Release 132 - May 23rd 
+>>>>>>> master
 
 * Websocket performance fixes
 * New Websocket Demo App - TilesChain - [Github](https://github.com/loomnetwork/tiles-chain) 
 
+<<<<<<< HEAD
 ## Release 129 - May 22rd
+=======
+## Release 129 - May 22rd 
+>>>>>>> master
 
 * Websocket support for eventing
 * Updates to indexing layer for solidty contracts
@@ -149,4 +171,9 @@ Major release
 * Stable Beta Release
 * Updating logging to default to multiple files 
 * Moving all RPC to a single interface
+<<<<<<< HEAD
 * Updated External Process interface
+=======
+* Updated External Process interface
+
+>>>>>>> master

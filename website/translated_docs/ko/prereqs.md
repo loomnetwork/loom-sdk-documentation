@@ -67,18 +67,19 @@ cd build
 cp ../genesis.example.json genesis.json
 ```
 
-## 블록체인 실행하기
+## 블록체인을 실행하기
+```
+../../loom run
+```
 
-    ../../loom run
-    
+## 트랜젝션을 전송하기
 
-## 트랜잭션 전송하기
-
-두번째 콘솔을 여세요   
-  
+두번째 콘솔을 여세요
+<br/>
+<br/>
 이것은 프라이빗 키를 생성할 것입니다. 계정도 생성합니다. 그리고 값을 저장하고 블록체인으로 부터 값을 읽어옵니다.
 
-여기 [블루프린트 컨트랙트](https://github.com/loomnetwork/weave-blueprint)의 소스를 볼 수 있습니다.
+여기 <a href="https://github.com/loomnetwork/weave-blueprint">블루프린트 컨트랙트</a>의 소스를 볼 수 있습니다.
 
 ```bash
 cd blueprint/build
@@ -86,4 +87,8 @@ cd blueprint/build
 ./blueprint call create-acct -p priv_key
 ./blueprint call set -v 1 -p priv_key
 ./blueprint call get
+<<<<<<< HEAD
 ```
+=======
+```
+>>>>>>> master
