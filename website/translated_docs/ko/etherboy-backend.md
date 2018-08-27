@@ -43,7 +43,7 @@ This documentation explains how to run the Etherboy DAppChain in a single server
 
 5. Add `loom.yml` in the working directory: 
         yaml
-        QueryServerHost: "tcp://0.0.0.0:9999"
+        RPCBindAddress: "tcp://0.0.0.0:46658"
 
 Note: `loom` and `etherboycli` can be placed anywhere in your `$PATH` so you don't have to always execute with `./`. However, `etherboycore.0.0.1` must always be placed in `$WORKING_DIRECTORY/contracts/etherboycore.0.0.1`.
 
@@ -120,7 +120,6 @@ Proto Recv-Q Send-Q Local Address           Foreign Address         State       
 tcp6       0      0 :::46656                :::*                    LISTEN      14327/loom
 tcp6       0      0 :::46657                :::*                    LISTEN      14327/loom
 tcp6       0      0 :::46658                :::*                    LISTEN      14327/loom
-tcp6       0      0 :::9999                 :::*                    LISTEN      14327/loom
 ```
 
 ### The CLI - etherboycli
