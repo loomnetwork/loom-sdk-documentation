@@ -18,20 +18,20 @@ go-loom은 저장되는 데이터가 protobuf 객체일 것을 요구합니다.
 
 ## 스테이트로부터 읽어오기
 
-Use the `Has` operation to check whether a particular key exists in the state
+스테이트에 특정 키가 존재하는지를 확인하려면 `Has` 오퍼레이션을 사용하세요
 
     Has(key []byte) bool
     
 
-To read the value saved at a key use the `Get` operation
+키에 저장된 값을 읽기위해서는 `Get` 오퍼레이션을 사용하세요
 
     Get(key []byte, pb proto.Message) error
     
 
-Get will unmarshal the saved data into a protobuf struct
+Get 오퍼레이션은 저장된 데이터를 protobuf 구조체로 unmarshal 합니다.
 
-## Deleting a key
+## 키 삭제하기
 
-Data saved at a key can be delete with
+키에 저장된 데이터는 아래와 같이 삭제할 수 있습니다
 
     Delete(key []byte)
