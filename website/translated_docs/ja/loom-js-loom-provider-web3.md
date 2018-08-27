@@ -101,22 +101,22 @@ import {
 
 import Web3 from 'web3'
 
-// この関数はクライアントの初期化とリターンを行う
+// This function will initialize and return the client
 function getClient(privateKey, publicKey) {
   const client = new Client(
     'default',
-    'ws://127.0.0.1:46657/websocket',
-    'ws://127.0.0.1:9999/queryws',
+    'ws://127.0.0.1:46658/websocket',
+    'ws://127.0.0.1:46658/queryws',
   )
 
   return client
 }
 
-// キーのセットアップ
+// Setting up keys
 const privateKey = CryptoUtils.generatePrivateKey()
 const publicKey = CryptoUtils.publicKeyFromPrivateKey(privateKey)
 
-// クライアントを準備
+// Client ready
 const client = getClient(privateKey, publicKey)
 ```
 
@@ -188,44 +188,44 @@ import {
 
 import Web3 from 'web3'
 
-// この関数はクライアントの初期化とリターンを行う
+// This function will initialize and return the client
 function getClient(privateKey, publicKey) {
   const client = new Client(
     'default',
-    'ws://127.0.0.1:46657/websocket',
-    'ws://127.0.0.1:9999/queryws',
+    'ws://127.0.0.1:46658/websocket',
+    'ws://127.0.0.1:46658/queryws',
   )
 
   return client
 }
 
-// キーのセットアップ
+// Setting up keys
 const privateKey = CryptoUtils.generatePrivateKey()
 const publicKey = CryptoUtils.publicKeyFromPrivateKey(privateKey)
 
-// クライアントの準備
+// Client ready
 const client = getClient(privateKey, publicKey)
 
-// web3の設定
+// Setting the web3
 const web3 = new Web3(new LoomProvider(client, privateKey))
 
 ;(async () => {
   // Set the contract ABI
   const ABI = [{"constant":false,"inputs":[{"name":"_value","type":"uint256"}],"name":"set","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"get","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"}]
 
-  // 公開鍵を元にアドレスを取得
+  // Getting our address based on public key
   const fromAddress = LocalAddress.fromPublicKey(publicKey).toString()
 
-  // コントラクトアドレスを取得 (genesis.json内で示されたコントラクト名を使う。アドレスは必要ない
+  // Get the contract address (we don't need to know the address just the name specified in genesis.json
   const loomContractAddress = await client.getContractAddressAsync('SimpleStore')
 
-  // Web3と互換性を持つよう、loomアドレスをhexaに変換
+  // Translate loom address to hexa to be compatible with Web3
   const contractAddress = CryptoUtils.bytesToHexAddr(loomContractAddress.local.bytes)
 
-  // コントラクトのインスタンス化
+  // Instantiate the contract
   const contract = new web3.eth.Contract(ABI, contractAddress, {from: fromAddress})
 
-  // 新たなバリュー設定をリッスン
+  // Listen for new value set
   contract.events.NewValueSet({}, (err, newValueSet) {
     if (err) {
       console.error('error', err)
@@ -235,12 +235,12 @@ const web3 = new Web3(new LoomProvider(client, privateKey))
     console.log('New value set', newValueSet.returnValues)
   })
 
-  // バリューを47に設定
+  // Set value of 47
   await contract.methods.set(47).send()
 
-  // バリューを取得
+  // Get the value
   const result = await contract.methods.get().call()
-  // 結果は47となるはずだ
+  // result should be 47
 })()
 
 ```
