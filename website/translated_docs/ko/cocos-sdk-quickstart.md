@@ -5,36 +5,36 @@ sidebar_label: Cocos SDK 퀵스타트
 ---
 ## 목차:
 
-- English 
- - [Prerequisites](#prerequisites)
+- Korean 
+ - [필수요소](#prerequisites)
  - [Loom Cocos SDK](#loom-cocos-sdk)
- - [Generate LoomJS SDK](#generate-loomjs-sdk)
- - [Install Loom](#install-loom)
- - [Install Cocos Creator](#install-cocos-creator)
- - [Integrate to Creator Game](#integrate-to-creator-game)
- - [Sample](#sample)
- - [Notice](#notice)
+ - [LoomJS SDK 생성하기](#generate-loomjs-sdk)
+ - [Loom 설치하기](#install-loom)
+ - [Cocos Creator 설치하기](#install-cocos-creator)
+ - [Creator Game로 통합하기](#integrate-to-creator-game)
+ - [예제](#sample)
+ - [주의](#notice)
 
-## Prerequisites
+## 필수요소
 
 1. Python 2.7
 2. Git
 3. [NodeJS](https://nodejs.org/en/), [NPM](https://www.npmjs.com/get-npm)
-4. [Loom](https://loomx.io/), [Install Steps](https://loomx.io/developers/docs/en/prereqs.html)
+4. [Loom](https://loomx.io/), [설치순서](https://loomx.io/developers/docs/en/prereqs.html)
 5. [Cocos Creator](http://www.cocos.com/creator)
-6. [Cocos Loom SDK Repo](https://github.com/loomnetwork/cocos-sdk/)
+6. [Cocos Loom SDK 레파지토리](https://github.com/loomnetwork/cocos-sdk/)
 
 ## Loom Cocos SDK
 
-Loom global structure diagram
+Loom 전체구조 다이어그램
 
 ![](/developers/img/Loom-Cocos-SDK.png)
 
-Loom Cocos SDK structure diagram
+Loom Cocos SDK 구조 다이어그램
 
 ![](/developers/img/loom-cocos-sdk-struct.png)
 
-`Loom-Cocos-SDK` have same api, same protobuf, similar contract with `loom-js`.
+`Loom-Cocos-SDK`은 `loom-js`와 동일한 api, 동일한 protobuf, 비스한 컨트랙트를 가지고 있습니다.
 
 `Loom Cocos SDK` is base on [Loom-JS](https://github.com/loomnetwork/loom-js/) , and proting it to `Cocos Creator` .
 
