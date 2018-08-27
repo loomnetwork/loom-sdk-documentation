@@ -53,7 +53,7 @@ The Loom SDK query endpoint can be used to subscribe to the event stream as well
         "id": "dontcare"
     }
     
-    $ wscat -k ws://localhost:9999/queryws < command.json
+    $ wscat -k ws://localhost:46658/queryws < command.json
     {
       "jsonrpc": "2.0",
       "id": "dontcare",
