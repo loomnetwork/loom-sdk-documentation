@@ -3,7 +3,7 @@ id: prereqs-ubuntu
 title: 필수요소 (Ubuntu)
 sidebar_label: 설치하기 (Ubuntu)
 ---
-Ubuntu에서 Loom을 설치 및 세팅하기
+Ubuntu에서 Loom 설치 및 설정하기
 
 ## Ubuntu 패키지
 
@@ -13,14 +13,14 @@ sudo apt -y install curl unzip make git
 
 ## Golang
 
-### 공식방법
+### 공식 방법
 
 ```bash
 curl -O https://dl.google.com/go/go1.10.2.linux-amd64.tar.gz
 sudo tar -C /usr/local -xzf go1.10.2.linux-amd64.tar.gz
 ```
 
-bash를 가정한 설명이며, zsh를 사용한다면 `~/.zshrc`:
+bash를 기준으로 한 설명이며, zsh를 사용한다면 `~/.zshrc`:
 
 ```bash
 echo -e "\nexport PATH=\$PATH:/usr/local/go/bin:~/gopath/bin" >>  ~/.bashrc
@@ -73,11 +73,11 @@ cp ../genesis.example.json genesis.json
 
 ## 트랜잭션 보내기
 
-두번째 콘솔을 여세요
+두 번째 콘솔을 여세요
 
-이것은 프라이빗 키를 생성할 것입니다. 계정도 생성합니다. 그리고 값을 저장하고 블록체인으로 부터 값을 읽어옵니다.
+이렇게 하면 프라이빗 키가 만들어집니다. 계정을 만들고, 값을 저장한 후 블록체인으로부터 값을 읽어옵니다.
 
-여러분은 여기서 [blueprint 컨트랙트](https://github.com/loomnetwork/weave-blueprint) 소스를 볼 수 있습니다.
+여기서 [blueprint 컨트랙트](https://github.com/loomnetwork/weave-blueprint)의 소스를 볼 수 있습니다.
 
 ```bash
 cd blueprint/build
