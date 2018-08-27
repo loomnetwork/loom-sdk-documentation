@@ -3,36 +3,47 @@ id: etherboy-backend
 title: Etherboy Backend
 sidebar_label: Etherboy Backend
 ---
-
-This documentation explains how to run the Etherboy DAppChain in a single server instance
-(any 64-bit Linux instance).
+This documentation explains how to run the Etherboy DAppChain in a single server instance (any 64-bit Linux instance).
 
 ## Installation
 
-1. Choose a working directory of your choice. In this example we are using `/home/ubuntu`
-    ```bash
-    cd /home/ubuntu
-    ```
-1. Download the binaries:
+1. Choose a working directory of your choice. In this example we are using `/home/ubuntu` 
+        bash
+        cd /home/ubuntu
+
+2. Download the binaries:
+    
     ```bash
     wget https://private.delegatecall.com/loom/linux/build-404/loom
     wget https://private.delegatecall.com/etherboy/linux/build-53/etherboycli
     chmod +x loom etherboycli
+    
+    mkdir contracts
+    wget -O contracts/etherboycore.so https://private.delegatecall.com/etherboy/linux/build-53/etherboycore.0.0.1
+    ```
+
+3. Execute `loom init` in the working directory to initialize config files.
+4. Update `genesis.json` in the working directory:
+    
+    ```json
+    {
+        "contracts": [
+            {
                 "vm": "plugin",
                 "name": "etherboycore",
                 "format": "plugin",
                 "location": "etherboycore:0.0.1",
                 "init": {
+    
                 }
             }
         ]
     }
     ```
-1. Add `loom.yml` in the working directory:
-    ```yaml
-    QueryServerHost: "tcp://0.0.0.0:9999"
-    ```
 
+5. Add `loom.yml` in the working directory: 
+        yaml
+        QueryServerHost: "tcp://0.0.0.0:9999"
 
 Note: `loom` and `etherboycli` can be placed anywhere in your `$PATH` so you don't have to always execute with `./`. However, `etherboycore.0.0.1` must always be placed in `$WORKING_DIRECTORY/contracts/etherboycore.0.0.1`.
 
@@ -122,6 +133,7 @@ $ ./etherboycli create-acct -k key
 <nil>
 $ ./etherboycli set -k key
 <nil>
+
 + ./etherboycli get -k key
 {"Value":0}
 ```
