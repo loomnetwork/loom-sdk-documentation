@@ -17,23 +17,23 @@ const {
 } = require('loom-js')
 const Web3 = require('web3')
 
-// クライアントを作成
+// Create the client
 const client = new Client(
   'default',
-  'ws://127.0.0.1:46657/websocket',
-  'ws://127.0.0.1:9999/queryws',
+  'ws://127.0.0.1:46658/websocket',
+  'ws://127.0.0.1:46658/queryws',
 );
 
-// 最初のアカウントの秘密鍵を作成
+// Create private key for first account
 const privateKey = CryptoUtils.generatePrivateKey()
 
-// LoomProviderをプロバイダとして使用し、Web3クライアントをインスタンス化
+// Instantiate web3 client using LoomProvider as provider
 const web3 = new Web3(new LoomProvider(client, privateKey));
 
-// 最新ブロックを取得するようフィルターを作成
+// Create filter to get the latest block
 const filter = web3.eth.filter('latest');
 
-// フィルターが最新ブロックのハッシュを常に返却するのをWatchする 
+// Watch filter will return the hash of the latest block continuously 
 filter.watch(function (error, result) {
   if (error) {
     console.error(error)
@@ -69,24 +69,24 @@ contract SimpleStore {
 イベントハンドラーをセットアップして、出力された`value`が`10`である場合のみ`NewValueSet`イベントがトリガされ、コントラクトの出力値がその他の場合はトリガされないようにすることが可能である。
 
 ```js
-// 公開鍵と秘密鍵を生成
+// Generate public and private keys
 const privateKey = CryptoUtils.generatePrivateKey()
 const publicKey = CryptoUtils.publicKeyFromPrivateKey(privateKey)
 
-// クライアントを作成
+// Create the client
 const client = new Client(
   'default',
-  'ws://127.0.0.1:46657/websocket',
-  'ws://127.0.0.1:9999/queryws',
+  'ws://127.0.0.1:46658/websocket',
+  'ws://127.0.0.1:46658/queryws',
 )
 
-// 関数呼び出し元のアドレス
+// The address for the caller of the function
 const from = LocalAddress.fromPublicKey(publicKey).toString()
 
-// LoomProviderを使用し、web3クライアントをインスタンス化
+// Instantiate web3 client using LoomProvider
 const web3 = new Web3(new LoomProvider(client, privateKey))
 
-// コントラクトのABI
+// ABI for the contract
 const ABI = [
   {
     constant: false,
@@ -106,13 +106,13 @@ const ABI = [
   }
 ]
 
-// デプロイ済みコントラクトのアドレス
+// Address of the contract deployed
 const contractAddress = '0x...'
 
-// コントラクトをインスタンス化し、使用できるよう準備
+// Instantiate the contract and let it ready to be used
 const contract = new web3.eth.Contract(ABI, contractAddress, {from})
 
-// イベントNewValueSetをリッスンするようサブスクライブ
+// Subscribe for listen the event NewValueSet
 contract.events.NewValueSet({ filter: { _value: 10 } }, (err: Error, event: any) => {
   if (err) t.error(err)
   else {
