@@ -46,6 +46,7 @@ Reverse chronology order of release notes
 * Added ChainID to loom.yaml
 
 * [EVM indexed filter](https://loomx.io/developers/docs/en/web3js-event-filters.html)
+
 * EVM filter pool fixes and event system
 * Loom-JS EVM updates for indexed filters
 * Loom-JS EVM fixes for getting block by hash
@@ -68,6 +69,7 @@ Reverse chronology order of release notes
 ## Release 209 - June 20th
 
 Major release
+
 * Plasma Cash initial integration - Demos coming next week
 * Multinode fixes and performance increases
 * Ansible updates for multinode
@@ -127,12 +129,12 @@ Major release
 * [Japanese Docs released](https://loomx.io/developers/ja)
 * Updated Homepage for [docs site](https://loomx.io/developers/en/) 
 
-## Release 132 - May 23rd 
+## Release 132 - May 23rd
 
 * Websocket performance fixes
 * New Websocket Demo App - TilesChain - [Github](https://github.com/loomnetwork/tiles-chain) 
 
-## Release 129 - May 22rd 
+## Release 129 - May 22rd
 
 * Websocket support for eventing
 * Updates to indexing layer for solidty contracts
@@ -148,4 +150,3 @@ Major release
 * Updating logging to default to multiple files 
 * Moving all RPC to a single interface
 * Updated External Process interface
-
