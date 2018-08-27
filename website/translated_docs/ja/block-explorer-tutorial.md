@@ -34,7 +34,7 @@ Githubのリポジトリをクローンしてスタートしよう:
 
 Devサーバーは以下で実行し `http://127.0.0.1:8080`, もし`8080` ポートが他のプログラムで使われていたら別のものを選ぶ。
 
-デフォルトでは、ブロックデータを以下から読み取り`http://127.0.0.1:46657`, もしサーバを他のIPで実行中なら、オンラインバージョンのサーバーリストの中から変更可能。
+By default, it will read block data from `http://127.0.0.1:46658`, if you are running the server on another IP, you can change it in the server list as in online version.
 
 ## ブロック高で検索
 
