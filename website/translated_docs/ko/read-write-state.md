@@ -5,18 +5,18 @@ sidebar_label: 스테이트를 저장 및 읽기
 ---
 ## 컨트랙트 스테이트
 
-Each contract has access to a sandboxed state for storage of data. The write actions on the state are rolled back in case the contract operation returns an error. If a transaction is successfully commited, it contains the hash of the state root so that any given state is commited to the blockchain.
+각 컨트랙트는 데이터 저장소를 위한 샌드박스된 스테이트에 대한 접근권한을 가집니다. 컨트랙트가 에러를 반환하는 경우에는 스테이트 쓰기 동작은 롤백됩니다. 트랜잭션이 정상적으로 수행되면, 스테이트 루트의 해쉬값을 가지게 되고 어떤 특정 스테이트가 블록체인에 기록됩니다.
 
-## Writing to the state
+## 스테이트에 쓰기
 
-Use the `Set` operation on the contract context to save to the state.
+스테이트에 저장하기 위해서는 컨트랙트 컨텍스트의 `Set` 오퍼레이션을 사용하세요.
 
     Set(key []byte, pb proto.Message) error
     
 
-go-loom mandates that the data being saved is a protobuf object.
+go-loom은 저장되는 데이터가 protobuf 객체일 것을 요구합니다.
 
-## Reading from the state
+## 스테이트로부터 읽어오기
 
 Use the `Has` operation to check whether a particular key exists in the state
 
