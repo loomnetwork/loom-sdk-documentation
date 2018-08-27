@@ -1,9 +1,9 @@
 ---
 id: cocos-sdk-quickstart
-title: Loom SDK for Cocos Creator
-sidebar_label: Cocos SDK Quickstart
+title: Cocos Creator용 Loom SDK
+sidebar_label: Cocos SDK 퀵스타트
 ---
-## Content:
+## 목차:
 
 - English 
  - [Prerequisites](#prerequisites)
