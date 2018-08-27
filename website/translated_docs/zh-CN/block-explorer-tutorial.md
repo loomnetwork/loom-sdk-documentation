@@ -34,7 +34,7 @@ If you are running Loom DAppChain on another machine, you can input your Loom DA
 
 开发服务器会运行在 `http://127.0.0.1:8080`，如果 `8080` 端口被其他程序使用，则会选择另一个。
 
-默认情况下, 它将从 `http://127.0.0.1:46657`中读取区块数据, 如果你在另一个 IP 上运行服务器, 则可以在服务器列表中将其更改为在线版本。
+By default, it will read block data from `http://127.0.0.1:46658`, if you are running the server on another IP, you can change it in the server list as in online version.
 
 ## 按区块高度搜索
 
