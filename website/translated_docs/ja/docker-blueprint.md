@@ -14,7 +14,7 @@ Dockerイメージはコードがアップデートされるたびに構築さ�
 これはローカルのコンピュータ上で実行されており、ポート80で実行される他のwebサーバーを用いていないことを考慮して:
 
 ```bash
-docker run -d -p 46656:46656 -p 46657:46657 -p 46658:46658 -p 9999:9999 loomnetwork/weave-blueprint:latest
+docker run -d -p 46656:46656  -p 46658:46658  loomnetwork/weave-blueprint:latest
 
 docker run -d -p 80:3000 loomnetwork/phaser-sdk-demo:latest
 ```
