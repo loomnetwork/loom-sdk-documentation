@@ -50,7 +50,7 @@ truffle unbox loomnetwork/truffle-dappchain-example
 wget https://private.delegatecall.com/loom/osx/build-404/loom
 chmod +x loom
 
-# 実行
+# 起動
 ./loom init
 ./loom run
 ```

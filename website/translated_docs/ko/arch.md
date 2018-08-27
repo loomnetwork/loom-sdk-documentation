@@ -53,7 +53,6 @@ The SDK integrates into the Ethereum Backend with following pieces:
 * ERC-20 Tokens (July)
 * Ether (July)
 
-
 ## Blockchain services
 
 SDK includes a number of high level blockchain services

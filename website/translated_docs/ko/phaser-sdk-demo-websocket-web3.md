@@ -3,19 +3,15 @@ id: phaser-sdk-demo-web3-websocket
 title: Javascript WebSockets and Web3 Demo
 sidebar_label: JS WebSockets + EVM Web3 Demo
 ---
-
 A basic example showcasing a simple HTML5 + WebSockets interacting with a Loom DappChain, using [Phaser](http://phaser.io) and [Loom.js](https://github.com/loomnetwork/loom-js), this time using Web3 and Loom Provider to create a seamless experience for Ethereum Developers
 
 ![](/developers/img/websocket_evm.gif)
 
-
-Game instructions
-----
+## Game instructions
 
 Use the mouse cursor to click on the black canvas area to create colored tiles, each new player will have a different color on the canvas which is shared amongst all players
 
-Development
-----
+## Development
 
 ### 1.) Run your own DappChain
 

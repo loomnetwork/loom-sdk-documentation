@@ -32,18 +32,18 @@ cd dappchain
 wget https://private.delegatecall.com/loom/osx/build-404/loom
 chmod +x loom
 
-# Configure
+# 設定
 ./loom init
 cp genesis.example.json genesis.json
 
-# Run
+# 起動
 ./loom run
 ```
 
 ### 4.) webサーバーのスタート
 
 ```bash
-# On second terminal
+# ２つ目のターミナルにて
 cd tiles-chain-evm/webclient
 
 # インストール
