@@ -18,7 +18,7 @@ Loom captures and exposes 4 different types of metrics:
 
 The following Go code shows an example of how Loom creates metrics with `go-kit`. The `Namespace` is prefixed with *loomchain*. The `Subsystem` can be either *query_service or *backend_service*.
 
-For example, the requestCounte metric key is referred as `loomchain_query_service_request_count` and the requestLatency metric key is `loomchain_query_service_request_latency_microseconds`. All the keys are unique.
+For example, the requestCounter metric key is referred as `loomchain_query_service_request_count` and the requestLatency metric key is `loomchain_query_service_request_latency_microseconds`. All the keys are unique.
 
 ```Go
 fieldKeys := []string{"method", "error"}
@@ -40,20 +40,20 @@ Loom also provides the two different field names for each metrics to create vari
 
 The followings are the example of the exposed metrics with different fields.
 
-    loomchain_query_service_request_count{error="false",method="Nonce"}
-    loomchain_query_service_request_count{error="true",method="Nonce"}
+    loomchain_query_service_request_count{error="false",method="Nonce"} 
+    loomchain_query_service_request_count{error="true",method="Nonce"} 
     loomchain_query_service_request_count{error="false",method="Query"}
     loomchain_query_service_request_count{error="true",method="Query"}
     
 
 ## Metric Endpoint
 
-When running a smart contract using `loom run` command, the default metrics endpoint is `127.0.0.1:9999/metrics`. The endpoint is configurable using the configuration key `QueryServerHost` in the configuration file.
+When running a smart contract using `loom run` command, the default metrics endpoint is `127.0.0.1:46658/metrics`. The endpoint is configurable using the configuration key `RPCBindAddress` in the configuration file.
 
-You can poll the the metrics from the endpoint using http clients or web browsers. The server running on `127.0.0.1:9999` will show the request count and latency metrics as followed.
+You can poll the the metrics from the endpoint using http clients or web browsers. The server running on `127.0.0.1:46658` will show the request count and latency metrics as followed.
 
 ```sh
-curl 127.0.0.1:9999/metrics
+curl 127.0.0.1:46658/metrics
 
 # HELP loomchain_query_service_request_count Number of requests received.
 # TYPE loomchain_query_service_request_count counter
@@ -86,12 +86,13 @@ To configure prometheus server, add the following to your config file:
 
 ```yaml
 scrape_configs:
+
   - job_name: "loomchain"
     metrics_path: "/metrics"
     scrape_interval: "2s"
     static_configs:
     - targets:
-      - 127.0.0.1:9999 # The IP address to the query server host
+      - 127.0.0.1:46658 # The IP address to the query server host
 ```
 
 ## List of All Metrics
