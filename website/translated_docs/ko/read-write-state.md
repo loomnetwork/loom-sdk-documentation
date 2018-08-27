@@ -1,9 +1,9 @@
 ---
 id: goloomstate
-title: Saving and reading state in go-loom contracts
-sidebar_label: Saving and reading state
+title: go-loom 컨트랙트에 스테이트를 저장 및 읽기
+sidebar_label: 스테이트를 저장 및 읽기
 ---
-## The contract state
+## 컨트랙트 스테이트
 
 Each contract has access to a sandboxed state for storage of data. The write actions on the state are rolled back in case the contract operation returns an error. If a transaction is successfully commited, it contains the hash of the state root so that any given state is commited to the blockchain.
 
