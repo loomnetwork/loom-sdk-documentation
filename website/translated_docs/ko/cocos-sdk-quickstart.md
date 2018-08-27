@@ -72,9 +72,9 @@ Loom Cocos SDK 구조 다이어그램
     ../../loom run
     
 
-Please consult the [Loom SDK docs](https://loomx.io/developers/docs/en/prereqs.html) for further instruction on running your own DappChain.
+여러분만의 DappChain을 실행하는 방법에 대한 더 자세한 내용은[Loom SDK 문서](https://loomx.io/developers/docs/en/prereqs.html)를 참조하세요.
 
-## Install Cocos Creator
+## Cocos Creator 설치하기
 
 ![](http://www.cocos2d-x.org/s/images/creator_192.png)
 
