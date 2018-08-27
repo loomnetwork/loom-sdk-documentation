@@ -34,7 +34,7 @@ Then install the dependencies and start the dev server:
 
 The dev server should run at `http://127.0.0.1:8080`, if the `8080` port is used by other programs, it will pick another one.
 
-By default, it will read block data from `http://127.0.0.1:46657`, if you are running the server on another IP, you can change it in the server list as in online version.
+By default, it will read block data from `http://127.0.0.1:46658`, if you are running the server on another IP, you can change it in the server list as in online version.
 
 ## Search By Block Height
 
