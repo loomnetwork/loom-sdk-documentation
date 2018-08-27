@@ -3,14 +3,13 @@ id: unity-truffle-loom-template
 title: Unity + Truffle + Loom Template
 sidebar_label: Unity + Truffle + Loom Template
 ---
-
 # Overview
 
-A template for a Loom DAppChain with a Unity client. Contains:
+A template for a Loom DAppChain with a Unity client. **Contains:**
 
 - Template [`Blueprint` Solidity contract](https://github.com/loomnetwork/loom-unity-project-template/blob/master/TruffleProject/contracts/Blueprint.sol) implementing a basic string-to-string map. Perfect as a starting point.
 - Pre-configured Truffle project that automatically extracts ABIs and binaries of compiled contracts into corresponding folders.
-- Pre-configured optimally setup Unity project with `Blueprint` contract test scene, and an already included Loom SDK.
+- Ready to use Unity Project, that uses the `Blueprint` Contract from the Loom SDK
 
 # Template Structure
 
@@ -32,7 +31,7 @@ A template for a Loom DAppChain with a Unity client. Contains:
     └── ...
 ```
 
--------------------
+* * *
 
 ## Getting the Template
 
