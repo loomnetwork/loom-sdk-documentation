@@ -9,19 +9,19 @@ sidebar_label: 블록 익스플로러 튜토리얼
 
 ![](/developers/img/block_explorer.png)![](/developers/img/block_explorer_details.png)
 
-## 온라인 익스플로러
+## 공식 온라인 익스플로러
 
 로컬 환경에서 룸 디앱체인을 돌린 후에 [룸 공식 온라인 익스플로어](https://blockexplorer.loomx.io)에 접속하시면 바로 로컬에서 생성되는 블록들을 확인하실 수 있습니다.
 
-If you are running Loom DAppChain on another machine, you can input your Loom DAppChain RPC server URL into the bottom left corner of the list, Normally the URL should be `http://YOUR_DAPP_CHAIN_SERVER_IP:46657`.
+만약에 클라우드서버 등 다른 머신에서 룸 디앱체인을 실행하고 계실 경우에는 해당 머신의 룸 디앱체인과 연결되는 RPC URL을 익스플로러 하단에 위치한 접속 네트워크 칸에 복사해서 붙여넣으시면 됩니다. `http://YOUR_DAPP_CHAIN_SERVER_IP:46657` (포트를 변경하지 않았을 경우의 RPC URL 예제)
 
-Make sure your server is accessible from outside.
++ AWS등 클라우드 서버일 경우 네트워크 설정에서 외부접속이 허용되도록 해주셔야합니다.
 
-## Local Explorer
+## 로컬 익스플로러
 
-You can also run the block explorer locally.
+사전에 말씀드린 공식 온라인 익스플로러를 거치지 않고, 로컬에서 익스플로러를 직접 실행 하실 수 도 있습니다.
 
-To get started, clone the repo from our Github:
+아래의 블록 익스플로러 깃헙 레포를 클론 한 후
 
     git clone https://github.com/loomnetwork/vue-block-explorer.git
     
