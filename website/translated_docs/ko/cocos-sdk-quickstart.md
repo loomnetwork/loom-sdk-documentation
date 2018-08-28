@@ -112,7 +112,7 @@ Cocos Creator는 UI 시스템 및 애니메이션 편집기와 같은 혁신적�
 - `blueprint/build` 디렉토리에 들어가서, `Loom Block Chain` 서비스를 실행하세요, `../../loom run`을 실행하세요, 이미 수행했다면, 건너뛰세요.
 - `Cocos Creator`로 `sample/loomDemoForCreator` 혹은 `sample/dark-slash`을 열고 실행하세요
 
-## 주의
+## 유의사항
 
 - `Loom Block Chain` 설정, 컨트랙트 사용에 관한 것은, [여기를](https://loomx.io/developers/docs/en/prereqs.html) 살펴보세요
 - `dark-slash` 예제는 `Cocos Creator` [튜토리얼 프로젝트](https://github.com/cocos-creator/tutorial-dark-slash)를 참고하였습니다
