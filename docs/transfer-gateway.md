@@ -16,6 +16,11 @@ The Transfer Gateway consists of four main components:
 - Address Mapper Go contract on the Loom DAppChain
 - Gateway Oracle (can run in-process on a DAppChain node, or as a standalone process)
 
+[ERC20 Transfer Gateway Example](https://github.com/loomnetwork/token-gateway-example)
+
+[ERC721 Transfer Gateway Example](https://github.com/loomnetwork/cards-gateway-example)
+
+
 ![Diagram of ERC721 Transfer to DAppChain](/developers/img/transfer-gateway-erc721-to-dappchain.png)
 
 When a user wishes to transfer a token from their Ethereum account to their DAppChain account they
@@ -166,3 +171,4 @@ by [loom-js][].
 [Transfer Gateway Cards]: https://github.com/loomnetwork/cards-gateway-example
 [loom-js]: https://github.com/loomnetwork/loom-js
 [loom-truffle-doc]: web3js-loom-provider-truffle.html
+

@@ -12,7 +12,7 @@ Reverse chronology order of release notes
 
 ** Features
 * ERC20 support upgraded in TransferGateway
-* Example ERC20 in Gateway - [Example](https://github.com/loomnetwork/cards-gateway-example)
+* Example ERC20 in Gateway - [Example](https://github.com/loomnetwork/token-gateway-example)
 * Loom SDK Doc site in [Korean](https://loomx.io/developers/ko/)
 * EVM now has limited support for Payable functions, more coming next week 
 * Loom-JS updates for ERC20/ETH transfers with TransferGateway. 
