@@ -592,7 +592,7 @@ func getEvmContract(contractName string) (*client.EvmContract, error) {
 
 Solidityコントラクトは、Solidityコンパイラ`solc --bin -o . mySolidityProgram.sol`を使ってバイトコードに変換される。
 
-`hex.DecodeString`を使って、hex文字列をバイト配列に変換することができる。 するとClient.DeployContract を使ってコントラクトをデプロイ、 and return an EVMContract handle. The second return parameter is a [transaction hash](https://loomx.io/developers/docs/en/evm.html#transaction-receipt) that can be used to retrive a reciept of the transaction using the TxHash Query.
+`hex.DecodeString`を使って、hex文字列をバイト配列に変換することができる。 するとClient.DeployContract を使ってコントラクトをデプロイ、 さらに EVMContractのハンドルを返却することが可能となる。 ２つ目の返却されるパラメータは [トランザクションハッシュ](https://loomx.io/developers/docs/en/evm.html#transaction-receipt) でTxHashクエリを使うトランザクションの受領の取得に使える。
 
 ```go
 import (
@@ -604,7 +604,7 @@ import (
 
 func deployEvmContract(name string, byteHex string, signer auth.Signer) 
 (handle *EvmContract, txReciept []byte, err error) {
-    // remove the 0x at the beging of a hex string
+    // hex文字列のはじめにある 0x を取り除く
     byteCode, err := hex.DecodeString(string(byteHex[2:]))
     if err != nil {
         return err
@@ -616,23 +616,23 @@ func deployEvmContract(name string, byteHex string, signer auth.Signer)
 
 #### Solidityコントラクトコードの取得
 
-You can retrieve the runtime bytecode for a deployed solidity contract using the DAppChains QueryInterface method GetCode.
+DAppチェーンのQueryInterfaceメソッドのGetCodeを使ってデプロイされたsolidiyコントラクトからランタイムのバイトコードを取得できる
 
 ```go
-// GetCode returns the runtime byte-code of a contract running on a DAppChain's EVM.
-// Gives an error for non-EVM contracts.
-// contract - address of the contract in the form of a string. (Use loom.Address.String() to convert)
-// return []byte - runtime bytecode of the contract.
+// GetCodeはDAppチェーンのEVM上で動いているコントラクトのランタイムバイトコードを返却する
+// EVMではないコントラクトにはエラーを出す。
+// contract - コントラクトのアドレス string (loom.Address.String() で変換できる)
+// return []byte - ランタイムバイトコード
 func (c *DAppChainRPCClient) GetCode(contract string) ([]byte, error) 
 ```
 
-The runtime code is the inital contract's binary with the code for starting and construting the contract removed as its no longer needed.
+ランタイムコードは開始用コードと最初のコントラクトのバイナリと不要になったら削除するためのコントラクトで構成されている
 
 #### DAppチェーン上のSolidityコントラクトへの書き込み
 
-Writing and reading to a smart contract deployed on a DAppChain's EVM works in a similar way to [writing](https://loomx.io/developers/docs/en/go-loom-clients.html#writing-data-to-a-dappchain) and [reading](https://loomx.io/developers/docs/en/go-loom-clients.html#reading-data-from-a-dappchain) to non-EVM plugins. The main difference is that the function signature and input parameters need to be converted to bytecode using [ABI encoding](https://solidity.readthedocs.io/en/develop/abi-spec.html). You can use the go-ethereum [abi.JSON](https://godoc.org/github.com/obscuren/go-ethereum/accounts/abi#JSON) function to encode input using your contracts ABI which you can get from `solc --abi -o. MySolidiityProgram.sol`
+DAppチェーンのEVMにデプロイされたスマートコントラクトへの読み取り及び書き込みは、 非EVMプラグインへの[書き込み](https://loomx.io/developers/docs/en/go-loom-clients.html#writing-data-to-a-dappchain)及び[読み取り](https://loomx.io/developers/docs/en/go-loom-clients.html#reading-data-from-a-dappchain)のやり方と同様である。 主な違いは、関数シグネチャと入力パラメータが[ABIエンコーディング](https://solidity.readthedocs.io/en/develop/abi-spec.html)を使ってバイトコードに変換される必要があるということだ。 go-ethereumの [abi.JSON](https://godoc.org/github.com/obscuren/go-ethereum/accounts/abi#JSON)関数を使って`solc --abi -o.MySolidiityProgram.sol`から取得できるコントラクトABIを用いて、 インプットをエンコードすることが可能だ。
 
-EvmContract's Call method is used for methods that mutate the DAppChain's state.
+EvmContractのCallメソッドは、DAppチェーンの状態を変更するメソッドに対し使用される。
 
 ```go
  input (
@@ -655,7 +655,7 @@ EvmContract's Call method is used for methods that mutate the DAppChain's state.
  }
 ```
 
-The Call method returns a [transaction hash](https://loomx.io/developers/docs/en/evm.html#transaction-hash) You can use the transaction hash retrieve more information about the contract using the `GetEvmTxReceipt` method. This returns a [transcation recieipt, vm.EvmTxReceipt](https://loomx.io/developers/docs/en/evm.html#transaction-receipt) object.
+Callメソッドは、[トランザクションのハッシュ値](https://loomx.io/developers/docs/en/evm.html#transaction-hash)を返却する。 `GetEvmTxReceipt`メソッドでこのハッシュを用いて、コントラクトについてのさらなる情報を検索できる。 これは [transcation recieipt, vm.EvmTxReceipt](https://loomx.io/developers/docs/en/evm.html#transaction-receipt) オブジェクトを返す。
 
 ```go
  input (
@@ -679,7 +679,7 @@ The Call method returns a [transaction hash](https://loomx.io/developers/docs/en
 
 #### DAppチェーン上Solidityコントラクトからの読み取り
 
-To get information from an EVM smart contract you need to call a view method using the EvmContract's staticCall. This returns the result in an ABI encoded []byte. As for other EVM methods the function signature and input arguments are [ABI encoded](https://solidity.readthedocs.io/en/develop/abi-spec.html). The caller field in StaticCall is optional, and using an empty loom.Address is fine.
+EVMスマートコントラクトから情報を取得するには、EvmContractのstaticCallを使用してviewメソッドを呼び出す必要がある。 これはABIにエンコードされたバイト形式で結果を返す。 他のEVMメソッドの場合、関数シグネチャと入力引数が[ABIエンコーディング](https://solidity.readthedocs.io/en/develop/abi-spec.html)される。 StaticCallのcallerフィールドはオプションであり、空のloom.Addressを使用しても良い。
 
 ```go
  input (
