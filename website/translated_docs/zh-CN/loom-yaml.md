@@ -35,46 +35,46 @@ sidebar_label: Loom Yaml 和配置选项
 
 选项: 调试、信息、警告、错误
 
-General logging for the Loom Blockchain
+Loom 区块链的常规日志记录
 
 ## ContractLogLevel
 
 选项: 调试、信息、警告、错误
 
-General logging for the Go Based Smart contracts.
+Go Based 智能合约的常规日志记录
 
 ## BFTLogLevel
 
-Options: debug, info, warn, error
+选项: 调试、信息、警告、错误
 
-General logging for the BFT Layer Blockchain. This may change based on which BFT engine you are using.
+BFT 层区块链的常规日志记录。这可能会根据你使用的 BFT 引擎而改变。
 
 ## QueryServerHost
 
-*Deprecated, will be removed next release, don't use this
+*已弃用，将在下次发布时删除，请勿使用此功能
 
-Options: url for example "tcp://0.0.0.0:9999"
+选项: url 例如 "tcp://0.0. 0.0: 9999"
 
-This is the nterface to the blockchain, set a bind port, default port is 9999
+这是 区块链的接口, 设置一个绑定端口, 默认端口为9999
 
 ## EthereumURI
 
-Options: "ws://127.0.0.1:8545"
+选项: "ws://127.0. 0.1: 8545"
 
-This is the url of the Ethereum Blockchain to read data for plasma and transfer gateway. In future we will have support for infura also.
+这是以太坊区块链的网址，用于读取 plasma 和传输网关的数据。 将来我们也会支持 infura。
 
 ## ChainID
 
-Options: "awesomechain"
+选项："awesomechain"
 
-This is the name of your chain, for example "eth", "zombiechain", "test-zombiechain", "delegatecall".
+这是你的链名称, 例如 "zombiechain", "zombiechain", "delegatecall"。
 
 # config.toml
 
-If you are using tendermint BFT engine, you can modify this file, otherwise leave it alone.
+如果你使用的是 tendermint BFT 引擎, 则可以修改此文件, 否则请单独保留它。
 
 ## ABCIAddress
 
-Options: "http://127.0.0.1:45667"
+选项: "http://127.0.0.1:45667"
 
-Port for tendermint bft engine
+Tendermint bft 引擎的端口
