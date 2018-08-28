@@ -27,11 +27,11 @@ loom DApp链包含一个以太坊虚拟机（EVM）并使你可以部署以及�
     
     EVM智能合约以编译的字节码的形式部署到DApp链中。 这使得链无法得知父语言。 Solidity智能合约方法调用的参数是以在[Solidity网站上有详细文档的](https://solidity.readthedocs.io/en/develop/abi-spec.html)应用程序二进制接口(ABI) 来进行编码的。 ABI可以变得相当复杂，但是正如我们以后看到的，以太坊实现应该给出了支持参数生成的功能。
 
-## Deploy on Boot up.
+## 在启动时部署
 
-Contracts can be deployed on an DAppChain on boot up, by putting the compiled code in the contracts directory and linking the `genesis.json` file.
+通过将已编译的代码放入合约目录中并链接 `genesis.json`文件, 可以在启动时在DApp链上部署合约。
 
-Here is an example genesis file.
+这里是genesis文件的一个示例。
 
 ```json
  {
