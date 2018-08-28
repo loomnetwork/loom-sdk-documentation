@@ -68,6 +68,8 @@
     "Simple Social Network Example": "Simple Social Network Example",
     "tf-card-game": "Card Gateway Example",
     "Card Gateway Example": "Card Gateway Example",
+    "tf-game-token": "Token Gateway Example",
+    "Token Gateway Example": "Token Gateway Example",
     "transfer-gateway": "Transfer Gateway",
     "Transfer Gateway": "Transfer Gateway",
     "truffle-deploy": "Truffle DAppChain Example",
