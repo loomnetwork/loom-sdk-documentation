@@ -54,13 +54,13 @@ yarn을 통해서 필요한 노드모듈들을 설치해준 후 로컬 웹 dev �
 
 그런 상황을 대비해서 [delegatecall.com](http://blockchain.delegatecall.com) 처럼 커스터마이징 할 수 있습니다.
 
-`Vue`, `Typescript`, `Google Protobuf` 에 대한 지식이 있으면, 얼마든지 수정하실 수 있습니다. Reading the source code of [DelagateCall Block Explorer](https://github.com/loomnetwork/vue-block-explorer/tree/dc-2) would make it easier.
+`Vue`, `Typescript`, `Google Protobuf` 에 대한 지식이 있으면, 얼마든지 수정하실 수 있습니다. 시작하시기전에 [DelagateCall Block Explorer](https://github.com/loomnetwork/vue-block-explorer/tree/dc-2) 코드도 한번 참고해보세요.
 
-To get started:
+수정해보기:
 
-1. Find your own `.proto` file for your DApp.It defined your DApp data structure. Put it in the `src/pbs` folder of the `vue-block-explorer`. then run `yarn proto` (assume you already run `yarn install` before).
-2. You will get 2 new files `YOUR_PROTO_FILE_NAME_pb.d.ts` and `YOUR_PROTO_FILE_NAME_pb.js`
-3. In `transaction-reader.ts`, import the classes in your `.proto` file:
+1. 디앱의 데이터 구조를 정의하는 파일인 `.proto` 파일을 찾은 후 `vue-block-explorer` 에 있는 `src/pbs` 폴더에 복사해줍니다. 그 후 `yarn proto` 명령어를 실행해줍니다. (`yarn install`을 꼭 미리 실행 해주셔야 합니다.)
+2. 2개의 새로운 파일이 `YOUR_PROTO_FILE_NAME_pb.d.ts` 과 `YOUR_PROTO_FILE_NAME_pb.js` 라는 이름으로 생성됩니다.
+3. 마지막으로 텍스트 에디터로 `transaction-reader.ts` 파일을 열어서 아래처럼 `.proto` 파일을 import 해준 후 저장 합니다.
 
     import * as DC from '@/pbs/YOUR_PROTO_FILE_NAME_pb'
     
