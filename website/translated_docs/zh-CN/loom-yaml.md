@@ -27,9 +27,9 @@ sidebar_label: Loom Yaml 和配置选项
 
 ## RPCBindAddress
 
-Options: "tcp://0.0.0.0:46658"
+选项： "tcp://0.0.0.0:46658"
 
-This is the primary interface for binding RPC interface
+这是绑定 RPC 接口的主要接口
 
 ## LoomLogLevel
 
