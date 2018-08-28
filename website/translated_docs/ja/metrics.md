@@ -18,7 +18,7 @@ Loomは4つの異なるタイプのメトリクスをキャプチャ及び公開
 
 以下のGoコードは、`go-kit`を用いたLoomのメトリクス作成方法の例を示している。 `Namespace`は*loomchain*の前に書かれている。 `Subsystem`は*query_serviceもしくは*backend_service*のどちらも可能だ。
 
-For example, the requestCounter metric key is referred as `loomchain_query_service_request_count` and the requestLatency metric key is `loomchain_query_service_request_latency_microseconds`. 全てのキーは唯一のものであり同じものはない。
+例えば、requestCounterのメトリックキーは`loomchain_query_service_request_count`、及び requestLatencyのメトリックキーは`loomchain_query_service_request_latency_microseconds`というふうに参照される。 全てのキーは唯一のものであり同じものはない。
 
 ```Go
 fieldKeys := []string{"method", "error"}
@@ -48,14 +48,14 @@ requestLatency := kitprometheus.NewSummaryFrom(stdprometheus.SummaryOpts{
 
 ## メトリックのエンドポイント
 
-When running a smart contract using `loom run` command, the default metrics endpoint is `127.0.0.1:46658/metrics`. The endpoint is configurable using the configuration key `RPCBindAddress` in the configuration file.
+`loom run`コマンドを使用してスマートコントラクトを実行する際、デフォルトのメトリクスのエンドポイントは`127.0.0.1:46658/metrics`である。 このエンドポイントは、設定ファイル中の設定キー`RPCBindAddress`を使って設定可能だ。
 
-You can poll the the metrics from the endpoint using http clients or web browsers. The server running on `127.0.0.1:46658` will show the request count and latency metrics as followed.
+httpクライアントやwebブラウザを使用して、エンドポイントからメトリクスをポーリングすることが可能だ。`127.0.0.1:46658`で動いているサーバーは、リクエストのカウントとレイテンシーのメトリクスを以下のように示す。
 
 ```sh
 curl 127.0.0.1:46658/metrics
 
-# HELP loomchain_query_service_request_count Number of requests received.
+# HELP loomchain_query_service_request_count 受け取ったリクエスト数。
 # TYPE loomchain_query_service_request_count counter
 loomchain_query_service_request_count{error="false",method="Nonce"} 2
 loomchain_query_service_request_count{error="true",method="Query"} 2
