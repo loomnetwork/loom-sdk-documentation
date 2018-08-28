@@ -124,7 +124,7 @@ Transcation receipt:  [10 178 198 52 108 ... 141 155 79 250 97 129 104 243]
 
 出力されたコントラクトアドレスは、callコマンドでコントラクトのメソッドを呼び出すのに使用できる。 デプロイメントのためのトランザクションのレシートを検索するために、固有の[トランザクションハッシュ](https://loomx.io/developers/docs/en/evm.html#transaction-receipt) を使用することができる。
 
-### 呼び出し
+### call
 
 ```text
 コントラクトのメソッド呼び出しは、状態を変更しうる。
@@ -165,7 +165,7 @@ call -a ./data/pub -k ./data/pri -i ./cmd/loom/data/inputSet.bin \
 
 ### static-call
 
-Call a read only method on a contract. Returns the method return value.
+コントラクトの読み取り専用メソッドを呼び出し、メソッドの戻り値を返す。
 
 ```text
 Usage:
@@ -184,15 +184,15 @@ Flags:
   -k, --key string             private key file
 ```
 
-The -a and -k flags are used to identify the user with public and private key address files.
+-a 及び -k のフラグは、公開鍵および秘密鍵のアドレスファイルでユーザーを特定するのに使用される。
 
--c requires the contract address. This could be one output from a previous call to `\loom deploy` or retrieved from the start up log.
+-c はコントラクトアドレスを要求する。これは前述の`\loom deploy`へのコール結果、もしくは立ち上げ時のログから検索したものとなりうる。
 
--n is a name or label entered for the contract when it was deployed.Can be used as an alternative to the address.
+-n はコントラクトデプロイ時に入力された名前やラベルであり、アドレスを代替するものとして使用可能だ。
 
--i is the input string. For a solidity contract this will be ABI encoded as described in the [Solidity ABI documentation](https://solidity.readthedocs.io/en/develop/abi-spec.html). Example
+-i は入力文字列だ。 Solidityのコントラクトでは、これは[Solidity ABI documentation](https://solidity.readthedocs.io/en/develop/abi-spec.html)で説明されているようにABIにエンコーディングされる。 例
 
-The address fields -a and -k are optional.
+アドレスフィールド -a と -k はオプションである。
 
 ```text
 static-call -a ./data/pub -k ./data/pri -i ./cmd/loom/data/inputGet.bin \
@@ -201,32 +201,32 @@ static-call -a ./data/pub -k ./data/pri -i ./cmd/loom/data/inputGet.bin \
 
 ```
 
-## From a user plugin
+## ユーザーのプラグインから
 
-Smart contracts deployed on a DAppChain's EVM can be called from user created plugins. The evmexample example in go-loom gives and example of how to achieve this.
+DAppチェーン上のEVMにデプロイされたスマートコントラクトは、プラグインを作成したユーザーによって呼び出しが可能だ。go-looomにあるevmexampleのサンプルは、これを行う例を示している。
 
-Before continuing let's consider the various modules involved.
+続きをやる前に、関連する様々なモジュールについて考えてみよう。
 
-* User application. This is the end user application that initiates transactions on the DAppChain.
+* ユーザーアプリケーション。これはエンド ユーザーのアプリケーションで、DAppチェーン上でのトランザクションを引き起こす。
 
-* DAppChain. Receives transactions from the user application and forwards to the appropriate contract to run. Also commits results to the blockchain.
+* DAppチェーン。ユーザーアプリケーションからトランザクションを受信し、適切なコントラクトへ転送して実行する。またブロックチェーンに結果をコミットする。
 
-* Smart contracts. These are written by the user and deployed on the DAppChain. There are two main types.
+* スマートコントラクト。これらはユーザーによって書かれ、DAppチェーンにデプロイされる。主に２種類がある。
     
-    1. Plugins. These can be written in any language supported by gRPC; go-loom allows easy use of contracts written in Go, and loom-js for javascript. The plugin is compiled into an executable that the DAppChain calls using gRPC.
-    2. EVM smart contracts. Solidity programs or any other code that compiles into EVM bytecode can be run by the DAppChain using its EVM.
+    1. プラグイン。 RPCでサポートされていれば、どんな言語で書くことも可能だ; go-loom はGoで書かれたコントラクトの使用を簡単にし、またloom-jsは javascript向けのものである。 このプラグインはDAppチェーンがgRPCを使って 呼び出せるようなものへコンパイルされる。
+    2. EVMスマートコントラクト。SolidityのプログラムやEVMバイトコードにコンパイルされる 何か他のコードはDAppチェーンでEVMを使って実行することができる。
 
-Plugins can run other contracts including ones deployed on the EVM by calling back to the DAppChain using gRPC. The reverse however is not true however, ECM deployed contracts can only interact within the EVM, this is to ensure that the EVM's results are deterministic.
+プラグインは、EVM上にデプロイ済みのものも含めて他のコントラクトを実行することができる。これはgRPCを使ってDAppチェーンへコールバックするすることで行われる。 逆はしかし真ではない。だがEVMにデプロイされたコントラクトはEVM内でのみやり取りができるので、EVMの結果は決定論的なものとなる。
 
-### User code
+### ユーザーのコード
 
-The user provides two items of code. The smart contracts and the end application that make use of the DAppChain.
+ユーザーは2つのコードアイテムを提供する。つまりスマートコントラクトと、DAppチェーンを使えるようにするエンドアプリケーションだ。
 
-In the following we will assume that Go is being used for the end application and the smart contracts are written either in Go for plugins or solidity for EVM. Refer to [loom-js-quickstart](loom-js-quickstart.html) for a javascript solution.
+以下では、Goがエンドアプリケーションに使用されていること、さらにスマートコントラクトがプラグイン用のGo、もしくはEVM用のSolidity、このどちらかで書かれていることと仮定していく。 JavaScript向けのソリューションは、 [loom-js-quickstart](loom-js-quickstart.html) を参照のこと。
 
-### Minimal plugin
+### 最小プラグイン
 
-First lets look at the definition of a contract in Go-loom.
+まず、Go-loomでのコントラクト定義について見ていこう。
 
 ```go
 type Contract interface {
@@ -234,7 +234,7 @@ type Contract interface {
 }
 ```
 
-and plugin.Meta is defined from a protobuf definition
+そしてplugin.Metaはprotobufで定義される
 
 ```go
 type ContractMeta struct {
@@ -243,7 +243,7 @@ type ContractMeta struct {
 }
 ```
 
-So all a contract needs is to implement the Meta function. However to be usable as a plugin in a DAppChain there are a few other bits. Here is a minimal example.
+全てのコントラクトはMeta関数を実装する必要がある。 しかしDAppチェーンのプラグインとして利用可能にするにはさらなる手順が必要であるが、以下最小限のサンプルだ。
 
 ```go
 package main
@@ -270,11 +270,11 @@ func main() {
 }
 ```
 
-Here are some points of interest.
+ここにはいくつか興味深い点がある。
 
-1. First the contract has to be package main.
-2. Define our contract called HelloWorld as a struct.
-3. Implement the `Meta()` function, returning the contracts name and version number.
+1. まず、コントラクトはpackage mainでなくてはならない。
+2. HelloWorldというコントラクトを構造体として定義。
+3. コントラクト名とバージョン数を返す`Meta()` 関数を実装。
 4. The variable `Contract` needs to be defined. The function `contract
 .MakePluginContract` converts our simple outline into an object that a DAppChain can communicate with.
 5. The main routine can then sets the contract up as a working server.
