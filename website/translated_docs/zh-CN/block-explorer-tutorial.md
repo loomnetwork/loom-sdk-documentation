@@ -58,14 +58,14 @@ sidebar_label: 区块浏览器教程
 
 开始吧：
 
-1. Find your own `.proto` file for your DApp.It defined your DApp data structure. Put it in the `src/pbs` folder of the `vue-block-explorer`. then run `yarn proto` (assume you already run `yarn install` before).
-2. You will get 2 new files `YOUR_PROTO_FILE_NAME_pb.d.ts` and `YOUR_PROTO_FILE_NAME_pb.js`
-3. In `transaction-reader.ts`, import the classes in your `.proto` file:
+1. 找到你的 DApp 的 `.proto` 文件。它定义了你的 DApp数据结构。 把它放入 `vue-block-explorer` 的 `src/pbs` 文件夹中。 然后运行 `yarn proto` （假定你之前已经运行了 `yarn install`）。
+2. 你会收到2个新文件`YOUR_PROTO_FILE_NAME_pb.d.ts` 和 `YOUR_PROTO_FILE_NAME_pb.js`。
+3. 在 `transaction-reader.ts` 中，引入你的 `.proto` 文件中的类。
 
     import * as DC from '@/pbs/YOUR_PROTO_FILE_NAME_pb'
     
 
-1. You can use your own protobuf decoders to decode the block data now. You might want to write different decoding function for different data(take *delegatecall* for example):
+1. 你现在可以使用自己的 protobuf 解码器来解码区块数据。 你可能希望为不同的数据编写不同的解码函数（以 *delegatecall* 为例）：
     
         function readDCProtoData(cmc: ContractMethodCall): DelegateCallTx {
           const methodName = cmc.toObject().method
@@ -86,7 +86,7 @@ sidebar_label: 区块浏览器教程
         }
         
     
-    For each of these decoding functions, use relative protobuf function to decode:
+    对于每一个解码函数，使用相应的 protobuf 函数进行解码：
     
         function readVoteTxPayload(r: Uint8Array): IVoteTx {
           const DCVoteTX = DC.DelegatecallVoteTx.deserializeBinary(r).toObject()
