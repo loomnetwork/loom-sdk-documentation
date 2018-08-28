@@ -68,6 +68,8 @@
     "Simple Social Network Example": "간단한 소셜 네트워크 예제",
     "tf-card-game": "카드 게이트웨이 예제",
     "Card Gateway Example": "카드 게이트웨이 예제",
+    "tf-game-token": "Token Gateway Example",
+    "Token Gateway Example": "Token Gateway Example",
     "transfer-gateway": "Transfer Gateway",
     "Transfer Gateway": "Transfer Gateway",
     "truffle-deploy": "Truffle DAppChain 예제",
