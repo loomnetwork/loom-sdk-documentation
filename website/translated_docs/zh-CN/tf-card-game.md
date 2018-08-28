@@ -1,7 +1,7 @@
 ---
 id: tf-card-game
-title: Card Gateway Example
-sidebar_label: Card Gateway Example
+title: 卡牌网关示例
+sidebar_label: 卡牌网关示例
 ---
 Erc721 token example shifting the tokens between chains is located here on [Github](https://github.com/loomnetwork/cards-gateway-example)
 
