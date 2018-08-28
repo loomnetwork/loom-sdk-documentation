@@ -11,15 +11,15 @@ sidebar_label: 블록 익스플로러 튜토리얼
 
 ## 온라인 익스플로러
 
-로컬 환경에서 룸 디앱체인을 돌린 후에 [온라인 익스플로어](https://blockexplorer.loomx.io)에 접속하시면 바로 로컬에서 생성되는 블록들을 확인하실 수 있습니다.
+로컬 환경에서 디앱체인을 돌린 후에 [온라인 익스플로어](https://blockexplorer.loomx.io)에 접속하시면 바로 로컬에서 생성되는 블록들을 확인하실 수 있습니다.
 
-만약에 클라우드서버 등 다른 머신에서 룸 디앱체인을 실행하고 계실 경우에는 해당 머신의 룸 디앱체인과 연결되는 RPC URL을 익스플로러 하단에 위치한 접속 네트워크 칸에 복사해서 붙여넣으시면 됩니다. `http://YOUR_DAPP_CHAIN_SERVER_IP:46657` (포트를 변경하지 않았을 경우의 RPC URL 예제)
+만약에 클라우드서버 등 다른 머신에서 디앱체인을 실행하고 계실 경우에는 해당 머신의 디앱체인과 연결되는 RPC URL을 익스플로러 하단에 위치한 접속 네트워크 칸에 복사해서 붙여넣으시면 됩니다. `http://YOUR_DAPP_CHAIN_SERVER_IP:46657` (포트를 변경하지 않았을 경우의 RPC URL 예제)
 
 + 클라우드 서버일 경우 네트워크 설정에서 외부접속이 허용되도록 해주셔야합니다.
 
 ## 로컬 익스플로러
 
-사전에 말씀드린 공식 온라인 익스플로러를 거치지 않고, 로컬에서 익스플로러를 직접 실행 하실 수 도 있습니다.
+사전에 말씀드린 온라인 익스플로러를 거치지 않고, 로컬에서 익스플로러를 직접 실행 하실 수 도 있습니다.
 
 아래의 블록 익스플로러 깃헙 레포를 클론 한 후
 
@@ -36,15 +36,15 @@ yarn을 통해서 필요한 노드모듈들을 설치해준 후 로컬 웹 dev �
 
 기본으로 익스플로러는 `http://127.0.0.1:46658` 에서 블록 데이터를 읽어옵니다. 만약에 다른 머신에서 실행되는 디앱체인을 조회하시려면 온라인 익스플로러와 마찬가지로 해당 머신의 IP주소로 변경 하시면 됩니다.
 
-## Search By Block Height
+## Block Height 으로 조회하기
 
-The explorer would show all blocks in current DAppChain, so if you are running a shared blockchain, like running Loom DAppChain, it'll be hard to check your own block data since there are too many of them.
+실행하신 블록 익스플로러는 기본적으로 해당 디앱체인에서 만들어지는 모든 블록을 같이 보여줍니다. 룸 디앱체인(룸 네트워크에서 운영하는 노드를 통해서 제공되는 디앱체인)처럼 여러사람이 함께 접속해서 사용하는 디앱체인의 경우에는 내가 생성한 블록만 조회하기 위해서 `block height` 값을 활용할 수 있습니다.
 
-Therefore you need to search by the `block height`:
+아래의 과정을 통해서 `block height` 을 찾고 내가 생성한 블록들을 찾아봅시다.
 
-1. Open your loom terminal (where you run the `loom run` command)
-2. Find the blockchain log you just created, the `index` is the block height
-3. In the top right corner of the block list, there is a search input, put the block height and search it.
+1. 터미널(`loom run` 명령어를 실행하셨던)을 실행한 후
+2. 디앱체인에서 생성된 log 파일속에 있는 `index` (block height 입니다) 를 복사하고
+3. 블록 익스플로러 우측 상단에 있는 검색창을 통해서 복사한 나의 block height을 검색합니다.
 
 ## Build Your Own Explorer
 
