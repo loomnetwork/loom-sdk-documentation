@@ -8,7 +8,7 @@ sidebar_label: Cocos SDK 퀵스타트
 - Korean 
  - [필수요소](#prerequisites)
  - [Loom Cocos SDK](#loom-cocos-sdk)
- - [LoomJS SDK 생성하기](#generate-loomjs-sdk)
+ - [Generate Cocos SDK](#generate-cocos-sdk)
  - [Loom 설치하기](#install-loom)
  - [Cocos Creator 설치하기](#install-cocos-creator)
  - [Creator Game로 통합하기](#integrate-to-creator-game)
@@ -36,9 +36,9 @@ Loom Cocos SDK 구조 다이어그램
 
 `Loom-Cocos-SDK`은 `loom-js`와 동일한 api, 동일한 protobuf, 비스한 컨트랙트를 가지고 있습니다.
 
-`Loom Cocos SDK` 은 [loom-js](https://github.com/loomnetwork/loom-js/)를 기반으로 되어 있으며, `Cocos Creator` 로 포팅됩니다.
+`Loom Cocos SDK` is based on [Loom-JS](https://github.com/loomnetwork/loom-js/) , and porting it to `Cocos Creator` .
 
-### LoomJS SDK 생성하기
+### Generate Cocos SDK
 
 - `git clone https://github.com/loomnetwork/cocos-sdk.git`
 - `cd cocos-sdk`
