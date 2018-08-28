@@ -101,7 +101,7 @@ import {
 
 import Web3 from 'web3'
 
-// This function will initialize and return the client
+// この関数はクライアントの初期化とリターンを行う
 function getClient(privateKey, publicKey) {
   const client = new Client(
     'default',
@@ -112,11 +112,11 @@ function getClient(privateKey, publicKey) {
   return client
 }
 
-// Setting up keys
+// キーのセットアップ
 const privateKey = CryptoUtils.generatePrivateKey()
 const publicKey = CryptoUtils.publicKeyFromPrivateKey(privateKey)
 
-// Client ready
+// クライアントを準備
 const client = getClient(privateKey, publicKey)
 ```
 
