@@ -40,7 +40,7 @@ public class LoomEvmQuickStartSample : MonoBehaviour
         var client = new DAppChainClient(writer, reader)
             { Logger = Debug.unityLogger };
 
-        // required middleware
+        // ミドルウェアが必要
         client.TxMiddleware = new TxMiddleware(new ITxMiddlewareHandler[]
         {
             new NonceTxMiddleware
@@ -51,7 +51,7 @@ public class LoomEvmQuickStartSample : MonoBehaviour
             new SignedTxMiddleware(privateKey)
         });
 
-        // ABI of the Solidity contract
+        // SolidityコントラクトのABI
         const string abi = "[{\"constant\":false,\"inputs\":[{\"name\":\"_tileState\",\"type\":\"string\"}],\"name\":\"SetTileMapState\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"GetTileMapState\",\"outputs\":[{\"name\":\"\",\"type\":\"string\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"name\":\"state\",\"type\":\"string\"}],\"name\":\"OnTileMapStateUpdate\",\"type\":\"event\"}]\r\n";
         // Note: With EVM based smart contracts, you can't access them by name.
         // デプロイしたコントラクトのアドレスをここに
@@ -158,8 +158,8 @@ async void Start()
 }
 ```
 
-Now that we have all the code in place let's test it out:
+全コードの用意ができたので、テストしてみよう:
 
-1. Create an empty `GameObject` in a Unity scene and attach the `LoomEvmQuickStartSample` script to it.
-2. Deploy the [TilesChain](https://github.com/loomnetwork/unity-tiles-chain-evm/blob/master/dappchain/TilesChain.sol) smart contract on a local Loom DAppChain node.
-3. Hit `Play` in the Unity Editor.
+1. Unityシーンに空の`GameObject`を作成し、そこに`LoomEvmQuickStartSample`スクリプトを付け加えよう。
+2. スマートコントラクト[TilesChain](https://github.com/loomnetwork/unity-tiles-chain-evm/blob/master/dappchain/TilesChain.sol)をローカルのLoom DAppチェーンノードにデプロイしよう。
+3. Unityエディタの`Play`をクリックしよう。
