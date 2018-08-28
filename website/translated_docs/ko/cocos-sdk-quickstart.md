@@ -89,22 +89,22 @@ Cocos Creator는 UI 시스템 및 애니메이션 편집기와 같은 혁신적�
 ## Creator Game에 통합하기
 
 1. 생성된 `Loom Cocos SDK`를 자신의 프로젝트의 `asset/script` 디렉토리에 복사하고, 이름을 `loom`으로 변경하세요
-2. 자신의 게임의 요구사항으로 사용될 `proto` 파일을 작성하세요 예를 들면, `sample/loomDemoForCreator`는 [setscore.proto](https://github.com/loomnetwork/phaser-sdk-demo/blob/master/src/assets/protobuff/setscore.proto)을 사용하고 있고, [setscore_pb.js](https://github.com/loomnetwork/phaser-sdk-demo/blob/master/src/assets/protobuff/setscore_pb.js)과 관련이 있지요
-3. write yur own contract as requirements of your game, and serailezse your data with `setscore_pb.js`, and send to Loom Blockchain, take a look at [SimpleContract](https://github.com/loomnetwork/phaser-sdk-demo/blob/master/src/SimpleContract.js)
+2. 여러분의 게임 요구사항에 맞는 `proto` 파일을 작성하세요. 예를 들면, `sample/loomDemoForCreator`는 [setscore.proto](https://github.com/loomnetwork/phaser-sdk-demo/blob/master/src/assets/protobuff/setscore.proto)을 사용하고 있고, [setscore_pb.js](https://github.com/loomnetwork/phaser-sdk-demo/blob/master/src/assets/protobuff/setscore_pb.js)과 관련이 있지요
+3. 여러분의 게임 요구사항에 맞는 컨트랙트를 작성하세요,그리고 `setscore_pb.js`로 데이터를 직렬화 하고, Loom Blockchain에 보내세요, [SimpleContract](https://github.com/loomnetwork/phaser-sdk-demo/blob/master/src/SimpleContract.js)를 살펴보세요
 
 ![](/developers/img/script_loom_folder.png)
 
-1. invoke api of your contract at suitable position.
-2. Run
+1. 적당한 위치에서 여러분의 컨트랙트 API를 호출하세요.
+2. 실행하세요
 
-## Sample:
+## 예제:
 
-There are two `Sample` projects:
+두개의 `Sample` 프로젝트가 있습니다:
 
-- `loomDemoForCreator` simplely use loom sdk
-- `dark-slash` use loom sdk in a real game
+- `loomDemoForCreator` 는 단순히 look sdk를 사용합니다
+- `dark-slash` 는 리얼타임 게임으로 loom sdk를 사용합니다
 
-Test Steps
+테스트 절차
 
 - update git submodule, run command `git submodule update --init`, if you have done this, skip this.
 - generate and pack `Loom Cocos SDK`, run command `./tools/genCocoSDK.py`
