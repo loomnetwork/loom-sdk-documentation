@@ -58,7 +58,7 @@ EVMを構成するのは、データベース及びEVMバイトコードのイ�
 
 配列の最初には２つのコントラクトがある。1つ目はEVMコントラクトで、2つ目はプラグインコントラクトだ。
 
-* `vm:` The virtual machine used to run the contract. Currently there are two options. 
+* `vm:` コントラクト実行に使用される仮想マシン。現在は２つのオプションがある。 
     1. `plugin` ユーザーがコントラクトを作成。
     2. `EVM` コントラクトは、DAppチェーンEVM上で実行される。
 * `format` コントラクトディレクトリ内にあるスマートコントラクトのインプットファイルの性質。 
