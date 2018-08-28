@@ -27,11 +27,11 @@ EVMを構成するのは、データベース及びEVMバイトコードのイ�
     
     EVMスマートコントラクトは、コンパイルされたバイトコード形式でDAppチェーンにデプロイされる。 このためチェーンは親言語を認識しない。 Solidityのスマートコントラクトメソッドの呼び出しパラメーターは、[Solidityのウェブサイトに記載されている](https://solidity.readthedocs.io/en/develop/abi-spec.html)アプリケーションバイナリインターフェイス (ABI) でエンコードされる。 このABIは非常に複雑になるのだが、後ほど取り上げるように、イーサリアムの実装はパラメーター生成をサポートする関数を与えなくてはならない。
 
-## Deploy on Boot up.
+## 立ち上げ時のデプロイ
 
-Contracts can be deployed on an DAppChain on boot up, by putting the compiled code in the contracts directory and linking the `genesis.json` file.
+コンパイル済みのコードをコントラクトディレクトリ内に配置し`genesis.json` ファイルをリンクすることで、立ち上げ時のDAppチェーンにデプロイすることができる。
 
-Here is an example genesis file.
+これはジェネシス・ファイルのサンプルだ。
 
 ```json
  {
@@ -56,15 +56,15 @@ Here is an example genesis file.
 
 ```
 
-There are two contracts in the top array. The first is an EVM contract, and the second one is a plugin.
+配列の最初には２つのコントラクトがある。1つ目はEVMコントラクトで、2つ目はプラグインコントラクトだ。
 
 * `vm:` The virtual machine used to run the contract. Currently there are two options. 
-    1. `plugin` User created contracts.
-    2. `EVM` contract run on DAppChains EVM.
-* `format` The nature of the smart contract's input file in the contracts directory. 
-    1. `plugin` User plugin, can be produced by `go-loom`.
-    2. `truffle` Solidity program, compiled using truffles compiler.
-    3. `solidity` Solidity program, compiled using solc.
+    1. `plugin` ユーザーがコントラクトを作成。
+    2. `EVM` コントラクトは、DAppチェーンEVM上で実行される。
+* `format` コントラクトディレクトリ内にあるスマートコントラクトのインプットファイルの性質。 
+    1. `plugin` ユーザープラグイン。`go-loom`で作成可能。
+    2. `truffle` truffleのコンパイラを使用してコンパイルされたSolidityプログラム。
+    3. `solidity` solcを使用してコンパイルされたSolidityプログラム。
     4. `hex` Raw Hex, for instance solidty program compiled using `solc -o` option .
 * `name` This name can be used to retrieve the address of the contract assigned by loom or the EVM.
 * `location` Versioned name of the file binary file located in the contracts directory. For truffle and solidity it might be necessary to give the full path.
