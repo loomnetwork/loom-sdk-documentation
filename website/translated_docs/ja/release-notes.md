@@ -12,7 +12,7 @@ sidebar_label: リリースノート
 ** 機能
 
 * TransferGatewayのERC20サポートをアップグレード
-* Example ERC20 in Gateway - [Example](https://github.com/loomnetwork/token-gateway-example)
+* ゲートウェイのERC20サンプル - [サンプル](https://github.com/loomnetwork/token-gateway-example)
 * Loom SDK [韓国語](https://loomx.io/developers/ko/)ドキュメンテーションサイト
 * 現在EVMはPayable関数を限定サポート。さらなるサポートは来週登場。 
 * TransferGatewayを使用したERC20/ETHトランスファー向けに、Loom-JSをアップデート 
