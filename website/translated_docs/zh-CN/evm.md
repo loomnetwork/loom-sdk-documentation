@@ -56,15 +56,15 @@ loom DApp链包含一个以太坊虚拟机（EVM）并使你可以部署以及�
 
 ```
 
-There are two contracts in the top array. The first is an EVM contract, and the second one is a plugin.
+顶部数组中有两个合约。 第一个是EVM合同，第二个是插件。
 
-* `vm:` The virtual machine used to run the contract. Currently there are two options. 
-    1. `plugin` User created contracts.
-    2. `EVM` contract run on DAppChains EVM.
-* `format` The nature of the smart contract's input file in the contracts directory. 
-    1. `plugin` User plugin, can be produced by `go-loom`.
-    2. `truffle` Solidity program, compiled using truffles compiler.
-    3. `solidity` Solidity program, compiled using solc.
+* `vm:` 以前是虚拟机运行合约。现在有两种选择。 
+    1. `plugin` 用户创建合约。
+    2. `EVM` 合约运行在DApp链 EVM 上。
+* `format` 合约目录中智能合约输入文件的性质。 
+    1. `plugin` 用户插件，可以由 `go-loom` 生成。
+    2. `truffle` Solidity 程序，使用 truffle 编译器编译。
+    3. `solidity` Solidity 程序，使用 solc 编译。
     4. `hex` Raw Hex, for instance solidty program compiled using `solc -o` option .
 * `name` This name can be used to retrieve the address of the contract assigned by loom or the EVM.
 * `location` Versioned name of the file binary file located in the contracts directory. For truffle and solidity it might be necessary to give the full path.
