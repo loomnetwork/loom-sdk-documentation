@@ -106,13 +106,13 @@ Cocos Creator는 UI 시스템 및 애니메이션 편집기와 같은 혁신적�
 
 테스트 절차
 
-- update git submodule, run command `git submodule update --init`, if you have done this, skip this.
-- generate and pack `Loom Cocos SDK`, run command `./tools/genCocoSDK.py`
-- sync `Loom Cocos SDK` to `sample/loomDemoForCreator` and `sample/dark-slash`, run command `./tools/syncLoomJSToSample.py`
-- entry directory `blueprint/build`, run `Loom Block Chain` services, run command `../../loom run`, if you have done this, skip this.
-- open `sample/loomDemoForCreator` or `sample/dark-slash` with `Cocos Creator` and run
+- git submodule 업데이트 하고, `git submodule update --init` 커맨드를 실행하세요, 이미 이것을 수행했다면, 건너뛰세요.
+- `Loom Cocos SDK`를 생성하고 패키징하고, `./tools/genCocoSDK.py` 커맨드를 실행하세요
+- `Loom Cocos SDK`를 `sample/loomDemoForCreator`와 `sample/dark-slash`에 동기화하고, `./tools/syncLoomJSToSample.py` 커맨드를 실행하세요
+- `blueprint/build` 디렉토리에 들어가서, `Loom Block Chain` 서비스를 실행하세요, `../../loom run`을 실행하세요, 이미 수행했다면, 건너뛰세요.
+- `Cocos Creator`로 `sample/loomDemoForCreator` 혹은 `sample/dark-slash`을 열고 실행하세요
 
-## Notice
+## 주의
 
-- `Loom Block Chain` configuration, Contract's usage, take a look at [this](https://loomx.io/developers/docs/en/prereqs.html)
-- Sample `dark-slash` come from `Cocos Creator` [Tutorial Project](https://github.com/cocos-creator/tutorial-dark-slash)
+- `Loom Block Chain` 설정, 컨트랙트 사용에 관한 것은, [여기를](https://loomx.io/developers/docs/en/prereqs.html) 살펴보세요
+- `dark-slash` 예제는 `Cocos Creator` [튜토리얼 프로젝트](https://github.com/cocos-creator/tutorial-dark-slash)를 참고하였습니다
