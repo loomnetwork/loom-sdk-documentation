@@ -199,33 +199,33 @@ function getClient(privateKey, publicKey) {
   return client
 }
 
-// Setting up keys
+// キーのセットアップ
 const privateKey = CryptoUtils.generatePrivateKey()
 const publicKey = CryptoUtils.publicKeyFromPrivateKey(privateKey)
 
-// Client ready
+// クライアントの用意
 const client = getClient(privateKey, publicKey)
 
-// Setting the web3
+// web3を設定
 const web3 = new Web3(new LoomProvider(client, privateKey))
 
 ;(async () => {
   // Set the contract ABI
   const ABI = [{"constant":false,"inputs":[{"name":"_value","type":"uint256"}],"name":"set","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"get","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"}]
 
-  // Getting our address based on public key
+  // 公開鍵を元にアドレスを取得
   const fromAddress = LocalAddress.fromPublicKey(publicKey).toString()
 
-  // Get the contract address (we don't need to know the address just the name specified in genesis.json
+  // コントラクトアドレスを取得 (これを行うにはgenesis.jsonにあるコントラクト名のみ必要となる)
   const loomContractAddress = await client.getContractAddressAsync('SimpleStore')
 
-  // Translate loom address to hexa to be compatible with Web3
+  // Web3との互換性を持つようLoomアドレスをhexaへ変換
   const contractAddress = CryptoUtils.bytesToHexAddr(loomContractAddress.local.bytes)
 
-  // Instantiate the contract
+  // コントラクトのインスタンス化
   const contract = new web3.eth.Contract(ABI, contractAddress, {from: fromAddress})
 
-  // Listen for new value set
+  // 新規バリュー設定のリッスン
   contract.events.NewValueSet({}, (err, newValueSet) {
     if (err) {
       console.error('error', err)
@@ -235,10 +235,10 @@ const web3 = new Web3(new LoomProvider(client, privateKey))
     console.log('New value set', newValueSet.returnValues)
   })
 
-  // Set value of 47
+  // 47のバリューを設定
   await contract.methods.set(47).send()
 
-  // Get the value
+  // バリューの取得
   const result = await contract.methods.get().call()
   // result should be 47
 })()
