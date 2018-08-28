@@ -89,7 +89,7 @@ Cocos Creator는 UI 시스템 및 애니메이션 편집기와 같은 혁신적�
 ## Creator Game에 통합하기
 
 1. 생성된 `Loom Cocos SDK`를 자신의 프로젝트의 `asset/script` 디렉토리에 복사하고, 이름을 `loom`으로 변경하세요
-2. write your own `proto` file as requirements of your game e.g. `sample/loomDemoForCreator` use [setscore.proto](https://github.com/loomnetwork/phaser-sdk-demo/blob/master/src/assets/protobuff/setscore.proto), and related [setscore_pb.js](https://github.com/loomnetwork/phaser-sdk-demo/blob/master/src/assets/protobuff/setscore_pb.js)
+2. 자신의 게임의 요구사항으로 사용될 `proto` 파일을 작성하세요 예를 들면, `sample/loomDemoForCreator`는 [setscore.proto](https://github.com/loomnetwork/phaser-sdk-demo/blob/master/src/assets/protobuff/setscore.proto)을 사용하고 있고, [setscore_pb.js](https://github.com/loomnetwork/phaser-sdk-demo/blob/master/src/assets/protobuff/setscore_pb.js)과 관련이 있지요
 3. write yur own contract as requirements of your game, and serailezse your data with `setscore_pb.js`, and send to Loom Blockchain, take a look at [SimpleContract](https://github.com/loomnetwork/phaser-sdk-demo/blob/master/src/SimpleContract.js)
 
 ![](/developers/img/script_loom_folder.png)
