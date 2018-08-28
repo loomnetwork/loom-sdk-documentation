@@ -8,7 +8,7 @@ sidebar_label: Cocos SDK 퀵스타트
 - Korean 
  - [필수요소](#prerequisites)
  - [Loom Cocos SDK](#loom-cocos-sdk)
- - [Generate Cocos SDK](#generate-cocos-sdk)
+ - [Cocos SDK 생성하기](#generate-cocos-sdk)
  - [Loom 설치하기](#install-loom)
  - [Cocos Creator 설치하기](#install-cocos-creator)
  - [Creator Game로 통합하기](#integrate-to-creator-game)
@@ -36,9 +36,9 @@ Loom Cocos SDK 구조 다이어그램
 
 `Loom-Cocos-SDK`은 `loom-js`와 동일한 api, 동일한 protobuf, 비스한 컨트랙트를 가지고 있습니다.
 
-`Loom Cocos SDK` is based on [Loom-JS](https://github.com/loomnetwork/loom-js/) , and porting it to `Cocos Creator` .
+`Loom Cocos SDK`은 [Loom-JS](https://github.com/loomnetwork/loom-js/)를 기반으로 하며 , `Cocos Creator`에 포팅됩니다.
 
-### Generate Cocos SDK
+### Cocos SDK 생성하기
 
 - `git clone https://github.com/loomnetwork/cocos-sdk.git`
 - `cd cocos-sdk`
@@ -72,13 +72,13 @@ Loom Cocos SDK 구조 다이어그램
     ../../loom run
     
 
-여러분만의 DappChain을 실행하는 방법에 대한 더 자세한 내용은[Loom SDK 문서](https://loomx.io/developers/docs/en/prereqs.html)를 참조하세요.
+여러분만의 DappChain을 실행하는 방법에 대한 더 자세한 사항은 [Loom SDK 문서](https://loomx.io/developers/docs/en/prereqs.html)를 참조하세요.
 
 ## Cocos Creator 설치하기
 
 ![](http://www.cocos2d-x.org/s/images/creator_192.png)
 
-Cocos Creator is a complete package of game development tools and workflow, including a game engine (based on Cocos2d-x), resource management, scene editing, game preview, debug and publish one project to multiple platforms.
+Cocos Creator은 게임 개발 툴 및 워크플로우를 위한 완벽한 패키지입니다, 게임 엔진 (Cocos2d-x 기반의), 리소스 관리, scene 편집, 게임 프리뷰, 디버그, 멀티 플랫폼 퍼블리싱 등을 포함하고 있습니다.
 
 For the first time we introduced entity-component structure and data-driven workflow to the Cocos2d-x family. With JavaScript, you can scripting your component in no time. The editor and engine extension is also made with JavaScript so you can make games and refine your tool in a single programming language.
 
