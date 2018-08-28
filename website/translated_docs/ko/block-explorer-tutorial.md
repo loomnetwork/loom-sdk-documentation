@@ -9,13 +9,13 @@ sidebar_label: 블록 익스플로러 튜토리얼
 
 ![](/developers/img/block_explorer.png)![](/developers/img/block_explorer_details.png)
 
-## 공식 온라인 익스플로러
+## 온라인 익스플로러
 
-로컬 환경에서 룸 디앱체인을 돌린 후에 [룸 공식 온라인 익스플로어](https://blockexplorer.loomx.io)에 접속하시면 바로 로컬에서 생성되는 블록들을 확인하실 수 있습니다.
+로컬 환경에서 룸 디앱체인을 돌린 후에 [온라인 익스플로어](https://blockexplorer.loomx.io)에 접속하시면 바로 로컬에서 생성되는 블록들을 확인하실 수 있습니다.
 
 만약에 클라우드서버 등 다른 머신에서 룸 디앱체인을 실행하고 계실 경우에는 해당 머신의 룸 디앱체인과 연결되는 RPC URL을 익스플로러 하단에 위치한 접속 네트워크 칸에 복사해서 붙여넣으시면 됩니다. `http://YOUR_DAPP_CHAIN_SERVER_IP:46657` (포트를 변경하지 않았을 경우의 RPC URL 예제)
 
-+ AWS등 클라우드 서버일 경우 네트워크 설정에서 외부접속이 허용되도록 해주셔야합니다.
++ 클라우드 서버일 경우 네트워크 설정에서 외부접속이 허용되도록 해주셔야합니다.
 
 ## 로컬 익스플로러
 
@@ -26,15 +26,15 @@ sidebar_label: 블록 익스플로러 튜토리얼
     git clone https://github.com/loomnetwork/vue-block-explorer.git
     
 
-Then install the dependencies and start the dev server:
+yarn을 통해서 필요한 노드모듈들을 설치해준 후 로컬 웹 dev 서버를 실행해줍니다.
 
     yarn install
     yarn run serve
     
 
-The dev server should run at `http://127.0.0.1:8080`, if the `8080` port is used by other programs, it will pick another one.
+`http://127.0.0.1:8080` 에 접속해서 실행 된 dev 서버에 접속 해줍니다. (8080포트를 다른 프로그램이 사용하고 있다면 포트를 변경 하셔야 합니다.)
 
-By default, it will read block data from `http://127.0.0.1:46658`, if you are running the server on another IP, you can change it in the server list as in online version.
+기본으로 익스플로러는 `http://127.0.0.1:46658` 에서 블록 데이터를 읽어옵니다. 만약에 다른 머신에서 실행되는 디앱체인을 조회하시려면 온라인 익스플로러와 마찬가지로 해당 머신의 IP주소로 변경 하시면 됩니다.
 
 ## Search By Block Height
 
