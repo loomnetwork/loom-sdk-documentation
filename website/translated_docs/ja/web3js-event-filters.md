@@ -17,23 +17,23 @@ const {
 } = require('loom-js')
 const Web3 = require('web3')
 
-// Create the client
+// クライアントを作成
 const client = new Client(
   'default',
   'ws://127.0.0.1:46658/websocket',
   'ws://127.0.0.1:46658/queryws',
 );
 
-// Create private key for first account
+// 最初のアカウントの秘密鍵を作成
 const privateKey = CryptoUtils.generatePrivateKey()
 
-// Instantiate web3 client using LoomProvider as provider
+// LoomProviderをプロバイダとして使用し、Web3クライアントをインスタンス化
 const web3 = new Web3(new LoomProvider(client, privateKey));
 
-// Create filter to get the latest block
+// 最新ブロックを取得するようフィルターを作成
 const filter = web3.eth.filter('latest');
 
-// Watch filter will return the hash of the latest block continuously 
+// フィルターが最新ブロックのハッシュを常に返却するのをWatchする 
 filter.watch(function (error, result) {
   if (error) {
     console.error(error)
@@ -69,24 +69,24 @@ contract SimpleStore {
 イベントハンドラーをセットアップして、出力された`value`が`10`である場合のみ`NewValueSet`イベントがトリガされ、コントラクトの出力値がその他の場合はトリガされないようにすることが可能である。
 
 ```js
-// Generate public and private keys
+// 公開鍵と秘密鍵を生成
 const privateKey = CryptoUtils.generatePrivateKey()
 const publicKey = CryptoUtils.publicKeyFromPrivateKey(privateKey)
 
-// Create the client
+// クライアントを作成
 const client = new Client(
   'default',
   'ws://127.0.0.1:46658/websocket',
   'ws://127.0.0.1:46658/queryws',
 )
 
-// The address for the caller of the function
+// 関数呼び出し元のアドレス
 const from = LocalAddress.fromPublicKey(publicKey).toString()
 
-// Instantiate web3 client using LoomProvider
+// LoomProviderを使用し、web3クライアントをインスタンス化
 const web3 = new Web3(new LoomProvider(client, privateKey))
 
-// ABI for the contract
+// コントラクトのABI
 const ABI = [
   {
     constant: false,
@@ -106,13 +106,13 @@ const ABI = [
   }
 ]
 
-// Address of the contract deployed
+// デプロイ済みコントラクトのアドレス
 const contractAddress = '0x...'
 
-// Instantiate the contract and let it ready to be used
+// コントラクトをインスタンス化し、使用できるよう準備
 const contract = new web3.eth.Contract(ABI, contractAddress, {from})
 
-// Subscribe for listen the event NewValueSet
+// イベントNewValueSetをリッスンするようサブスクライブ
 contract.events.NewValueSet({ filter: { _value: 10 } }, (err: Error, event: any) => {
   if (err) t.error(err)
   else {
