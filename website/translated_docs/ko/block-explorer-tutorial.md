@@ -1,17 +1,17 @@
 ---
-id: block-explorer-tutorial
-title: Block Explorer Tutorial
-sidebar_label: Block Explorer Tutorial
+id: 블록 익스플로러 튜토리얼
+title: 블록 익스플로러 튜토리얼
+sidebar_label: 블록 익스플로러 튜토리얼
 ---
-## Overview:
+## 개요:
 
-This Block Explorer helps you to check the block data on your DAppChain.
+이번에는 블록 익스플로러를 활용해, 디앱체인에서 생성되는 블록들을 탐색하는 방법을 알아볼 예정입니다.
 
 ![](/developers/img/block_explorer.png)![](/developers/img/block_explorer_details.png)
 
-## Online explorer
+## 온라인 익스플로러
 
-You can just visit [Loom Block Explorer](https://blockexplorer.loomx.io), If you have a Loom DAppChain running on your local machine, you should see the block data there.
+로컬 환경에서 룸 디앱체인을 돌린 후에 [룸 공식 온라인 익스플로어](https://blockexplorer.loomx.io)에 접속하시면 바로 로컬에서 생성되는 블록들을 확인하실 수 있습니다.
 
 If you are running Loom DAppChain on another machine, you can input your Loom DAppChain RPC server URL into the bottom left corner of the list, Normally the URL should be `http://YOUR_DAPP_CHAIN_SERVER_IP:46657`.
 
