@@ -38,7 +38,7 @@ yarn을 통해서 필요한 노드모듈들을 설치해준 후 로컬 웹 dev �
 
 ## Block Height 으로 조회하기
 
-실행하신 블록 익스플로러는 기본적으로 해당 디앱체인에서 만들어지는 모든 블록을 같이 보여줍니다. 룸 디앱체인(룸 네트워크에서 운영하는 노드를 통해서 제공되는 디앱체인)처럼 여러사람이 함께 접속해서 사용하는 디앱체인의 경우에는 내가 생성한 블록만 조회하기 위해서 `block height` 값을 활용할 수 있습니다.
+실행하신 블록 익스플로러는 기본적으로 해당 디앱체인에서 만들어지는 모든 블록을 같이 보여줍니다. 룸 디앱체인(룸 네트워크에서 운영하는 노드를 통해서 제공되는 디앱체인)처럼 여러사람이 함께 접속해서 사용하는 디앱체인의 경우에는 내가 생성한 블록만 조회하기 위해서 디앱체인 노드의 고유코드인 `block height` 값을 활용할 수 있습니다.
 
 아래의 과정을 통해서 `block height` 을 찾고 내가 생성한 블록들을 찾아봅시다.
 
@@ -46,15 +46,15 @@ yarn을 통해서 필요한 노드모듈들을 설치해준 후 로컬 웹 dev �
 2. 디앱체인에서 생성된 log 파일속에 있는 `index` (block height 입니다) 를 복사하고
 3. 블록 익스플로러 우측 상단에 있는 검색창을 통해서 복사한 나의 block height을 검색합니다.
 
-## Build Your Own Explorer
+## 커스텀 익스플로러 만들기
 
-The block explorer would display the block data in a raw JSON view, like this:
+기본적으로 제공 된 블록 익스플로러는 JSON 양식 그대로 블록 데이터를 보여줍니다.
 
-Normally if your DApp data is arranged well in valid JSON format, it would be fine. But if it's not, it will just show in a raw text view and not easy to read.
+일반적인 상황에서 데이터가 잘 가공되어 있으면, JSON 양식 그대로 보더라도 문제가 없지만, 특정 상황에서 JSON 그대로로 데이터를 파악하기 어려운 경우가 생길 수도 있습니다.
 
-So you might want to build your own explorer, just like what we did for [delegatecall.com](http://blockchain.delegatecall.com).
+그런 상황을 대비해서 [delegatecall.com](http://blockchain.delegatecall.com) 처럼 커스터마이징 할 수 있습니다.
 
-You need to know `Vue`, `TypeScript` and also `Google Protobuf` to start. Reading the source code of [DelagateCall Block Explorer](https://github.com/loomnetwork/vue-block-explorer/tree/dc-2) would make it easier.
+`Vue`, `Typescript`, `Google Protobuf` 에 대한 지식이 있으면, 얼마든지 수정하실 수 있습니다. Reading the source code of [DelagateCall Block Explorer](https://github.com/loomnetwork/vue-block-explorer/tree/dc-2) would make it easier.
 
 To get started:
 
