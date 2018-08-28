@@ -704,9 +704,9 @@ EVMスマートコントラクトから情報を取得するには、EvmContract
 
 ### loom-js
 
-In JavaScript and TypeScript you can Call methods contracts deployed on the EVM of a DAppChain in a similar way as for non-EVM plugins, outlined in the [loom-js quickstart](https://loomx.io/developers/docs/en/loom-js-quickstart.html#connecting-to-a-dappchain)
+非EVMプラグインと同様のやり方で、JavaScript及びTypeScriptでもDAppチェーンのEVM上にデプロイされたコントラクトのメソッドをCallすることができる。概要は [loom-jsクイックスタート](https://loomx.io/developers/docs/en/loom-js-quickstart.html#connecting-to-a-dappchain)で説明されている。
 
-#### Connecting to a Solidity contract on a DAppChain
+#### DAppチェーン上のSolidityコントラクトへの接続
 
 We use the EvmContract class instead of the Contract class. So the loom-js quick-start getEvmContract could looks like:
 
@@ -719,11 +719,10 @@ const {
 const { MapEntry } = require('./helloworld_pb')
 
 /**
- * Creates a new `EvmContract` instance that can be used to interact with a 
- smart contract running on a DAppChain's EVM.
- * @param privateKey Private key that will be used to sign transactions sent to the contract.
- * @param publicKey Public key that corresponds to the private key.
- * @returns `EvmContract` instance.
+ * 新たな`Contract`インスタンスを作成し、スマートコントラクトとの対話に使えるようにする。
+ * @param privateKey(秘密鍵)はコントラクトに送信されたトランザクションに署名するために使われる。
+ * @param publicKey(公開鍵)は秘密鍵に対応するものである。
+ * @returns `EvmContract`のインスタンス
  */
 async function getContract(privateKey, publicKey) {
   const client = new Client(
@@ -746,54 +745,54 @@ async function getContract(privateKey, publicKey) {
 }
 ```
 
-#### Writing to a Solidity contract on a DAppChain
+#### DAppチェーン上のSolidityコントラクトへの書き込み
 
-Calling an EVM smart contract's method that mutates the state works the same as [writiing data to a DAppChain](https://loomx.io/developers/docs/en/loom-js-quickstart.html#writing-data-to-a-dappchain) The main difference in the case of an EvmContract is that the input takes the format of an [ABI encoded](https://solidity.readthedocs.io/en/develop/abi-spec.html) array.
+状態を変更するEVMスマートコントラクトのメソッドは、[DAppチェーンへのデータの書き込み](https://loomx.io/developers/docs/en/loom-js-quickstart.html#writing-data-to-a-dappchain)と同じように機能する。 EvmContractの場合の主な違いは、インプットは[ABIエンコード](https://solidity.readthedocs.io/en/develop/abi-spec.html)された配列の形式を取るということだ。
 
 ```go
     let txHash = await evmContract.callAsync(abiEncodedInput)
 ```
 
-The return value is a [transaction hash](https://loomx.io/developers/docs/en/evm.html#transaction-hash) You can use the transaction hsh retrive more information about the contract using the `GetEvmTxReceipt` method. This returns a [transaction receipt, EvmTxReceipt](https://loomx.io/developers/docs/en/evm.html#transaction-receipt) object
+戻り値は、[トランザクションのハッシュ値](https://loomx.io/developers/docs/en/evm.html#transaction-hash)である。 `GetEvmTxReceipt`メソッドでこのハッシュを用いて、コントラクトについてのさらなる情報を検索できる。 これは [トランザクションのレシート、EvmTxReceipt](https://loomx.io/developers/docs/en/evm.html#transaction-receipt) オブジェクトを返す。
 
 ```text
     let receipt = await client.getTxReceiptAsync(rtv)
 ```
 
-#### Reading from a Solidity contract on a DAppCahin
+#### DAppチェーン上Solidityコントラクトからの読み取り
 
-To get information from an EVM smart contract you need to call a view method using the EvmContract's staticCall. This returns the result in an ABI encoded []byte. As for other EVM methods the function signature and input arguments are [ABI encoded](https://solidity.readthedocs.io/en/develop/abi-spec.html).
+EVMスマートコントラクトから情報を取得するには、EvmContractのstaticCallを使用してviewメソッドを呼び出す必要がある。 これはABIにエンコードされたバイト形式で結果を返す。 他のEVMメソッドの場合、関数シグネチャと入力引数が[ABIエンコーディング](https://solidity.readthedocs.io/en/develop/abi-spec.html)される。
 
 ```go
     let txResult = await evmContract.staticCallAsync(abiEncodedInput)
 ```
 
-## Transaction hash
+## トランザクションのハッシュ値
 
-Writing to a DAppChain using a `Call` transactions that can modify the state returns a transaction hash. This is a unique hash of the transaction details. No two contracts should return the same hash. It can be used to retrieve details of the transaction.
+状態を変更することができる`Call`トランザクションを使ったDAppチェーンへの書き込みは、 トランザクションのハッシュ値を返す。 これは、トランザクション詳細についての唯一無二のハッシュ値である。 ２つのコントラクトが同じハッシュ値を返すことはない。 トランザクション詳細を見つけるために、これを使用することができる。
 
-### Transaction receipt
+### トランザクションのレシート
 
-Details of each EVM call transaction are stored on the loomchain and can be accessed using the transaction hash.
+EVMのcallトランザクションの各詳細はLoomチェーン上に保存され、トランザクションのハッシュ値を用いてアクセスすることができる。
 
-The loom chain `QueryService` has the method `TxReceipt(txHash []byte) 
-([]byte, error)` which returns the receipt in a protobuf form. go-loom and loom-js provide an API for this query.
+Loomチェーンの`QueryService`には、`TxReceipt(txHash []byte) 
+([]byte, error)`というメソッドがあり、これはprotobuf形式のレシートを返す。 go-loom及びloom-jsはこのクエリにAPIを提供する。
 
 go-loom:`func (c *DAppChainRPCClient) GetEvmTxReceipt(txHash []byte) (vm
 .EvmTxReceipt, error)`
 
 loom-js: `async getTxReceiptAsync(txHash: Uint8Array): Promise<EvmTxReceipt | null>`
 
-Details of the transaction receipt objects follow. 
+以下、トランザクション詳細のレシートオブジェクトだ。 
 
-| Field             | Contents                                       |
-| ----------------- |:---------------------------------------------- |
-| TransactionIndex  | transaction number this block                  |
-| BlockHash         | Hash of the last block                         |
-| BlockNumber       | Block height                                   |
-| CumulativeGasUsed | Currently not used                             |
-| GasUsed           | Currently not used                             |
-| ContractAddress   | Address of the contract called                 |
-| Logs              | Events, encoded as an array of Event protobufs |
-| LogsBloom         | Not used                                       |
-| Status            | 1 = success or 0 = failier                     |
+| フィールド             | コンテンツ                          |
+| ----------------- |:------------------------------ |
+| TransactionIndex  | このブロックのトランザクション番号              |
+| BlockHash         | 最新ブロックのハッシュ値                   |
+| BlockNumber       | ブロックの高さ                        |
+| CumulativeGasUsed | 現在は使われていない                     |
+| GasUsed           | 現在は使われていない                     |
+| ContractAddress   | 呼び出されたコントラクトのアドレス              |
+| Logs              | イベントprotobufの配列としてエンコードされたイベント |
+| LogsBloom         | 使われていない                        |
+| Status            | 1 = 成功 / 0 = 失敗                |
