@@ -65,23 +65,23 @@ EVMを構成するのは、データベース及びEVMバイトコードのイ�
     1. `plugin` ユーザープラグイン。`go-loom`で作成可能。
     2. `truffle` truffleのコンパイラを使用してコンパイルされたSolidityプログラム。
     3. `solidity` solcを使用してコンパイルされたSolidityプログラム。
-    4. `hex` Raw Hex, for instance solidty program compiled using `solc -o` option .
-* `name` This name can be used to retrieve the address of the contract assigned by loom or the EVM.
-* `location` Versioned name of the file binary file located in the contracts directory. For truffle and solidity it might be necessary to give the full path.
+    4. `hex` Raw Hex。Solidityプログラムのインスタンスには`solc -o`のオプションを使用してコンパイルされる。
+* `name` これはLoomもしくはEVMから割り当てられたコントラクトアドレスを取得するのに使用される。
+* `location` コントラクトディレクトリ内に配置されたバージョン化されたバイナリファイル名。 TruffleとSolidityに完全なPATHを提供するのに必要となるだろう。
 
-So in this example the loom DAppChain will take the bytecode from the truffle compilation of our SimpleStore solidity contract. It will then deploy it on the chain's EVM. Confirmation and the contracts address will be available in loom's logging information.
+そのためこの例では、Loom DAppチェーンはSolidityコントラクト・SimpleStoreのtruffleコンパイルからバイトコードを受け取ることとなる。 そうしてこれをチェーンのEVMにデプロイする。 Loomのログ情報でその確認とコントラクトアドレスが利用可能となる。
 
-## Deploy and run from command line
+## コマンドラインからのデプロイ及び実行
 
-The loom command line tool has three commands for interacting with the chains's EVM.
+Loomのコマンドラインツールには、チェーンのEVMと対話するための3つのコマンドがある。
 
-* `deploy` This will deploy a smart contract in EVM bytecode onto the chain's EVM.
-* `call` This will call a method that can mutate the state on an already deployed EVM smart contract.
-* `static-call` This will call a read only method on an already deployed EVM smart contract.
+* `deploy` チェーンのEVM上に、EVMバイトコードでスマートコントラクトをデプロイする。
+* `call` 既にデプロイ済みのEVMスマートコントラクトにある状態変更メソッドを呼び出す。
+* `static-call` 既にデプロイ済みのEVMスマートコントラクトにある読み取り専用メソッドを呼び出す。
 
-### Deploy
+### デプロイ
 
-Use `./loom deploy` to deploy a contract, that can be compiled to EVM bytecode, onto a DAppChains EVM.
+`./loom deploy` を使用してコントラクトをデプロイすると、EVMバイトコードにコンパイルされDAppチェーンEVMに置かれる。
 
 ```text
 Deploy a contract 
@@ -99,21 +99,21 @@ Usage:
   -w, --write string      URI for sending txs (default "http://localhost:46658/rpc")
 ```
 
-The -a and -k flags are used to identify the user with public and private key address files.
+-a 及び -k のフラグは、公開鍵および秘密鍵のアドレスファイルでユーザーを特定するのに使用される。
 
--b gives the file where the raw EVM bytecode for the contract is held. This could be generated using a solidity compiler such as `solc --bin -o. 
- MySolProgram.sol`
+-bはコントラクトのEVMのローバイトコードがあるファイルを提供する。 これは`solc --bin -o. 
+ MySolProgram.sol`といったSolidityコンパイラを使って生成可能だ。
 
--n allows you to enter a name for your contract. This will act as a more user friendly handle than the contract address.
+-n はコントラクトの名前を入力できるようにする。これはコントラクトアドレスよりも、よりユーザーフレンドリーなハンドルとして機能する。
 
-Example:
+例:
 
 ```text
  ./loom deploy -a ./data/pub -k ./data/pri -b ./data/bytecode.bin  -w \
   http://localhost:46658/rpc -r http://localhost:46658/query
 ```
 
-If everything works you should see something like:
+全てうまく動いていれば、次のように表示されるはずだ:
 
 ```text
 New contract deployed with address:  default:0x71A53d11A3b77e369463804FEE9B17ba7E24d98B
@@ -122,12 +122,12 @@ Transcation receipt:  [10 178 198 52 108 ... 141 155 79 250 97 129 104 243]
 
 ```
 
-The output contract address can be used to call a method on the contract in the call command. The uinique [transaction hash](https://loomx.io/developers/docs/en/evm.html#transaction-receipt) can be used to retrive a receipt of the deployment transaction.
+出力されたコントラクトアドレスは、callコマンドでコントラクトのメソッドを呼び出すのに使用できる。 デプロイメントのためのトランザクションのレシートを検索するために、固有の[トランザクションハッシュ](https://loomx.io/developers/docs/en/evm.html#transaction-receipt) を使用することができる。
 
-### call
+### 呼び出し
 
 ```text
-Call a method on a contract that can mutate the state
+コントラクトのメソッド呼び出しは、状態を変更しうる。
 
 Usage:
   loom call [flags]
@@ -144,15 +144,15 @@ Flags:
   -w, --write string           URI for sending txs (default "http://localhost:46658/rpc")
 ```
 
-The -a and -k flags are used to identify the user with public and private key address files.
+-a 及び -k のフラグは、公開鍵および秘密鍵のアドレスファイルでユーザーを特定するのに使用される。
 
--c requires the contract address. This could be one output from a previous call to `\loom deploy` or retrieved from the start up log.
+-c はコントラクトアドレスを要求する。これは前述の`\loom deploy`へのコール結果、もしくは立ち上げ時のログから検索したものとなりうる。
 
--n is a name or label entered for the contract when it was deployed.Can be used as an alternative to the address
+-n はコントラクトデプロイ時に入力された名前やラベルであり、アドレスを代替するものとして使用可能だ。
 
--i is the input string. For a solidity contract this will be ABI encoded as described in the [Solidity ABI documentation](https://solidity.readthedocs.io/en/develop/abi-spec.html).
+-i は入力文字列だ。Solidityのコントラクトでは、これは[Solidity ABI documentation](https://solidity.readthedocs.io/en/develop/abi-spec.html)で説明されているようにABIにエンコーディングされる。
 
-Example
+例
 
 ```text
 call -a ./data/pub -k ./data/pri -i ./cmd/loom/data/inputSet.bin \
@@ -161,7 +161,7 @@ call -a ./data/pub -k ./data/pri -i ./cmd/loom/data/inputSet.bin \
 
 ```
 
-On completion this will return the [transaction hash](https://loomx.io/developers/docs/en/evm.html#transaction-receipt), this should be unique for each transaction call. It can be used to return a receipt of the transaction.
+これが完了すると、[トランザクションのハッシュ値](https://loomx.io/developers/docs/en/evm.html#transaction-receipt)が返却されるが、これは各トランザクションコールに対し唯一であり同じものはない。 これを使ってトランザクションのレシートを取得できる。
 
 ### static-call
 
