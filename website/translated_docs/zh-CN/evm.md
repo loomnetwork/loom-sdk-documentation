@@ -74,13 +74,13 @@ loom DApp链包含一个以太坊虚拟机（EVM）并使你可以部署以及�
     
     ## 从命令行部署并运行
     
-    The loom command line tool has three commands for interacting with the chains's EVM.
+    Loom 命令行工具有三个用于与链的 EVM 交互的命令。
     
-    * `deploy` This will deploy a smart contract in EVM bytecode onto the chain's EVM.
-    * `call` This will call a method that can mutate the state on an already deployed EVM smart contract.
-    * `static-call` This will call a read only method on an already deployed EVM smart contract.
+    * `deploy` 这会将一个用 EVM 字节码写的智能合约部署到该链的EVM上。
+    * `call` 这将对一个已经部署的EVM智能合约调用一个改变其状态的方法。
+    * `static-call` 这将对一个已经部署的EVM智能合约调用一个只读的方法。
     
-    ### Deploy
+    ### 部署
     
     Use `./loom deploy` to deploy a contract, that can be compiled to EVM bytecode, onto a DAppChains EVM.
     
