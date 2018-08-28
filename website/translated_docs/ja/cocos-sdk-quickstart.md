@@ -8,7 +8,7 @@ sidebar_label: Cocos SDKクイックスタート
 - 日本語 
  - [前提条件](#prerequisites)
  - [Loom Cocos SDK](#loom-cocos-sdk)
- - [Generate Cocos SDK](#generate-cocos-sdk)
+ - [Cocos SDKのジェネレート](#generate-cocos-sdk)
  - [Loomのインストール](#install-loom)
  - [Cocos Creatorのインストール](#install-cocos-creator)
  - [Creator Gameとの統合](#integrate-to-creator-game)
@@ -36,9 +36,9 @@ Loom Cocos SDK構成ダイアグラム
 
 `Loom-Cocos-SDK`には、`loom-js`と同一のAPIとprotobuf、さらに同様のコントラクトがある。
 
-`Loom Cocos SDK` is based on [Loom-JS](https://github.com/loomnetwork/loom-js/) , and porting it to `Cocos Creator` .
+`Loom Cocos SDK`は[Loom-JS](https://github.com/loomnetwork/loom-js/)をベースとしていて、これを`Cocos Creator`にポートしている。
 
-### Generate Cocos SDK
+### Cocos SDKのジェネレート
 
 - `git clone https://github.com/loomnetwork/cocos-sdk.git`
 - `cd cocos-sdk`
