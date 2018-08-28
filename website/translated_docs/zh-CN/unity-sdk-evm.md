@@ -157,8 +157,8 @@ async void Start()
 }
 ```
 
-Now that we have all the code in place let's test it out:
+现在我们已经准备好了所有代码，让我们测试一下：
 
-1. Create an empty `GameObject` in a Unity scene and attach the `LoomEvmQuickStartSample` script to it.
-2. Deploy the [TilesChain](https://github.com/loomnetwork/unity-tiles-chain-evm/blob/master/dappchain/TilesChain.sol) smart contract on a local Loom DAppChain node.
-3. Hit `Play` in the Unity Editor.
+1. 在Unity场景中创建一个空的`GameObject`并将 `LoomEvmQuickStartSample`脚本添加进去。
+2. 在本地Loom DApp链节点上部署 [TilesChain](https://github.com/loomnetwork/unity-tiles-chain-evm/blob/master/dappchain/TilesChain.sol) 智能合约。
+3. 在Unity编辑器中点击 `Play`。
