@@ -13,7 +13,7 @@ sidebar_label: Block Explorerチュートリアル
 
 [Loom Block Explorer](https://blockexplorer.loomx.io)にアクセスするだけでよい。 DAppチェーンをローカルマシンで実行している場合は、こちらでブロックデータを参照しよう。
 
-If you are running Loom DAppChain on another machine, you can input your Loom DAppChain RPC server URL into the bottom left corner of the list, Normally the URL should be `http://YOUR_DAPP_CHAIN_SERVER_IP:46657`.
+別のマシン上でLoom DAppチェーンを実行している場合は、Loom DAppチェーンRPCサーバーのURLを、リストの左下隅に入力しよう。通常は次のURLとなる: `http://YOUR_DAPP_CHAIN_SERVER_IP:46657` 
 
 あなたのサーバーが外部よりアクセス可能であることを確認しよう。
 
@@ -34,17 +34,17 @@ Githubのリポジトリをクローンしてスタートしよう:
 
 Devサーバーは以下で実行し `http://127.0.0.1:8080`, もし`8080` ポートが他のプログラムで使われていたら別のものを選ぶ。
 
-By default, it will read block data from `http://127.0.0.1:46658`, if you are running the server on another IP, you can change it in the server list as in online version.
+デフォルトでは、ブロックデータを以下から読み取り`http://127.0.0.1:46658`, もしサーバを他のIPで実行中なら、オンラインバージョンのサーバーリストの中から変更可能。
 
 ## ブロック高で検索
 
-The explorer would show all blocks in current DAppChain, so if you are running a shared blockchain, like running Loom DAppChain, it'll be hard to check your own block data since there are too many of them.
+エクスプローラーは現在のDAppチェーンないの全てのブロックを表示する。もしLoom DAppチェーンのような共有ブロックチェーンを実行中なら、数が多すぎて、あなた自身のブロックデータをチェックするのは難しくなるだろう。
 
-Therefore you need to search by the `block height`:
+それゆえ`block height`で検索する必要がある。
 
-1. Open your loom terminal (where you run the `loom run` command)
-2. Find the blockchain log you just created, the `index` is the block height
-3. In the top right corner of the block list, there is a search input, put the block height and search it.
+1. 1. loomターミナルを開く(`loom run`コマンドを実行している場所)
+2. 2. あなたが今作ったブロックチェーンログを探す
+3. 3. ブロックリストの右上で検索の入力にブロック高を入力して検索する。
 
 ## あなた自身のエクスプローラーをビルドする
 
@@ -56,16 +56,16 @@ Therefore you need to search by the `block height`:
 
 開始するためにはあなたは `Vue`、 `TypeScript` 、 `Google Protobuf` について知る必要がある。 ソースを読むには [DelagateCall ブロックエクスプローラー](https://github.com/loomnetwork/vue-block-explorer/tree/dc-2)が理解しやすい。
 
-To get started:
+まず始めに:
 
-1. Find your own `.proto` file for your DApp.It defined your DApp data structure. Put it in the `src/pbs` folder of the `vue-block-explorer`. then run `yarn proto` (assume you already run `yarn install` before).
-2. You will get 2 new files `YOUR_PROTO_FILE_NAME_pb.d.ts` and `YOUR_PROTO_FILE_NAME_pb.js`
-3. In `transaction-reader.ts`, import the classes in your `.proto` file:
+1. 1. あなた自身のDAppのための `.proto` ファイルを探し、 DAppのデータ構造を定義する。 それを`vue-block-explorer`の`src/pbs`フォルダーに置く。 そして、 `yarn proto`を実行する (すでに`yarn install` を実行済みと想定)。
+2. あなたは以下の２つの新しいファイルを得る `YOUR_PROTO_FILE_NAME_pb.d.ts` 、 `YOUR_PROTO_FILE_NAME_pb.js`
+3. 3. `transaction-reader.ts`の中で `.proto` ファイルの中のクラスをインポートする:
 
     import * as DC from '@/pbs/YOUR_PROTO_FILE_NAME_pb'
     
 
-1. You can use your own protobuf decoders to decode the block data now. You might want to write different decoding function for different data(take *delegatecall* for example):
+1. ブロックデータを今デコードするためにあなた自身のprotobuf デコーダーを使うことができる。 異なるデータ( 例えば*delegatecall*) のためにデーコード関数を書きたいかもしれない。
     
         function readDCProtoData(cmc: ContractMethodCall): DelegateCallTx {
           const methodName = cmc.toObject().method
@@ -86,7 +86,7 @@ To get started:
         }
         
     
-    For each of these decoding functions, use relative protobuf function to decode:
+    それぞれのデコード関数のために、関係のあるprotobuf関数をデコードするのに使う
     
         function readVoteTxPayload(r: Uint8Array): IVoteTx {
           const DCVoteTX = DC.DelegatecallVoteTx.deserializeBinary(r).toObject()
