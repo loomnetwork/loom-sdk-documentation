@@ -1,8 +1,8 @@
 ---
 id: tf-game-token
-title: Token Gateway Example
-sidebar_label: Token Gateway Example
+title: トークンゲートウェイのサンプル
+sidebar_label: トークンゲートウェイのサンプル
 ---
-ERC20 token example shifting the tokens between chains is located here on [Github](https://github.com/loomnetwork/token-gateway-example)
+チェーン間のトークン移転を行うERC20トークンサンプルは、こちらの[Github](https://github.com/loomnetwork/token-gateway-example)にて。
 
 ![](/developers/img/tf-game-token.gif)
