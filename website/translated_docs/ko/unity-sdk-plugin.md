@@ -1,13 +1,13 @@
 ---
 id: unity-sdk-plugin
 title: Plugin 기반의 스마트 컨트랙트 퀵스타트
-sidebar_label: 플러그인 기반의 스마트 컨트랙트 퀵스타트
+sidebar_label: Plugin 기반의 스마트 컨트랙트 퀵스타트
 ---
-Loom 은 EVM ([Ethereum Virtual Machine](evm.html)) 과 plugin 기반의 스마트 컨트랙트를 지원합니다. Plugin-based smart contracts can be created with [go-loom](https://github.com/loomnetwork/go-loom), for example.
+Loom 은 EVM ([Ethereum Virtual Machine](evm.html)) 과 plugin 기반의 스마트 컨트랙트를 지원합니다. Plugin 기반의 스마트 컨트랙트는 [go-loom](https://github.com/loomnetwork/go-loom)으로 만들수 있습니다, 예제.
 
-In this example, we will demostrate how to use the Unity SDK to communicate with plugin-based smart contracts.
+이번 예제에서는, Unity SDK로 Plugin 기반의 스마트 컨트랙트와 커뮤니케이션 하는 방법을 보여드릴 것입니다.
 
-## Sample Code
+## 예제 코드
 
 You can find all the code on this page and a ready-to-go Unity scene in the Loom Unity SDK under [`Assets/LoomSDK/Samples/QuickStart`](https://github.com/loomnetwork/unity3d-sdk/tree/master/Assets/LoomSDK/Samples/QuickStart).
 
