@@ -147,6 +147,6 @@ sidebar_label: 发布日志
 ## 第128次更新 - 5月19日
 
 * 稳定版 Beta 发布
-* Updating logging to default to multiple files 
+* 将多个文件的日志更新为默认模式 
 * Moving all RPC to a single interface
 * Updated External Process interface
