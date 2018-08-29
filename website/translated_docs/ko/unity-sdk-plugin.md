@@ -9,11 +9,11 @@ Loom 은 EVM ([Ethereum Virtual Machine](evm.html)) 과 plugin 기반의 스마�
 
 ## 예제 코드
 
-You can find all the code on this page and a ready-to-go Unity scene in the Loom Unity SDK under [`Assets/LoomSDK/Samples/QuickStart`](https://github.com/loomnetwork/unity3d-sdk/tree/master/Assets/LoomSDK/Samples/QuickStart).
+여러분은 여기 [`Assets/LoomSDK/Samples/QuickStart`](https://github.com/loomnetwork/unity3d-sdk/tree/master/Assets/LoomSDK/Samples/QuickStart) 에서 이 페이지의 모든 코드와 Loom Unity SDK로 만들어진 바로 실행 가능한 Unity scene을 볼 수 있습니다.
 
-## Connecting to a DAppChain
+## DAppChain에 연결하기
 
-The `Contract` class provides a convenient way to interact with a smart contract running on a Loom DAppChain. Let's write a method that creates a `Contract` instance to interact with the sample [BluePrint](https://github.com/loomnetwork/weave-blueprint/blob/master/src/blueprint.go) smart contract provided in the Loom SDK...
+`Contract` 클래스는 Loom DAppChain에서 동작하는 스마트 컨트랙트와 상호작용하기 위한 편리한 방법을 제공합니다. Loom SDK에서 제공하는 [BluePrint](https://github.com/loomnetwork/weave-blueprint/blob/master/src/blueprint.go) 스마트 컨트랙트 예제와 상호작용하는 `Contract` 인스턴스를 만드는 메소드를 작성해봅시다...
 
 ```csharp
 // LoomQuickStartSample.cs
