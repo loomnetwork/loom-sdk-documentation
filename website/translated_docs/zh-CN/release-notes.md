@@ -23,13 +23,13 @@ sidebar_label: 发布日志
 
 * 弃用 QueryServerHost，并将所有功能合并到 RPCServer
 * 新配置选项： RPCBindAddress: "tcp://0.0.0.0:46658"
-* Upgrades of PBFT engine, this may cause incompatibility issues on upgrades, please try in staging environments 
+* 升级 PBFT 引擎，这可能会导致升级时出现不兼容问题，请在测试环境中尝试 
 
-## Release 375 - Aug 10th
+## 第375次更新 - 8月10日
 
-*NOTE* This is a feature test release, with minor compatibility changes, please verify in staging environements before upgrading your production environment.
+*注意* 这是一个功能测试版本，有兼容性的小更改，升级你的生产环境之前请在测试环境中进行验证。
 
-* Fixes for Eventing on EVM Contracts
+* 修复EVM合约的事件
 * Beta release of the [Transfer Gateway](transfer-gateway.html)
 * [Demo of Transfer Gateway](https://github.com/loomnetwork/cards-gateway-example)
 * Memory leak fixes
