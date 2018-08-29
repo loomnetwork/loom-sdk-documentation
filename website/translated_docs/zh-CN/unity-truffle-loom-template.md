@@ -5,13 +5,13 @@ sidebar_label: Unity + Truffle + Loom Template
 ---
 # 概览
 
-A template for a Loom DAppChain with a Unity client. **Contains:**
+有Unity客户端的Loom DApp链模板。 **包含:**
 
-- Template [`Blueprint` Solidity contract](https://github.com/loomnetwork/loom-unity-project-template/blob/master/TruffleProject/contracts/Blueprint.sol) implementing a basic string-to-string map. Perfect as a starting point.
-- Pre-configured Truffle project that automatically extracts ABIs and binaries of compiled contracts into corresponding folders.
-- Ready to use Unity Project, that uses the `Blueprint` Contract from the Loom SDK
+- 模板 [`Blueprint` Solidity 合约](https://github.com/loomnetwork/loom-unity-project-template/blob/master/TruffleProject/contracts/Blueprint.sol) 实现基本的字符串到字符串映射。 完美的起点。
+- 预配置的 Truffle 项目，可自动将已编译合约的 ABI 和二进制文件提取到相应的文件夹中。
+- 准备使用 Unity 项目，它使用 Loom SDK 中的 `Blueprint` 合约。
 
-# Template Structure
+# 模版结构
 
 ```shell
 ├── DAppChain/
