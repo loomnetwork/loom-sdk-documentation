@@ -148,5 +148,5 @@ sidebar_label: 发布日志
 
 * 稳定版 Beta 发布
 * 将多个文件的日志更新为默认模式 
-* Moving all RPC to a single interface
-* Updated External Process interface
+* 将所有 RPC 转移到单个接口
+* 更新了外部进程接口
