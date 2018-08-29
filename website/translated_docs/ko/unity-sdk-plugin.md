@@ -60,7 +60,7 @@ public class LoomQuickStartSample : MonoBehavior
 
 스마트 컨트랙트의 스테이트를 변경시키기 위해서는 여러분은 public 메소드 호출이 필요합니다, 그렇게 하기 위해서는 서명된 트랜잭션이 반드시 DAppChain에 보내져서 검증이 되어야 합니다. 다행히도 `Contract` 클래스는 여러분이 `Contract.callAsync()` 메소드를 사용할때 이런 것들을 대부분 처리해줍니다.
 
-[BluePrint](https://github.com/loomnetwork/weave-blueprint/blob/master/src/blueprint.go) 스마트 컨트랙트는 키에 연관된 값을 저장하는데 사용될 수 있는 public `SetMsg` 메소드를 제공합니다. Let's add a method to the `LoomQuickStartSample` class that calls `BluePrint.SetMsg()`.
+[BluePrint](https://github.com/loomnetwork/weave-blueprint/blob/master/src/blueprint.go) 스마트 컨트랙트는 키에 연관된 값을 저장하는데 사용될 수 있는 public `SetMsg` 메소드를 제공합니다. `LoomQuickStartSample` 클래스에 `BluePrint.SetMsg()`를 호출하는 메소드를 추가해 봅시다.
 
 ```csharp
 async Task CallContract(Contract contract)
