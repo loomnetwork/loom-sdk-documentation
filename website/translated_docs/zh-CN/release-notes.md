@@ -45,34 +45,34 @@ sidebar_label: 发布日志
 * Go合约的范围查询
 * 为 loom.yaml 添加了 ChainID
 
-* [EVM indexed filter](https://loomx.io/developers/docs/en/web3js-event-filters.html)
+* [EVM索引过滤器](https://loomx.io/developers/docs/en/web3js-event-filters.html)
 
-* EVM filter pool fixes and event system
-* Loom-JS EVM updates for indexed filters
-* Loom-JS EVM fixes for getting block by hash
+* EVM过滤器池修复和事件系统
+* 针对索引过滤器的 Loom-JS EVM 更新
+* 修复了 Loom-JS EVM 通过哈希获取块的方法
 
-## Release 288 - July 17th
+## 第288次更新 - 7月17日
 
-* [EVM indexed filter](https://loomx.io/developers/docs/en/web3js-event-filters.html)
-* EVM filter pool fixes and event system
-* Loom-JS EVM updates for indexed filters
-* Loom-JS EVM fixes for getting block by hash
+* [EVM 索引过滤器](https://loomx.io/developers/docs/en/web3js-event-filters.html)
+* EVM 过滤器池修复和事件系统
+* 升级了 Loom-JS EVM 索引过滤器
+* 修复了 Loom-JS EVM 通过哈希获取块的方法
 
-## Release 276 - July 13th
+## 第276次更新 - 7月13日
 
-* [New Block Explorer](block-explorer-tutorial.html)
-* Multinode EVM fixes 
-* Loom-JS updates for Plasma cash
-* Zombiechain testnet fixes
-* DPoS Updates
+* [新区块浏览器](block-explorer-tutorial.html)
+* 多节点 EVM 修复 
+* Loom-JS 对 Plasma cash 更新
+* 僵尸链测试网修复
+* DPoS 更新
 
-## Release 209 - June 20th
+## 209版发布 - 6月20日
 
-Major release
+主要发布
 
-* Plasma Cash initial integration - Demos coming next week
-* Multinode fixes and performance increases
-* Ansible updates for multinode
+* Plasma Cash初始整合 - 下周即将推出演示
+* 多节点修复和性能提高
+* 多节点的 Ansible 更新
 * Querying / Filtering on EVM supports more types 
 * Unity SDK updates for EVM 
 * Loom-JS updates for EVM
