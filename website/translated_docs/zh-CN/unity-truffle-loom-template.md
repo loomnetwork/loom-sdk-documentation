@@ -1,7 +1,7 @@
 ---
 id: unity-truffle-loom-template
-title: Unity + Truffle + Loom Template
-sidebar_label: Unity + Truffle + Loom Template
+title: Unity + Truffle + Loom 模版
+sidebar_label: Unity + Truffle + Loom 模版
 ---
 # 概览
 
@@ -33,23 +33,23 @@ sidebar_label: Unity + Truffle + Loom Template
 
 * * *
 
-## Getting the Template
+## 获取模版
 
-First, you need to install Truffle, if it isn't installed already:
+首先，您需要安装Truffle，如果它尚未安装：
 
 ```shell
 npm install -g truffle
 ```
 
-After that, you can download the template itself:
+之后，你就可以下载模板了：
 
 ```shell
 git clone https://github.com/loomnetwork/loom-unity-project-template.git
 ```
 
-Feel free to rename the `loom-unity-project-template` folder right away according to the name of your project.
+可以根据你的项目名称立即重命名 `loom-unity-project-template` 文件夹。
 
-## Building the Truffle Project
+## 构建 Truffle 项目
 
 ```shell
 # Build the Truffle project. This will extract the ABI files to the Unity client,
@@ -59,7 +59,7 @@ cd Truffle
 truffle build
 ```
 
-## Running the DAppChain
+## 运行DApp链
 
 ```shell
 # Start the Loom DAppChain. Loom binary will be downloaded automatically
@@ -68,13 +68,13 @@ cd DAppChain
 ./start-chain.sh
 ```
 
-## Running the Unity client
+## 运行Unity客户端
 
-Open the Unity project located in `UnityClient`. Open the `Blueprint/BlueprintTest` scene and run/build it.
+打开位于 `UnityClient` 文件夹中的Unity项目。打开 `Blueprint/BlueprintTest` 场景并运行/构建它。
 
-# Workflow
+# 工作流程
 
-1. Make changes to the contracts.
-2. Build the Truffle project using `truffle build`.
-3. Start the Loom DAppChain using `DAppChain/start-chain.sh`.
-4. Make changes to the Unity client project.
+1. 对合约进行更改。
+2. 用 `truffle build` 来构建 Truffle 项目。
+3. 使用 `DAppChain/start-chain.sh` 启动 Loom DAppChain。
+4. 对 Unity 客户端项目进行更改。
