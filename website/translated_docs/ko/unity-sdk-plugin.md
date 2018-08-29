@@ -56,7 +56,7 @@ public class LoomQuickStartSample : MonoBehavior
 }
 ```
 
-## Writing data to a DAppChain
+## DAppChain에 데이터 쓰기
 
 To mutate the state of a smart contract you need to call one of its public methods, to do so a signed transaction must be sent to and validated by the DAppChain. Fortunately the `Contract` class takes care of most of this when you use the `Contract.CallAsync()` method.
 
