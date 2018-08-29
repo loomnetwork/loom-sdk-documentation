@@ -30,20 +30,20 @@ sidebar_label: 发布日志
 *注意* 这是一个功能测试版本，有兼容性的小更改，升级你的生产环境之前请在测试环境中进行验证。
 
 * 修复EVM合约的事件
-* Beta release of the [Transfer Gateway](transfer-gateway.html)
-* [Demo of Transfer Gateway](https://github.com/loomnetwork/cards-gateway-example)
-* Memory leak fixes
-* Minor api breakages, please upgrade go-loom/loom-js. Unity updates coming soon
-* Go-loom is upgraded for api breakages
-* loom-js is upgraded for this release. 
+* [转移网关](transfer-gateway.html) 的Beta版本
+* [转移网关演示](https://github.com/loomnetwork/cards-gateway-example)
+* 内存泄漏修复
+* Api 的些许不兼容，请升级 go-loom / loom-js。 Unity 即将推出更新
+* Go-loom 已针对 api 不兼容升级
+* loom-js 已针对此版本升级 
 
-## Release 330 - July 30th
+## 第303次更新 - 7月30日
 
-* Fix for consensus problems on EVM 
-* Updates for Zombiechain TestNet
-* Added more telemetry to measure performance
-* Range queries on Go Contracts
-* Added ChainID to loom.yaml
+* 修复了 EVM 的共识问题 
+* 更新了僵尸链测试网
+* 增加了更多遥测来衡量性能
+* Go合约的范围查询
+* 为 loom.yaml 添加了 ChainID
 
 * [EVM indexed filter](https://loomx.io/developers/docs/en/web3js-event-filters.html)
 
