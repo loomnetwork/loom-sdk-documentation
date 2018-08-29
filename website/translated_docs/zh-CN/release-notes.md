@@ -112,18 +112,18 @@ sidebar_label: 发布日志
 
 ## 第137次更新 - 5月30日
 
-* Go Clients can Access EVM Contracts
-* Numerous bug fixes for EVM
-* [Social Network Example App - Solidity](simple-social-network-example.html)
+* Go 客户端可以访问 EVM 合约
+* 对 EVM 的大量 bug 修复
+* [社交网络示例应用程序 - Solidity](simple-social-network-example.html)
 
-## Release 136 - May 28th
+## 第136次更新 - 5月28日
 
-* Initial Solidity Alpha test build, you can now deploy solidity contracts
-* Websocket eventing support for solidity 
-* [Example Project for solidity Events](phaser-sdk-demo-web3-websocket.html)
-* [Multinode deployment guide](multi-node-deployment.html)
+* 初始 Solidity Alpha 测试构建，你现在可以部署 Solidity 合约
+* 对 Solidity 的 Websocket 事件支持 
+* [对 Solidity 事件的示例项目](phaser-sdk-demo-web3-websocket.html)
+* [多节点部署指南](multi-node-deployment.html)
 
-## Release 133 - May 24th
+## 第133次更新 - 5月24日
 
 * [Etherboy Demo released](https://loomx.io/developers/docs/en/etherboy-game.html)
 * [Japanese Docs released](https://loomx.io/developers/ja)
