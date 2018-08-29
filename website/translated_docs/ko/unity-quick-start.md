@@ -1,9 +1,9 @@
 ---
 id: unity-quick-start
-title: Quick Start
-sidebar_label: Quick Start
+title: 퀵 스타트
+sidebar_label: 퀵 스타트
 ---
-So you are a game developer, that's awesome! We've made it our mission to provide tools to let you build the games you want on the blockchain.
+여러분은 게임개발자이신가요, 정말 대단합니다! 블록체인 상에서 여러분이 원하는 게임을 만들어주는 툴을 제공해야 한다는 우리의 미션을 완수했습니다.
 
 **If you have previous Solidity programming experience**, then you should start with this [truffle + unity tutorial](https://medium.com/@zacharyholland_17606/getting-started-with-loom-truffle-and-unity-f2558ad9d213)
 
