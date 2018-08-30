@@ -24,7 +24,7 @@ sidebar_label: 转移网关
 
 ![Diagram of ERC721 Transfer to Ethereum](/developers/img/transfer-gateway-erc721-to-ethereum.png)
 
-To get that same token back into their Ethereum account the user must first transfer the token back to the DAppChain Gateway, which creates a pending withdrawal. The pending withdrawal is picked up by the Gateway Oracle, which signs the withdrawal, and notifies the DAppChain Gateway. The DAppChain Gateway emits an event to let the user know they can withdraw their token from the Mainnet Gateway to their Ethereum account by providing the signed withdrawal record.
+要将这个代币返回其以太坊帐户，用户必须首先将代币转移回DApp链网关，这将创建一个待处理的取款。 这个待处理的取款由网关 Oracle 接受，签署并通知DApp链网关。 The DAppChain Gateway emits an event to let the user know they can withdraw their token from the Mainnet Gateway to their Ethereum account by providing the signed withdrawal record.
 
 If you're a hands-on learner you might want to jump straight into the [Transfer Gateway Cards](https://github.com/loomnetwork/cards-gateway-example) example project before reading any further...
 
