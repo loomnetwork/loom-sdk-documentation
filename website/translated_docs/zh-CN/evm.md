@@ -56,7 +56,7 @@ loom DApp链包含一个以太坊虚拟机（EVM）并使你可以部署以及�
 
 ```
 
-顶部数组中有两个合约。 第一个是EVM合同，第二个是插件。
+顶部数组中有两个合约。 第一个是 EVM 合约，第二个是插件。
 
 * `vm:` 以前是虚拟机运行合约。现在有两种选择。 
     1. `plugin` 用户创建合约。
@@ -82,7 +82,7 @@ loom DApp链包含一个以太坊虚拟机（EVM）并使你可以部署以及�
     
     ### 部署
     
-    使用 `./loom deploy` 将可以编译为 EVM 字节码的合同部署到 DAppChains EVM 上。
+    使用 `./loom deploy` 将可以编译为 EVM 字节码的合约部署到 DAppChains EVM 上。
     
     ```text
     Deploy a contract 
@@ -122,7 +122,7 @@ loom DApp链包含一个以太坊虚拟机（EVM）并使你可以部署以及�
     
     ```
     
-    输出合同地址可用于在调用命令中调用合同上的方法。 独特的 [事务哈希](https://loomx.io/developers/docs/en/evm.html#transaction-receipt) 可用于检索部署事务的回执。
+    输出合约地址可用于在调用命令中调用合约上的方法。 独特的 [事务哈希](https://loomx.io/developers/docs/en/evm.html#transaction-receipt) 可用于检索部署事务的回执。
     
     ### 调用
     
@@ -209,7 +209,7 @@ loom DApp链包含一个以太坊虚拟机（EVM）并使你可以部署以及�
     
     * 用户申请。这是一个在 DApp 链上启动事务的终端用户应用程序。
     
-    * DApp 链。从用户应用程序接收事务并转发到要运行的相应合同。 同时将结果提交给区块链。
+    * DApp 链。从用户应用程序接收事务并转发到要运行的相应合约。 同时将结果提交给区块链。
     
     * 智能合约。由用户编写并部署在 DApp 链上。有两种主要类型。
         
@@ -268,9 +268,8 @@ loom DApp链包含一个以太坊虚拟机（EVM）并使你可以部署以及�
     
     1. 首先，合约必须是 package main 。
     2. 将我们名为 Hello World 的合约定义为结构。
-    3. 实现`Meta()` 函数，返回合约名和版本号。
-    4. The variable `Contract` needs to be defined. The function `contract
-.MakePluginContract` converts our simple outline into an object that a DAppChain can communicate with.
+    3. 实现 `Meta()` 函数，返回合约名和版本号。
+    4. 需要定义变量 `Contract` 。函数`contract.MakePluginContract` 将我们简单的大纲转换为一个DApp链能与之交互的东西。
     5. 然后，主例程可以将合约设置为工作服务器。
     
     当然了，我们的合约没有任何功能所以什么也做不了。 下一步就是为其添加一些功能。 然后，MakePluginContract 函数可以使用反射来学习我们为合约提供的所有新方法。
@@ -702,7 +701,7 @@ loom DApp链包含一个以太坊虚拟机（EVM）并使你可以部署以及�
     
     #### 连接到 DApp 链上的 Solidity 合约
     
-    We use the EvmContract class instead of the Contract class. So the loom-js quick-start getEvmContract could looks like:
+    我们使用 EvmContract 类而不是 Contract 类。 所以 loom-js quick-start getEvmContract 会像这样：
     
     ```js
     const {
@@ -778,7 +777,7 @@ loom DApp链包含一个以太坊虚拟机（EVM）并使你可以部署以及�
     
     以下是事务回执对象的详细信息。 
     
-    | Field             | 内容                                             |
+    | 字段                | 内容                                             |
     | ----------------- |:---------------------------------------------- |
     | TransactionIndex  | 此区块的事务编号                                       |
     | BlockHash         | 上一区块的哈希                                        |
