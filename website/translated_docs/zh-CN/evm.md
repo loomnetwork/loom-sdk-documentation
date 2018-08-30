@@ -127,7 +127,7 @@ loom DApp链包含一个以太坊虚拟机（EVM）并使你可以部署以及�
     ### 调用
     
     ```text
-    在可以改变状态的合约上调用方法
+    对合约调用一个可以改变其状态的方法
     
     Usage:
       loom call [flags]
@@ -161,7 +161,7 @@ loom DApp链包含一个以太坊虚拟机（EVM）并使你可以部署以及�
     
     ```
     
-    完成后, 将返回 \[事务哈希\](https://loomx.io/developers/docs/en/evm.html#transaction-receipt), 这对于每个事务调用都应该是唯一的。 它可用于返回事务的回执。
+    完成后, 将返回 [事务哈希](https://loomx.io/developers/docs/en/evm.html#transaction-receipt), 这对于每个事务调用都应该是唯一的。 它可用于返回事务的回执。
     
     ### 静态调用
     
