@@ -98,9 +98,9 @@ async Task CallContractWithResult(Contract contract)
 
 ## DAppChain에서 데이터 읽어오기
 
-스마트 컨트랙트의 스테이트를 읽어오기 위해서 여러분은 public read-only 메소드중 하나를 호출해주어야 합니다, read-only 메소드 호출은 스마트 컨트랙트의 스테이트를 변경하지 않습니다. You can call a read-only method on a smart contract by using the `Contract.StaticCallAsync()` method.
+스마트 컨트랙트의 스테이트를 읽어오기 위해서 여러분은 public read-only 메소드중 하나를 호출해주어야 합니다, read-only 메소드 호출은 스마트 컨트랙트의 스테이트를 변경하지 않습니다. 여러분은 `Contract.StaticCallAsync()` 메소드를 사용해서 스마트 컨트랙트의 read-only 메소드를 호출할 수 있습니다.
 
-The [BluePrint](https://github.com/loomnetwork/weave-blueprint/blob/master/src/blueprint.go) smart contract has a public `GetMsg` method that can be called to look up an association between a key and a value. Let's add a method to the `LoomQuickStartSample` class to call `BluePrint.GetMsg`.
+[BluePrint](https://github.com/loomnetwork/weave-blueprint/blob/master/src/blueprint.go) 스마트 컨트랙트는 키에 연관된 값을 조회하는데 호출되는 public `GetMsg` 메소드를 제공합니다. `LoomQuickStartSample` 클래스에 `BluePrint.GetMsg`를 호출하는 메소드르 추가해 봅시다.
 
 ```csharp
 async Task StaticCallContract(Contract contract)
