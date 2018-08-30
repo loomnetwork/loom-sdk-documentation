@@ -489,7 +489,7 @@ Usage:
     }
     ```
     
-    This function could be called in Go using Go-loom with.
+    这个函数可以用 Go-loom 的 Go 语言调用。
     
     ```go
         rpcClient := client.NewDAppChainRPCClient(chainId, writeUri, readUri)
@@ -501,7 +501,7 @@ Usage:
     
     ```
     
-    The GetValue function now works in a similar fashion. We now have to unwrap the output from the solidity contract and return it in a WrapValue message . `StaticCallEvm` is used as `get` is a view or constant function.
+    GetValue 函数以类似的方式工作。 我们现在必须从 Solidity 合约中打开输出，并在 WrapValue 消息中返回。 `StaticCallEvm` 用作 `get` 是一个view或者常量函数。
     
     ```go
     import (
@@ -543,17 +543,17 @@ Usage:
     }
     ```
     
-    ## EvmContract
+    ## Evm 合约
     
-    go-loom and loom-js provide help for communicating with a running DAppChain using a RPC client.
+    go-loom 和 loom-js 用一个 RPC 客户端为与一个运行中的 DApp 链的交互提供帮助。
     
     ### go-loom
     
-    This works in much the same way as described for [go-loom Contract](https://loomx.io/developers/docs/en/go-loom-clients.html#connecting-to-a-dappchain)
+    这个工作的方式和[go-loom Contract](https://loomx.io/developers/docs/en/go-loom-clients.html#connecting-to-a-dappchain) 中所述的类似。
     
     #### 连接到 DApp链上的Solidity合约
     
-    So to connect to an existing solidity smart contact running on a DAppChain EVM we can use
+    因此，要连接到一个现有的运行在 DApp 链 EVM 上的 Solidity 智能合约，我们可以使用
     
     ```go
     package main
@@ -564,8 +564,7 @@ Usage:
       "github.com/loomnetwork/go-loom/vm"
     )
     
-    // getContract creates a new `Contract` instance that can be used to interact
-     with a smart contract deployed on a DAppChain's EVM.
+    // getContract 创建一个新的“合约”实例，它可用于与部署在 DApp 链上 EVM 的智能合约交互。
     func getEvmContract(contractName string) (*client.EvmContract, error) {
       rpcClient := client.NewDAppChainRPCClient(
         "default",
@@ -582,11 +581,11 @@ Usage:
     
     #### 将Solidity合约部署到一个DApp链上
     
-    We can also deploy a new smart contract to a running DAppChain EVM. For this we need the contracts bytecode.
+    我们还可以将新的智能合约部署到运行的 DApp 链 EVM 上。为此，我们需要合约字节码。
     
-    A solidity contract can be converted to byte code using the solidity compiler `solc --bin -o . mySolidityProgram.sol`
+    可以使用 Solidty 编译器 `solc --bin -o . mySolidityProgram.sol` 将 Solidity 合约转换为字节代码。
     
-    `hex.DecodeString` can be used to convert a hex string to a []byte array. We can then use the client.DeployContract to deploy our contract. and return an EVMContract handle. The second return parameter is a [transaction hash](https://loomx.io/developers/docs/en/evm.html#transaction-receipt) that can be used to retrive a reciept of the transaction using the TxHash Query.
+    `hex.DecodeString` 可用于将十六进制字符串转换为 [] 字节数组。 然后, 我们可以使用 client.DeployContract 来部署我们的合约。 然后返回一个 EVMContract 的代号。 第二个返回的参数是一个[transaction hash](https://loomx.io/developers/docs/en/evm.html#transaction-receipt)，它可以被用来取回使用 TxHash Query 的事务回执。
     
     ```go
     import (
@@ -598,7 +597,7 @@ Usage:
     
     func deployEvmContract(name string, byteHex string, signer auth.Signer) 
     (handle *EvmContract, txReciept []byte, err error) {
-        // remove the 0x at the beging of a hex string
+        // 删除十六进制字符串开头的0x
         byteCode, err := hex.DecodeString(string(byteHex[2:]))
         if err != nil {
             return err
@@ -610,23 +609,23 @@ Usage:
     
     #### 取回Solidity合约的代码
     
-    You can retrieve the runtime bytecode for a deployed solidity contract using the DAppChains QueryInterface method GetCode.
+    你可以使用 DAppChains QueryInterface 的方法 GetCode 来取回一个已部署Solidity合约的运行时字节码。
     
     ```go
-    // GetCode returns the runtime byte-code of a contract running on a DAppChain's EVM.
-    // Gives an error for non-EVM contracts.
-    // contract - address of the contract in the form of a string. (Use loom.Address.String() to convert)
-    // return []byte - runtime bytecode of the contract.
+    // GetCode 返回在 DAppChain 的 EVM 上运行的协定的运行时字节代码。
+    // 为非 EVM 合约提供error。
+    // 合约 - 字符串形式的合约地址。 (使用 loom.Address.String() 来转换)
+    // 返回 []byte - 合约运行时的字节码。
     func (c *DAppChainRPCClient) GetCode(contract string) ([]byte, error) 
     ```
     
-    The runtime code is the inital contract's binary with the code for starting and construting the contract removed as its no longer needed.
+    运行时代码是初始合约的二进制文件, 其中移除启动和构建的合约代码，因为它不再需要了。
     
     #### 在DApp链上编写Solidity合约
     
-    Writing and reading to a smart contract deployed on a DAppChain's EVM works in a similar way to [writing](https://loomx.io/developers/docs/en/go-loom-clients.html#writing-data-to-a-dappchain) and [reading](https://loomx.io/developers/docs/en/go-loom-clients.html#reading-data-from-a-dappchain) to non-EVM plugins. The main difference is that the function signature and input parameters need to be converted to bytecode using [ABI encoding](https://solidity.readthedocs.io/en/develop/abi-spec.html). You can use the go-ethereum [abi.JSON](https://godoc.org/github.com/obscuren/go-ethereum/accounts/abi#JSON) function to encode input using your contracts ABI which you can get from `solc --abi -o. MySolidiityProgram.sol`
+    编写和读取部署在 DApp 链 EVM 上的智能合约类似于[编写](https://loomx.io/developers/docs/en/go-loom-clients.html#writing-data-to-a-dappchain)和[读取](https://loomx.io/developers/docs/en/go-loom-clients.html#reading-data-from-a-dappchain)非 EVM 插件。 主要区别在于函数签名和输入参数需要用 [ABI 编码](https://solidity.readthedocs.io/en/develop/abi-spec.html)转换为字节码。 你可以用 go-ethereum [abi.JSON](https://godoc.org/github.com/obscuren/go-ethereum/accounts/abi#JSON) 函数使用你的合约ABI（可以从`solc --abi -o.MySolidiityProgram.sol ` 获取）来对输入进行编码。 MySolidiityProgram.sol</code>
     
-    EvmContract's Call method is used for methods that mutate the DAppChain's state.
+    Evm 合约的调用方法是用于改变 DApp 链状态的方法。
     
     ```go
      input (
