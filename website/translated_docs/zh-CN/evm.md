@@ -122,7 +122,7 @@ loom DApp链包含一个以太坊虚拟机（EVM）并使你可以部署以及�
     
     ```
     
-    输出合同地址可用于在调用命令中调用合同上的方法。 搜索要部署的事务回执，请使用唯一的[事务哈希](https://loomx.io/developers/docs/en/evm.html#transaction-receipt) 。
+    输出合同地址可用于在调用命令中调用合同上的方法。 独特的 [事务哈希](https://loomx.io/developers/docs/en/evm.html#transaction-receipt) 可用于检索部署事务的回执。
     
     ### 调用
     
