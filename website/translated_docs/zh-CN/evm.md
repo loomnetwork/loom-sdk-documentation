@@ -214,7 +214,7 @@ loom DApp链包含一个以太坊虚拟机（EVM）并使你可以部署以及�
     * 智能合约。由用户编写并部署在 DApp 链上。有两种主要类型。
         
         1. 插件。 可以用 gRPC 所支持的任何语言编写；go-loom 允许简单使用 Go 编写合约，并为 javascript 提供 loom-js 。 该插件被编译为 DApp 链使用 gRPC 调用的可执行文件。
-        2. EVM smart contracts. Solidity programs or any other code that compiles into EVM bytecode can be run by the DAppChain using its EVM.
+        2. EVM 智能合约。Solidity 程序或其他任何编译成 EVM 字节码的代码都可以由 DApp链用它的 EVM 来运行。
     
     插件可以通过使用 gRPC 回调到 DApp 链来运行其他合约，包括那些部署在EVM上的合约。 然而，相反的情况却并非如此，EVM 部署的合约只能在 EVM 内进行交互，这是为了确保 EVM 的结果具有确定性。
     
