@@ -121,12 +121,12 @@ Usage:
     
     ```
     
-    The output contract address can be used to call a method on the contract in the call command. The uinique [transaction hash](https://loomx.io/developers/docs/en/evm.html#transaction-receipt) can be used to retrive a receipt of the deployment transaction.
+    The output contract address can be used to call a method on the contract in the call command. 搜索要部署的事务回执，请使用唯一的[事务哈希](https://loomx.io/developers/docs/en/evm.html#transaction-receipt) 。
     
-    ### call
+    ### 调用
     
     ```text
-    Call a method on a contract that can mutate the state
+    在可以改变状态的合约上调用方法
     
     Usage:
       loom call [flags]
@@ -143,15 +143,15 @@ Usage:
       -w, --write string           URI for sending txs (default "http://localhost:46658/rpc")
     ```
     
-    The -a and -k flags are used to identify the user with public and private key address files.
+    -a 和 -k 标志用于标识具有公钥和私钥地址文件的用户。
     
-    -c requires the contract address. This could be one output from a previous call to `\loom deploy` or retrieved from the start up log.
+    -c 需要合约地址。这可以是先前对` \loom deploy `的调用或从启动日志中检索的一个输出。
     
-    -n is a name or label entered for the contract when it was deployed.Can be used as an alternative to the address
+    -n 是部署时为合约输入的名称或标签。 可以用作地址的替代品。
     
-    -i is the input string. For a solidity contract this will be ABI encoded as described in the [Solidity ABI documentation](https://solidity.readthedocs.io/en/develop/abi-spec.html).
+    -i 是输入字符串。对于一个Solidity合约，这将会是如[Solidity ABI 文档](https://solidity.readthedocs.io/en/develop/abi-spec.html) 中所述的ABI编码。
     
-    Example
+    例如
     
     ```text
     call -a ./data/pub -k ./data/pri -i ./cmd/loom/data/inputSet.bin \
