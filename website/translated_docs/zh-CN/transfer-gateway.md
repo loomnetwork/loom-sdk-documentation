@@ -9,14 +9,14 @@ sidebar_label: 转移网关
 
 转移网关由四大主要组件构成:
 
-- 以太坊（主网网关）的网关 Solidity 合约
+- 以太坊的网关 Solidity 合约（主网网关）
 - Loom DApp链上的网关 Go 合约（DApp链网关）
-- Address Mapper Go contract on the Loom DAppChain
-- Gateway Oracle (can run in-process on a DAppChain node, or as a standalone process)
+- Loom DApp链上的地址映射器 Go 合约
+- 网关 Oracle（可以在DApp链节点上运行进程，也可以作为独立进程运行）
 
-[ERC20 Transfer Gateway Example](https://github.com/loomnetwork/token-gateway-example)
+[ERC20 转移网关示例](https://github.com/loomnetwork/token-gateway-example)
 
-[ERC721 Transfer Gateway Example](https://github.com/loomnetwork/cards-gateway-example)
+[ERC721 转移网关示例](https://github.com/loomnetwork/cards-gateway-example)
 
 ![Diagram of ERC721 Transfer to DAppChain](/developers/img/transfer-gateway-erc721-to-dappchain.png)
 
