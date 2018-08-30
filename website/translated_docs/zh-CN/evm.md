@@ -219,13 +219,13 @@ Usage:
     
     ### 用户代码
     
-    The user provides two items of code. The smart contracts and the end application that make use of the DAppChain.
+    用户提供两项代码。智能合约和使用 DApp 链的最终应用程序。
     
-    In the following we will assume that Go is being used for the end application and the smart contracts are written either in Go for plugins or solidity for EVM. Refer to [loom-js-quickstart](loom-js-quickstart.html) for a javascript solution.
+    接下来我们将假设，Go 被用于终端应用程序，而插件的智能合约用 Go 编写，EVM 的智能合约用 Solidity 编写。 有关 JavaScript 的解决方案，请参考[ loom-js-quickstart ](loom-js-quickstart.html)。
     
-    ### Minimal plugin
+    ### 最小的插件
     
-    First lets look at the definition of a contract in Go-loom.
+    首先让我们看一下 Go-loom 中合约的定义。
     
     ```go
     type Contract interface {
@@ -233,7 +233,7 @@ Usage:
     }
     ```
     
-    and plugin.Meta is defined from a protobuf definition
+    而 plugin.Meta 是从 protobuf 的定义中被定义的
     
     ```go
     type ContractMeta struct {
@@ -242,7 +242,7 @@ Usage:
     }
     ```
     
-    So all a contract needs is to implement the Meta function. However to be usable as a plugin in a DAppChain there are a few other bits. Here is a minimal example.
+    因此, 一个合约所需要的就是实现 Meta 函数。然而，作为可在 DApp 链里使用的插件，还需要有一些其他东西。这里有一个最简单的例子。
     
     ```go
     package main
@@ -261,19 +261,13 @@ Usage:
             Version: "1.0.0",
         }, nil
     }
-    
-    var Contract plugin.Contract = contractpb.MakePluginContract(&HelloWorld{})
-    
-    func main() {
-        plugin.Serve(Contract)
-    }
     ```
     
-    Here are some points of interest.
+    这里有一些需要注意的地方。
     
-    1. First the contract has to be package main.
-    2. Define our contract called HelloWorld as a struct.
-    3. Implement the `Meta()` function, returning the contracts name and version number.
+    1. 首先，合约必须是 package main 。
+    2. 将我们名为 Hello World 的合约定义为结构。
+    3. 实现`Meta()` 函数，返回合约名和版本号。
     4. The variable `Contract` needs to be defined. The function `contract
 .MakePluginContract` converts our simple outline into an object that a DAppChain can communicate with.
     5. The main routine can then sets the contract up as a working server.
