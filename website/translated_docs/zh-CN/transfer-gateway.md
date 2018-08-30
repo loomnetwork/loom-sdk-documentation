@@ -111,4 +111,4 @@ Alice 在DApp链上玩得很开心，现在她想将代币从她的DApp链账户
 
 ## 总结
 
-You should now have a basic understanding of how the Transfer Gateway works, though we haven't presented nor explained any of the actual API yet. If you haven't already, take a look at the [Transfer Gateway Cards](https://github.com/loomnetwork/cards-gateway-example) example project, which was built using the Transfer Gateway API provided by [loom-js](https://github.com/loomnetwork/loom-js).
+你现在应该对转移网关的工作原理有了基本的了解，虽然我们还没有提供或解释过任何实际的API。 如果你还没有做的话，请查看 [转移网关卡牌](https://github.com/loomnetwork/cards-gateway-example) 示例项目，该项目是使用 [loom-js](https://github.com/loomnetwork/loom-js) 提供的转移网关 API 构建的。
