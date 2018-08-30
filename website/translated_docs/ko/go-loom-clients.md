@@ -96,7 +96,7 @@ func store(contract *client.Contract, key, value string, signer auth.Signer) err
 
 ```
 
-## DAppChain에서 데이터를 읽어오기
+## DAppChain에서 데이터 읽어오기
 
 스마트 컨트랙트의 상태를 읽어오기 위해서 여러분은 public read-only 메소드중 하나를 호출해주어야 합니다, `Contract.StaticCall()` 메소드를 사용해서 이런 것을 할 수 있습니다.
 
