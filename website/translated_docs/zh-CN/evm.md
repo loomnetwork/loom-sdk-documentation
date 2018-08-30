@@ -149,7 +149,7 @@ Usage:
     
     -n 是部署时为合约输入的名称或标签。 可以用作地址的替代品。
     
-    -i 是输入字符串。对于一个Solidity合约，这将会是如[Solidity ABI 文档](https://solidity.readthedocs.io/en/develop/abi-spec.html) 中所述的ABI编码。
+    -i 是输入字符串。对于一个 Solidity 合约，这将会是如[Solidity ABI 文档](https://solidity.readthedocs.io/en/develop/abi-spec.html) 中所述的ABI编码。
     
     例如
     
@@ -160,11 +160,11 @@ Usage:
     
     ```
     
-    On completion this will return the [transaction hash](https://loomx.io/developers/docs/en/evm.html#transaction-receipt), this should be unique for each transaction call. It can be used to return a receipt of the transaction.
+    完成后, 将返回 \[事务哈希\](https://loomx.io/developers/docs/en/evm.html#transaction-receipt), 这对于每个事务调用都应该是唯一的。 它可用于返回事务的回执。
     
-    ### static-call
+    ### 静态调用
     
-    Call a read only method on a contract. Returns the method return value.
+    调用合约的只读方法，返回方法的返回值。
     
     ```text
     Usage:
@@ -183,15 +183,15 @@ Usage:
       -k, --key string             private key file
     ```
     
-    The -a and -k flags are used to identify the user with public and private key address files.
+    -a 和 -k 标志用于标识具有公钥和私钥地址文件的用户。
     
-    -c requires the contract address. This could be one output from a previous call to `\loom deploy` or retrieved from the start up log.
+    -c 需要合约地址。这可以是先前对` \loom deploy `的调用或从启动日志中检索的一个输出。
     
-    -n is a name or label entered for the contract when it was deployed.Can be used as an alternative to the address.
+    -n 是部署时为合约输入的名称或标签。 可以用作地址的替代品。
     
-    -i is the input string. For a solidity contract this will be ABI encoded as described in the [Solidity ABI documentation](https://solidity.readthedocs.io/en/develop/abi-spec.html). Example
+    -i 是输入字符串。 对于一个 Solidity 合约，这将会是如[Solidity ABI 文档](https://solidity.readthedocs.io/en/develop/abi-spec.html) 中所述的ABI编码。 例如
     
-    The address fields -a and -k are optional.
+    地址域-a 和-k 是可选的。
     
     ```text
     static-call -a ./data/pub -k ./data/pri -i ./cmd/loom/data/inputGet.bin \
@@ -200,13 +200,13 @@ Usage:
     
     ```
     
-    ## From a user plugin
+    ## 来自用户插件
     
-    Smart contracts deployed on a DAppChain's EVM can be called from user created plugins. The evmexample example in go-loom gives and example of how to achieve this.
+    部署到 DApp 链的 EVM 上的智能合约可以由创建插件的用户调用。在 go-loom 系统中的 evmexample 实例给出了实现这一目标的方法。
     
-    Before continuing let's consider the various modules involved.
+    在继续下去之前，让我们考虑以下各种相关的组件。
     
-    * User application. This is the end user application that initiates transactions on the DAppChain.
+    * 用户申请。这是一个在 DApp 链上启动事务的终端用户应用程序。
     
     * DAppChain. Receives transactions from the user application and forwards to the appropriate contract to run. Also commits results to the blockchain.
     
