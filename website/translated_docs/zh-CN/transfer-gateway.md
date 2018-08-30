@@ -1,13 +1,13 @@
 ---
 id: transfer-gateway
-title: Transfer Gateway
-sidebar_label: Transfer Gateway
+title: 转移网关
+sidebar_label: 转移网关
 ---
-## Overview
+## 概述
 
-The Transfer Gateway allows tokens to be transferred between Loom DAppChains and Ethereum networks. Currently only ERC721 tokens are supported, but support for ERC20 tokens, and ETH will be added in the near future.
+转移网关允许代币在 Loom DApp链和以太坊网络之间传输。 目前仅支持 ERC721代币，但在不久的将来会添加 ERC20代币和 ETH支持。
 
-The Transfer Gateway consists of four main components:
+转移网关由四大主要组件构成:
 
 - Gateway Solidity contract on Ethereum (Mainnet Gateway)
 - Gateway Go contract on the Loom DAppChain (DAppChain Gateway)
