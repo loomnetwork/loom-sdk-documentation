@@ -270,11 +270,11 @@ Usage:
     3. 实现`Meta()` 函数，返回合约名和版本号。
     4. The variable `Contract` needs to be defined. The function `contract
 .MakePluginContract` converts our simple outline into an object that a DAppChain can communicate with.
-    5. The main routine can then sets the contract up as a working server.
+    5. 然后，主例程可以将合约设置为工作服务器。
     
-    Of course our contract has no functionality so can't do anything. The next step is to add some. The MakePluginContract function can then use reflection to learn any new methods we give to our contract.
+    当然了，我们的合约没有任何功能所以什么也做不了。 下一步就是为其添加一些功能。 然后，MakePluginContract 函数可以使用反射来学习我们为合约提供的所有新方法。
     
-    ### Adding functions
+    ### 添加功能
     
     ```go
     func (c *HelloWorld) Hello(ctx contract.StaticContext, req *types.HelloRequest) (*types.HelloResponse, error) {
@@ -284,10 +284,10 @@ Usage:
     }
     ```
     
-    So a simple function that just returns a fixed message. A couple of key points.
+    这是一个返回固定消息的简单函数。 有以下要点。
     
-    * Either a `contract.StaticContext` or `contract.Context` should be the first parameter. It provides various methods that allow you to access the resources on the DAppChain. For example view or modify the the state database, or call other plugins. 
-    * The user input in the second parameter and the first return value take the form of [protobuf messages](https://developers.google.com/protocol-buffers/); HelloRequest and HelloResponse in this example. These protobuf message structs need to auto generated from a language neutral .proto file. See below.
+    * `contract.StaticContext` 或 `contract.Context` 应该是第一个参数。 它提供了多种方法允许你访问DApp链上的资源。 例如，查看或修改状态数据库，或者调用其他插件。 
+    * * 第二个参数中的用户输入和第一个返回值以 [protobuf 语句](https://developers.google.com/protocol-buffers/)的形式出现；在这个例子中就是 HelloRequest 和 HelloResponse。 These protobuf message structs need to auto generated from a language neutral .proto file. See below.
     * The input and output protobuf message parameters need to coordinated with the calling application. As the protobuf message data structures are generated from language independent .proto files it does not matter if the calling application and the smart contract are written in different languages. 
     
     So this would be an example of a suitable types.proto file for our Hello function.
