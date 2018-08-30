@@ -101,24 +101,23 @@ Usage:
     
     -a 和 -k 标志用于标识具有公钥和私钥地址文件的用户。
     
-    -b gives the file where the raw EVM bytecode for the contract is held. This could be generated using a solidity compiler such as `solc --bin -o. 
- MySolProgram.sol`
+    -b 提供了保存合约的原始 EVM 字节码的文件。 这可以使用 Solidity 编译器，如 `solc --bin -o. MySolProgram.sol`
     
     -n allows you to enter a name for your contract. This will act as a more user friendly handle than the contract address.
     
-    Example:
+    例如：
     
     ```text
      ./loom deploy -a ./data/pub -k ./data/pri -b ./data/bytecode.bin  -w \
       http://localhost:46658/rpc -r http://localhost:46658/query
     ```
     
-    If everything works you should see something like:
+    如果一切正常，你将会看到以下内容：
     
     ```text
-    New contract deployed with address:  default:0x71A53d11A3b77e369463804FEE9B17ba7E24d98B
+    和地址一同部署的新合约：  default:0x71A53d11A3b77e369463804FEE9B17ba7E24d98B
     Runtime bytecode:  [96 96 96 64 82 ... 84 226 214 187 0 41]
-    Transcation receipt:  [10 178 198 52 108 ... 141 155 79 250 97 129 104 243]
+    事务回执:  [10 178 198 52 108 ... 141 155 79 250 97 129 104 243]
     
     ```
     
