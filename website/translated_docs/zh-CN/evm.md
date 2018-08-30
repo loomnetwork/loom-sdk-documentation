@@ -352,7 +352,7 @@ Usage:
     
     我们将看到一个包含 Solidity 合约的简单插件。 通过这种方式，我们的插件将具有两个函数—— SetValue 和 GetValue ，它们将在 SimpleStore 合约和事务启动器之间传递数据。 因为它包含这个 SimpleStore ，我们称之为 EvmExample 。
     
-    Here is the outline as for the EvmExample contract, with stubs added for the SetValue and GetValue methods.
+    以下是EvmExample合约的大纲，其中为 SetValue 和 GetValue 方法添加了存根。
     
     ```go
     package main
@@ -388,7 +388,7 @@ Usage:
     }
     ```
     
-    The .proto file for generating the message declarations looks like
+    用于生成语句声明的 .proto 文件如下所示
     
     ```proto
     syntax = "proto3";
@@ -401,33 +401,33 @@ Usage:
     }
     ```
     
-    Lets look at the SetValue function first. The function to call to run a smart contract on the EVM is
+    让我们先看看 SetValue 函数。 调用在 EVM 上运行智能合约的功能是
     
     ```go
      contractpb.CallEVM(ctx Context, addr loom.Address, input []byte, output *[]byte) error 
     ```
     
-    The context is just passed though, for setting the output can just be a dummy object. We need to the address of the solidity contract, and the correct input.
+    这里传递了上下文，因为设置输出只能是一个虚拟对象。 我们需要确定合约的地址和正确的输入。
     
-    The Context contains a Registry that allows us to get the address of a contract from it's name.
+    上下文包含一个注册表，允许我们从其名称中获取合约的地址。
     
     ```go
     ssAddr, err := ctx.Resolve("SimpleStore")
     ```
     
-    The input is passed straight though to the EVM and needs to be encoded as laid out in the [Solidity ABI documentation](https://solidity.readthedocs.io/en/develop/abi-spec.html).
+    输入值被直接传递到 EVM 并且需要被如 [Solidity ABI 文档](https://solidity.readthedocs.io/en/develop/abi-spec.html)所述的编码。
     
-    ### ABI encoding of parameters
+    ### ABI编码参数
     
-    So for our input we need to encode it to something like
+    所以我们的输入值需要如下编码
     
     ```text
     60fe47b100000000000000000000000000000000000000000000000000000000000003db
     ```
     
-    Don't panic, go-ethereum can help us out.
+    不要担心，go-ethereum 可以帮助我们。
     
-    When you compile Solidity you not only get the bytecode that runs on the EVM, but you get a ABI. The ABI is a json object that describes the contracts interface. Here is the ABI for our SimpleStore
+    当你编码 Solidity 的时候，你不仅获得了运行在 EVM 上的字节码，你还得到了一个 ABI 。ABI 是一个描述合约接口的 json 事物。这里是给我们 SimpleStore 的 ABI 。
     
     ```json
     [
@@ -462,20 +462,20 @@ Usage:
       ]
     ```
     
-    We can use "github.com/ethereum/go-ethereum/accounts/abi" and this ABI string to encode our input. The key function is [abi.JSON](https://godoc.org/github.com/obscuren/go-ethereum/accounts/abi#JSON)
+    我们可以使用"github.com/ethereum/go-ethereum/accounts/abi" 和这个 ABI 字符串来编码我们的输入值。 这个关键函数是[abi.JSON](https://godoc.org/github.com/obscuren/go-ethereum/accounts/abi#JSON)
     
     ```go
         abiSimpleStore, err := abi.JSON(strings.NewReader(SimpleStoreABI))
         input, err := abiSimpleStore.Pack("set", big.NewInt(value.Value))
     ```
     
-    Here we have the SimpleContract ABI in the `SimpleStoreABI` variable. We could either read it in from a file, or hard code into the source.
+    在这里，我们在 `SimpleStoreABI` 变量中有 SimpleContract ABI 。我们可以从文件中读取，或者将其硬代码入源中。
     
-    The Pack method takes the function signature and a list of the arguments and returns the encoded input.
+    Pack 方法采用函数签名和参数列表, 并返回编码的输入。
     
-    ### Putting it together
+    ### 整理一下
     
-    Now we know how to get the input, and contact address we can give an example of our SetValue method. Error checking removed for clarity.
+    现在我们知道如何得到输入和合约地址，我们可以给出一个 SetValue 方法的例子。为了清晰起见, 错误检查已删。
     
     ```go
     func (c *EvmExample) SetValue(ctx contractpb.Context, value *types.WrapValue) error {
