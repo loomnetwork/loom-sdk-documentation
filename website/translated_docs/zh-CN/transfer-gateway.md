@@ -24,15 +24,15 @@ sidebar_label: 转移网关
 
 ![Diagram of ERC721 Transfer to Ethereum](/developers/img/transfer-gateway-erc721-to-ethereum.png)
 
-要将这个代币返回其以太坊帐户，用户必须首先将代币转移回DApp链网关，这将创建一个待处理的取款。 这个待处理的取款由网关 Oracle 接受，签署并通知DApp链网关。 The DAppChain Gateway emits an event to let the user know they can withdraw their token from the Mainnet Gateway to their Ethereum account by providing the signed withdrawal record.
+要将这个代币返回其以太坊帐户，用户必须首先将代币转移回DApp链网关，这将创建一个待处理的取款。 这个待处理的取款由网关 Oracle 接受，签署取款并通知DApp链网关。 DApp链网关发出一个事件，让用户知道他们可以通过提供已签名的取款记录，将他们的代币从主网网关提取到他们的以太坊帐户。
 
-If you're a hands-on learner you might want to jump straight into the [Transfer Gateway Cards](https://github.com/loomnetwork/cards-gateway-example) example project before reading any further...
+如果你是一个爱动手实践的学习者，你可能希望直接进入 [转移网关卡牌](https://github.com/loomnetwork/cards-gateway-example) 示例项目，然后再继续阅读...
 
-## Setting up ERC721 contracts
+## 设置 ERC721 合约
 
-To transfer an ERC721 token from Ethereum to the DAppChain you'll need two of your own ERC721 contracts, one on Ethereum (Mainnet ERC721), and the other on the DAppChain (DAppChain ERC721).
+要将 ERC721 代币从以太坊转移到 DApp链，你需要自己的两个 ERC721 合约，一个在以太坊（主网 ERC721），另一个在DApp链（DApp链 ERC721）。
 
-Your Mainnet ERC721 contract doesn't need anything special to work with the Transfer Gateway. Though you might want to add something like the `depositToGateway` method below to make it a bit easier to transfer tokens into the Mainnet Gateway:
+你的主网 ERC721 合约不需要任何特殊的功能来使用转移网关。 Though you might want to add something like the `depositToGateway` method below to make it a bit easier to transfer tokens into the Mainnet Gateway:
 
 ```solidity
 pragma solidity ^0.4.24;
