@@ -82,25 +82,24 @@ loom DApp链包含一个以太坊虚拟机（EVM）并使你可以部署以及�
     
     ### 部署
     
-    Use `./loom deploy` to deploy a contract, that can be compiled to EVM bytecode, onto a DAppChains EVM.
+    使用` ./ loom deploy </ code>部署合约时，会将其编译为 EVM 字节码并放置在 DApp 链的 EVM 中。</p>
+
+<pre><code class="text">Deploy a contract 
+
+Usage:
+  loom deploy [flags]
+
+  -a, --address string    address file
+  -b, --bytecode string   bytecode file
+      --chain string      chain ID (default "default")
+  -h, --help              help for deploy
+  -k, --key string        private key file
+  -n, --name string       contract name
+  -r, --read string       URI for quering app state (default "http://localhost:46658/query")
+  -w, --write string      URI for sending txs (default "http://localhost:46658/rpc")
+`</pre> 
     
-    ```text
-    Deploy a contract 
-    
-    Usage:
-      loom deploy [flags]
-    
-      -a, --address string    address file
-      -b, --bytecode string   bytecode file
-          --chain string      chain ID (default "default")
-      -h, --help              help for deploy
-      -k, --key string        private key file
-      -n, --name string       contract name
-      -r, --read string       URI for quering app state (default "http://localhost:46658/query")
-      -w, --write string      URI for sending txs (default "http://localhost:46658/rpc")
-    ```
-    
-    The -a and -k flags are used to identify the user with public and private key address files.
+    -a 和 -k 标志用于标识具有公钥和私钥地址文件的用户。
     
     -b gives the file where the raw EVM bytecode for the contract is held. This could be generated using a solidity compiler such as `solc --bin -o. 
  MySolProgram.sol`
