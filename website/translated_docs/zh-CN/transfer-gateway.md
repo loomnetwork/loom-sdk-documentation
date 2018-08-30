@@ -91,7 +91,7 @@ contract MyAwesomeToken is ERC721Token {
 
 要证明你部署了主网 ERC721合约，你必须提供一个签名（用部署合约的以太坊私钥对消息进行签名时就会生成），以及部署合约的主网事务哈希。
 
-To prove that you deployed the DAppChain ERC721 contract you simply need to sign the request sent to the DAppChain Gateway using the DAppChain private key you used to deploy the contract, the DAppChain Gateway will verify that the sender of the request deployed the contract by looking up the contract creator in the DAppChain contract registry.
+要证明你部署了 DApp链 ERC721 合约，只需使用你用于部署合约的 DApp链私钥, 对发送到 DApp链网关的请求签名，DApp链网关将通过在 DApp链合约注册表中查找合约创建者来验证发送请求者是否部署了合约。
 
 After a contract mapping request is received by the DAppChain Gateway there will be a small delay before it is picked up by the Gateway Oracle. The Gateway Oracle will lookup the transaction that deployed the Mainnet contract to find out who really deployed it, and will then submit its findings back to the DAppChain Gateway, which will either approve the requested mapping, or simply throw it out.
 
