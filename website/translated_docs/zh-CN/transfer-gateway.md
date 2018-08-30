@@ -9,8 +9,8 @@ sidebar_label: 转移网关
 
 转移网关由四大主要组件构成:
 
-- Gateway Solidity contract on Ethereum (Mainnet Gateway)
-- Gateway Go contract on the Loom DAppChain (DAppChain Gateway)
+- 以太坊（主网网关）的网关 Solidity 合约
+- Loom DApp链上的网关 Go 合约（DApp链网关）
 - Address Mapper Go contract on the Loom DAppChain
 - Gateway Oracle (can run in-process on a DAppChain node, or as a standalone process)
 
