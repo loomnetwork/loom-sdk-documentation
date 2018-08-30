@@ -648,31 +648,31 @@ Usage:
      }
     ```
     
-    The Call method returns a [transaction hash](https://loomx.io/developers/docs/en/evm.html#transaction-hash) You can use the transaction hash retrieve more information about the contract using the `GetEvmTxReceipt` method. This returns a [transcation recieipt, vm.EvmTxReceipt](https://loomx.io/developers/docs/en/evm.html#transaction-receipt) object.
-    
-    ```go
-     input (
-       "github.com/loomnetwork/go-loom/auth"
-       "github.com/loomnetwork/go-loom/client"
-       "github.com/loomnetwork/go-loom/vm
-       "github.com/ethereum/go-ethereum/accounts/abi"   
-     )
-    
-     ...
-        txHash, err := store(ecmContract, key, abi, 23)
-        if err != nil {
-            return err
-        }
-        rpcClient := client.NewDAppChainRPCClient(common.ChainID, common.WriteURI, common.ReadURI)
-        var receipt vm.EvmTxReceipt
-        receipt, err = rpcClinet.GetTxReceipt(txHash)
-     ...
-    
-    ```
+    Call 方法返回[事务哈希值](https://loomx.io/developers/docs/en/evm.html#transaction-hash)。你可以在` GetEvmTxReceipt </ code>方法中使用此哈希来检索有关合约的更多信息。
+ 这会返回一个 <a href="https://loomx.io/developers/docs/en/evm.html#transaction-receipt">transcation recieipt, vm.EvmTxReceipt</a> 对象。</p>
+
+<pre><code class="go"> input (
+   "github.com/loomnetwork/go-loom/auth"
+   "github.com/loomnetwork/go-loom/client"
+   "github.com/loomnetwork/go-loom/vm
+   "github.com/ethereum/go-ethereum/accounts/abi"   
+ )
+
+ ...
+    txHash, err := store(ecmContract, key, abi, 23)
+    if err != nil {
+        return err
+    }
+    rpcClient := client.NewDAppChainRPCClient(common.ChainID, common.WriteURI, common.ReadURI)
+    var receipt vm.EvmTxReceipt
+    receipt, err = rpcClinet.GetTxReceipt(txHash)
+ ...
+
+`</pre> 
     
     #### 读取DApp链上的Solidity合约
     
-    To get information from an EVM smart contract you need to call a view method using the EvmContract's staticCall. This returns the result in an ABI encoded []byte. As for other EVM methods the function signature and input arguments are [ABI encoded](https://solidity.readthedocs.io/en/develop/abi-spec.html). The caller field in StaticCall is optional, and using an empty loom.Address is fine.
+    想从 EVM 智能合约得到信息，你需要使用 Evm 合约的 staticCall 来调用视图方法。 这会返回 ABI 编码[]字节形式的结果。 对于其他 EVM 方法，函数签名和输入变量是 [ABI编码](https://solidity.readthedocs.io/en/develop/abi-spec.html)的。 StaticCall 的调用方字段是可选的，并且用空的 loom.Address 即可。
     
     ```go
      input (
@@ -697,9 +697,9 @@ Usage:
     
     ### loom-js
     
-    In JavaScript and TypeScript you can Call methods contracts deployed on the EVM of a DAppChain in a similar way as for non-EVM plugins, outlined in the [loom-js quickstart](https://loomx.io/developers/docs/en/loom-js-quickstart.html#connecting-to-a-dappchain)
+    在 JavaScript 和 TypeScript 中，你可以使用与非 EVM 插件类似的方式调用部署在 DApp 链的 EVM 上的方法合约，已在 loom-js 快速入门中进行了概述
     
-    #### Connecting to a Solidity contract on a DAppChain
+    #### 连接到 DApp 链上的 Solidity 合约
     
     We use the EvmContract class instead of the Contract class. So the loom-js quick-start getEvmContract could looks like:
     
@@ -712,11 +712,10 @@ Usage:
     const { MapEntry } = require('./helloworld_pb')
     
     /**
-     * Creates a new `EvmContract` instance that can be used to interact with a 
-     smart contract running on a DAppChain's EVM.
-     * @param privateKey Private key that will be used to sign transactions sent to the contract.
-     * @param publicKey Public key that corresponds to the private key.
-     * @returns `EvmContract` instance.
+     * 创建一个新的`Evm 合约`实例，可用于与在 DApp 链的 EVM 上运行的智能合约进行交互。
+     * @param privateKey 将用于签署发送到合约的事务的私钥。
+     * @param publicKey 与私钥相对应的公钥。
+     * @returns `EvmContract` 示例.
      */
     async function getContract(privateKey, publicKey) {
       const client = new Client(
@@ -739,7 +738,7 @@ Usage:
     }
     ```
     
-    #### Writing to a Solidity contract on a DAppChain
+    #### 在 DApp 链上编写 Solidity 合约
     
     Calling an EVM smart contract's method that mutates the state works the same as [writiing data to a DAppChain](https://loomx.io/developers/docs/en/loom-js-quickstart.html#writing-data-to-a-dappchain) The main difference in the case of an EvmContract is that the input takes the format of an [ABI encoded](https://solidity.readthedocs.io/en/develop/abi-spec.html) array.
     
