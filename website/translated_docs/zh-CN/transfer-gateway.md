@@ -99,9 +99,9 @@ contract MyAwesomeToken is ERC721Token {
 
 Alice 已经设法在主网上获得了一个很棒的代币，现在想将它转移到她的DApp链账户。 在她这样做之前，她必须向地址映射器合约发送请求，以便在她的以太坊和DApp链帐户之间创建映射。 与DApp链网关一样，地址映射器将拒绝创建帐户映射，除非 Alice 提供证据证明她是两个帐户的所有者。
 
-要证明她拥有自己的主网帐户，Alice 必须提供一个签名（通过使用与帐户关联的以太坊私钥对消息进行签名而生成的）。 要证明她拥有自己的DApp链账户，她只需使用与她的账户关联的DApp链私钥签署她发送到DApp链网关的请求即可。 As soon as the Address Mapper receives the request it will create the requested account mapping, and Alice can start transferring tokens between her Ethereum and DAppChain accounts.
+要证明她拥有自己的主网帐户，Alice 必须提供一个签名（通过使用与帐户关联的以太坊私钥对消息进行签名而生成的）。 要证明她拥有自己的DApp链账户，她只需使用与她的账户关联的DApp链私钥签署她发送到DApp链网关的请求即可。 一旦地址映射器收到请求，它将创建所请求的帐户映射， Alice 就可以开始在她的以太坊和DApp链帐户之间转移代币了。
 
-## ERC721 token transfer to Ethereum
+## ERC721 代币转移到以太坊
 
 Alice has had her fun on the DAppChain so she wants to transfer her token from her DAppChain account back to her Mainnet account. First she must grant approval to the DAppChain Gateway to take over ownership of the token she wants to transfer, she can do this by sending a request to the DAppChain ERC721 contract.
 
