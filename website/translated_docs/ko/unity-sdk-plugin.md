@@ -73,7 +73,7 @@ async Task CallContract(Contract contract)
 }
 ```
 
-Smart contract methods that mutate state may return a value. The [BluePrint](https://github.com/loomnetwork/weave-blueprint/blob/master/src/blueprint.go) smart contract has a public `SetMsgEcho` method that will store a key/value and return the key/value it stored. Let's add another method to the `LoomQuickStartSample` class to call `BluePrint.SetMsgEcho`.
+스테이트를 변경하는 스마트 컨트랙트는 값을 반환할 수 있습니다. [BluePrint](https://github.com/loomnetwork/weave-blueprint/blob/master/src/blueprint.go) 스마트 컨트랙트는 키/값을 저장하고 저장된 키/값을 반환하는 public `SetMsgEcho` 메소드를 가지고 있습니다. `LoomQuickStartSample` 클래스에 `BluePrint.SetMsgEcho`를 호출하는 또 다른 메소드를 추가해봅시다.
 
 ```csharp
 async Task CallContractWithResult(Contract contract)
@@ -86,7 +86,7 @@ async Task CallContractWithResult(Contract contract)
 
     if (result != null)
     {
-        // This should print: { "key": "321", "value": "456" } in the Unity console window.
+        // Unity 콘솔창에 이것이 출력됩니다: { "key": "321", "value": "456" }
         Debug.Log("Smart contract returned: " + result.ToString());
     }
     else
@@ -96,9 +96,9 @@ async Task CallContractWithResult(Contract contract)
 }
 ```
 
-## Reading data from a DAppChain
+## DAppChain에서 데이터 읽어오기
 
-To read the state of a smart contract you need to call one of its public read-only methods, calling a read-only method doesn't modify the smart contract state. You can call a read-only method on a smart contract by using the `Contract.StaticCallAsync()` method.
+스마트 컨트랙트의 스테이트를 읽어오기 위해서 여러분은 public read-only 메소드중 하나를 호출해주어야 합니다, read-only 메소드 호출은 스마트 컨트랙트의 스테이트를 변경하지 않습니다. You can call a read-only method on a smart contract by using the `Contract.StaticCallAsync()` method.
 
 The [BluePrint](https://github.com/loomnetwork/weave-blueprint/blob/master/src/blueprint.go) smart contract has a public `GetMsg` method that can be called to look up an association between a key and a value. Let's add a method to the `LoomQuickStartSample` class to call `BluePrint.GetMsg`.
 
