@@ -1,9 +1,9 @@
 ---
 id: etherboy-game
-title: Etherboy Game
-sidebar_label: Etherboy Game
+title: Etherboy 게임
+sidebar_label: Etherboy 게임
 ---
-![Header](/developers/img/ebw_splash.jpg) Etherboy is a multi-platform 2D game built in Unity, using the [Loom Unity SDK](unity-sdk.html) to interact with a smart contract written in Golang and running on a Loom DAppChain.
+![Header](/developers/img/ebw_splash.jpg) Etherboy는 Unity로 만들어진 멀티플랫폼 2D 게임입니다, [Loom Unity SDK](unity-sdk.html)를 사용하여 Golang으로 작성되고 Loom DAppChain에서 구동되는 스마트 컨트랙트와 상호작용합니다.
 
 ## Game Controls
 
