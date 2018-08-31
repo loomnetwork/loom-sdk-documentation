@@ -42,4 +42,4 @@ cp genesis.example.json genesis.json
 
 ### 4. Unity client를 빌드하기
 
-Open the Unity project located in `unityclient` folder. Open the `LoomTilesChainEvm` scene and build it.
+`unityclient` 폴더에 있는 Unity project를 여세요. `LoomTilesChainEvm` scene을 열고 빌드하세요.
