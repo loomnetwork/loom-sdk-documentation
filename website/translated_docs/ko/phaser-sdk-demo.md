@@ -1,17 +1,17 @@
 ---
 id: phaser-sdk-demo
-title: Phaser SDK Demo
-sidebar_label: Phaser SDK Demo
+title: Phaser SDK 데모
+sidebar_label: Phaser SDK 데모
 ---
 ![Game screenshot](/developers/img/screenshot.png)
 
-A basic example showcasing a simple HTML5 game interacting with a Loom DappChain, using [Phaser](http://phaser.io) and [Loom.js](https://github.com/loomnetwork/loom-js). Souce code is available on [Github](https://github.com/loomnetwork/phaser-sdk-demo)
+[Phaser](http://phaser.io)와 [Loom.js](https://github.com/loomnetwork/loom-js)를 사용해서 Loom DappChain과 상호작용하는 간단한 HTML5 게임을 보여주는 기본적인 예제입니다. 소스코드는 [Github](https://github.com/loomnetwork/phaser-sdk-demo)에서 확인 가능합니다
 
-## Game instructions
+## 게임 방법
 
 Use the arrow keys to move around, jump by pressing the up arrow. For each passing row of blocks, 1 point is awarded. Collect bonus stars to increase your score further.
 
-## Development
+## 개발하기
 
 1.) Run your own DappChain
 
