@@ -1,13 +1,13 @@
 ---
 id: unity-truffle-loom-template
-title: Unity + Truffle + Loom Template
-sidebar_label: Unity + Truffle + Loom Template
+title: Unity + Truffle + Loom 템플릿
+sidebar_label: Unity + Truffle + Loom 템플릿
 ---
-# Overview
+# 개요
 
-A template for a Loom DAppChain with a Unity client. **Contains:**
+Unity client가 포함된 Loom DAppChain을 위한 템플릿. **다음을 포함합니다:**
 
-- Template [`Blueprint` Solidity contract](https://github.com/loomnetwork/loom-unity-project-template/blob/master/TruffleProject/contracts/Blueprint.sol) implementing a basic string-to-string map. Perfect as a starting point.
+- [`Blueprint` Solidity 컨트랙트](https://github.com/loomnetwork/loom-unity-project-template/blob/master/TruffleProject/contracts/Blueprint.sol) 템플릿. 기본적인 string-to-string map을 구현합니다. 입문하기에 완벽합니다.
 - Pre-configured Truffle project that automatically extracts ABIs and binaries of compiled contracts into corresponding folders.
 - Ready to use Unity Project, that uses the `Blueprint` Contract from the Loom SDK
 
