@@ -5,11 +5,11 @@ sidebar_label: Web3 이벤트 필터
 ---
 ## 개요
 
-[Web3.js](https://github.com/ethereum/web3.js) 라이브러리는 개발자들이 Loom DAppChain에 포함된 [EVM](evm.html)으로 부터 이벤트를 손쉽게 listen하게 해줍니다. Also is possible to create filter for indexed values.
+[Web3.js](https://github.com/ethereum/web3.js) 라이브러리는 개발자들이 Loom DAppChain에 포함된 [EVM](evm.html)으로 부터 이벤트를 손쉽게 listen하게 해줍니다. indexed 값들에 대한 필터를 만드는 것도 가능합니다.
 
-## Filtering
+## 필터링
 
-Let's create a filter to get latest block created on Loom DAppChain and continuously print the block hash on console
+Loom DAppChain에서 만들어진 가장 최근 블록을 얻어오는 필터를 만들고 콘솔에 블럭 해쉬가 계속 출력해 봅시다.
 
 ```js
 const {
@@ -17,23 +17,23 @@ const {
 } = require('loom-js')
 const Web3 = require('web3')
 
-// Create the client
+// 클라이언트를 만든다
 const client = new Client(
   'default',
   'ws://127.0.0.1:46658/websocket',
   'ws://127.0.0.1:46658/queryws',
 );
 
-// Create private key for first account
+// 첫번째 계정에 대한 프라이빗 키를 만든다
 const privateKey = CryptoUtils.generatePrivateKey()
 
-// Instantiate web3 client using LoomProvider as provider
+// Provider로 LoomProvider를 사용해서 web3 클라이언트 인스턴스를 만든다
 const web3 = new Web3(new LoomProvider(client, privateKey));
 
-// Create filter to get the latest block
+// 가장 최근 블록을 얻기 위한 필터를 만든다
 const filter = web3.eth.filter('latest');
 
-// Watch filter will return the hash of the latest block continuously 
+// 필터가 가장 최근 블록의 해쉬를 계속 출력하는지 감시하세요 
 filter.watch(function (error, result) {
   if (error) {
     console.error(error)
@@ -41,11 +41,11 @@ filter.watch(function (error, result) {
     console.log('Block hash', result)
 ```
 
-## Filtering by indexed values
+## Indexed된 값으로 필터링하기
 
-Another great feature is filtering by `indexed` values, which can be used to trigger event handlers when a specific `indexed` value is emitted.
+또 하나의 좋은 기능은 `indexed` 값으로 필터링이 하는 것입니다, 이것은 특정`indexed` 값이 보내질때 이벤트 핸들러를 트리거하는데 사용될 수 있습니다.
 
-For the following contract:
+다음 컨트랙트를 보세요:
 
 ```solidity
 pragma solidity ^0.4.22;
@@ -66,7 +66,7 @@ contract SimpleStore {
 }
 ```
 
-It's possible to setup an event handler for the `NewValueSet` event that's only triggered when the `value` emitted is `10`, and it won't be triggered if the contract emits any other value.
+`NewValueSet` 이벤트에 대해서 송출되는 `value`가 `10`일 때만 트리거 되는 이벤트 핸들러를 설정하는게 가능합니다, 만약 컨트랙트가 어떤 다른 값을 보낼때는 트리거되지 않을 것입니다.
 
 ```js
 // Generate public and private keys
