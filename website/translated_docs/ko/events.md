@@ -1,17 +1,17 @@
 ---
 id: loomevents
-title: Subscribing to events
-sidebar_label: Subscribing to events
+title: 이벤트 구독하기
+sidebar_label: 이벤트 구독하기
 ---
-## Emitting events
+## 이벤트 내보내기
 
-Events emitted from smart contracts and [go plugins](./goloomevents). These events can be subscribed to in two ways
+이벤트는 스마트 컨트랙트와 [go plugins](./goloomevents)에서 내보낸다. 이런 이벤트는 두가지 방법으로 구독할 수 있다.
 
-### Event structure
+### 이벤트 구조
 
 The event JSON shown above is wrapped in some transaction specific metadata before being emitted to the event stream. The other fields in the metadata include Called address, the contract address, the contract name and the raw transaction request data.
 
-Below is an example of the full message that goes into redis -
+아래는 redis로 들어오는 전체 메시지 예제이다 -
 
 ```json
 {
@@ -30,7 +30,7 @@ Below is an example of the full message that goes into redis -
 }
 ```
 
-The `rawRequest` and the `encodedData` are base64 encoded with a standard encoding.
+`rawRequest`와 `encodedData`는 base64 표준으로 인코딩되어 있다.
 
 ## Subscribing via Redis
 
