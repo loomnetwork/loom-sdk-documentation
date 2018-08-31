@@ -125,25 +125,25 @@ async Task StaticCallContract(Contract contract)
 
 ## 한꺼번에 해보기
 
-Add the following method to the `LoomQuickStartSample` class.
+`LoomQuickStartSample` 클래스에 다음 메소드를 추가해 보세요.
 
 ```csharp
-// Use this for initialization
+// 초기화를 위해서 이것을 사용하세요
 async void Start()
 {
-    // The private key is used to sign transactions sent to the DAppChain.
-    // Usually you'd generate one private key per player, or let them provide their own.
-    // In this sample we just generate a new key every time.
+    // 프라이빗 키는 DAppChain에 트랜잭션을 사이닝 하기위해서 사용됩니다.
+    // 일반적으로 플레이어마다 하나의 프라이빗 키를 생성하거나 자체 키를 제공 할 수 있습니다.
+    // 이 예제에서는 매번 새로운 키를 생성할 것입니다.
     var privateKey = CryptoUtils.GeneratePrivateKey();
     var publicKey = CryptoUtils.PublicKeyFromPrivateKey(privateKey);
 
     var contract = await GetContract(privateKey, publicKey);
     await CallContract(contract);
-    // This should print: { "key": "123", "value": "hello!" } in the Unity console window
+    // Unity 콘솔창에 이것이 출력됩니다: { "key": "123", "value": "hello!" }
     await StaticCallContract(contract);
-    // This should print: { "key": "321", "value": "456" } in the Unity console window
+    // Unity 콘솔창에 이것이 출력됩니다: { "key": "321", "value": "456" }
     await CallContractWithResult(contract);
 }
 ```
 
-Now that we have all the code in place let's test it out: 1. Create an empty `GameObject` in a Unity scene and attach the `LoomQuickStartSample` script to it. 2. Deploy the [BluePrint](https://github.com/loomnetwork/weave-blueprint/blob/master/src/blueprint.go) smart contract on a local Loom DAppChain node. 3. Hit `Play` in the Unity Editor.
+자 이제 모든 코드를 가지게 되었으니 테스트를 해봅시다: 1. Unity scene에 빈 `GameObject` 를 만들고 `LoomQuickStartSample` 스크립트를 붙이세요. 2. [BluePrint](https://github.com/loomnetwork/weave-blueprint/blob/master/src/blueprint.go) 스마트 컨트랙트를 로컬 Loom DAppChain 노드에 배포하세요. 3. Unity 편집기에서 `Play`를 누르세요.
