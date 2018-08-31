@@ -54,7 +54,7 @@ public class LoomEvmQuickStartSample : MonoBehaviour
         // Solidity 컨트랙트의 ABI 
         const string abi = "[{\"constant\":false,\"inputs\":[{\"name\":\"_tileState\",\"type\":\"string\"}],\"name\":\"SetTileMapState\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"GetTileMapState\",\"outputs\":[{\"name\":\"\",\"type\":\"string\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"name\":\"state\",\"type\":\"string\"}],\"name\":\"OnTileMapStateUpdate\",\"type\":\"event\"}]\r\n";
         // 주의: EVM기반의 스마트 컨트랙트로 이름으로 접근하는 것은 불가능합니다.
-        // Put the address of your deployed contract here.
+        // 여기에 배포된 컨트랙트의 주소를 적으세요
         var contractAddr = Address.FromHexString("0xf420fbbb810698a74120df3723315ee06f472870");
         var callerAddr = Address.FromPublicKey(publicKey);
 
@@ -113,7 +113,7 @@ public async Task StaticCallContract(EvmContract contract)
 
 ## DAppChain으로부터 이벤트 수신하기
 
-DAppChain은 스마트 컨트랙트를 호출하는 것에 대한 반응으로 이벤트를 트리거 할 수 있다. To be notified of new events, you must subscribe to the `EvmContract.EventReceived` event. But first, we need to define a DTO (Data Transfer Object) that specifies the event parameters.
+DAppChain은 스마트 컨트랙트를 호출하는 것에 대한 반응으로 이벤트를 트리거 할 수 있다. 새로운 이벤트를 통지받으려면, 반드시 `EvmContract.EventReceived` 이벤트를 구독해야 합니다. 하지만 먼저, 이벤트 파라미터를 지정하는 DTO (Data Transfer Object) 를 정의해야 합니다.
 
 ```csharp
 public class OnTileMapStateUpdateEvent
@@ -133,32 +133,32 @@ private void ContractEventReceived(object sender, EvmChainEventArgs e)
 }
 ```
 
-## Putting it all together
+## 한꺼번에 해보기
 
-Add the following method to the `LoomEvmQuickStartSample` class.
+`LoomEvmQuickStartSample` 클래스에 다음 메소드를 추가해 보세요.
 
 ```csharp
 async void Start()
 {
-    // The private key is used to sign transactions sent to the DAppChain.
-    // Usually you'd generate one private key per player, or let them provide their own.
-    // In this sample we just generate a new key every time.
+    // 프라이빗 키는 DAppChain에 트랜잭션을 사이닝 하기위해서 사용됩니다.
+    // 일반적으로 플레이어마다 하나의 프라이빗 키를 생성하거나 자체 키를 제공 할 수 있습니다.
+    // 이 예제에서는 매번 새로운 키를 생성할 것입니다.
     var privateKey = CryptoUtils.GeneratePrivateKey();
     var publicKey = CryptoUtils.PublicKeyFromPrivateKey(privateKey);
 
-    // Connect to the contract
+    // 컨트랙트에 연결하기
     var contract = await GetContract(privateKey, publicKey);
-    // This should print something like: "hello 6475" in the Unity console window if some data is already stored
+    // 이것은 이미 어떤 데이터가 저장되어 있다면 Unity 콘솔창에 다음을 출력합니다: "hello 6475"
     await StaticCallContract(contract);
-    // Listen for events
+    // 이벤트 리스닝
     contract.EventReceived += ContractEventReceived;
-    // Store the string in a contract
+    // 컨트랙트에 문자열을 저장
     await CallContract(contract);
 }
 ```
 
-Now that we have all the code in place let's test it out:
+자 이제 모든 코드를 가지게 되었으니 테스트를 해봅시다:
 
-1. Create an empty `GameObject` in a Unity scene and attach the `LoomEvmQuickStartSample` script to it.
-2. Deploy the [TilesChain](https://github.com/loomnetwork/unity-tiles-chain-evm/blob/master/dappchain/TilesChain.sol) smart contract on a local Loom DAppChain node.
-3. Hit `Play` in the Unity Editor.
+1. Unity scene에 빈 `GameObject` 를 만들고 `LoomEvmQuickStartSample` 스크립트를 붙이세요.
+2. [TilesChain](https://github.com/loomnetwork/unity-tiles-chain-evm/blob/master/dappchain/TilesChain.sol) 스마트 컨트랙트를 로컬 Loom DAppChain 노드에 배포하세요.
+3. Unity 편집기에서 `Play`를 누르세요.
