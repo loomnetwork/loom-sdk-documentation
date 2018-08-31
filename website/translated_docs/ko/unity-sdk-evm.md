@@ -5,15 +5,15 @@ sidebar_label: EVM기반의 스마트 컨트랙트 퀵스타트
 ---
 Loom은 EVM ([Ethereum Virtual Machine](evm.html))과 plugin기반의 스마트 컨트랙트를 지원합니다. Plugin기반의 스마트 컨트랙트는 [go-loom](https://github.com/loomnetwork/go-loom)으로 생성될 수 있습니다, 예를 들면.
 
-In this example, we will demostrate how to use the Unity SDK to communicate with EVM-based smart contracts.
+이번 예제에서, 우리는 Unity SDK가 어떻게 EVM기반의 스마트 컨트랙트와 통신하는지 살펴볼 것입니다.
 
-## Sample Code
+## 예제 코드
 
-This sample uses the Solidity contract from [`unity-tiles-chain-evm` demo](https://github.com/loomnetwork/unity-tiles-chain-evm). For the purpose of this sample, we will use this sample contract just to store a text string.
+이 예제는 [`unity-tiles-chain-evm` 데모](https://github.com/loomnetwork/unity-tiles-chain-evm)에 있는 Solidity 컨트랙트를 사용합니다. 이 예제의 목적에 맞게, 텍스트 문자열을 저장하는데 예제 컨트랙트를 사용할 것입니다.
 
-## Connecting to a DAppChain
+## DAppChain에 연결하기
 
-The `EvmContract` class provides a convenient way to interact with a smart contract running on a Loom DAppChain running an EVM-compatible smart contract. Let's write a method that creates an `EvmContract` instance to interact with the sample [TilesChain](https://github.com/loomnetwork/unity-tiles-chain-evm/blob/master/dappchain/TilesChain.sol) smart contract.
+`EvmContract` 클래스는 EVM호환 스마트 컨트랙트가 구동되는 Loom DAppChain에서 동작하는 스마트 컨트랙트와 상호작용하기 위한 편리한 방법을 제공합니다. [TilesChain](https://github.com/loomnetwork/unity-tiles-chain-evm/blob/master/dappchain/TilesChain.sol) 스마트 컨트랙트 예제와 상호작용하는 `EvmContract` 인스턴스를 생성하는 메소드를 작성해 봅시다.
 
 ```csharp
 // LoomEvmQuickStartSample.cs
@@ -40,7 +40,7 @@ public class LoomEvmQuickStartSample : MonoBehaviour
         var client = new DAppChainClient(writer, reader)
             { Logger = Debug.unityLogger };
 
-        // required middleware
+        // middleware가 요구됨
         client.TxMiddleware = new TxMiddleware(new ITxMiddlewareHandler[]
         {
             new NonceTxMiddleware
@@ -51,9 +51,9 @@ public class LoomEvmQuickStartSample : MonoBehaviour
             new SignedTxMiddleware(privateKey)
         });
 
-        // ABI of the Solidity contract
+        // Solidity 컨트랙트의 ABI 
         const string abi = "[{\"constant\":false,\"inputs\":[{\"name\":\"_tileState\",\"type\":\"string\"}],\"name\":\"SetTileMapState\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"GetTileMapState\",\"outputs\":[{\"name\":\"\",\"type\":\"string\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"name\":\"state\",\"type\":\"string\"}],\"name\":\"OnTileMapStateUpdate\",\"type\":\"event\"}]\r\n";
-        // Note: With EVM based smart contracts, you can't access them by name.
+        // 주의: EVM기반의 스마트 컨트랙트로 이름으로 접근하는 것은 불가능합니다.
         // Put the address of your deployed contract here.
         var contractAddr = Address.FromHexString("0xf420fbbb810698a74120df3723315ee06f472870");
         var callerAddr = Address.FromPublicKey(publicKey);
@@ -63,7 +63,7 @@ public class LoomEvmQuickStartSample : MonoBehaviour
 }
 ```
 
-## Writing data to a DAppChain
+## DAppChain에 데이터 쓰기
 
 To mutate the state of a smart contract you need to call one of its public methods, to do so a signed transaction must be sent to and validated by the DAppChain. Fortunately the `EvmContract` class takes care of most of this when you use the `EvmContract.Call*Async()` family of methods.
 
