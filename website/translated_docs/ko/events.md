@@ -9,7 +9,7 @@ sidebar_label: 이벤트 구독하기
 
 ### 이벤트 구조
 
-The event JSON shown above is wrapped in some transaction specific metadata before being emitted to the event stream. The other fields in the metadata include Called address, the contract address, the contract name and the raw transaction request data.
+아래 보여지는 이벤트 JSON은 이벤트 스트림으로 보내지기 전에 약간의 트랜잭션 특화된 메타데이터로 감싸진다. 메타데이터의 다른 필드들은 Caller 주소, 컨트랙트 주소, 컨트랙트 이름과 raw 트랜잭션 request data를 포함한다.
 
 아래는 redis로 들어오는 전체 메시지 예제이다 -
 
@@ -32,18 +32,18 @@ The event JSON shown above is wrapped in some transaction specific metadata befo
 
 `rawRequest`와 `encodedData`는 base64 표준으로 인코딩되어 있다.
 
-## Subscribing via Redis
+## Redis를 통해서 구독하기
 
-By default the loom-sdk will only emit events to the log. To configure it to send it to a redis sorted set, add the following line to the loom.yaml config file.
+기본적으로 loom-sdk 은 이벤트를 로그로 내보냅니다. Redis sorted set에 내보내는 것으로 설정하려면, loom.yaml 파일에 아래 라인을 추가하세요.
 
     EventDispatcherURI: "redis://localhost:6379"
     
 
-This will start emitting events to the redis server in a sorted set called `loomevents`. Each event is added to the sorted set with the score being the blockchain height.
+이것은 redis server의 `loomevents`이라 불리는 sorted set에 이벤트 내보내기를 시작합니다. 각 이벤트는 블록체인 height 가 되는 스코어와 함께 sorted set에 추가됩니다.
 
-## Subscribing via websockets
+## Websocket을 통해서 구독하기
 
-The Loom SDK query endpoint can be used to subscribe to the event stream as well. Here is sample subscription code using a command line and the [wscat](https://www.npmjs.com/package/wscat2) nodejs cli.
+Loom SDK query endpoint는 이벤트 스트림을 구독하는데에도 사용될 수 있다. 여기 커맨드 라인과 [wscat](https://www.npmjs.com/package/wscat2) nodejs cli을 이용한 구독하기 코드 예제가 있습니다.
 
     $ cat command.json
     {
@@ -78,7 +78,7 @@ The Loom SDK query endpoint can be used to subscribe to the event stream as well
     }
     
 
-The first json in the cli ouptut is the response of the subscribe command. The following json is an event from a contract processing a transaction.
+Cli 출력의 첫번째 json은 subscribe 커맨드에 대한 응답입니다. 다음 json은 트랜잭션을 처리하는 컨트랙트의 이벤트입니다.
 
 ### Example go code
 
