@@ -78,8 +78,8 @@ Loom SDK query endpoint는 이벤트 스트림을 구독하는데에도 사용�
     }
     
 
-Cli 출력의 첫번째 json은 subscribe 커맨드에 대한 응답입니다. 다음 json은 트랜잭션을 처리하는 컨트랙트의 이벤트입니다.
+Cli 출력의 첫번째 json은 subscribe 커맨드에 대한 응답입니다. 다음 json은 트랜잭션을 처리하는 컨트랙트로부터의 이벤트입니다.
 
-### Example go code
+### Go 코드 예제
 
-You can refer to [a demo indexer](https://github.com/loomnetwork/etherboy-core/blob/master/tools/cli/indexer/etherboyindexer.go) which uses the redis and websocket event subscriptions to read the events and persist to elasticsearch. (Note that this code is meant only for demonstration purposes).
+[Demo indexer](https://github.com/loomnetwork/etherboy-core/blob/master/tools/cli/indexer/etherboyindexer.go)를 참조할 수 있습니다. 이것은 이벤트를 읽고 elasticsearch에 저장하기 위해서 redis와 websocket 이벤트 구독하기를 사용합니다. (이 코드는 데모 목적으로만 의미가 있다는 것을 명심하세요).
