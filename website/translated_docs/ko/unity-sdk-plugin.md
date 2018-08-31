@@ -112,8 +112,8 @@ async Task StaticCallContract(Contract contract)
 
     if (result != null)
     {
-        // This should print: { "key": "123", "value": "hello!" } in the Unity console window
-        // provided `LoomQuickStartSample.CallContract()` was called first.
+        // Unity 콘솔창에 이것이 출력됩니다: { "key": "123", "value": "hello!" }
+        // 제공된 `LoomQuickStartSample.CallContract()` 이 먼저 호출되었습니다.
         Debug.Log("Smart contract returned: " + result.ToString());
     }
     else
@@ -123,7 +123,7 @@ async Task StaticCallContract(Contract contract)
 }
 ```
 
-## Putting it all together
+## 한꺼번에 해보기
 
 Add the following method to the `LoomQuickStartSample` class.
 
