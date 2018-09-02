@@ -22,11 +22,11 @@ sidebar_label: Cocos SDK 퀵스타트
 3. [NodeJS](https://nodejs.org/en/), [NPM](https://www.npmjs.com/get-npm)
 4. [Loom](https://loomx.io/), [설치순서](https://loomx.io/developers/docs/en/prereqs.html)
 5. [Cocos Creator](http://www.cocos.com/creator)
-6. [Cocos Loom SDK 레파지토리](https://github.com/loomnetwork/cocos-sdk/)
+6. [Cocos Loom SDK 저장소](https://github.com/loomnetwork/cocos-sdk/)
 
 ## Loom Cocos SDK
 
-Loom 전체구조 다이어그램
+Loom 전체 구조 다이어그램
 
 ![](/developers/img/Loom-Cocos-SDK.png)
 
@@ -34,9 +34,9 @@ Loom Cocos SDK 구조 다이어그램
 
 ![](/developers/img/loom-cocos-sdk-struct.png)
 
-`Loom-Cocos-SDK`은 `loom-js`와 동일한 api, 동일한 protobuf, 비스한 컨트랙트를 가지고 있습니다.
+`Loom-Cocos-SDK`는 `loom-js`와 동일한 api, 동일한 protobuf, 비슷한 컨트랙트를 가지고 있습니다.
 
-`Loom Cocos SDK`은 [Loom-JS](https://github.com/loomnetwork/loom-js/)를 기반으로 하며 , `Cocos Creator`에 포팅됩니다.
+`Loom Cocos SDK`은 [Loom-JS](https://github.com/loomnetwork/loom-js/)를 기반으로 하며, `Cocos Creator`에 포팅됩니다.
 
 ### Cocos SDK 생성하기
 
@@ -45,7 +45,7 @@ Loom Cocos SDK 구조 다이어그램
 - `git submodule update --init`, git submodule을 업데이트
 - `./tools/genCocoSDK.py`
 
-`Cocos Creator용 Loom SDK`는 `loom-cocos-sdk` 디렉토리입니다. 이것은 `./tools/genCocoSDK.py`커맨드로 생성됩니다.
+`Cocos Creator용 Loom SDK`는 `loom-cocos-sdk` 디렉토리입니다. 이것은 `./tools/genCocoSDK.py` 커맨드로 생성됩니다.
 
 ## Loom 설치하기
 
@@ -72,7 +72,7 @@ Loom Cocos SDK 구조 다이어그램
     ../../loom run
     
 
-여러분만의 DappChain을 실행하는 방법에 대한 더 자세한 사항은 [Loom SDK 문서](https://loomx.io/developers/docs/en/prereqs.html)를 참조하세요.
+여러분만의 DappChain을 실행하는 방법에 대한 더 자세한 사항은 [Loom SDK 문서](https://loomx.io/developers/docs/en/prereqs.html)를 참고하세요.
 
 ## Cocos Creator 설치하기
 
