@@ -38,15 +38,15 @@ sidebar_label: Etherboy 게임
 ### Linux
 
 1. [Ubuntu 필수요소](prereqs-ubuntu.html) 단계에 따라 Golang을 설치하세요 (만약 아직 설치하지 않으셨다면).
-2. Download Loom DAppChain binary 
+2. Loom DAppChain 바이너리를 다운로드 하세요 
         bash
         curl -OL https://private.delegatecall.com/loom/linux/build-404/loom
         chmod +x loom
         export LOOM_BIN=`pwd`/loom
 
-### Deploy Etherboy contract (OSX / Linux)
+### Etherboy 컨트랙트 배포하기 (OSX / Linux)
 
-Fetch the smart contract code from Github
+Github에서 스마트 컨트랙트를 가져오세요
 
 ```bash
 export GOPATH=`pwd`/ebgopath
@@ -55,7 +55,7 @@ cd ebgopath/src/github.com/loomnetwork
 git clone https://github.com/loomnetwork/etherboy-core.git etherboy-core
 ```
 
-Build and deploy the contract
+컨트랙트를 빌드 및 배포하세요
 
 ```bash
 cd etherboy-core
@@ -67,25 +67,25 @@ cp ../genesis.json genesis.json
 $LOOM_BIN run
 ```
 
-Assuming everything went without a hitch so far you now have a local Loom DAppChain running the Etherboy smart contract!
+지금까지 모든것이 순조롭다면 여러분은 Etherboy 스마트 컨트랙트가 돌아가고 있는 로컬 Loom DAppChain 가지게 된 것입니다!
 
 ![Animation](/developers/img/etherboy-clip.gif)
 
-### Build the Unity project
+### Unity 프로젝트 빌드하기
 
-Clone the Unity project for the [Etherboy game](https://github.com/loomnetwork/Etherboy) from Github and modify
+Github에서 Unity 프로젝트인 [Etherboy 게임](https://github.com/loomnetwork/Etherboy)을 clone하고 수정해보세요
 
-- Open the project in Unity
-- Select `File`->`Build Settings`
-- Select either `Web GL` or `PC, Mac & Linux Standalone` from the platform list
-- Press `Switch Platform` if it's enabled
-- Press `Build`, select the build output directory
+- Unity에서 프로젝트를 여세요
+- `File`->`Build Settings`을 선택하세요
+- 플랫폼 리스트에서 `Web GL` 혹은 `PC, Mac & Linux Standalone`을 선택하세요
+- `Switch Platform`을 누르세요 만약 활성화 도어 있다면
+- `Build`를 누르고, build output 디렉토리를 선택하세요
 
-> WebGL builds of the full game take around 30 minutes to complete.
+> WebGL 빌드는 전체 게임 빌드를 완료하는데 약 30분 정도 소요됩니다.
 
-### Run the game
+### 게임 실행하기
 
-#### Desktop
+#### 데스크탑
 
 Just launch the binary generated in the build output directory. If you have issues logging in please ensure nothing is running on port `9998`.
 
