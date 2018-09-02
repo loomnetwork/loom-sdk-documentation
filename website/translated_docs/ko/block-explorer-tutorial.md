@@ -1,5 +1,5 @@
 ---
-id: 블록 익스플로러 튜토리얼
+id: block-explorer-tutorial
 title: 블록 익스플로러 튜토리얼
 sidebar_label: 블록 익스플로러 튜토리얼
 ---
