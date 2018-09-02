@@ -5,9 +5,9 @@ sidebar_label: Etherboy 게임
 ---
 ![Header](/developers/img/ebw_splash.jpg) Etherboy는 Unity로 만들어진 멀티플랫폼 2D 게임입니다, [Loom Unity SDK](unity-sdk.html)를 사용하여 Golang으로 작성되고 Loom DAppChain에서 구동되는 스마트 컨트랙트와 상호작용합니다.
 
-## Game Controls
+## 게인 컨트롤
 
-### Desktop / WebGL
+### 데스크탑 / WebGL
 
 - **UP**: enter doors, go up ropes
 - **DOWN**: go down ropes
