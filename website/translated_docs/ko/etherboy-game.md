@@ -87,13 +87,13 @@ Github에서 Unity 프로젝트인 [Etherboy 게임](https://github.com/loomnetw
 
 #### 데스크탑
 
-Just launch the binary generated in the build output directory. If you have issues logging in please ensure nothing is running on port `9998`.
+Build output 디텍토리에 생성된 바이너를 실행시키세요. 로그인 문제가 있다면`9998` 포트에 아무것도 실행되지 않고 있는지 확인하세요.
 
 #### WebGL
 
-Run an http server to serve the build output directory at `localhost:8090`, and open `localhost:8090` in your web browser.
+Build output 디렉토리에서 `localhost:8090`를 제공하는 http server를 실행하고, 브라우저에서 `localhost:8090`를 여세요.
 
-If you don't know how to set up a local http server follow the steps below.
+로컬 http server 설정방법을 모르면 아래를 따라해 보세요.
 
 ```bash
 brew install node
@@ -102,9 +102,9 @@ cd path/to/webgl-build-dir
 http-server -a localhost -p 8090
 ```
 
-### Optional configuration
+### 추가 구성
 
-If you configure your local DAppChain to run on another host or port you'll need to update the following section of `Assets/WebGLTemplates/Loom/settings.js` before doing a **WebGL** build, or you can edit `settings.js` inside the build output directory after the build:
+만약에 로컬 DAppChain을 다른 host와 port에서 구동하고 싶다면, **WebGL** 빌드전에 `Assets/WebGLTemplates/Loom/settings.js`를 업데이트 하는게 필요하건, 빌드 이후에 build output 디렉토리내의 `settings.js`파일을 편집할수 있습니다:
 
 ```js
   dappchain: {
