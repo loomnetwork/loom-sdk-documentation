@@ -9,27 +9,27 @@ sidebar_label: Etherboy 게임
 
 ### 데스크탑 / WebGL
 
-- **UP**: enter doors, go up ropes
-- **DOWN**: go down ropes
-- **E**: talk to NPCs, sleep in bed, interact with objects
-- **SPACE** / **RIGHT-CLICK**: jump
-- **LEFT-CLICK**: attack (when weapon is equipped)
+- **UP**: 문 들어가기, 로프 위로 이동
+- **DOWN**: 로프 아래로 이동
+- **E**: NPC와 대화하기, 잠자기, 객체와 상호작용하기
+- **SPACE** / **RIGHT-CLICK**: 점프
+- **LEFT-CLICK**: 공격하기 (무기가 장착되어 있을때)
 
-## Supported Platforms
+## 지원 플랫폼
 
 - WebGL
 - Android (WIP)
 - iOS (WIP)
 - Windows / Mac / Linux
 
-## Development
+## 개발하기
 
-Currently you need to be on MacOS or Linux to spin up a Loom DAppChain, but if you're on Windows 10 you can run Ubuntu in the [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10) (other distros may work but docs are written for Ubuntu).
+현재 MacOS 또는 Linux에서 Loom DAppChain을 구동해야합니다, 그러나 Windows 10 을 사용중이라면, [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10) 로 Ubuntu를 실행시킬 수 있습니다 (다른 배포판은 아마 동작할 것이지만 문서는 Ubuntu를 위해 작성되었습니다).
 
 ### MacOS
 
-1. Install Golang by following the steps in [MacOS prerequisites](prereqs.html) (if you haven't done so already).
-2. Download Loom DAppChain binary 
+1. [MacOS 필수요소](prereqs.html) 단계에 따라 Golang을 설치하세요 (만약 아직 설치하지 않으셨다면).
+2. Loom DAppChain 바이너리를 다운로드 하세요 
         bash
         wget https://private.delegatecall.com/loom/osx/build-404/loom
         chmod +x loom
@@ -37,7 +37,7 @@ Currently you need to be on MacOS or Linux to spin up a Loom DAppChain, but if y
 
 ### Linux
 
-1. Install Golang by follwing the steps in [Ubuntu prerequisites](prereqs-ubuntu.html) (if you haven't done so already).
+1. [Ubuntu 필수요소](prereqs-ubuntu.html) 단계에 따라 Golang을 설치하세요 (만약 아직 설치하지 않으셨다면).
 2. Download Loom DAppChain binary 
         bash
         curl -OL https://private.delegatecall.com/loom/linux/build-404/loom
