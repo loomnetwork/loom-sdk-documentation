@@ -15,7 +15,7 @@ sidebar_label: 블록 탐색기 튜토리얼
 
 만약 다른 머신에서 Loom DAppChain을 실행한 경우, 해당 Loom DAppChain RPC 서버 URL을 탐색기 하단에 위치한 접속 네트워크 칸에 복사해서 붙여넣으시면 됩니다. `http://YOUR_DAPP_CHAIN_SERVER_IP:46657` (포트를 변경하지 않았을 경우의 RPC URL 예제)
 
-+ 설정한 서버에 외부에서 접속이 가능해야 합니다.
++ 해당 서버는 외부에서 접속이 가능해야 합니다.
 
 ## 로컬 탐색기
 
@@ -52,15 +52,15 @@ Dev 서버는 `http://127.0.0.1:8080`에서 실행되고 있을 것입니다. 80
 
 일반적으로 데이터가 유효한 JSON 양식에 맞춰져 있으면 문제가 없지만, 그렇지 않다면 텍스트 뷰를 통해 표시되어 읽기 쉽지 않을 것입니다.
 
-그런 상황을 대비해서 [delegatecall.com](http://blockchain.delegatecall.com) 처럼 커스터마이징 할 수 있습니다.
+그러니 우리가 [delegatecall.com](http://blockchain.delegatecall.com)에서 했듯이 자신만의 탐색기를 만들기를 원할 수도 있습니다.
 
-`Vue`, `Typescript`, `Google Protobuf` 에 대한 지식이 있으면, 얼마든지 수정하실 수 있습니다. 시작하시기전에 [DelagateCall Block Explorer](https://github.com/loomnetwork/vue-block-explorer/tree/dc-2) 코드도 한번 참고해보세요.
+이를 위해서는 `Vue`, `Typescript`, `Google Protobuf`를 알고 있을 필요가 있습니다. 시작하기 전에 [DelagateCall 블록 탐색기](https://github.com/loomnetwork/vue-block-explorer/tree/dc-2) 코드를 참고하면 도움이 될 것입니다.
 
-수정해보기:
+시작하기:
 
-1. 디앱의 데이터 구조를 정의하는 파일인 `.proto` 파일을 찾은 후 `vue-block-explorer` 에 있는 `src/pbs` 폴더에 복사해줍니다. 그 후 `yarn proto` 명령어를 실행해줍니다. (`yarn install`을 꼭 미리 실행 해주셔야 합니다.)
-2. 2개의 새로운 파일이 `YOUR_PROTO_FILE_NAME_pb.d.ts` 과 `YOUR_PROTO_FILE_NAME_pb.js` 라는 이름으로 생성됩니다.
-3. 마지막으로 텍스트 에디터로 `transaction-reader.ts` 파일을 열어서 아래처럼 `.proto` 파일을 import 해준 후 저장 합니다.
+1. 여러분의 DApp을 위한 `.proto` 파일을 찾으세요. DApp 데이터 구조를 정의하는 파일입니다. 이 파일을 `vue-block-explorer`의 `src/pbs` 폴더에 넣습니다. 그 후 `yarn proto` 명령어를 실행합니다.(그전에 `yarn install`을 먼저 실행한 상태여야 합니다).
+2. `YOUR_PROTO_FILE_NAME_pb.d.ts`와 `YOUR_PROTO_FILE_NAME_pb.js`라는 이름으로 2개의 새로운 파일이 생성됩니다.
+3. `transaction-reader.ts`에서 `.proto` 파일의 클래스들을 import 합니다.
 
     import * as DC from '@/pbs/YOUR_PROTO_FILE_NAME_pb'
     
