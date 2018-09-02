@@ -1,27 +1,27 @@
 ---
 id: block-explorer-tutorial
-title: 블록 익스플로러 튜토리얼
-sidebar_label: 블록 익스플로러 튜토리얼
+title: 블록 탐색기 튜토리얼
+sidebar_label: 블록 탐색기 튜토리얼
 ---
 ## 개요:
 
-이번에는 블록 익스플로러를 활용해, 디앱체인에서 생성되는 블록들을 탐색하는 방법을 알아볼 예정입니다.
+이번에는 블록 탐색기를 활용해, DAppChain에서 생성되는 블록들을 탐색하는 방법을 알아볼 예정입니다.
 
 ![](/developers/img/block_explorer.png)![](/developers/img/block_explorer_details.png)
 
-## 온라인 익스플로러
+## 온라인 탐색기
 
-로컬 환경에서 디앱체인을 돌린 후에 [온라인 익스플로어](https://blockexplorer.loomx.io)에 접속하시면 바로 로컬에서 생성되는 블록들을 확인하실 수 있습니다.
+로컬 환경에서 DAppChain을 돌린 후에 [온라인 탐색기](https://blockexplorer.loomx.io)에 접속하시면 바로 로컬에서 생성되는 블록들을 확인하실 수 있습니다.
 
-만약에 클라우드서버 등 다른 머신에서 디앱체인을 실행하고 계실 경우에는 해당 머신의 디앱체인과 연결되는 RPC URL을 익스플로러 하단에 위치한 접속 네트워크 칸에 복사해서 붙여넣으시면 됩니다. `http://YOUR_DAPP_CHAIN_SERVER_IP:46657` (포트를 변경하지 않았을 경우의 RPC URL 예제)
+만약 다른 머신에서 Loom DAppChain을 실행한 경우, 해당 Loom DAppChain RPC 서버 URL을 탐색기 하단에 위치한 접속 네트워크 칸에 복사해서 붙여넣으시면 됩니다. `http://YOUR_DAPP_CHAIN_SERVER_IP:46657` (포트를 변경하지 않았을 경우의 RPC URL 예제)
 
-+ 클라우드 서버일 경우 네트워크 설정에서 외부접속이 허용되도록 해주셔야합니다.
++ 설정한 서버에 외부에서 접속이 가능해야 합니다.
 
-## 로컬 익스플로러
+## 로컬 탐색기
 
-사전에 말씀드린 온라인 익스플로러를 거치지 않고, 로컬에서 익스플로러를 직접 실행 하실 수 도 있습니다.
+로컬에서 탐색기를 직접 실행할 수도 있습니다.
 
-아래의 블록 익스플로러 깃헙 레포를 클론 한 후
+Github에서 블록 탐색기 저장소를 클론하세요. 
 
     git clone https://github.com/loomnetwork/vue-block-explorer.git
     
