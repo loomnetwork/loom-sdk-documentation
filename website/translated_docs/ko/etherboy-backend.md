@@ -3,15 +3,15 @@ id: etherboy-backend
 title: Etherboy 백엔드
 sidebar_label: Etherboy 백엔드
 ---
-This documentation explains how to run the Etherboy DAppChain in a single server instance (any 64-bit Linux instance).
+이 문서는 Etherboy DAppChain을 단일 서버 인스턴스 (64-bit Linux 인스턴스) 에서 구동하는 방법에 대해서 설명합니다.
 
-## Installation
+## 설치하기
 
-1. Choose a working directory of your choice. In this example we are using `/home/ubuntu` 
+1. 작업 디렉토리를 선택하세요. 이 예제에서 이 예제에서 우리는 다음을 사용합니다 `/home/ubuntu` 
         bash
         cd /home/ubuntu
 
-2. Download the binaries:
+2. 바이너리를 다운로드하세요:
     
     ```bash
     wget https://private.delegatecall.com/loom/linux/build-404/loom
@@ -22,8 +22,8 @@ This documentation explains how to run the Etherboy DAppChain in a single server
     wget -O contracts/etherboycore.so https://private.delegatecall.com/etherboy/linux/build-53/etherboycore.0.0.1
     ```
 
-3. Execute `loom init` in the working directory to initialize config files.
-4. Update `genesis.json` in the working directory:
+3. 설정 파일을 초기화하기 위해서 작업 디렉토리에서 `loom init`을 실행하세요.
+4. 작업 디렉토리에서 `genesis.json`를 업데이트 하세요:
     
     ```json
     {
@@ -41,7 +41,7 @@ This documentation explains how to run the Etherboy DAppChain in a single server
     }
     ```
 
-5. Add `loom.yml` in the working directory: 
+5. 작업 디렉토리에 `loom.yml` 파일을 추가하세요 
         yaml
         RPCBindAddress: "tcp://0.0.0.0:46658"
 
