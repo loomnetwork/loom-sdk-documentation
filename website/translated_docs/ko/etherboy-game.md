@@ -113,7 +113,7 @@ http-server -a localhost -p 8090
   }
 ```
 
-For a desktop build you'll need to edit `Assets/Resources/env_config.json` to change the default DAppChain host & port:
+데스크탑 빌드를 위해서 DAppChain host와 port를 변경하고 싶다면 `Assets/Resources/env_config.json`를 업데이트 하세요:
 
 ```json
 {
