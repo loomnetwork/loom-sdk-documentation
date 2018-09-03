@@ -1,7 +1,7 @@
 ---
 id: etherboy-backend
-title: Etherboy Backend
-sidebar_label: Etherboy Backend
+title: Etherboy 백엔드
+sidebar_label: Etherboy 백엔드
 ---
 This documentation explains how to run the Etherboy DAppChain in a single server instance (any 64-bit Linux instance).
 
