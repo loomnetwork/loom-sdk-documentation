@@ -1,13 +1,13 @@
 ---
 id: multi-node-deployment
-title: Example Deployment
-sidebar_label: Multi Node Deployment
+title: 배포 예제
+sidebar_label: 멀티 노드 배포
 ---
-# Multi Node Deployment
+# 멀티 노드 배포
 
-This documentation describes how to run loom in a multi node setup.
+이 문서는 멀티 노드 셋업에서 loom을 구동하는 방법에 대해서 설명합니다.
 
-## Installation
+## 설치하기
 
 These steps need to be executed on each node.
 
