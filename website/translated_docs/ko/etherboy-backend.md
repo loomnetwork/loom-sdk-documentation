@@ -45,15 +45,15 @@ sidebar_label: Etherboy 백엔드
         yaml
         RPCBindAddress: "tcp://0.0.0.0:46658"
 
-Note: `loom` and `etherboycli` can be placed anywhere in your `$PATH` so you don't have to always execute with `./`. However, `etherboycore.0.0.1` must always be placed in `$WORKING_DIRECTORY/contracts/etherboycore.0.0.1`.
+주의: `loom`과 `etherboycli`는 여러분의 `$PATH` 내의 어느 곳이든 위치시킬 수 있습니다. 그래서 항상 `./`을 붙여서 실행시킬 필요는 없습니다. 하지만, `etherboycore.0.0.1`는 반드시 `$WORKING_DIRECTORY/contracts/etherboycore.0.0.1`에 위치하여야 합니다.
 
-## Running
+## 실행하기
 
-There are two ways to run - directly, or via systemd (or any process control system you prefer)
+두가지 실행방법이 있습니다 - 직접실행, 혹은 systemd를 통한 방법(또는 여러분이 선호하는 어떠한 프로세스 컨트롤 시스템)
 
-### Direct execution
+### 직접 실행
 
-Execute `loom run` in the working directory to run the service:
+서비스를 실행하기 위해서 작업 디렉토리에서 `loom run`를 실행하세요:
 
 ```bash
 ./loom run
@@ -61,11 +61,11 @@ I[05-16|06:06:16.970] Using simple log event dispatcher
 I[05-16|06:06:19.999] Starting RPC HTTP server on tcp://0.0.0.0:9999 module=query-server
 ```
 
-This will run Etherboy in the foreground and print its output to the console. For better process management, look at the next section.
+이것은 포그라운드에서 Etherboy를 실행하고 콘솔에 결과를 출력합니다. 더 나은 프로세스 관리를 위해서는 다음 섹션을 보세요.
 
 ### systemd Startup Script
 
-The following startup script can be used to control the service using systemd. Make changes to `WorkingDirectory` and/or `ExecStart` to reflect your setup.
+다음 startup script는 systemd를 이용해서 서비스를 컨트롤하는데 사용됩니다. 설정이 반영되도록 `WorkingDirectory`와/또는 `ExecStart`을 변경하세요.
 
 ```ini
 [Unit]
@@ -88,7 +88,7 @@ StandardError=syslog
 WantedBy=multi-user.target
 ```
 
-Save it to `/etc/systemd/system/etherboy.service`. Run these to activate it:
+`/etc/systemd/system/etherboy.service`에 저장하세요. 활성화를 위해서 실행하세요:
 
 ```bash
 sudo systemctl daemon-reload
