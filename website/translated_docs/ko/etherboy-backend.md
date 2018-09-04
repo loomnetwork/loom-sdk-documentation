@@ -95,23 +95,23 @@ sudo systemctl daemon-reload
 sudo systemctl start etherboy.service
 ```
 
-You may now inspect the output using:
+다음과 같이 출력을 검사할 수 있습니다:
 
 ```bash
 sudo journalctl -u etherboy.service
 ```
 
-When satisfied everything is running as intended, executing the following will enable the service so that it is started at boot:
+의도한 대로 모든것이 구동 되었다고 판단될때, 다음을 실행하면 부팅시에 시작되도록 서비스를 활성화 할 것입니다:
 
 ```bash
 sudo systemctl enable etherboy.service
 ```
 
-## Verifying
+## 검증하기
 
-### Listening ports
+### 리스닝 포트
 
-If all is well, you will be able to see these ports opened in your server.
+모든 것이 잘 되고 있다면, 여러분의 서버에서 이런 포트가 열려 있는 것을 볼 수 있을 것입니다.
 
 ```bash
 $ sudo netstat -tpnl
@@ -122,7 +122,7 @@ tcp6       0      0 :::46657                :::*                    LISTEN      
 tcp6       0      0 :::46658                :::*                    LISTEN      14327/loom
 ```
 
-### The CLI - etherboycli
+### CLI - etherboycli
 
 ```bash
 $ pwd
