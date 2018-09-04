@@ -9,29 +9,29 @@ sidebar_label: 멀티 노드 배포
 
 ## 설치하기
 
-These steps need to be executed on each node.
+이 단계는 각 노드에서 실행되어야 합니다.
 
-1. Choose a working directory of your choice. In this example we are using `/home/ubuntu` 
+1. 여러분만의 작업 디렉토리를 선택하세요. 이 예제에서는 다음을 사용합니다 `/home/ubuntu` 
         bash
         cd /home/ubuntu
 
-2. Download the binaries: 
+2. 바이너리를 다운로드하세요: 
         bash
         wget https://private.delegatecall.com/loom/linux/build-208/loom
         chmod +x loom
 
-3. Execute `./loom init` in the working directory to initialize config files.
-4. Add `loom.yml` in the working directory: 
+3. 설정 파일을 초기화하기 위해서 작업 디렉토리에서 `./loom init`을 실행하세요.
+4. 작업 디렉토리에 `loom.yml` 파일을 추가하세요 
         yaml
         RPCBindAddress: "tcp://0.0.0.0:46658"
 
-## Configuration
+## 구성하기
 
-There are two genesis.json files that needs to be combined.
+두 개의 genesis.json 파일을 결합 할 필요가 있습니다.
 
-### genesis.json #1 - in the working directory
+### genesis.json #1 - 작업디렉토리에 있는
 
-The `genesis.json` file looks like this:
+`genesis.json` 파일은 다음과 같습니다:
 
 ```json
 {
@@ -66,7 +66,7 @@ The `genesis.json` file looks like this:
 }
 ```
 
-Next, collect all `validators` from each node, then combine them into an array. This file will now need to be replaced with the combined file, in all nodes. For a two node cluster, it should now look like this:
+다음으로, 각 노드로부터 모든 `validators`를 수집하고, 하나의 배열에 그것들을 병합하세요. 이 파일은 이제 모든 노드에서 결합 된 파일로 대체되어야 합니다. 두개의 node cluster 라면, 아래와 같은 모습일 것입니다:
 
 ```json
 {
@@ -105,7 +105,7 @@ Next, collect all `validators` from each node, then combine them into an array. 
 }
 ```
 
-### genesis.json #2 - inside chaindata/config
+### genesis.json #2 - chaindata/config 내부에 있는
 
 You will find a file named `genesis.json`. It is not to be confused with the one in the working directory. It should look like this:
 
