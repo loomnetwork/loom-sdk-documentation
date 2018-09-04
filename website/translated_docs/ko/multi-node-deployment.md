@@ -274,7 +274,7 @@ Playbook은 [여기서](https://github.com/loomnetwork/loom-playbooks/blob/maste
 
 ### Inventory: inventory.yaml
 
-Inventory는 노드와 노드의 IP 주소를 지정합니다. 노드가 오직 하나의 IP만 가지고 있다면, `ansible_host`와 `private_ip`에 동일한 것을 사용하세요. `ansible_host` is used by Ansible to connect to the host, while `private_ip` is used by the nodes to communicate with each other.
+Inventory는 노드와 노드의 IP 주소를 지정합니다. 노드가 오직 하나의 IP만 가지고 있다면, `ansible_host`와 `private_ip`에 동일한 것을 사용하세요. Ansible는 `ansible_host`를 host와 연결하기 위해서 사용하며, 반면에 `private_ip`는 노드들이 서로 통신하기 위해서 사용된다.
 
 ```yaml
 ---
@@ -299,19 +299,19 @@ all:
       private_ip: 10.7.6.5
 ```
 
-After modifying the inventory with the details of the nodes, execute the playbook:
+노드의 세부사항과 함께 inventory을 수정한 후, playbook을 실행하세요:
 
 ```bash
 ansible-playbook -i inventory.yml -vv loom-playbook.yml
 ```
 
-## More Automation: Vagrant
+## 더 많은 자동화: Vagrant
 
-There is also a Vagrantfile included to provision a full cluster. Ansible needs to be installed on the host machine.
+전체 cluster를 provision 하기 위해 포함된Vagrantfile도 있습니다. Ansible는 호스트 머신에 설치되어야 합니다.
 
-It is tested with VirtualBox provider. It takes less than two minutes on a decent machine to create and provision 4 nodes.
+VirtualBox provider로 테스트 됩니다. 왠만한 머신에서 4개의 노드를 생성하고 provision 하는데 2분이 채 걸리지 않습니다.
 
-The following variables may be changed when needed.
+다음 변수는 필요에 따라 변경될 수 있습니다.
 
 ```ruby
 # Vagrant로 생성된 cluster 사이즈
@@ -324,4 +324,4 @@ private_network_prefix = "172.31.99."
 loom_build = "build-208"
 ```
 
-Note: Vagrant creates its own inventory so `inventory.yml` is not used.
+주의: Vagrant는 자신만의 inventory를 만들기 때문에 `inventory.yml`이 사용되지 않습니다.
