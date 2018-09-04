@@ -107,7 +107,7 @@ sidebar_label: 멀티 노드 배포
 
 ### genesis.json #2 - chaindata/config 내부에 있는
 
-You will find a file named `genesis.json`. It is not to be confused with the one in the working directory. It should look like this:
+여러분은 `genesis.json` 파일을 찾을 수 있을 것입니다. 작업 디렉토리에 있는 것과 혼동하지 마세요. 이런 모습일 것입니다:
 
 ```json
 {
@@ -127,7 +127,7 @@ You will find a file named `genesis.json`. It is not to be confused with the one
 }
 ```
 
-Next, collect all the `validators` from each node, then combine them into an array. This file will now need to be replaced with the combined file, in all nodes. For a two node cluster, it should now look like this:
+다음으로, 각 노드로부터 모든 `validators`를 수집하고, 하나의 배열에 그것들을 병합하세요. 이 파일은 이제 모든 노드에서 결합 된 파일로 대체되어야 합니다. 두개의 node cluster 라면, 아래와 같은 모습일 것입니다:
 
 ```json
 {
@@ -155,18 +155,18 @@ Next, collect all the `validators` from each node, then combine them into an arr
 }
 ```
 
-## Running
+## 실행하기
 
-First, we need to get node keys from each node. Go to the working directory and run `loom nodekey`:
+먼저, 각 노드로부터 노드 키를 얻는 것이 필요합니다. 작업 디렉토리로 가서 `loom nodekey`를 실행하세요:
 
 ```bash
 $ loom nodekey
 47cd3e4cc27ac621ff8bc59b776fa228adab827e
 ```
 
-Do remember to clearly make note which node key is for which node. Also important is the private IP (or any IP that are available for the nodes to communicate with each other). Generally, in a cloud environment we use public IPs for security and latency reasons.
+어떤 노드 키가 어떤 노드인지를 명확하게 기록하는 것을 잊지 마십시오. Private IP (또는 노드가 서로 통신 할 수 있는 IP) 도 중요합니다. 일반적으로, 클라우드 환경에서는 security와 latency 때문에 public IP를 사용합니다.
 
-Now, let's use an example with 4 nodes:
+이제, 4개의 노드를 가지고 있는 있는 예제를 사용해 봅시다:
 
 | Node | IP       | Node key                                 |
 | ---- | -------- | ---------------------------------------- |
@@ -175,7 +175,7 @@ Now, let's use an example with 4 nodes:
 | 3    | 10.3.2.1 | 4953e5726664985cc1cc92ae2edcfc6e089ba50d |
 | 4    | 10.7.6.5 | 02c90b57d241c3c014755ecb07e0c0d232e07fff |
 
-To run loom, we need to tell each node about its peers. The general format is:
+Loom을 실행하기 위해서, 각 노드에게 피어가 누구인지 알려주어야 합니다. 일반적인 포맷은 다음과 같습니다:
 
 ```bash
 loom run tcp://<node1_key>@<node1_ip>:46656,tcp://<node2_key>@<node2_ip>:46656,...tcp://<nodeN_key>@<nodeN_ip>:46656
