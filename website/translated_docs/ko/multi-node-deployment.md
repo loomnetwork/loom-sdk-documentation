@@ -181,29 +181,29 @@ Loom을 실행하기 위해서, 각 노드에게 피어가 누구인지 알려�
 loom run tcp://<node1_key>@<node1_ip>:46656,tcp://<node2_key>@<node2_ip>:46656,...tcp://<nodeN_key>@<nodeN_ip>:46656
 ```
 
-Let's see examples by using the table above.
+위 테이블을 사용하는 예제를 봅시다.
 
-On node 1:
+노드 1:
 
 ```bash
 loom run tcp://e728bada822af677b95cb8ff126ca72cc4e3dc74@10.6.7.8:46656,tcp://4953e5726664985cc1cc92ae2edcfc6e089ba50d@10.3.2.1:46656,tcp://4953e5726664985cc1cc92ae2edcfc6e089ba50d@10.7.6.5:46656
 ```
 
-On node 2:
+노드 2:
 
 ```bash
 loom run tcp://47cd3e4cc27ac621ff8bc59b776fa228adab827e@10.2.3.4:46656,tcp://4953e5726664985cc1cc92ae2edcfc6e089ba50d@10.3.2.1:46656,tcp://4953e5726664985cc1cc92ae2edcfc6e089ba50d@10.7.6.5:46656
 ```
 
-The same goes for node 3 and node 4. We exclude the node's own key and IP address.
+노드 3와 노드 4도 동일하게 적용됩니다. 우리는 노드 자신의 키와 IP주소는 제외합니다.
 
-**Please remember that all commands need to be executed from within the working directory.**
+**모든 커맨드는 작업 디렉토리 내에서 실행되어야 한다는 것을 잊지마세요.**
 
 ### systemd Startup Script
 
-The following startup script can be used to control the service using systemd. Make changes to `WorkingDirectory` and/or `ExecStart` to reflect your setup.
+다음 startup script는 systemd를 이용해서 서비스를 컨트롤하는데 사용됩니다. 설정이 반영되도록 `WorkingDirectory`와/또는 `ExecStart`을 변경하세요.
 
-Notice `ExecStart`, it is constructed using the same concept from the previous section when running loom directly. This means each node has a different startup script.
+`ExecStart`을 주목하세요, loom을 직접 실행했던 이전 섹션과 동일한 컨셉으로 구성되었습니다. 이것은 각 노드가 다른 startup script를 가진다는 것을 의미합니다.
 
 ```ini
 [Unit]
@@ -226,30 +226,30 @@ StandardError=syslog
 WantedBy=multi-user.target
 ```
 
-Save it to `/etc/systemd/system/loom.service`. Run these to activate it:
+`/etc/systemd/system/loom.service`에 저장하세요. 활성화를 위해서 실행하세요:
 
 ```bash
 sudo systemctl daemon-reload
 sudo systemctl start loom.service
 ```
 
-You may now inspect the output using:
+다음과 같이 출력을 검사할 수 있습니다:
 
 ```bash
 sudo journalctl -u loom.service
 ```
 
-When satisfied everything is running as intended, executing the following will enable the service so that it is started at boot:
+의도한 대로 모든것이 구동 되었다고 판단될때, 다음을 실행하면 부팅시에 시작되도록 서비스를 활성화 할 것입니다:
 
 ```bash
 sudo systemctl enable loom.service
 ```
 
-## Verifying
+## 검증하기
 
-### Listening ports
+### 리스닝 포트
 
-If all is well, you will be able to see these ports opened in each node.
+모든 것이 잘 되고 있다면, 각 노드에서 이런 포트가 열려 있는 것을 볼 수 있을 것입니다.
 
 ```bash
 $ sudo netstat -tpnl
@@ -260,7 +260,7 @@ tcp6       0      0 :::46657                :::*                    LISTEN      
 tcp6       0      0 :::46658                :::*                    LISTEN      2135/loom
 ```
 
-## Automation
+## 자동화
 
 If combining the configuration files and startup commands seems to be a lot of work, we have a way to automate it using Ansible.
 
