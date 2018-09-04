@@ -262,19 +262,19 @@ tcp6       0      0 :::46658                :::*                    LISTEN      
 
 ## 자동화
 
-If combining the configuration files and startup commands seems to be a lot of work, we have a way to automate it using Ansible.
+설정 파일과 startup 커맨드를 조합하는 것이 많은 노력이 들어간다면, Ansible을 사용하여 자동화하는 방법이 있습니다.
 
-Ansible needs to be installed locally.
+Ansible 로컬에 설치되어야 합니다.
 
-The playbook is available [here](https://github.com/loomnetwork/loom-playbooks/blob/master/loom-playbook.yml)
+Playbook은 [여기서](https://github.com/loomnetwork/loom-playbooks/blob/master/loom-playbook.yml) 확인 가능합니다
 
-You will need to change the inventory to match your nodes and preferred working directory.
+여러분의 노드와 작업 디렉토리를 맞추기위해서 inventory를 변경해야할 필요가 있습니다.
 
-**Please ensure SSH and sudo access to the nodes are available**
+**노드에 SSH와 sudo 권한이 가능하도록 하세요**
 
 ### Inventory: inventory.yaml
 
-The inventory specifies the nodes and their IP addresses. If the node only have one IP, use same for both `ansible_host` and `private_ip`. `ansible_host` is used by Ansible to connect to the host, while `private_ip` is used by the nodes to communicate with each other.
+Inventory는 노드와 노드의 IP 주소를 지정합니다. 노드가 오직 하나의 IP만 가지고 있다면, `ansible_host`와 `private_ip`에 동일한 것을 사용하세요. `ansible_host` is used by Ansible to connect to the host, while `private_ip` is used by the nodes to communicate with each other.
 
 ```yaml
 ---
@@ -314,13 +314,13 @@ It is tested with VirtualBox provider. It takes less than two minutes on a decen
 The following variables may be changed when needed.
 
 ```ruby
-# Size of the cluster created by Vagrant
+# Vagrant로 생성된 cluster 사이즈
 num_instances = 4
 
 # Private Network Prefix
 private_network_prefix = "172.31.99."
 
-# Build numbers
+# 빌드 넘버
 loom_build = "build-208"
 ```
 
