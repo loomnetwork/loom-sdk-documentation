@@ -14,17 +14,17 @@ Delegated proof of stake 알고리즘은 토큰 홀더가 witness를 선출할 �
 
 **Vote allocation** - 각 코인 계정이 얻은 득표 수. 기본적으로 이것은 witness의 수와 같습니다.
 
-**Election cycle length** - How long the election cycle is. By default this is 1 week.
+**Election cycle length** - 선거주기. 기본적으로 1주입니다.
 
-**Minimum power fraction** - Optional. How much of the coin supply needs to have voted for elections to be considered valid. For example, a value of 5 corresponds to 20% of the coin supply needing to have voted.
+**Minimum power fraction** - 선택사항. 선거가 유효하다고 위해서 선거에 얼마를 많은 코인 공급이 요구되는지. 예를들면, 5라는 값은 투표에 필요한 코인 공급량의 20%에 해당합니다.
 
 ## Candidate Registration
 
-All candidates must register by specifying the public key matching their address.
+모든 candidate들은 그들의 주소와 일치하는 퍼블릭 키를 지정하는 등록을 해야합니다.
 
-## 투표 중
+## Voting
 
-Each coin account has up to a specified number of votes, generally equal to the number of witnesses. However, the power of each vote is proportional to the balance of coins the account holds. This ensures that accounts with more at stake have a greater voice in how the network is run. In the current implementation votes do not expire. This means that unless a vote is explicitly changed it is assumed that the account holder is satisfied with the job of the witness and will receive the account holder's vote again in the next election. Unlike traditional elections, voting can be done any time so there is no "election day", however votes are not counted until the election time.
+각 코인 계정은 최대 특정 수의 득표를 얻게 되는데, 일반적으로 witness의 수와 같습니다. However, the power of each vote is proportional to the balance of coins the account holds. This ensures that accounts with more at stake have a greater voice in how the network is run. In the current implementation votes do not expire. This means that unless a vote is explicitly changed it is assumed that the account holder is satisfied with the job of the witness and will receive the account holder's vote again in the next election. Unlike traditional elections, voting can be done any time so there is no "election day", however votes are not counted until the election time.
 
 ### Proxying Votes
 
