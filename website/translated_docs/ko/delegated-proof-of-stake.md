@@ -2,17 +2,17 @@
 id: delegated-proof-of-stake
 title: Delegated Proof of Stake
 ---
-Delegated proof of stake 알고리즘은 토큰 홀더가 witness를 선출할 수 있게 해줍니다. Witnesse는 블록체인의 validator로서 행동하는데, 블록을 제안하고 트랜잭션이 정확한지를 검사하는 역할을 합니다. These witnesses serve a standard term length before being subject to elections again.
+Delegated proof of stake 알고리즘은 토큰 홀더가 witness를 선출할 수 있게 해줍니다. Witnesse는 블록체인의 validator로서 행동하는데, 블록을 제안하고 트랜잭션이 정확한지를 검사하는 역할을 합니다. 이 증인은 선거를 다시 하기 전까지 표준 기간 동안 서비스를 제공합니다.
 
-## Parameters
+## 파라미터
 
-**Coin contract address** - Specifies which ERC20-like coin contract to use to calculate the power of a vote. By default this is resolved to the address at `coin`.
+**Coin contract address** - 투표권을 계산하는 데 사용되는 ERC20와 같은 코인 컨트랙트를 지칭합니다. 기본적으로 이것은 `coin`의 주소로 확인됩니다.
 
-**Witness count** - The number of witnesses that can be elected.
+**Witness count** - 선출될 수 있는 witness의 수.
 
-**Witness salary** - Optional. The amount that witnesses get paid for validating blocks.
+**Witness salary** - 선택사항. Witness가 블록 검증에 대한 보상의 양.
 
-**Vote allocation** - Number of votes each coin account gets. By default this is equal to the number of witnesses.
+**Vote allocation** - 각 코인 계정이 얻은 득표 수. 기본적으로 이것은 witness의 수와 같습니다.
 
 **Election cycle length** - How long the election cycle is. By default this is 1 week.
 
