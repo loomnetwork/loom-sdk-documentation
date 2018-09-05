@@ -24,11 +24,11 @@ Delegated proof of stake 알고리즘은 토큰 홀더가 witness를 선출할 �
 
 ## Voting
 
-각 코인 계정은 최대 특정 수의 득표를 얻게 되는데, 일반적으로 witness의 수와 같습니다. 하지만, 각 득표의 힘은 계정이 가지고 있는 코인의 잔액과 비례합니다. 이것은 지분이 더 많은 계정이 네트워크를 실행에 대한 더 큰 힘을 가지게 해줍니다. In the current implementation votes do not expire. This means that unless a vote is explicitly changed it is assumed that the account holder is satisfied with the job of the witness and will receive the account holder's vote again in the next election. Unlike traditional elections, voting can be done any time so there is no "election day", however votes are not counted until the election time.
+각 코인 계정은 최대 특정 수의 득표를 얻게 되는데, 일반적으로 witness의 수와 같습니다. 하지만, 각 득표의 힘은 계정이 가지고 있는 코인의 잔액과 비례합니다. 이것은 지분이 더 많은 계정이 네트워크를 실행에 대한 더 큰 힘을 가지게 해줍니다. 현재 구현에서 투표는 만료되지 않습니다. 이것은 투표를 명시적으로 변경하지 않는 한 계정 소유자는 witness의 일에 충족되며 다음 선거에서 다시 계정 소유자의 투표를 받을 것입니다. 그러나 전통적인 선거와는 달리 투표는 언제든지 할 수 있어서 "선거일"이라는 것은 없습니다. 하지만, 투표는 선거시간까지 카운팅되지 않습니다.
 
 ### Proxying Votes
 
-In addition to voting directly for witness candidates, accounts can also proxy their vote to a trusted party. This means the proxy ends up with a vote power proportional to `proxy balance + sum(balance of principals)`.
+Witness candidate에 대한 직접적인 투표와 더불어서, 계정은 그들의 투표를 신뢰할 수 있는 곳에 위임할 수 있습니다. This means the proxy ends up with a vote power proportional to `proxy balance + sum(balance of principals)`.
 
 ## Elections
 
