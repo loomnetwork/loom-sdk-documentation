@@ -1,19 +1,19 @@
 ---
 id: truffle-deploy
-title: Truffle DAppChain Example
-sidebar_label: Truffle Deploy
+title: Truffle DAppChain 예제
+sidebar_label: Truffle 배포
 ---
 ![http://truffleframework.com](/developers/img/truffle.jpg)
 
 Simple example of Truffle interacting with Loom DAppChain, this example uses [loom-truffle-provider](https://github.com/loomnetwork/loom-truffle-provider) (check LoomTruffleProvider repository for more details)
 
-## Requirements
+## 요구사항
 
 ```bash
 Node >= 8
 ```
 
-## Install
+## 설치
 
 In order to download the Truffle DAppChain Example there're two methods Git or Unbox
 
@@ -27,14 +27,14 @@ git clone https://github.com/loomnetwork/truffle-dappchain-example
 cd truffle-dappchain-example
 
 yarn install
-# or
+# 또는
 npm install
 ```
 
 ### Unbox method
 
 ```bash
-# Install Truffle if not installed
+# 설치되지 않았다면 Truffle 설치
 npm install -g truffle
 
 mkdir truffle-dappchain-example
@@ -43,19 +43,19 @@ cd truffle-dappchain-example
 truffle unbox loomnetwork/truffle-dappchain-example
 ```
 
-## Start DappChain
+## DappChain을 시작하세요
 
 ```bash
-# Download
+# 다운로드
 wget https://private.delegatecall.com/loom/osx/build-404/loom
 chmod +x loom
 
-# Run
+# 실행
 ./loom init
 ./loom run
 ```
 
-## Deploy Truffle
+## Truffle 배포
 
 ```bash
 # On second terminal
