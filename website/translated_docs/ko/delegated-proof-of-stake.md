@@ -24,7 +24,7 @@ Delegated proof of stake 알고리즘은 토큰 홀더가 witness를 선출할 �
 
 ## Voting
 
-각 코인 계정은 최대 특정 수의 득표를 얻게 되는데, 일반적으로 witness의 수와 같습니다. However, the power of each vote is proportional to the balance of coins the account holds. This ensures that accounts with more at stake have a greater voice in how the network is run. In the current implementation votes do not expire. This means that unless a vote is explicitly changed it is assumed that the account holder is satisfied with the job of the witness and will receive the account holder's vote again in the next election. Unlike traditional elections, voting can be done any time so there is no "election day", however votes are not counted until the election time.
+각 코인 계정은 최대 특정 수의 득표를 얻게 되는데, 일반적으로 witness의 수와 같습니다. 하지만, 각 득표의 힘은 계정이 가지고 있는 코인의 잔액과 비례합니다. 이것은 지분이 더 많은 계정이 네트워크를 실행에 대한 더 큰 힘을 가지게 해줍니다. In the current implementation votes do not expire. This means that unless a vote is explicitly changed it is assumed that the account holder is satisfied with the job of the witness and will receive the account holder's vote again in the next election. Unlike traditional elections, voting can be done any time so there is no "election day", however votes are not counted until the election time.
 
 ### Proxying Votes
 
