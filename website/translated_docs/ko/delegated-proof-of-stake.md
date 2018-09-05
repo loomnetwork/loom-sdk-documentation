@@ -28,7 +28,7 @@ Delegated proof of stake 알고리즘은 토큰 홀더가 witness를 선출할 �
 
 ### Proxying Votes
 
-Witness candidate에 대한 직접적인 투표와 더불어서, 계정은 그들의 투표를 신뢰할 수 있는 곳에 위임할 수 있습니다. This means the proxy ends up with a vote power proportional to `proxy balance + sum(balance of principals)`.
+Witness candidate에 대한 직접적인 투표와 더불어서, 계정은 그들의 투표를 신뢰할 수 있는 곳에 위임할 수 있습니다. 이것은 proxy는 `proxy 잔액 + 합계(위임자들의 잔액)`에 비례하는 투표 권한을 최종적으로 얻게됩니다.
 
 ## Elections
 
