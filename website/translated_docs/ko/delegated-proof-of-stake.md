@@ -50,43 +50,43 @@ Witness candidate에 대한 직접적인 투표와 더불어서, 계정은 그�
 
 ### 투표 만료
 
-현재 투표는 만료되지 않습니다, 하지만, 특정 기간이후에 투표가 만료되는 시나리오를 상상해 볼 수 있습니다. 이것은 분실 또는 도난당한 계좌가 선거에 부당한 영향을 끼치는 것을 방지해줄 수 있습니다. This can be done either by looking at the time the vote was cast or by looking at the last activity on the account.
+현재 투표는 만료되지 않습니다, 하지만, 특정 기간이후에 투표가 만료되는 시나리오를 상상해 볼 수 있습니다. 이것은 분실 또는 도난당한 계좌가 선거에 부당한 영향을 끼치는 것을 방지해줄 수 있습니다. 이것은 투표 당시의 시간을 보거나 또는 계정의 마지막 활동을 살펴 보는 것이 될 수 있습니다.
 
-## Contract Transactions
+## 컨트랙트 트랜잭션
 
 `registerCandidate`
 
-Register a candidate to be a witness.
+Witness가 될 후보자를 등록합니다.
 
 `unregisterCandidate`
 
-Unregister a candidate to be a witness.
+Witness가 될 후보자의 등록을 취소합니다.
 
 `vote`
 
-Vote for a particular candidate.
+특정 후보자에게 투표합니다.
 
 `proxyVote`
 
-Proxy your votes to another account.
+여러분의 투표를 다른 계정에게 위임합니다.
 
 `unproxyVote`
 
-Unproxy your votes.
+여러분의 투표의 위임을 취소합니다.
 
 `elect`
 
-Run the election.
+선거를 실행합니다.
 
-## Example CLI Usage
+## CLI 사용 예제
 
-To get started we first need to initialize the blockchain. The DPOS and Coin smart contracts will automatically be added into `genesis.json`.
+시작하려면 우리는 먼저 블록체인을 초기화하는 것이 필요합니다. DPOS와 코인 스마트 컨트랙트가 자동으로 `genesis.json`에 추가될 것입니다.
 
 ```shell
 loom init
 ```
 
-Next we generate public/private keys for an example account.
+다음으로 우리는 예제 계정을 위한 퍼블릭/프라이빗 키를 생성합니다.
 
 ```shell
 loom genkey -a pubkey -k privkey
