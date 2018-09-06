@@ -92,7 +92,7 @@ loom init
 loom genkey -a pubkey -k privkey
 ```
 
-Then we need to make sure some initial coins on the blockchain are given out so that we have some voting power. To do this we need to modify `genesis.json` and change the `init` section of the Coin contract configuration. In this example we'll give ourselves 100 coins.
+그런다음 우리는 약간의 투표권을 갖기 위해서 블록체인에서 초기 코인 몇개를 가져야만 합니다. 이렇게 하려면 `genesis.json`을 수정하는게 필요한데 코인 컨트랙트 구성의 `init` 섹션을 수정해야만 합니다. 이 예제에서 우리는 자신에게 100 코인을 줄 것입니다.
 
 ```json
         {
@@ -114,7 +114,7 @@ Then we need to make sure some initial coins on the blockchain are given out so 
         },
 ```
 
-We also need to tweak the DPOS settings for this example so we can run an election right now instead of waiting a full election cycle for votes to come in. We do this by changing the `electionCycleLength` in `genesis.json` to `0`. We'll also add a salary of 10 coins for witnesses.
+이 예제에 대한 DPOS 설정을 조정하여 전체 투표를 기다리는 대신 선거를 실행할 수 있도록 해야합니다. `genesis.json`의 `electionCycleLength` 부분을 `0`으로 수정하면 됩니다. 또한 우리는 witness를 위해서 10 코인의 보상을 추가할 것입니다.
 
 ```json
         {
