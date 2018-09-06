@@ -38,19 +38,19 @@ Witness candidate에 대한 직접적인 투표와 더불어서, 계정은 그�
 
 ## Bonding
 
-In the future witnesses may lock up a specified number of coins that can be seized for bad behavior. This adds an additional incentive for good behavior beyond the witness salary.
+추후에는 witness는 나쁜 행위에 대해서 압수될 수 있는 특정 수의 코인을 락업할 수도 있습니다. 이것은 witness 보상을 넘어 좋은 행위에 대한 추가적인 인센티브를 더합니다.
 
 ### Proof of Authority
 
-Right now candidates do not have to proof their identity, but in the future it may be useful to enable on-chain notarization to verify candidates' identities.
+현재 candidate은 그들의 신원 증명할 필요는 없습니다, 그러나 추후에는 on-chain 공증을 활성화 시키는 것이 candidate의 신원을 확인하는데 유용할 수 있습니다.
 
 ### Alternating Election Cycle
 
-Currently all witnesses are up for reelection at every election. It may be better to have an election cycle that differs from the term length.
+현재 모든 선거에서 모든 witness가 재선거를 합니다. 선거주기의 길이와 다른 재선거주기를 갖는 것이 더 나을 수도 있습니다. 용어 길이.
 
-### Vote Expiration
+### 투표 만료
 
-Currently votes never expire, however, one can imagine a scenario in which votes expire after a certain time period. This would prevent lost or stolen accounts from having undue influence in elections. This can be done either by looking at the time the vote was cast or by looking at the last activity on the account.
+현재 투표는 만료되지 않습니다, 하지만, 특정 기간이후에 투표가 만료되는 시나리오를 상상해 볼 수 있습니다. 이것은 분실 또는 도난당한 계좌가 선거에 부당한 영향을 끼치는 것을 방지해줄 수 있습니다. This can be done either by looking at the time the vote was cast or by looking at the last activity on the account.
 
 ## Contract Transactions
 
