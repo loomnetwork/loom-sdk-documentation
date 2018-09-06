@@ -105,7 +105,7 @@ loom genkey -a pubkey -k privkey
                     {
                         "owner": {
                             "chain_id": "default",
-                            "local": "<local address in base64 from genkey>"
+                            "local": "<genkey로 부터 얻은 base64 로컬 주소>"
                         },
                         "balance": 100
                     }
@@ -131,7 +131,7 @@ loom genkey -a pubkey -k privkey
                 },
                 "validators": [
                     {
-                        "pubKey": "<your validator public key>",
+                        "pubKey": "<여러분의 validator 퍼블릭 키>",
                         "power": "10"
                     }
                 ]
@@ -139,38 +139,38 @@ loom genkey -a pubkey -k privkey
         }
 ```
 
-We then boot the blockchain which will initialize the Coin and DPOS smart contracts.
+그런 다음 코인 및 DPOS 스마트 컨트랙트를 초기화 할 블록체인을 부팅합니다.
 
 ```shell
 loom run
 ```
 
-To send transactions to the network we can use the example-cli from the [go-loom project](https://github.com/loomnetwork/go-loom). This can be built by running
+트랜잭션을 네트워크에 보내기 위해서 우리는 [go-loom project](https://github.com/loomnetwork/go-loom)의 example-cli을 사용할 수 있습니다. 다음을 수행하여 빌드 할 수 있습니다
 
 ```shell
 make example-cli
 ```
 
-We can check the witness list at any time by running the `list_witnesses` subcommand.
+우리는 `list_witnesses` 서브커맨드를 수행하여 언제든지 witness 목록을 확인할 수 있습니다.
 
 ```shell
 ./example-cli call list_witnesses
 ```
 
-First we'll fund the dpos contract so that witnesses can get paid. This is simply a transfer to the `dpos` contract.
+먼저 witness가 돈을 받을 수 있도록 dpos 컨트랙트에 자금을 지원합니다. 이것은 단순히 `dpos` 컨트랙트로 전송하는 것입니다.
 
 ```shell
 ./example-cli call transfer dpos 90 -p privkey
 ```
 
-We can also check our balance and the balance of the dpos contract at any time.
+우리는 언제든지 우리의 잔액과 dpos 컨트랙트의 잔액을 확인할 수 있습니다.
 
 ```shell
 ./example-cli call balance <your address>
 ./example-cli call balance dpos
 ```
 
-In order to run for a witness seat we need to register on the blockchain. For this example we'll just register ourselves.
+Witness 자리를 운영하려면 블록체인에 등록해야합니다. 이 예제에서는 우리 자신을 등록 만합니다.
 
 ```shell
 ./example-cli call register_candidate <public key> -p privkey
