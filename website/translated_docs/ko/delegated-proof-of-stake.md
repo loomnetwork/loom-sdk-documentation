@@ -2,7 +2,7 @@
 id: delegated-proof-of-stake
 title: Delegated Proof of Stake
 ---
-Delegated proof of stake 알고리즘은 토큰 홀더가 witness를 선출할 수 있게 해줍니다. Witnesse는 블록체인의 validator로서 행동하는데, 블록을 제안하고 트랜잭션이 정확한지를 검사하는 역할을 합니다. 이 증인은 선거를 다시 하기 전까지 표준 기간 동안 서비스를 제공합니다.
+Delegated proof of stake 알고리즘은 토큰 홀더가 witness를 선출할 수 있게 해줍니다. Witnesse는 블록체인의 validator로서 행동하는데, 블록을 제안하고 트랜잭션이 정확한지를 검사하는 역할을 합니다. 이 Witness는 선거를 다시 하기 전까지 표준 기간 동안 서비스를 제공합니다.
 
 ## 파라미터
 
@@ -28,7 +28,7 @@ Delegated proof of stake 알고리즘은 토큰 홀더가 witness를 선출할 �
 
 ### Proxying Votes
 
-Witness candidate에 대한 직접적인 투표와 더불어서, 계정은 그들의 투표를 신뢰할 수 있는 곳에 위임할 수 있습니다. 이것은 proxy는 `proxy 잔액 + 합계(위임자들의 잔액)`에 비례하는 투표 권한을 최종적으로 얻게됩니다.
+Witness 후보에 대한 직접적인 투표와 더불어서, 계정은 그들의 투표를 신뢰할 수 있는 곳에 위임할 수 있습니다. 이것은 proxy는 `proxy 잔액 + 합계(위임자들의 잔액)`에 비례하는 투표 권한을 최종적으로 얻게됩니다.
 
 ## 선거
 
@@ -42,7 +42,7 @@ Witness candidate에 대한 직접적인 투표와 더불어서, 계정은 그�
 
 ### Proof of Authority
 
-현재 candidate은 그들의 신원 증명할 필요는 없습니다, 그러나 추후에는 on-chain 공증을 활성화 시키는 것이 candidate의 신원을 확인하는데 유용할 수 있습니다.
+현재 후보는 그들의 신원 증명할 필요는 없습니다, 그러나 추후에는 on-chain 공증을 활성화 시키는 것이 후보의 신원을 확인하는데 유용할 수 있습니다.
 
 ### Alternating Election Cycle
 
@@ -176,25 +176,25 @@ Witness 자리를 운영하려면 블록체인에 등록해야합니다. 이 예
 ./example-cli call register_candidate <public key> -p privkey
 ```
 
-Then we'll vote for ourselves, giving all of our vote allocation, which is 21 votes.
+그런다음 우리는 우리의 투표 할당량인 21표를 우리 자신을 위해 투표 할 것입니다.
 
 ```shell
 ./example-cli call vote <your address> 21 -p privkey
 ```
 
-Finally we'll run the election, which we've rigged :).
+최종적으로 우리는 선거를 실행할 것입니다, 우리가 선거를 조작했어요 :).
 
 ```shell
 ./example-cli call elect -p privkey
 ```
 
-To verify that we've been elected we can check the witness list again to see that it's changed.
+우리가 선출 된 것을 확인하기 위해 우리는 witness 목록을 다시 점검하여 변경된 것을 볼 수 있습니다.
 
 ```shell
 ./example-cli call list_witnesses
 ```
 
-We can run the election again and verify we were paid for our service.
+우리는 다시 선거를 실시해서 우리가 우리 서비스를 위해 지불했는지를 확인할 수 있습니다.
 
 ```shell
 ./example-cli call elect -p privkey
