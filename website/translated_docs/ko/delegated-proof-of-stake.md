@@ -32,9 +32,9 @@ Witness candidate에 대한 직접적인 투표와 더불어서, 계정은 그�
 
 ## 선거
 
-네트워크에 트랜잭션을 전송하고 충분한 시간이 경과되면 어떤 계정이든 선거를 트리거 할 수 있습니다. Witness는 그들에게 주어진 총 투표권을 합산하고 상위 N명의 후보를 취하는 것으로 선출됩니다 여기서 N이란 초기 파라미터에 지정된 witness 수입니다. This means that all witnesses end up with an equal chance of proposing a block no matter how many votes they received. If the mininum number of power required specified by the minimum power fraction is not reached then the witness set does not change.
+네트워크에 트랜잭션을 전송하고 충분한 시간이 경과되면 어떤 계정이든 선거를 트리거 할 수 있습니다. Witness는 그들에게 주어진 총 투표권을 합산하고 상위 N명의 후보를 취하는 것으로 선출됩니다 여기서 N이란 초기 파라미터에 지정된 witness 수입니다. 이것은 모든 witness가 그들이 얼마나 많은 표를 받았는지에 상관없이 블록을 제안하는 것에 대해서 동등한 기회를 가진다는 것을 의미합니다. 만약에 최소 투표권 비율로 지정된 최소 투표권을 충족하지 못한다면 witness 세트는 변경되지 않습니다.
 
-## Future Improvements
+## 추후 개선사항
 
 ## Bonding
 
