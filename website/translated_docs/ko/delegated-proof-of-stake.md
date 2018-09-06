@@ -30,9 +30,9 @@ Delegated proof of stake 알고리즘은 토큰 홀더가 witness를 선출할 �
 
 Witness candidate에 대한 직접적인 투표와 더불어서, 계정은 그들의 투표를 신뢰할 수 있는 곳에 위임할 수 있습니다. 이것은 proxy는 `proxy 잔액 + 합계(위임자들의 잔액)`에 비례하는 투표 권한을 최종적으로 얻게됩니다.
 
-## Elections
+## 선거
 
-Any account can trigger an election if enough time has passed by sending a transaction to the network. Witnesses are elected by summing up the total voting power given to them and taking the top N candidates where N is the witness count specified in the initial parameters. This means that all witnesses end up with an equal chance of proposing a block no matter how many votes they received. If the mininum number of power required specified by the minimum power fraction is not reached then the witness set does not change.
+네트워크에 트랜잭션을 전송하고 충분한 시간이 경과되면 어떤 계정이든 선거를 트리거 할 수 있습니다. Witness는 그들에게 주어진 총 투표권을 합산하고 상위 N명의 후보를 취하는 것으로 선출됩니다 여기서 N이란 초기 파라미터에 지정된 witness 수입니다. This means that all witnesses end up with an equal chance of proposing a block no matter how many votes they received. If the mininum number of power required specified by the minimum power fraction is not reached then the witness set does not change.
 
 ## Future Improvements
 
