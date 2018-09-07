@@ -92,7 +92,7 @@ const ABI = [{
 }]
 ```
 
-`LoomProvider`를 사용하여 `Web3`을 인스턴스화하고 사용하는 방법은 Ethereum 노드에서 사용하는 것과 유사하지만 먼저 `loom-js` 클라이언트를 올바르게 초기화해야 합니다.
+`LoomProvider`를 사용하여 `Web3`을 인스턴스화하고 사용하는 방법은 Ethereum 노드에서 사용하는 것과 유사하지만 먼저 `loom-js` client를 올바르게 초기화해야 합니다.
 
 ```js
 import {
@@ -101,7 +101,7 @@ import {
 
 import Web3 from 'web3'
 
-// This function will initialize and return the client
+// 이 함수는 초기화를 하고 client를 반환합니다
 function getClient(privateKey, publicKey) {
   const client = new Client(
     'default',
@@ -112,37 +112,37 @@ function getClient(privateKey, publicKey) {
   return client
 }
 
-// Setting up keys
+// 키를 세팅합니다
 const privateKey = CryptoUtils.generatePrivateKey()
 const publicKey = CryptoUtils.publicKeyFromPrivateKey(privateKey)
 
-// Client ready
+// Client 준비
 const client = getClient(privateKey, publicKey)
 ```
 
-Now with client ready let's instantiate the `Web3`, in order to properly initialize the `Web3` instance we're going to pass the `LoomProvider` with the `client`
+이제 준비된 client로 `Web3`를 인스턴스화 해보자, `Web3` 인스턴스를 정확히 초기화하기 위해서 `client`를 가지고 `LoomProvider`를 넘겨줄 것입니다
 
 ```js
 const web3 = new Web3(new LoomProvider(client, privateKey))
 ```
 
-We're ready to instantiate the contract
+컨트랙트를 인스턴스화할 준비가 되었습니다
 
 ```js
-// Getting our address based on public key
+// 퍼블릭키 기반의 우리의 주소를 가져오기
 const fromAddress = LocalAddress.fromPublicKey(publicKey).toString()
 
-// Get the contract address (we don't need to know the address just the name specified in genesis.json
+// 컨트랙트 주소를 가져옵니다 (우리는 genesis.json에 지정된 이름만 알 뿐 주소를 알지 못합니다)
 const loomContractAddress = await client.getContractAddressAsync('SimpleStore')
 
-// Translate loom address to hexa to be compatible with Web3
+// Web3와 호환되는 헥사값으로 loom 주소를 변환합니다
 const contractAddress = CryptoUtils.bytesToHexAddr(loomContractAddress.local.bytes)
 
-// Instantiate the contract
+// 컨트랙트를 인스턴스화합니다
 const contract = new web3.eth.Contract(ABI, contractAddress, {from: fromAddress})
 ```
 
-The contract is instantiated and ready
+컨트랙트가 인스턴스화되었고 준비가 되었습니다
 
 # 트랜잭션과 Call
 
