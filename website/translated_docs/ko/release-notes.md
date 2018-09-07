@@ -39,34 +39,34 @@ sidebar_label: 릴리즈 노트
 
 ## 릴리즈 330 - 7월 30일
 
-* Fix for consensus problems on EVM 
-* Updates for Zombiechain TestNet
-* Added more telemetry to measure performance
-* Range queries on Go Contracts
-* Added ChainID to loom.yaml
+* EVM 컨센서스 문제 수정 
+* Zombiechain 테스트넷을 위한 업데이트
+* 성능 측정을 위한 더 많은 원격 측정 기능 추가
+* Go 컨트랙트를 위한 range query
+* loom.yaml에 ChainID가 추가
 
-* [EVM indexed filter](https://loomx.io/developers/docs/en/web3js-event-filters.html)
+* [EVM indexed 필터](https://loomx.io/developers/docs/en/web3js-event-filters.html)
 
-* EVM filter pool fixes and event system
-* Loom-JS EVM updates for indexed filters
-* Loom-JS EVM fixes for getting block by hash
+* EVM 필터 pool 수정 및 이벤트 시스템
+* indexed 필터를 위한 Loom-JS EVM 업데이트
+* 해시값으로 블록을 가져오기 위한 Loom-JS EVM 수정
 
-## Release 288 - July 17th
+## 릴리즈 288 - 7월 17일
 
-* [EVM indexed filter](https://loomx.io/developers/docs/en/web3js-event-filters.html)
-* EVM filter pool fixes and event system
-* Loom-JS EVM updates for indexed filters
-* Loom-JS EVM fixes for getting block by hash
+* [EVM indexed 필터](https://loomx.io/developers/docs/en/web3js-event-filters.html)
+* EVM 필터 pool 수정 및 이벤트 시스템
+* indexed 필터를 위한 Loom-JS EVM 업데이트
+* 해시값으로 블록을 가져오기 위한 Loom-JS EVM 수정
 
-## Release 276 - July 13th
+## 릴리즈 276 - 7월 13일
 
-* [New Block Explorer](block-explorer-tutorial.html)
-* Multinode EVM fixes 
-* Loom-JS updates for Plasma cash
-* Zombiechain testnet fixes
-* DPoS Updates
+* [새로운 블록 탐색기](block-explorer-tutorial.html)
+* 멀티노드 EVM 수정 
+* 플라즈마 캐시를 위한 Loom-JS 업데이트
+* Zombiechain 테스트넷 수정
+* DPoS 업데이트
 
-## Release 209 - June 20th
+## 릴리즈 209 - 6월 20일
 
 Major release
 
