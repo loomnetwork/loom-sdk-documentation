@@ -146,14 +146,14 @@ const contract = new web3.eth.Contract(ABI, contractAddress, {from: fromAddress}
 
 # 트랜잭션과 Call
 
-After the instantiation of the `Web3 Contract` we'll be able to use the contract methods for transactions (`send`) and calls (`call`) like so:
+`Web3 컨트랙트`가 인스턴스화 된 후에 다음과 같은 트랜잭션 (`send`) 과 call (`call`) 을 위한 컨트랙트 메소드를 사용할 수 있습니다:
 
 ```js
 (async function () {
-  // Set value of 47
+  // 값에 47을 넣는다.
   await contract.methods.set(47).send()
 
-  // Get the value
+  // 값을 가져온다
   const result = await contract.methods.get().call()
   // result should be 47
 })()
@@ -161,7 +161,7 @@ After the instantiation of the `Web3 Contract` we'll be able to use the contract
 
 # 이벤트
 
-It is possible to add event listeners to the contract, although it don't support the filters yet
+컨트랙트에 이벤트 listener를 추가하는 것도 가능합니다, 비록 필터 지원을 아직 하지 않지만
 
 ```js
 (async function () {
@@ -177,9 +177,9 @@ It is possible to add event listeners to the contract, although it don't support
 })()
 ```
 
-## Putting it all together
+## 한꺼번에 해보기
 
-Now that we have all the pieces in place make sure that you have the DAppChain running and then run the following code, you should see `Value: hello!` printed to the console.
+자 이제 모든 것을 가지고 DAppChain이 구동되었는지 확인하십시오 그리고 다음 코드를 실행시키세요, 그럼 여러분은 콘솔에 찍히는 `Value: hello!` 를 보실수 있을 것입니다.
 
 ```js
 import {
@@ -188,7 +188,7 @@ import {
 
 import Web3 from 'web3'
 
-// This function will initialize and return the client
+// 이 함수는 초기화를 하고 client를 반환합니다
 function getClient(privateKey, publicKey) {
   const client = new Client(
     'default',
@@ -199,33 +199,33 @@ function getClient(privateKey, publicKey) {
   return client
 }
 
-// Setting up keys
+// 키를 세팅합니다
 const privateKey = CryptoUtils.generatePrivateKey()
 const publicKey = CryptoUtils.publicKeyFromPrivateKey(privateKey)
 
-// Client ready
+// Client 준비
 const client = getClient(privateKey, publicKey)
 
-// Setting the web3
+// web3 세팅하기
 const web3 = new Web3(new LoomProvider(client, privateKey))
 
 ;(async () => {
   // Set the contract ABI
   const ABI = [{"constant":false,"inputs":[{"name":"_value","type":"uint256"}],"name":"set","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"get","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"}]
 
-  // Getting our address based on public key
+  // 퍼블릭 키 기반의 우리의 주소를 가져오기
   const fromAddress = LocalAddress.fromPublicKey(publicKey).toString()
 
-  // Get the contract address (we don't need to know the address just the name specified in genesis.json
+  // 컨트랙트 주소를 가져옵니다 (우리는 genesis.json에 지정된 이름만 알 뿐 주소를 알지 못합니다)
   const loomContractAddress = await client.getContractAddressAsync('SimpleStore')
 
-  // Translate loom address to hexa to be compatible with Web3
+  // Web3와 호환되는 헥사값으로 loom 주소를 변환합니다
   const contractAddress = CryptoUtils.bytesToHexAddr(loomContractAddress.local.bytes)
 
-  // Instantiate the contract
+  // 컨트랙트를 인스턴스화합니다
   const contract = new web3.eth.Contract(ABI, contractAddress, {from: fromAddress})
 
-  // Listen for new value set
+  // 새로운 값의 설정을 listen한다
   contract.events.NewValueSet({}, (err, newValueSet) {
     if (err) {
       console.error('error', err)
@@ -235,10 +235,10 @@ const web3 = new Web3(new LoomProvider(client, privateKey))
     console.log('New value set', newValueSet.returnValues)
   })
 
-  // Set value of 47
+  // 값에 47을 넣는다
   await contract.methods.set(47).send()
 
-  // Get the value
+  // 값을 가져온다
   const result = await contract.methods.get().call()
   // result should be 47
 })()
