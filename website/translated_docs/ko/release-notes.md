@@ -27,17 +27,17 @@ sidebar_label: 릴리즈 노트
 
 ## 릴리즈 375 - 8월 10일
 
-*NOTE* This is a feature test release, with minor compatibility changes, please verify in staging environements before upgrading your production environment.
+*주의* 이것은 마이너 호환성 변경사항을 포함한 기능 테스트 릴리즈입니다, 여러분의 프로덕션 환경을 업그레이드 하기 앞서 임시 환경에서 확인을 부탁드립니다.
 
-* Fixes for Eventing on EVM Contracts
-* Beta release of the [Transfer Gateway](transfer-gateway.html)
-* [Demo of Transfer Gateway](https://github.com/loomnetwork/cards-gateway-example)
-* Memory leak fixes
-* Minor api breakages, please upgrade go-loom/loom-js. Unity updates coming soon
-* Go-loom is upgraded for api breakages
-* loom-js is upgraded for this release. 
+* EVM 컨트랙트의 이벤트와 관련된 수정
+* [Transfer Gateway](transfer-gateway.html)의 베타 릴리즈
+* [Transfer Gateway의 데모](https://github.com/loomnetwork/cards-gateway-example)
+* 메모리 누수 수정
+* 마이너 Api 충돌문제, go-loom/loom-js을 업그레이드 하세요. Unity는 곧 업데이트 예정입니다
+* Go-loom은 API 충돌문제가 업그레이드 되었습니다
+* loom-js는 이번 릴리즈로 업그레이드 되었습니다. 
 
-## Release 330 - July 30th
+## 릴리즈 330 - 7월 30일
 
 * Fix for consensus problems on EVM 
 * Updates for Zombiechain TestNet
