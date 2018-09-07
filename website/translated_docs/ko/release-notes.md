@@ -137,16 +137,16 @@ sidebar_label: 릴리즈 노트
 ## 릴리즈 129 - 5월 22일
 
 * 이벤트를 위한 Websocket 지원
-* Updates to indexing layer for solidty contracts
-* Phaser Game Dame - [Github](https://github.com/loomnetwork/phaser-sdk-demo)
+* Solidity 컨트랙트를 위한 indexing 레이어 업데이트
+* Phaser 게임 데모 - [Github](https://github.com/loomnetwork/phaser-sdk-demo)
 
-## Release 128 - May 21th
+## 릴리즈 128 - 5월 21일
 
-* Lots of bug fixes for Etherboy
+* Etherboy와 관련된 수많은 버그 수정
 
-## Release 128 - May 19th
+## 릴리즈 128 - 5월 19일
 
-* Stable Beta Release
-* Updating logging to default to multiple files 
-* Moving all RPC to a single interface
-* Updated External Process interface
+* Stable 베타 릴리즈
+* 로깅이 기본적으로 여러 파일에 되도록 업데이트 
+* 모든 RPC를 단일 인터페이스로 이동
+* 외부 프로세스 인터페이스 업데이트
