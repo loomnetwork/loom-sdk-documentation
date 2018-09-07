@@ -20,7 +20,7 @@ curl -O https://dl.google.com/go/go1.10.2.linux-amd64.tar.gz
 sudo tar -C /usr/local -xzf go1.10.2.linux-amd64.tar.gz
 ```
 
-bash를 기준으로 한 설명이며, zsh를 사용한다면 `~/.zshrc`:
+bash를 기준으로 한 설명이며, zsh를 사용한다면 ~/.bashrc를 `~/.zshrc`로 쓰세요:
 
 ```bash
 echo -e "\nexport PATH=\$PATH:/usr/local/go/bin:~/gopath/bin" >>  ~/.bashrc
