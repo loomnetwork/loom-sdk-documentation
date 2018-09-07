@@ -1,7 +1,7 @@
 ---
 id: loom-yaml
-title: Loom Yaml and Configuration options
-sidebar_label: Loom Yaml and Configuration options
+title: Loom Yaml과 설정 옵션
+sidebar_label: Loom Yaml과 설정 옵션
 ---
 # loom.yaml
 
@@ -23,31 +23,31 @@ sidebar_label: Loom Yaml and Configuration options
     # EthereumURI: ws://127.0.0.1:8545"
     
 
-remove the # from lines you want to change
+변경을 원하는 라인에서 #을 제거하세요
 
 ## RPCBindAddress
 
-Options: "tcp://0.0.0.0:46658"
+옵션: "tcp://0.0.0.0:46658"
 
-This is the primary interface for binding RPC interface
+이것은 RPC 인터페이스 바인딩을 위한 프라이머리 인터페이스 입니다
 
 ## LoomLogLevel
 
-Options: debug, info, warn, error
+옵션: debug, info, warn, error
 
-General logging for the Loom Blockchain
+Loom 블록체인을 위한 일반적인 로깅
 
 ## ContractLogLevel
 
-Options: debug, info, warn, error
+옵션: debug, info, warn, error
 
-General logging for the Go Based Smart contracts.
+Go 기반의 스마트 컨트랙트를 위한 일반적인 로깅.
 
 ## BFTLogLevel
 
-Options: debug, info, warn, error
+옵션: debug, info, warn, error
 
-General logging for the BFT Layer Blockchain. This may change based on which BFT engine you are using.
+BFT 레이어 블록체인을 위한 일반적인 로깅. 여러분이 사용하는 BFT 엔진에 따라 변경될 수 있습니다.
 
 ## QueryServerHost
 
