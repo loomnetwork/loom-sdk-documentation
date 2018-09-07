@@ -36,29 +36,29 @@ The SDK 다음 부분과 함께 Ethereum 백엔드로 통합됩니다:
 
 * Asset을 DappChain에 보내기
 * Assets을 Ethereum에 보내기
-* Mirroring(Pegging) Assets on a Dappchain
-* ERC-20 Tokens
-* ERC-721 Tokens
+* DappChain에 있는 asset을 미러링(Pegging)
+* ERC-20 토큰
+* ERC-721 토큰
 * Ether 
 
-### Plama Cash Contract supports
+### 플라즈마 캐시 컨트랙트는 아래를 지원합니다
 
-* ERC-721 Tokens
-* ERC-20 Tokens (July)
-* Ether (July)
+* ERC-721 토큰
+* ERC-20 토큰(7월)
+* Ether (7월)
 
-## Blockchain services
+## 블록체인 서비스
 
-SDK includes a number of high level blockchain services
+SDK 수많은 고수준 블록체인 서비스를 포함하고 있습니다
 
-* Signing / Auth / Nonce Middleware
-* Builtin Coin
+* Signing / Auth / Nonce 미들웨어
+* 내장 코인
 * Indexing
-* Websockets and eventing
-* Solidity + Ethereum Virtual Machine
-* Support for game engines like Cocos, Unity, and Phaser
-* Transfer Gateway integration
-* Plasma integration
-* Cron (coming soon)
-* Rate limiting (early phases)
-* Hard fork Manager (coming July)
+* Websocket과 이벤트
+* Solidity + Ethereum 가상머신
+* Cocos, Unity와 Phaser 같은 게임 엔진 지원
+* Transfer Gateway 통합
+* 플라즈마 통합
+* Cron (예정)
+* Rate limiting (초기 단계)
+* Hard fork Manager (6월중)
