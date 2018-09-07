@@ -1,13 +1,13 @@
 ---
 id: release-notes
-title: Release Notes
-sidebar_label: Release Notes
+title: 릴리즈 노트
+sidebar_label: 릴리즈 노트
 ---
-## Overview
+## 개요
 
-Reverse chronology order of release notes
+릴리즈 노트의 역순
 
-## Release 404 - Aug 24th
+## Release 404 - 8월 24일
 
 ** Features
 
