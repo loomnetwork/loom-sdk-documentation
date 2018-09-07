@@ -17,9 +17,9 @@ npm install loom-js
 
 # 컨트랙트를 인스턴스화하기
 
-## The SimpleContract
+## SimpleContract
 
-Let's say that we have a Solidity contract, which is already compiled and deployed on Loom DAppChain
+우리가 이미 Loom DAppChain에 컴파일되어 배포 된 Solidity 컨트랙트를 가지고 있다고 해봅시다
 
     pragma solidity ^0.4.22;
     
@@ -39,7 +39,7 @@ Let's say that we have a Solidity contract, which is already compiled and deploy
     }
     
 
-With the binary compiled with the Solidity compiler the next step is to create a `genesis.json` for the Loom DappChain. (Don't forget to set the `location` to the compiled binary)
+Solidity 컴파일러로 컴파일된 바이너리로 할 다음 단계는 Loom DappChain을 위한 `genesis.json`을 생성하는 것입니다. (컴파일된 바이너리의 `location`을 설정하는 것을 잊지마세요)
 
 ```Javascript
 {
@@ -55,7 +55,7 @@ With the binary compiled with the Solidity compiler the next step is to create a
 
 ```
 
-After compiled the contract will generate the following ABI Interface:
+컴파일된후 컨트랙트는 다음과 같은 ABI 인터페이스를 생성할 것입니다:
 
 ```js
 const ABI = [{
@@ -92,7 +92,7 @@ const ABI = [{
 }]
 ```
 
-Instantiate and using the `Web3` with `LoomProvider` looks similar from use from an Ethereum Node, but first we need to initialize the `loom-js` client properly.
+`LoomProvider`를 사용하여 `Web3`을 인스턴스화하고 사용하는 방법은 Ethereum 노드에서 사용하는 것과 유사하지만 먼저 `loom-js` 클라이언트를 올바르게 초기화해야 합니다.
 
 ```js
 import {
