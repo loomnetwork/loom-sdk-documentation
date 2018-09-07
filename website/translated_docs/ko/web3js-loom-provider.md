@@ -21,7 +21,7 @@ An `Provider` is a bridge that connects the `Web3.js` API to the Ethereum node, 
 
 Combining `Web3.js` and `LoomProvider` is a good option to interact with smart contracts deployed on Loom DAppChain, because `Web3.js` abstracts the construction of API calls not needing the interpretation of the [ABI](https://solidity.readthedocs.io/en/develop/abi-spec.html) manually.
 
-### Truffle framework
+### Truffle 프레임워크
 
 So the official site for `Truffle` says:
 
