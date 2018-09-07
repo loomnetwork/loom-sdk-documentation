@@ -99,44 +99,44 @@ sidebar_label: 릴리즈 노트
 ## 릴리즈 155 - 6월 6일
 
 * [Cocos SDK이 동작합니다](cocos-sdk-quickstart.html)
-* [Truffle Support available](truffle-deploy.html)
-* Static calls to EVM now allow caller
-* EVM Fixes for a lot of scenarios 
+* [Truffle을 지원합니다](truffle-deploy.html)
+* 이제 EVM에 static call이 허용됩니다
+* 수많은 시나리오에 관한 EVM 수정 
 
-## Release 143 - June 1st
+## 릴리즈 143 - 6월 1일
 
-* [BluePrint Docker Images Available](docker-blueprint.html)
-* [Japanese Hackathon Results](https://medium.com/loom-network/highlights-from-the-first-loom-unity-sdk-hackathon-tokyo-edition-6ed723747c19)
-* [Docker Images for some of Loom SDK Projects](https://hub.docker.com/r/loomnetwork/)
-* Evm TX Reciepts fixes 
+* [BluePrint 도커 이미지 사용이 가능합니다](docker-blueprint.html)
+* [일본 해커톤 결과](https://medium.com/loom-network/highlights-from-the-first-loom-unity-sdk-hackathon-tokyo-edition-6ed723747c19)
+* [몇개의 Loom SDK 프로젝트를 위한 도커 이미지](https://hub.docker.com/r/loomnetwork/)
+* Evm TX Reciepts 수정 
 
-## Release 137 - May 30th
+## 릴리즈 137 - 5월 30일
 
-* Go Clients can Access EVM Contracts
-* Numerous bug fixes for EVM
-* [Social Network Example App - Solidity](simple-social-network-example.html)
+* Go Client가 EVM 컨트랙트에 접근 가능합니다
+* EVM을 위한 수많은 버그 수정
+* [소셜 네트워크 예제 앱 - Solidity](simple-social-network-example.html)
 
-## Release 136 - May 28th
+## 릴리즈 136 - 5월 28일
 
-* Initial Solidity Alpha test build, you can now deploy solidity contracts
-* Websocket eventing support for solidity 
-* [Example Project for solidity Events](phaser-sdk-demo-web3-websocket.html)
-* [Multinode deployment guide](multi-node-deployment.html)
+* 초기 Solidity 알파 테스트 빌드, 이제 solidity 컨트랙트를 배포할 수 있습니다
+* Solidity를 위한 Websocket 이벤트 지원 
+* [Solidity 이벤트에 관한 예제 프로젝트](phaser-sdk-demo-web3-websocket.html)
+* [멀티노드 배포 가이드](multi-node-deployment.html)
 
-## Release 133 - May 24th
+## 릴리즈 133 - 5월 24일
 
-* [Etherboy Demo released](https://loomx.io/developers/docs/en/etherboy-game.html)
-* [Japanese Docs released](https://loomx.io/developers/ja)
-* Updated Homepage for [docs site](https://loomx.io/developers/en/) 
+* [Etherboy 데모 릴리즈](https://loomx.io/developers/docs/en/etherboy-game.html)
+* [일본어 문서 릴리즈](https://loomx.io/developers/ja)
+* [문서 사이트](https://loomx.io/developers/en/)를 위한 홈페이지 업데이트 
 
-## Release 132 - May 23rd
+## 릴리즈 132 - 5월 23일
 
-* Websocket performance fixes
-* New Websocket Demo App - TilesChain - [Github](https://github.com/loomnetwork/tiles-chain) 
+* Websocket 성능 개선
+* 새로운 Websocket 데모 앱 - TilesChain - [Github](https://github.com/loomnetwork/tiles-chain) 
 
-## Release 129 - May 22rd
+## 릴리즈 129 - 5월 22일
 
-* Websocket support for eventing
+* 이벤트를 위한 Websocket 지원
 * Updates to indexing layer for solidty contracts
 * Phaser Game Dame - [Github](https://github.com/loomnetwork/phaser-sdk-demo)
 
