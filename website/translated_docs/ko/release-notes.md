@@ -9,17 +9,17 @@ sidebar_label: 릴리즈 노트
 
 ## Release 404 - 8월 24일
 
-** Features
+** 기능
 
-* ERC20 support upgraded in TransferGateway
-* Example ERC20 in Gateway - [Example](https://github.com/loomnetwork/token-gateway-example)
-* Loom SDK Doc site in [Korean](https://loomx.io/developers/ko/)
-* EVM now has limited support for Payable functions, more coming next week 
-* Loom-JS updates for ERC20/ETH transfers with TransferGateway. 
-* Loom-JS integration to DPoS contracts 
-* Experimental Support for [Plasma Debits](https://github.com/loomnetwork/plasma-cash/pull/115)
+* ERC20 지원 TransferGateway 업그레이드
+* Gateway ERC20 예제 - [예제](https://github.com/loomnetwork/token-gateway-example)
+* Loom SDK 문서의 [한국어](https://loomx.io/developers/ko/) 사이트
+* EVM은 현재 Payable 함수에 대한 제한된 지원을 하고 있으며, 다음주에 추가사항이 나옵니다 
+* TransferGateway로 ERC20/ETH 전송을 위한 Loom-JS 업데이트. 
+* DPoS 컨트랙트에 Loom-JS 통합 
+* [Plasma Debits](https://github.com/loomnetwork/plasma-cash/pull/115)을 위한 실험적인 지원
 
-** Breaking changes
+** 큰 변경사항
 
 * Deprecrating QueryServerHost, and consolidating all functions to the RPCServer.
 * New Config option: RPCBindAddress: "tcp://0.0.0.0:46658"
