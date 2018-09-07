@@ -1,17 +1,17 @@
 ---
 id: docker-blueprint-phaser
-title: Phaser Docker Example
-sidebar_label: Phaser Docker Exaample
+title: Phaser Docker 예제
+sidebar_label: Phaser Docker 예제
 ---
-We have public Docker containers to run DappChain and demos directly. All you need is Docker installed.
+우리는 DappChain과 데모를 직접 구동하기 위한 공용 도커 컨테이너를 가지고 있습니다. 여러분이 필요한 것이라곤 도커를 설치하는 것 뿐입니다.
 
-The Docker images are built each time the code is updated, so it is always current.
+도커 이미지는 코드가 업데이트 될때마다 빌드되어 집니다, 그렇기 때문에 항상 최신입니다.
 
-Note: The commands below exposes all available ports, but that may not be needed all the time.
+주의: 아래 커맨드는 모든 가용한 포트를 노출시킵니다, 그러나 항상 필요한 것은 아닙니다.
 
-## [Phaser SDK Demo](https://github.com/loomnetwork/phaser-sdk-demo)
+## [Phaser SDK 데모](https://github.com/loomnetwork/phaser-sdk-demo)
 
-Considering that this is run on local machine, without any other web server running at port 80:
+로컬 머신에서 구동되고 80번 포트에서 실행중인 웹 서버가 없다는 것을 가정합니다:
 
 ```bash
 docker run -d -p 46656:46656  -p 46658:46658  loomnetwork/weave-blueprint:latest
