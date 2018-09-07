@@ -19,10 +19,10 @@ sidebar_label: 릴리즈 노트
 * DPoS 컨트랙트에 Loom-JS 통합 
 * [Plasma Debits](https://github.com/loomnetwork/plasma-cash/pull/115)을 위한 실험적인 지원
 
-** 큰 변경사항
+** 주요 변경사항
 
-* Deprecrating QueryServerHost, and consolidating all functions to the RPCServer.
-* New Config option: RPCBindAddress: "tcp://0.0.0.0:46658"
+* QueryServerHost 지원종료, 모든 함수는 RPCServer로 통합.
+* 새로운 설정 옵션: RPCBindAddress: "tcp://0.0.0.0:46658"
 * Upgrades of PBFT engine, this may cause incompatibility issues on upgrades, please try in staging environments 
 
 ## Release 375 - Aug 10th
