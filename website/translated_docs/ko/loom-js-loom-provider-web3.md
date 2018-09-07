@@ -5,17 +5,17 @@ sidebar_label: Loom.js + Web3.js
 ---
 # 개요
 
-The `loom-js` comes with the `LoomProvider` which makes possible to connect with `Web3.js` as a provider allowing Ethereum developers to deploy and send transactions to smart contracts, listen for smart contracts events running inside the Loom DAppChains, for further details check out [EVM page](evm)
+`loom-js`는`LoomProvider`와 함께 제공되므로 Ethereum 개발자가 트랜잭션을 배포하고 보낼 수 있는 provider로써 `Web3.js`을 연결하고 Loom DAppChain 내에서 구동되는 스마트 컨트랙트 이벤트를 listen할 수 있도록 해줍니다, 더 자세한 사항은 [EVM 페이지](evm)를 확인하세요
 
-To get started install `loom-js` from NPM:
+NPM을 통해서 `loom-js` 설치를 시작하기:
 
 ```shell
 yarn add loom-js
-# or if you prefer...
+# 혹은 여러분이 선호하는 것으로...
 npm install loom-js
 ```
 
-# Instantiate the contract
+# 컨트랙트를 인스턴스화하기
 
 ## The SimpleContract
 
@@ -144,7 +144,7 @@ const contract = new web3.eth.Contract(ABI, contractAddress, {from: fromAddress}
 
 The contract is instantiated and ready
 
-# Transactions and Calls
+# 트랜잭션과 Call
 
 After the instantiation of the `Web3 Contract` we'll be able to use the contract methods for transactions (`send`) and calls (`call`) like so:
 
@@ -159,13 +159,13 @@ After the instantiation of the `Web3 Contract` we'll be able to use the contract
 })()
 ```
 
-# Events
+# 이벤트
 
 It is possible to add event listeners to the contract, although it don't support the filters yet
 
 ```js
 (async function () {
-  // Listen for new value set
+  // 새로운 값의 설정을 listen한다
   contract.events.NewValueSet({}, (err, newValueSet) {
     if (err) {
       console.error('error', err)
