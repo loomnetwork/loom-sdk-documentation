@@ -13,10 +13,10 @@ title: 일반적인 이슈
     
     
 
-This usually means there is a process hanging around that needs to be killed
+이것은 보통 죽여야 하는 행이 걸린 프로세스가 있음을 의미합니다.
 
     ps -ef | grep blueprint
     kill -9 xxxx 
     
 
-Change blueprint to whatever the name of the contract is, and then the xxx is the process id
+blueprint를 컨트랙트 이름으로 변경하고, xxx는 프로세스 아이디를 의미합니다
