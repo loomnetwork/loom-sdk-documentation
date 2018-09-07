@@ -1,6 +1,6 @@
 ---
 id: what-are-dappchains
-title: Introduction to What DAppChains are
-sidebar_label: What are DAppChains
+title: DAppChain이란 무엇인지에 대한 소개
+sidebar_label: DAppChain이란 무엇인가
 ---
-Intro text here
+소개 글이 여기에 있습니다
