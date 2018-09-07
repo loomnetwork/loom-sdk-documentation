@@ -7,7 +7,7 @@ sidebar_label: 릴리즈 노트
 
 릴리즈 노트의 역순
 
-## Release 404 - 8월 24일
+## 릴리즈 404 - 8월 24일
 
 ** 기능
 
@@ -23,9 +23,9 @@ sidebar_label: 릴리즈 노트
 
 * QueryServerHost 지원종료, 모든 함수는 RPCServer로 통합.
 * 새로운 설정 옵션: RPCBindAddress: "tcp://0.0.0.0:46658"
-* Upgrades of PBFT engine, this may cause incompatibility issues on upgrades, please try in staging environments 
+* PBFT 엔진의 업그레이드, 업그레이드시 비호환성 문제가 발생할 수 있으니, 임시 환경에서 시도해보세요 
 
-## Release 375 - Aug 10th
+## 릴리즈 375 - 8월 10일
 
 *NOTE* This is a feature test release, with minor compatibility changes, please verify in staging environements before upgrading your production environment.
 
