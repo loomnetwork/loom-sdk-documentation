@@ -11,13 +11,13 @@ sidebar_label: Web3, LoomProvider, Truffle
 
 `Web3.js` 공식 문서에는 이렇게 언급되어 있습니다:
 
-> `Web3.js`는 여러분이 HTTP나 IPC 커넥션을 사용하는 로컬 혹은 리모트 ethereum 노드와 상호작용 하는것을 가능하게 해주는 라이브러리의 집합입니다.
+> `Web3.js`는 여러분이 HTTP나 IPC 커넥션을 사용하는 로컬 혹은 리모트 이더리움 노드와 상호작용 하는것을 가능하게 해주는 라이브러리의 집합입니다.
 
 Loom DAppChain에서 통신은 `HTTP`나 `IPC` 대신 `WebSockets`을 사용하여 일어납니다, 하지만 더 깊은 통신 지식이 요구되지는 않습니다 왜냐하면 `Web3.js`가 그 부분을 추상화 해주기 때문입니다.
 
 ### LoomProvider
 
-`Provider`는 `Web3.js` API와 Ethereum 노드를 연결시켜주는 다리역할을 합니다, `Web3.js` call이 Loom DAppChain과 호환되게 만들기위해서 여러분은 `LoomProvider`을 사용해야만 합니다
+`Provider`는 `Web3.js` API와 이더리움 노드를 연결시켜주는 다리역할을 합니다, `Web3.js` call이 Loom DAppChain과 호환되게 만들기위해서 여러분은 `LoomProvider`을 사용해야만 합니다
 
 `Web3.js`과 `LoomProvider`의 조합은 Loom DAppChain에 배포된 스마트 컨트랙트와의 상호작용을 위한 좋은 선택입니다, 왜냐하면 `Web3.js`는 [ABI](https://solidity.readthedocs.io/en/develop/abi-spec.html)의 해석을 수동으로 해줄 필요없이 API 호출 구성을 추상화 해주기 때문입니다.
 
@@ -25,33 +25,33 @@ Loom DAppChain에서 통신은 `HTTP`나 `IPC` 대신 `WebSockets`을 사용하�
 
 `Truffle` 공식 사이트에서는 아래와 같이 말하고 있습니다:
 
-> Truffle is the most popular development framework for Ethereum with a mission to make your life a whole lot easier.
+> Truffle은 가장 인기있는 이더리움 개발 프레임워크로써 여러분의 삶을 훨씬 쉽게 만드는 미션을 가지고 있습니다.
 
-And that is pure true, because `Truffle` can: `compile`, `deploy`, `test`, `debug` and much more.
+이것은 정말입니다, 왜냐하면 `Truffle`은: `compile`, `deploy`, `test`, `debug`와 더 많은 것들을 할 수 있습니다.
 
-## Deploying and run from Truffle
+## Truffle로 배포하기 및 실행하기
 
-### Download and Install
+### 다운로드 및 설치
 
-First you'll need to install `Truffle`:
+먼저 `Truffle`을 설치하는게 필요합니다:
 
 ```bash
-# Currently supported version
+# 현재 지원 버전
 npm install -g truffle
 ```
 
-Once `Truffle` is installed let's create a directory and initialize a project:
+일단 `Truffle`이 설치되면 디렉토리를 생성하고 프로젝트를 초기화 합시다:
 
 ```bash
-# Create directory and access
+# 디렉토리를 생성하고 들어간다
 mkdir simple-store
 cd simple-store
 
-# Initialize a project from zero with truffle
+# truffle로 빈 프로젝트를 초기화한다
 truffle init
 ```
 
-The new directory structure will looks like:
+새로운 디렉토리 구조는 다음과 같습니다:
 
     .
     ├── contracts
@@ -63,7 +63,7 @@ The new directory structure will looks like:
     └── truffle.js
     
 
-### Adding contract and migration
+### 컨트랙트를 추가하고 마이그레이션 하기
 
 On the `contracts` directory we should create our contract in [Solidity](http://solidity.readthedocs.io/en/v0.4.22/), we're going to use the famous `SimpleStore.sol` which has a `set` function for a parameter `value` also for an state change, a `get` function for the read only and no state change call and an event called `NewValueSet` which will have the parameter `value`, as the following example:
 
