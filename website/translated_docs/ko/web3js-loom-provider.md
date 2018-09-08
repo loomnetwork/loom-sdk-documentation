@@ -9,15 +9,15 @@ sidebar_label: Web3, LoomProvider, Truffle
 
 ### Web3
 
-As the official documentation for `Web3.js` states:
+`Web3.js` 공식 문서에는 이렇게 언급되어 있습니다:
 
-> `Web3.js` is a collection of libraries which allow you to interact with a local or remote ethereum node, using a HTTP or IPC connection.
+> `Web3.js`는 여러분이 HTTP나 IPC 커넥션을 사용하는 로컬 혹은 리모트 ethereum 노드와 상호작용 하는것을 가능하게 해주는 라이브러리의 집합입니다.
 
-For the Loom DAppChains the communication happens using `WebSockets` instead `HTTP` or `IPC`, however the deeper knowledge of the communication isn't required since `Web3.js` abstracts that part.
+Loom DAppChain에서 통신은 `HTTP`나 `IPC` 대신 `WebSockets`을 사용하여 일어납니다, 하지만 더 깊은 통신 지식이 요구되지는 않습니다 왜냐하면 `Web3.js`가 그 부분을 추상화 해주기 때문입니다.
 
 ### LoomProvider
 
-An `Provider` is a bridge that connects the `Web3.js` API to the Ethereum node, in order to make `Web3.js` calls compatible with Loom DAppChain you should use the `LoomProvider`
+`Provider`는 `Web3.js` API와 Ethereum 노드를 연결시켜주는 다리역할을 합니다, `Web3.js` call이 Loom DAppChain과 호환되게 만들기위해서 여러분은 `LoomProvider`을 사용해야만 합니다
 
 Combining `Web3.js` and `LoomProvider` is a good option to interact with smart contracts deployed on Loom DAppChain, because `Web3.js` abstracts the construction of API calls not needing the interpretation of the [ABI](https://solidity.readthedocs.io/en/develop/abi-spec.html) manually.
 
