@@ -5,7 +5,7 @@ sidebar_label: Web3, LoomProvider, Truffle
 ---
 ## 개요
 
-The `loom-js` also comes with the `LoomProvider` which allows you to integrate with the [Web3.js](https://github.com/ethereum/web3.js), thus making easier the integration with [EVM](evm.html) contained on Loom DAppChain, also is possible to use [Truffle Framework](http://truffleframework.com/) to manage tests, deployments and solidity smart contracts.
+`loom-js`는`LoomProvider`와 함께 제공되므로 여러분이 [Web3.js](https://github.com/ethereum/web3.js)를 가지고 통합하는 것을 가능하게 해줍니다, 이것은 Loom DAppChain에 탑재된 [EVM](evm.html)과 함께 통합하는 것이 손쉬워 집니다, 또한 테스트, 배포, 그리고 solidity 스마트 컨트랙트를 관리하기 위해서 [Truffle Framework](http://truffleframework.com/)의 사용이 가능합니다.
 
 ### Web3
 
@@ -201,24 +201,24 @@ Next step is to configure the `LoomProvider`, is quite similar from the example 
 const privateKey = CryptoUtils.generatePrivateKey()
 const publicKey = CryptoUtils.publicKeyFromPrivateKey(privateKey)
 
-// Create the client
+// client를 생성한다
 const client = new Client(
   'default',
   'ws://127.0.0.1:46658/websocket',
   'ws://127.0.0.1:46658/queryws',
 )
 
-// The address for the caller of the function
+// 함수 호출자 주소
 const from = LocalAddress.fromPublicKey(publicKey).toString()
 
-// Instantiate web3 client using LoomProvider
+// LoomProvider로 web3 client를 인스턴스화 하기
 const web3 = new Web3(new LoomProvider(client, privateKey))
 
 const ABI = [{"anonymous":false,"inputs":[{"indexed":false,"name":"_value","type":"uint256"}],"name":"NewValueSet","type":"event"},{"constant":false,"inputs":[{"name":"_value","type":"uint256"}],"name":"set","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"get","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"}]
 
 const contractAddress = '0x...'
 
-// Instantiate the contract and let it ready to be used
+// 컨트랙트를 인스턴스화 하고 사용가능한 상태로 만들기
 const contract = new web3.eth.Contract(ABI, contractAddress, {from})
 ```
 
