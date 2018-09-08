@@ -85,7 +85,7 @@ truffle init
     }
     
 
-다음으로 마이그레이션을 추가해 봅시다, `Truffle`는 마이그레이션이라는 컨셉으로 동작합니다, 변경사항과 업데이트를 추적하는데 매우 유용합니다. The file should be created on migrations directory and it should be `JavaScript` file and the file name should start with the number `2` becoming `2_simple_store.js`, and the content should be the following:
+다음으로 마이그레이션을 추가해 봅시다, `Truffle`는 마이그레이션이라는 컨셉으로 동작합니다, 변경사항과 업데이트를 추적하는데 매우 유용합니다. migrations 디렉토리에 파일이 생성되어야 하고고 `JavaScript` 파일 이어야하며 파일 이름은 숫자 `2`로 시작해야만되어서 `2_simple_store.js`가 됩니다, 내용은 다음과 같아야 합니다:
 
 ```Javascript
 var SimpleStore = artifacts.require("./SimpleStore.sol");
@@ -95,11 +95,11 @@ module.exports = function(deployer) {
 };
 ```
 
-> There's a complete example of Truffle integration available on https://github.com/loomnetwork/truffle-dappchain-example
+> Truffle 통합의 전체 예제는 https://github.com/loomnetwork/truffle-dappchain-example 에서 확인 가능합니다
 
-### Download and configure Loom Truffle Provider
+### 다운로드 및 Loom Truffle Provider 설정
 
-The last cog to be added is the `Loom Truffle Provider`, that plugin provides the connection between `Truffle` and Loom DAppChain (and it also has the `LoomProvider` underneath). Let's install:
+마지막으로 추가할 사항은 `Loom Truffle Provider` 입니다, 이 플러그인은 `Truffle`과 Loom DAppChain 사이의 연결을 제공합니다 (그리고 또한 하위에 `LoomProvider`를 가지고 있습니다). 설치해 봅시다:
 
 ```bash
 npm install loom-truffle-provider --save
@@ -107,7 +107,7 @@ npm install loom-truffle-provider --save
 yarn add loom-truffle-provider
 ```
 
-And let's edit the file `truffle.js` to add the necessary configuration, as the following example:
+그리고 필요한 설정을 추가하기 위해서 `truffle.js` 파일을 수정해 봅시다, 다음 예제와 같습니다:
 
 ```javascript
 const { readFileSync } = require('fs')
@@ -130,9 +130,9 @@ module.exports = {
 }
 ```
 
-> Don't forget to generate yours keys using the command `loom genkey -a public_key -k private_key`
+> `loom genkey -a public_key -k private_key` 커맨드로 여러분의 키를 생성하는 것을 잊지마세요
 
-### Running Truffle deploy command
+### Truffle 배포 명령어 실행하기
 
 Now we're good to run the deploy command:
 
