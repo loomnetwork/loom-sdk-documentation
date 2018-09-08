@@ -65,7 +65,7 @@ truffle init
 
 ### 컨트랙트를 추가하고 마이그레이션 하기
 
-On the `contracts` directory we should create our contract in [Solidity](http://solidity.readthedocs.io/en/v0.4.22/), we're going to use the famous `SimpleStore.sol` which has a `set` function for a parameter `value` also for an state change, a `get` function for the read only and no state change call and an event called `NewValueSet` which will have the parameter `value`, as the following example:
+`contracts` 디렉토리에서 우리는 [Solidity](http://solidity.readthedocs.io/en/v0.4.22/)로 우리의 컨트랙트를 생성해야만 합니다, 우리는 유명한 `SimpleStore.sol`을 사용할 것입니다 이것은 스테이트 변경을 위한 파라미터 `value`를 가지는 `set` 함수, 읽기전용이고 스테이트 변경을 하지 않는 `get` 함수와 파라미터 `value`를 가지는 `NewValueSet` 이벤트를 가지고 있습니다, 다음 예제를 보세요:
 
     pragma solidity ^0.4.22;
     
@@ -85,7 +85,7 @@ On the `contracts` directory we should create our contract in [Solidity](http://
     }
     
 
-Next let's add an migration, `Truffle` works with the concept of migrations, which makes useful for track changes and updates. The file should be created on migrations directory and it should be `JavaScript` file and the file name should start with the number `2` becoming `2_simple_store.js`, and the content should be the following:
+다음으로 마이그레이션을 추가해 봅시다, `Truffle`는 마이그레이션이라는 컨셉으로 동작합니다, 변경사항과 업데이트를 추적하는데 매우 유용합니다. The file should be created on migrations directory and it should be `JavaScript` file and the file name should start with the number `2` becoming `2_simple_store.js`, and the content should be the following:
 
 ```Javascript
 var SimpleStore = artifacts.require("./SimpleStore.sol");
