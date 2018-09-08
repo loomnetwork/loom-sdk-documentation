@@ -103,7 +103,7 @@ The last cog to be added is the `Loom Truffle Provider`, that plugin provides th
 
 ```bash
 npm install loom-truffle-provider --save
-#or
+# 또는
 yarn add loom-truffle-provider
 ```
 
@@ -171,7 +171,7 @@ You can download the `Web3.js` latest version using `npm`
 
 ```bash
 npm install web3 --save
-# or
+# 또는
 yarn add web3
 ```
 
@@ -179,7 +179,7 @@ And download and install `LoomProvider` (which lives on `loom-js`)
 
 ```bash
 npm install loom-js --save
-# or
+# 또는
 yarn add loom-js
 ```
 
@@ -188,10 +188,10 @@ yarn add loom-js
 Adding `Web3.js` to Node.js project (running on Node.js version 8 or greater) is fairly simple after the install, it should be simple as well for projects using `Webpack` also:
 
 ```Javascript
-// Node.JS 8 or greater
+// Node.JS 8 또는 이후버전
 const Web3 = require('web3')
 
-// Webpack with ES2016 support
+// ES2016을 지원하는 Webpack
 import Web3 from 'web3'
 ```
 
@@ -227,10 +227,10 @@ const contract = new web3.eth.Contract(ABI, contractAddress, {from})
 Let's assume that is the `SimpleStore.sol` which was declared up above, so we can call `set` and `get` functions easier:
 
 ```Javascript
-// Set the value 47
+// 값에 47을 넣는다
 const tx = await contract.methods.set(47).send()
 
-// Get the value 47
+// 47인 값을 읽어온다
 const value = await contract.methods.get().call()
 ```
 
