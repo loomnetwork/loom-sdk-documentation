@@ -156,18 +156,18 @@ console.log("Accounts list", loomProvider.accountsAddrList)
 console.log("Accounts and Private Keys", loomProvider.accounts)
 ```
 
-And add more accounts just use function `createExtraAccounts`
+그리고 함수 `createExtraAccounts`를 사용하는 것만으로 더 많은 계정을 추가합니다
 
 ```js
 const loomTruffleProvider = new LoomTruffleProvider(chainId, writeUrl, readUrl, privateKey)
 loomTruffleProvider.createExtraAccounts(10)
 ```
 
-## Configuring and running Web3.js + LoomProvider
+## 설정 및 Web3.js + LoomProvider의 실행
 
-### Download and Install
+### 다운로드 및 설치
 
-You can download the `Web3.js` latest version using `npm`
+`npm`을 통해서 최신버전의 `Web3.js`을 다운로드 받을 수 있습니다
 
 ```bash
 npm install web3 --save
@@ -175,7 +175,7 @@ npm install web3 --save
 yarn add web3
 ```
 
-And download and install `LoomProvider` (which lives on `loom-js`)
+그리고 `LoomProvider`를 다운로드 하고 설치하세요 (이것은 `loom-js` 내에 존재합니다)
 
 ```bash
 npm install loom-js --save
@@ -183,9 +183,9 @@ npm install loom-js --save
 yarn add loom-js
 ```
 
-### Adding to project and configuring
+### 프로젝트에 추가하기 및 설정
 
-Adding `Web3.js` to Node.js project (running on Node.js version 8 or greater) is fairly simple after the install, it should be simple as well for projects using `Webpack` also:
+`Web3.js`를 Node.js 프로젝트에 추가하는 것은 (Node.js 버전 8 또는 이후버전이 실행중인) 설치후에 매우 간단합니다, `Webpack`을 사용하는 프로젝트에서도 물론 간단합니다:
 
 ```Javascript
 // Node.JS 8 또는 이후버전
@@ -195,7 +195,7 @@ const Web3 = require('web3')
 import Web3 from 'web3'
 ```
 
-Next step is to configure the `LoomProvider`, is quite similar from the example on `NodeJS & Browser Quick Start`.
+다음 단계는 `LoomProvider`를 설정하는 것입니다, `NodeJS & Browser 퀵스타트`에 관한 예제와 매우 유사합니다.
 
 ```Javascript
 const privateKey = CryptoUtils.generatePrivateKey()
@@ -222,7 +222,7 @@ const contractAddress = '0x...'
 const contract = new web3.eth.Contract(ABI, contractAddress, {from})
 ```
 
-### Running Web3 contract instance
+### Web3 컨트랙트 인스턴스 실행하기
 
 Let's assume that is the `SimpleStore.sol` which was declared up above, so we can call `set` and `get` functions easier:
 
