@@ -224,7 +224,7 @@ const contract = new web3.eth.Contract(ABI, contractAddress, {from})
 
 ### Web3 컨트랙트 인스턴스 실행하기
 
-Let's assume that is the `SimpleStore.sol` which was declared up above, so we can call `set` and `get` functions easier:
+`SimpleStore.sol`를 위애서 선언했다고 가정하고, 우리는 `set`과 `get` 함수를 쉽게 호출할 수 있습니다:
 
 ```Javascript
 // 값에 47을 넣는다
@@ -234,7 +234,7 @@ const tx = await contract.methods.set(47).send()
 const value = await contract.methods.get().call()
 ```
 
-Also listen for events, in that case for the event `NewValueSet`:
+또한 이벤트를 listen합니다, 여기에선 `NewValueSet` 이벤트:
 
 ```Javascript
 contract.events.NewValueSet({}, (err, event) => {
