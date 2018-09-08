@@ -134,19 +134,19 @@ module.exports = {
 
 ### Truffle 배포 명령어 실행하기
 
-Now we're good to run the deploy command:
+이제 배포 명령어를 실행하기에 좋습니다:
 
-> But before you need to start the Loom DAppChain
+> 하지만 그전에 Loom DAppChain의 시작이 필요합니다
 
 ```bash
 truffle deploy --network loom_dapp_chain
 ```
 
-> If you already deployed and wants to reset the deployment you can run the command `truffle deploy --reset --network loom_dapp_chain`
+> 이미 배포를 하였고 배포를 재설정 하려면 `truffle deploy --reset --network loom_dapp_chain` 명령어를 실행할 수 있습니다
 
-### Adding more accounts
+### 더 많은 계정 추가하기
 
-In order to access accounts on `LoomTruffleProvider` you should use the function `getProviderEngine` which will return the `LoomProvider` giving access to properties `accountsAddrList` and `accounts``
+`LoomTruffleProvider`의 계정에 접근하려면 `getProviderEngine` 함수를 사용해야만 합니다. 이 하수는 `accountsAddrList` 및`accounts` 속성에 대한 액세스를 제공하는 `LoomProvider`를 반환합니다.
 
 ```js
 const loomTruffleProvider = new LoomTruffleProvider(chainId, writeUrl, readUrl, privateKey)
