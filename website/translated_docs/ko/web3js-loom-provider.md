@@ -19,11 +19,11 @@ Loom DAppChain에서 통신은 `HTTP`나 `IPC` 대신 `WebSockets`을 사용하�
 
 `Provider`는 `Web3.js` API와 Ethereum 노드를 연결시켜주는 다리역할을 합니다, `Web3.js` call이 Loom DAppChain과 호환되게 만들기위해서 여러분은 `LoomProvider`을 사용해야만 합니다
 
-Combining `Web3.js` and `LoomProvider` is a good option to interact with smart contracts deployed on Loom DAppChain, because `Web3.js` abstracts the construction of API calls not needing the interpretation of the [ABI](https://solidity.readthedocs.io/en/develop/abi-spec.html) manually.
+`Web3.js`과 `LoomProvider`의 조합은 Loom DAppChain에 배포된 스마트 컨트랙트와의 상호작용을 위한 좋은 선택입니다, 왜냐하면 `Web3.js`는 [ABI](https://solidity.readthedocs.io/en/develop/abi-spec.html)의 해석을 수동으로 해줄 필요없이 API 호출 구성을 추상화 해주기 때문입니다.
 
 ### Truffle 프레임워크
 
-So the official site for `Truffle` says:
+`Truffle` 공식 사이트에서는 아래와 같이 말하고 있습니다:
 
 > Truffle is the most popular development framework for Ethereum with a mission to make your life a whole lot easier.
 
