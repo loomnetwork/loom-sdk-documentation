@@ -39,14 +39,14 @@ stderr로 로깅을 하려면 `file://-`로 목적지를 지정하세요
 
 ### 컨트랙트에서 로깅하기
 
-The contract context has a pre-configured logger that can be used for structured logging. For example
+컨트랙트 context에는 구조화된 로깅을 위해 사용될 수 있는 미리 구성된 logger를 가지고 있습니다. 예를 들면
 
     ctx.Logger().Info("Created account", "owner", owner, "address", addr)
     
 
-will generate a log line like
+이것은 다음과 같은 로그 라인을 생성합니다
 
     ts=2018-05-13T02:06:49.817229589Z module=loom level=info _msg="Created account" owner=godbole4 address="\ufffd8\ufffd\ufffd\ufffd\ufffd\ufffd$Y+H\ufffd\u0012\u000c]\u001a\ufffd\ufffd\ufffd\ufffd"
     
 
-Available methods on the context logger are `Error`, `Warn`, `Info`, and `Debug`
+Context logger에서 사용될 수 있는 메소드는 `Error`, `Warn`, `Info`, and `Debug`입니다
