@@ -22,22 +22,22 @@ Loom sdk에는 두가지 유형의 로그가 있습니다. 첫번째는 블록�
 
 `LoomLogLevel`과 `BlockchainLogLevel`에 대한 기본값은 각각 `info`와 `error`입니다.
 
-### Configuring the log destination
+### 로그 목적지 설정하기
 
-Currently a file target is supported for the loom logs.
+현재 loom 로그에 대해서는 파일 타겟을 지원합니다.
 
-    LogDestination: "file://loom.log" # loom.log is also the default target.
+    LogDestination: "file://loom.log" # loom.log는 기본 타겟입니다.
     
 
-To log to stderr, specify the destination as `file://-`
+stderr로 로깅을 하려면 `file://-`로 목적지를 지정하세요
 
 ## 컨트랙트 로깅
 
-Configurations like log level and destination are seperate for contracts. These are set using environment variables. Example: `CONTRACT_LOG_LEVEL=debug CONTRACT_LOG_DESTINATION="file://-" $LOOM_EXE run`
+로그 레벨와 목적지에 대한 설정이 분리되어 있듯이 컨트랙트 로깅도 분리되어 있습니다. 이것들은 환경 변수를 사용해서 세팅됩니다. 예: `CONTRACT_LOG_LEVEL=debug CONTRACT_LOG_DESTINATION="file://-" $LOOM_EXE run`
 
-This will set the contract log level to `debug` and the destination to stderr. The default for log level and destination are `info` and `file://contract.log` respectively.
+이것은 컨트랙트 로그 레벨을 `debug`로 목적지를 stderr로 설정합니다. 로그 레벨과 목적지에 대한 기본값은 각각 `info` and `file://contract.log` 입니다.
 
-### Logging from the contract
+### 컨트랙트에서 로깅하기
 
 The contract context has a pre-configured logger that can be used for structured logging. For example
 
