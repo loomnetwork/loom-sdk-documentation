@@ -11,10 +11,10 @@ Loom은 메트릭을 사용하며 메트릭 값을 외부 모니터링 서비스
 
 Loom captures and exposes 4 different types of metrics:
 
-- `Counter` a single numerical value that goes up only
-- `Gauge` a single numerical value that goes up and down
-- `Histogram` a sample of observation grouped into buckets over a sliding time window
-- `Summary` a sample of observation grouped into buckets with quantiles over a sliding time window
+- `Counter` 증가만 하는 단일 숫자 값
+- `Gauge` 증가와 감소를 하는 단일 숫자 값
+- `Histogram` 슬라이딩 시간대의 버킷으로 그룹화 된 관찰 샘플
+- `Summary` 슬라이딩 시간대의 수량과 같이 버킷으로 그룹화 된 관찰 샘플
 
 The following Go code shows an example of how Loom creates metrics with `go-kit`. The `Namespace` is prefixed with *loomchain*. The `Subsystem` can be either *query_service or *backend_service*.
 
