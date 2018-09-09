@@ -1,13 +1,13 @@
 ---
 id: metrics
-title: Metrics
-sidebar_label: Metrics
+title: 메트릭
+sidebar_label: 메트릭
 ---
-## Overview
+## 개요
 
 Loom instruments metrics and exposes the values of the metrics to external monitoring services. Middleware layer is introduced to enable separation of concern between application services and instrumenting. Loom SDK utilizes go-kit's `metrics` package to instrument metrics.
 
-## Loom SDK Metrics
+## Loom SDK 메트릭
 
 Loom captures and exposes 4 different types of metrics:
 
@@ -46,7 +46,7 @@ The followings are the example of the exposed metrics with different fields.
     loomchain_query_service_request_count{error="true",method="Query"}
     
 
-## Metric Endpoint
+## 메트릭 엔드포인트
 
 When running a smart contract using `loom run` command, the default metrics endpoint is `127.0.0.1:46658/metrics`. The endpoint is configurable using the configuration key `RPCBindAddress` in the configuration file.
 
@@ -74,7 +74,7 @@ loomchain_query_service_request_latency_microseconds_count{error="true",method="
 
 ```
 
-## Monitoring Metrics
+## 메트릭 모니터링
 
 Loom does not store the metrics but only exposes the metric values at the moment. To get metrics, you can either poll the metrics from the endpoint to your monitoring system or you can use [Prometheus](https://prometheus.io/docs/prometheus/latest/installation/).
 
