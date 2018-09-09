@@ -5,7 +5,7 @@ sidebar_label: 메트릭
 ---
 ## 개요
 
-Loom instruments metrics and exposes the values of the metrics to external monitoring services. Middleware layer is introduced to enable separation of concern between application services and instrumenting. Loom SDK utilizes go-kit's `metrics` package to instrument metrics.
+Loom은 메트릭을 사용하며 메트릭 값을 외부 모니터링 서비스에 제공합니다. 미들웨어 레이어는 애플리케이션 서비스와 계측 사이를 구분짓기 위해서 도입되었습니다. Loom SDK은 go-kit의 `metrics` 패키지를 계측기 메트릭으로 활용합니다.
 
 ## Loom SDK 메트릭
 
@@ -95,7 +95,7 @@ scrape_configs:
       - 127.0.0.1:46658 # The IP address to the query server host
 ```
 
-## List of All Metrics
+## 모든 메트릭 리스트
 
 The following are the list of metrics exposed by Loom SDK:
 
