@@ -166,3 +166,13 @@ The total amount of karma is the sum of the karma from each active karma source 
 
 If karma is enabled, all users other than the Oracle are restricted depending on the 
 karma parameters, `SessionDuration` and `SessionMaxAccessCount`, in the loom.yaml.
+Each user is restricted, during any period of `SessionDuration` seconds to a number of transactions
+dependant on `SessionMaxAccessCount` and the user's karma.
+
+#### SessionMaxAccessCount
+* A user can only make transactions if they have strictly positive karma.
+* A zero `SessionMaxAccessCount` means that only karma based restriction
+on transaction usage is that the user must have non-zero karma.
+* For strictly positive `SessionMaxAccessCount`
+    * Deploy transaction are limited to `SessionMaxAccessCount` per period.
+    * Call transaction are limited to `SessionMaxAccessCount + karma` per period. 
