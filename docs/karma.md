@@ -7,13 +7,13 @@ sidebar_label: Karma
 Karma
 -----
 
-The karma module provides a way to limit Transactions on a user by user case.
-One user, called the oracle is given unlimited access, other users are limited 
-in the number and timing of transactions by various karma parameters.  
+The karma module provides a way to limit Transactions.
+Users are limited in the number and timing of transactions by various karma parameters. There
+is one user called the Oracle who has unlimited access.  
 
 ## Installation
 
-To install include the karma contract in the genesis.json file when starting the
+To install, include the karma contract in the genesis.json file when starting the
 chain for the first time.
 ```json
      {
@@ -27,15 +27,15 @@ chain for the first time.
 
 ```
   
-## Activation
+## Activation and loom.yaml
 
 Activating the karma functionality is done from the loom.yaml configuration file.
-* DeployEnabled Toggles the karma module on and off. 
-* Oracle: Address for the Oracle. The Oracle is unaffected by karma restrictions. 
+* `KarmaEnabled bool` Flag that sets the karma module on or off. 
+* `Oracle Address` The Oracle is unaffected by karma restrictions. 
 An Oracle is compulsory if karma is enabled. 
-* SessionDuration: A Time period in seconds, karma restricts users to a configurable
+* `SessionDuration int64` A Time period in seconds. Karma restricts users to a configurable
  number of transactions during any interval of `SessionDuration` size.
-* SessionMaxAccessCount: Base value used to calculate number of Transaction per `SessionDuration`.
+* `SessionMaxAccessCount int64` Base value used to calculate number of Transaction per `SessionDuration`.
 A `SessionMaxAccessCount` of `0` indicates there are no karma based limit on transactions number.
 
 Example loom.yaml fragment.
@@ -45,7 +45,6 @@ Oracle:        "default:0xAfaA41C81A316111fB0A4644B7a276c26bEA2C9F"
 SessionDuration: 60
 SessionMaxAccessCount: 10
 ```
-Normally you will want to 
 
 ## Oracle
 The Oracle has general override ability for a DAppChain. It is defined in the `loom.yaml` file.
@@ -81,7 +80,7 @@ type KarmaSourceReward struct {
  Sources can be configured in two ways.
  
  #### Sources: Genesis File
- Sources can be set up in the karma init segment of the DAppChain genesis file. 
+ Sources can be set up in the karma `init` segment of the DAppChain genesis file. 
  This allows sources to be available the first time the DAppChain is run. For example:
  ```json
     {
@@ -111,10 +110,10 @@ type KarmaSourceReward struct {
 ```
 This starts the DAppChain with three sources, "sms", "oauth" and "token" with varying reward levels.
 
-#### Soures: UpdateConfig
-The karma method `UpdateConfig` is used to reset the karma parameters including the sources
+#### Soures: UpdateSources
+The karma method `UpdateSources` is used to reset the karma parameters including the sources
 in a running DAppChain. 
-Usually you will want to download the existing parameters with `GetConfig` and amend that before
+Usually you will want to download the existing parameters with `GetSources` and amend that before
 using to set the karma configuration parameters with `UpdateConfig`. The following code fragment
 gives an example of how you might do this, error checking skipped for readability.
 ```go
@@ -124,20 +123,20 @@ func AddSource(name string, reward int 64, signer auth.Signer, oracle loom.Addre
 
 	// Get the existing configuration parameters
 	var resp karma.KarmaConfig
-	_, err = karmaContact.StaticCall("GetConfig", oracle.MarshalPB(), signer, &resp)
-	config, err := formatJSON(&resp)
+	_, err = karmaContact.StaticCall("GetSources", oracle.MarshalPB(), signer, &resp)
+	sources, err := formatJSON(&resp)
 	
 	// Add the new source
 	var configVal karma.KarmaConfigValidator
 	configVal.Oracle = oracle.MarshalPB()
-	configVal.Parms = config
-	config.Parms.Sources = append(config.Parms.Sources, karma.KarmaSourceReward {
+	configVal.Parms = sources
+	configVal.Parms.Sources = append(sources.Parms.Sources, karma.KarmaSourceReward {
             Name: name,
             Reward: reward,
 	})
 	
 	// Update the source information on the DAppChain
-	_, err = karmaContact.Call("UpdateConfig", configVal, signer, nil)
+	_, err = karmaContact.Call("UpdateSources", configVal, signer, nil)
 }
 ```
 ## Users
@@ -157,11 +156,11 @@ type KarmaAddressSource struct {
 ```
 `Name` identifies a source and corresponds to the `Name` field in `KarmaSourceReward` above.
 `Count` the number of a particular source associated with the address.
-The karma a source provides to an address is `
+The karma a source provides to a user is `
 
 `KarmaSource.Count*KarmaSourceReward.Reward`
 
-The total amount of karma is the sum of the karma from each active karma source associated with the address.
+The total amount of karma is the sum of the karma from each active karma source associated with the user.
 The sources associated with a user can configured either in the genesis file or by the karma 
 methods `UpdateSourcesForUser` and `DeleteSourcesForUser`.
 
@@ -258,12 +257,12 @@ dependant on `SessionMaxAccessCount` and the user's karma.
 * A zero `SessionMaxAccessCount` means that only karma based restriction
 on transaction usage is that the user must have non-zero karma.
 * For strictly positive `SessionMaxAccessCount`
-    * Deploy transaction are limited to `SessionMaxAccessCount` per period.
-    * Call transaction are limited to `SessionMaxAccessCount + karma` per period. 
+    * Deploy transaction are limited to `SessionMaxAccessCount` per time period.
+    * Call transaction are limited to `SessionMaxAccessCount + karma` per time period. 
     
 ## Karma methods
 The following methods can be called by anyone.
-* `GetConfig(ctx contract.StaticContext, ko *types.Address) (*Config, error)` Returns the 
+* `GetSources(ctx contract.StaticContext, ko *types.Address) (*Config, error)` Returns the 
 current karma configuration details. This includes the current sources.
 * `GetTotal(ctx contract.StaticContext, params *types.Address) (*karma.KarmaTotal, error)` Returns 
 the total amount of karma in the system. The sum of the karma for each user that has been associated with a source.
@@ -273,7 +272,7 @@ The following methods can only be called by the oracle
 Associate a collection of sources with counts with a user. See above for details. 
 * `DeleteSourcesForUser(ctx contract.Context, ksu *karma.KarmaStateKeyUser) error` Disassociate a 
 collection of sources with a user. See above for details. 
-* `UpdateConfig(ctx contract.Context, kpo *karma.KarmaConfigValidator) error` Reset the karma 
+* `UpdateSources(ctx contract.Context, kpo *karma.KarmaConfigValidator) error` Reset the karma 
 contracts parameters. In particular this allows the list of sources to be updated
 
 Other methods
@@ -282,13 +281,6 @@ Other methods
 * `GetUserStateKey(owner *types.Address) []byte`
 * `GetState(ctx contract.StaticContext, user *types.Address) (*State, error)`
   
-## Karma related loom.yaml settings
-* `KarmaEnabled bool` Switch indicating whether or not the karma functionality is activated.
-* `Oracle string` special user account that is unaffected by karma restriction and is the only
-user that can change karma parameters.
-* `SessionDuration       int64` Length in seconds of a karma session period. 
-* `SessionMaxAccessCount int64` Base value to determine the maximum number of Tx allowed per session.
-
 ## Genesis entries
 An example genesis file entry is shown below. The Init block can be empty, which just installs
 the karma contact on the DAppChain. 
