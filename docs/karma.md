@@ -116,18 +116,16 @@ This starts the DAppChain with three sources, "sms", "oauth" and "token" with va
 The karma method `UpdateConfig` is used to reset the karma parameters including the sources
 in a running DAppChain. 
 Usually you will want to download the existing parameters with `GetConfig` and amend that before
-using to set the karma configuration parameters with `UpdateConfig`.
+using to set the karma configuration parameters with `UpdateConfig`. The following code fragment
+gives an example of how you might do this, error checking skipped for readability.
 ```go
 import `github.com/loomnetwork/go-loom/builtin/types/karma`
 
-func AddSource(name string, reward int 64, signer auth.Signer, oracle loom.Addres) {
-	// Get the address of the karma contract on the DAppChain
-	karmaAddr, err := ResolveAddress("karma")
-	contract, err := contract(karmaAddr)
-	
+func AddSource(name string, reward int 64, signer auth.Signer, oracle loom.Addres, karmaContact client.Contract) {
+
 	// Get the existing configuration parameters
 	var resp karma.KarmaConfig
-	_, err = contract.StaticCall("GetConfig", oracle.MarshalPB(), signer, &resp)
+	_, err = karmaContact.StaticCall("GetConfig", oracle.MarshalPB(), signer, &resp)
 	config, err := formatJSON(&resp)
 	
 	// Add the new source
@@ -140,7 +138,7 @@ func AddSource(name string, reward int 64, signer auth.Signer, oracle loom.Addre
 	})
 	
 	// Update the source information on the DAppChain
-	_, err = contract.Call("UpdateConfig", configVal, signer, nil)
+	_, err = karmaContact.Call("UpdateConfig", configVal, signer, nil)
 }
 ```
 ## Users
@@ -222,7 +220,36 @@ This genesis file fragment will create three sources and give the user with loca
 This user would than start with `20*10 + 3*4 = 42` karma.
 
 #### Users: UpdateSourcesForUser and DeleteSourcesForUser
+In a running DAppChain we can add a source to a user with `UpdateSourcesForUser`. We need a list of 
+name sof the new sources, plus a count of the number of rewards. The following code fragment
+gives an example of how you might do this, error checking skipped for readability.
+```go
+import `github.com/loomnetwork/go-loom/builtin/types/karma`
 
+func AddSourceForUser(name string, count int64, user, oracle loom.Addres, signer auth.Signer, karmaContact client.Contract) error {	
+	// Update the source information on the DAppChain
+	_, err = karmaContact.Call("UpdateSourcesForUser", &karma.KarmaStateUser{
+        User: user.MarshalPB(),
+        Oracle: oracle.MarshalPB(),
+        SourceStates: []*karma.KarmaSource{{name, count}},
+    }, signer, nil)
+	return err
+}
+```
+Similarly we can remove a source from those associated with a user on an existing DAppChain using the 
+DeleteSourcesForUser karma method.
+```go
+import `github.com/loomnetwork/go-loom/builtin/types/karma`
+
+func RemoveSourceForUser(name string, user, oracle loom.Addres, signer auth.Signer, karmaContact client.Contract) {	
+	// Update the source information on the DAppChain
+	karmaContact.Call("UpdateSourcesForUser", &karma.KarmaStateKeyUser{
+        User: user.MarshalPB(),
+        Oracle: oracle.MarshalPB(),
+        StateKeys: []string{name},
+    }, signer, nil)
+}
+```
 
 #### SessionDuration and SessionMaxAccessCount
 If karma is enabled, all users other than the Oracle are restricted depending on the 
@@ -240,21 +267,28 @@ on transaction usage is that the user must have non-zero karma.
     
 
 ## Karma methods
-Varables
-ConfigKey
-OracleKey
-Functions
-Meta() (plugin.Meta, error) 
-Init(ctx contract.Context, req *InitRequest) error 
-GetUserStateKey(owner *types.Address) []byte
-GetConfig(ctx contract.StaticContext, ko *types.Address) (*Config, error)
-GetState(ctx contract.StaticContext, user *types.Address) (*State, error)
-GetTotal(ctx contract.StaticContext, params *types.Address) (*ktypes.KarmaTotal, error)
-UpdateSourcesForUser(ctx contract.Context, ksu *ktypes.KarmaStateUser) error
-DeleteSourcesForUser(ctx contract.Context, ksu *ktypes.KarmaStateKeyUser) error
-UpdateConfig(ctx contract.Context, kpo *ktypes.KarmaConfigValidator) error 
-UpdateConfigOracleMutability(ctx contract.Context, params *ktypes.KarmaParamsMutableValidator) error 
-UpdateConfigOracle(ctx contract.Context, params *ktypes.KarmaParamsValidatorNewOracle) error  
+The following methods can be called by anyone.
+* `GetConfig(ctx contract.StaticContext, ko *types.Address) (*Config, error)` Returns the 
+current karma configuration details. This includes the current sources.
+* `GetTotal(ctx contract.StaticContext, params *types.Address) (*karma.KarmaTotal, error)` Returns 
+the total amount of karma in the system. The sum of the karma for each user that has been associated with a source.
+
+The following methods can only be called by the oracle
+* `UpdateSourcesForUser(ctx contract.Context, ksu *karma.KarmaStateUser) error` 
+Associate a collection of sources with counts with a user. See above for details. 
+* `DeleteSourcesForUser(ctx contract.Context, ksu *karma.KarmaStateKeyUser) error` Disassociate a 
+collection of sources with a user. See above for details. 
+* `UpdateConfig(ctx contract.Context, kpo *karma.KarmaConfigValidator) error` Reset the karma 
+contracts parameters. In particular this allows the list of sources to be updated
+* `UpdateConfigOracle(ctx contract.Context, params *karma.KarmaParamsValidatorNewOracle) error` 
+Change the current oracle. 
+
+Other methods
+* Meta() (plugin.Meta, error) 
+* Init(ctx contract.Context, req *InitRequest) error
+* GetUserStateKey(owner *types.Address) []byte
+* GetState(ctx contract.StaticContext, user *types.Address) (*State, error)
+* UpdateConfigOracleMutability(ctx contract.Context, params *karma.KarmaParamsMutableValidator) error
   
   
   
