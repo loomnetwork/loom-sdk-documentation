@@ -23,7 +23,7 @@ chain for the first time.
             "location": "karma:1.0.0",
             "init": {
             }
-        },
+     }
 
 ```
   
@@ -40,7 +40,7 @@ A `SessionMaxAccessCount` of `0` indicates there are no karma based limit on tra
 
 Example loom.yaml fragment.
 ```yaml
-DeployEnabled: true
+KarmaEnabled: true
 Oracle:        "default:0xAfaA41C81A316111fB0A4644B7a276c26bEA2C9F"
 SessionDuration: 60
 SessionMaxAccessCount: 10
@@ -49,15 +49,16 @@ Normally you will want to
 
 ## Oracle
 The Oracle has general override ability for a DAppChain. It is defined in the `loom.yaml` file.
+```yaml
+Oracle:        "default:0xAfaA41C81A316111fB0A4644B7a276c26bEA2C9F"
+```
+The Oracle can be changed by stopping the DAppChain and restarting with a different `loom.yaml` file.
 
 * The Oracle is compulsory is karma is enabled.
 * It is unaffected by karma restrictions.
 * It is the only user that can successfully call the following karma configuration transactions.
     * `UpdateSourcesForUser`
     * `DeleteSourcesForUser`
-    * `UpdateConfigOracleMutability`
-    * `UpdateConfigOracle`
-
 
 Some non-karma but related features of the Oracle include being unaffected by 
 `DeployEnabled` and `CallEnabled` `loom.yaml` settings. 
@@ -90,22 +91,20 @@ type KarmaSourceReward struct {
         "location": "karma:1.0.0",
         "init": {
             "Params": {
-                "config": {
-                    "sources": [
-                        {
-                            "name": "sms",
-                            "reward": "1"
-                        },
-                        {
-                            "name": "oauth",
-                            "reward": "3"
-                        },
-                        {
-                            "name": "token",
-                            "reward": "4"
-                        }
-                    ],
-                }
+                "sources": [
+                    {
+                        "name": "sms",
+                        "reward": "1"
+                    },
+                    {
+                        "name": "oauth",
+                        "reward": "3"
+                    },
+                    {
+                        "name": "token",
+                        "reward": "4"
+                    }
+                ]
             }
         }
     }
@@ -131,8 +130,8 @@ func AddSource(name string, reward int 64, signer auth.Signer, oracle loom.Addre
 	// Add the new source
 	var configVal karma.KarmaConfigValidator
 	configVal.Oracle = oracle.MarshalPB()
-	configVal.Parms.Config = config
-	config.Parms.Config.Sources = append(config.Parms.Config.Sources, karma.KarmaSourceReward {
+	configVal.Parms = config
+	config.Parms.Sources = append(config.Parms.Sources, karma.KarmaSourceReward {
             Name: name,
             Reward: reward,
 	})
@@ -177,22 +176,20 @@ karma available as soon a new DAppChain starts.  For example:
             "location": "karma:1.0.0",
             "init": {
                 "Params": {
-                    "config": {
-                        "sources": [
-                            {
-                                "name": "sms",
-                                "reward": "1"
-                            },
-                            {
-                                "name": "oauth",
-                                "reward": "3"
-                            },
-                            {
-                                "name": "token",
-                                "reward": "4"
-                            }
-                        ],
-                    },
+                    "sources": [
+                        {
+                            "name": "sms",
+                            "reward": "1"
+                        },
+                        {
+                            "name": "oauth",
+                            "reward": "3"
+                        },
+                        {
+                            "name": "token",
+                            "reward": "4"
+                        }
+                    ],
                     "users": [
                         {
                             "user": {
@@ -210,10 +207,10 @@ karma available as soon a new DAppChain starts.  For example:
                                 }
                             ]
                         }
-                    ]
+                    ],
                 }
             }
-        },
+        }
 ```
 This genesis file fragment will create three sources and give the user with local address
 `QjWhaN9qvpdI9MjS1YuL1GukwLc` 20 rewards from `oauth` and3 rewards from `token`.
@@ -264,8 +261,6 @@ on transaction usage is that the user must have non-zero karma.
     * Deploy transaction are limited to `SessionMaxAccessCount` per period.
     * Call transaction are limited to `SessionMaxAccessCount + karma` per period. 
     
-    
-
 ## Karma methods
 The following methods can be called by anyone.
 * `GetConfig(ctx contract.StaticContext, ko *types.Address) (*Config, error)` Returns the 
@@ -280,17 +275,70 @@ Associate a collection of sources with counts with a user. See above for details
 collection of sources with a user. See above for details. 
 * `UpdateConfig(ctx contract.Context, kpo *karma.KarmaConfigValidator) error` Reset the karma 
 contracts parameters. In particular this allows the list of sources to be updated
-* `UpdateConfigOracle(ctx contract.Context, params *karma.KarmaParamsValidatorNewOracle) error` 
-Change the current oracle. 
 
 Other methods
-* Meta() (plugin.Meta, error) 
-* Init(ctx contract.Context, req *InitRequest) error
-* GetUserStateKey(owner *types.Address) []byte
-* GetState(ctx contract.StaticContext, user *types.Address) (*State, error)
-* UpdateConfigOracleMutability(ctx contract.Context, params *karma.KarmaParamsMutableValidator) error
+* `Meta() (plugin.Meta, error)`
+* `Init(ctx contract.Context, req *InitRequest) error`
+* `GetUserStateKey(owner *types.Address) []byte`
+* `GetState(ctx contract.StaticContext, user *types.Address) (*State, error)`
   
-  
+## Karma related loom.yaml settings
+* `KarmaEnabled bool` Switch indicating whether or not the karma functionality is activated.
+* `Oracle string` special user account that is unaffected by karma restriction and is the only
+user that can change karma parameters.
+* `SessionDuration       int64` Length in seconds of a karma session period. 
+* `SessionMaxAccessCount int64` Base value to determine the maximum number of Tx allowed per session.
+
+## Genesis entries
+An example genesis file entry is shown below. The Init block can be empty, which just installs
+the karma contact on the DAppChain. 
+It is possible to initialise the karma contract with a list of karma sources. It you do this, you
+can also allocate a list of users to have allocated amounts of these sources.
+```json
+        {
+            "vm": "plugin",
+            "format": "plugin",
+            "name": "karma",
+            "location": "karma:1.0.0",
+            "init": {
+                "Params": {
+                    "sources": [
+                        {
+                            "name": "sms",
+                            "reward": "1"
+                        },
+                        {
+                            "name": "oauth",
+                            "reward": "3"
+                        },
+                        {
+                            "name": "token",
+                            "reward": "4"
+                        }
+                    ],
+                    "users": [
+                        {
+                            "user": {
+                                "chainId": "default",
+                                "local": "QjWhaN9qvpdI9MjS1YuL1GukwLc="
+                            },
+                            "sources": [
+                                {
+                                    "name": "oauth",
+                                    "count": "10"
+                                },
+                                {
+                                    "name": "token",
+                                    "count": "3"
+                                }
+                            ]
+                        }
+                    ]
+                 }
+            }
+        }
+```
+
   
   
   
