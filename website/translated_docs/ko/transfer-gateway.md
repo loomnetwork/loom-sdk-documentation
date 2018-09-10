@@ -5,7 +5,7 @@ sidebar_label: Transfer 게이트웨이
 ---
 ## 개요
 
-Transfer 게이트웨이는 Loom DAppChain과 이더리움 네트워크간에 토큰 전송을 가능하게 해줍니다. Currently only ERC721 tokens are supported, but support for ERC20 tokens, and ETH will be added in the near future.
+Transfer 게이트웨이는 Loom DAppChain과 이더리움 네트워크간에 토큰 전송을 가능하게 해줍니다. 현재는 오직 ERC721 토큰만 지원합니다만, ERC20 토큰과 ETH도 차후 지원될 예정입니다.
 
 The Transfer Gateway consists of four main components:
 
