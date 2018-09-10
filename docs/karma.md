@@ -334,16 +334,3 @@ can also allocate a list of users to have allocated amounts of these sources.
             }
         }
 ```
-
-  
-  
-  
-  
-  
-  
-  
-  
-  
- 
- 
- 
