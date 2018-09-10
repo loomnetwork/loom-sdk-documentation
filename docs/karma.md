@@ -144,7 +144,7 @@ If karma has been enabled, each user will be restricted in the transactions they
 call by their karma allocation. 
 A user will only be able to run `SessionMaxAccessCount plus karma``call` transactions in any 
 `SessionDuration`seconds. `Deploy` transactions are only effected by `SessionMaxAccessCount` and
-not effected by karma.
+not by karma.
 
 Each user will be associated with zero or more sources. This list may contain both active sources, 
 in karma's current list of sources, or inactive sources.  
@@ -229,7 +229,7 @@ import `github.com/loomnetwork/go-loom/builtin/types/karma`
 
 func AddSourceForUser(name string, count int64, user, oracle loom.Addres, signer auth.Signer, karmaContact client.Contract) error {	
 	// Update the source information on the DAppChain
-	_, err = karmaContact.Call("UpdateSourcesForUser", &karma.KarmaStateUser{
+	_, err := karmaContact.Call("UpdateSourcesForUser", &karma.KarmaStateUser{
         User: user.MarshalPB(),
         Oracle: oracle.MarshalPB(),
         SourceStates: []*karma.KarmaSource{{name, count}},
@@ -242,13 +242,14 @@ DeleteSourcesForUser karma method.
 ```go
 import `github.com/loomnetwork/go-loom/builtin/types/karma`
 
-func RemoveSourceForUser(name string, user, oracle loom.Addres, signer auth.Signer, karmaContact client.Contract) {	
+func RemoveSourceForUser(name string, user, oracle loom.Addres, signer auth.Signer, karmaContact client.Contract) error {	
 	// Update the source information on the DAppChain
-	karmaContact.Call("UpdateSourcesForUser", &karma.KarmaStateKeyUser{
+	_, err := karmaContact.Call("UpdateSourcesForUser", &karma.KarmaStateKeyUser{
         User: user.MarshalPB(),
         Oracle: oracle.MarshalPB(),
         StateKeys: []string{name},
     }, signer, nil)
+	return err
 }
 ```
 
@@ -283,8 +284,6 @@ contracts parameters. In particular this allows the list of sources to be update
 Other methods
 * `Meta() (plugin.Meta, error)`
 * `Init(ctx contract.Context, req *InitRequest) error`
-* `GetUserStateKey(owner *types.Address) []byte`
-* `GetState(ctx contract.StaticContext, user *types.Address) (*State, error)`
   
 ## Genesis entries
 An example genesis file entry is shown below. The Init block can be empty, which just installs
