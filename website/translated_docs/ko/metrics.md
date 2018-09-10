@@ -9,7 +9,7 @@ Loom은 메트릭을 사용하며 메트릭 값을 외부 모니터링 서비스
 
 ## Loom SDK 메트릭
 
-Loom captures and exposes 4 different types of metrics:
+Loom 4가지의 서로다른 종류의 메트릭을 수집 및 제공합니다:
 
 - `Counter` 증가만 하는 단일 숫자 값
 - `Gauge` 증가와 감소를 하는 단일 숫자 값
@@ -38,7 +38,7 @@ requestLatency := kitprometheus.NewSummaryFrom(stdprometheus.SummaryOpts{
 
 Loom은 메트릭 값에 변형을 주기 위해서 각 메트릭 별로 두가지의 다른 필드 이름을 제공합니다. 첫번째는 메소드 콜의 이름인 `method` 입니다. 두번째는 `error`이며 메소드 콜이 에러를 반환하고자 할때 true가 됩니다.
 
-다음은 다른 필드로 외부에 노출된 메트릭의 예제입니다.
+다음은 다른 필드로 외부에 제공되는 메트릭의 예제입니다.
 
     loomchain_query_service_request_count{error="false",method="Nonce"} 
     loomchain_query_service_request_count{error="true",method="Nonce"} 
@@ -78,11 +78,11 @@ loomchain_query_service_request_latency_microseconds_count{error="true",method="
 
 Loom은 메트릭을 저장하지 않고 순간의 메트릭 값을 보여줄 뿐입니다. 메트릭을 얻기 위해서, 엔드포인트에서 여러분의 모니터링 시스템으로 메트릭을 폴링하거나 [Prometheus](https://prometheus.io/docs/prometheus/latest/installation/)를 사용할 수 있습니다.
 
-You can also visualize the metrics using tools like [Grafana](https://grafana.com/) or [Kibana](https://www.elastic.co/products/kibana).
+[Grafana](https://grafana.com/)이나 [Kibana](https://www.elastic.co/products/kibana)와 같은 툴을 사용해서 메트릭을 시각화 할 수도 있습니다.
 
 ### Prometheus
 
-To configure prometheus server, add the following to your config file:
+Prometheus 서버를 설정하려면, 설정파일에 다음을 추가하세요:
 
 ```yaml
 scrape_configs:
@@ -97,9 +97,9 @@ scrape_configs:
 
 ## 모든 메트릭 리스트
 
-The following are the list of metrics exposed by Loom SDK:
+다음은 Loom SDK에서 제공하는 메트릭 리스트입니다:
 
-| Metrics                                                  | Type    | Description                                      |
-| -------------------------------------------------------- | ------- | ------------------------------------------------ |
-| loomchain_query_service_request_count                | Counter | Number of query requests received                |
-| loomchain_query_service_request_latency_microseconds | Summary | Total duration of query requests in microseconds |
+| 메트릭                                                      | 타입      | 설명                             |
+| -------------------------------------------------------- | ------- | ------------------------------ |
+| loomchain_query_service_request_count                | Counter | 수신된 query request 수            |
+| loomchain_query_service_request_latency_microseconds | Summary | 마이크로초 단위의 query request 총 지속시간 |
