@@ -1,9 +1,9 @@
 ---
 id: transfer-gateway
-title: Transfer Gateway
-sidebar_label: Transfer Gateway
+title: Transfer 게이트웨이
+sidebar_label: Transfer 게이트웨이
 ---
-## Overview
+## 개요
 
 The Transfer Gateway allows tokens to be transferred between Loom DAppChains and Ethereum networks. Currently only ERC721 tokens are supported, but support for ERC20 tokens, and ETH will be added in the near future.
 
@@ -40,7 +40,7 @@ pragma solidity ^0.4.24;
 import "openzeppelin-solidity/contracts/token/ERC721/ERC721Token.sol";
 
 contract MyAwesomeToken is ERC721Token("MyAwesomeToken", "MAT") {
-    // Mainnet Gateway address
+    // 메인넷 게이트웨이 주소
     address public gateway;
 
     constructor(address _gateway) public {
