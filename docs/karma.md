@@ -113,8 +113,10 @@ type KarmaSourceReward struct {
 This starts the DAppChain with three sources, "sms", "oauth" and "token" with varying reward levels.
 
 #### Soures: UpdateConfig
-The karma method `UpdateConfig` is used to reset the karma parameters including the sources. 
-Usually you will want to download the existing parameters with `GetConfig` and then amend that.
+The karma method `UpdateConfig` is used to reset the karma parameters including the sources
+in a running DAppChain. 
+Usually you will want to download the existing parameters with `GetConfig` and amend that before
+using to set the karma configuration parameters with `UpdateConfig`.
 ```go
 import `github.com/loomnetwork/go-loom/builtin/types/karma`
 
@@ -163,16 +165,107 @@ The karma a source provides to an address is `
 `KarmaSource.Count*KarmaSourceReward.Reward`
 
 The total amount of karma is the sum of the karma from each active karma source associated with the address.
+The sources associated with a user can configured either in the genesis file or by the karma 
+methods `UpdateSourcesForUser` and `DeleteSourcesForUser`.
 
+#### Users: Genesis File
+Users can be associated with sources in the genesis file. This allows users to have
+karma available as soon a new DAppChain starts.  For example:
+```json
+        {
+            "vm": "plugin",
+            "format": "plugin",
+            "name": "karma",
+            "location": "karma:1.0.0",
+            "init": {
+                "Params": {
+                    "config": {
+                        "sources": [
+                            {
+                                "name": "sms",
+                                "reward": "1"
+                            },
+                            {
+                                "name": "oauth",
+                                "reward": "3"
+                            },
+                            {
+                                "name": "token",
+                                "reward": "4"
+                            }
+                        ],
+                    },
+                    "users": [
+                        {
+                            "user": {
+                                "chainId": "default",
+                                "local": "QjWhaN9qvpdI9MjS1YuL1GukwLc="
+                            },
+                            "sources": [
+                                {
+                                    "name": "oauth",
+                                    "count": "10"
+                                },
+                                {
+                                    "name": "token",
+                                    "count": "3"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            }
+        },
+```
+This genesis file fragment will create three sources and give the user with local address
+`QjWhaN9qvpdI9MjS1YuL1GukwLc` 20 rewards from `oauth` and3 rewards from `token`.
+This user would than start with `20*10 + 3*4 = 42` karma.
+
+#### Users: UpdateSourcesForUser and DeleteSourcesForUser
+
+
+#### SessionDuration and SessionMaxAccessCount
 If karma is enabled, all users other than the Oracle are restricted depending on the 
 karma parameters, `SessionDuration` and `SessionMaxAccessCount`, in the loom.yaml.
 Each user is restricted, during any period of `SessionDuration` seconds to a number of transactions
 dependant on `SessionMaxAccessCount` and the user's karma.
 
-#### SessionMaxAccessCount
 * A user can only make transactions if they have strictly positive karma.
 * A zero `SessionMaxAccessCount` means that only karma based restriction
 on transaction usage is that the user must have non-zero karma.
 * For strictly positive `SessionMaxAccessCount`
     * Deploy transaction are limited to `SessionMaxAccessCount` per period.
     * Call transaction are limited to `SessionMaxAccessCount + karma` per period. 
+    
+    
+
+## Karma methods
+Varables
+ConfigKey
+OracleKey
+Functions
+Meta() (plugin.Meta, error) 
+Init(ctx contract.Context, req *InitRequest) error 
+GetUserStateKey(owner *types.Address) []byte
+GetConfig(ctx contract.StaticContext, ko *types.Address) (*Config, error)
+GetState(ctx contract.StaticContext, user *types.Address) (*State, error)
+GetTotal(ctx contract.StaticContext, params *types.Address) (*ktypes.KarmaTotal, error)
+UpdateSourcesForUser(ctx contract.Context, ksu *ktypes.KarmaStateUser) error
+DeleteSourcesForUser(ctx contract.Context, ksu *ktypes.KarmaStateKeyUser) error
+UpdateConfig(ctx contract.Context, kpo *ktypes.KarmaConfigValidator) error 
+UpdateConfigOracleMutability(ctx contract.Context, params *ktypes.KarmaParamsMutableValidator) error 
+UpdateConfigOracle(ctx contract.Context, params *ktypes.KarmaParamsValidatorNewOracle) error  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+ 
+ 
+ 
