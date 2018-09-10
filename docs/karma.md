@@ -140,7 +140,12 @@ func AddSource(name string, reward int 64, signer auth.Signer, oracle loom.Addre
 }
 ```
 ## Users
-If karma has been enabled, each user will be restricted by their karma allocation.
+If karma has been enabled, each user will be restricted in the transactions they can
+call by their karma allocation. 
+A user will only be able to run `SessionMaxAccessCount plus karma``call` transactions in any 
+`SessionDuration`seconds. `Deploy` transactions are only effected by `SessionMaxAccessCount` and
+not effected by karma.
+
 Each user will be associated with zero or more sources. This list may contain both active sources, 
 in karma's current list of sources, or inactive sources.  
 ```go
@@ -257,8 +262,8 @@ dependant on `SessionMaxAccessCount` and the user's karma.
 * A zero `SessionMaxAccessCount` means that only karma based restriction
 on transaction usage is that the user must have non-zero karma.
 * For strictly positive `SessionMaxAccessCount`
-    * Deploy transaction are limited to `SessionMaxAccessCount` per time period.
-    * Call transaction are limited to `SessionMaxAccessCount + karma` per time period. 
+    * `Deploy` transaction are limited to `SessionMaxAccessCount` per time period.
+    * `Call` transaction are limited to `SessionMaxAccessCount + karma` per time period. 
     
 ## Karma methods
 The following methods can be called by anyone.
