@@ -32,12 +32,20 @@ chain for the first time.
 Activating the karma functionality is done from the loom.yaml configuration file.
 * DeployEnabled Toggles the karma module on and off. 
 * Oracle: Address for the Oracle. The Oracle is unaffected by karma restrictions. 
-An Oracle is compulsory if karma is enabled. For example:
+An Oracle is compulsory if karma is enabled. 
+* SessionDuration: A Time period in seconds, karma restricts users to a configurable
+ number of transactions during any interval of `SessionDuration` size.
+* SessionMaxAccessCount: Base value used to calculate number of Transaction per `SessionDuration`.
+A `SessionMaxAccessCount` of `0` indicates there are no karma based limit on transactions number.
+
+Example loom.yaml fragment.
 ```yaml
 DeployEnabled: true
 Oracle:        "default:0xAfaA41C81A316111fB0A4644B7a276c26bEA2C9F"
+SessionDuration: 60
+SessionMaxAccessCount: 10
 ```
-
+Normally you will want to 
 
 ## Oracle
 The Oracle has general override ability for a DAppChain. It is defined in the `loom.yaml` file.
@@ -133,3 +141,28 @@ func AddSource(name string, reward int 64, signer auth.Signer, oracle loom.Addre
 	_, err = contract.Call("UpdateConfig", configVal, signer, nil)
 }
 ```
+## Users
+If karma has been enabled, each user will be restricted by their karma allocation.
+Each user will be associated with zero or more sources. This list may contain both active sources, 
+in karma's current list of sources, or inactive sources.  
+```go
+type KarmaSource struct {
+	Name  string
+	Count int64 
+}
+
+type KarmaAddressSource struct {
+	User    *types.Address 
+	Sources []*KarmaSource 
+}
+```
+`Name` identifies a source and corresponds to the `Name` field in `KarmaSourceReward` above.
+`Count` the number of a particular source associated with the address.
+The karma a source provides to an address is `
+
+`KarmaSource.Count*KarmaSourceReward.Reward`
+
+The total amount of karma is the sum of the karma from each active karma source associated with the address.
+
+If karma is enabled, all users other than the Oracle are restricted depending on the 
+karma parameters, `SessionDuration` and `SessionMaxAccessCount`, in the loom.yaml.
