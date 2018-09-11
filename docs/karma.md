@@ -31,8 +31,6 @@ chain for the first time.
 
 Activating the karma functionality is done from the loom.yaml configuration file.
 * `KarmaEnabled bool` Flag that sets the karma module on or off. 
-* `Oracle Address` The Oracle is unaffected by karma restrictions. 
-An Oracle is compulsory if karma is enabled. 
 * `SessionDuration int64` A Time period in seconds. Karma restricts users to a configurable
  number of transactions during any interval of `SessionDuration` size.
 * `SessionMaxAccessCount int64` Base value used to calculate number of Transaction per `SessionDuration`.
@@ -41,19 +39,13 @@ A `SessionMaxAccessCount` of `0` indicates there are no karma based limit on tra
 Example loom.yaml fragment.
 ```yaml
 KarmaEnabled: true
-Oracle:        "default:0xAfaA41C81A316111fB0A4644B7a276c26bEA2C9F"
 SessionDuration: 60
 SessionMaxAccessCount: 10
 ```
 
 ## Oracle
-The Oracle has general override ability for a DAppChain. It is defined in the `loom.yaml` file.
-```yaml
-Oracle:        "default:0xAfaA41C81A316111fB0A4644B7a276c26bEA2C9F"
-```
-The Oracle can be changed by stopping the DAppChain and restarting with a different `loom.yaml` file.
-
 * The Oracle is compulsory is karma is enabled.
+* It is defined in the genesis file, and can be updated by the karma method UpdateOracle.
 * It is unaffected by karma restrictions.
 * It is the only user that can successfully call the following karma configuration transactions.
     * `UpdateSourcesForUser`
