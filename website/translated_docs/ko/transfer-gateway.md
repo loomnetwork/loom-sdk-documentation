@@ -24,7 +24,7 @@ Transfer 게이트웨이는 4가지 주요 컴포넌트로 구성되어 있습�
 
 ![Diagram of ERC721 Transfer to Ethereum](/developers/img/transfer-gateway-erc721-to-ethereum.png)
 
-동일한 토큰을 다시 그들의 이더리움 계정으로 돌려받으려면 사용자는 먼저 토큰을 다시 DAppChain 게이트웨이로 보내야하며, 이것은 보류 인출을 생성합니다 보류 인출은 게이트웨이 Oracle에 의해 선택되고 인출이 서명되어서 DAppChain 게이트웨이에게 알려줍니다. The DAppChain Gateway emits an event to let the user know they can withdraw their token from the Mainnet Gateway to their Ethereum account by providing the signed withdrawal record.
+동일한 토큰을 다시 그들의 이더리움 계정으로 돌려받으려면 사용자는 먼저 토큰을 다시 DAppChain 게이트웨이로 보내야하며, 이것은 보류 인출을 생성합니다 보류 인출은 게이트웨이 Oracle에 의해 선택되고 인출이 서명되어서 DAppChain 게이트웨이에게 알려줍니다. DAppChain 게이트웨이는 사용자에게 자신의 토큰을 메인넷 게이트웨이로에서 이더리움 계정으로 인출할 수 있다는 것을 알게 해주기 위해 서명된 인출 기록을 제공하여 이벤트는 내보냅니다.
 
 If you're a hands-on learner you might want to jump straight into the [Transfer Gateway Cards](https://github.com/loomnetwork/cards-gateway-example) example project before reading any further...
 
