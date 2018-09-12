@@ -26,13 +26,13 @@ Transfer 게이트웨이는 4가지 주요 컴포넌트로 구성되어 있습�
 
 동일한 토큰을 다시 그들의 이더리움 계정으로 돌려받으려면 사용자는 먼저 토큰을 다시 DAppChain 게이트웨이로 보내야하며, 이것은 보류 인출을 생성합니다 보류 인출은 게이트웨이 Oracle에 의해 선택되고 인출이 서명되어서 DAppChain 게이트웨이에게 알려줍니다. DAppChain 게이트웨이는 사용자에게 자신의 토큰을 메인넷 게이트웨이로에서 이더리움 계정으로 인출할 수 있다는 것을 알게 해주기 위해 서명된 인출 기록을 제공하여 이벤트는 내보냅니다.
 
-If you're a hands-on learner you might want to jump straight into the [Transfer Gateway Cards](https://github.com/loomnetwork/cards-gateway-example) example project before reading any further...
+여러분이 실습 학습자라면 더 읽기전에 [Transfer 게이트웨이 카드](https://github.com/loomnetwork/cards-gateway-example) 예제 프로젝트로 바로 뛰어들길 원하실 수도 있겠네요...
 
-## Setting up ERC721 contracts
+## ERC721 컨트랙트 설정하기
 
-To transfer an ERC721 token from Ethereum to the DAppChain you'll need two of your own ERC721 contracts, one on Ethereum (Mainnet ERC721), and the other on the DAppChain (DAppChain ERC721).
+ERC721 토큰을 이더리움에서 DAppChain으로 전송하려면 여러분만의 두개의 ERC721 컨트랙트가 필요합니다, 하나는 이더리움 (메인넷 ERC721) 위에, 나머지는 DAppChain (DAppChain ERC721) 위에.
 
-Your Mainnet ERC721 contract doesn't need anything special to work with the Transfer Gateway. Though you might want to add something like the `depositToGateway` method below to make it a bit easier to transfer tokens into the Mainnet Gateway:
+여러분의 메인넷 ERC721 컨트랙트는 Transfer 게이트웨이와 작동하기 위해서 틀별한 것이 필요하지는 않습니다. 비록 아래처럼 메인넷 게이트웨이로의 토큰 전송을 좀 더 쉽게 해주는 `depositToGateway`과 같은 것을 추가해야하지만:
 
 ```solidity
 pragma solidity ^0.4.24;
@@ -54,7 +54,7 @@ contract MyAwesomeToken is ERC721Token("MyAwesomeToken", "MAT") {
 }
 ```
 
-Your DAppChain ERC721 contract must provide a public `mint` method to allow the DAppChain Gateway to mint tokens that are transferred from Ethereum:
+여러분의 DAppChain ERC721 컨트랙트는 이더리움에서 전송된 토큰을 발행하기 위해서 반드시 public `mint` 메소드를 제공해야만 합니다:
 
 ```solidity
 pragma solidity ^0.4.24;
