@@ -20,11 +20,11 @@ Transfer 게이트웨이는 4가지 주요 컴포넌트로 구성되어 있습�
 
 ![Diagram of ERC721 Transfer to DAppChain](/developers/img/transfer-gateway-erc721-to-dappchain.png)
 
-유저가 자신의 이더리움 계정에서 DAppChain 계정으로 토큰을 전송하고자 할때 먼저 메인넷 게이트웨이에 전송을 하여야 하며, 다음으로 입금 이벤트가 발생됩니다. 입금 이벤트는 게이트웨이 Oracle에 의해서 선별되고 DAppChain 게이트웨이로 보냅니다. The DAppChain Gateway then transfers the token to the DAppChain account of the user that deposited the token into the Mainnet Gateway.
+사용자가 자신의 이더리움 계정에서 DAppChain 계정으로 토큰을 전송하고자 할때 먼저 메인넷 게이트웨이에 전송을 하여야 하며, 다음으로 입금 이벤트가 발생됩니다. 입금 이벤트는 게이트웨이 Oracle에 의해서 선택되고 DAppChain 게이트웨이로 보냅니다. DAppChain 게이트웨이는 토큰을 메인넷 게이트웨이로 입금한 사용자의 DAppChain 계정으로 전송합니다.
 
 ![Diagram of ERC721 Transfer to Ethereum](/developers/img/transfer-gateway-erc721-to-ethereum.png)
 
-To get that same token back into their Ethereum account the user must first transfer the token back to the DAppChain Gateway, which creates a pending withdrawal. The pending withdrawal is picked up by the Gateway Oracle, which signs the withdrawal, and notifies the DAppChain Gateway. The DAppChain Gateway emits an event to let the user know they can withdraw their token from the Mainnet Gateway to their Ethereum account by providing the signed withdrawal record.
+동일한 토큰을 다시 그들의 이더리움 계정으로 돌려받으려면 사용자는 먼저 토큰을 다시 DAppChain 게이트웨이로 보내야하며, 이것은 보류 인출을 생성합니다 보류 인출은 게이트웨이 Oracle에 의해 선택되고 인출이 서명되어서 DAppChain 게이트웨이에게 알려줍니다. The DAppChain Gateway emits an event to let the user know they can withdraw their token from the Mainnet Gateway to their Ethereum account by providing the signed withdrawal record.
 
 If you're a hands-on learner you might want to jump straight into the [Transfer Gateway Cards](https://github.com/loomnetwork/cards-gateway-example) example project before reading any further...
 
