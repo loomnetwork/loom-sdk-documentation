@@ -7,20 +7,20 @@ sidebar_label: Transfer 게이트웨이
 
 Transfer 게이트웨이는 Loom DAppChain과 이더리움 네트워크간에 토큰 전송을 가능하게 해줍니다. 현재는 오직 ERC721 토큰만 지원합니다만, ERC20 토큰과 ETH도 차후 지원될 예정입니다.
 
-The Transfer Gateway consists of four main components:
+Transfer 게이트웨이는 4가지 주요 컴포넌트로 구성되어 있습니다:
 
-- Gateway Solidity contract on Ethereum (Mainnet Gateway)
-- Gateway Go contract on the Loom DAppChain (DAppChain Gateway)
-- Address Mapper Go contract on the Loom DAppChain
-- Gateway Oracle (can run in-process on a DAppChain node, or as a standalone process)
+- 이더리움 위에 올라간 게이트웨이 Solidity 컨트랙트 (메인넷 게이트웨이)
+- Loom DAppChain 위에 올라간 게이트웨이 Go 컨트랙트 (DAppChain 게이트웨이)
+- Loom DAppChain 위에 올라간 어드레스 Mapper Go 컨트랙트
+- 게이트웨이 Oracle (DAppChain 노드 위에서 실행되는 프로세스 혹은 독립적인 프로세스로 동작될 수 있음)
 
-[ERC20 Transfer Gateway Example](https://github.com/loomnetwork/token-gateway-example)
+[ERC20 Transfer 게이트웨이 예제](https://github.com/loomnetwork/token-gateway-example)
 
-[ERC721 Transfer Gateway Example](https://github.com/loomnetwork/cards-gateway-example)
+[ERC721 Transfer 게이트웨이 예제](https://github.com/loomnetwork/cards-gateway-example)
 
 ![Diagram of ERC721 Transfer to DAppChain](/developers/img/transfer-gateway-erc721-to-dappchain.png)
 
-When a user wishes to transfer a token from their Ethereum account to their DAppChain account they must first transfer it to the Mainnet Gateway, which in turns emits a deposit event. The deposit event is picked up by the Gateway Oracle which forwards it onto the DAppChain Gateway. The DAppChain Gateway then transfers the token to the DAppChain account of the user that deposited the token into the Mainnet Gateway.
+유저가 자신의 이더리움 계정에서 DAppChain 계정으로 토큰을 전송하고자 할때 먼저 메인넷 게이트웨이에 전송을 하여야 하며, 다음으로 입금 이벤트가 발생됩니다. 입금 이벤트는 게이트웨이 Oracle에 의해서 선별되고 DAppChain 게이트웨이로 보냅니다. The DAppChain Gateway then transfers the token to the DAppChain account of the user that deposited the token into the Mainnet Gateway.
 
 ![Diagram of ERC721 Transfer to Ethereum](/developers/img/transfer-gateway-erc721-to-ethereum.png)
 
