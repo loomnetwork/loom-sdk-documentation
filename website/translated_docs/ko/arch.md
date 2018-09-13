@@ -51,9 +51,9 @@ SDK는 다음 부분들과 함께 이더리움 백엔드에 통합됩니다:
 
 SDK에는 다수의 고수준 블록체인 서비스들이 포함되어 있습니다.
 
-* Signing / Auth / Nonce 미들웨어
+* 서명 / 인증 / 논스 미들웨어
 * 내장 코인
-* Indexing
+* 인덱싱
 * Websocket과 이벤트
 * Solidity + Ethereum 가상머신
 * Cocos, Unity와 Phaser 같은 게임 엔진 지원
