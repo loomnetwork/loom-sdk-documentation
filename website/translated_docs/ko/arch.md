@@ -36,7 +36,7 @@ SDK는 다음 부분들과 함께 이더리움 백엔드에 통합됩니다:
 
 * DappChain으로 자산 전송
 * 이더리움으로 자산 전송
-* DappChain에 있는 asset을 미러링(Pegging)
+* DappChain에 있는 자산 미러링(페깅)
 * ERC-20 토큰
 * ERC-721 토큰
 * Ether 
