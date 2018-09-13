@@ -55,10 +55,10 @@ SDK에는 다수의 고수준 블록체인 서비스들이 포함되어 있습�
 * 내장 코인
 * 인덱싱
 * Websocket과 이벤트
-* Solidity + Ethereum 가상머신
+* 솔리디티 + 이더리움 가상머신
 * Cocos, Unity와 Phaser 같은 게임 엔진 지원
-* Transfer Gateway 통합
+* 전송 게이트웨이 통합
 * 플라즈마 통합
 * Cron (예정)
-* Rate limiting (초기 단계)
-* Hard fork Manager (6월중)
+* 비율 제한 (초기 단계)
+* 하드 포크 매니저 (7월 예정)
