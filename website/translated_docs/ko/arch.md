@@ -26,16 +26,16 @@ Go, 솔리디티 또는 GRPC를 지원하는 모든 언어로 작성된 스마�
 
 ## 이더리움 통합
 
-The SDK 다음 부분과 함께 Ethereum 백엔드로 통합됩니다:
+SDK는 다음 부분들과 함께 이더리움 백엔드에 통합됩니다:
 
-### Transfer Gateway
+### 전송 게이트웨이
 
 ![](/developers/img/loom-sdk-arch-plasma.jpg)
 
-### Transfer gateway 다음을 허용합니다
+### 전송 게이트웨이는 다음을 허용합니다:
 
-* Asset을 DappChain에 보내기
-* Assets을 Ethereum에 보내기
+* DappChain으로 자산 전송
+* 이더리움으로 자산 전송
 * DappChain에 있는 asset을 미러링(Pegging)
 * ERC-20 토큰
 * ERC-721 토큰
@@ -44,7 +44,7 @@ The SDK 다음 부분과 함께 Ethereum 백엔드로 통합됩니다:
 ### 플라즈마 캐시 컨트랙트는 아래를 지원합니다
 
 * ERC-721 토큰
-* ERC-20 토큰(7월)
+* ERC-20 토큰 (7월)
 * Ether (7월)
 
 ## 블록체인 서비스
