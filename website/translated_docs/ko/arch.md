@@ -18,13 +18,13 @@ Loom 합의 레이어는 Loom DPoS 또는 체인별 설정이 가능한 PoS/DPoS
 
 Go, 솔리디티 또는 GRPC를 지원하는 모든 언어로 작성된 스마트 컨트랙트를 허용합니다.
 
-스마트 컨트랙트는 DPoS, 체인 또는 EthereumVM과 같이 체인내부에 포함될 수 있습니다.
+스마트 컨트랙트는 DPoS, 코인 또는 EthereumVM과 같이 체인 내부에 포함될 수 있습니다.
 
-외부 프로세스로 만드는 것도 가능하고, 이는 GRPC를 통해서 통신하게 됩니다.
+외부 프로세스로 만드는 것 또한 가능하며, 이는 GRPC를 통해 블록체인과 통신합니다.
 
 ![](/developers/img/loom-sdk-arch-contracts.jpg)
 
-## Ethereum 통합
+## 이더리움 통합
 
 The SDK 다음 부분과 함께 Ethereum 백엔드로 통합됩니다:
 
