@@ -152,13 +152,17 @@ call by their karma allocation. If karma is enabled the following restrictions a
 
 ###### Deploy transactions
 A strictly positive karma is required to do any transactions.
-If `KarmaMaxDeployCount` is zero then there is otherwise no limit on the rate of deploy transactions.
+
+If `KarmaMaxDeployCount` is zero then there is no limit, imposed here, on the rate of deploy transactions.
+
 Otherwise users will only be able to run `KarmaMaxDeployCount` deploy transactions in any 
 period of `SessionDuration`seconds. 
 
 ###### Call transactions
 A strictly positive karma is required to do any transactions.
-If `KarmaMaxCallCount` is zero then there is otherwise no limit on the rate of deploy transactions.
+
+If `KarmaMaxCallCount` is zero then there is no limit, imposed here,  on the rate of deploy transactions.
+
 Otherwise users will only be able to run `KarmaMaxCallCount + total karma` call transactions in any 
 period of `SessionDuration`seconds. Where `total karma1` is calculated from the count of sources
 held by the user as described below.
