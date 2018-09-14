@@ -31,16 +31,18 @@ chain for the first time.
 
 Activating the karma functionality is done from the loom.yaml configuration file.
 * `KarmaEnabled bool` Flag that sets the karma module on or off. 
-* `SessionDuration int64` A Time period in seconds. Karma restricts users to a configurable
- number of transactions during any interval of `SessionDuration` size.
-* `SessionMaxAccessCount int64` Base value used to calculate number of Transaction per `SessionDuration`.
-A `SessionMaxAccessCount` of `0` indicates there are no karma based limit on transactions number.
-
+* `KarmaSessionDuration int64` A Time period in seconds. Karma restricts users to a configurable
+ number of transactions during any interval of `SessionDuration` seconds.
+* `KarmaMaxCallCount int64` Base value used to calculate number of call Transaction permitted per `SessionDuration`.
+A `KarmaMaxCallCount int64` of `0` indicates there are no limit imposed on call transactions number.
+* `KarmaMaxDeployCount int64` Base value used to calculate number of deploy Transaction permitted per `SessionDuration`.
+A `KarmaMaxDeployCount int64` of `0` indicates there are no limit imposed on deploy transactions number.
 Example loom.yaml fragment.
 ```yaml
 KarmaEnabled: true
-SessionDuration: 60
-SessionMaxAccessCount: 10
+KarmaSessionDuration: 60
+KarmaMaxCallCount: 10
+KarmaMaxDeployCount: 5
 ```
 
 ## Oracle
