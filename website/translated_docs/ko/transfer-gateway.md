@@ -91,11 +91,11 @@ contract MyAwesomeToken is ERC721Token {
 
 메인넷 ERC721 컨트랙트의 배포를 증명하기 위해서 컨트랙트를 배포하는데 사용된 이더리움 프라이빗 키를 사용해서 인증된 메시지에 의해서 생성된 시그니처와 컨트랙트를 배포한 메인넷 트랜잭션의 해쉬값을 제공해야만 합니다.
 
-To prove that you deployed the DAppChain ERC721 contract you simply need to sign the request sent to the DAppChain Gateway using the DAppChain private key you used to deploy the contract, the DAppChain Gateway will verify that the sender of the request deployed the contract by looking up the contract creator in the DAppChain contract registry.
+DAppChain ERC721 컨트랙트의 배포를 증명하기 위해서는 간단히 컨트랙트를 배포하는 데 사용된 DAppChain 프라이빗 키를 사용하여 DAppChain 게이트웨이로 보낸 요청을 서명하면 됩니다, DAppChain 게이트웨이는 DAppChain 컨트랙트 레지스트리에 있는 컨트랙트 생성자를 조회해서 컨트랙트의 배포를 요청한 발신자를 인증할 것 입니다,
 
-After a contract mapping request is received by the DAppChain Gateway there will be a small delay before it is picked up by the Gateway Oracle. The Gateway Oracle will lookup the transaction that deployed the Mainnet contract to find out who really deployed it, and will then submit its findings back to the DAppChain Gateway, which will either approve the requested mapping, or simply throw it out.
+DAppChain 게이트웨이가 컨트랙트 매핑 요청을 수신하면, 게이트웨이 오라클에 의해서 선택되기 전까지 약간의 대기시간이 발생합니다. 게이트웨이 오라클은 정말로 배포가 되었는지를 확인하기 위해서 메인넷 컨트랙트에 배포된 트랜잭션을 조회할 것입니다, 그리고 DAppChain 게이트웨이에게 다시 결과를 제출하고, 요청된 매핑에 대해서 승인이 되거나 거부될 것입니다.
 
-## ERC721 token transfer to the DAppChain
+## DAppChain으로 ERC721 토큰 전송하기
 
 Alice has managed to acquire one of your awesome tokens on Mainnet and now wants to transfer it to her DAppChain account. Before she can do so she must send a request to the Address Mapper contract to create a mapping between her Ethereum and DAppChain accounts. Like the DAppChain Gateway the Address Mapper will refuse to create an account mapping unless Alice provides proof that she is the owner of both accounts.
 
