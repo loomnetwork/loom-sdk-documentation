@@ -103,7 +103,7 @@ Alice는 메인넷에 있는 여러분의 멋진 토큰중 하나를 획득하�
 
 ## 이더리움으로 ERC721 token 전송하기
 
-Alice has had her fun on the DAppChain so she wants to transfer her token from her DAppChain account back to her Mainnet account. First she must grant approval to the DAppChain Gateway to take over ownership of the token she wants to transfer, she can do this by sending a request to the DAppChain ERC721 contract.
+Alice는 DAppChain에 재미를 느꼈기 때문에 DAppChain 계정에서 그녀의 토큰을 메인넷 계정으로 다시 전송하려고 합니다. First she must grant approval to the DAppChain Gateway to take over ownership of the token she wants to transfer, she can do this by sending a request to the DAppChain ERC721 contract.
 
 Next, Alice should send a request to the DAppChain Gateway to start the token withdrawal process. When the DAppChain Gateway receives the request it creates a pending withdrawal record for Alice, and then waits for the Gateway Oracle to sign the pending withdrawal. After a small delay the Gateway Oracle signs the pending withdrawal, and submits the signature to the DAppChain Gateway, which in turn emits an event to notify Alice that her pending withdrawal has been signed.
 
