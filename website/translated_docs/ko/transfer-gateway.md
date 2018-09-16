@@ -111,4 +111,4 @@ Alice는 DAppChain에 재미를 느꼈기 때문에 DAppChain 계정에서 그�
 
 ## 요약
 
-이제 Transfer 게이트웨이가 어떻게 작동 하는지에 대한 기본적인 이해를 해야합니다, 비록 실제 API를 제시하거나 설명하지 않았지만요. If you haven't already, take a look at the [Transfer Gateway Cards](https://github.com/loomnetwork/cards-gateway-example) example project, which was built using the Transfer Gateway API provided by [loom-js](https://github.com/loomnetwork/loom-js).
+이제 Transfer 게이트웨이가 어떻게 작동 하는지에 대한 기본적인 이해를 해야합니다, 비록 실제 API를 제시하거나 설명하지 않았지만요. 만약 아직 보지 않았다면, [Transfer Gateway Cards](https://github.com/loomnetwork/cards-gateway-example) 예제 프로젝트를 살펴보세요, 이것은 [loom-js](https://github.com/loomnetwork/loom-js)이 제공하는 Transfer 게이트웨이 API를 이용해서 만들어졌습니다.
