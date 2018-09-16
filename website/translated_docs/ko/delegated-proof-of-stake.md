@@ -2,15 +2,15 @@
 id: delegated-proof-of-stake
 title: 위임 지분 증명
 ---
-Delegated proof of stake 알고리즘은 토큰 홀더가 witness를 선출할 수 있게 해줍니다. Witnesse는 블록체인의 validator로서 행동하는데, 블록을 제안하고 트랜잭션이 정확한지를 검사하는 역할을 합니다. 이 Witness는 선거를 다시 하기 전까지 표준 기간 동안 서비스를 제공합니다.
+위임 지분 증명 알고리즘은 토큰 보유자가 증인을 선출할 수 있게 합니다. 증인은 블록체인의 검증자 역할을 하며, 블록을 제안하고 트랜잭션이 정확한지를 검사하는 역할을 합니다. 이러한 증인들은 다시 선거를 하기 전까지 정해진 기준 기간 동안 서비스를 제공합니다.
 
 ## 파라미터
 
-**Coin contract address** - 투표권을 계산하는 데 사용되는 ERC20와 같은 코인 컨트랙트를 지칭합니다. 기본적으로 이것은 `coin`의 주소로 확인됩니다.
+**Coin contract address** - 투표권을 계산하는 데 사용되는 ERC20과 같은 코인 컨트랙트를 지칭합니다. 기본적으로 여기에는 `코인`의 주소가 쓰입니다.
 
-**Witness count** - 선출될 수 있는 witness의 수.
+**Witness count** - 선출될 수 있는 증인의 수.
 
-**Witness salary** - 선택사항. Witness가 블록 검증에 대한 보상의 양.
+**Witness salary** - 선택사항. 증인이 블록을 검증할 때 받는 보상의 양.
 
 **Vote allocation** - 각 코인 계정이 얻은 득표 수. 기본적으로 이것은 witness의 수와 같습니다.
 
