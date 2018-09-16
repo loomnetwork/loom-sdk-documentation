@@ -56,7 +56,7 @@ LoomProvider가 소유하고 있는 주소의 리스트를 반환한다
 
 #### 반환값
 
-`Array of DATA`, 20 Bytes - addresses owned by the client.
+`데이터 배열`, 20 Bytes - 클라이언트가 소유하고 있는 주소.
 
 #### 예제
 
