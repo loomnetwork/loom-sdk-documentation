@@ -5,36 +5,36 @@ sidebar_label: JSON RPC 메소드
 ---
 ## 개요
 
-In order to be compatible with [Web3.js](https://github.com/ethereum/web3.js) LoomProvider added some methods that are quite compatible with [Ethereum JSON RPC Methods](https://github.com/ethereum/wiki/wiki/JSON-RPC#json-rpc-api), those methods are callable directly by the Loom `QueryService` or by `LoomProvider`, on this tutorial we're going to talk about `LoomProvider`
+[Web3.js](https://github.com/ethereum/web3.js)와 호환되기 위해서 LoomProvider는 [이더리움 JSON RPC 메소드](https://github.com/ethereum/wiki/wiki/JSON-RPC#json-rpc-api)와 완벽히 호환되는 몇 개의 메소드를 추가했습니다, 이 메소드들은 Loom `QueryService`나 `LoomProvider`에 의해서 직접 호출될 수 있습니다, 이번 튜토리얼에서 우리는 `LoomProvider`에 대해서 얘기할 것입니다
 
 ### JSON RPC 메서드를 호출 하는 LoomProvider
 
-The provider should be the bridge between client and the Loom DAppChain, the code below is an example of `LoomProvider` been instantiated and calling the `JSON RPC` to get accounts with `eth_accounts`
+프로바이더는 클라이언트와 Loom DAppChain 사이의 다리역할이 되어야 합니다, 아래 코드는 `LoomProvider` 가 인스턴스화되어 `eth_accounts`로 계정을 얻기 위해서 `JSON RPC`를 호출하는 예제입니다
 
 ```javascript
 const privateKey = CryptoUtils.generatePrivateKey();
 const publicKey = CryptoUtils.publicKeyFromPrivateKey(privateKey);
 
-// Create the client
+// 클라이언트 생성
 const client = new Client(
   "default",
   "ws://127.0.0.1:46658/websocket",
   "ws://127.0.0.1:46658/queryws"
 );
 
-// The address for the caller of the function
+// 함수 호출자의 주소
 const from = LocalAddress.fromPublicKey(publicKey).toString();
 
-// Instantiate loom provider
+// loom provider 인스턴스화
 const loomProvider = new LoomProvider(client, privateKey);
 
-// eth_accounts JSON RPC call
+// eth_accounts JSON RPC 호출
 const jsonRPCString = '{"id": 1,"jsonrpc": "2.0", "method": "eth_accounts", "params": []}'
 
-// Parse JSON is a necessary step before send
+// 보내기전에 JSON 파싱이 필수적인 과정
 await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
-// Return should be something like
+// 반환값은 다음과 같음
 // {
 //   "id":1,
 //   "jsonrpc": "2.0",
@@ -46,19 +46,19 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 * * *
 
-#### Description
+#### 설명
 
-Returns a list of addresses owned by the LoomProvider
+LoomProvider가 소유하고 있는 주소의 리스트를 반환한다
 
-#### Parameters
+#### 파라미터
 
-None
+없음
 
-#### Returns
+#### 반환값
 
 `Array of DATA`, 20 Bytes - addresses owned by the client.
 
-#### Example
+#### 예제
 
 ```Javascript
 // eth_accounts JSON RPC call
@@ -79,19 +79,19 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 * * *
 
-#### Description
+#### 설명
 
 Returns the number of the most recent completed block.
 
-#### Parameters
+#### 파라미터
 
 None
 
-#### Returns
+#### 반환값
 
 `QUANTITY` - integer of the current block number the client is on.
 
-#### Example
+#### 예제
 
 ```Javascript
 // eth_blockNumber JSON RPC call
