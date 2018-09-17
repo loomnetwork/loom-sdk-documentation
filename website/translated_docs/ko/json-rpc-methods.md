@@ -97,10 +97,10 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 // eth_blockNumber JSON RPC call
 const jsonRPCString = '{"jsonrpc":"2.0","method":"eth_blockNumber","params":[],"id":83}'
 
-// Parse JSON is a necessary step before send
+// 보내기전에 JSON 파싱은 필수적인 과정
 await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
-// Return should be something like
+// 반환값은 다음과 같음
 // {
 //   "id":83,
 //   "jsonrpc": "2.0",
@@ -118,7 +118,7 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 #### 파라미터
 
-1. 객체 - 트랜잭션 호출 오브젝트
+1. 객체 - 트랜잭션 호출 객체
 
 - from: 데이터, 20 Bytes - 트랜잭션을 보내는 주소.
 - to: 데이터, 20 Bytes - 트랜잭션이 전달되는 주소.
@@ -128,16 +128,16 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 `데이터` - 실행된 컨트랙트의 반환값.
 
-#### Example
+#### 예제
 
 ```Javascript
 // eth_call JSON RPC call
 const jsonRPCString = '{"jsonrpc":"2.0","method":"eth_call","params":[{see above}],"id":1}'
 
-// Parse JSON is a necessary step before send
+// 보내기전에 JSON 파싱은 필수적인 과정
 await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
-// Return should be something like
+// 반환값은 다음과 같음
 // {
 //   "id":1,
 //   "jsonrpc": "2.0",
@@ -149,18 +149,18 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 * * *
 
-#### Description
+#### 설명
 
-Returns information about a block by block number.
+블록 번호에 해당하는 블록정보를 반환합니다.
 
-#### Parameters
+#### 파라미터
 
-1. `QUANTITY|TAG` - integer of a block number, or the string "earliest", "latest" or "pending", as in the default block parameter.
-2. `Boolean` - If true it returns the full transaction objects, if false only the hashes of the transactions.
+1. `숫자|태그` -기본 블록 파라미터로 지정될 블록번호의 숫자값 혹은 문자열 "earliest", "latest", "pending".
+2. `Boolean` - true면 전체 트랜잭션 객체를 반환하고, false면 트랜잭션 해쉬값 만을 반환한다.
 
-#### Returns
+#### 반환값
 
-`Object` - A block object, or `null` when no block was found:
+`객체` - 블록객체, 또는 블록을 못찾을 경우 `null`:
 
 - `number`: `QUANTITY` - the block number. null when its pending block.
 - `hash`: `DATA`, 32 Bytes - hash of the block. null when its pending block.
