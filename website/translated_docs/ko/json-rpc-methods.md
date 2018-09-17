@@ -162,23 +162,23 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 `객체` - 블록객체, 또는 블록을 못찾을 경우 `null`:
 
-- `number`: `QUANTITY` - the block number. null when its pending block.
-- `hash`: `DATA`, 32 Bytes - hash of the block. null when its pending block.
-- `parentHash`: DATA`, 32 Bytes - hash of the parent block.
-- `logsBloom`: `DATA`, 256 Bytes - the bloom filter for the logs of the block. null when its pending block.
-- `timestamp`: `QUANTITY` - the unix timestamp for when the block was collated.
-- `transactions`: `Array` - Array of transaction objects, or 32 Bytes transaction hashes depending on the last given parameter.
+- `number`: `숫자` - 블록 번호. 보류중인 블록은 null.
+- `hash`: `데이터`, 32 Bytes - 블록해쉬값. 보류중인 블록은 null.
+- `parentHash`: 데이터`, 32 Bytes - 부모 블록의 해쉬값.
+- `logsBloom`: `데이터`, 256 Bytes - 블록의 로그를 위한 bloom filter. 보류중인 블록은 null.
+- `timestamp`: `숫자` - 블록이 대조되었을때의 unix 타임스탬프.
+- `transactions`: `배열` - 트랜잭션 객체의 배열, 또는 마지막에 지정된 파라미터에 의존하는 32 Bytes 트랜잭션 해쉬값들.
 
-#### Example
+#### 예제
 
 ```Javascript
 // eth_getBlockByNumber JSON RPC call
 const jsonRPCString = '{"jsonrpc":"2.0","method":"eth_getBlockByNumber","params":["0x1b4", true],"id":1}'
 
-// Parse JSON is a necessary step before send
+// 보내기전에 JSON 파싱은 필수적인 과정
 await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
-// Return should be something like
+// 반환값은 다음과 같음
 // {
 // "id":1,
 // "jsonrpc":"2.0",
@@ -197,22 +197,22 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 * * *
 
-#### Description
+#### 설명
 
-Returns information about a block by hash.
+해쉬값에 해당하는 블록정보를 반환합니다.
 
-#### Parameters
+#### 파라미터
 
-1. `DATA` - `32 Bytes` - Hash of a block.
-2. `Boolean` - If `true` it returns the full transaction objects, if `false` only the hashes of the transactions.
+1. `데이터` - `32 Bytes` - 블록의 해쉬값.
+2. `Boolean` - `true`이면 전체 트랜잭션 객체를 반환하고, `false`이면 트랜잭션 해쉬값만을 반환합니다.
 
-#### Returns
+#### 반환값
 
-`Object` - A block object, or `null` when no block was found:
+`객체` - 블록객체, 또는 블록을 못찾을 경우 `null`:
 
-- `number`: `QUANTITY` - the block number. null when its pending block.
-- `hash`: `DATA`, 32 Bytes - hash of the block. null when its pending block.
-- `parentHash`: `DATA`, 32 Bytes - hash of the parent block.
+- `number`: `숫자` - 블록 번호. 보류중인 블록은 null.
+- `hash`: `데이터`, 32 Bytes - 블록해쉬값. 보류중인 블록은 null.
+- `parentHash`: `DATA`, 32 Bytes - 부모 블록의 해쉬값.
 - `logsBloom`: `DATA`, 256 Bytes - the bloom filter for the logs of the block. null when its pending block.
 - `timestamp`: `QUANTITY` - the unix timestamp for when the block was collated.
 - `transactions`: `Array` - Array of transaction objects, or 32 Bytes transaction hashes depending on the last given parameter.
