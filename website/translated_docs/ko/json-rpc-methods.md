@@ -213,9 +213,9 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 - `number`: `숫자` - 블록 번호. 보류중인 블록은 null.
 - `hash`: `데이터`, 32 Bytes - 블록해쉬값. 보류중인 블록은 null.
 - `parentHash`: `DATA`, 32 Bytes - 부모 블록의 해쉬값.
-- `logsBloom`: `DATA`, 256 Bytes - the bloom filter for the logs of the block. null when its pending block.
-- `timestamp`: `QUANTITY` - the unix timestamp for when the block was collated.
-- `transactions`: `Array` - Array of transaction objects, or 32 Bytes transaction hashes depending on the last given parameter.
+- `logsBloom`: `데이터`, 256 Bytes - 블록의 로그를 위한 bloom filter. 보류중인 블록은 null.
+- `timestamp`: `숫자` - 블록이 대조되었을때의 unix 타임스탬프.
+- `transactions`: `배열` - 트랜잭션 객체의 배열, 또는 마지막에 지정된 파라미터에 의존하는 32 Bytes 트랜잭션 해쉬값들.
 
 #### Example
 
@@ -223,10 +223,10 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 // eth_getBlockByHash JSON RPC call
 const jsonRPCString = '{"jsonrpc":"2.0","method":"eth_getTransactionByHash","params":["0xb903239f8543d04b5dc1ba6579132b143087c68db1b2168786408fcbce568238"],"id":1}'
 
-// Parse JSON is a necessary step before send
+// 보내기전에 JSON 파싱은 필수적인 과정
 await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
-// Return should be something like
+// 반환값은 다음과 같음
 // {
 // "id":1,
 // "jsonrpc":"2.0",
@@ -245,28 +245,28 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 * * *
 
-#### Description
+#### 설명
 
-Returns code at a given address.
+주어진 주소의 코드를 반환합니다.
 
-#### Parameters
+#### 파라미터
 
-1. `DATA`, `20 Bytes` - address
+1. `데이터`, `20 Bytes` - 주소
 
-#### Returns
+#### 반환값
 
-`DATA` - the code from the given address.
+`데이터` - 주어진 주소의 코드.
 
-#### Example
+#### 예제
 
 ```Javascript
 // eth_getCode JSON RPC call
 const jsonRPCString = '{"jsonrpc":"2.0","method":"eth_getCode","params":["0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b", "0x2"],"id":1}'
 
-// Parse JSON is a necessary step before send
+// 보내기전에 JSON 파싱은 필수적인 과정
 await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
-// Return should be something like
+// 반환값은 다음과 같음
 // {
 //   "id":1,
 //   "jsonrpc": "2.0",
@@ -278,7 +278,7 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 * * *
 
-#### Description
+#### 설명
 
 Polling method for a filter, which returns an array of logs which occurred since last poll.
 
