@@ -31,7 +31,7 @@ const loomProvider = new LoomProvider(client, privateKey);
 // eth_accounts JSON RPC 호출
 const jsonRPCString = '{"id": 1,"jsonrpc": "2.0", "method": "eth_accounts", "params": []}'
 
-// 보내기전에 JSON 파싱이 필수적인 과정
+// 보내기전에 JSON 파싱은 필수적인 과정
 await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 // 반환값은 다음과 같음
@@ -64,10 +64,10 @@ LoomProvider가 소유하고 있는 주소의 리스트를 반환한다
 // eth_accounts JSON RPC call
 const jsonRPCString = '{"id": 1,"jsonrpc": "2.0", "method": "eth_accounts", "params": []}'
 
-// Parse JSON is a necessary step before send
+// 보내기전에 JSON 파싱은 필수적인 과정
 await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
-// Return should be something like
+// 반환값은 다음과 같음
 // {
 //   "id":1,
 //   "jsonrpc": "2.0",
@@ -81,15 +81,15 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 #### 설명
 
-Returns the number of the most recent completed block.
+가장 최근에 완성된 블록 번호를 반환합니다.
 
 #### 파라미터
 
-None
+없음
 
 #### 반환값
 
-`QUANTITY` - integer of the current block number the client is on.
+`수량` - 현재 클라이언트에 올라간 현재 블록 번호의 정수값.
 
 #### 예제
 
@@ -112,21 +112,21 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 * * *
 
-#### Description
+#### 설명
 
-Executes a new message call immediately without creating a transaction on the block chain.
+블록체인에 트랜잭션 생성없이 즉시 새로운 메시지를 실행합니다.
 
-#### Parameters
+#### 파라미터
 
-1. Object - The transaction call object
+1. 객체 - 트랜잭션 호출 오브젝트
 
-- from: DATA, 20 Bytes - The address the transaction is sent from.
-- to: DATA, 20 Bytes - The address the transaction is directed to.
-- data: DATA - Hash of the method signature and encoded parameters. For details see Ethereum Contract ABI
+- from: 데이터, 20 Bytes - 트랜잭션을 보내는 주소.
+- to: 데이터, 20 Bytes - 트랜잭션이 전달되는 주소.
+- data: 데이터 - 메소드 인증 해쉬 및 인코딩된 파라미터. 더 자세한 내용은 이더리움 컨트랙트 ABI를 보세요
 
-#### Returns
+#### 반환값
 
-`DATA` - the return value of the executed contract.
+`데이터` - 실행된 컨트랙트의 반환값.
 
 #### Example
 
