@@ -27,7 +27,13 @@ const users = [
     image: 'img/axie-logo.png',
     infoLink: 'https://medium.com/loom-network/loom-sdk-projects-axie-infinity-collect-breed-and-battle-fantasy-pets-on-the-blockchain-22e6fd11b410',
     pinned: true,
-  },  
+  },
+  {
+    caption: 'Mossland',
+    image: 'img/mossland-logo.png',
+    infoLink: 'https://moss.land',
+    pinned: true,
+  },
 ];
 
 const siteConfig = {
