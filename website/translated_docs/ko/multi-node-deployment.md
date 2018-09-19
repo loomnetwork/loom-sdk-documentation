@@ -11,17 +11,17 @@ This documentation describes how to run loom in a multi node setup.
 
 These steps need to be executed on each node.
 
-1. Choose a working directory of your choice. In this example we are using `/home/ubuntu` 
+1. Choose a working directory of your choice. In this example we are using `/home/ubuntu`
         bash
         cd /home/ubuntu
 
-2. Download the binaries: 
+2. Download the binaries:
         bash
         wget https://private.delegatecall.com/loom/linux/build-208/loom
         chmod +x loom
 
 3. Execute `./loom init` in the working directory to initialize config files.
-4. Add `loom.yml` in the working directory: 
+4. Add `loom.yml` in the working directory:
         yaml
         QueryServerHost: "tcp://0.0.0.0:9999"
 
@@ -186,13 +186,13 @@ Let's see examples by using the table above.
 On node 1:
 
 ```bash
-loom run --persistent-peers tcp://e728bada822af677b95cb8ff126ca72cc4e3dc74@10.6.7.8:46656,tcp://4953e5726664985cc1cc92ae2edcfc6e089ba50d@10.3.2.1:46656,tcp://4953e5726664985cc1cc92ae2edcfc6e089ba50d@10.7.6.5:46656
+loom run --persistent-peers tcp://e728bada822af677b95cb8ff126ca72cc4e3dc74@10.6.7.8:46656,tcp://4953e5726664985cc1cc92ae2edcfc6e089ba50d@10.3.2.1:46656,tcp://02c90b57d241c3c014755ecb07e0c0d232e07fff@10.7.6.5:46656
 ```
 
 On node 2:
 
 ```bash
-loom run --persistent-peers tcp://47cd3e4cc27ac621ff8bc59b776fa228adab827e@10.2.3.4:46656,tcp://4953e5726664985cc1cc92ae2edcfc6e089ba50d@10.3.2.1:46656,tcp://4953e5726664985cc1cc92ae2edcfc6e089ba50d@10.7.6.5:46656
+loom run --persistent-peers tcp://47cd3e4cc27ac621ff8bc59b776fa228adab827e@10.2.3.4:46656,tcp://4953e5726664985cc1cc92ae2edcfc6e089ba50d@10.3.2.1:46656,tcp://02c90b57d241c3c014755ecb07e0c0d232e07fff@10.7.6.5:46656
 ```
 
 The same goes for node 3 and node 4. We exclude the node's own key and IP address.
@@ -214,7 +214,7 @@ After=network.target
 Type=simple
 User=ubuntu
 WorkingDirectory=/home/ubuntu
-ExecStart=/home/ubuntu/loom run --persistent-peers tcp://e728bada822af677b95cb8ff126ca72cc4e3dc74@10.6.7.8:46656,tcp://4953e5726664985cc1cc92ae2edcfc6e089ba50d@10.3.2.1:46656,tcp://4953e5726664985cc1cc92ae2edcfc6e089ba50d@10.7.6.5:46656
+ExecStart=/home/ubuntu/loom run --persistent-peers tcp://e728bada822af677b95cb8ff126ca72cc4e3dc74@10.6.7.8:46656,tcp://4953e5726664985cc1cc92ae2edcfc6e089ba50d@10.3.2.1:46656,tcp://02c90b57d241c3c014755ecb07e0c0d232e07fff@10.7.6.5:46656
 Restart=always
 RestartSec=2
 StartLimitInterval=0
