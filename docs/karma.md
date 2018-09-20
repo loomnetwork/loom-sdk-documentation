@@ -441,7 +441,7 @@ sources successfully deleted
 ```
 ###### loom karma get-user-state
 To get the list of sources that have been associated with a user, you can use the loom
-command `loom karma get-user-state`
+command `loom karma get-user-state`.
 ```bash
 $ loom karma get-user-state --help
 list the karma sources for user
