@@ -11,17 +11,17 @@ sidebar_label: 多节点部署
 
 需要在每个节点上执行这些步骤。
 
-1. 选择一个你喜欢的工作目录。在这个例子中, 我们使用 `/home/ubuntu`
+1. 选择一个你喜欢的工作目录。在这个例子中, 我们使用 `/home/ubuntu` 
         bash
         cd /home/ubuntu
 
-2. 下载二进制文件:
+2. 下载二进制文件: 
         bash
         wget https://private.delegatecall.com/loom/linux/build-208/loom
         chmod +x loom
 
 3. 在工作目录中执行 `./loom init` 以初始化配置文件。
-4. 添加 `loom.yml` 到工作目录中
+4. 添加 `loom.yml` 到工作目录中 
         yaml
         RPCBindAddress: "tcp://0.0.0.0:46658"
 
