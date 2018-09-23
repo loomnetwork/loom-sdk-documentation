@@ -8,7 +8,7 @@ sidebar_label: Cocos SDK Quickstart
 - English
  * [Prerequisites](#prerequisites)
  * [Loom Cocos SDK](#loom-cocos-sdk)
- * [Generate LoomJS SDK](#generate-loomjs-sdk)
+ * [Generate Cocos SDK](#generate-cocos-sdk)
  * [Install Loom](#install-loom)
  * [Install Cocos Creator](#install-cocos-creator)
  * [Integrate to Creator Game](#integrate-to-creator-game)
@@ -36,9 +36,9 @@ Loom Cocos SDK structure diagram
 
 `Loom-Cocos-SDK` have same api, same protobuf, similar contract with `loom-js`.
 
-`Loom Cocos SDK` is base on [Loom-JS](https://github.com/loomnetwork/loom-js/) , and proting it to `Cocos Creator` .
+`Loom Cocos SDK` is based on [Loom-JS](https://github.com/loomnetwork/loom-js/) , and porting it to `Cocos Creator` .
 
-### Generate LoomJS SDK
+### Generate Cocos SDK
 * `git clone https://github.com/loomnetwork/cocos-sdk.git`
 * `cd cocos-sdk`
 * `git submodule update --init`, update git submodule
@@ -103,7 +103,7 @@ you can download `Cocos Creator` from [here](http://www.cocos.com/creator) , and
 
 ## Sample:
 
-there have two `Sample` project:
+There are two `Sample` projects:
 * `loomDemoForCreator` simplely use loom sdk
 * `dark-slash` use loom sdk in a real game
 

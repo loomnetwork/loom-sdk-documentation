@@ -13,8 +13,8 @@ This Block Explorer helps you to check the block data on your DAppChain.
 You can just visit [Loom Block Explorer](https://blockexplorer.loomx.io),
 If you have a Loom DAppChain running on your local machine, you should see the block data there.
 
-If you are running Loom DApp Chain on another machine, you can input your
-Loom DApp Chain RPC server URL into the bottom left corner of the list,
+If you are running Loom DAppChain on another machine, you can input your
+Loom DAppChain RPC server URL into the bottom left corner of the list,
 Normally the URL should be `http://YOUR_DAPP_CHAIN_SERVER_IP:46657`.
 
 Make sure your server is accessible from outside.
@@ -38,13 +38,13 @@ yarn run serve
 The dev server should run at `http://127.0.0.1:8080`,  if the `8080` port is used by
 other programs, it will pick another one.
 
-By default, it will read block data from `http://127.0.0.1:46657`, if you are running the server
+By default, it will read block data from `http://127.0.0.1:46658`, if you are running the server
 on another IP, you can change it in the server list as in online version.
 
 ## Search By Block Height
 
-The explorer would show all blocks in current DApp Chain, so if you are running a shared blockchain,
-like running Loom DApp Chain, it'll be hard to check your own block data since there are too many of them.
+The explorer would show all blocks in current DAppChain, so if you are running a shared blockchain,
+like running Loom DAppChain, it'll be hard to check your own block data since there are too many of them.
 
 Therefore you need to search by the `block height`:
 1. Open your loom terminal (where you run the `loom run` command)

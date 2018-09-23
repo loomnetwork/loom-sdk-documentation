@@ -11,17 +11,17 @@ sidebar_label: マルチノードデプロイメント
 
 これらの手順を各ノード上で実行する必要がある。
 
-1. ワーキングディレクトリを自分で選択しよう。この例で使っているのは: `/home/ubuntu` 
+1. ワーキングディレクトリを自分で選択しよう。この例で使っているのは: `/home/ubuntu`
         bash
         cd /home/ubuntu
 
-2. バイナリをダウンロード 
+2. バイナリをダウンロード
         bash
         wget https://private.delegatecall.com/loom/linux/build-208/loom
         chmod +x loom
 
 3. ワーキングディレクトリで`./loom init`を実行し、設定ファイルを初期化しよう。
-4. ワーキングディレクトリに `loom.yml` を追加しよう。 
+4. ワーキングディレクトリに `loom.yml` を追加しよう。
         yaml
         RPCBindAddress: "tcp://0.0.0.0:46658"
 
