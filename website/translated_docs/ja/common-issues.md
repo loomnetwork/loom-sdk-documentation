@@ -8,8 +8,10 @@ title: よくある問題点
 
 1) "Plugin Exited before we could connect"
 
-    <br />plugin: plugin process exited: path=/bin/sh
-    panic: plugin exited before we could connect
+    <br />```
+        plugin: plugin process exited: path=/bin/sh
+        panic: plugin exited before we could connect
+    ```
     
     
 

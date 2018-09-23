@@ -15,26 +15,26 @@ sidebar_label: JSON RPC方法
 const privateKey = CryptoUtils.generatePrivateKey();
 const publicKey = CryptoUtils.publicKeyFromPrivateKey(privateKey);
 
-// 创建客户端
+// Create the client
 const client = new Client(
   "default",
-  "ws://127.0.0.1:46657/websocket",
-  "ws://127.0.0.1:9999/queryws"
+  "ws://127.0.0.1:46658/websocket",
+  "ws://127.0.0.1:46658/queryws"
 );
 
-// 函数调用者的地址
+// The address for the caller of the function
 const from = LocalAddress.fromPublicKey(publicKey).toString();
 
-//实例化Loom提供程序
+// Instantiate loom provider
 const loomProvider = new LoomProvider(client, privateKey);
 
-// eth_accounts JSON RPC 调用
+// eth_accounts JSON RPC call
 const jsonRPCString = '{"id": 1,"jsonrpc": "2.0", "method": "eth_accounts", "params": []}'
 
-// Parse JSON是发送之前的必要步骤
+// Parse JSON is a necessary step before send
 await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
-// 返回将是这样的
+// Return should be something like
 // {
 //   "id":1,
 //   "jsonrpc": "2.0",

@@ -105,8 +105,8 @@ import Web3 from 'web3'
 function getClient(privateKey, publicKey) {
   const client = new Client(
     'default',
-    'ws://127.0.0.1:46657/websocket',
-    'ws://127.0.0.1:9999/queryws',
+    'ws://127.0.0.1:46658/websocket',
+    'ws://127.0.0.1:46658/queryws',
   )
 
   return client
@@ -188,12 +188,12 @@ import {
 
 import Web3 from 'web3'
 
-// この関数はクライアントの初期化とリターンを行う
+// This function will initialize and return the client
 function getClient(privateKey, publicKey) {
   const client = new Client(
     'default',
-    'ws://127.0.0.1:46657/websocket',
-    'ws://127.0.0.1:9999/queryws',
+    'ws://127.0.0.1:46658/websocket',
+    'ws://127.0.0.1:46658/queryws',
   )
 
   return client
@@ -203,10 +203,10 @@ function getClient(privateKey, publicKey) {
 const privateKey = CryptoUtils.generatePrivateKey()
 const publicKey = CryptoUtils.publicKeyFromPrivateKey(privateKey)
 
-// クライアントの準備
+// クライアントの用意
 const client = getClient(privateKey, publicKey)
 
-// web3の設定
+// web3を設定
 const web3 = new Web3(new LoomProvider(client, privateKey))
 
 ;(async () => {
@@ -216,16 +216,16 @@ const web3 = new Web3(new LoomProvider(client, privateKey))
   // 公開鍵を元にアドレスを取得
   const fromAddress = LocalAddress.fromPublicKey(publicKey).toString()
 
-  // コントラクトアドレスを取得 (genesis.json内で示されたコントラクト名を使う。アドレスは必要ない
+  // コントラクトアドレスを取得 (これを行うにはgenesis.jsonにあるコントラクト名のみ必要となる)
   const loomContractAddress = await client.getContractAddressAsync('SimpleStore')
 
-  // Web3と互換性を持つよう、loomアドレスをhexaに変換
+  // Web3との互換性を持つようLoomアドレスをhexaへ変換
   const contractAddress = CryptoUtils.bytesToHexAddr(loomContractAddress.local.bytes)
 
   // コントラクトのインスタンス化
   const contract = new web3.eth.Contract(ABI, contractAddress, {from: fromAddress})
 
-  // 新たなバリュー設定をリッスン
+  // 新規バリュー設定のリッスン
   contract.events.NewValueSet({}, (err, newValueSet) {
     if (err) {
       console.error('error', err)
@@ -235,12 +235,12 @@ const web3 = new Web3(new LoomProvider(client, privateKey))
     console.log('New value set', newValueSet.returnValues)
   })
 
-  // バリューを47に設定
+  // 47のバリューを設定
   await contract.methods.set(47).send()
 
-  // バリューを取得
+  // バリューの取得
   const result = await contract.methods.get().call()
-  // 結果は47となるはずだ
+  // result should be 47
 })()
 
 ```

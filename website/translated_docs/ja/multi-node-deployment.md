@@ -23,7 +23,7 @@ sidebar_label: マルチノードデプロイメント
 3. ワーキングディレクトリで`./loom init`を実行し、設定ファイルを初期化しよう。
 4. ワーキングディレクトリに `loom.yml` を追加しよう。
         yaml
-        QueryServerHost: "tcp://0.0.0.0:9999"
+        RPCBindAddress: "tcp://0.0.0.0:46658"
 
 ## 設定
 
@@ -255,7 +255,6 @@ sudo systemctl enable loom.service
 $ sudo netstat -tpnl
 Active Internet connections (only servers)
 Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name
-tcp        0      0 :::9999                 0.0.0.0:*               LISTEN      2135/loom
 tcp6       0      0 :::46656                :::*                    LISTEN      2135/loom
 tcp6       0      0 :::46657                :::*                    LISTEN      2135/loom
 tcp6       0      0 :::46658                :::*                    LISTEN      2135/loom

@@ -1,8 +1,8 @@
 ---
 id: tf-card-game
-title: Card Gateway Example
-sidebar_label: Card Gateway Example
+title: 카드 게이트웨이 예제
+sidebar_label: 카드 게이트웨이 예제
 ---
-Erc721 token example shifting the tokens between chains is located here on [Github](https://github.com/loomnetwork/cards-gateway-example)
+체인사이에서 토큰을 전환하는 ERC721 토큰 예제는 [Github](https://github.com/loomnetwork/cards-gateway-example)에 있습니다
 
 ![](/developers/img/tf-card-game.gif)

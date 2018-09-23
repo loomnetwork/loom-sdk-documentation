@@ -29,18 +29,18 @@ public class LoomEvmQuickStartSample : MonoBehaviour
     {
         var writer = RPCClientFactory.Configure()
             .WithLogger(Debug.unityLogger)
-            .WithWebSocket("ws://127.0.0.1:46657/websocket")
+            .WithWebSocket("ws://127.0.0.1:46658/websocket")
             .Create();
 
         var reader = RPCClientFactory.Configure()
             .WithLogger(Debug.unityLogger)
-            .WithWebSocket("ws://127.0.0.1:9999/queryws")
+            .WithWebSocket("ws://127.0.0.1:46658/queryws")
             .Create();
 
         var client = new DAppChainClient(writer, reader)
             { Logger = Debug.unityLogger };
 
-        // 必要なミドルウェア
+        // ミドルウェアが必要
         client.TxMiddleware = new TxMiddleware(new ITxMiddlewareHandler[]
         {
             new NonceTxMiddleware
@@ -53,7 +53,7 @@ public class LoomEvmQuickStartSample : MonoBehaviour
 
         // SolidityコントラクトのABI
         const string abi = "[{\"constant\":false,\"inputs\":[{\"name\":\"_tileState\",\"type\":\"string\"}],\"name\":\"SetTileMapState\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"GetTileMapState\",\"outputs\":[{\"name\":\"\",\"type\":\"string\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"name\":\"state\",\"type\":\"string\"}],\"name\":\"OnTileMapStateUpdate\",\"type\":\"event\"}]\r\n";
-        // Note: EVMベースのスマートコントラクトでは名前でアクセスできない。
+        // Note: With EVM based smart contracts, you can't access them by name.
         // デプロイしたコントラクトのアドレスをここに
         var contractAddr = Address.FromHexString("0xf420fbbb810698a74120df3723315ee06f472870");
         var callerAddr = Address.FromPublicKey(publicKey);
@@ -158,4 +158,8 @@ async void Start()
 }
 ```
 
-全コードの用意ができたので、テストしてみよう: 1. Unityシーンに空の`GameObject`を作成し、そこに`LoomEvmQuickStartSample`スクリプトを付け加えよう。 2. スマートコントラクト[TilesChain](https://github.com/loomnetwork/unity-tiles-chain-evm/blob/master/dappchain/TilesChain.sol)をローカルのLoom DAppチェーンノードにデプロイしよう。 3. Unityエディタの`Play`をクリックしよう。
+全コードの用意ができたので、テストしてみよう:
+
+1. Unityシーンに空の`GameObject`を作成し、そこに`LoomEvmQuickStartSample`スクリプトを付け加えよう。
+2. スマートコントラクト[TilesChain](https://github.com/loomnetwork/unity-tiles-chain-evm/blob/master/dappchain/TilesChain.sol)をローカルのLoom DAppチェーンノードにデプロイしよう。
+3. Unityエディタの`Play`をクリックしよう。

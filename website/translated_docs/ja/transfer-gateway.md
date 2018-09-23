@@ -14,6 +14,10 @@ sidebar_label: トランスファーゲートウェイ
 - Loom DAppチェーン上のGoコントラクトアドレスマッパー
 - Oracleゲートウェイ (DAppチェーンノードのプロセス内、またはスタンドアロンプロセスで実行可能)
 
+[ERC20トランスファーゲートウェイのサンプル](https://github.com/loomnetwork/token-gateway-example)
+
+[ERC721トランスファーゲートウェイのサンプル](https://github.com/loomnetwork/cards-gateway-example)
+
 ![Diagram of ERC721 Transfer to DAppChain](/developers/img/transfer-gateway-erc721-to-dappchain.png)
 
 ユーザーがイーサリアムアカウントからDAppチェーンアカウントにトークンを移転したい場合、まずはメインネットゲートウェイに移転することが必要だ。 するとデポジットイベントが送信される。 デポジットイベントはゲートウェイOracleにより検知され、DAppチェーンゲートウェイへと転送される。 その後DAppチェーンゲートウェイは、ユーザー(メインネットゲートウェイへトークンをデポジットした者)のDAppチェーンアカウントへとトークンを移転する。
@@ -105,6 +109,6 @@ DAppチェーンゲートウェイがコントラクトのマッピングリク�
 
 引き出しプロセスを完了するには、アリスは引き出しの署名(ゲートウェイOracleにより生成) をメインネットゲートウェイへ提出しなくてはならない。するとメインネットゲートウェイは、一致するトークンをアリスのメインネットアカウントへ移転する。
 
-## まとめ
+## Summary
 
 これでトランスファーゲートウェイの仕組みについて基礎的な理解ができたはずだ。しかし実際のAPIについてはまだ何も説明していない。 Iそこでもしまだチェックしていなければ、[Transfer Gateway Cards](https://github.com/loomnetwork/cards-gateway-example) のサンプルプロジェクトを見てみよう。これは [loom-js](https://github.com/loomnetwork/loom-js) により提供されるトランスファーゲートウェイを使用して構築されている。

@@ -13,7 +13,7 @@ sidebar_label: 区块浏览器教程
 
 你可以访问 [Loom 区块浏览器](https://blockexplorer.loomx.io), 如果你在本地计算机上运行了 Loom DApp 链，你将在那里看到区块数据。
 
-如果你在另一台机器上运行 Loom DApp 链，可以在列表的左下角输入你的 Loom DApp 链 RPC 服务器 URL，通常 URL 应该是`http://YOUR_DAPP_CHAIN_SERVER_IP:46657`.
+如果你在另一台机器上运行 Loom DApp链，可以在列表的左下角输入你的 Loom DApp链 RPC 服务器 URL，通常 URL 应该是`http://YOUR_DAPP_CHAIN_SERVER_IP:46657`.
 
 请确保你的服务器可以从外部访问。
 
@@ -34,13 +34,17 @@ sidebar_label: 区块浏览器教程
 
 开发服务器会运行在 `http://127.0.0.1:8080`，如果 `8080` 端口被其他程序使用，则会选择另一个。
 
-默认情况下, 它将从 `http://127.0.0.1:46657`中读取区块数据, 如果你在另一个 IP 上运行服务器, 则可以在服务器列表中将其更改为在线版本。
+默认情况下, 它将从 `http://127.0.0.1:46658`中读取区块数据, 如果你在另一个 IP 上运行服务器, 则可以在服务器列表中将其更改为在线版本。
 
 ## 按区块高度搜索
 
-浏览器会显示当前 DApp 链中的所有区块，因此，如果你运行的是共享型区块链，比如说 Loom DApp 链，则很难查看你自己的区块数据，因为区块数量庞大。
+浏览器会显示当前 DApp链中的所有区块，因此，如果你运行的是共享型区块链，比如说 Loom DApp链，则很难查看你自己的区块数据，因为区块数量庞大。
 
-因此，你需要按 `block height`: 1 来搜索。 打开你的 loom 终端（运行 `loom run` 命令的地方） 2. 找到你刚刚创建的区块链日志，`index` 就是区块高度 3. 在区块列表的右上角, 有一个搜索输入框, 填入区块高度并搜索它。
+因此，你需要按 `block height` 来搜索：
+
+1. 打开你的 loom 终端（运行 `loom run` 命令的地方）
+2. 找到你刚刚创建的区块链日志，`index` 就是区块高度
+3. 在区块列表的右上角, 有一个搜索输入框, 填入区块高度并搜索它。
 
 ## 构建你自己的浏览器
 
@@ -52,7 +56,11 @@ sidebar_label: 区块浏览器教程
 
 你需要了解 `Vue`, `TypeScript` 和 `Google Protobuf` 才能开始。 阅读 [DelagateCall Block Explorer](https://github.com/loomnetwork/vue-block-explorer/tree/dc-2) 的源代码，能让事情变得容易一些。
 
-开始吧： 1. 找到你的 DApp 的 `.proto` 文件。它定义了你的 DApp数据结构。 把它放入 `vue-block-explorer` 的 `src/pbs` 文件夹中。 然后运行 `yarn proto` （假定你之前已经运行了 `yarn install`）。 2. 你会收到2个新文件`YOUR_PROTO_FILE_NAME_pb.d.ts` 和 `YOUR_PROTO_FILE_NAME_pb.js`。 3. 在 `transaction-reader.ts` 中，引入你的 `.proto` 文件中的类。
+开始吧：
+
+1. 找到你的 DApp 的 `.proto` 文件。它定义了你的 DApp数据结构。 把它放入 `vue-block-explorer` 的 `src/pbs` 文件夹中。 然后运行 `yarn proto` （假定你之前已经运行了 `yarn install`）。
+2. 你会收到2个新文件`YOUR_PROTO_FILE_NAME_pb.d.ts` 和 `YOUR_PROTO_FILE_NAME_pb.js`。
+3. 在 `transaction-reader.ts` 中，引入你的 `.proto` 文件中的类。
 
     import * as DC from '@/pbs/YOUR_PROTO_FILE_NAME_pb'
     

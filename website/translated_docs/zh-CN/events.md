@@ -53,7 +53,7 @@ Loom SDK查询端点也可用于订阅事件流。 以下是一个使用命令�
         "id": "dontcare"
     }
     
-    $ wscat -k ws://localhost:9999/queryws < command.json
+    $ wscat -k ws://localhost:46658/queryws < command.json
     {
       "jsonrpc": "2.0",
       "id": "dontcare",

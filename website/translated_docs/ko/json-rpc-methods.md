@@ -1,41 +1,40 @@
 ---
 id: json-rpc-methods
-title: JSON RPC Methods
-sidebar_label: JSON RPC Methods
+title: JSON RPC 메소드
+sidebar_label: JSON RPC 메소드
 ---
+## 개요
 
-## Overview
+[Web3.js](https://github.com/ethereum/web3.js)와 호환되기 위해서 LoomProvider는 [이더리움 JSON RPC 메소드](https://github.com/ethereum/wiki/wiki/JSON-RPC#json-rpc-api)와 완벽히 호환되는 몇 개의 메소드를 추가했습니다, 이 메소드들은 Loom `QueryService`나 `LoomProvider`에 의해서 직접 호출될 수 있습니다, 이번 튜토리얼에서 우리는 `LoomProvider`에 대해서 얘기할 것입니다
 
-In order to be compatible with [Web3.js](https://github.com/ethereum/web3.js) LoomProvider added some methods that are quite compatible with [Ethereum JSON RPC Methods](https://github.com/ethereum/wiki/wiki/JSON-RPC#json-rpc-api), those methods are callable directly by the Loom `QueryService` or by `LoomProvider`, on this tutorial we're going to talk about `LoomProvider`
+### JSON RPC 메서드를 호출 하는 LoomProvider
 
-### LoomProvider calling JSON RPC Methods
-
-The provider should be the bridge between client and the Loom DAppChain, the code below is an example of `LoomProvider` been instantiated and calling the `JSON RPC` to get accounts with `eth_accounts`
+프로바이더는 클라이언트와 Loom DAppChain 사이의 다리역할이 되어야 합니다, 아래 코드는 `LoomProvider` 가 인스턴스화되어 `eth_accounts`로 계정을 얻기 위해서 `JSON RPC`를 호출하는 예제입니다
 
 ```javascript
 const privateKey = CryptoUtils.generatePrivateKey();
 const publicKey = CryptoUtils.publicKeyFromPrivateKey(privateKey);
 
-// Create the client
+// 클라이언트 생성
 const client = new Client(
   "default",
-  "ws://127.0.0.1:46657/websocket",
-  "ws://127.0.0.1:9999/queryws"
+  "ws://127.0.0.1:46658/websocket",
+  "ws://127.0.0.1:46658/queryws"
 );
 
-// The address for the caller of the function
+// 함수 호출자의 주소
 const from = LocalAddress.fromPublicKey(publicKey).toString();
 
-// Instantiate loom provider
+// loom provider 인스턴스화
 const loomProvider = new LoomProvider(client, privateKey);
 
-// eth_accounts JSON RPC call
+// eth_accounts JSON RPC 호출
 const jsonRPCString = '{"id": 1,"jsonrpc": "2.0", "method": "eth_accounts", "params": []}'
 
-// Parse JSON is a necessary step before send
+// 보내기전에 JSON 파싱은 필수적인 과정
 await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
-// Return should be something like
+// 반환값은 다음과 같음
 // {
 //   "id":1,
 //   "jsonrpc": "2.0",
@@ -45,30 +44,30 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 ## eth_accounts
 
----
+* * *
 
-#### Description
+#### 설명
 
-Returns a list of addresses owned by the LoomProvider
+LoomProvider가 소유하고 있는 주소의 리스트를 반환한다
 
-#### Parameters
+#### 파라미터
 
-None
+없음
 
-#### Returns
+#### 반환값
 
-`Array of DATA`, 20 Bytes - addresses owned by the client.
+`데이터 배열`, 20 Bytes - 클라이언트가 소유하고 있는 주소.
 
-#### Example
+#### 예제
 
 ```Javascript
 // eth_accounts JSON RPC call
 const jsonRPCString = '{"id": 1,"jsonrpc": "2.0", "method": "eth_accounts", "params": []}'
 
-// Parse JSON is a necessary step before send
+// 보내기전에 JSON 파싱은 필수적인 과정
 await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
-// Return should be something like
+// 반환값은 다음과 같음
 // {
 //   "id":1,
 //   "jsonrpc": "2.0",
@@ -78,30 +77,30 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 ## eth_blockNumber
 
----
+* * *
 
-#### Description
+#### 설명
 
-Returns the number of the most recent completed block.
+가장 최근에 완성된 블록 번호를 반환합니다.
 
-#### Parameters
+#### 파라미터
 
-None
+없음
 
-#### Returns
+#### 반환값
 
-`QUANTITY` - integer of the current block number the client is on.
+`수량` - 현재 클라이언트에 올라간 현재 블록 번호의 정수값.
 
-#### Example
+#### 예제
 
 ```Javascript
 // eth_blockNumber JSON RPC call
 const jsonRPCString = '{"jsonrpc":"2.0","method":"eth_blockNumber","params":[],"id":83}'
 
-// Parse JSON is a necessary step before send
+// 보내기전에 JSON 파싱은 필수적인 과정
 await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
-// Return should be something like
+// 반환값은 다음과 같음
 // {
 //   "id":83,
 //   "jsonrpc": "2.0",
@@ -111,34 +110,34 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 ## eth_call
 
----
+* * *
 
-#### Description
+#### 설명
 
-Executes a new message call immediately without creating a transaction on the block chain.
+블록체인에 트랜잭션 생성없이 즉시 새로운 메시지를 실행합니다.
 
-#### Parameters
+#### 파라미터
 
-1.  Object - The transaction call object
+1. 객체 - 트랜잭션 호출 객체
 
-- from: DATA, 20 Bytes - The address the transaction is sent from.
-- to: DATA, 20 Bytes - The address the transaction is directed to.
-- data: DATA - Hash of the method signature and encoded parameters. For details see Ethereum Contract ABI
+- from: 데이터, 20 Bytes - 트랜잭션을 보내는 주소.
+- to: 데이터, 20 Bytes - 트랜잭션이 전달되는 주소.
+- data: 데이터 - 메소드 인증 해쉬 및 인코딩된 파라미터. 더 자세한 내용은 이더리움 컨트랙트 ABI를 보세요
 
-#### Returns
+#### 반환값
 
-`DATA` - the return value of the executed contract.
+`데이터` - 실행된 컨트랙트의 반환값.
 
-#### Example
+#### 예제
 
 ```Javascript
 // eth_call JSON RPC call
 const jsonRPCString = '{"jsonrpc":"2.0","method":"eth_call","params":[{see above}],"id":1}'
 
-// Parse JSON is a necessary step before send
+// 보내기전에 JSON 파싱은 필수적인 과정
 await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
-// Return should be something like
+// 반환값은 다음과 같음
 // {
 //   "id":1,
 //   "jsonrpc": "2.0",
@@ -148,38 +147,38 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 ## eth_getBlockByNumber
 
----
+* * *
 
-#### Description
+#### 설명
 
-Returns information about a block by block number.
+블록 번호에 해당하는 블록정보를 반환합니다.
 
-#### Parameters
+#### 파라미터
 
-1.  `QUANTITY|TAG` - integer of a block number, or the string "earliest", "latest" or "pending", as in the default block parameter.
-2.  `Boolean` - If true it returns the full transaction objects, if false only the hashes of the transactions.
+1. `숫자|태그` -기본 블록 파라미터로 지정될 블록번호의 숫자값 혹은 문자열 "earliest", "latest", "pending".
+2. `Boolean` - true면 전체 트랜잭션 객체를 반환하고, false면 트랜잭션 해쉬값 만을 반환한다.
 
-#### Returns
+#### 반환값
 
-`Object` - A block object, or `null` when no block was found:
+`객체` - 블록객체, 또는 블록을 못찾을 경우 `null`:
 
-- `number`: `QUANTITY` - the block number. null when its pending block.
-- `hash`: `DATA`, 32 Bytes - hash of the block. null when its pending block.
-- `parentHash`: DATA`, 32 Bytes - hash of the parent block.
-- `logsBloom`: `DATA`, 256 Bytes - the bloom filter for the logs of the block. null when its pending block.
-- `timestamp`: `QUANTITY` - the unix timestamp for when the block was collated.
-- `transactions`: `Array` - Array of transaction objects, or 32 Bytes transaction hashes depending on the last given parameter.
+- `number`: `숫자` - 블록 번호. 보류중인 블록은 null.
+- `hash`: `데이터`, 32 Bytes - 블록해쉬값. 보류중인 블록은 null.
+- `parentHash`: 데이터`, 32 Bytes - 부모 블록의 해쉬값.
+- `logsBloom`: `데이터`, 256 Bytes - 블록의 로그를 위한 bloom filter. 보류중인 블록은 null.
+- `timestamp`: `숫자` - 블록이 대조되었을때의 unix 타임스탬프.
+- `transactions`: `배열` - 트랜잭션 객체의 배열, 또는 마지막에 지정된 파라미터에 의존하는 32 Bytes 트랜잭션 해쉬값들.
 
-#### Example
+#### 예제
 
 ```Javascript
 // eth_getBlockByNumber JSON RPC call
 const jsonRPCString = '{"jsonrpc":"2.0","method":"eth_getBlockByNumber","params":["0x1b4", true],"id":1}'
 
-// Parse JSON is a necessary step before send
+// 보내기전에 JSON 파싱은 필수적인 과정
 await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
-// Return should be something like
+// 반환값은 다음과 같음
 // {
 // "id":1,
 // "jsonrpc":"2.0",
@@ -196,27 +195,27 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 ## eth_getBlockByHash
 
----
+* * *
 
-#### Description
+#### 설명
 
-Returns information about a block by hash.
+해쉬값에 해당하는 블록정보를 반환합니다.
 
-#### Parameters
+#### 파라미터
 
-1.  `DATA` - `32 Bytes` - Hash of a block.
-2.  `Boolean` - If `true` it returns the full transaction objects, if `false` only the hashes of the transactions.
+1. `데이터` - `32 Bytes` - 블록의 해쉬값.
+2. `Boolean` - `true`이면 전체 트랜잭션 객체를 반환하고, `false`이면 트랜잭션 해쉬값만을 반환합니다.
 
-#### Returns
+#### 반환값
 
-`Object` - A block object, or `null` when no block was found:
+`객체` - 블록객체, 또는 블록을 못찾을 경우 `null`:
 
-- `number`: `QUANTITY` - the block number. null when its pending block.
-- `hash`: `DATA`, 32 Bytes - hash of the block. null when its pending block.
-- `parentHash`: `DATA`, 32 Bytes - hash of the parent block.
-- `logsBloom`: `DATA`, 256 Bytes - the bloom filter for the logs of the block. null when its pending block.
-- `timestamp`: `QUANTITY` - the unix timestamp for when the block was collated.
-- `transactions`: `Array` - Array of transaction objects, or 32 Bytes transaction hashes depending on the last given parameter.
+- `number`: `숫자` - 블록 번호. 보류중인 블록은 null.
+- `hash`: `데이터`, 32 Bytes - 블록해쉬값. 보류중인 블록은 null.
+- `parentHash`: `DATA`, 32 Bytes - 부모 블록의 해쉬값.
+- `logsBloom`: `데이터`, 256 Bytes - 블록의 로그를 위한 bloom filter. 보류중인 블록은 null.
+- `timestamp`: `숫자` - 블록이 대조되었을때의 unix 타임스탬프.
+- `transactions`: `배열` - 트랜잭션 객체의 배열, 또는 마지막에 지정된 파라미터에 의존하는 32 Bytes 트랜잭션 해쉬값들.
 
 #### Example
 
@@ -224,10 +223,10 @@ Returns information about a block by hash.
 // eth_getBlockByHash JSON RPC call
 const jsonRPCString = '{"jsonrpc":"2.0","method":"eth_getTransactionByHash","params":["0xb903239f8543d04b5dc1ba6579132b143087c68db1b2168786408fcbce568238"],"id":1}'
 
-// Parse JSON is a necessary step before send
+// 보내기전에 JSON 파싱은 필수적인 과정
 await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
-// Return should be something like
+// 반환값은 다음과 같음
 // {
 // "id":1,
 // "jsonrpc":"2.0",
@@ -244,30 +243,30 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 ## eth_getCode
 
----
+* * *
 
-#### Description
+#### 설명
 
-Returns code at a given address.
+주어진 주소의 코드를 반환합니다.
 
-#### Parameters
+#### 파라미터
 
-1.  `DATA`, `20 Bytes` - address
+1. `데이터`, `20 Bytes` - 주소
 
-#### Returns
+#### 반환값
 
-`DATA` - the code from the given address.
+`데이터` - 주어진 주소의 코드.
 
-#### Example
+#### 예제
 
 ```Javascript
 // eth_getCode JSON RPC call
 const jsonRPCString = '{"jsonrpc":"2.0","method":"eth_getCode","params":["0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b", "0x2"],"id":1}'
 
-// Parse JSON is a necessary step before send
+// 보내기전에 JSON 파싱은 필수적인 과정
 await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
-// Return should be something like
+// 반환값은 다음과 같음
 // {
 //   "id":1,
 //   "jsonrpc": "2.0",
@@ -277,15 +276,15 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 ## eth_getFilterChanges
 
----
+* * *
 
-#### Description
+#### 설명
 
 Polling method for a filter, which returns an array of logs which occurred since last poll.
 
 #### Parameters
 
-1.  `QUANTITY` - the filter id.
+1. `QUANTITY` - the filter id.
 
 #### Returns
 
@@ -294,16 +293,16 @@ Polling method for a filter, which returns an array of logs which occurred since
 - For filters created with `eth_newBlockFilter` the return are block hashes (`DATA`, 32 Bytes), e.g. `["0x3454645634534..."]`.
 - For filters created with `eth_newPendingTransactionFilter` the return are transaction hashes (`DATA`, 32 Bytes), e.g. `["0x6345343454645..."]`.
 - For filters created with `eth_newFilter` logs are objects with following params:
-
-  - `removed`: `TAG` - `true` when the log was removed, due to a chain reorganization. `false` if its a valid log.
-  - `logIndex`: `QUANTITY` - integer of the log index position in the block. null when its pending log.
-  - `transactionIndex`: `QUANTITY` - integer of the transactions index position log was created from. null when its pending log.
-  - `transactionHash`: `DATA`, 32 Bytes - hash of the transactions this log was created from. null when its pending log.
-  - `blockHash`: `DATA`, 32 Bytes - hash of the block where this log was in. null when its pending. null when its pending log.
-  - `blockNumber`: `QUANTITY` - the block number where this log was in. null when its pending. null when its pending log.
-  - `address`: `DATA`, 20 Bytes - address from which this log originated.
-  - `data`: `DATA` - contains one or more 32 Bytes non-indexed arguments of the log.
-  - `topics`: `Array of DATA` - Array of 0 to 4 32 Bytes `DATA` of indexed log arguments. (In solidity: The first topic is the hash of the signature of the event (e.g. Deposit(address,bytes32,uint256)), except you declared the event with the anonymous specifier.)
+    
+    - `removed`: `TAG` - `true` when the log was removed, due to a chain reorganization. `false` if its a valid log.
+    - `logIndex`: `QUANTITY` - integer of the log index position in the block. null when its pending log.
+    - `transactionIndex`: `QUANTITY` - integer of the transactions index position log was created from. null when its pending log.
+    - `transactionHash`: `DATA`, 32 Bytes - hash of the transactions this log was created from. null when its pending log.
+    - `blockHash`: `DATA`, 32 Bytes - hash of the block where this log was in. null when its pending. null when its pending log.
+    - `blockNumber`: `QUANTITY` - the block number where this log was in. null when its pending. null when its pending log.
+    - `address`: `DATA`, 20 Bytes - address from which this log originated.
+    - `data`: `DATA` - contains one or more 32 Bytes non-indexed arguments of the log.
+    - `topics`: `Array of DATA` - Array of 0 to 4 32 Bytes `DATA` of indexed log arguments. (In solidity: The first topic is the hash of the signature of the event (e.g. Deposit(address,bytes32,uint256)), except you declared the event with the anonymous specifier.)
 
 #### Example
 
@@ -335,7 +334,7 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 ## eth_getLogs
 
----
+* * *
 
 #### Description
 
@@ -343,7 +342,7 @@ Returns an array of all logs matching a given filter object.
 
 #### Parameters
 
-1.  `Object` - The filter options:
+1. `Object` - The filter options:
 
 - `fromBlock`: `QUANTITY|TAG` - (optional, default: `"latest"`) Integer block number, or "latest" for the last mined block or "pending", "earliest" for not yet mined transactions.
 - `toBlock`: `QUANTITY|TAG` - (optional, default: "latest") Integer block number, or "latest" for the last mined block or "pending", "earliest" for not yet mined transactions.
@@ -369,7 +368,7 @@ Result see [eth_getFilterChanges](#eth-getfilterchanges)
 
 ## eth_getTransactionReceipt
 
----
+* * *
 
 #### Description
 
@@ -379,7 +378,7 @@ Returns the receipt of a transaction by transaction hash.
 
 #### Parameters
 
-1.  `DATA`, 32 Bytes - hash of a transaction
+1. `DATA`, 32 Bytes - hash of a transaction
 
 #### Returns
 
@@ -424,7 +423,7 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 ## eth_newBlockFilter
 
----
+* * *
 
 #### Description
 
@@ -457,7 +456,7 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 ## eth_newFilter
 
----
+* * *
 
 #### Description
 
@@ -475,7 +474,7 @@ Topics are order-dependent. A transaction with a log with topics [A, B] will be 
 
 #### Parameters
 
-1.  `Object` - The filter options:
+1. `Object` - The filter options:
 
 - `fromBlock`: `QUANTITY|TAG` - (optional, default: "latest") Integer block number, or "latest" for the last mined block or "pending", "earliest" for not yet mined transactions.
 - `toBlock`: `QUANTITY|TAG` - (optional, default: "latest") Integer block number, or "latest" for the last mined block or "pending", "earliest" for not yet mined transactions.
@@ -505,7 +504,7 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 ## eth_sendTransaction
 
----
+* * *
 
 #### Description
 
@@ -513,7 +512,7 @@ Creates new message call transaction or a contract creation, if the data field c
 
 #### Parameters
 
-1.  `Object` - The transaction object
+1. `Object` - The transaction object
 
 - `from`: `DATA`, 20 Bytes - The address the transaction is send from.
 - `to`: `DATA`, 20 Bytes - (optional when creating new contract) The address the transaction is directed to.
@@ -544,7 +543,7 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 ## eth_subscribe
 
----
+* * *
 
 #### Description
 
@@ -552,7 +551,7 @@ It works by subscribing to particular events. The node will return a subscriptio
 
 #### Parameters
 
-1.  `object` with the following (optional) fields
+1. `object` with the following (optional) fields
 
 - `address`, either an address or an array of addresses. Only logs that are created from these addresses are returned (optional)
 - `topics`, only logs which match the specified topics (optional)
@@ -580,7 +579,7 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 ## eth_uninstallFilter
 
----
+* * *
 
 #### Description
 
@@ -588,7 +587,7 @@ Uninstalls a filter with given id. Should always be called when watch is no long
 
 #### Parameters
 
-1.  `QUANTITY` - The filter id
+1. `QUANTITY` - The filter id
 
 #### Returns
 
@@ -613,7 +612,7 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 ## net_version
 
----
+* * *
 
 #### Description
 

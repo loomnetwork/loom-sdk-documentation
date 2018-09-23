@@ -1,70 +1,64 @@
 ---
-id: arch 
-title: Architecture of a DAppChain
+id: arch
+title: DAppChain 아키텍처
 ---
+Loom SDK는 플러그인 형태의 블록체인 개발 키트 입니다. 컨센서스와 컨트랙트 레이어에서 모두 플러그인 가능합니다.
 
-Loom SDK is a pluggable Blockchain Development Kit.  Pluggable both at the consensus and contract layer
+## 컨센서스
 
-## Consensus 
+Loom SDK는 두 개의 컨센서스 레이어를 가집니다. 하나는 P2P 레이어에 있습니다.
 
+Loom 백엔드는 Tendermint와 같은 다른 BPFT 엔진을 지원합니다. 향후에 PoA 체인을 위한 Raft도 지원할 것입니다.
 
-Loom SDK has 2 layers of consensus. One at the P2P layer.
-
-Loom Backend supports different BPFT engines, like Tendermint. In future we will support Raft for PoA chains. 
-
-Loom Consensus layer support Loom DPoS or a configurable PoS/DPoS contract per Chain. Once Casper becomes available we will add support for this
+Loom 컨센서스 레이어는 Loom DPoS 또는 체인별 설정이 가능한 PoS/DPoS 컨트랙트를 지원합니다. Casper가 사용 가능하게 되면, 이에 대한 지원도 추가할 것입니다.
 
 ![](/developers/img/loom-sdk-arch-overview.jpg)
 
+## 스마트 컨트랙트
 
+Go, 솔리디티 또는 GRPC를 지원하는 모든 언어로 작성된 스마트 컨트랙트를 허용합니다.
 
-## Smart contracts
+스마트 컨트랙트는 DPoS, 코인 또는 EthereumVM과 같이 체인 내부에 포함될 수 있습니다.
 
-It allows smart contracts written in Go, Solidity or any language supporting GRPC.
-
-Smart contracts can be embedded into the chain, like DPoS, Coin or EthereumVM.
-
-They can also be made as external processes, that the blockchain communicates to via GRPC.
-
+외부 프로세스로 만드는 것 또한 가능하며, 이는 GRPC를 통해 블록체인과 통신합니다.
 
 ![](/developers/img/loom-sdk-arch-contracts.jpg)
 
+## 이더리움 통합
 
-## Ethereum Integration
+SDK는 다음 부분들과 함께 이더리움 백엔드에 통합됩니다:
 
-The SDK integrates into the Ethereum Backend with following pieces:
-
-### Transfer Gateway
+### 전송 게이트웨이
 
 ![](/developers/img/loom-sdk-arch-plasma.jpg)
 
-### Transfer gateway allows for the following
+### 전송 게이트웨이를 통해 다음과 같은 것들을 할 수 있습니다:
 
-* Transfering Assets to a DappChain
-* Transfering Assets to Ethereum
-* Mirroring(Pegging) Assets on a Dappchain
-* ERC-20 Tokens
-* ERC-721 Tokens
+* DappChain으로 자산 전송
+* 이더리움으로 자산 전송
+* DappChain에 있는 자산 미러링(페깅)
+* ERC-20 토큰
+* ERC-721 토큰
 * Ether 
 
-### Plama Cash Contract supports
+### 플라즈마 캐시 컨트랙트는 다음을 지원합니다:
 
-* ERC-721 Tokens
-* ERC-20 Tokens (July)
-* Ether (July)
+* ERC-721 토큰
+* ERC-20 토큰(7월)
+* Ether(7월)
 
-## Blockchain services
+## 블록체인 서비스
 
-SDK includes a number of high level blockchain services
+SDK에는 다수의 고수준 블록체인 서비스들이 포함되어 있습니다.
 
-* Signing / Auth / Nonce Middleware
-* Builtin Coin
-* Indexing
-* Websockets and eventing
-* Solidity + Ethereum Virtual Machine
-* Support for game engines like Cocos, Unity, and Phaser
-* Transfer Gateway integration
-* Plasma integration
-* Cron  (coming soon)
-* Rate limiting (early phases)
-* Hard fork Manager (coming July)
+* 서명 / 인증 / 논스 미들웨어
+* 내장 코인
+* 인덱싱
+* Websocket과 이벤트
+* 솔리디티 + 이더리움 가상머신
+* Cocos, Unity와 Phaser 같은 게임 엔진 지원
+* 전송 게이트웨이 통합
+* 플라즈마 통합
+* Cron(예정)
+* 비율 제한(초기 단계)
+* 하드 포크 매니저(7월 예정)

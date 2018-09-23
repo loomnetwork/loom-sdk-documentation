@@ -1,25 +1,21 @@
 ---
 id: phaser-sdk-demo
-title: Phaser SDK Demo
-sidebar_label: Phaser SDK Demo
+title: Phaser SDK 데모
+sidebar_label: Phaser SDK 데모
 ---
 ![Game screenshot](/developers/img/screenshot.png)
 
-A basic example showcasing a simple HTML5 game interacting with a Loom DappChain, using [Phaser](http://phaser.io) and [Loom.js](https://github.com/loomnetwork/loom-js). Souce code is available on [Github](https://github.com/loomnetwork/phaser-sdk-demo)
+[Phaser](http://phaser.io)와 [Loom.js](https://github.com/loomnetwork/loom-js)를 사용해서 Loom DappChain과 상호작용하는 간단한 HTML5 게임을 보여주는 기본적인 예제입니다. 소스코드는 [Github](https://github.com/loomnetwork/phaser-sdk-demo)에서 확인 가능합니다
 
-Game instructions
-----
+## 게임 방법
 
-Use the arrow keys to move around, jump by pressing the up arrow.
-For each passing row of blocks, 1 point is awarded. Collect bonus stars to increase your score further.
+이동을 위해서 방향키를 사용하고, 윗 방향키를 눌러서 점프를 하세요. 각 행을 통과할때마다, 1점이 부여됩니다. 보너스 스타를 모아서 여러분의 점수를 더 끌어올리세요.
 
+## 개발하기
 
-Development
-----
+1.) 여러분만의 DappChain을 실행하세요
 
-1.) Run your own DappChain
-
-Install Loom
+Loom 설치하기
 
 ```bash
 wget https://private.delegatecall.com/loom/osx/build-404/loom
@@ -33,32 +29,27 @@ chmod +x contracts/blueprint.0.0.1
 cp ../genesis.example.json genesis.json
 ```
 
-Run Blockchain
+Blockchain 구동하기
 
-```
-./loom run
-```
+    ./loom run
+    
 
-Please consult the [Loom SDK docs](https://loomx.io/developers/docs/en/prereqs.html) for further instruction on running your own DappChain.
+여러분만의 DappChain을 실행하는 방법에 대한 더 자세한 사항은 [Loom SDK 문서](https://loomx.io/developers/docs/en/prereqs.html)를 참조하세요.
 
+2.) 개발 server를 시작하세요
 
-2.) Start the dev server
+개발 server 구동하기
 
-Run dev server
-
-```
-#Get Source
-git clone https://github.com/loomnetwork/phaser-sdk-demo.git
-
-cd phaser-sdk-demo
-
-# Install
-yarn
-
-# Compile protobuff
-yarn run proto
-
-# Start the dev server
-yarn run dev
-
-```
+    #소스 가져오기
+    git clone https://github.com/loomnetwork/phaser-sdk-demo.git
+    
+    cd phaser-sdk-demo
+    
+    # 설치하기
+    yarn
+    
+    # protobuff를 컴파일한다
+    yarn run proto
+    
+    # dev server를 구동한다
+    yarn run dev

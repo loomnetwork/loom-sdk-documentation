@@ -40,8 +40,8 @@ const { MapEntry } = require('./helloworld_pb')
 async function getContract(privateKey, publicKey) {
   const client = new Client(
     'default',
-    'ws://127.0.0.1:46657/websocket',
-    'ws://127.0.0.1:9999/queryws'
+    'ws://127.0.0.1:46658/websocket',
+    'ws://127.0.0.1:46658/queryws'
   )
   // middleware가 요구됩니다.
   client.txMiddleware = [
@@ -112,5 +112,3 @@ async function load(contract, key) {
   console.log('Value: ' + value)
 })()
 ```
-
-[BluePrint]: https://github.com/loomnetwork/weave-blueprint/blob/master/src/blueprint.go

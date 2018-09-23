@@ -1,26 +1,22 @@
 ---
-id: common-issues 
-title: Common Issues
+id: common-issues
+title: 일반적인 이슈
 ---
+우리는 일반적인 이슈들을 해결하고 매 릴리즈를 통해 이를 개선하기 위해서 노력하고 있습니다.
 
-We strive to resolve common issues and make them better with each release. 
+여기에 각 릴리즈별로 사람들이 접하는 일반적인 이슈들을 기록할 것입니다.
 
-Inbetween releases we keep common issues here that people run into.
+1) "접속이 되기 전에 Plugin이 종료됨"
 
-1) "Plugin Exited before we could connect"
+    <br />plugin: plugin process exited: path=/bin/sh
+    panic: plugin exited before we could connect
+    
+    
 
-```
+이것은 보통 죽여야 하는 프로세스가 있음을 의미합니다.
 
-plugin: plugin process exited: path=/bin/sh
-panic: plugin exited before we could connect
+    ps -ef | grep blueprint
+    kill -9 xxxx 
+    
 
-```
-
-This usually means there is a process hanging around that needs to be killed
-
-```
-ps -ef | grep blueprint
-kill -9 xxxx 
-```
-
-Change blueprint to whatever the name of the contract is, and then the xxx is the process id
+blueprint를 컨트랙트 이름으로 변경하고, xxx는 프로세스 아이디를 의미합니다

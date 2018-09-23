@@ -17,23 +17,23 @@ const {
 } = require('loom-js')
 const Web3 = require('web3')
 
-// 创建客户端
+// Create the client
 const client = new Client(
   'default',
-  'ws://127.0.0.1:46657/websocket',
-  'ws://127.0.0.1:9999/queryws',
+  'ws://127.0.0.1:46658/websocket',
+  'ws://127.0.0.1:46658/queryws',
 );
 
-// 为第一个账户创建密钥
+// Create private key for first account
 const privateKey = CryptoUtils.generatePrivateKey()
 
-//使用Loom Provider作为提供程序，实例化Web3客户端
+// Instantiate web3 client using LoomProvider as provider
 const web3 = new Web3(new LoomProvider(client, privateKey));
 
-// 创建一个过滤器来获取最新的块
+// Create filter to get the latest block
 const filter = web3.eth.filter('latest');
 
-// 请注意，过滤器始终将返回最新块的哈希值
+// Watch filter will return the hash of the latest block continuously 
 filter.watch(function (error, result) {
   if (error) {
     console.error(error)
@@ -69,24 +69,24 @@ contract SimpleStore {
 可以为 `NewValueSet` 事件设置事件处理程序, 只有当 `值` 发出时才触发div 类 = "notranslate" >> 4 </div> 10</code>, 如果合约发出任何其他值, 则不会触发该项。
 
 ```js
-// 生成公钥和密钥
+// Generate public and private keys
 const privateKey = CryptoUtils.generatePrivateKey()
 const publicKey = CryptoUtils.publicKeyFromPrivateKey(privateKey)
 
-// 创建客户端
+// Create the client
 const client = new Client(
   'default',
-  'ws://127.0.0.1:46657/websocket',
-  'ws://127.0.0.1:9999/queryws',
+  'ws://127.0.0.1:46658/websocket',
+  'ws://127.0.0.1:46658/queryws',
 )
 
-// 函数调用者的地址
+// The address for the caller of the function
 const from = LocalAddress.fromPublicKey(publicKey).toString()
 
-// 使用LoomProvider作为提供程序，实例化Web 3客户端
+// Instantiate web3 client using LoomProvider
 const web3 = new Web3(new LoomProvider(client, privateKey))
 
-// 合约中的ABI
+// ABI for the contract
 const ABI = [
   {
     constant: false,
@@ -106,19 +106,18 @@ const ABI = [
   }
 ]
 
-// 部署合约的地址
+// Address of the contract deployed
 const contractAddress = '0x...'
 
-// 实例化合约并准备好使用它
+// Instantiate the contract and let it ready to be used
 const contract = new web3.eth.Contract(ABI, contractAddress, {from})
 
-// 订阅收听事件NewValueSet
+// Subscribe for listen the event NewValueSet
 contract.events.NewValueSet({ filter: { _value: 10 } }, (err: Error, event: any) => {
   if (err) t.error(err)
   else {
-    // 仅当值设置等于10时才在终端上打印
+    // Print on terminal only when value set is equal to 10
     console.log('The value set is 10')
   }
 })
- 
 ```

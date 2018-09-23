@@ -29,18 +29,18 @@ public class LoomEvmQuickStartSample : MonoBehaviour
     {
         var writer = RPCClientFactory.Configure()
             .WithLogger(Debug.unityLogger)
-            .WithWebSocket("ws://127.0.0.1:46657/websocket")
+            .WithWebSocket("ws://127.0.0.1:46658/websocket")
             .Create();
 
         var reader = RPCClientFactory.Configure()
             .WithLogger(Debug.unityLogger)
-            .WithWebSocket("ws://127.0.0.1:9999/queryws")
+            .WithWebSocket("ws://127.0.0.1:46658/queryws")
             .Create();
 
         var client = new DAppChainClient(writer, reader)
             { Logger = Debug.unityLogger };
 
-        // 必须的中间件
+        // required middleware
         client.TxMiddleware = new TxMiddleware(new ITxMiddlewareHandler[]
         {
             new NonceTxMiddleware
@@ -51,9 +51,9 @@ public class LoomEvmQuickStartSample : MonoBehaviour
             new SignedTxMiddleware(privateKey)
         });
 
-        // 合约的ABI
+        // ABI of the Solidity contract
         const string abi = "[{\"constant\":false,\"inputs\":[{\"name\":\"_tileState\",\"type\":\"string\"}],\"name\":\"SetTileMapState\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"GetTileMapState\",\"outputs\":[{\"name\":\"\",\"type\":\"string\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"name\":\"state\",\"type\":\"string\"}],\"name\":\"OnTileMapStateUpdate\",\"type\":\"event\"}]\r\n";
-        // 注意：使用基于EVM的智能合约，您无法按名称访问它们。
+        // Note: With EVM based smart contracts, you can't access them by name.
         // 将已部署合约的地址放在此处。
         var contractAddr = Address.FromHexString("0xf420fbbb810698a74120df3723315ee06f472870");
         var callerAddr = Address.FromPublicKey(publicKey);
@@ -157,4 +157,8 @@ async void Start()
 }
 ```
 
-现在我们已经准备好了所有代码，让我们测试一下： 1. 在Unity场景中创建一个空的`GameObject`并将 `LoomEvmQuickStartSample`脚本添加进去。 2. 在本地Loom DApp链节点上部署 [TilesChain](https://github.com/loomnetwork/unity-tiles-chain-evm/blob/master/dappchain/TilesChain.sol) 智能合约。 3. 在Unity编辑器中点击 `Play`。
+现在我们已经准备好了所有代码，让我们测试一下：
+
+1. 在Unity场景中创建一个空的`GameObject`并将 `LoomEvmQuickStartSample`脚本添加进去。
+2. 在本地Loom DApp链节点上部署 [TilesChain](https://github.com/loomnetwork/unity-tiles-chain-evm/blob/master/dappchain/TilesChain.sol) 智能合约。
+3. 在Unity编辑器中点击 `Play`。

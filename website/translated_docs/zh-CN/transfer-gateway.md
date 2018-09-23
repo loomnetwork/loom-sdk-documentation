@@ -1,34 +1,38 @@
 ---
 id: transfer-gateway
-title: Transfer Gateway
-sidebar_label: Transfer Gateway
+title: 转移网关
+sidebar_label: 转移网关
 ---
-## Overview
+## 概述
 
-The Transfer Gateway allows tokens to be transferred between Loom DAppChains and Ethereum networks. Currently only ERC721 tokens are supported, but support for ERC20 tokens, and ETH will be added in the near future.
+转移网关允许代币在 Loom DApp链和以太坊网络之间传输。 目前仅支持 ERC721代币，但在不久的将来会添加 ERC20代币和 ETH支持。
 
-The Transfer Gateway consists of four main components:
+转移网关由四大主要组件构成:
 
-- Gateway Solidity contract on Ethereum (Mainnet Gateway)
-- Gateway Go contract on the Loom DAppChain (DAppChain Gateway)
-- Address Mapper Go contract on the Loom DAppChain
-- Gateway Oracle (can run in-process on a DAppChain node, or as a standalone process)
+- 以太坊的网关 Solidity 合约（主网网关）
+- Loom DApp链上的网关 Go 合约（DApp链网关）
+- Loom DApp链上的地址映射器 Go 合约
+- 网关 Oracle（可以在DApp链节点上运行进程，也可以作为独立进程运行）
 
-![Diagram of ERC721 Transfer to DAppChain](/developers/img/transfer-gateway-erc721-to-dappchain.png)
+[ERC20 转移网关示例](https://github.com/loomnetwork/token-gateway-example)
 
-When a user wishes to transfer a token from their Ethereum account to their DAppChain account they must first transfer it to the Mainnet Gateway, which in turns emits a deposit event. The deposit event is picked up by the Gateway Oracle which forwards it onto the DAppChain Gateway. The DAppChain Gateway then transfers the token to the DAppChain account of the user that deposited the token into the Mainnet Gateway.
+[ERC721 转移网关示例](https://github.com/loomnetwork/cards-gateway-example)
 
-![Diagram of ERC721 Transfer to Ethereum](/developers/img/transfer-gateway-erc721-to-ethereum.png)
+![ERC721 转移到 DApp链的示意图](/developers/img/transfer-gateway-erc721-to-dappchain.png)
 
-To get that same token back into their Ethereum account the user must first transfer the token back to the DAppChain Gateway, which creates a pending withdrawal. The pending withdrawal is picked up by the Gateway Oracle, which signs the withdrawal, and notifies the DAppChain Gateway. The DAppChain Gateway emits an event to let the user know they can withdraw their token from the Mainnet Gateway to their Ethereum account by providing the signed withdrawal record.
+当用户希望将代币从他们的以太坊帐户转移到他们的DApp链帐户时，他们必须首先将其转移到主网网关，这会发出一个存款事件。 存款事件由网关 Oracle 接收，并将其转发到 DApp链网关。 然后，DApp链网关将代币转移到该用户的DApp链帐户。
 
-If you're a hands-on learner you might want to jump straight into the [Transfer Gateway Cards](https://github.com/loomnetwork/cards-gateway-example) example project before reading any further...
+![ERC721 转移到以太坊的示意图](/developers/img/transfer-gateway-erc721-to-ethereum.png)
 
-## Setting up ERC721 contracts
+要将这个代币返回其以太坊帐户，用户必须首先将代币转移回DApp链网关，这将创建一个待处理的取款。 这个待处理的取款由网关 Oracle 接受，签署取款并通知DApp链网关。 DApp链网关发出一个事件，让用户知道他们可以通过提供已签名的取款记录，将他们的代币从主网网关提取到他们的以太坊帐户。
 
-To transfer an ERC721 token from Ethereum to the DAppChain you'll need two of your own ERC721 contracts, one on Ethereum (Mainnet ERC721), and the other on the DAppChain (DAppChain ERC721).
+如果你是一个爱动手实践的学习者，你可能希望直接进入 [转移网关卡牌](https://github.com/loomnetwork/cards-gateway-example) 示例项目，然后再继续阅读...
 
-Your Mainnet ERC721 contract doesn't need anything special to work with the Transfer Gateway. Though you might want to add something like the `depositToGateway` method below to make it a bit easier to transfer tokens into the Mainnet Gateway:
+## 设置 ERC721 合约
+
+要将 ERC721 代币从以太坊转移到 DApp链，你需要自己的两个 ERC721 合约，一个在以太坊（主网 ERC721），另一个在DApp链（DApp链 ERC721）。
+
+你的主网 ERC721 合约不需要任何特殊的功能来使用转移网关。 虽然你可能想要在下面添加类似 depositToGateway 方法的内容，使其更轻松地将代币传输到主网网关：
 
 ```solidity
 pragma solidity ^0.4.24;
@@ -50,7 +54,7 @@ contract MyAwesomeToken is ERC721Token("MyAwesomeToken", "MAT") {
 }
 ```
 
-Your DAppChain ERC721 contract must provide a public `mint` method to allow the DAppChain Gateway to mint tokens that are transferred from Ethereum:
+你的DApp链 ERC721合约必须提供一个公共 `mint` 方法，以允许DApp链网关铸造从以太坊转移来的代币：
 
 ```solidity
 pragma solidity ^0.4.24;
@@ -79,32 +83,32 @@ contract MyAwesomeToken is ERC721Token {
 }
 ```
 
-When you're happy with your contracts you can deploy them with Truffle to Ethereum and the DAppChain, you may want to take a look at [loom-truffle-doc](web3js-loom-provider-truffle.html).
+如果你对你的合约满意，可以用 Truffle 将它们部署到以太坊和DApp链，你可能要查看一下 [loom-truffle-doc](web3js-loom-provider-truffle.html)。
 
-## Mapping Mainnet contracts to DAppChain contracts
+## 将主网合约映射到DApp链合约
 
-Once you've deployed your contracts you'll need to send a request to the DAppChain Gateway to create a mapping between them. When the DAppChain Gateway is notified that a token from your Mainnet ERC721 contract has been deposited to the Mainnet Gateway it will mint a matching token in your DAppChain ERC721 contract (unless the token already exists on the DAppChain). The DAppChain Gateway will refuse to create a contract mapping unless you provide proof that you deployed both contracts.
+部署合约后，你需要向DApp链网关发送请求以在它们之间创建映射。 当DApp链网关被通知你的主网 ERC721合约中的代币已存入主网网关时，它将在你的DApp链 ERC721合约中铸造一个匹配的代币（除非该代币已存在于DAppC链上）。 DApp链网关将拒绝创建合约映射，除非你提供证明你已部署了这两个合约。
 
-To prove that you deployed the Mainnet ERC721 contract you must provide a signature generated by signing a message using the Ethereum private key you used to deploy the contract, and a hash of the Mainnet transaction that deployed the contract.
+要证明你部署了主网 ERC721合约，你必须提供一个签名（用部署合约的以太坊私钥对消息进行签名时就会生成），以及部署合约的主网事务哈希。
 
-To prove that you deployed the DAppChain ERC721 contract you simply need to sign the request sent to the DAppChain Gateway using the DAppChain private key you used to deploy the contract, the DAppChain Gateway will verify that the sender of the request deployed the contract by looking up the contract creator in the DAppChain contract registry.
+要证明你部署了 DApp链 ERC721 合约，只需使用你用于部署合约的 DApp链私钥, 对发送到 DApp链网关的请求签名，DApp链网关将通过在 DApp链合约注册表中查找合约创建者来验证发送请求者是否部署了合约。
 
-After a contract mapping request is received by the DAppChain Gateway there will be a small delay before it is picked up by the Gateway Oracle. The Gateway Oracle will lookup the transaction that deployed the Mainnet contract to find out who really deployed it, and will then submit its findings back to the DAppChain Gateway, which will either approve the requested mapping, or simply throw it out.
+在DApp链网关收到合约映射请求后，会有一点点延迟，接着就会被网关 Oracle 接收到。 网关 Oracle 将查找部署了主网合约的事务，以找出真正部署它的人，然后将其结果提交给DApp链网关，该网关将批准所请求的映射，或者直接将其丢弃。
 
-## ERC721 token transfer to the DAppChain
+## ERC721 代币转移到 DApp链
 
-Alice has managed to acquire one of your awesome tokens on Mainnet and now wants to transfer it to her DAppChain account. Before she can do so she must send a request to the Address Mapper contract to create a mapping between her Ethereum and DAppChain accounts. Like the DAppChain Gateway the Address Mapper will refuse to create an account mapping unless Alice provides proof that she is the owner of both accounts.
+Alice 已经设法在主网上获得了一个很棒的代币，现在想将它转移到她的DApp链账户。 在她这样做之前，她必须向地址映射器合约发送请求，以便在她的以太坊和DApp链帐户之间创建映射。 与DApp链网关一样，地址映射器将拒绝创建帐户映射，除非 Alice 提供证据证明她是两个帐户的所有者。
 
-To prove that she owns her Mainnet account Alice must provide a signature generated by signing a message using the Ethereum private key associated with the account. And to prove she owns her DAppChain account she just needs to sign the request she sends to the DAppChain Gateway using the DAppChain private key associated with her account. As soon as the Address Mapper receives the request it will create the requested account mapping, and Alice can start transferring tokens between her Ethereum and DAppChain accounts.
+要证明她拥有自己的主网帐户，Alice 必须提供一个签名（通过使用与帐户关联的以太坊私钥对消息进行签名而生成的）。 要证明她拥有自己的DApp链账户，她只需使用与她的账户关联的DApp链私钥签署她发送到DApp链网关的请求即可。 一旦地址映射器收到请求，它将创建所请求的帐户映射， Alice 就可以开始在她的以太坊和DApp链帐户之间转移代币了。
 
-## ERC721 token transfer to Ethereum
+## ERC721 代币转移到以太坊
 
-Alice has had her fun on the DAppChain so she wants to transfer her token from her DAppChain account back to her Mainnet account. First she must grant approval to the DAppChain Gateway to take over ownership of the token she wants to transfer, she can do this by sending a request to the DAppChain ERC721 contract.
+Alice 在DApp链上玩得很开心，现在她想将代币从她的DApp链账户转回她的主网账乎。 首先，她必须批准DApp链网关来接管她想要转移的代币所有权，她可以通过向DAppC链 ERC721合约发送请求来做到这一点。
 
-Next, Alice should send a request to the DAppChain Gateway to start the token withdrawal process. When the DAppChain Gateway receives the request it creates a pending withdrawal record for Alice, and then waits for the Gateway Oracle to sign the pending withdrawal. After a small delay the Gateway Oracle signs the pending withdrawal, and submits the signature to the DAppChain Gateway, which in turn emits an event to notify Alice that her pending withdrawal has been signed.
+接下来，Alice 应该向DApp链网关发送请求以启动代币提取这一过程。 当DApp链网关收到请求时，它会为 Alice 创建一个待处理的取款记录，然后等待网关 Oracle 签署待处理的取款。 小小的延迟之后，网关 Oracle 会签署待处理的取款，并将签名提交给DApp链网关，然后DApp链网关发出一个事件通知 Alice 她的待处理取款已经签署。
 
-To complete the withdrawal process Alice must provide the withdrawal signature (generated by the Gateway Oracle) to the Mainnet Gateway, which then transfers the corresponding token to Alice's Mainnet account.
+要完成取款流程，Alice 必须将取款签名（由网关 Oracle 生成）提供给主网网关，然后主网网关将相应的代币转移到 Alice 的主网帐户。
 
-## Summary
+## 总结
 
-You should now have a basic understanding of how the Transfer Gateway works, though we haven't presented nor explained any of the actual API yet. If you haven't already, take a look at the [Transfer Gateway Cards](https://github.com/loomnetwork/cards-gateway-example) example project, which was built using the Transfer Gateway API provided by [loom-js](https://github.com/loomnetwork/loom-js).
+你现在应该对转移网关的工作原理有了基本的了解，虽然我们还没有提供或解释过任何实际的API。 如果你还没有做的话，请查看 [转移网关卡牌](https://github.com/loomnetwork/cards-gateway-example) 示例项目，该项目是使用 [loom-js](https://github.com/loomnetwork/loom-js) 提供的转移网关 API 构建的。

@@ -14,7 +14,7 @@ sidebar_label: Phaser Docker 示例
 考虑到这是在本地计算机上运行的, 并没有任何其他web服务器在端口80上运行：
 
 ```bash
-docker run -d -p 46656:46656 -p 46657:46657 -p 46658:46658 -p 9999:9999 loomnetwork/weave-blueprint:latest
+docker run -d -p 46656:46656  -p 46658:46658  loomnetwork/weave-blueprint:latest
 
 docker run -d -p 80:3000 loomnetwork/phaser-sdk-demo:latest
 ```

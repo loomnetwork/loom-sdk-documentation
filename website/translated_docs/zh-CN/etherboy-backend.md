@@ -43,7 +43,7 @@ sidebar_label: Etherboy 后端
 
 5. 添加 `loom.yml` 到工作目录中： 
         yaml
-        QueryServerHost: "tcp://0.0.0.0:9999"
+        RPCBindAddress: "tcp://0.0.0.0:46658"
 
 注意: `loom` 和 `etherboycli` 可以放置在你 `$PATH` 中的任何位置，因此你不必总是使用 `./` 执行。 但是，`etherboycore.0.0.1` 必须总是放在`$WORKING_DIRECTORY/contracts/etherboycore.so`里面。
 
@@ -120,7 +120,6 @@ Proto Recv-Q Send-Q Local Address           Foreign Address         State       
 tcp6       0      0 :::46656                :::*                    LISTEN      14327/loom
 tcp6       0      0 :::46657                :::*                    LISTEN      14327/loom
 tcp6       0      0 :::46658                :::*                    LISTEN      14327/loom
-tcp6       0      0 :::9999                 :::*                    LISTEN      14327/loom
 ```
 
 ### CLI - etherboycli

@@ -8,7 +8,7 @@ sidebar_label: Cocos SDK快速上手
 - 中文 
  - [环境依赖](#环境依赖)
  - [Loom Cocos SDK](#loom-cocos-sdk)
- - [打包并生成LoomJS SDK](#generate-loomjs-sdk)
+ - [打包并生成 Cocos SDK](#generate-cocos-sdk)
  - [安装Loom](#安装Loom)
  - [安装Cocos Creator](#安装Cocos Creator)
  - [Creator Game 内集成调用](#creator Game 内集成调用)
@@ -36,9 +36,9 @@ Loom Cocos SDK软件结构
 
 由图可见，`Loom-Cocos-SDK` 与`loom-js`使用相同的API, 相同的 protobuf 文件, 基本类似的合约写法。
 
-`Loom Cocos SDK`是基于 [Loom-JS](https://github.com/loomnetwork/loom-js/)而移植到`Cocos Creator`上.
+`Loom Cocos SDK` 是基于 [Loom-JS](https://github.com/loomnetwork/loom-js/) 而移植到 `Cocos Creator` 上.
 
-### 打包并生成 Loom Cocos SDK
+### 打包并生成 Cocos SDK
 
 - `git clone https://github.com/loomnetwork/cocos-sdk.git`
 - `cd cocos-sdk`
