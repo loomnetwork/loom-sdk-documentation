@@ -11,7 +11,6 @@ sidebar_label: 멀티 노드 배포
 
 이 단계는 각 노드에서 실행되어야 합니다.
 
-
 1. 여러분만의 작업 디렉토리를 선택하세요. 이 예제에서는 다음을 사용합니다 `/home/ubuntu` 
         bash
         cd /home/ubuntu
