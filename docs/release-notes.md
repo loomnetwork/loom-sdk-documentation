@@ -8,6 +8,16 @@ sidebar_label: Release Notes
 
 Reverse chronology order of release notes
 
+## Release xxx - Sept 27th
+
+**It is recommended that all users move up to this release**
+
+* Plasmachain Testnets available for Devs - [Docs](testnet-plasma.html)
+* Karma Faucet for Testnets - [Faucet](https://faucet??.loomx.io)
+* Karma contracts (Sybil resistance) Loom SDK - [Karma](karma.html)
+* Massive performance increasements for high load environments
+* Initial info about running a Validator - [Validator](validator.html)
+
 ## Release 404 - Aug 24th
 
 ** Features
