@@ -12,7 +12,7 @@ title: 위임 지분 증명
 
 **Witness salary** - 선택사항. 증인이 블록을 검증할 때 받는 보상의 양.
 
-**Vote allocation** - 각 코인 계정이 얻은 득표 수. 기본적으로 이것은 witness의 수와 같습니다.
+**Vote allocation** - 각 코인 계정이 얻은 득표 수. 기본적으로 이것은 증인의 수와 같습니다.
 
 **Election cycle length** - 선거주기. 기본적으로 1주입니다.
 
