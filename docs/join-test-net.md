@@ -10,9 +10,21 @@ This doc is for developers on how they can join the Plasmachain Testnet to do de
 
 #TODO explain doc is for developers, and dev
 
-#TODO walk through how to use karma faucet
-
 #TODO walk through getting the truffle example and deploying to a testnet
+
+
+# How to use Karma faucet
+  
+1. Go to faucet.dappchains.com
+
+2. Fill recipient address with your `public address` which is the same account in your truffle
+
+3. Select test-net network you want to deploy your contract
+
+4. Press `request` button
+
+6. Make sure you get `faucet-karma` appear before deploy your contract to selected test-net
+
 
 # Deploy Truffle Example to a Testnet
 
