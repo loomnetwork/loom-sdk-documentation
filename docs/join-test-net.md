@@ -17,23 +17,23 @@ This doc is for developers on how they can join the Plasmachain Testnet to do de
   
 1. Go to faucet.dappchains.com
 <br/>
-![image](../website/static/img/faucet/1.jpg)
+![image](/developers/img/faucet/1.jpg)
 <br/>
 2. Fill recipient address with your `public address` which is the same account in your truffle
 <br/>
-![image](../website/static/img/faucet/2.jpg)
+![image](/developers/img/faucet/2.jpg)
 <br/>
 3. Select test-net network you want to deploy your contract
 <br/>
-![image](../website/static/img/faucet/3.jpg)
+![image](/developers/img/faucet/3.jpg)
 <br/>
 4. Press `request` button
 <br/>
-![image](../website/static/img/faucet/4.jpg)
+![image](/developers/img/faucet/4.jpg)
 <br/>
 5. Make sure you get `faucet-karma` appear before deploy your contract to selected test-net
 <br/>
-![image](../website/static/img/faucet/5.jpg)
+![image](/developers/img/faucet/5.jpg)
 
 
 # Deploy Truffle Example to a Testnet
