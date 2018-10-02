@@ -4,113 +4,221 @@
     "next": "다음",
     "previous": "이전",
     "tagline": "탈중앙화된 세상을 만드세요",
-    "arch": "DAppChain 구조",
-    "basic-install-osx": "필수요소 (OSX)",
-    "Installation (OSX)": "설치하기 (OSX)",
-    "basic-install-linux": "설치하기 (Linux)",
-    "Installation (Linux)": "설치하기 (Linux)",
-    "basic-install-windows": "설치하기 (Windows)",
-    "Installation (Windows)": "설치하기 (Windows)",
-    "block-explorer-tutorial": "Block Explorer 튜토리얼",
-    "Block Explorer Tutorial": "Block Explorer 튜토리얼",
-    "builtin": "내장 스마트 컨트랙트",
-    "cocos-sdk-quickstart": "Cocos Creator용 Loom SDK",
-    "Cocos SDK Quickstart": "Cocos SDK 퀵스타트",
-    "common-issues": "일반적인 이슈",
-    "consensus": "블록체인 컨센서스",
-    "delegated-proof-of-stake": "Delegated Proof of Stake",
-    "docker-blueprint-phaser": "Phaser Docker 예제",
-    "Phaser Docker Exaample": "Phaser Docker 예제",
-    "etherboy-backend": "Etherboy 백엔드",
-    "Etherboy Backend": "Etherboy 백엔드",
-    "etherboy-game": "Etherboy 게임",
-    "Etherboy Game": "Etherboy 게임",
-    "loomevents": "이벤트 구독",
-    "Subscribing to events": "이벤트 구독",
-    "evm": "이더리움 가상머신",
-    "EVM": "EVM",
-    "go-loom-clients": "Golang으로 DAppChain 클라이언트 만들기",
-    "Building DAppChain Clients": "DAppChain 클라이언트 만들기",
-    "goloomevents": "go-loom 컨트랙트에서 이벤트 보내기",
-    "Emitting events": "이벤트 보내기",
-    "goloompermissions": "go-loom의 퍼미션 헬퍼 사용하기",
-    "Permission Helpers": "퍼미션 헬퍼",
-    "json-rpc-methods": "JSON RPC 메소드",
-    "JSON RPC Methods": "JSON RPC 메소드",
-    "logging": "로깅",
-    "Logging": "로깅",
-    "loom-js-loom-provider-web3": "Loom.js + Web3.js",
-    "Loom.js + Web3.js": "Loom.js + Web3.js",
-    "loom-js-quickstart": "NodeJS & Browser 퀵스타트",
-    "NodeJS & Browser Quick Start": "NodeJS & Browser 퀵스타트",
-    "loom-yaml": "Loom Yaml과 설정 옵션",
-    "Loom Yaml and Configuration options": "Loom Yaml과 설정 옵션",
-    "metrics": "메트릭",
-    "Metrics": "메트릭",
-    "multi-node-deployment": "배포 예제",
-    "Multi Node Deployment": "멀티 노드 배포",
-    "phaser-sdk-demo-web3-websocket": "Javascript WebSocket과 Web3 데모",
-    "JS WebSockets + EVM Web3 Demo": "JS WebSocket + EVM Web3 데모",
-    "phaser-sdk-demo-websocket": "Javascript WebSocket 데모",
-    "Phaser + Websockets Demo": "Phaser + Websocket 데모",
-    "phaser-sdk-demo": "Phaser SDK 데모",
-    "Phaser SDK Demo": "Phaser SDK 데모",
-    "prereqs-ubuntu": "필수요소 (Ubuntu)",
-    "Installation (Ubuntu)": "설치하기 (Ubuntu)",
-    "prereqs-windows": "필수요소 (Windows)",
-    "Installation Windows": "설치하기 (Windows)",
-    "prereqs": "필수요소 (OSX)",
-    "goloomstate": "go-loom 컨트랙트에 상태를 저장하고 읽기",
-    "Saving and reading state": "상태를 저장하고 읽기",
-    "release-notes": "릴리즈 노트",
-    "Release Notes": "릴리즈 노트",
-    "simple-social-network-example": "간단한 소셜 네트워크 예제",
-    "Simple Social Network Example": "간단한 소셜 네트워크 예제",
-    "tf-card-game": "카드 게이트웨이 예제",
-    "Card Gateway Example": "카드 게이트웨이 예제",
-    "tf-game-token": "토큰 게이트웨이 예제",
-    "Token Gateway Example": "토큰 게이트웨이 예제",
-    "transfer-gateway": "Transfer Gateway",
-    "Transfer Gateway": "Transfer Gateway",
-    "truffle-deploy": "Truffle DAppChain 예제",
-    "Truffle Deploy": "Truffle 배포",
-    "unity-quick-start": "퀵스타트",
-    "Quick Start": "퀵스타트",
-    "unity-sample-tiles-chain-evm": "Tiles EVM 예제",
-    "Tiles EVM Example": "Tiles EVM 예제",
-    "unity-sdk-evm": "EVM 기반의 스마트 컨트랙트 퀵스타트",
-    "EVM-based Smart Contract Quickstart": "EVM 기반의 스마트 컨트랙트 퀵스타트",
-    "unity-sdk-overview": "개요",
-    "Overview": "개요",
-    "unity-sdk-plugin": "Plugin 기반의 스마트 컨트랙트 퀵스타트",
-    "Plugin-based Smart Contract Quickstart": "Plugin 기반의 스마트 컨트랙트 퀵스타트",
-    "unity-truffle-loom-template": "Unity + Truffle + Loom 템플릿",
-    "Unity + Truffle + Loom Template": "Unity + Truffle + Loom 템플릿",
-    "unity-truffle-loom-sample": "Unity + Truffle + Loom 퀵스타트",
-    "Unity + Truffle + Loom Quick Start": "Unity + Truffle + Loom 퀵스타트",
-    "web3js-event-filters": "Web3 이벤트 필터",
-    "Web3 event filters": "Web3 이벤트 필터",
-    "web3js-loom-provider-truffle": "Web3, LoomProvider, Truffle",
-    "Web3, LoomProvider and Truffle": "Web3, LoomProvider, Truffle",
-    "what-are-dappchains": "DAppChain이란 무엇인지에 대한 소개",
-    "What are DAppChains": "DAppChain이란 무엇인가",
-    "Docs": "문서",
-    "Help": "도움말",
-    "Blog": "블로그",
-    "Installation": "설치하기",
-    "Javascript Client SDK": "Javascript 클라이언트 SDK",
-    "Go Contract SDK": "Go 컨트랙트 SDK",
-    "Game SDKs": "게임 SDK",
-    "Unity SDK": "Unity SDK",
-    "Events": "이벤트",
-    "Consensus": "컨센서스",
-    "Monitoring": "모니터링",
-    "Solidity & EVM": "Solidity와 EVM",
-    "Example Games & Apps": "게임 & 앱 예제",
-    "Deployment": "배포",
-    "Frequently Asked Questions": "자주하는 질문들",
-    "Advanced and Internal": "고급 및 내부 동작",
-    "Block Explorer": "블록 탐색기"
+    "docs": {
+      "arch": {
+        "title": "Architecture of a DAppChain"
+      },
+      "basic-install-osx": {
+        "title": "Prerequisites (OSX)",
+        "sidebar_label": "Installation (OSX)"
+      },
+      "basic-install-linux": {
+        "title": "Installation (Linux)",
+        "sidebar_label": "Installation (Linux)"
+      },
+      "basic-install-windows": {
+        "title": "Installation (Windows)",
+        "sidebar_label": "Installation (Windows)"
+      },
+      "block-explorer-tutorial": {
+        "title": "Block Explorer Tutorial",
+        "sidebar_label": "Block Explorer Tutorial"
+      },
+      "builtin": {
+        "title": "Built-in Smart Contracts"
+      },
+      "cocos-sdk-quickstart": {
+        "title": "Loom SDK for Cocos Creator",
+        "sidebar_label": "Cocos SDK Quickstart"
+      },
+      "common-issues": {
+        "title": "Common Issues"
+      },
+      "consensus": {
+        "title": "Blockchain Censensus"
+      },
+      "delegated-proof-of-stake": {
+        "title": "Delegated Proof of Stake"
+      },
+      "docker-blueprint-phaser": {
+        "title": "Phaser Docker Example",
+        "sidebar_label": "Phaser Docker Exaample"
+      },
+      "etherboy-backend": {
+        "title": "Etherboy Backend",
+        "sidebar_label": "Etherboy Backend"
+      },
+      "etherboy-game": {
+        "title": "Etherboy Game",
+        "sidebar_label": "Etherboy Game"
+      },
+      "loomevents": {
+        "title": "Subscribing to events",
+        "sidebar_label": "Subscribing to events"
+      },
+      "evm": {
+        "title": "Ethereum Virtual Machine",
+        "sidebar_label": "EVM"
+      },
+      "go-loom-clients": {
+        "title": "Building DAppChain clients in Golang",
+        "sidebar_label": "Building DAppChain Clients"
+      },
+      "goloomevents": {
+        "title": "Emitting events from go-loom contracts",
+        "sidebar_label": "Emitting events"
+      },
+      "goloompermissions": {
+        "title": "Working with permissions helpers in go-loom",
+        "sidebar_label": "Permission Helpers"
+      },
+      "json-rpc-methods": {
+        "title": "JSON RPC Methods",
+        "sidebar_label": "JSON RPC Methods"
+      },
+      "karma": {
+        "title": "Karma",
+        "sidebar_label": "Karma"
+      },
+      "logging": {
+        "title": "Logging",
+        "sidebar_label": "Logging"
+      },
+      "loom-js-loom-provider-web3": {
+        "title": "Loom.js + Web3.js",
+        "sidebar_label": "Loom.js + Web3.js"
+      },
+      "loom-js-quickstart": {
+        "title": "NodeJS & Browser Quick Start",
+        "sidebar_label": "NodeJS & Browser Quick Start"
+      },
+      "loom-yaml": {
+        "title": "Loom Yaml and Configuration options",
+        "sidebar_label": "Loom Yaml and Configuration options"
+      },
+      "metrics": {
+        "title": "Metrics",
+        "sidebar_label": "Metrics"
+      },
+      "multi-node-deployment": {
+        "title": "Example Deployment",
+        "sidebar_label": "Multi Node Deployment"
+      },
+      "phaser-sdk-demo-web3-websocket": {
+        "title": "Javascript WebSockets and Web3 Demo",
+        "sidebar_label": "JS WebSockets + EVM Web3 Demo"
+      },
+      "phaser-sdk-demo-websocket": {
+        "title": "Javascript WebSockets Demo",
+        "sidebar_label": "Phaser + Websockets Demo"
+      },
+      "phaser-sdk-demo": {
+        "title": "Phaser SDK Demo",
+        "sidebar_label": "Phaser SDK Demo"
+      },
+      "prereqs-ubuntu": {
+        "title": "Prerequisites (Ubuntu)",
+        "sidebar_label": "Installation (Ubuntu)"
+      },
+      "prereqs-windows": {
+        "title": "Prerequisites Windows",
+        "sidebar_label": "Installation Windows"
+      },
+      "prereqs": {
+        "title": "Prerequisites (OSX)",
+        "sidebar_label": "Installation (OSX)"
+      },
+      "goloomstate": {
+        "title": "Saving and reading state in go-loom contracts",
+        "sidebar_label": "Saving and reading state"
+      },
+      "release-notes": {
+        "title": "Release Notes",
+        "sidebar_label": "Release Notes"
+      },
+      "simple-social-network-example": {
+        "title": "Simple Social Network Example",
+        "sidebar_label": "Simple Social Network Example"
+      },
+      "tf-card-game": {
+        "title": "Card Gateway Example",
+        "sidebar_label": "Card Gateway Example"
+      },
+      "tf-game-token": {
+        "title": "Token Gateway Example",
+        "sidebar_label": "Token Gateway Example"
+      },
+      "transfer-gateway": {
+        "title": "Transfer Gateway",
+        "sidebar_label": "Transfer Gateway"
+      },
+      "truffle-deploy": {
+        "title": "Truffle DAppChain Example",
+        "sidebar_label": "Truffle Deploy"
+      },
+      "unity-quick-start": {
+        "title": "Quick Start",
+        "sidebar_label": "Quick Start"
+      },
+      "unity-sample-tiles-chain-evm": {
+        "title": "Tiles EVM Example",
+        "sidebar_label": "Tiles EVM Example"
+      },
+      "unity-sdk-evm": {
+        "title": "EVM-based Smart Contract Quickstart",
+        "sidebar_label": "EVM-based Smart Contract Quickstart"
+      },
+      "unity-sdk-overview": {
+        "title": "Overview",
+        "sidebar_label": "Overview"
+      },
+      "unity-sdk-plugin": {
+        "title": "Plugin-based Smart Contract Quickstart",
+        "sidebar_label": "Plugin-based Smart Contract Quickstart"
+      },
+      "unity-truffle-loom-template": {
+        "title": "Unity + Truffle + Loom Template",
+        "sidebar_label": "Unity + Truffle + Loom Template"
+      },
+      "unity-truffle-loom-sample": {
+        "title": "Unity + Truffle + Loom Quick Start",
+        "sidebar_label": "Unity + Truffle + Loom Quick Start"
+      },
+      "web3js-event-filters": {
+        "title": "Web3 event filters",
+        "sidebar_label": "Web3 event filters"
+      },
+      "web3js-loom-provider-truffle": {
+        "title": "Web3, LoomProvider and Truffle",
+        "sidebar_label": "Web3, LoomProvider and Truffle"
+      },
+      "what-are-dappchains": {
+        "title": "Introduction to What DAppChains are",
+        "sidebar_label": "What are DAppChains"
+      }
+    },
+    "links": {
+      "Docs": "Docs",
+      "Help": "Help",
+      "Blog": "Blog"
+    },
+    "categories": {
+      "Installation": "Installation",
+      "Javascript Client SDK": "Javascript Client SDK",
+      "Go Contract SDK": "Go Contract SDK",
+      "Game SDKs": "Game SDKs",
+      "Unity SDK": "Unity SDK",
+      "Events": "Events",
+      "Consensus": "Consensus",
+      "Monitoring": "Monitoring",
+      "Solidity & EVM": "Solidity & EVM",
+      "Example Games & Apps": "Example Games & Apps",
+      "Transfer Gateway": "Transfer Gateway",
+      "Deployment": "Deployment",
+      "Frequently Asked Questions": "Frequently Asked Questions",
+      "Advanced and Internal": "Advanced and Internal",
+      "Block Explorer": "Block Explorer"
+    }
   },
   "pages-strings": {
     "Learn more using the [documentation on this site.](/test-site/docs/en/doc1.html)|no description given": "[여기에 있는 문서를](/test-site/docs/en/doc1.html) 참고하여 더 알아보세요",
