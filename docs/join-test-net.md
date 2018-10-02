@@ -10,7 +10,53 @@ This doc is for developers on how they can join the Plasmachain Testnet to do de
 
 #TODO explain doc is for developers, and dev
 
-#TODO walk through getting the truffle example and deploying to a testnet
+**Prerequisite**
+ - Loom installed (see [instruction](https://loomx.io/developers/docs/en/basic-install-osx.html#installation) )
+ - Truffle 
+
+**How to generate a private key with Loom and get your public address**
+```
+$./loom genkey -k priv_key -a pub_key
+```
+
+result
+```
+local address: 0x3B334bEd1e7d3e7d9214495120160D9236aCbC31
+local address base64: OzNL7R59Pn2SFElRIBYNkjasvDE=
+```
+and this will create files name`priv_key` and `pub_key` 
+while `priv_key` will store your private key that use for deploy contract
+
+
+**How to config your truffle**
+Please see [Loom Truffle Provider Instruction](https://loomx.io/developers/docs/en/web3js-loom-provider-truffle.html#download-and-configure-loom-truffle-provider) in section  *"Download and configure Loom Truffle Provider"*
+```js
+const LoomTruffleProvider = require('loom-truffle-provider') 
+
+const chainId = 'extdev-plasma-us1'
+const writeUrl = 'http://extdev-plasma-us1.dappchains.com:80/rpc'
+const readUrl = 'http://extdev-plasma-us1.dappchains.com:80/query'
+
+const privateKey = "<--- your key in priv_key file--->"
+
+const loomTruffleProvider = new LoomTruffleProvider(chainId, writeUrl, readUrl, privateKey) 
+
+module.exports = { 
+	networks: { 
+		extdev: { 
+			provider: loomTruffleProvider, 
+			network_id: '*' 
+		}
+	} 
+}
+```
+Then
+```
+$truffle migrate --network extdev
+```
+This will fail with error `Failed to commit Tx: origin has no karma`
+so you need to request karma from faucet.dappchains.com
+
 
 
 # How to use Karma faucet
