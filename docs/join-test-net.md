@@ -6,10 +6,6 @@ sidebar_label: Join Testnets
 
 This doc is for developers on how they can join the Plasmachain Testnet to do deployment. If you are looking for information on how to run nodes, or to become a validator please checkout [Validator Guide](validator.html)
 
-#TODO explain loom sidechains
-
-#TODO explain doc is for developers, and dev
-
 **Prerequisite**
  - Loom installed (see [instruction](https://loomx.io/developers/docs/en/basic-install-osx.html#installation) )
  - Truffle 
@@ -28,9 +24,6 @@ local address base64: OzNL7R59Pn2SFElRIBYNkjasvDE=
 ```
 and this will create files name`priv_key` and `pub_key` 
 while `priv_key` will store your private key that use for deploy contract
-
-
-
 
 
 # How to use Karma faucet
