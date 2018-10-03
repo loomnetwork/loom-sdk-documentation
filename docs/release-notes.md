@@ -13,7 +13,7 @@ Reverse chronology order of release notes
 **It is recommended that all users move up to this release**
 
 * Plasmachain Testnets available for Devs - [Docs](testnet-plasma.html)
-* Karma Faucet for Testnets - [Faucet](https://faucet??.loomx.io)
+* Karma Faucet for Testnets - [Faucet](http://faucet.dappchains.com)
 * Karma contracts (Sybil resistance) Loom SDK - [Karma](karma.html)
 * Massive performance increasements for high load environments
 * Initial info about running a Validator - [Validator](validator.html)
