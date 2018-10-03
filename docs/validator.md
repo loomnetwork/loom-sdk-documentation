@@ -5,10 +5,9 @@ sidebar_label: Become Validator
 ---
 
 
-This page tells you how to become a validator, or to just run a node for Plasmachain. Currently this is only available on our Testnets. Please contact satoshi <at> loomx.io if you would live to get into private beta of our Mainnet. 
+This page tells you how to become a validator, or to just run a node for Plasmachain. Currently this is only available on our Testnets. Please fill out this [form](http://bit.ly/Loom_Validator_Form) to be come a validator
 
+## How to join as a Validator
 
-# TODO how to turn on a Validator
+Right now this is in private beta
 
-
-# TODO How to turn on a non-validating node
