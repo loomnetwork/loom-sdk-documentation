@@ -14,7 +14,7 @@ sidebar_label: Etherboy 后端
 2. 下载二进制文件:
     
     ```bash
-    wget https://private.delegatecall.com/loom/linux/build-404/loom
+    wget https://private.delegatecall.com/loom/linux/stable/loom
     wget https://private.delegatecall.com/etherboy/linux/build-53/etherboycli
     chmod +x loom etherboycli
     
