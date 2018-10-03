@@ -1,9 +1,11 @@
 ---
-id: prereqs
-title: Prerequisites (OSX)
-sidebar_label: Installation (OSX)
+id: prereqs-all
+title: Prerequisites (ALL)
+sidebar_label: Installation Go Loom SDK
 ---
 Installing and setting up Loom on OSX
+
+## TODO FIX THIS PAGE FOR ALL OPERATING SYSTEMS
 
 ## wget
 

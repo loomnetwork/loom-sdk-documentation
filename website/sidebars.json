@@ -1,8 +1,8 @@
 {
   "docs": {
-    "Installation": ["basic-install-osx", "basic-install-linux", "basic-install-windows"],
+    "Introduction": ["intro-loom-sdk", "basic-install-all", "join-testnet"],
     "Javascript Client SDK": ["loom-js-quickstart", "web3js-loom-provider-truffle"],
-    "Go Contract SDK": ["prereqs", "prereqs-ubuntu", "prereqs-windows", "go-loom-clients", "goloomstate", "goloomevents", "goloompermissions", "builtin"],
+    "Go Contract SDK": ["prereqs-all", "go-loom-clients", "goloomstate", "goloomevents", "goloompermissions", "builtin"],
     "Game SDKs": ["cocos-sdk-quickstart"],
     "Unity SDK": ["unity-quick-start","unity-sdk-overview", "unity-sdk-plugin", "unity-sdk-evm", "unity-sample-tiles-chain-evm", "unity-truffle-loom-sample", "unity-truffle-loom-template"],
     "Events": ["loomevents", "web3js-event-filters"],
@@ -12,8 +12,9 @@
     "Example Games & Apps": ["etherboy-game", "phaser-sdk-demo", "phaser-sdk-demo-websocket", "phaser-sdk-demo-web3-websocket", "simple-social-network-example"],
     "Transfer Gateway": ["transfer-gateway", "tf-card-game", "tf-game-token"],
     "Deployment": ["etherboy-backend", "multi-node-deployment", "docker-blueprint-phaser"],
+    "Networks": ["testnet-plasma", "validator"],
     "Frequently Asked Questions": ["arch", "release-notes", "common-issues"],
-    "Advanced and Internal": ["loom-yaml", "json-rpc-methods"],
+    "Advanced and Internal": ["loom-yaml", "karma", "json-rpc-methods"],
     "Block Explorer": ["block-explorer-tutorial"]
   }
 }
