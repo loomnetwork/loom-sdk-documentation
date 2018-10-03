@@ -8,7 +8,7 @@ sidebar_label: Release Notes
 
 Reverse chronology order of release notes
 
-## Release xxx - Sept 27th
+## Release 458 - Sept 27th
 
 **It is recommended that all users move up to this release**
 
