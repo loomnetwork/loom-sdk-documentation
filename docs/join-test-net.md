@@ -8,7 +8,10 @@ This doc is for developers on how they can join the Plasmachain Testnet to do de
 
 **Prerequisite**
  - Loom installed (see [instruction](https://loomx.io/developers/docs/en/basic-install-osx.html#installation) )
- - Truffle 
+
+```bash
+ curl https://raw.githubusercontent.com/loomnetwork/loom-sdk-documentation/master/scripts/get_loom.sh | sh
+ ```
 
 **How to generate a private key with Loom and get your public address**
 
@@ -28,7 +31,7 @@ while `priv_key` will store your private key that use for deploy contract
 
 # How to use Karma faucet
   
-1. Go to [Karma Faucet](faucet.dappchains.com) website
+1. Go to [Karma Faucet](https://faucet.dappchains.com) website
 <br/><br/><br/>
 ![image](/developers/img/faucet/1.png)
 <br/><br/><br/>
@@ -57,6 +60,7 @@ while `priv_key` will store your private key that use for deploy contract
     ```bash
     git clone https://github.com/loomnetwork/truffle-dappchain-example
     cd truffle-dappchain-example
+    cp ../priv_key private_key
     ```
 1. Edit `truffle-config.js` and modify these values with the values obtained from the testnets-plasma page:
     * `chainId` - `extdev-plasma-us1`
@@ -95,8 +99,3 @@ while `priv_key` will store your private key that use for deploy contract
     ```
     If you don't have karma this will fail with error `Failed to commit Tx: origin has no karma`
     so you need to request karma from [Karma Faucet](faucet.dappchains.com)
-
-1. Run test:
-    ```bash
-    yarn test
-    ```
