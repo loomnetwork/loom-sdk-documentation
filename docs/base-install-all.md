@@ -12,52 +12,16 @@ Once you install that you can continue on below.
 
 ## Download loom
 
-The following script can be used to automatically download loom and make it executable
+The following script can be used to automatically download the stable version of loom to the current directory:
 
 ```bash
-#!/usr/bin/env bash
-
-brew_installed=false
-
-if grep -i Microsoft /proc/version >/dev/null 2>&1; then
-  platform=linux
-elif grep -iE "ubuntu|debian|centos" /proc/version >/dev/null 2>&1; then
-  platform=linux
-elif uname | grep -i darwin >/dev/null 2>&1; then
-  platform=osx
-  if \which brew >/dev/null 2>&1; then
-    brew_installed=true
-  fi
-else
-  echo "Unable to detect OS..."
-  exit 1
-fi
-
-if $brew_installed; then
-  echo "Installing loom using homebrew..."
-  brew tap loomnetwork/client
-  brew install loom || brew upgrade loom
-else
-  echo "Downloading loom executable..."
-  if \which curl >/dev/null 2>&1; then
-    download_command="curl -sL -o"
-  elif \which wget >/dev/null 2>&1; then
-    download_command="wget -q -O"
-  fi
-  $download_command loom https://private.delegatecall.com/loom/${platform}/stable/loom
-  sudo mv loom /usr/local/bin/loom
-  chmod +x /usr/local/bin/loom
-fi
+curl https://raw.githubusercontent.com/loomnetwork/loom-sdk-documentation/master/scripts/get_loom.sh | sh
 ```
 
 ## Installation
 
-Create a suitable working directory for loom to run. Here, we chose `workdir`. This is where the initial files and database will be created.
-
 ```bash
-mkdir workdir
-cd workdir
-loom init
+./loom init
 ```
 
 ## Run Blockchain
@@ -65,7 +29,7 @@ loom init
 Run from within the directory created in the installation step.
 
 ```bash
-loom run
+./loom run
 ```
 
 ## To get started with Solidity + Truffle
