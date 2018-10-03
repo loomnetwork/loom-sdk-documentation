@@ -31,7 +31,7 @@ sidebar_label: Etherboy 게임
 1. [MacOS 필수요소](prereqs.html) 단계에 따라 Golang을 설치하세요 (만약 아직 설치하지 않으셨다면).
 2. Loom DAppChain 바이너리를 다운로드 하세요 
         bash
-        wget https://private.delegatecall.com/loom/osx/build-404/loom
+        wget https://private.delegatecall.com/loom/osx/stable/loom
         chmod +x loom
         export LOOM_BIN=`pwd`/loom
 
@@ -40,7 +40,7 @@ sidebar_label: Etherboy 게임
 1. [Ubuntu 필수요소](prereqs-ubuntu.html) 단계에 따라 Golang을 설치하세요 (만약 아직 설치하지 않으셨다면).
 2. Loom DAppChain 바이너리를 다운로드 하세요 
         bash
-        curl -OL https://private.delegatecall.com/loom/linux/build-404/loom
+        curl -OL https://private.delegatecall.com/loom/linux/stable/loom
         chmod +x loom
         export LOOM_BIN=`pwd`/loom
 
