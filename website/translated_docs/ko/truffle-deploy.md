@@ -46,11 +46,11 @@ truffle unbox loomnetwork/truffle-dappchain-example
 ## DappChain을 시작하세요
 
 ```bash
-# 다운로드
-wget https://private.delegatecall.com/loom/osx/build-404/loom
+# Download
+wget https://private.delegatecall.com/loom/osx/stable/loom
 chmod +x loom
 
-# 실행
+# Run
 ./loom init
 ./loom run
 ```
