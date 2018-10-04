@@ -34,7 +34,7 @@ Run from within the directory created in the installation step.
 
 ## To get started with Solidity + Truffle
 
-See our tutorial on [Truffle and Solidity](truffle-deploy.html)
+See our tutorial on [Truffle and Solidity](join-testnet.html)
 
 ## To get started on Golang Contracts
 
