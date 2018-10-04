@@ -5,8 +5,6 @@ sidebar_label: Installation Go Loom SDK
 ---
 Installing and setting up Loom on OSX
 
-## TODO FIX THIS PAGE FOR ALL OPERATING SYSTEMS
-
 ## wget
 
 ```bash
