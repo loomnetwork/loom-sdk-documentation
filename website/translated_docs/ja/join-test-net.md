@@ -111,4 +111,4 @@ and this will create files name`priv_key` and `pub_key` while `priv_key` will st
         bash
         yarn deploy If you don't have karma this will fail with error 
     
-    `Failed to commit Tx: origin has no karma` so you need to request karma from [Karma Faucet](faucet.dappchains.com)
+    `Failed to commit Tx: origin has no karma` so you need to request karma from [Karma Faucet](http://faucet.dappchains.com)
