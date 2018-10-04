@@ -98,4 +98,4 @@ while `priv_key` will store your private key that use for deploy contract
     yarn deploy
     ```
     If you don't have karma this will fail with error `Failed to commit Tx: origin has no karma`
-    so you need to request karma from [Karma Faucet](faucet.dappchains.com)
+    so you need to request karma from [Karma Faucet](http://faucet.dappchains.com)
