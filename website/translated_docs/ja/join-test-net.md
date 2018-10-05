@@ -62,23 +62,23 @@ local address base64: OzNL7R59Pn2SFElRIBYNkjasvDE=
       
     ![image](/developers/img/faucet/5.png)
 
-# Deploy Truffle Example to a Testnet
+# Truffleサンプルをテストネットへデプロイ
 
-1. Make sure you have node and yarn/npm installed
-2. Obtain the testnet URL from [testnets-plasma](testsnets-plasma.html)
-3. Get the source: 
+1. node 及び yarn/npm がインストールされていることを確認
+2. [testnets-plasma](testsnets-plasma.html)からテストネットのURLを入手
+3. ソースを取得: 
         bash
         git clone https://github.com/loomnetwork/truffle-dappchain-example
         cd truffle-dappchain-example
         cp ../priv_key private_key
 
-4. Edit `truffle-config.js` and modify these values with the values obtained from the testnets-plasma page:
+4. `truffle-config.js` を編集し、テストネットPlasmaページから取得した値で以下の値を変更しよう:
     
     - `chainId` - `extdev-plasma-us1`
     - `writeUrl` - `http://extdev-plasma-us1.dappchains.com:80/rpc`
     - `readUrl` - `http://extdev-plasma-us1.dappchains.com:80/query`
         
-        example
+        例
         
         ```js
         const LoomTruffleProvider = require('loom-truffle-provider') 
