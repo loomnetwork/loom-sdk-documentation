@@ -3,59 +3,75 @@ id: prereqs-all
 title: Prerequisites (ALL)
 sidebar_label: Installation Go Loom SDK
 ---
-Installing and setting up Loom on OSX
+## Installing and setting up Loom
 
-## wget
+## Use your package manager to install curl
+
+OSX:
 
 ```bash
-brew install wget
+brew install curl
+```
+
+Ubuntu / Windows Subsystem for Linux:
+
+```bash
+sudo apt install curl
 ```
 
 ## Golang
 
+OSX:
+
 ```bash
-wget https://dl.google.com/go/go1.10.2.darwin-amd64.tar.gz
+curl -sL -o go1.10.2.darwin-amd64.tar.gz https://dl.google.com/go/go1.10.2.darwin-amd64.tar.gz
 sudo tar -C /usr/local -xzf go1.10.2.darwin-amd64.tar.gz
 sudo ln -s /usr/local/go/bin/go /usr/local/bin/go
-mkdir ~/gopath
-export GOPATH=~/gopath
-*Add GOPATH to your bashrc  or zshrc
 ```
 
-or install Golang from `brew`
+Linux / Windows Subsystem for Linux:
 
 ```bash
-brew install go
+curl -sL -o go1.10.2.linux-amd64.tar.gz https://dl.google.com/go/go1.10.2.linux-amd64.tar.gz
+sudo tar -C /usr/local -xzf go1.10.2.linux-amd64.tar.gz
+sudo ln -s /usr/local/go/bin/go /usr/local/bin/go
 ```
-
 
 ## Protobuf
 
 https://github.com/google/protobuf/releases/
 
+OSX:
+
 ```bash
-wget https://github.com/google/protobuf/releases/download/v3.5.1/protoc-3.5.1-osx-x86_64.zip
+curl -sL -o protoc-3.5.1-osx-x86_64.zip https://github.com/google/protobuf/releases/download/v3.5.1/protoc-3.5.1-osx-x86_64.zip
 unzip protoc-3.5.1-osx-x86_64.zip
 sudo unzip protoc-3.5.1-osx-x86_64.zip -d /usr/local
-sudo chmod +X /usr/local/bin/protoc
-export GOPATH=~/gopath
-go get -u github.com/golang/protobuf/protoc-gen-go
+sudo chmod +x /usr/local/bin/protoc
 ```
 
-## Dep
+Linux / Windows Subsystem for Linux:
 
 ```bash
-$ brew install dep
-$ brew upgrade dep
+curl -sL -o protoc-3.5.1-linux-x86_64.zip https://github.com/google/protobuf/releases/download/v3.5.1/protoc-3.5.1-linux-x86_64.zip
+unzip protoc-3.5.1-linux-x86_64.zip
+sudo unzip protoc-3.5.1-linux-x86_64.zip -d /usr/local
+sudo chmod +x /usr/local/bin/protoc
 ```
 
+## Download loom
+
+The following script can be used to automatically download the stable version of loom to the current directory:
+
+```bash
+curl https://raw.githubusercontent.com/loomnetwork/loom-sdk-documentation/master/scripts/get_loom.sh | sh
+```
 
 ## Installation
 
-```bash
-wget https://private.delegatecall.com/loom/osx/stable/loom
-chmod +x loom
+Run these in the same directory as the previous step.
 
+```bash
 mkdir tmpgopath
 export GOPATH=`pwd`/tmpgopath
 ./loom spin weave-blueprint
@@ -70,15 +86,15 @@ cp ../genesis.example.json genesis.json
 ```
 
 ## Run Blockchain
-```
+
+```bash
 ../../loom run
 ```
 
 ## Send transactions
 
 Open a second console
-<br/>
-<br/>
+
 This will generate a private key. Create an account. Then set a value, and then read the value from the blockchain.
 
 You can read the source of the <a href="https://github.com/loomnetwork/weave-blueprint">blueprint contract here</a>
