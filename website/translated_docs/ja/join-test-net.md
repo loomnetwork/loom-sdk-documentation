@@ -1,9 +1,9 @@
 ---
 id: join-testnet
-title: Join Testnets
-sidebar_label: Join Testnets
+title: テストネットへの参加
+sidebar_label: テストネットへの参加
 ---
-This doc is for developers on how they can join the Plasmachain Testnet to do deployment. If you are looking for information on how to run nodes, or to become a validator please checkout [Validator Guide](validator.html)
+この開発者向けドキュメーンテーションは、PlasmaChainテストネットに参加しデプロイを行う方法についてのものである。 If you are looking for information on how to run nodes, or to become a validator please checkout [Validator Guide](validator.html)
 
 **Prerequisite**
 
