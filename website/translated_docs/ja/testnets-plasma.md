@@ -1,14 +1,14 @@
 ---
 id: testnet-plasma
-title: PlasmaChain Testnets
-sidebar_label: PlasmaChain Testnets
+title: PlasmaChainテストネット
+sidebar_label: PlasmaChainテストネット
 ---
-This page is purely information on where and how to access the chain. If you want a more detailed dev guide check [Join Test Net Guide](join-testnet.html)
+このページは、どこでどのようにチェーンにアクセスできるかという情報を掲載している。 もしより詳細な開発者ガイドが必要であれば、[テストネットへの参加ガイド](join-testnet.html)をチェックすること。
 
-| Name                | Url                                                   | Type    | Availability                             |
+| 名称                  | Url                                                   | タイプ     | 可用性                                      |
 | ------------------- | ----------------------------------------------------- | ------- | ---------------------------------------- |
-| Dev Plasma Test     | test-z-asia1.dappchains.com                           | Testnet | Experimental Beta                        |
-| External Dev Plasma | extdev-plasma-us1.dappchains.com                      | Testnet | Stable Developer Beta                    |
+| Dev Plasma Test     | test-z-asia1.dappchains.com                           | テストネット  | 実験的ベータ                                   |
+| External Dev Plasma | extdev-plasma-us1.dappchains.com                      | テストネット  | Stable Developer Beta                    |
 | Validator Test      | test-z-validator1.dappchains.com                      | Testnet | Validator Beta                           |
 | Plasma Chain        | plasma.dappchains.com                                 | Mainnet | End User Beta (Loom MarketPlace)         |
 | Mainnet             | User Beta                                             |         |                                          |
