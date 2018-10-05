@@ -36,28 +36,28 @@ local address base64: OzNL7R59Pn2SFElRIBYNkjasvDE=
       
       
     
-2. Fill recipient address with your `public address` which is the same account in your truffle   
+2. 受信者アドレス(recipient address)に、あなたのtruffleアカウントと同じアカウントの`public address` を入力する。   
       
       
     ![image](/developers/img/faucet/2.png)   
       
       
     
-3. Select test-net network you want to deploy your contract   
+3. コントラクトをデプロイしたいテストネット・ネットワークを選択する。   
       
       
     ![image](/developers/img/faucet/3.png)   
       
       
     
-4. Press `request` button   
+4. `request` ボタンをクリックする。   
       
       
     ![image](/developers/img/faucet/4.png)   
       
       
     
-5. Make sure you get `faucet-karma` appear before deploy your contract to selected test-net   
+5. 選択したテストネットにコントラクトをデプロイする前に、`faucet-karma` が表示できていることを確認する。   
       
       
     ![image](/developers/img/faucet/5.png)
