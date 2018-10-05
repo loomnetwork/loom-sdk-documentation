@@ -23,6 +23,10 @@ body {
   text-decoration: underline;
 }
 
+.mainContainer .wrapper{
+  padding-top: 40px;
+}
+
 .tile-bg {
   background-image: url('../img/tile-pattern.png');
 }
@@ -84,7 +88,7 @@ body {
 }
 
 .docsNavContainer {
-  margin: 24px 0 !important;
+  margin: 50px 0 !important;
 }
 
 .fixedHeaderContainer {
