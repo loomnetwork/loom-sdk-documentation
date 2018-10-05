@@ -73,7 +73,7 @@ Run these in the same directory as the previous step.
 
 ```bash
 mkdir tmpgopath
-export GOPATH=tmpgopath
+export GOPATH=`pwd`/tmpgopath
 ./loom spin weave-blueprint
 cd blueprint
 export GOPATH=$GOPATH:`pwd`
