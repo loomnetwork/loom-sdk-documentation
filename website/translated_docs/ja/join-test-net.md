@@ -101,14 +101,14 @@ local address base64: OzNL7R59Pn2SFElRIBYNkjasvDE=
         }
         ```
 
-5. Install node modules:
+5. Nodeモジュールをインストール:
     
     ```bash
     yarn
     ```
 
-6. Run deploy: 
+6. デプロイの実行: 
         bash
-        yarn deploy If you don't have karma this will fail with error 
+        yarn deploy もしkarmaがない場合は、これはエラーとなり失敗する。 
     
-    `Failed to commit Tx: origin has no karma` so you need to request karma from [Karma Faucet](http://faucet.dappchains.com)
+    `Failed to commit Tx: origin has no karma` その場合は [Karma Faucet からkarmaをリクエストする。](http://faucet.dappchains.com)
