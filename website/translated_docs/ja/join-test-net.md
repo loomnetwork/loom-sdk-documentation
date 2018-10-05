@@ -3,33 +3,33 @@ id: join-testnet
 title: テストネットへの参加
 sidebar_label: テストネットへの参加
 ---
-この開発者向けドキュメーンテーションは、PlasmaChainテストネットに参加しデプロイを行う方法についてのものである。 If you are looking for information on how to run nodes, or to become a validator please checkout [Validator Guide](validator.html)
+この開発者向けドキュメーンテーションは、PlasmaChainテストネットに参加しデプロイを行う方法についてのものである。 ノードの運営方法やバリデータになる方法についての情報をお探しであれば、 [バリデーターガイド](validator.html)をチェックすること。
 
-**Prerequisite**
+**前提条件**
 
-- Loom installed (see [instruction](https://loomx.io/developers/docs/en/basic-install-osx.html#installation) )
+- Loomがインストール済みであること ([手順はこちら](https://loomx.io/developers/docs/ja/basic-install-osx.html#installation) )
 
 ```bash
  curl https://raw.githubusercontent.com/loomnetwork/loom-sdk-documentation/master/scripts/get_loom.sh | sh
 ```
 
-**How to generate a private key with Loom and get your public address**
+**Loomで秘密鍵を生成し、パブリックアドレスを取得する方法**
 
     $ ./loom genkey -k priv_key -a pub_key
     
 
-result
+結果
 
 ```bash
 local address: 0x3B334bEd1e7d3e7d9214495120160D9236aCbC31
 local address base64: OzNL7R59Pn2SFElRIBYNkjasvDE=
 ```
 
-and this will create files name`priv_key` and `pub_key` while `priv_key` will store your private key that use for deploy contract
+こうしてファイル名`priv_key` 及び `pub_key`が作成され、 `priv_key`はコントラクトデプロイで使われる秘密鍵を格納する。
 
-# How to use Karma faucet
+# Karma Faucetの使用方法
 
-1. Go to [Karma Faucet](https://faucet.dappchains.com) website   
+1. [Karma Faucet](https://faucet.dappchains.com)のウェブサイトにアクセスする。   
       
       
     ![image](/developers/img/faucet/1.png)   
