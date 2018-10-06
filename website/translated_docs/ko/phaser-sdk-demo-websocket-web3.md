@@ -32,11 +32,11 @@ cd dappchain
 wget https://private.delegatecall.com/loom/osx/stable/loom
 chmod +x loom
 
-# Configure
+# 설정
 ./loom init
 cp genesis.example.json genesis.json
 
-# Run
+# 실행
 ./loom run
 ```
 
