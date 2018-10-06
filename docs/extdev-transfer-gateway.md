@@ -92,10 +92,12 @@ transfer tokens between the two contracts. You can either do so programmatically
 
 ```bash
 ./loom gateway map-contracts \
-        0x2a6b071aD396cEFdd16c731454af0d8c95ECD4B2 0x5d1ddf5223a412d24901c32d14ef56cb706c0f64 \
-        --eth-key file://path/to/eth_priv.key \
-        --eth-tx 0x3fee8c220416862ec836e055d8261f62cd874fdfbf29b3ccba29d271c047f96c \
-        --key file://path/to/loom_priv.key
+    0x2a6b071aD396cEFdd16c731454af0d8c95ECD4B2 0x5d1ddf5223a412d24901c32d14ef56cb706c0f64 \
+    --eth-key file://path/to/eth_priv.key \
+    --eth-tx 0x3fee8c220416862ec836e055d8261f62cd874fdfbf29b3ccba29d271c047f96c \
+    --key file://path/to/loom_priv.key \
+    --chain extdev-plasma-us1 \
+    --uri http://extdev-plasma-us1.dappchains.com:80
 ```
 
 The first argument must be the address of the contract on `extdev`, and the second argument must
@@ -117,7 +119,9 @@ the `AddressMapper` class in loom-js, or via the CLI:
 ```bash
 ./loom gateway map-accounts \
     --key file://path/to/loom_priv.key \
-    --eth-key file://path/to/eth_priv.key
+    --eth-key file://path/to/eth_priv.key \
+    --chain extdev-plasma-us1 \
+    --uri http://extdev-plasma-us1.dappchains.com:80
 ```
 
 
