@@ -3,9 +3,9 @@ id: karma
 title: Karma
 sidebar_label: Karma
 ---
-The karma module provides a way to limit Transactions. Users are limited in the number and timing of transactions by various karma parameters. There is one user called the Oracle who has unlimited access.
+Karmaモジュールは、トランザクションの制限方法を提供する。 ユーザーは様々なkarmaパラメーターにより、トランザクションの数とタイミングを制限される。 Oracleと呼ばれるユーザーは、アクセス無制限となる。
 
-## Installation
+## インストール
 
 To install, include the karma contract in the genesis.json file when starting the chain for the first time.
 
