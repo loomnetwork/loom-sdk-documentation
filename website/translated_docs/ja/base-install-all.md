@@ -11,7 +11,7 @@ sidebar_label: Loom SDKのインストール
 
 ## Loomをダウンロード
 
-The following script can be used to automatically download the stable version of loom to the current directory:
+次のスクリプトは、現在のディレクトリへ自動的にLoomの安定的なバージョンをダウンロードするのに使用できる。
 
 ```bash
 curl https://raw.githubusercontent.com/loomnetwork/loom-sdk-documentation/master/scripts/get_loom.sh | sh
@@ -25,7 +25,7 @@ curl https://raw.githubusercontent.com/loomnetwork/loom-sdk-documentation/master
 
 ## ブロックチェーンの起動
 
-Run from within the directory created in the installation step.
+インストール手順で作成したディレクトリ内から実行する。
 
 ```bash
 ./loom run
