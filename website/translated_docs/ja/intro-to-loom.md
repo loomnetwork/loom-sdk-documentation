@@ -1,7 +1,7 @@
 ---
 id: intro-loom-sdk
-title: What is Loom Network?
-sidebar_label: Intro Loom SDK
+title: Loom Networkとは?
+sidebar_label: Loom SDK入門
 ---
 ![What is Loom Network?](/developers/img/what-is-loom.png)
 
@@ -9,7 +9,7 @@ Loom Network is building a fundamental infrastructure platform to help Ethereum 
 
 In short, you can think of Loom Network as EOS on top of Ethereum.
 
-## The Loom SDK
+## Loom SDK
 
 Our core product is an SDK that allows developers to quickly build their own blockchains without having to understand blockchain infrastructure. Think of it like a “build your own blockchain” generator.
 
