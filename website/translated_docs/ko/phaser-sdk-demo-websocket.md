@@ -35,12 +35,12 @@ export GOPATH=$GOPATH:`pwd`
 make deps
 make
 
-# Configure
+# 설정
 cd build
 ../loom init
 cp ../genesis.example.json genesis.json
 
-# Run
+# 실행
 ../loom run
 ```
 
