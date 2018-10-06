@@ -3,9 +3,9 @@ id: prereqs-all
 title: 前提条件(ALL)
 sidebar_label: Go Loom SDKのインストール
 ---
-## Installing and setting up Loom
+## Loomのインストールとセットアップ
 
-## Use your package manager to install curl
+## パッケージマネージャーを使用してcurlをインストール
 
 OSX:
 
@@ -59,17 +59,17 @@ sudo unzip protoc-3.5.1-linux-x86_64.zip -d /usr/local
 sudo chmod +x /usr/local/bin/protoc
 ```
 
-## Download loom
+## Loomのダウンロード
 
-The following script can be used to automatically download the stable version of loom to the current directory:
+次のスクリプトは、現在のディレクトリへ自動的にLoomの安定的なバージョンをダウンロードするのに使用できる。
 
 ```bash
 curl https://raw.githubusercontent.com/loomnetwork/loom-sdk-documentation/master/scripts/get_loom.sh | sh
 ```
 
-## Installation
+## インストール
 
-Run these in the same directory as the previous step.
+前のステップと同じディレクトリで、以下を実行する。
 
 ```bash
 mkdir tmpgopath
@@ -85,19 +85,19 @@ cd build
 cp ../genesis.example.json genesis.json
 ```
 
-## Run Blockchain
+## ブロックチェーンの起動
 
 ```bash
 ../../loom run
 ```
 
-## Send transactions
+## トランザクションの送信
 
-Open a second console
+2 つ目のコンソールを開こう。
 
-This will generate a private key. Create an account. Then set a value, and then read the value from the blockchain.
+このようにして秘密鍵を生成し、アカウントを作成する。そしてバリューを設定し、そのバリューをブロックチェーンから読み取る。
 
-You can read the source of the [blueprint contract here](https://github.com/loomnetwork/weave-blueprint)
+Blueprint contract のソースは[こちら](https://github.com/loomnetwork/weave-blueprint)を参照
 
 ```bash
 cd blueprint/build
