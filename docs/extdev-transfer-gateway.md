@@ -15,9 +15,9 @@ through the high level overview of the [Transfer Gateway][].
 
 If you wish to transfer tokens from a token contract deployed on `Rinkeby` to one that's deployed
 on `extdev` you'll need to ensure that the token contract you deploy to `extdev` implements the
-`mintToGateway` function, some examples are provided below.
+`mintToGateway` function. Sample contracts can be found in the [Truffle DAppChain Example][] repo.
 
-### Sample ERC721 contract
+### MyToken ERC721 contract
 
 ```solidity
 pragma solidity ^0.4.24;
@@ -29,11 +29,11 @@ import "openzeppelin-solidity/contracts/token/ERC721/ERC721Token.sol";
  * This implementation includes all the required and some optional functionality of the ERC721
  * standard, it also contains some required functionality for Loom DAppChain compatiblity.
  */
-contract MyAwesomeToken is ERC721Token {
+contract MyToken is ERC721Token {
     // DAppChain Gateway address
     address public gateway;
 
-    constructor(address _gateway) ERC721Token("MyAwesomeToken", "MAT") public {
+    constructor(address _gateway) ERC721Token("MyToken", "MTC") public {
         gateway = _gateway;
     }
 
@@ -46,19 +46,19 @@ contract MyAwesomeToken is ERC721Token {
 }
 ```
 
-### Sample ERC20 contract
+### MyCoin ERC20 contract
 
 ```solidity
 pragma solidity ^0.4.24;
 
 import "openzeppelin-solidity/contracts/token/ERC20/StandardToken.sol";
 
-contract SampleERC20Token is StandardToken {
+contract MyCoin is StandardToken {
     // Transfer Gateway contract address
     address public gateway;
 
-    string public name = "MyOtherAwesomeToken";
-    string public symbol = "OAT";
+    string public name = "MyCoin";
+    string public symbol = "MCT";
     uint8 public decimals = 18;
     
     constructor(address _gateway) public {
@@ -74,8 +74,39 @@ contract SampleERC20Token is StandardToken {
 }
 ```
 
-Once your token contract is ready to deploy to `extdev` ensure that your DAppChain account has some
-[karma][], set the Transfer Gateway address in your Truffle migration, and deploy away.
+If you've already completed the [Testnet Tutorial][] then the `MyToken` and `MyCoin` contracts have
+already been deployed to `extdev`, and if you haven't, please do so now, then return to this page.
+
+Now that the token contracts are deployed to `extdev`, take a look in the `src/contracts/build`
+dir of your `truffle-dappchain-example` checkout.
+
+In `MyToken.json` you'll find a section similar to this:
+
+```json
+  "networks": {
+    "extdev-plasma-us1": {
+      "events": {},
+      "links": {},
+      "address": "0x04aed4899e1514e9ebd3b1ea19d845d60f9eab95",
+      "transactionHash": "0x9db0fd6cc1d25f55391b0edf46568314530c340f505692760f92215d7063ed17"
+    }
+  },
+```
+
+In `MyCoin.json` you'll find a section similar to this:
+```json
+  "networks": {
+    "extdev-plasma-us1": {
+      "events": {},
+      "links": {},
+      "address": "0x60ab575af210cc952999976854e938447e919871",
+      "transactionHash": "0xefacc88f84a4371e51876a981f1d966d83c1c0f5d941c0c122d4928538d85ae4"
+    }
+  },
+```
+
+Take note of the `address` fields, these are the addresses of the deployed contracts, you'll need
+them soon.
 
 
 ## 2. Deploy token contract to `Rinkeby`
@@ -141,6 +172,7 @@ If you haven't already, take a look at the [Transfer Gateway Example][] project,
 using the Transfer Gateway API provided by [loom-js][].
 
 
-[karma]: join-testnet.html
+[Testnet Tutorial]: join-testnet.html
+[Truffle DAppChain Example]: https://github.com/loomnetwork/truffle-dappchain-example
 [Transfer Gateway]: transfer-gateway.html
 [Transfer Gateway Example]: https://github.com/loomnetwork/transfer-gateway-example

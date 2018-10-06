@@ -25,8 +25,8 @@ result
 local address: 0x3B334bEd1e7d3e7d9214495120160D9236aCbC31
 local address base64: OzNL7R59Pn2SFElRIBYNkjasvDE=
 ```
-and this will create files name`priv_key` and `pub_key` 
-while `priv_key` will store your private key that use for deploy contract
+and this will create files named `priv_key` and `pub_key`,
+the `priv_key` file contains your private key that you'll use to deploy contracts to the DAppChain.
 
 
 # How to use Karma faucet
@@ -55,47 +55,23 @@ while `priv_key` will store your private key that use for deploy contract
 # Deploy Truffle Example to a Testnet
 
 1. Make sure you have node and yarn/npm installed
-1. Obtain the testnet URL from [testnets-plasma](testsnets-plasma.html)
-1. Get the source:
+2. Obtain the testnet URL from [testnets-plasma](testsnets-plasma.html)
+3. Get the source:
     ```bash
     git clone https://github.com/loomnetwork/truffle-dappchain-example
     cd truffle-dappchain-example
-    cp ../priv_key private_key
+    # copy the private key generated earlier to the root directory of the example repo
+    cp ../priv_key extdev_private_key
     ```
-1. Edit `truffle-config.js` and modify these values with the values obtained from the testnets-plasma page:
-    * `chainId` - `extdev-plasma-us1`
-    * `writeUrl` - `http://extdev-plasma-us1.dappchains.com:80/rpc`
-    * `readUrl` - `http://extdev-plasma-us1.dappchains.com:80/query`
-        
-        example 
-        ```js
-        const LoomTruffleProvider = require('loom-truffle-provider') 
-
-        const chainId = 'extdev-plasma-us1'
-        const writeUrl = 'http://extdev-plasma-us1.dappchains.com:80/rpc'
-        const readUrl = 'http://extdev-plasma-us1.dappchains.com:80/query'
-
-        const privateKey = "<--- your key in priv_key file--->"
-
-        const loomTruffleProvider = new LoomTruffleProvider(chainId, writeUrl, readUrl, privateKey) 
-
-        module.exports = { 
-            networks: { 
-                loom_dapp_chain: { 
-                    provider: loomTruffleProvider, 
-                    network_id: '*' 
-                }
-            } 
-        }
-        ```
-        
-1. Install node modules:
+4. If you wish to deploy the example contracts to `extdev-plasma-us1` skip this step. Otherwise,
+   add the network you wish to deploy to in `truffle-config.js`.
+5. Install node modules:
     ```bash
     yarn
     ```
-1. Run deploy:
+6. Run deploy:
     ```bash
-    yarn deploy
+    yarn deploy:extdev
     ```
     If you don't have karma this will fail with error `Failed to commit Tx: origin has no karma`
     so you need to request karma from [Karma Faucet](http://faucet.dappchains.com)
