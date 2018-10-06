@@ -7,7 +7,7 @@ Karmaモジュールは、トランザクションの制限方法を提供する
 
 ## インストール
 
-To install, include the karma contract in the genesis.json file when starting the chain for the first time.
+インストールを行うには、チェーン初回スタート時、karmaコントラクトをgenesis.jsonファイルに含めること。
 
 ```json
      {
@@ -21,11 +21,11 @@ To install, include the karma contract in the genesis.json file when starting th
 
 ```
 
-## Activation and loom.yaml
+## アクティベーションとloom.yaml
 
-Activating the karma functionality is done from the loom.yaml configuration file.
+Karmaの機能のアクティベートは、loom.yaml設定ファイルにより行われる。
 
-* `KarmaEnabled bool` Flag that sets the karma module on or off. 
+* `KarmaEnabled bool` Karmaモジュールのon/offを設定するフラグ。 
 * `KarmaSessionDuration int64` A Time period in seconds. Karma restricts users to a configurable number of transactions during any interval of `SessionDuration` seconds.
 * `KarmaMaxCallCount int64` Base value used to calculate number of call Transaction permitted per `SessionDuration`. A `KarmaMaxCallCount int64` of `0` indicates there are no limit imposed on call transactions number.
 * `KarmaMaxDeployCount int64` Base value used to calculate number of deploy Transaction permitted per `SessionDuration`. A `KarmaMaxDeployCount int64` of `0` indicates there are no limit imposed on deploy transactions number. Example loom.yaml fragment.
