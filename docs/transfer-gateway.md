@@ -16,11 +16,6 @@ The Transfer Gateway consists of four main components:
 - Address Mapper Go contract on the Loom DAppChain
 - Gateway Oracle (can run in-process on a DAppChain node, or as a standalone process)
 
-[ERC20 Transfer Gateway Example](https://github.com/loomnetwork/token-gateway-example)
-
-[ERC721 Transfer Gateway Example](https://github.com/loomnetwork/cards-gateway-example)
-
-
 ![Diagram of ERC721 Transfer to DAppChain](/developers/img/transfer-gateway-erc721-to-dappchain.png)
 
 When a user wishes to transfer a token from their Ethereum account to their DAppChain account they
@@ -37,7 +32,7 @@ by the Gateway Oracle, which signs the withdrawal, and notifies the DAppChain Ga
 Gateway emits an event to let the user know they can withdraw their token from the Mainnet Gateway
 to their Ethereum account by providing the signed withdrawal record.
 
-If you're a hands-on learner you might want to jump straight into the [Transfer Gateway Cards][]
+If you're a hands-on learner you might want to jump straight into the [Transfer Gateway Example][]
 example project before reading any further...
 
 
@@ -70,8 +65,8 @@ contract MyAwesomeToken is ERC721Token("MyAwesomeToken", "MAT") {
 }
 ```
 
-Your DAppChain ERC721 contract must provide a public `mint` method to allow the DAppChain Gateway
-to mint tokens that are transferred from Ethereum:
+Your DAppChain ERC721 contract must provide a public `mintToGateway` method to allow the DAppChain
+Gateway to mint tokens that are transferred from Ethereum:
 
 ```solidity
 pragma solidity ^0.4.24;
@@ -92,13 +87,17 @@ contract MyAwesomeToken is ERC721Token {
     }
 
     // Used by the DAppChain Gateway to mint tokens that have been deposited to the Mainnet Gateway
-    function mint(uint256 _uid) public
+    function mintToGateway(uint256 _uid) public
     {
         require(msg.sender == gateway);
         _mint(gateway, _uid);
     }
 }
 ```
+
+> The DAppChain Gateway will only attempt to mint tokens it doesn't already own, so if you'd rather
+> manage the token supply yourself you can pre-mint them to the DAppChain Gateway instead of
+> implementing the `mintToGateway` function.
 
 When you're happy with your contracts you can deploy them with Truffle to Ethereum and the DAppChain,
 you may want to take a look at [loom-truffle-doc].
@@ -165,10 +164,10 @@ Mainnet account.
 
 You should now have a basic understanding of how the Transfer Gateway works, though we haven't
 presented nor explained any of the actual API yet. If you haven't already, take a look at the
-[Transfer Gateway Cards][] example project, which was built using the Transfer Gateway API provided
+[Transfer Gateway Example][] project, which was built using the Transfer Gateway API provided
 by [loom-js][].
 
-[Transfer Gateway Cards]: https://github.com/loomnetwork/cards-gateway-example
+[Transfer Gateway Cards]: https://github.com/loomnetwork/transfer-gateway-example
 [loom-js]: https://github.com/loomnetwork/loom-js
 [loom-truffle-doc]: web3js-loom-provider-truffle.html
 
