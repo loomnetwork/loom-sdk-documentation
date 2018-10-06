@@ -11,7 +11,7 @@ you've deployed to `extdev` and `Rinkeby`. If you haven't done so already you sh
 through the high level overview of the [Transfer Gateway][].
 
 
-## 1. Deploy token contract to `extdev`
+## 1. Deploy token contracts to `extdev`
 
 If you wish to transfer tokens from a token contract deployed on `Rinkeby` to one that's deployed
 on `extdev` you'll need to ensure that the token contract you deploy to `extdev` implements the
@@ -80,8 +80,7 @@ already been deployed to `extdev`, and if you haven't, please do so now, then re
 Now that the token contracts are deployed to `extdev`, take a look in the `src/contracts/build`
 dir of your `truffle-dappchain-example` checkout.
 
-In `MyToken.json` you'll find a section similar to this:
-
+At the end of `MyToken.json` you'll find a section similar to this:
 ```json
   "networks": {
     "extdev-plasma-us1": {
@@ -93,7 +92,7 @@ In `MyToken.json` you'll find a section similar to this:
   },
 ```
 
-In `MyCoin.json` you'll find a section similar to this:
+At the end of `MyCoin.json` you'll find a section similar to this:
 ```json
   "networks": {
     "extdev-plasma-us1": {
@@ -109,32 +108,92 @@ Take note of the `address` fields, these are the addresses of the deployed contr
 them soon.
 
 
-## 2. Deploy token contract to `Rinkeby`
+## 2. Deploy token contracts to `Rinkeby`
 
-There aren't any special requirements for token contracts deployed to Ethereum networks, so we'll
-assume you've already figured out how to deploy your token contract to `Rinkeby`.
+There aren't any special requirements for token contracts deployed to Ethereum networks. Sample
+`MyRinkebyToken`, and `MyRinkebyCoin`contracts have been provided in the [Truffle DAppChain Example][]
+repo, so we'll deploy them to `Rinkeby`.
 
+1. Generate an Ethereum private key:
+   ```bash
+   cd truffle-dappchain-example
+   # this will create the rinkeby_account, rinkeby_mnemonic, and rinkeby_private_key files
+   yarn gen:rinkeby-key
+   ```
 
-## 3. Map `extdev` contract to `Rinkeby` contract
+2. Give the new account in `rinkeby_account` some ETH so it can be used to deploy contracts to Rinkeby,
+   you can either use https://faucet.rinkeby.io or transfer some ETH from another account.
 
-Once you've deployed your contracts you'll need to let the Transfer Gateway know you want it to
-transfer tokens between the two contracts. You can either do so programmatically using the
-`TransferGateway` class in loom-js, or via the CLI as shown below:
+3. Set your Infura API key (get it from see https://infura.io)
+   ```bash
+   export INFURA_API_KEY=XXXXXXXXXXXXXXXX
+   ```
+
+4. Deploy sample contracts
+   ```
+   yarn deploy:rinkeby
+   ```
+
+5. Take a look in the `src/contracts/build` directory, and make note of the contract addresses and
+   transaction hashes.
+   
+   At the end of `MyRinkebyToken.json` you'll find a section similar to this:
+   ```json
+   "networks": {
+     "4": {
+       "events": {},
+       "links": {},
+       "address": "0x56846c23c432145c4b87c0d835c3e9abe55ae7f5",
+       "transactionHash": "0x82c5776434267478f5bb29a8387a10ac61a9e52b3b2074797a07eac9968fbe3d"
+     }
+   },
+   ```
+
+   At the end of `MyCoin.json` you'll find a section similar to this:
+   ```json
+   "networks": {
+     "4": {
+       "events": {},
+       "links": {},
+       "address": "0x55f0df4e4acdd70161bad66f938fd4d02ad31547",
+       "transactionHash": "0x31e5b6a986916773f97ecd9365562abab8df2819d1c591f96a5f6a3727a2dcec"
+     }
+   },
+   ```
+
+## 3. Map `extdev` contracts to `Rinkeby` contracts
+
+Once you've deployed your contracts to both chains you'll need to let the Transfer Gateway know you
+want it to transfer tokens between the contracts. You can either do so programmatically using the
+`TransferGateway` class in loom-js, or via the CLI. Make sure you double-check the contract
+addresses match the ones you deployed earlier!
 
 ```bash
+# Map MyToken on extdev to MyRinkebyToken on Rinkeby
 ./loom gateway map-contracts \
-    0x2a6b071aD396cEFdd16c731454af0d8c95ECD4B2 0x5d1ddf5223a412d24901c32d14ef56cb706c0f64 \
-    --eth-key file://path/to/eth_priv.key \
-    --eth-tx 0x3fee8c220416862ec836e055d8261f62cd874fdfbf29b3ccba29d271c047f96c \
-    --key file://path/to/loom_priv.key \
+    0x04aed4899e1514e9ebd3b1ea19d845d60f9eab95 0x56846c23c432145c4b87c0d835c3e9abe55ae7f5 \
+    --eth-key file://truffle-dappchain-example/rinkeby_private_key \
+    --eth-tx 0x82c5776434267478f5bb29a8387a10ac61a9e52b3b2074797a07eac9968fbe3d \
+    --key file://truffle-dappchain-example/extdev_private_key \
+    --chain extdev-plasma-us1 \
+    --uri http://extdev-plasma-us1.dappchains.com:80
+
+# Map MyCoin on extdev to MyRinkebyCoin on Rinkeby
+./loom gateway map-contracts \
+    0x60ab575af210cc952999976854e938447e919871 0x55f0df4e4acdd70161bad66f938fd4d02ad31547 \
+    --eth-key file://truffle-dappchain-example/rinkeby_private_key \
+    --eth-tx 0x31e5b6a986916773f97ecd9365562abab8df2819d1c591f96a5f6a3727a2dcec \
+    --key file://truffle-dappchain-example/extdev_private_key \
     --chain extdev-plasma-us1 \
     --uri http://extdev-plasma-us1.dappchains.com:80
 ```
 
 The first argument must be the address of the contract on `extdev`, and the second argument must
-be the address of the contract on `Rinkeby`. `eth-tx` is the hash of the Rinkeby transaction
-that deployed the contract, easiest way to find it is by searching for the contract address on
-https://rinkeby.etherscan.io and looking at the `Contract Creator` details.
+be the address of the contract on `Rinkeby`. `eth-tx` is the hash of the `Rinkeby` transaction
+that deployed the contract with you can usually find in the Truffle generated `.json` file. If you
+deploy the contract in some other way you can find the transaction hash by searching for the
+contract address on https://rinkeby.etherscan.io and then taking a look at the `Contract Creator`
+details.
 
 After you execute this command the Transfer Gateway will attempt to verify that you are the creator
 of both contracts, this may take a couple of minutes.
@@ -149,8 +208,8 @@ the `AddressMapper` class in loom-js, or via the CLI:
 
 ```bash
 ./loom gateway map-accounts \
-    --key file://path/to/loom_priv.key \
-    --eth-key file://path/to/eth_priv.key \
+    --key file://truffle-dappchain-example/extdev_private_key \
+    --eth-key file://truffle-dappchain-example/rinkeby_private_key \
     --chain extdev-plasma-us1 \
     --uri http://extdev-plasma-us1.dappchains.com:80
 ```
@@ -158,8 +217,48 @@ the `AddressMapper` class in loom-js, or via the CLI:
 
 ## Token transfer from `Rinkeby` to `extdev`
 
-TODO: show sample code for ERC721 & ERC20 token transfer via web3, with extdev TG address
+Once all contracts and accounts have been linked you can transfer tokens and ETH to the Rinkeby
+Gateway contract.
 
+For example, to transfer an ERC721 token you'd do something like this:
+```js
+import Web3 from 'web3'
+
+// const MyRinkebyTokenJSON = loaded from MyRinkebyToken.json
+const gatewayAddress = '0x6f7Eb868b2236638c563af71612c9701AC30A388'
+
+async function depositTokenToGateway(tokenId, ownerAccount) {
+  const browserWeb3 = new Web3(window.web3.currentProvider)
+  const networkId = await browserWeb3.eth.net.getId()
+  const contract = new browserWeb3.eth.Contract(
+    MyRinkebyTokenJSON.abi,
+    MyRinkebyTokenJSON.networks[networkId].address
+  )
+  await contract.methods
+    .safeTransferFrom(ownerAccount, gatewayAddress, tokenId)
+    .send({ from: ownerAccount })
+}
+```
+
+And to transfer an ERC20 token you'd do something like this:
+```js
+import Web3 from 'web3'
+
+// const MyRinkebyCoinJSON = loaded from MyRinkebyCoin.json
+const gatewayAddress = '0x6f7Eb868b2236638c563af71612c9701AC30A388'
+
+async function depositCoinToGateway(amount, ownerAccount) {
+  const browserWeb3 = new Web3(window.web3.currentProvider)
+  const networkId = await browserWeb3.eth.net.getId()
+  const contract = new browserWeb3.eth.Contract(
+    MyRinkebyCoinJSON.abi,
+    MyRinkebyCoinJSON.networks[networkId].address
+  )
+  await contract.methods
+    .transferFrom(ownerAccount, gatewayAddress, amount)
+    .send({ from: ownerAccount })
+}
+```
 
 ## Token transfer from `extdev` to `Rinkeby`
 
