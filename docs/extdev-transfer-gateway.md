@@ -221,7 +221,7 @@ Let's deploy these contracts to `Rinkeby`.
    },
    ```
 
-   At the end of `MyCoin.json` you'll find a section similar to this:
+   At the end of `MyRinkebyCoin.json` you'll find a section similar to this:
    ```json
    "networks": {
      "4": {
@@ -238,7 +238,7 @@ Let's deploy these contracts to `Rinkeby`.
 
 Once you've deployed your contracts to both chains you'll need to let the Transfer Gateway know you
 want it to transfer tokens between the contracts. You can either do so programmatically using the
-`TransferGateway` class in loom-js, or via the CLI. Make sure you double-check the contract
+`TransferGateway` class in [loom-js][], or via the `loom` CLI. Make sure you double-check the contract
 addresses match the ones you deployed earlier!
 
 ```bash
@@ -281,7 +281,7 @@ of both contracts, this may take a couple of minutes.
 Now that the two token contracts are connected via the Transfer Gateway you can start transferring
 tokens from `extdev` to `Rinkeby`. However, if you want to transfer tokens from `Rinkeby` to `extdev`
 you'll need to connect your `extdev` account to your `Rinkeby` account, which you can either do using
-the `AddressMapper` class in loom-js, or via the CLI:
+the `AddressMapper` class in [loom-js][], or via the `loom` CLI:
 
 ```bash
 $LOOM_BIN gateway map-accounts \
@@ -292,10 +292,12 @@ $LOOM_BIN gateway map-accounts \
 ```
 
 
-## Token transfer from `Rinkeby` to `extdev`
+## 5. Token transfer
+
+### From `Rinkeby` to `extdev`
 
 Once all contracts and accounts have been linked you can transfer tokens and ETH to the `Rinkeby`
-Gateway contract. We'll use a simple CLI built with `web3` and `loom-js` to transfer ERC721 and
+Gateway contract. We'll use a simple CLI built with `web3` and [loom-js][] to transfer ERC721 and
 ERC20 tokens to the `PlasmaChain`.
 
 Lets start by minting some of the `MyRinkebyToken` ERC721 tokens, and transferring one of them to
@@ -335,8 +337,7 @@ node ./gateway-cli.js coin-balance
 node ./gateway-cli.js coin-balance -a gateway -c eth
 ```
 
-
-## Token transfer from `extdev` to `Rinkeby`
+### From `extdev` to `Rinkeby`
 
 The ERC721 tokens can be transferred back to `Rinkeby` using the `withdraw-token` command.
 ```bash
@@ -368,7 +369,9 @@ node ./gateway-cli.js coin-balance
 node ./gateway-cli.js coin-balance -a gateway -c eth
 ```
 
-Sometimes the withdrawal process may error out due to network issues, or because of gas ran out,
+### Troubleshooting
+
+Sometimes the withdrawal process may error out due to network issues, or because gas ran out,
 if that happens you can try to complete the interrupted withdrawal using the `resume-withdrawal`
 command.
 ```bash
@@ -387,3 +390,4 @@ using the Transfer Gateway API provided by [loom-js][].
 [Truffle DAppChain Example]: https://github.com/loomnetwork/truffle-dappchain-example
 [Transfer Gateway]: transfer-gateway.html
 [Transfer Gateway Example]: https://github.com/loomnetwork/transfer-gateway-example
+[loom-js]: https://github.com/loomnetwork/loom-js
