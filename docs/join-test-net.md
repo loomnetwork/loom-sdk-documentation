@@ -55,7 +55,7 @@ the `priv_key` file contains your private key that you'll use to deploy contract
 # Deploy Truffle Example to a Testnet
 
 1. Make sure you have node and yarn/npm installed
-2. Obtain the testnet URL from [testnets-plasma](testsnets-plasma.html)
+2. Obtain the testnet URL from [PlasmaChain Testnets](testsnet-plasma.html) page
 3. Get the source:
     ```bash
     git clone https://github.com/loomnetwork/truffle-dappchain-example

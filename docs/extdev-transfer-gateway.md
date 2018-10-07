@@ -77,7 +77,7 @@ contract MyCoin is StandardToken {
 If you've already completed the [Testnet Tutorial][] then the `MyToken` and `MyCoin` contracts have
 already been deployed to `extdev`, and if you haven't, please do so now, then return to this page.
 
-Now that the token contracts are deployed to `extdev`, take a look in the `src/contracts/build`
+Now that the token contracts are deployed to `extdev`, take a look in the `src/contracts`
 dir of your `truffle-dappchain-example` checkout.
 
 At the end of `MyToken.json` you'll find a section similar to this:
@@ -134,7 +134,7 @@ repo, so we'll deploy them to `Rinkeby`.
    yarn deploy:rinkeby
    ```
 
-5. Take a look in the `src/contracts/build` directory, and make note of the contract addresses and
+5. Take a look in the `src/contracts` directory, and make note of the contract addresses and
    transaction hashes.
    
    At the end of `MyRinkebyToken.json` you'll find a section similar to this:
@@ -169,21 +169,25 @@ want it to transfer tokens between the contracts. You can either do so programma
 addresses match the ones you deployed earlier!
 
 ```bash
+# set LOOM_BIN to reference your Loom binary
+export LOOM_BIN=`pwd`/loom
+cd truffle-dappchain-example
+
 # Map MyToken on extdev to MyRinkebyToken on Rinkeby
-./loom gateway map-contracts \
+$LOOM_BIN gateway map-contracts \
     0x04aed4899e1514e9ebd3b1ea19d845d60f9eab95 0x56846c23c432145c4b87c0d835c3e9abe55ae7f5 \
-    --eth-key file://truffle-dappchain-example/rinkeby_private_key \
+    --eth-key file://rinkeby_private_key \
     --eth-tx 0x82c5776434267478f5bb29a8387a10ac61a9e52b3b2074797a07eac9968fbe3d \
-    --key file://truffle-dappchain-example/extdev_private_key \
+    --key file://extdev_private_key \
     --chain extdev-plasma-us1 \
     --uri http://extdev-plasma-us1.dappchains.com:80
 
 # Map MyCoin on extdev to MyRinkebyCoin on Rinkeby
-./loom gateway map-contracts \
+$LOOM_BIN gateway map-contracts \
     0x60ab575af210cc952999976854e938447e919871 0x55f0df4e4acdd70161bad66f938fd4d02ad31547 \
-    --eth-key file://truffle-dappchain-example/rinkeby_private_key \
+    --eth-key file://rinkeby_private_key \
     --eth-tx 0x31e5b6a986916773f97ecd9365562abab8df2819d1c591f96a5f6a3727a2dcec \
-    --key file://truffle-dappchain-example/extdev_private_key \
+    --key file://extdev_private_key \
     --chain extdev-plasma-us1 \
     --uri http://extdev-plasma-us1.dappchains.com:80
 ```
@@ -207,9 +211,9 @@ you'll need to connect your `extdev` account to your `Rinkeby` account, which yo
 the `AddressMapper` class in loom-js, or via the CLI:
 
 ```bash
-./loom gateway map-accounts \
-    --key file://truffle-dappchain-example/extdev_private_key \
-    --eth-key file://truffle-dappchain-example/rinkeby_private_key \
+$LOOM_BIN gateway map-accounts \
+    --key file://extdev_private_key \
+    --eth-key file://rinkeby_private_key \
     --chain extdev-plasma-us1 \
     --uri http://extdev-plasma-us1.dappchains.com:80
 ```
@@ -217,52 +221,79 @@ the `AddressMapper` class in loom-js, or via the CLI:
 
 ## Token transfer from `Rinkeby` to `extdev`
 
-Once all contracts and accounts have been linked you can transfer tokens and ETH to the Rinkeby
-Gateway contract.
+Once all contracts and accounts have been linked you can transfer tokens and ETH to the `Rinkeby`
+Gateway contract. We'll use a simple CLI built with `web3` and `loom-js` to transfer ERC721 and
+ERC20 tokens to the `PlasmaChain`.
 
-For example, to transfer an ERC721 token you'd do something like this:
-```js
-import Web3 from 'web3'
+Lets start by minting some of the `MyRinkebyToken` ERC721 tokens, and transferring one of them to
+the `PlasmaChain`.
+```bash
+# mint some tokens on Rinkeby
+node ./gateway-cli.js mint-token 1
+node ./gateway-cli.js mint-token 2
+node ./gateway-cli.js mint-token 3
 
-// const MyRinkebyTokenJSON = loaded from MyRinkebyToken.json
-const gatewayAddress = '0x6f7Eb868b2236638c563af71612c9701AC30A388'
+# transfer a token to extdev PlasmaChain
+node ./gateway-cli.js deposit-token 1
 
-async function depositTokenToGateway(tokenId, ownerAccount) {
-  const browserWeb3 = new Web3(window.web3.currentProvider)
-  const networkId = await browserWeb3.eth.net.getId()
-  const contract = new browserWeb3.eth.Contract(
-    MyRinkebyTokenJSON.abi,
-    MyRinkebyTokenJSON.networks[networkId].address
-  )
-  await contract.methods
-    .safeTransferFrom(ownerAccount, gatewayAddress, tokenId)
-    .send({ from: ownerAccount })
-}
+# check how many tokens you have on Rinkeby
+node ./gateway-cli.js token-balance -c eth
+
+# check how many tokens you have on extdev
+node ./gateway-cli.js token-balance
+
+# check how many tokens the Gateway holds on Rinkeby
+node ./gateway-cli.js token-balance -a gateway -c eth
 ```
 
-And to transfer an ERC20 token you'd do something like this:
-```js
-import Web3 from 'web3'
+And now lets transfer some of the `MyRinkebyCoin` ERC20 tokens, a billion of them have already
+been minted to your account so you can transfer them right away.
+```bash
+# transfer 120 tokens to extdev PlasmaChain
+node ./gateway-cli.js deposit-coin 120
 
-// const MyRinkebyCoinJSON = loaded from MyRinkebyCoin.json
-const gatewayAddress = '0x6f7Eb868b2236638c563af71612c9701AC30A388'
+# check how many tokens you have on Rinkeby
+node ./gateway-cli.js coin-balance -c eth
 
-async function depositCoinToGateway(amount, ownerAccount) {
-  const browserWeb3 = new Web3(window.web3.currentProvider)
-  const networkId = await browserWeb3.eth.net.getId()
-  const contract = new browserWeb3.eth.Contract(
-    MyRinkebyCoinJSON.abi,
-    MyRinkebyCoinJSON.networks[networkId].address
-  )
-  await contract.methods
-    .transferFrom(ownerAccount, gatewayAddress, amount)
-    .send({ from: ownerAccount })
-}
+# check how many tokens you have on extdev
+node ./gateway-cli.js coin-balance
+
+# check how many tokens the Gateway holds on Rinkeby
+node ./gateway-cli.js coin-balance -a gateway -c eth
 ```
+
 
 ## Token transfer from `extdev` to `Rinkeby`
 
-TODO: show sample code for ETH & ERC721 & ERC20 token transfer via loom-js, with extdev TG address
+Here's how you can transfer an ERC721 token back to `Rinkeby`:
+```bash
+# transfer a token to Rinkeby
+node ./gateway-cli.js withdraw-token 1
+
+# check how many tokens you have on Rinkeby
+node ./gateway-cli.js token-balance -c eth
+
+# check how many tokens you have on extdev
+node ./gateway-cli.js token-balance
+
+# check how many tokens the Gateway holds on Rinkeby
+node ./gateway-cli.js token-balance -a gateway -c eth
+```
+
+And of course you can also transfer the ERC20 tokens back to `Rinkeby`:
+```bash
+# transfer 60 tokens to Rinkeby
+node ./gateway-cli.js withdraw-coin 60
+
+# check how many tokens you have on Rinkeby
+node ./gateway-cli.js coin-balance -a gateway -c eth
+
+# check how many tokens you have on extdev
+node ./gateway-cli.js coin-balance
+
+# check how many tokens the Gateway holds on Rinkeby
+node ./gateway-cli.js coin-balance -a gateway -c eth
+```
 
 
 ## Summary
