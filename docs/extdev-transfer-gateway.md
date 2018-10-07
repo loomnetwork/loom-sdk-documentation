@@ -265,7 +265,7 @@ node ./gateway-cli.js coin-balance -a gateway -c eth
 
 ## Token transfer from `extdev` to `Rinkeby`
 
-Here's how you can transfer an ERC721 token back to `Rinkeby`:
+The ERC721 tokens can be transferred back to `Rinkeby` using the `withdraw-token` command.
 ```bash
 # transfer a token to Rinkeby
 node ./gateway-cli.js withdraw-token 1
@@ -280,7 +280,7 @@ node ./gateway-cli.js token-balance
 node ./gateway-cli.js token-balance -a gateway -c eth
 ```
 
-And of course you can also transfer the ERC20 tokens back to `Rinkeby`:
+The ERC20 tokens can be transferred back to `Rinkeby` using the `withdraw-coin` command.
 ```bash
 # transfer 60 tokens to Rinkeby
 node ./gateway-cli.js withdraw-coin 60
@@ -295,6 +295,14 @@ node ./gateway-cli.js coin-balance
 node ./gateway-cli.js coin-balance -a gateway -c eth
 ```
 
+Sometimes the withdrawal process may error out due to network issues, if that happens you can
+try to complete the interrupted withdrawal using the `resume-withdrawal` command.
+
+```bash
+node ./gateway-cli.js resume-withdrawal
+```
+
+> NOTE: Only one pending withrawal is allowed per user.
 
 ## Summary
 
