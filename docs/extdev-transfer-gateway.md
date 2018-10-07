@@ -15,7 +15,7 @@ through the high level overview of the [Transfer Gateway][].
 
 If you wish to transfer tokens from a token contract deployed on `Rinkeby` to one that's deployed
 on `extdev` you'll need to ensure that the token contract you deploy to `extdev` implements the
-`mintToGateway` function. Sample contracts can be found in the [Truffle DAppChain Example][] repo.
+`mintToGateway` function. We've created some sample contracts and a simple CLI to interact with them.
 
 ### MyToken ERC721 contract
 
@@ -24,23 +24,18 @@ pragma solidity ^0.4.24;
 
 import "openzeppelin-solidity/contracts/token/ERC721/ERC721Token.sol";
 
-/**
- * @title Full ERC721 Token for Loom DAppChains
- * This implementation includes all the required and some optional functionality of the ERC721
- * standard, it also contains some required functionality for Loom DAppChain compatiblity.
- */
 contract MyToken is ERC721Token {
-    // DAppChain Gateway address
+    // Transfer Gateway contract address
     address public gateway;
 
     constructor(address _gateway) ERC721Token("MyToken", "MTC") public {
         gateway = _gateway;
     }
 
-    // Used by the DAppChain Gateway to mint tokens that have been deposited to the Mainnet Gateway
+    // Used by the DAppChain Gateway to mint tokens that have been deposited to the Ethereum Gateway
     function mintToGateway(uint256 _uid) public
     {
-        require(msg.sender == gateway);
+        require(msg.sender == gateway, "only the gateway is allowed to mint");
         _mint(gateway, _uid);
     }
 }
@@ -58,7 +53,7 @@ contract MyCoin is StandardToken {
     address public gateway;
 
     string public name = "MyCoin";
-    string public symbol = "MCT";
+    string public symbol = "MCC";
     uint8 public decimals = 18;
     
     constructor(address _gateway) public {
@@ -66,13 +61,16 @@ contract MyCoin is StandardToken {
         totalSupply_ = 0;
     }
 
+    // Used by the DAppChain Gateway to mint tokens that have been deposited to the Ethereum Gateway
     function mintToGateway(uint256 _amount) public {
-        require(msg.sender == gateway);
+        require(msg.sender == gateway, "only the gateway is allowed to mint");
         totalSupply_ = totalSupply_.add(_amount);
         balances[gateway] = balances[gateway].add(_amount);
     }
 }
 ```
+
+Full source for all contracts can be found in the [Truffle DAppChain Example][] repo.
 
 If you've already completed the [Testnet Tutorial][] then the `MyToken` and `MyCoin` contracts have
 already been deployed to `extdev`, and if you haven't, please do so now, then return to this page.
@@ -110,9 +108,83 @@ them soon.
 
 ## 2. Deploy token contracts to `Rinkeby`
 
-There aren't any special requirements for token contracts deployed to Ethereum networks. Sample
-`MyRinkebyToken`, and `MyRinkebyCoin`contracts have been provided in the [Truffle DAppChain Example][]
-repo, so we'll deploy them to `Rinkeby`.
+There aren't any special requirements for token contracts deployed to Ethereum networks, though
+there are safe transfer extensions you may wish to implement in your ERC20 contracts to make it
+easier to deposit tokens into the `Rinkeby` Gateway.
+
+### MyRinkebyToken ERC721 contract
+
+```solidity
+pragma solidity ^0.4.24;
+
+import "openzeppelin-solidity/contracts/token/ERC721/ERC721Token.sol";
+
+contract MyRinkebyToken is ERC721Token {
+    constructor() ERC721Token("MyRinkebyToken", "MRT") public {
+    }
+
+    function mint(uint256 _uid) public
+    {
+        _mint(msg.sender, _uid);
+    }
+
+    // Convenience function to get around crappy function overload limitations in Web3
+    function depositToGateway(address _gateway, uint256 _uid) public {
+        safeTransferFrom(msg.sender, _gateway, _uid);
+    }
+}
+```
+
+### MyRinkebyCoin ERC20 contract
+
+```solidity
+pragma solidity ^0.4.24;
+
+import "openzeppelin-solidity/contracts/token/ERC20/StandardToken.sol";
+import "openzeppelin-solidity/contracts/AddressUtils.sol";
+import "./ERC20Receiver.sol";
+
+contract MyRinkebyCoin is StandardToken {
+    using AddressUtils for address;
+
+    string public name = "MyRinkebyCoin";
+    string public symbol = "MRC";
+    uint8 public decimals = 18;
+
+    // one billion in initial supply
+    uint256 public constant INITIAL_SUPPLY = 1000000000;
+
+    bytes4 constant ERC20_RECEIVED = 0xbc04f0af;
+
+    constructor() public {
+        totalSupply_ = INITIAL_SUPPLY * (10 ** uint256(decimals));
+        balances[msg.sender] = totalSupply_;
+    }
+
+    function safeTransferAndCall(address _to, uint256 _amount) public {
+        transfer(_to, _amount);
+        require(
+            checkAndCallSafeTransfer(msg.sender, _to, _amount),
+            "Sent to a contract which is not an ERC20 receiver"
+        );
+    }
+
+    function checkAndCallSafeTransfer(
+        address _from, address _to, uint256 _amount
+    ) internal returns (bool) {
+        if (!_to.isContract()) {
+            return true;
+        }
+
+        bytes4 retval = ERC20Receiver(_to).onERC20Received(_from, _amount);
+        return (retval == ERC20_RECEIVED);
+    }
+}
+```
+
+Full source for all contracts can be found in the [Truffle DAppChain Example][] repo.
+
+Let's deploy these contracts to `Rinkeby`.
 
 1. Generate an Ethereum private key:
    ```bash
@@ -121,7 +193,7 @@ repo, so we'll deploy them to `Rinkeby`.
    yarn gen:rinkeby-key
    ```
 
-2. Give the new account in `rinkeby_account` some ETH so it can be used to deploy contracts to Rinkeby,
+2. Give the new account in `rinkeby_account` some ETH so it can be used to deploy contracts to `Rinkeby`,
    you can either use https://faucet.rinkeby.io or transfer some ETH from another account.
 
 3. Set your Infura API key (get it from see https://infura.io)
@@ -160,6 +232,7 @@ repo, so we'll deploy them to `Rinkeby`.
      }
    },
    ```
+
 
 ## 3. Map `extdev` contracts to `Rinkeby` contracts
 
@@ -295,9 +368,9 @@ node ./gateway-cli.js coin-balance
 node ./gateway-cli.js coin-balance -a gateway -c eth
 ```
 
-Sometimes the withdrawal process may error out due to network issues, if that happens you can
-try to complete the interrupted withdrawal using the `resume-withdrawal` command.
-
+Sometimes the withdrawal process may error out due to network issues, or because of gas ran out,
+if that happens you can try to complete the interrupted withdrawal using the `resume-withdrawal`
+command.
 ```bash
 node ./gateway-cli.js resume-withdrawal
 ```
