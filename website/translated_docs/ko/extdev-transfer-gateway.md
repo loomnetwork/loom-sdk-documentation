@@ -184,20 +184,26 @@ Let's deploy these contracts to `Rinkeby`.
     yarn gen:rinkeby-key
     ```
 
-2. Give the new account in `rinkeby_account` some ETH so it can be used to deploy contracts to `Rinkeby`, you can either use https://faucet.rinkeby.io or transfer some ETH from another account.
+2. Get the public key for Rinkeby from this file
+    
+    ```bash
+    cat rinkeby_account
+    ```
 
-3. Set your Infura API key (get it from see https://infura.io)
+3. Give the new account in `rinkeby_account` some ETH so it can be used to deploy contracts to `Rinkeby`, you can either use https://faucet.rinkeby.io or transfer some ETH from another account.
+
+4. Set your Infura API key (get it from see https://infura.io)
     
     ```bash
     export INFURA_API_KEY=XXXXXXXXXXXXXXXX
     ```
 
-4. Deploy sample contracts
+5. Deploy sample contracts
     
         yarn deploy:rinkeby
         
 
-5. Take a look in the `src/contracts` directory, and make note of the contract addresses and transaction hashes.
+6. Take a look in the `src/contracts` directory, and make note of the contract addresses and transaction hashes.
     
     At the end of `MyRinkebyToken.json` you'll find a section similar to this:
     
