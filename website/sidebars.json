@@ -10,7 +10,7 @@
     "Monitoring": ["metrics", "logging"],
     "Solidity & EVM": ["evm", "truffle-deploy"],
     "Example Games & Apps": ["etherboy-game", "phaser-sdk-demo", "phaser-sdk-demo-websocket", "phaser-sdk-demo-web3-websocket", "simple-social-network-example"],
-    "Transfer Gateway": ["transfer-gateway", "tf-card-game", "tf-game-token"],
+    "Transfer Gateway": ["transfer-gateway", "extdev-transfer-gateway", "transfer-gateway-example"],
     "Deployment": ["etherboy-backend", "multi-node-deployment", "docker-blueprint-phaser"],
     "Networks": ["testnet-plasma", "validator"],
     "Frequently Asked Questions": ["arch", "release-notes", "common-issues"],
