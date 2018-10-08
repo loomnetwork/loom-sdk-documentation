@@ -8,7 +8,7 @@ sidebar_label: Release Notes
 
 Reverse chronology order of release notes
 
-## Release 478 - Sept 27th
+## Release 478 - Oct 8th
 
 * Updated Transfer Gateway utilities
 * Transfer Gateway [tutorial plasma testnet](extdev-transfer-gateway.html)
