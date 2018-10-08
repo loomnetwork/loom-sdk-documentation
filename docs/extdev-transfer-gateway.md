@@ -72,39 +72,57 @@ contract MyCoin is StandardToken {
 
 Full source for all contracts can be found in the [Truffle DAppChain Example][] repo.
 
-If you've already completed the [Testnet Tutorial][] then the `MyToken` and `MyCoin` contracts have
-already been deployed to `extdev`, and if you haven't, please do so now, then return to this page.
+If you've just completed the [Testnet Tutorial][] then the `MyToken` and `MyCoin` contracts have
+already been deployed to `extdev`, and you can probably skip to the next section. Otherwise, read on.
 
-Now that the token contracts are deployed to `extdev`, take a look in the `src/contracts`
-dir of your `truffle-dappchain-example` checkout.
+1. Download the `loom` binary, while you won't be spinning up your own DAppChain in this tutorial,
+   you will be using some of the CLI commands built into the `loom` binary to interact with the
+   `extdev` PlasmaChain.
 
-At the end of `MyToken.json` you'll find a section similar to this:
-```json
-  "networks": {
-    "extdev-plasma-us1": {
-      "events": {},
-      "links": {},
-      "address": "0x04aed4899e1514e9ebd3b1ea19d845d60f9eab95",
-      "transactionHash": "0x9db0fd6cc1d25f55391b0edf46568314530c340f505692760f92215d7063ed17"
-    }
-  },
-```
+   ```bash
+   curl https://raw.githubusercontent.com/loomnetwork/loom-sdk-documentation/master/scripts/get_loom.sh | sh
+   # set LOOM_BIN to reference the downloaded loom binary,
+   # makes it easy to invoke it from anywhere
+   export LOOM_BIN=`pwd`/loom
+   ```
 
-At the end of `MyCoin.json` you'll find a section similar to this:
-```json
-  "networks": {
-    "extdev-plasma-us1": {
-      "events": {},
-      "links": {},
-      "address": "0x60ab575af210cc952999976854e938447e919871",
-      "transactionHash": "0xefacc88f84a4371e51876a981f1d966d83c1c0f5d941c0c122d4928538d85ae4"
-    }
-  },
-```
+2. Make sure you have `node` (v8 or later) and `yarn` installed.
 
-Take note of the `address` fields, these are the addresses of the deployed contracts, you'll need
-them soon.
+3. Clone the [Truffle DAppChain Example][] repo.
 
+   ```bash
+   git clone https://github.com/loomnetwork/truffle-dappchain-example
+   cd truffle-dappchain-example
+   # install dependencies
+   yarn
+   ```
+
+4. Generate your own private key for deploying and calling contracts on the `extdev` PlasmaChain.
+
+   ```bash
+   $LOOM_BIN genkey -k extdev_private_key -a extdev_public_key
+   ```
+
+   You should see something similar to this displayed in the console:
+
+   ```
+   local address: 0x3B334bEd1e7d3e7d9214495120160D9236aCbC31
+   local address base64: OzNL7R59Pn2SFElRIBYNkjasvDE=
+   ```
+
+   This is the public address that corresponds to your new private key. You'll find the private key
+   in the `extdev_private_key` file, and the corresponding public key in the `extdev_public_key` file.
+
+5. Your new account will need some karma before you can use to deploy or call contracts.
+   Go to the [Karma Faucet](http://faucet.dappchains.com), put in the public address that was just
+   generated for you (the hex encoded one that starts with `0x`), select the `extdev` network,
+   and press the `Request` button to get some karma.
+
+6. Deploy the `MyToken` and `MyCoin` contracts to the `extdev` PlasmaChain.
+
+   ```bash
+   yarn deploy:extdev
+   ```
 
 ## 2. Deploy token contracts to `Rinkeby`
 
@@ -188,20 +206,19 @@ Let's deploy these contracts to `Rinkeby`.
 
 1. Generate an Ethereum private key:
    ```bash
-   cd truffle-dappchain-example
    # this will create the rinkeby_account, rinkeby_mnemonic, and rinkeby_private_key files
    yarn gen:rinkeby-key
    ```
 
-2. Get the public key for Rinkeby from this file 
-    ```bash
-    cat rinkeby_account
-    ```
+2. Get the address of the new `Rinkeby` account from the `rinkeby_account` file.
+   ```bash
+   cat rinkeby_account
+   ```
 
-3. Give the new account in `rinkeby_account` some ETH so it can be used to deploy contracts to `Rinkeby`,
+3. Give the `Rinkeby` account some ETH so it can be used to deploy contracts to `Rinkeby`,
    you can either use https://faucet.rinkeby.io or transfer some ETH from another account.
 
-4. Set your Infura API key (get it from see https://infura.io)
+4. Set your Infura API key (get it from https://infura.io)
    ```bash
    export INFURA_API_KEY=XXXXXXXXXXXXXXXX
    ```
@@ -211,101 +228,57 @@ Let's deploy these contracts to `Rinkeby`.
    yarn deploy:rinkeby
    ```
 
-6. Take a look in the `src/contracts` directory, and make note of the contract addresses and
-   transaction hashes.
-   
-   At the end of `MyRinkebyToken.json` you'll find a section similar to this:
-   ```json
-   "networks": {
-     "4": {
-       "events": {},
-       "links": {},
-       "address": "0x56846c23c432145c4b87c0d835c3e9abe55ae7f5",
-       "transactionHash": "0x82c5776434267478f5bb29a8387a10ac61a9e52b3b2074797a07eac9968fbe3d"
-     }
-   },
+   If this fails with an error similar to this one:
    ```
-
-   At the end of `MyRinkebyCoin.json` you'll find a section similar to this:
-   ```json
-   "networks": {
-     "4": {
-       "events": {},
-       "links": {},
-       "address": "0x55f0df4e4acdd70161bad66f938fd4d02ad31547",
-       "transactionHash": "0x31e5b6a986916773f97ecd9365562abab8df2819d1c591f96a5f6a3727a2dcec"
-     }
-   },
+   Error encountered, bailing. Network state unknown. Review successful transactions manually.
+   insufficient funds for gas * price + value
    ```
-
+   Transfer a bit more ETH to the account in `rinkeby_account`.
 
 ## 3. Map `extdev` contracts to `Rinkeby` contracts
 
 Once you've deployed your contracts to both chains you'll need to let the Transfer Gateway know you
 want it to transfer tokens between the contracts. You can either do so programmatically using the
-`TransferGateway` class in [loom-js][], or via the `loom` CLI. Make sure you double-check the contract
-addresses match the ones you deployed earlier!
+`TransferGateway` class in [loom-js][], or the `loom` CLI. For this tutorial we've built a more
+streamlined JS CLI with `web3` and [loom-js][], so you don't have to go looking for contract
+addresses, transaction hashes, and sacrificial goats.
+
+Map the `MyToken` contract deployed on `extdev` to the `MyRinkebyToken` contract deployed on `Rinkeby`:
 
 ```bash
-# in truffle-dappchain-example
-# set LOOM_BIN to reference your Loom binary
-cd ..
-export LOOM_BIN=`pwd`/loom
-cd truffle-dappchain-example
-
-# Map MyToken on extdev to MyRinkebyToken on Rinkeby
-$LOOM_BIN gateway map-contracts \
-    0x04aed4899e1514e9ebd3b1ea19d845d60f9eab95 0x56846c23c432145c4b87c0d835c3e9abe55ae7f5 \
-    --eth-key file://rinkeby_private_key \
-    --eth-tx 0x82c5776434267478f5bb29a8387a10ac61a9e52b3b2074797a07eac9968fbe3d \
-    --key file://extdev_private_key \
-    --chain extdev-plasma-us1 \
-    --uri http://extdev-plasma-us1.dappchains.com:80
-
-# Map MyCoin on extdev to MyRinkebyCoin on Rinkeby
-$LOOM_BIN gateway map-contracts \
-    0x60ab575af210cc952999976854e938447e919871 0x55f0df4e4acdd70161bad66f938fd4d02ad31547 \
-    --eth-key file://rinkeby_private_key \
-    --eth-tx 0x31e5b6a986916773f97ecd9365562abab8df2819d1c591f96a5f6a3727a2dcec \
-    --key file://extdev_private_key \
-    --chain extdev-plasma-us1 \
-    --uri http://extdev-plasma-us1.dappchains.com:80
+node ./gateway-cli.js map-contracts token
 ```
 
-The first argument must be the address of the contract on `extdev`, and the second argument must
-be the address of the contract on `Rinkeby`. `eth-tx` is the hash of the `Rinkeby` transaction
-that deployed the contract with you can usually find in the Truffle generated `.json` file. If you
-deploy the contract in some other way you can find the transaction hash by searching for the
-contract address on https://rinkeby.etherscan.io and then taking a look at the `Contract Creator`
-details.
+Map the `MyCoin` contract deployed on `extdev` to the `MyRinkebyCoin` contract deployed on `Rinkeby`:
 
-After you execute this command the Transfer Gateway will attempt to verify that you are the creator
-of both contracts, this may take a couple of minutes.
+```bash
+node ./gateway-cli.js map-contracts coin
+```
+
+After you execute these commands the Transfer Gateway will attempt to verify that you are the creator
+of these contracts, this may take a couple of minutes. In the meantime you can proceed to the next
+step.
 
 
 ## 4. Map `extdev` account to `Rinkeby` account
 
 Now that the two token contracts are connected via the Transfer Gateway you can start transferring
 tokens from `extdev` to `Rinkeby`. However, if you want to transfer tokens from `Rinkeby` to `extdev`
-you'll need to connect your `extdev` account to your `Rinkeby` account, which you can either do using
-the `AddressMapper` class in [loom-js][], or via the `loom` CLI:
+you'll need to connect your `extdev` account to your `Rinkeby` account.
 
 ```bash
-$LOOM_BIN gateway map-accounts \
-    --key file://extdev_private_key \
-    --eth-key file://rinkeby_private_key \
-    --chain extdev-plasma-us1 \
-    --uri http://extdev-plasma-us1.dappchains.com:80
+node ./gateway-cli.js map-accounts
 ```
+
+Great, everything should now be ready for flawless token transfer between `extdev` and `Rinkeby`!
 
 
 ## 5. Token transfer
 
 ### From `Rinkeby` to `extdev`
 
-Once all contracts and accounts have been linked you can transfer tokens and ETH to the `Rinkeby`
-Gateway contract. We'll use a simple CLI built with `web3` and [loom-js][] to transfer ERC721 and
-ERC20 tokens to the `PlasmaChain`.
+Now that all contracts and accounts have been mapped you can transfer tokens and ETH to the `Rinkeby`
+Gateway contract.
 
 Lets start by minting some of the `MyRinkebyToken` ERC721 tokens, and transferring one of them to
 the `PlasmaChain`.
