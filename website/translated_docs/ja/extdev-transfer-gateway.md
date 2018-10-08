@@ -9,9 +9,9 @@ sidebar_label: Transfer Gateway Testnet
 
 ## トークンコントラクトを `extdev`にデプロイする
 
-If you wish to transfer tokens from a token contract deployed on `Rinkeby` to one that's deployed on `extdev` you'll need to ensure that the token contract you deploy to `extdev` implements the `mintToGateway` function. We've created some sample contracts and a simple CLI to interact with them.
+もしトークンを `Rinkeby` にデプロイされたトークンコントラクトから`extdev` にデプロイされた誰かのコントラクトに転送したいなら`extdev` にデプロイしたトークンは`mintToGateway`関数を実装することを保証する必要がある。 我々はサンプルのコントラクトと簡単なCLIを作成しそれらを対話させた
 
-### MyToken ERC721 contract
+### MyToken ERC721 コントラクト
 
 ```solidity
 pragma solidity ^0.4.24;
