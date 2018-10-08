@@ -258,11 +258,11 @@ error checking skipped for readability.
 ```go
 import `github.com/loomnetwork/go-loom/builtin/types/karma`
 
-func AddSource(name string, reward int64, signer auth.Ed25519Signer, oracle loom.Addres, karmaContact client.Contract) {
+func AddSource(name string, reward int64, signer auth.Signer, oracle loom.Address, karmaContact client.Contract) {
 
 	// Get the existing configuration parameters
 	var resp karma.KarmaSources
-	_, err = karmaContact.StaticCall("GetSources", oracle.MarshalPB(), oracle, &resp)
+	_, err := karmaContact.StaticCall("GetSources", oracle.MarshalPB(), oracle, &resp)
 	
 	// Add the new source
 	var configVal karma.KarmaSourcesValidator
