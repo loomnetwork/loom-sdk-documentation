@@ -236,7 +236,9 @@ Let's deploy these contracts to `Rinkeby`.
 Once you've deployed your contracts to both chains you'll need to let the Transfer Gateway know you want it to transfer tokens between the contracts. You can either do so programmatically using the `TransferGateway` class in [loom-js](https://github.com/loomnetwork/loom-js), or via the `loom` CLI. Make sure you double-check the contract addresses match the ones you deployed earlier!
 
 ```bash
+# in truffle-dappchain-example
 # set LOOM_BIN to reference your Loom binary
+cd ..
 export LOOM_BIN=`pwd`/loom
 cd truffle-dappchain-example
 
