@@ -7,6 +7,11 @@ sidebar_label: リリースノート
 
 新着順。
 
+## Release 478 - Sept 27th
+
+* Updated Transfer Gateway utilities
+* Transfer Gateway [tutorial plasma testnet](extdev-transfer-gateway.html)
+
 ## Release 458 - Sept 27th
 
 **It is recommended that all users move up to this release**
