@@ -247,7 +247,9 @@ want it to transfer tokens between the contracts. You can either do so programma
 addresses match the ones you deployed earlier!
 
 ```bash
+# in truffle-dappchain-example
 # set LOOM_BIN to reference your Loom binary
+cd ..
 export LOOM_BIN=`pwd`/loom
 cd truffle-dappchain-example
 
