@@ -5,7 +5,7 @@ sidebar_label: Transfer Gateway Testnet
 ---
 ## 概要
 
-In this doc we'll walk you through the setup required to transfer tokens between token contracts you've deployed to `extdev` and `Rinkeby`. If you haven't done so already you should first read through the high level overview of the [Transfer Gateway](transfer-gateway.html).
+このドキュメントではトークンコントラクト間のトークンの転送を必要とするセットアップを解説する。 `extdev`と`Rinkeby`にデプロイしている。 もしまだ終えてないなら最初に高いレベルの概要 [転送ゲートウェイ](transfer-gateway.html)を読むべきである。
 
 ## 1. Deploy token contracts to `extdev`
 
