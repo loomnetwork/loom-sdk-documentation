@@ -7,7 +7,7 @@ sidebar_label: Transfer Gateway Testnet
 
 このドキュメントではトークンコントラクト間のトークンの転送を必要とするセットアップを解説する。 `extdev`と`Rinkeby`にデプロイしている。 もしまだ終えてないなら最初に高いレベルの概要 [転送ゲートウェイ](transfer-gateway.html)を読むべきである。
 
-## 1. Deploy token contracts to `extdev`
+## トークンコントラクトを `extdev`にデプロイする
 
 If you wish to transfer tokens from a token contract deployed on `Rinkeby` to one that's deployed on `extdev` you'll need to ensure that the token contract you deploy to `extdev` implements the `mintToGateway` function. We've created some sample contracts and a simple CLI to interact with them.
 
