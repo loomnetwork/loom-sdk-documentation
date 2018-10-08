@@ -1,7 +1,7 @@
 ---
 id: extdev-transfer-gateway
-title: Testnet Transfer Gateway Tutorial
-sidebar_label: Testnet Tutorial
+title: Transfer Gateway Testnet Tutorial
+sidebar_label: Transfer Gateway Testnet
 ---
 
 ## Overview

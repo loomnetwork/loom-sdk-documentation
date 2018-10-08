@@ -225,7 +225,6 @@ const Banner = props => (
       <div className="banner-copy">
         <h1>
           Loom SDK
-          <span className="banner-beta-label">Beta</span>
         </h1>        
         <h3><translate>Build decentralized worlds</translate></h3>
       </div>
