@@ -19,14 +19,14 @@ pragma solidity ^0.4.24;
 import "openzeppelin-solidity/contracts/token/ERC721/ERC721Token.sol";
 
 contract MyToken is ERC721Token {
-    // Transfer Gateway contract address
+    // Transfer Gateway コントラクトアドレス
     address public gateway;
 
     constructor(address _gateway) ERC721Token("MyToken", "MTC") public {
         gateway = _gateway;
     }
 
-    // Used by the DAppChain Gateway to mint tokens that have been deposited to the Ethereum Gateway
+    // DAppChainゲートウェイによって使われトークンを生成しイーサリアムゲートウェイにデポジットされる
     function mintToGateway(uint256 _uid) public
     {
         require(msg.sender == gateway, "only the gateway is allowed to mint");
@@ -35,7 +35,7 @@ contract MyToken is ERC721Token {
 }
 ```
 
-### MyCoin ERC20 contract
+### MyCoin ERC20 コントラクト
 
 ```solidity
 pragma solidity ^0.4.24;
@@ -43,7 +43,7 @@ pragma solidity ^0.4.24;
 import "openzeppelin-solidity/contracts/token/ERC20/StandardToken.sol";
 
 contract MyCoin is StandardToken {
-    // Transfer Gateway contract address
+    // Transfer Gateway コントラクトアドレス
     address public gateway;
 
     string public name = "MyCoin";
@@ -55,7 +55,7 @@ contract MyCoin is StandardToken {
         totalSupply_ = 0;
     }
 
-    // Used by the DAppChain Gateway to mint tokens that have been deposited to the Ethereum Gateway
+    // DAppChainゲートウェイによって使われトークンを生成しイーサリアムゲートウェイにデポジットされる
     function mintToGateway(uint256 _amount) public {
         require(msg.sender == gateway, "only the gateway is allowed to mint");
         totalSupply_ = totalSupply_.add(_amount);
@@ -64,7 +64,7 @@ contract MyCoin is StandardToken {
 }
 ```
 
-Full source for all contracts can be found in the [Truffle DAppChain Example](https://github.com/loomnetwork/truffle-dappchain-example) repo.
+全てのコントラクトのソースはここで見つかる [Truffle DAppChain Example](https://github.com/loomnetwork/truffle-dappchain-example) 。
 
 If you've just completed the [Testnet Tutorial](join-testnet.html) then the `MyToken` and `MyCoin` contracts have already been deployed to `extdev`, and you can probably skip to the next section. Otherwise, read on.
 
