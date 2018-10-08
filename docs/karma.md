@@ -258,24 +258,22 @@ error checking skipped for readability.
 ```go
 import `github.com/loomnetwork/go-loom/builtin/types/karma`
 
-func AddSource(name string, reward int 64, signer auth.Signer, oracle loom.Addres, karmaContact client.Contract) {
+func AddSource(name string, reward int64, signer auth.Ed25519Signer, oracle loom.Addres, karmaContact client.Contract) {
 
 	// Get the existing configuration parameters
-	var resp karma.KarmaConfig
-	_, err = karmaContact.StaticCall("GetSources", oracle.MarshalPB(), signer, &resp)
-	sources, err := formatJSON(&resp)
+	var resp karma.KarmaSources
+	_, err = karmaContact.StaticCall("GetSources", oracle.MarshalPB(), oracle, &resp)
 	
 	// Add the new source
-	var configVal karma.KarmaConfigValidator
+	var configVal karma.KarmaSourcesValidator
 	configVal.Oracle = oracle.MarshalPB()
-	configVal.Parms = sources
-	configVal.Parms.Sources = append(sources.Parms.Sources, karma.KarmaSourceReward {
+	configVal.Sources = append(resp.Sources, &karma.KarmaSourceReward {
             Name: name,
             Reward: reward,
 	})
 	
 	// Update the source information on the DAppChain
-	_, err = karmaContact.Call("ResetSources", configVal, signer, nil)
+	_, err = karmaContact.Call("ResetSources", &configVal, signer, nil)
 }
 ```
 ## Users
