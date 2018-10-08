@@ -72,14 +72,14 @@ contract MyCoin is StandardToken {
     
     ```bash
     curl https://raw.githubusercontent.com/loomnetwork/loom-sdk-documentation/master/scripts/get_loom.sh | sh
-    # set LOOM_BIN to reference the downloaded loom binary,
-    # makes it easy to invoke it from anywhere
+    # LOOM_BIN をダウンロードしたloomバイナリに参照する
+    # どこからでも簡単に実行できるようにする
     export LOOM_BIN=`pwd`/loom
     ```
 
-2. Make sure you have `node` (v8 or later) and `yarn` installed.
+2. `node` (v8以降) と`yarn`がインストールされてるか確認する。
 
-3. Clone the [Truffle DAppChain Example](https://github.com/loomnetwork/truffle-dappchain-example) repo.
+3. [Truffle DAppChain Example](https://github.com/loomnetwork/truffle-dappchain-example) レポジトリをクローンする。
     
     ```bash
     git clone https://github.com/loomnetwork/truffle-dappchain-example
@@ -88,7 +88,7 @@ contract MyCoin is StandardToken {
     yarn
     ```
 
-4. Generate your own private key for deploying and calling contracts on the `extdev` PlasmaChain.
+4. `extdev`プラズマチェーンのコントラクトを呼びデプロイするために秘密鍵を生成する
     
     ```bash
     $LOOM_BIN genkey -k extdev_private_key -a extdev_public_key
