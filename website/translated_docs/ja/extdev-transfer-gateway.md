@@ -66,9 +66,9 @@ contract MyCoin is StandardToken {
 
 全てのコントラクトのソースはここで見つかる [Truffle DAppChain Example](https://github.com/loomnetwork/truffle-dappchain-example) 。
 
-もし[Testnet Tutorial](join-testnet.html) を完了していたら`MyToken` と `MyCoin`コントラクトがすでに`extdev`にデプロイされていたら次のセクションはスキップできる。 でなければ読み進めよう。
+もし[Testnet Tutorial](join-testnet.html) を完了していたら、`MyToken` と `MyCoin`コントラクトがすでに`extdev`にデプロイされているので、次のセクションはスキップできる。 でなければ読み進めよう。
 
-1. このチュートリアルではあなた自身のDAppChainを実行せず`loom` バイナリをダウンロードする you will be using some of the CLI commands built into the `loom`バイナリにビルドインされたCLIコマンドを使って`extdev` プラズマチェーンとやりとりできる。
+1. このチュートリアルではあなた自身のDAppChainを実行することはしないが、`loom` バイナリをダウンロードしよう。 `loom`バイナリにビルドインされたCLIコマンドを使って、`extdev` PlasmaChainとやりとりできる。
     
     ```bash
     curl https://raw.githubusercontent.com/loomnetwork/loom-sdk-documentation/master/scripts/get_loom.sh | sh
