@@ -80,10 +80,10 @@ contract MyCoin is StandardToken {
 3. [Truffle DAppChain Example](https://github.com/loomnetwork/truffle-dappchain-example) レポジトリをクローンする。
     
     ```bash
-    # clone the tutorial repo to the gateway-tutorial directory
+    # gateway-tutorialディレクトリにチュートリアルリポジトリをクローン
     git clone https://github.com/loomnetwork/truffle-dappchain-example gateway-tutorial
     cd gateway-tutorial
-    # install dependencies
+    # dependenciesのインストール
     yarn
     ```
 
@@ -111,7 +111,7 @@ contract MyCoin is StandardToken {
 
 ## 2. `Rinkeby`にトークンコントラクトをデプロイする。
 
-There aren't any special requirements for token contracts deployed to Ethereum networks, though there are safe transfer extensions you may wish to implement in your ERC20 contracts to make it easier to deposit tokens into the `Rinkeby` Gateway.
+イーサリアムネットワークにデプロイされたトークンコントラクトに特別な要件はないが、`Rinkeby` ゲートウェイにトークンを簡単にデポジットするためにERC20のコントラクトに実装することが好ましい、安全なトランスファー拡張機能がある。
 
 ### MyRinkebyToken ERC721 コントラクト
 
@@ -183,9 +183,9 @@ contract MyRinkebyCoin is StandardToken {
 }
 ```
 
-Full source for all contracts can be found in the [Truffle DAppChain Example](https://github.com/loomnetwork/truffle-dappchain-example) repo.
+全てのコントラクトのソースは [Truffle DAppChain Example](https://github.com/loomnetwork/truffle-dappchain-example)リポジトリにある。
 
-Let's deploy these contracts to `Rinkeby`.
+これらのコントラクトを `Rinkeby`にデプロイしよう。
 
 1. イーサリアム秘密鍵を生成する。
     
@@ -194,13 +194,13 @@ Let's deploy these contracts to `Rinkeby`.
     yarn gen:rinkeby-key
     ```
 
-2. 新しい`Rinkeby`アカウントのアドレスを `rinkeby_account`ファイルから取得する
+2. 新しい`Rinkeby`アカウントのアドレスを `rinkeby_account`ファイルから取得する。
     
     ```bash
     cat rinkeby_account
     ```
 
-3. `Rinkeby`アカウントにETHを与えるので `Rinkeby`にコントラクトをデプロイするために使える もしくは以下かhttps://faucet.rinkeby.io 他のアカウントからETHを送る事も出来る。
+3. `Rinkeby`にコントラクトをデプロイできるよう、`Rinkeby`アカウントにETHを与える。 https://faucet.rinkeby.io を使うか、もしくは他のアカウントからETHを送っても良い。
 
 4. InfuraのAPIキーをセットする (以下で取得https://infura.io)
     
