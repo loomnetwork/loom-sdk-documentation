@@ -3,11 +3,11 @@ id: karma
 title: Karma
 sidebar_label: Karma
 ---
-The karma module provides a way to limit Transactions. Users are limited in the number and timing of transactions by various karma parameters. There is one user called the Oracle who has unlimited access.
+Karmaモジュールは、トランザクションの制限方法を提供する。 ユーザーは様々なkarmaパラメーターにより、トランザクションの数とタイミングを制限される。 Oracleと呼ばれるユーザーは、アクセス無制限となる。
 
-## Installation
+## インストール
 
-To install, include the karma contract in the genesis.json file when starting the chain for the first time.
+インストールを行うには、チェーン初回スタート時、karmaコントラクトをgenesis.jsonファイルに含めること。
 
 ```json
      {
@@ -21,11 +21,11 @@ To install, include the karma contract in the genesis.json file when starting th
 
 ```
 
-## Activation and loom.yaml
+## アクティベーションとloom.yaml
 
-Activating the karma functionality is done from the loom.yaml configuration file.
+Karmaの機能のアクティベートは、loom.yaml設定ファイルにより行われる。
 
-* `KarmaEnabled bool` Flag that sets the karma module on or off. 
+* `KarmaEnabled bool` Karmaモジュールのon/offを設定するフラグ。 
 * `KarmaSessionDuration int64` A Time period in seconds. Karma restricts users to a configurable number of transactions during any interval of `SessionDuration` seconds.
 * `KarmaMaxCallCount int64` Base value used to calculate number of call Transaction permitted per `SessionDuration`. A `KarmaMaxCallCount int64` of `0` indicates there are no limit imposed on call transactions number.
 * `KarmaMaxDeployCount int64` Base value used to calculate number of deploy Transaction permitted per `SessionDuration`. A `KarmaMaxDeployCount int64` of `0` indicates there are no limit imposed on deploy transactions number. Example loom.yaml fragment.
@@ -264,24 +264,22 @@ The following Go code fragment gives an example of how you might do this in Go u
 ```go
 import `github.com/loomnetwork/go-loom/builtin/types/karma`
 
-func AddSource(name string, reward int 64, signer auth.Signer, oracle loom.Addres, karmaContact client.Contract) {
+func AddSource(name string, reward int64, signer auth.Signer, oracle loom.Address, karmaContact client.Contract) {
 
     // Get the existing configuration parameters
-    var resp karma.KarmaConfig
-    _, err = karmaContact.StaticCall("GetSources", oracle.MarshalPB(), signer, &resp)
-    sources, err := formatJSON(&resp)
+    var resp karma.KarmaSources
+    _, err := karmaContact.StaticCall("GetSources", oracle.MarshalPB(), oracle, &resp)
 
     // Add the new source
-    var configVal karma.KarmaConfigValidator
+    var configVal karma.KarmaSourcesValidator
     configVal.Oracle = oracle.MarshalPB()
-    configVal.Parms = sources
-    configVal.Parms.Sources = append(sources.Parms.Sources, karma.KarmaSourceReward {
+    configVal.Sources = append(resp.Sources, &karma.KarmaSourceReward {
             Name: name,
             Reward: reward,
     })
 
     // Update the source information on the DAppChain
-    _, err = karmaContact.Call("ResetSources", configVal, signer, nil)
+    _, err = karmaContact.Call("ResetSources", &configVal, signer, nil)
 }
 ```
 

@@ -5,148 +5,163 @@ sidebar_label: 릴리즈 노트
 ---
 ## 개요
 
-릴리즈 노트의 역순
+릴리즈 노트는 역순으로 구성되어 있습니다.
 
-## 릴리즈 404 - 8월 24일
+## Release 478 - Oct 8th
 
-** 기능
+* Updated Transfer Gateway utilities
+* Transfer Gateway [tutorial plasma testnet](extdev-transfer-gateway.html)
 
-* ERC20 지원 TransferGateway 업그레이드
-* Gateway ERC20 예제 - [예제](https://github.com/loomnetwork/token-gateway-example)
-* Loom SDK 문서의 [한국어](https://loomx.io/developers/ko/) 사이트
-* EVM은 현재 Payable 함수에 대한 제한된 지원을 하고 있으며, 다음주에 추가사항이 나옵니다 
-* TransferGateway로 ERC20/ETH 전송을 위한 Loom-JS 업데이트. 
-* DPoS 컨트랙트에 Loom-JS 통합 
-* [Plasma Debits](https://github.com/loomnetwork/plasma-cash/pull/115)을 위한 실험적인 지원
+## Release 458 - Sept 27th
 
-** 주요 변경사항
+**It is recommended that all users move up to this release**
 
-* QueryServerHost 지원종료, 모든 함수는 RPCServer로 통합.
-* 새로운 설정 옵션: RPCBindAddress: "tcp://0.0.0.0:46658"
-* PBFT 엔진의 업그레이드, 업그레이드시 비호환성 문제가 발생할 수 있으니, 임시 환경에서 시도해보세요 
+* Plasmachain Testnets available for Devs - [Docs](testnet-plasma.html)
+* Karma Faucet for Testnets - [Faucet](http://faucet.dappchains.com)
+* Karma contracts (Sybil resistance) Loom SDK - [Karma](karma.html)
+* Massive performance increasements for high load environments
+* Initial info about running a Validator - [Validator](validator.html)
 
-## 릴리즈 375 - 8월 10일
+## Release 404 - Aug 24th
 
-*주의* 이것은 마이너 호환성 변경사항을 포함한 기능 테스트 릴리즈입니다, 여러분의 프로덕션 환경을 업그레이드 하기 앞서 임시 환경에서 확인을 부탁드립니다.
+** Features
 
-* EVM 컨트랙트의 이벤트와 관련된 수정
-* [Transfer Gateway](transfer-gateway.html)의 베타 릴리즈
-* [Transfer Gateway의 데모](https://github.com/loomnetwork/cards-gateway-example)
-* 메모리 누수 수정
-* 마이너 Api 충돌문제, go-loom/loom-js을 업그레이드 하세요. Unity는 곧 업데이트 예정입니다
-* Go-loom은 API 충돌문제가 업그레이드 되었습니다
-* loom-js는 이번 릴리즈로 업그레이드 되었습니다. 
+* ERC20 support upgraded in TransferGateway
+* Example ERC20 in Gateway - [Example](https://github.com/loomnetwork/token-gateway-example)
+* Loom SDK Doc site in [Korean](https://loomx.io/developers/ko/)
+* EVM now has limited support for Payable functions, more coming next week 
+* Loom-JS updates for ERC20/ETH transfers with TransferGateway. 
+* Loom-JS integration to DPoS contracts 
+* Experimental Support for [Plasma Debits](https://github.com/loomnetwork/plasma-cash/pull/115)
 
-## 릴리즈 330 - 7월 30일
+** Breaking changes
 
-* EVM 컨센서스 문제 수정 
-* Zombiechain 테스트넷을 위한 업데이트
-* 성능 측정을 위한 더 많은 원격 측정 기능 추가
-* Go 컨트랙트를 위한 range query
-* loom.yaml에 ChainID가 추가
+* Deprecrating QueryServerHost, and consolidating all functions to the RPCServer.
+* New Config option: RPCBindAddress: "tcp://0.0.0.0:46658"
+* Upgrades of PBFT engine, this may cause incompatibility issues on upgrades, please try in staging environments 
 
-* [EVM indexed 필터](https://loomx.io/developers/docs/en/web3js-event-filters.html)
+## Release 375 - Aug 10th
 
-* EVM 필터 pool 수정 및 이벤트 시스템
-* indexed 필터를 위한 Loom-JS EVM 업데이트
-* 해시값으로 블록을 가져오기 위한 Loom-JS EVM 수정
+*NOTE* This is a feature test release, with minor compatibility changes, please verify in staging environements before upgrading your production environment.
 
-## 릴리즈 288 - 7월 17일
+* Fixes for Eventing on EVM Contracts
+* Beta release of the [Transfer Gateway](transfer-gateway.html)
+* [Demo of Transfer Gateway](https://github.com/loomnetwork/cards-gateway-example)
+* Memory leak fixes
+* Minor api breakages, please upgrade go-loom/loom-js. Unity updates coming soon
+* Go-loom is upgraded for api breakages
+* loom-js is upgraded for this release. 
 
-* [EVM indexed 필터](https://loomx.io/developers/docs/en/web3js-event-filters.html)
-* EVM 필터 pool 수정 및 이벤트 시스템
-* indexed 필터를 위한 Loom-JS EVM 업데이트
-* 해시값으로 블록을 가져오기 위한 Loom-JS EVM 수정
+## Release 330 - July 30th
 
-## 릴리즈 276 - 7월 13일
+* Fix for consensus problems on EVM 
+* Updates for Zombiechain TestNet
+* Added more telemetry to measure performance
+* Range queries on Go Contracts
+* Added ChainID to loom.yaml
 
-* [새로운 블록 탐색기](block-explorer-tutorial.html)
-* 멀티노드 EVM 수정 
-* 플라즈마 캐시를 위한 Loom-JS 업데이트
-* Zombiechain 테스트넷 수정
-* DPoS 업데이트
+* [EVM indexed filter](https://loomx.io/developers/docs/en/web3js-event-filters.html)
 
-## 릴리즈 209 - 6월 20일
+* EVM filter pool fixes and event system
+* Loom-JS EVM updates for indexed filters
+* Loom-JS EVM fixes for getting block by hash
 
-주요 릴리즈
+## Release 288 - July 17th
 
-* 플라즈마 캐시 초기 통합 - 데모는 다음주에 나올 예정입니다
-* 멀티노드 수정 및 성능 향상
-* 멀티노드를 위한 Ansible 업데이트
-* EVM에서의 Querying / Filtering에 더 많은 타입을 지원 
-* EVM을 위한 Unity SDK 업데이트 
-* EVM을 위한 Loom-JS 업데이트
+* [EVM indexed filter](https://loomx.io/developers/docs/en/web3js-event-filters.html)
+* EVM filter pool fixes and event system
+* Loom-JS EVM updates for indexed filters
+* Loom-JS EVM fixes for getting block by hash
 
-## 릴리즈186 - 6월 19일
+## Release 276 - July 13th
 
-* [EVM Unity 예제 앱](https://loomx.io/developers/docs/en/unity-sample-tiles-chain-evm.html)
-* Solidity 앱을 위한 Unity SDK 지원
-* Ethereum 이벤트 Filtering/Querying에 관한 많은 수정사항
+* [New Block Explorer](block-explorer-tutorial.html)
+* Multinode EVM fixes 
+* Loom-JS updates for Plasma cash
+* Zombiechain testnet fixes
+* DPoS Updates
 
-## 릴리즈 163 - 6월 11일
+## Release 209 - June 20th
 
-* Truffle의 최신 빌드를 위한 지원
-* [Truffle 예제 업데이트](https://github.com/loomnetwork/loom-truffle-provider)
-* Sybil resistance 프레임웍의 초기 구현
-* Websocket 이벤트가 이제 topic을 지원합니다 
-* 업데이트된 websocket topic 지원이 포함된 Loom-JS 1.8.0 릴리즈
+Major release
 
-## 릴리즈 161 - 6월 7일
+* Plasma Cash initial integration - Demos coming next week
+* Multinode fixes and performance increases
+* Ansible updates for multinode
+* Querying / Filtering on EVM supports more types 
+* Unity SDK updates for EVM 
+* Loom-JS updates for EVM
 
-* 수많은 Truffle 수정사항들
-* 수많은 Loom-Js provider와 관련된 web3.js 수정사항들
+## Release 186 - June 19th
 
-## 릴리즈 155 - 6월 6일
+* [EVM Unity Example app](https://loomx.io/developers/docs/en/unity-sample-tiles-chain-evm.html)
+* Unity SDK support for Solidity Apps
+* Many fixes for Filtering/Querying Ethereum Events
 
-* [Cocos SDK이 동작합니다](cocos-sdk-quickstart.html)
-* [Truffle을 지원합니다](truffle-deploy.html)
-* 이제 EVM에 static call이 허용됩니다
-* 수많은 시나리오에 관한 EVM 수정 
+## Release 163 - June 11th
 
-## 릴리즈 143 - 6월 1일
+* Support for latest Build of Truffle
+* [Updated truffle example](https://github.com/loomnetwork/loom-truffle-provider)
+* Initial Implementation of Sybil resistance framework
+* Websocket events now support topics 
+* Loom-JS 1.8.0 Release with updated websocket topic support
 
-* [BluePrint 도커 이미지 사용이 가능합니다](docker-blueprint.html)
-* [일본 해커톤 결과](https://medium.com/loom-network/highlights-from-the-first-loom-unity-sdk-hackathon-tokyo-edition-6ed723747c19)
-* [몇개의 Loom SDK 프로젝트를 위한 도커 이미지](https://hub.docker.com/r/loomnetwork/)
-* Evm TX Reciepts 수정 
+## Release 161 - June 7th
 
-## 릴리즈 137 - 5월 30일
+* Tons of Truffle Fixes
+* Tons of web3.js fixes for Loom-Js provider
 
-* Go Client가 EVM 컨트랙트에 접근 가능합니다
-* EVM을 위한 수많은 버그 수정
-* [소셜 네트워크 예제 앱 - Solidity](simple-social-network-example.html)
+## Release 155 - June 6th
 
-## 릴리즈 136 - 5월 28일
+* [Cocos SDK is Live](cocos-sdk-quickstart.html)
+* [Truffle Support available](truffle-deploy.html)
+* Static calls to EVM now allow caller
+* EVM Fixes for a lot of scenarios 
 
-* 초기 Solidity 알파 테스트 빌드, 이제 solidity 컨트랙트를 배포할 수 있습니다
-* Solidity를 위한 Websocket 이벤트 지원 
-* [Solidity 이벤트에 관한 예제 프로젝트](phaser-sdk-demo-web3-websocket.html)
-* [멀티노드 배포 가이드](multi-node-deployment.html)
+## Release 143 - June 1st
 
-## 릴리즈 133 - 5월 24일
+* [BluePrint Docker Images Available](docker-blueprint.html)
+* [Japanese Hackathon Results](https://medium.com/loom-network/highlights-from-the-first-loom-unity-sdk-hackathon-tokyo-edition-6ed723747c19)
+* [Docker Images for some of Loom SDK Projects](https://hub.docker.com/r/loomnetwork/)
+* Evm TX Reciepts fixes 
 
-* [Etherboy 데모 릴리즈](https://loomx.io/developers/docs/en/etherboy-game.html)
-* [일본어 문서 릴리즈](https://loomx.io/developers/ja)
-* [문서 사이트](https://loomx.io/developers/en/)를 위한 홈페이지 업데이트 
+## Release 137 - May 30th
 
-## 릴리즈 132 - 5월 23일
+* Go Clients can Access EVM Contracts
+* Numerous bug fixes for EVM
+* [Social Network Example App - Solidity](simple-social-network-example.html)
 
-* Websocket 성능 개선
-* 새로운 Websocket 데모 앱 - TilesChain - [Github](https://github.com/loomnetwork/tiles-chain) 
+## Release 136 - May 28th
 
-## 릴리즈 129 - 5월 22일
+* Initial Solidity Alpha test build, you can now deploy solidity contracts
+* Websocket eventing support for solidity 
+* [Example Project for solidity Events](phaser-sdk-demo-web3-websocket.html)
+* [Multinode deployment guide](multi-node-deployment.html)
 
-* 이벤트를 위한 Websocket 지원
-* Solidity 컨트랙트를 위한 indexing 레이어 업데이트
-* Phaser 게임 데모 - [Github](https://github.com/loomnetwork/phaser-sdk-demo)
+## Release 133 - May 24th
 
-## 릴리즈 128 - 5월 21일
+* [Etherboy Demo released](https://loomx.io/developers/docs/en/etherboy-game.html)
+* [Japanese Docs released](https://loomx.io/developers/ja)
+* Updated Homepage for [docs site](https://loomx.io/developers/en/) 
 
-* Etherboy와 관련된 수많은 버그 수정
+## Release 132 - May 23rd
 
-## 릴리즈 128 - 5월 19일
+* Websocket performance fixes
+* New Websocket Demo App - TilesChain - [Github](https://github.com/loomnetwork/tiles-chain) 
 
-* Stable 베타 릴리즈
-* 로깅이 기본적으로 여러 파일에 되도록 업데이트 
-* 모든 RPC를 단일 인터페이스로 이동
-* 외부 프로세스 인터페이스 업데이트
+## Release 129 - May 22rd
+
+* Websocket support for eventing
+* Updates to indexing layer for solidty contracts
+* Phaser Game Dame - [Github](https://github.com/loomnetwork/phaser-sdk-demo)
+
+## Release 128 - May 21th
+
+* Lots of bug fixes for Etherboy
+
+## Release 128 - May 19th
+
+* Stable Beta Release
+* Updating logging to default to multiple files 
+* Moving all RPC to a single interface
+* Updated External Process interface

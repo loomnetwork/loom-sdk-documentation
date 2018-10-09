@@ -14,7 +14,7 @@ sidebar_label: Etherboy 백엔드
 2. 바이너리를 다운로드하세요:
     
     ```bash
-    wget https://private.delegatecall.com/loom/linux/build-404/loom
+    wget https://private.delegatecall.com/loom/linux/stable/loom
     wget https://private.delegatecall.com/etherboy/linux/build-53/etherboycli
     chmod +x loom etherboycli
     

@@ -14,25 +14,21 @@ Transfer 게이트웨이는 4가지 주요 컴포넌트로 구성되어 있습�
 - Loom DAppChain 위에 올라간 어드레스 Mapper Go 컨트랙트
 - 게이트웨이 Oracle (DAppChain 노드 위에서 실행되는 프로세스 혹은 독립적인 프로세스로 동작될 수 있음)
 
-[ERC20 Transfer 게이트웨이 예제](https://github.com/loomnetwork/token-gateway-example)
-
-[ERC721 Transfer 게이트웨이 예제](https://github.com/loomnetwork/cards-gateway-example)
-
 ![Diagram of ERC721 Transfer to DAppChain](/developers/img/transfer-gateway-erc721-to-dappchain.png)
 
-사용자가 자신의 이더리움 계정에서 DAppChain 계정으로 토큰을 전송하고자 할때 먼저 메인넷 게이트웨이에 전송을 하여야 하며, 다음으로 입금 이벤트가 발생됩니다. 입금 이벤트는 게이트웨이 Oracle에 의해서 선택되고 DAppChain 게이트웨이로 보냅니다. DAppChain 게이트웨이는 토큰을 메인넷 게이트웨이로 입금한 사용자의 DAppChain 계정으로 전송합니다.
+When a user wishes to transfer a token from their Ethereum account to their DAppChain account they must first transfer it to the Mainnet Gateway, which in turns emits a deposit event. The deposit event is picked up by the Gateway Oracle which forwards it onto the DAppChain Gateway. The DAppChain Gateway then transfers the token to the DAppChain account of the user that deposited the token into the Mainnet Gateway.
 
 ![Diagram of ERC721 Transfer to Ethereum](/developers/img/transfer-gateway-erc721-to-ethereum.png)
 
-동일한 토큰을 다시 그들의 이더리움 계정으로 돌려받으려면 사용자는 먼저 토큰을 다시 DAppChain 게이트웨이로 보내야하며, 이것은 보류 인출을 생성합니다 보류 인출은 게이트웨이 Oracle에 의해 선택되고 인출이 서명되어서 DAppChain 게이트웨이에게 알려줍니다. DAppChain 게이트웨이는 사용자에게 자신의 토큰을 메인넷 게이트웨이로에서 이더리움 계정으로 인출할 수 있다는 것을 알게 해주기 위해 서명된 인출 기록을 제공하여 이벤트는 내보냅니다.
+To get that same token back into their Ethereum account the user must first transfer the token back to the DAppChain Gateway, which creates a pending withdrawal. The pending withdrawal is picked up by the Gateway Oracle, which signs the withdrawal, and notifies the DAppChain Gateway. The DAppChain Gateway emits an event to let the user know they can withdraw their token from the Mainnet Gateway to their Ethereum account by providing the signed withdrawal record.
 
-여러분이 실습 학습자라면 더 읽기전에 [Transfer 게이트웨이 카드](https://github.com/loomnetwork/cards-gateway-example) 예제 프로젝트로 바로 뛰어들길 원하실 수도 있겠네요...
+If you're a hands-on learner you might want to jump straight into the \[Transfer Gateway Example\]\[\] example project before reading any further...
 
 ## ERC721 컨트랙트 설정하기
 
-ERC721 토큰을 이더리움에서 DAppChain으로 전송하려면 여러분만의 두개의 ERC721 컨트랙트가 필요합니다, 하나는 이더리움 (메인넷 ERC721) 위에, 나머지는 DAppChain (DAppChain ERC721) 위에.
+To transfer an ERC721 token from Ethereum to the DAppChain you'll need two of your own ERC721 contracts, one on Ethereum (Mainnet ERC721), and the other on the DAppChain (DAppChain ERC721).
 
-여러분의 메인넷 ERC721 컨트랙트는 Transfer 게이트웨이와 작동하기 위해서 틀별한 것이 필요하지는 않습니다. 비록 아래처럼 메인넷 게이트웨이로의 토큰 전송을 좀 더 쉽게 해주는 `depositToGateway`과 같은 것을 추가해야하지만:
+Your Mainnet ERC721 contract doesn't need anything special to work with the Transfer Gateway. Though you might want to add something like the `depositToGateway` method below to make it a bit easier to transfer tokens into the Mainnet Gateway:
 
 ```solidity
 pragma solidity ^0.4.24;
@@ -54,7 +50,7 @@ contract MyAwesomeToken is ERC721Token("MyAwesomeToken", "MAT") {
 }
 ```
 
-여러분의 DAppChain ERC721 컨트랙트는 이더리움에서 전송된 토큰을 발행하기 위해서 반드시 public `mint` 메소드를 제공해야만 합니다:
+Your DAppChain ERC721 contract must provide a public `mintToGateway` method to allow the DAppChain Gateway to mint tokens that are transferred from Ethereum:
 
 ```solidity
 pragma solidity ^0.4.24;
@@ -74,8 +70,8 @@ contract MyAwesomeToken is ERC721Token {
         gateway = _gateway;
     }
 
-    // Mainnet 게이트웨이에서 입금되는 토큰을 발행하기 위해서 DAppChain 게이트웨이에서 사용됨
-    function mint(uint256 _uid) public
+    // Used by the DAppChain Gateway to mint tokens that have been deposited to the Mainnet Gateway
+    function mintToGateway(uint256 _uid) public
     {
         require(msg.sender == gateway);
         _mint(gateway, _uid);
@@ -83,32 +79,34 @@ contract MyAwesomeToken is ERC721Token {
 }
 ```
 
-여러분의 컨트랙트에 만족한다면 Truffle을 이용해서 이더리움과 DAppChain에 배포할 수 있습니다, [loom-truffle-doc](web3js-loom-provider-truffle.html)을 살펴보세요.
+> The DAppChain Gateway will only attempt to mint tokens it doesn't already own, so if you'd rather manage the token supply yourself you can pre-mint them to the DAppChain Gateway instead of implementing the `mintToGateway` function.
+
+When you're happy with your contracts you can deploy them with Truffle to Ethereum and the DAppChain, you may want to take a look at [loom-truffle-doc](web3js-loom-provider-truffle.html).
 
 ## 메인넷 컨트랙트와 DAppChain 컨트랙트 매핑하기
 
-일단 여러분의 컨트랙트가 배포되면, DAppChain 게이트웨이에게 그들 사이에 매핑을 해달라고 요청을 보내는 것이 필요합니다. DAppChain 게이트웨이가 여러분의 메인넷 ERC721 컨트랙트의 토큰이 메인넷 게이트웨이에 입금된 것에 대한 알림을 받으면, 여러분의 DAppChain ERC721 컨트랙트에서 매칭되는 토큰을 발행할 것입니다 (토큰이 DAppChain에 존재하지 않는한). DAppChain 게이트웨이는 여러분이 두개의 컨트랙트를 모두 배포했다는게 증명되지 않으면 매핑된 컨트랙트의 생성을 거부할 것입니다.
+Once you've deployed your contracts you'll need to send a request to the DAppChain Gateway to create a mapping between them. When the DAppChain Gateway is notified that a token from your Mainnet ERC721 contract has been deposited to the Mainnet Gateway it will mint a matching token in your DAppChain ERC721 contract (unless the token already exists on the DAppChain). The DAppChain Gateway will refuse to create a contract mapping unless you provide proof that you deployed both contracts.
 
-메인넷 ERC721 컨트랙트의 배포를 증명하기 위해서 컨트랙트를 배포하는데 사용된 이더리움 프라이빗 키를 사용해서 인증된 메시지에 의해서 생성된 시그니처와 컨트랙트를 배포한 메인넷 트랜잭션의 해쉬값을 제공해야만 합니다.
+To prove that you deployed the Mainnet ERC721 contract you must provide a signature generated by signing a message using the Ethereum private key you used to deploy the contract, and a hash of the Mainnet transaction that deployed the contract.
 
-DAppChain ERC721 컨트랙트의 배포를 증명하기 위해서는 간단히 컨트랙트를 배포하는 데 사용된 DAppChain 프라이빗 키를 사용하여 DAppChain 게이트웨이로 보낸 요청을 서명하면 됩니다, DAppChain 게이트웨이는 DAppChain 컨트랙트 레지스트리에 있는 컨트랙트 생성자를 조회해서 컨트랙트의 배포를 요청한 발신자를 인증할 것 입니다,
+To prove that you deployed the DAppChain ERC721 contract you simply need to sign the request sent to the DAppChain Gateway using the DAppChain private key you used to deploy the contract, the DAppChain Gateway will verify that the sender of the request deployed the contract by looking up the contract creator in the DAppChain contract registry.
 
-DAppChain 게이트웨이가 컨트랙트 매핑 요청을 수신하면, 게이트웨이 오라클에 의해서 선택되기 전까지 약간의 대기시간이 발생합니다. 게이트웨이 오라클은 정말로 배포가 되었는지를 확인하기 위해서 메인넷 컨트랙트에 배포된 트랜잭션을 조회할 것입니다, 그리고 DAppChain 게이트웨이에게 다시 결과를 제출하고, 요청된 매핑에 대해서 승인이 되거나 거부될 것입니다.
+After a contract mapping request is received by the DAppChain Gateway there will be a small delay before it is picked up by the Gateway Oracle. The Gateway Oracle will lookup the transaction that deployed the Mainnet contract to find out who really deployed it, and will then submit its findings back to the DAppChain Gateway, which will either approve the requested mapping, or simply throw it out.
 
 ## DAppChain으로 ERC721 토큰 전송하기
 
-Alice는 메인넷에 있는 여러분의 멋진 토큰중 하나를 획득하고 싶어서 그것을 당장 DAppChain 계정으로 전송하고 싶어합니다. 그렇게 하려면 그전에 그녀는 이더리움과 DAppChain 계정간의 매핑을 생성해주는 Address Mapper 컨트랙트 요청을 보내야만 합니다. DAppChain 게이트웨이와 같이 Address Mapper는 Alice가 두곳의 계정 소유자라는 것을 증명하지 않으면 계정 매핑 생성을 거부할 것입니다.
+Alice has managed to acquire one of your awesome tokens on Mainnet and now wants to transfer it to her DAppChain account. Before she can do so she must send a request to the Address Mapper contract to create a mapping between her Ethereum and DAppChain accounts. Like the DAppChain Gateway the Address Mapper will refuse to create an account mapping unless Alice provides proof that she is the owner of both accounts.
 
-그녀가 자신의 메인넷 계정을 소유하고 있다는 것을 증명하기 위해서 Alice는 계정과 연관된 이더리움 프라이빗 키를 사용하여 서명된 메시지가 생성해주는 서명을 제공해야만 합니다. 그리고 그녀가 자신의 DAppChain 계정을 가지고 있다는 것을 증명하기 위해서 그녀의 계정과 연관된 DAppChain 프라이빗 키를 이용해서 DAppChain 게이트웨이에 보내는 요청에 서명하면됩니다. Address Mapper가 요청을 받자마자 요청된 계정 매핑 생성을 생성할 것이고, Alice는 이더리움과 DAppChain 계정 사이의 토큰 전송을 시작할 수 있습니다.
+To prove that she owns her Mainnet account Alice must provide a signature generated by signing a message using the Ethereum private key associated with the account. And to prove she owns her DAppChain account she just needs to sign the request she sends to the DAppChain Gateway using the DAppChain private key associated with her account. As soon as the Address Mapper receives the request it will create the requested account mapping, and Alice can start transferring tokens between her Ethereum and DAppChain accounts.
 
 ## 이더리움으로 ERC721 token 전송하기
 
-Alice는 DAppChain에 재미를 느꼈기 때문에 DAppChain 계정에서 그녀의 토큰을 메인넷 계정으로 다시 전송하려고 합니다. 먼저 그녀는 전송하고자 하는 토큰의 소유권을 넘기는 위해 DAppChain 게이트웨이의 승인을 받아야 합니다, 그녀는 DAppChain ERC721계정에 요청을 보내서 이를 수행 할 수 있습니다.
+Alice has had her fun on the DAppChain so she wants to transfer her token from her DAppChain account back to her Mainnet account. First she must grant approval to the DAppChain Gateway to take over ownership of the token she wants to transfer, she can do this by sending a request to the DAppChain ERC721 contract.
 
-다음으로, Alice는 토큰 출금 프로세스를 시작하기 위해서 DAppChain 게이트웨이에게 요청을 보내야만 합니다. DAppChain 게이트웨이가 요청을 받으면 Alice를 위한 보류 인출 기록을 생성합니다, 그리고 보류 인출을 서명하기 위해서 게이트웨이 오라클을 기다립니다. 약간의 대기시간 이후에 게이트웨이 오라클은 보류 인출을 서명하고, DAppChain 게이트웨이에 서명을 제출합니다, Alice에게 그녀의 보류 인출이 서명되었다는 것을 알리기 위한 이벤트를 차례로 내보냅니다.
+Next, Alice should send a request to the DAppChain Gateway to start the token withdrawal process. When the DAppChain Gateway receives the request it creates a pending withdrawal record for Alice, and then waits for the Gateway Oracle to sign the pending withdrawal. After a small delay the Gateway Oracle signs the pending withdrawal, and submits the signature to the DAppChain Gateway, which in turn emits an event to notify Alice that her pending withdrawal has been signed.
 
-인출 프로세스를 완료하기 위해서 Alice는 인출 서명 (게이트웨이 오라클이 생성한) 을 메인넷 게이트웨이에 제공해야합니다, 그런다음 해당 토큰을 Alice의 메인넷 계정으로 전송합니다.
+To complete the withdrawal process Alice must provide the withdrawal signature (generated by the Gateway Oracle) to the Mainnet Gateway, which then transfers the corresponding token to Alice's Mainnet account.
 
 ## 요약
 
-이제 Transfer 게이트웨이가 어떻게 작동 하는지에 대한 기본적인 이해를 해야합니다, 비록 실제 API를 제시하거나 설명하지 않았지만요. 만약 아직 보지 않았다면, [Transfer Gateway Cards](https://github.com/loomnetwork/cards-gateway-example) 예제 프로젝트를 살펴보세요, 이것은 [loom-js](https://github.com/loomnetwork/loom-js)이 제공하는 Transfer 게이트웨이 API를 이용해서 만들어졌습니다.
+You should now have a basic understanding of how the Transfer Gateway works, though we haven't presented nor explained any of the actual API yet. If you haven't already, take a look at the \[Transfer Gateway Example\]\[\] project, which was built using the Transfer Gateway API provided by [loom-js](https://github.com/loomnetwork/loom-js).

@@ -5,7 +5,7 @@ sidebar_label: Cocos SDK 퀵스타트
 ---
 ## 목차:
 
-- Korean 
+- 한국어 
  - [필수요소](#prerequisites)
  - [Loom Cocos SDK](#loom-cocos-sdk)
  - [Cocos SDK 생성하기](#generate-cocos-sdk)
@@ -49,7 +49,7 @@ Loom Cocos SDK 구조 다이어그램
 
 ## Loom 설치하기
 
-    wget https://private.delegatecall.com/loom/osx/build-404/loom
+    wget https://private.delegatecall.com/loom/osx/stable/loom
     chmod +x loom
     
     mkdir tmpgopath

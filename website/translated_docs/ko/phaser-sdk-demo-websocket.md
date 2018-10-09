@@ -27,7 +27,7 @@ mkdir tmpgopath
 export GOPATH=`pwd`/tmpgopath
 
 cd dappchain
-wget https://private.delegatecall.com/loom/osx/build-404/loom
+wget https://private.delegatecall.com/loom/osx/stable/loom
 chmod +x loom
 
 # Compile
@@ -35,12 +35,12 @@ export GOPATH=$GOPATH:`pwd`
 make deps
 make
 
-# Configure
+# 설정
 cd build
 ../loom init
 cp ../genesis.example.json genesis.json
 
-# Run
+# 실행
 ../loom run
 ```
 
