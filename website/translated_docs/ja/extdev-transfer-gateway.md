@@ -247,7 +247,7 @@ node ./gateway-cli.js map-contracts coin
 node ./gateway-cli.js map-accounts
 ```
 
-Great, everything should now be ready for flawless token transfer between `extdev` and `Rinkeby`!
+グレート、`extdev`と`Rinkeby`の間での完璧なトークンの転送の準備の全てはできているはず！
 
 ## 5. Token transfer
 
