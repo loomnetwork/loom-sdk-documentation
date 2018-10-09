@@ -237,7 +237,7 @@ node ./gateway-cli.js map-contracts token
 node ./gateway-cli.js map-contracts coin
 ```
 
-After you execute these commands the Transfer Gateway will attempt to verify that you are the creator of these contracts, this may take a couple of minutes. In the meantime you can proceed to the next step.
+これらのコマンドを実行するとトランスファーゲートウェイはあなたがコントラクの作成者であるか検証しようとし、これは数分かかります。 In the meantime you can proceed to the next step.
 
 ## 4. Map `extdev` account to `Rinkeby` account
 
