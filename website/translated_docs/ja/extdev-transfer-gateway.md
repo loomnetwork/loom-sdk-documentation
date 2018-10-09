@@ -231,7 +231,7 @@ contract MyRinkebyCoin is StandardToken {
 node ./gateway-cli.js map-contracts token
 ```
 
-Map the `MyCoin` contract deployed on `extdev` to the `MyRinkebyCoin` contract deployed on `Rinkeby`:
+`extdev`にデプロイされた`MyCoin`コントラクトを`Rinkeby`にデプロイされた`MyRinkebyCoin`コントラクトにマップする:
 
 ```bash
 node ./gateway-cli.js map-contracts coin
