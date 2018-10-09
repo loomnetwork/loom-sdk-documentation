@@ -223,9 +223,9 @@ contract MyRinkebyCoin is StandardToken {
 
 ## 3. `extdev` コントラクトを `Rinkeby`コントラクトにマップする
 
-一度コントラクトを両方のチェーンにデプロイしたらトランスファーゲートウェイにコントラクト間でトークンを転送したいと伝える必要がある。 あなたはプログラムで [loom-js](https://github.com/loomnetwork/loom-js)の中の`TransferGateway`クラスを使うか `loom` CLIを使う事ができる For this tutorial we've built a more streamlined JS CLI with `web3` and [loom-js](https://github.com/loomnetwork/loom-js), so you don't have to go looking for contract addresses, transaction hashes, and sacrificial goats.
+一度コントラクトを両方のチェーンにデプロイしたらトランスファーゲートウェイにコントラクト間でトークンを転送したいと伝える必要がある。 あなたはプログラムで [loom-js](https://github.com/loomnetwork/loom-js)の中の`TransferGateway`クラスを使うか `loom` CLIを使う事ができる このチュートリアルでは我々は `web3`と[loom-js](https://github.com/loomnetwork/loom-js)を使ってより合理的なJS CLIを作ってきたので アドレス、トランザクション、ハッシュといけにえの山羊を探して移動する必要はありません。
 
-Map the `MyToken` contract deployed on `extdev` to the `MyRinkebyToken` contract deployed on `Rinkeby`:
+`extdev`にデプロイされた`MyToken`コントラクトを`Rinkeby`にデプロイされた`MyRinkebyToken`コントラクトにマップする:
 
 ```bash
 node ./gateway-cli.js map-contracts token
