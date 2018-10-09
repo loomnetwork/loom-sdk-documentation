@@ -112,9 +112,9 @@ contract MyCoin is StandardToken {
 
 ## 2. `Rinkeby`にトークンコントラクトをデプロイする。
 
-There aren't any special requirements for token contracts deployed to Ethereum networks, though there are safe transfer extensions you may wish to implement in your ERC20 contracts to make it easier to deposit tokens into the `Rinkeby` Gateway.
+イーサリアムネットワークにデプロイされたトークンコントラクトに特に特別な依存はないがERC20のコントラクトを実装するのに安全な転送を簡単にし `Rinkeby` ゲートウェイにトークンをデポジットするための拡張がある。
 
-### MyRinkebyToken ERC721 contract
+### MyRinkebyToken ERC721 コントラクト
 
 ```solidity
 pragma solidity ^0.4.24;
@@ -137,7 +137,7 @@ contract MyRinkebyToken is ERC721Token {
 }
 ```
 
-### MyRinkebyCoin ERC20 contract
+### MyRinkebyCoin ERC20 コントラクト
 
 ```solidity
 pragma solidity ^0.4.24;
@@ -184,9 +184,9 @@ contract MyRinkebyCoin is StandardToken {
 }
 ```
 
-Full source for all contracts can be found in the [Truffle DAppChain Example](https://github.com/loomnetwork/truffle-dappchain-example) repo.
+全てのコントラクトのソースはここで見つかる [Truffle DAppChain Example](https://github.com/loomnetwork/truffle-dappchain-example)
 
-Let's deploy these contracts to `Rinkeby`.
+コントラクトを `Rinkeby`にデプロイしよう。
 
 1. Generate an Ethereum private key:
     
