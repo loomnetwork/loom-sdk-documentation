@@ -237,11 +237,11 @@ node ./gateway-cli.js map-contracts token
 node ./gateway-cli.js map-contracts coin
 ```
 
-これらのコマンドを実行するとトランスファーゲートウェイはあなたがコントラクの作成者であるか検証しようとし、これは数分かかります。 In the meantime you can proceed to the next step.
+これらのコマンドを実行するとトランスファーゲートウェイはあなたがコントラクの作成者であるか検証しようとし、これは数分かかる。 その間に次のステップへ進むことができる。
 
-## 4. Map `extdev` account to `Rinkeby` account
+## 4. `extdev`アカウントを`Rinkeby`アカウントにマップする
 
-Now that the two token contracts are connected via the Transfer Gateway you can start transferring tokens from `extdev` to `Rinkeby`. However, if you want to transfer tokens from `Rinkeby` to `extdev` you'll need to connect your `extdev` account to your `Rinkeby` account.
+今2つのトークンコントラクトはトランスファーゲートウェイ経由で接続されており`extdev`から`Rinkeby`へトークンの転送を開始できる しかし、もし`Rinkeby`から`extdev`へトークンを転送したい場合`extdev`アカウントをあなたの`Rinkeby`アカウントに接続する必要がでてくるだろう。
 
 ```bash
 node ./gateway-cli.js map-accounts
