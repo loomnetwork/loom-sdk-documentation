@@ -201,30 +201,30 @@ contract MyRinkebyCoin is StandardToken {
     cat rinkeby_account
     ```
 
-3. Give the `Rinkeby` account some ETH so it can be used to deploy contracts to `Rinkeby`, you can either use https://faucet.rinkeby.io or transfer some ETH from another account.
+3. `Rinkeby`アカウントにETHを与えるので `Rinkeby`にコントラクトをデプロイするために使える もしくは以下かhttps://faucet.rinkeby.io 他のアカウントからETHを送る事も出来る。
 
-4. Set your Infura API key (get it from https://infura.io)
+4. InfuraのAPIキーをセットする (以下で取得https://infura.io)
     
     ```bash
     export INFURA_API_KEY=XXXXXXXXXXXXXXXX
     ```
 
-5. Deploy sample contracts
+5. コントラクトをデプロイする
     
         yarn deploy:rinkeby
         
     
-    If this fails with an error similar to this one:
+    以下のようなエラーで失敗する場合
     
         Error encountered, bailing. Network state unknown. Review successful transactions manually.
         insufficient funds for gas * price + value
         
     
-    Transfer a bit more ETH to the account in `rinkeby_account`.
+    さらにもう少しETHを`rinkeby_account`で転送する必要がある
 
-## 3. Map `extdev` contracts to `Rinkeby` contracts
+## 3. `extdev` コントラクトを `Rinkeby`コントラクトにマップする
 
-Once you've deployed your contracts to both chains you'll need to let the Transfer Gateway know you want it to transfer tokens between the contracts. You can either do so programmatically using the `TransferGateway` class in [loom-js](https://github.com/loomnetwork/loom-js), or the `loom` CLI. For this tutorial we've built a more streamlined JS CLI with `web3` and [loom-js](https://github.com/loomnetwork/loom-js), so you don't have to go looking for contract addresses, transaction hashes, and sacrificial goats.
+もしコントラクトを両方のチェーンにデプロイしたらトランスファーゲートウェイにコントラクト間でトークンを転送したいと伝える必要がある。 You can either do so programmatically using the `TransferGateway` class in [loom-js](https://github.com/loomnetwork/loom-js), or the `loom` CLI. For this tutorial we've built a more streamlined JS CLI with `web3` and [loom-js](https://github.com/loomnetwork/loom-js), so you don't have to go looking for contract addresses, transaction hashes, and sacrificial goats.
 
 Map the `MyToken` contract deployed on `extdev` to the `MyRinkebyToken` contract deployed on `Rinkeby`:
 
