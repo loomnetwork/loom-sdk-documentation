@@ -1,7 +1,7 @@
 ---
 id: extdev-transfer-gateway
-title: Transfer Gateway Testnet Tutorial
-sidebar_label: Transfer Gateway Testnet
+title: トランスファーゲートウェイテストネットのチュートリアル
+sidebar_label: トランスファーゲートウェイテストネット
 ---
 ## 概要
 
@@ -93,7 +93,7 @@ contract MyCoin is StandardToken {
     $LOOM_BIN genkey -k extdev_private_key -a extdev_public_key
     ```
     
-    コンソールに似た表示を見る。
+    コンソールに何かこれに似た表示を見るはずである:
     
         local address: 0x3B334bEd1e7d3e7d9214495120160D9236aCbC31
         local address base64: OzNL7R59Pn2SFElRIBYNkjasvDE=
@@ -101,7 +101,7 @@ contract MyCoin is StandardToken {
     
     これはあなたの新しい秘密鍵と対応した公開アドレスである。 `extdev_private_key`ファイルのなかに秘密鍵が見つかり、そして対応した公開鍵は`extdev_public_key`ファイルの中に見つかる。
 
-5. あなたの新しいアカウントはコントラクトをデプロイしたり呼んだりするのにカルマが必要になる。 [Karma Faucet](http://faucet.dappchains.com)に行き(`0x`で始まる16進数エンコードの)公開アドレスを入力し`extdev`ネットワークを選択し`Request`ボタンを押してkarmaを取得する。
+5. あなたの新しいアカウントはコントラクトをデプロイしたり呼んだりする前にいくらかカルマが必要になる。 [Karma Faucet](http://faucet.dappchains.com)に行き(`0x`で始まる16進数エンコードの)たった今生成した公開アドレスを入力し`extdev`ネットワークを選択し`Request`ボタンを押して若干のkarmaを取得する。
 
 6. `MyToken`と`MyCoin`コントラクトを`extdev`プラズマチェーンにデプロイする。
     
@@ -223,7 +223,7 @@ contract MyRinkebyCoin is StandardToken {
 
 ## 3. `extdev` コントラクトを `Rinkeby`コントラクトにマップする
 
-Once you've deployed your contracts to both chains you'll need to let the Transfer Gateway know you want it to transfer tokens between the contracts. You can either do so programmatically using the `TransferGateway` class in [loom-js](https://github.com/loomnetwork/loom-js), or the `loom` CLI. For this tutorial we've built a more streamlined JS CLI with `web3` and [loom-js](https://github.com/loomnetwork/loom-js), so you don't have to go looking for contract addresses, transaction hashes, and sacrificial goats.
+一度コントラクトを両方のチェーンにデプロイしたらトランスファーゲートウェイにコントラクト間でトークンを転送したいと伝える必要がある。 You can either do so programmatically using the `TransferGateway` class in [loom-js](https://github.com/loomnetwork/loom-js), or the `loom` CLI. For this tutorial we've built a more streamlined JS CLI with `web3` and [loom-js](https://github.com/loomnetwork/loom-js), so you don't have to go looking for contract addresses, transaction hashes, and sacrificial goats.
 
 Map the `MyToken` contract deployed on `extdev` to the `MyRinkebyToken` contract deployed on `Rinkeby`:
 
