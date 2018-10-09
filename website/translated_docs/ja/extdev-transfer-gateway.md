@@ -66,8 +66,6 @@ contract MyCoin is StandardToken {
 
 全てのコントラクトのソースはここで見つかる [Truffle DAppChain Example](https://github.com/loomnetwork/truffle-dappchain-example) 。
 
-もし[Testnet Tutorial](join-testnet.html) を完了していたら、`MyToken` と `MyCoin`コントラクトがすでに`extdev`にデプロイされているので、次のセクションはスキップできる。 でなければ読み進めよう。
-
 1. このチュートリアルではあなた自身のDAppChainを実行することはしないが、`loom` バイナリをダウンロードしよう。 `loom`バイナリにビルドインされたCLIコマンドを使って、`extdev` PlasmaChainとやりとりできる。
     
     ```bash
@@ -82,8 +80,9 @@ contract MyCoin is StandardToken {
 3. [Truffle DAppChain Example](https://github.com/loomnetwork/truffle-dappchain-example) レポジトリをクローンする。
     
     ```bash
-    git clone https://github.com/loomnetwork/truffle-dappchain-example
-    cd truffle-dappchain-example
+    # clone the tutorial repo to the gateway-tutorial directory
+    git clone https://github.com/loomnetwork/truffle-dappchain-example gateway-tutorial
+    cd gateway-tutorial
     # install dependencies
     yarn
     ```
@@ -112,7 +111,7 @@ contract MyCoin is StandardToken {
 
 ## 2. `Rinkeby`にトークンコントラクトをデプロイする。
 
-イーサリアムネットワークにデプロイされたトークンコントラクトに特に特別な依存はないがERC20のコントラクトを実装するのに安全な転送を簡単にし `Rinkeby` ゲートウェイにトークンをデポジットするための拡張がある。
+There aren't any special requirements for token contracts deployed to Ethereum networks, though there are safe transfer extensions you may wish to implement in your ERC20 contracts to make it easier to deposit tokens into the `Rinkeby` Gateway.
 
 ### MyRinkebyToken ERC721 コントラクト
 
@@ -184,9 +183,9 @@ contract MyRinkebyCoin is StandardToken {
 }
 ```
 
-全てのコントラクトのソースはここで見つかる [Truffle DAppChain Example](https://github.com/loomnetwork/truffle-dappchain-example)
+Full source for all contracts can be found in the [Truffle DAppChain Example](https://github.com/loomnetwork/truffle-dappchain-example) repo.
 
-コントラクトを `Rinkeby`にデプロイしよう。
+Let's deploy these contracts to `Rinkeby`.
 
 1. イーサリアム秘密鍵を生成する。
     
@@ -224,7 +223,7 @@ contract MyRinkebyCoin is StandardToken {
 
 ## 3. `extdev` コントラクトを `Rinkeby`コントラクトにマップする
 
-もしコントラクトを両方のチェーンにデプロイしたらトランスファーゲートウェイにコントラクト間でトークンを転送したいと伝える必要がある。 You can either do so programmatically using the `TransferGateway` class in [loom-js](https://github.com/loomnetwork/loom-js), or the `loom` CLI. For this tutorial we've built a more streamlined JS CLI with `web3` and [loom-js](https://github.com/loomnetwork/loom-js), so you don't have to go looking for contract addresses, transaction hashes, and sacrificial goats.
+Once you've deployed your contracts to both chains you'll need to let the Transfer Gateway know you want it to transfer tokens between the contracts. You can either do so programmatically using the `TransferGateway` class in [loom-js](https://github.com/loomnetwork/loom-js), or the `loom` CLI. For this tutorial we've built a more streamlined JS CLI with `web3` and [loom-js](https://github.com/loomnetwork/loom-js), so you don't have to go looking for contract addresses, transaction hashes, and sacrificial goats.
 
 Map the `MyToken` contract deployed on `extdev` to the `MyRinkebyToken` contract deployed on `Rinkeby`:
 
@@ -318,7 +317,7 @@ The ERC20 tokens can be transferred back to `Rinkeby` using the `withdraw-coin` 
 node ./gateway-cli.js withdraw-coin 60
 
 # check how many tokens you have on Rinkeby
-node ./gateway-cli.js coin-balance -a gateway -c eth
+node ./gateway-cli.js coin-balance -c eth
 
 # check how many tokens you have on extdev
 node ./gateway-cli.js coin-balance
