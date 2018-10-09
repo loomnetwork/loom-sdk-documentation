@@ -188,14 +188,14 @@ contract MyRinkebyCoin is StandardToken {
 
 コントラクトを `Rinkeby`にデプロイしよう。
 
-1. Generate an Ethereum private key:
+1. イーサリアム秘密鍵を生成する。
     
     ```bash
-    # this will create the rinkeby_account, rinkeby_mnemonic, and rinkeby_private_key files
+    # これはrinkeby_account, rinkeby_mnemonic, rinkeby_private_key ファイル群を生成する
     yarn gen:rinkeby-key
     ```
 
-2. Get the address of the new `Rinkeby` account from the `rinkeby_account` file.
+2. 新しい`Rinkeby`アカウントのアドレスを `rinkeby_account`ファイルから取得する
     
     ```bash
     cat rinkeby_account
