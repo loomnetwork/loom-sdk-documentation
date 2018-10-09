@@ -5,9 +5,9 @@ sidebar_label: Transfer Gateway Testnet
 ---
 ## 概要
 
-このドキュメントではトークンコントラクト間のトークンの転送を必要とするセットアップを解説する。 `extdev`と`Rinkeby`にデプロイしている。 もしまだ終えてないなら最初に高いレベルの概要 [転送ゲートウェイ](transfer-gateway.html)を読むべきである。
+このドキュメントでは、`extdev`と`Rinkeby`にデプロイしたトークンコントラクト間のトークンの転送に必要となるセットアップの解説をする。 もしまだであれば、まず高レベルの概要 [Transfer Gateway](transfer-gateway.html)を読むべきである。
 
-## トークンコントラクトを `extdev`にデプロイする
+## 1. トークンコントラクトを `extdev`にデプロイする
 
 トークンを `Rinkeby` にデプロイされたトークンコントラクトから`extdev` にデプロイされたコントラクトに移転したい場合、`extdev` にデプロイしたトークンコントラクトは`mintToGateway`関数を確実に実装していなければならない。 我々はそれらの対話を行うためのサンプルコントラクトと簡単なCLIを作成した。
 
@@ -209,7 +209,7 @@ contract MyRinkebyCoin is StandardToken {
     export INFURA_API_KEY=XXXXXXXXXXXXXXXX
     ```
 
-5. コントラクトをデプロイする
+5. サンプルコントラクトをデプロイする
     
         yarn deploy:rinkeby
         
