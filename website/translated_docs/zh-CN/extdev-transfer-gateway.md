@@ -66,8 +66,6 @@ contract MyCoin is StandardToken {
 
 Full source for all contracts can be found in the [Truffle DAppChain Example](https://github.com/loomnetwork/truffle-dappchain-example) repo.
 
-If you've just completed the [Testnet Tutorial](join-testnet.html) then the `MyToken` and `MyCoin` contracts have already been deployed to `extdev`, and you can probably skip to the next section. Otherwise, read on.
-
 1. Download the `loom` binary, while you won't be spinning up your own DAppChain in this tutorial, you will be using some of the CLI commands built into the `loom` binary to interact with the `extdev` PlasmaChain.
     
     ```bash
@@ -82,8 +80,9 @@ If you've just completed the [Testnet Tutorial](join-testnet.html) then the `MyT
 3. Clone the [Truffle DAppChain Example](https://github.com/loomnetwork/truffle-dappchain-example) repo.
     
     ```bash
-    git clone https://github.com/loomnetwork/truffle-dappchain-example
-    cd truffle-dappchain-example
+    # clone the tutorial repo to the gateway-tutorial directory
+    git clone https://github.com/loomnetwork/truffle-dappchain-example gateway-tutorial
+    cd gateway-tutorial
     # install dependencies
     yarn
     ```
@@ -318,7 +317,7 @@ The ERC20 tokens can be transferred back to `Rinkeby` using the `withdraw-coin` 
 node ./gateway-cli.js withdraw-coin 60
 
 # check how many tokens you have on Rinkeby
-node ./gateway-cli.js coin-balance -a gateway -c eth
+node ./gateway-cli.js coin-balance -c eth
 
 # check how many tokens you have on extdev
 node ./gateway-cli.js coin-balance
