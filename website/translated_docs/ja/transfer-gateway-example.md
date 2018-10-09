@@ -1,7 +1,7 @@
 ---
 id: transfer-gateway-example
-title: Transfer Gateway Example
-sidebar_label: Transfer Gateway Example
+title: Transfer Gatewayサンプル
+sidebar_label: Transfer Gatewayサンプル
 ---
 チェーン間のトークンシフトを行うERC721/ERC20トークンサンプルは[Github](https://github.com/loomnetwork/transfer-gateway-example)にて。
 
