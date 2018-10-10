@@ -334,7 +334,7 @@ Sometimes the withdrawal process may error out due to network issues, or because
 node ./gateway-cli.js resume-withdrawal
 ```
 
-> NOTE: Only one pending withrawal is allowed per user.
+> 注: ユーザーごとに保留中の引き出しは1 つだけ許可される。
 
 ## 要約
 
