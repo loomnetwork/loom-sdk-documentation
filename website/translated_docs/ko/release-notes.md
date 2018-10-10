@@ -14,13 +14,13 @@ sidebar_label: 릴리즈 노트
 
 ## 릴리즈 458 - 9월 27일
 
-**It is recommended that all users move up to this release**
+**모든 사용자에게 이 릴리즈로 업데이트하는 것을 추천합니다.**
 
-* 개발자들을 위한 Plasmachain 테스트넷이 사용 가능합니다 - [문서](testnet-plasma.html)
-* Karma Faucet for Testnets - [Faucet](http://faucet.dappchains.com)
-* Karma contracts (Sybil resistance) Loom SDK - [Karma](karma.html)
-* Massive performance increasements for high load environments
-* Initial info about running a Validator - [Validator](validator.html)
+* 개발자들을 위한 Plasmachain 테스트넷이 사용 가능합니다 - [Plasmachain 테스트넷 문서](testnet-plasma.html)
+* 테스트넷을 위한 카르마 Faucet - [Faucet](http://faucet.dappchains.com)
+* Loom SDK 카르마 컨트랙트(Sybil 저항) - [카르마](karma.html)
+* 작업량이 많은 환경을 위한 대규모 성능 향상
+* 검증자 노드 운영에 대한 초기 정보 - [검증자](validator.html)
 
 ## 릴리즈 404 - 8월 24일
 
