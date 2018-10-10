@@ -65,7 +65,7 @@ local address base64: OzNL7R59Pn2SFElRIBYNkjasvDE=
 # Truffleサンプルをテストネットへデプロイ
 
 1. node 及び yarn/npm がインストールされていることを確認
-2. Obtain the testnet URL from [PlasmaChain Testnets](testnet-plasma.html) page
+2. テストネットのURLを以下ページから取得する[PlasmaChain Testnets](testnet-plasma.html)
 3. ソースを取得: 
         bash
         git clone https://github.com/loomnetwork/truffle-dappchain-example
@@ -73,7 +73,7 @@ local address base64: OzNL7R59Pn2SFElRIBYNkjasvDE=
         # copy the private key generated earlier to the root directory of the example repo
         cp ../priv_key extdev_private_key
 
-4. If you wish to deploy the example contracts to `extdev-plasma-us1` skip this step. Otherwise, add the network you wish to deploy to in `truffle-config.js`.
+4. もし例示したコントラクトを`extdev-plasma-us1`にデプロイしたい場合このステップをスキップする。そうでなければあなたがデプロイしたいネットワークを`truffle-config.js`に追加する。
 5. Nodeモジュールをインストールする: 
         bash
         yarn
