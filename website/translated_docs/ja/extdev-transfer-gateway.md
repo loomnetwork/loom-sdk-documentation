@@ -1,7 +1,7 @@
 ---
 id: extdev-transfer-gateway
-title: Transfer Gateway Testnet Tutorial
-sidebar_label: Transfer Gateway Testnet
+title: トランスファーゲートウェイテストネットのチュートリアル
+sidebar_label: トランスファーゲートウェイテストネット
 ---
 ## 概要
 
@@ -80,10 +80,10 @@ contract MyCoin is StandardToken {
 3. [Truffle DAppChain Example](https://github.com/loomnetwork/truffle-dappchain-example) レポジトリをクローンする。
     
     ```bash
-    # clone the tutorial repo to the gateway-tutorial directory
+    # gateway-tutorialディレクトリにチュートリアルリポジトリをクローン
     git clone https://github.com/loomnetwork/truffle-dappchain-example gateway-tutorial
     cd gateway-tutorial
-    # install dependencies
+    # dependenciesのインストール
     yarn
     ```
 
@@ -93,7 +93,7 @@ contract MyCoin is StandardToken {
     $LOOM_BIN genkey -k extdev_private_key -a extdev_public_key
     ```
     
-    コンソールに似た表示を見る。
+    コンソールに何かこれに似た表示を見るはずである:
     
         local address: 0x3B334bEd1e7d3e7d9214495120160D9236aCbC31
         local address base64: OzNL7R59Pn2SFElRIBYNkjasvDE=
@@ -101,7 +101,7 @@ contract MyCoin is StandardToken {
     
     これはあなたの新しい秘密鍵と対応した公開アドレスである。 `extdev_private_key`ファイルのなかに秘密鍵が見つかり、そして対応した公開鍵は`extdev_public_key`ファイルの中に見つかる。
 
-5. あなたの新しいアカウントはコントラクトをデプロイしたり呼んだりするのにカルマが必要になる。 [Karma Faucet](http://faucet.dappchains.com)に行き(`0x`で始まる16進数エンコードの)公開アドレスを入力し`extdev`ネットワークを選択し`Request`ボタンを押してkarmaを取得する。
+5. あなたの新しいアカウントはコントラクトをデプロイしたり呼んだりする前にいくらかカルマが必要になる。 [Karma Faucet](http://faucet.dappchains.com)に行き(`0x`で始まる16進数エンコードの)たった今生成した公開アドレスを入力し`extdev`ネットワークを選択し`Request`ボタンを押して若干のkarmaを取得する。
 
 6. `MyToken`と`MyCoin`コントラクトを`extdev`プラズマチェーンにデプロイする。
     
@@ -111,7 +111,7 @@ contract MyCoin is StandardToken {
 
 ## 2. `Rinkeby`にトークンコントラクトをデプロイする。
 
-There aren't any special requirements for token contracts deployed to Ethereum networks, though there are safe transfer extensions you may wish to implement in your ERC20 contracts to make it easier to deposit tokens into the `Rinkeby` Gateway.
+イーサリアムネットワークにデプロイされたトークンコントラクトに特別な要件はないが、`Rinkeby` ゲートウェイにトークンを簡単にデポジットするためにERC20のコントラクトに実装することが好ましい、安全なトランスファー拡張機能がある。
 
 ### MyRinkebyToken ERC721 コントラクト
 
@@ -183,9 +183,9 @@ contract MyRinkebyCoin is StandardToken {
 }
 ```
 
-Full source for all contracts can be found in the [Truffle DAppChain Example](https://github.com/loomnetwork/truffle-dappchain-example) repo.
+全てのコントラクトのソースは [Truffle DAppChain Example](https://github.com/loomnetwork/truffle-dappchain-example)リポジトリにある。
 
-Let's deploy these contracts to `Rinkeby`.
+これらのコントラクトを `Rinkeby`にデプロイしよう。
 
 1. イーサリアム秘密鍵を生成する。
     
@@ -194,13 +194,13 @@ Let's deploy these contracts to `Rinkeby`.
     yarn gen:rinkeby-key
     ```
 
-2. 新しい`Rinkeby`アカウントのアドレスを `rinkeby_account`ファイルから取得する
+2. 新しい`Rinkeby`アカウントのアドレスを `rinkeby_account`ファイルから取得する。
     
     ```bash
     cat rinkeby_account
     ```
 
-3. `Rinkeby`アカウントにETHを与えるので `Rinkeby`にコントラクトをデプロイするために使える もしくは以下かhttps://faucet.rinkeby.io 他のアカウントからETHを送る事も出来る。
+3. `Rinkeby`にコントラクトをデプロイできるよう、`Rinkeby`アカウントにETHを与える。 https://faucet.rinkeby.io を使うか、もしくは他のアカウントからETHを送っても良い。
 
 4. InfuraのAPIキーをセットする (以下で取得https://infura.io)
     
@@ -223,31 +223,31 @@ Let's deploy these contracts to `Rinkeby`.
 
 ## 3. `extdev` コントラクトを `Rinkeby`コントラクトにマップする
 
-Once you've deployed your contracts to both chains you'll need to let the Transfer Gateway know you want it to transfer tokens between the contracts. You can either do so programmatically using the `TransferGateway` class in [loom-js](https://github.com/loomnetwork/loom-js), or the `loom` CLI. For this tutorial we've built a more streamlined JS CLI with `web3` and [loom-js](https://github.com/loomnetwork/loom-js), so you don't have to go looking for contract addresses, transaction hashes, and sacrificial goats.
+一度コントラクトを両方のチェーンにデプロイしたらトランスファーゲートウェイにコントラクト間でトークンを転送したいと伝える必要がある。 あなたはプログラムで [loom-js](https://github.com/loomnetwork/loom-js)の中の`TransferGateway`クラスを使うか `loom` CLIを使う事ができる このチュートリアルでは我々は `web3`と[loom-js](https://github.com/loomnetwork/loom-js)を使ってより合理的なJS CLIを作ってきたので アドレス、トランザクション、ハッシュといけにえの山羊を探して移動する必要はありません。
 
-Map the `MyToken` contract deployed on `extdev` to the `MyRinkebyToken` contract deployed on `Rinkeby`:
+`extdev`にデプロイされた`MyToken`コントラクトを`Rinkeby`にデプロイされた`MyRinkebyToken`コントラクトにマップする:
 
 ```bash
 node ./gateway-cli.js map-contracts token
 ```
 
-Map the `MyCoin` contract deployed on `extdev` to the `MyRinkebyCoin` contract deployed on `Rinkeby`:
+`extdev`にデプロイされた`MyCoin`コントラクトを`Rinkeby`にデプロイされた`MyRinkebyCoin`コントラクトにマップする:
 
 ```bash
 node ./gateway-cli.js map-contracts coin
 ```
 
-After you execute these commands the Transfer Gateway will attempt to verify that you are the creator of these contracts, this may take a couple of minutes. In the meantime you can proceed to the next step.
+これらのコマンドを実行するとトランスファーゲートウェイはあなたがコントラクの作成者であるか検証しようとし、これは数分かかる。 その間に次のステップへ進むことができる。
 
-## 4. Map `extdev` account to `Rinkeby` account
+## 4. `extdev`アカウントを`Rinkeby`アカウントにマップする
 
-Now that the two token contracts are connected via the Transfer Gateway you can start transferring tokens from `extdev` to `Rinkeby`. However, if you want to transfer tokens from `Rinkeby` to `extdev` you'll need to connect your `extdev` account to your `Rinkeby` account.
+今2つのトークンコントラクトはトランスファーゲートウェイ経由で接続されており`extdev`から`Rinkeby`へトークンの転送を開始できる しかし、もし`Rinkeby`から`extdev`へトークンを転送したい場合`extdev`アカウントをあなたの`Rinkeby`アカウントに接続する必要がでてくるだろう。
 
 ```bash
 node ./gateway-cli.js map-accounts
 ```
 
-Great, everything should now be ready for flawless token transfer between `extdev` and `Rinkeby`!
+グレート、`extdev`と`Rinkeby`の間での完璧なトークンの転送の準備の全てはできているはず！
 
 ## 5. Token transfer
 

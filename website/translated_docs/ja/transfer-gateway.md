@@ -16,19 +16,19 @@ sidebar_label: トランスファーゲートウェイ
 
 ![Diagram of ERC721 Transfer to DAppChain](/developers/img/transfer-gateway-erc721-to-dappchain.png)
 
-When a user wishes to transfer a token from their Ethereum account to their DAppChain account they must first transfer it to the Mainnet Gateway, which in turns emits a deposit event. The deposit event is picked up by the Gateway Oracle which forwards it onto the DAppChain Gateway. The DAppChain Gateway then transfers the token to the DAppChain account of the user that deposited the token into the Mainnet Gateway.
+ユーザーがイーサリアムアカウントからDAppチェーンアカウントにトークンを移転したい場合、まずはメインネットゲートウェイに移転することが必要だ。 するとデポジットイベントが送信される。 デポジットイベントはゲートウェイOracleにより検知され、DAppチェーンゲートウェイへと転送される。 その後DAppチェーンゲートウェイは、ユーザー(メインネットゲートウェイへトークンをデポジットした者) のDAppチェーンアカウントへとトークンを移転する。
 
 ![Diagram of ERC721 Transfer to Ethereum](/developers/img/transfer-gateway-erc721-to-ethereum.png)
 
-To get that same token back into their Ethereum account the user must first transfer the token back to the DAppChain Gateway, which creates a pending withdrawal. The pending withdrawal is picked up by the Gateway Oracle, which signs the withdrawal, and notifies the DAppChain Gateway. The DAppChain Gateway emits an event to let the user know they can withdraw their token from the Mainnet Gateway to their Ethereum account by providing the signed withdrawal record.
+同じトークンをイーサリアムアカウントへと戻したい場合、ユーザーはまず引き出し保留中にするため、トークンをDAppチェーンゲートウェイへと送り返さなくてはならない。 この保留中の引き出しは、引き出しの署名やDAppチェーンゲートウェイへの通知を行うゲートウェイOracleにより検知される。 DAppチェーンゲートウェイはイベントを送信し、署名済み引き出しの記録を提出すれば、メインネットゲートウェイからイーサリアムアカウントへトークンの引き出しが可能であることをユーザーに通知する。
 
-If you're a hands-on learner you might want to jump straight into the \[Transfer Gateway Example\]\[\] example project before reading any further...
+もしハンズオンで学習したければ、続きを読むよりも直接 \[Transfer Gateway Example\]\[\] のサンプルを試してみると良いかもしれない...
 
 ## ERC721コントラクトのセットアップ
 
-To transfer an ERC721 token from Ethereum to the DAppChain you'll need two of your own ERC721 contracts, one on Ethereum (Mainnet ERC721), and the other on the DAppChain (DAppChain ERC721).
+ERC721トークンをイーサリアムからDAppチェーンへと移転するには、独自のERC721コントラクトが２つ必要になる。１つはイーサリアム上(メインネットのERC721)、もう１つはDAppチェーン上(DAPpチェーンのERC721) のものだ。
 
-Your Mainnet ERC721 contract doesn't need anything special to work with the Transfer Gateway. Though you might want to add something like the `depositToGateway` method below to make it a bit easier to transfer tokens into the Mainnet Gateway:
+メインネットのERC721コントラクトは、トランスファーゲートウェイと連動させるために特別なことは何も必要としない。 しかし少しばかり簡単にメインネットゲートウェイへトークンを移転するには、下の`depositToGateway` メソッドのようなものを追加してもよい:
 
 ```solidity
 pragma solidity ^0.4.24;

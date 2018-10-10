@@ -25,7 +25,7 @@ local address: 0x3B334bEd1e7d3e7d9214495120160D9236aCbC31
 local address base64: OzNL7R59Pn2SFElRIBYNkjasvDE=
 ```
 
-and this will create files named `priv_key` and `pub_key`, the `priv_key` file contains your private key that you'll use to deploy contracts to the DAppChain.
+そしてこれは`priv_key`という名前と`pub_key`という名前でファイルを生成し、`priv_key`ファイルはあなたの秘密鍵を含みDAppチェーンへのデプロイに使う。
 
 # Karma Faucetの使用方法
 
@@ -65,7 +65,7 @@ and this will create files named `priv_key` and `pub_key`, the `priv_key` file c
 # Truffleサンプルをテストネットへデプロイ
 
 1. node 及び yarn/npm がインストールされていることを確認
-2. Obtain the testnet URL from [PlasmaChain Testnets](testnet-plasma.html) page
+2. テストネットのURLを以下ページから取得する[PlasmaChain Testnets](testnet-plasma.html)
 3. ソースを取得: 
         bash
         git clone https://github.com/loomnetwork/truffle-dappchain-example
@@ -73,8 +73,8 @@ and this will create files named `priv_key` and `pub_key`, the `priv_key` file c
         # copy the private key generated earlier to the root directory of the example repo
         cp ../priv_key extdev_private_key
 
-4. If you wish to deploy the example contracts to `extdev-plasma-us1` skip this step. Otherwise, add the network you wish to deploy to in `truffle-config.js`.
-5. Install node modules: 
+4. もし例示したコントラクトを`extdev-plasma-us1`にデプロイしたい場合このステップをスキップする。そうでなければあなたがデプロイしたいネットワークを`truffle-config.js`に追加する。
+5. Nodeモジュールをインストールする: 
         bash
         yarn
 
