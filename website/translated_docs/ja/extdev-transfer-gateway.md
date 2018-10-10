@@ -297,32 +297,32 @@ node ./gateway-cli.js coin-balance -a gateway -c eth
 ERC721トークンは`withdraw-token`コマンドを使って`Rinkeby`に送り返す事ができる。
 
 ```bash
-# transfer a token to Rinkeby
+# Rinkebyに転送する
 node ./gateway-cli.js withdraw-token 1
 
-# check how many tokens you have on Rinkeby
+# Rinkebyにいくつトークンを持つかチェックする。
 node ./gateway-cli.js token-balance -c eth
 
-# check how many tokens you have on extdev
+# extdevにいくつトークンを持つかチェックする。
 node ./gateway-cli.js token-balance
 
-# check how many tokens the Gateway holds on Rinkeby
+# Rinkebyのゲートウェイがいくつトークンを持つかチェックする
 node ./gateway-cli.js token-balance -a gateway -c eth
 ```
 
-The ERC20 tokens can be transferred back to `Rinkeby` using the `withdraw-coin` command.
+ERC20トークンは`withdraw-coin`コマンドを使って`Rinkeby`に送り返す事ができる。
 
 ```bash
-# transfer 60 tokens to Rinkeby
+# 60トークンをRinkebyに転送
 node ./gateway-cli.js withdraw-coin 60
 
-# check how many tokens you have on Rinkeby
+# Rinkebyにいくつトークンを持つかチェックする
 node ./gateway-cli.js coin-balance -c eth
 
-# check how many tokens you have on extdev
+# extdevにいくつトークンを持つかチェクする
 node ./gateway-cli.js coin-balance
 
-# check how many tokens the Gateway holds on Rinkeby
+# Rinkebyのゲートウェイがいくつトークンを持つかチェックする
 node ./gateway-cli.js coin-balance -a gateway -c eth
 ```
 
