@@ -7,12 +7,12 @@ sidebar_label: 릴리즈 노트
 
 릴리즈 노트는 역순으로 구성되어 있습니다.
 
-## Release 478 - Oct 8th
+## 릴리즈 478 - 10월 8일
 
-* Updated Transfer Gateway utilities
-* Transfer Gateway [tutorial plasma testnet](extdev-transfer-gateway.html)
+* Transfer Gateway 활용 예제 업데이트
+* Transfer Gateway [플라즈마 테스트넷 튜토리얼](extdev-transfer-gateway.html)
 
-## Release 458 - Sept 27th
+## 릴리즈 458 - 9월 27일
 
 **It is recommended that all users move up to this release**
 
@@ -22,21 +22,21 @@ sidebar_label: 릴리즈 노트
 * Massive performance increasements for high load environments
 * Initial info about running a Validator - [Validator](validator.html)
 
-## Release 404 - Aug 24th
+## 릴리즈 404 - 8월 24일
 
-** Features
+** 기능
 
 * ERC20 support upgraded in TransferGateway
 * Example ERC20 in Gateway - [Example](https://github.com/loomnetwork/token-gateway-example)
 * Loom SDK Doc site in [Korean](https://loomx.io/developers/ko/)
-* EVM now has limited support for Payable functions, more coming next week 
+* EVM이 이제 Payable 함수에 대해 제한적으로 지원합니다. 다음 주에 더 업데이트됩니다. 
 * Loom-JS updates for ERC20/ETH transfers with TransferGateway. 
 * Loom-JS integration to DPoS contracts 
 * Experimental Support for [Plasma Debits](https://github.com/loomnetwork/plasma-cash/pull/115)
 
-** Breaking changes
+주목해야 할 수정 사항
 
-* Deprecrating QueryServerHost, and consolidating all functions to the RPCServer.
+* QueryServerHost를 Deprecate 합니다. RPCServer로 모든 기능을 통합합니다.
 * New Config option: RPCBindAddress: "tcp://0.0.0.0:46658"
 * Upgrades of PBFT engine, this may cause incompatibility issues on upgrades, please try in staging environments 
 
