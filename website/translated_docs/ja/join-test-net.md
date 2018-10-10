@@ -25,7 +25,7 @@ local address: 0x3B334bEd1e7d3e7d9214495120160D9236aCbC31
 local address base64: OzNL7R59Pn2SFElRIBYNkjasvDE=
 ```
 
-and this will create files named `priv_key` and `pub_key`, the `priv_key` file contains your private key that you'll use to deploy contracts to the DAppChain.
+そしてこれは`priv_key`という名前と`pub_key`という名前でファイルを生成し、`priv_key`ファイルはあなたの秘密鍵を含みDAppチェーンへのデプロイに使う。
 
 # Karma Faucetの使用方法
 
@@ -74,7 +74,7 @@ and this will create files named `priv_key` and `pub_key`, the `priv_key` file c
         cp ../priv_key extdev_private_key
 
 4. If you wish to deploy the example contracts to `extdev-plasma-us1` skip this step. Otherwise, add the network you wish to deploy to in `truffle-config.js`.
-5. Install node modules: 
+5. Nodeモジュールをインストールする: 
         bash
         yarn
 
