@@ -26,47 +26,47 @@ sidebar_label: 릴리즈 노트
 
 ** 기능
 
-* ERC20 support upgraded in TransferGateway
-* Example ERC20 in Gateway - [Example](https://github.com/loomnetwork/token-gateway-example)
-* Loom SDK Doc site in [Korean](https://loomx.io/developers/ko/)
+* TransferGateway의 ERC20 지원 업그레이드
+* Gateway ERC20 예제 - [예제](https://github.com/loomnetwork/token-gateway-example)
+* Loom SDK Doc 사이트 [한글화](https://loomx.io/developers/ko/)
 * EVM이 이제 Payable 함수에 대해 제한적으로 지원합니다. 다음 주에 더 업데이트됩니다. 
-* Loom-JS updates for ERC20/ETH transfers with TransferGateway. 
-* Loom-JS integration to DPoS contracts 
-* Experimental Support for [Plasma Debits](https://github.com/loomnetwork/plasma-cash/pull/115)
+* TransferGateway를 통한 ERC20/ETH 전송용 Loom-JS 업데이트 
+* DPoS 컨트랙트로 Loom-JS 통합 
+* [Plasma Debits](https://github.com/loomnetwork/plasma-cash/pull/115)에 대한 실험적 지원
 
-주목해야 할 수정 사항
+** 주목해야 할 수정 사항
 
 * QueryServerHost를 Deprecate 합니다. RPCServer로 모든 기능을 통합합니다.
-* New Config option: RPCBindAddress: "tcp://0.0.0.0:46658"
-* Upgrades of PBFT engine, this may cause incompatibility issues on upgrades, please try in staging environments 
+* 새로운 설정 옵션: RPCBindAddress: "tcp://0.0.0.0:46658"
+* PBFT 엔진의 업그레이드. 이로 인해 업그레이드 시 호환성 문제가 발생할 수 있습니다. 스테이징 환경에서 시도하세요! 
 
-## Release 375 - Aug 10th
+## 릴리즈 375 - 8월 10일
 
-*NOTE* This is a feature test release, with minor compatibility changes, please verify in staging environements before upgrading your production environment.
+*주의* 이것은 마이너 호환성 변경사항을 포함한 기능 테스트 릴리즈입니다, 여러분의 프로덕션 환경을 업그레이드 하기 앞서 임시 환경에서 확인을 부탁드립니다.
 
-* Fixes for Eventing on EVM Contracts
-* Beta release of the [Transfer Gateway](transfer-gateway.html)
-* [Demo of Transfer Gateway](https://github.com/loomnetwork/cards-gateway-example)
-* Memory leak fixes
-* Minor api breakages, please upgrade go-loom/loom-js. Unity updates coming soon
-* Go-loom is upgraded for api breakages
-* loom-js is upgraded for this release. 
+* EVM 컨트랙트의 이벤트와 관련된 수정
+* [Transfer Gateway](transfer-gateway.html)의 베타 릴리즈
+* [Transfer Gateway의 데모](https://github.com/loomnetwork/cards-gateway-example)
+* 메모리 누수 수정
+* 마이너 Api 충돌문제, go-loom/loom-js을 업그레이드 하세요. Unity는 곧 업데이트 예정입니다
+* Go-loom은 API 충돌문제가 업그레이드 되었습니다
+* loom-js는 이번 릴리즈로 업그레이드 되었습니다. 
 
-## Release 330 - July 30th
+## 릴리즈 330 - 7월 30일
 
-* Fix for consensus problems on EVM 
-* Updates for Zombiechain TestNet
-* Added more telemetry to measure performance
-* Range queries on Go Contracts
-* Added ChainID to loom.yaml
+* EVM 컨센서스 문제 수정 
+* Zombiechain 테스트넷을 위한 업데이트
+* 성능 측정을 위한 더 많은 원격 측정 기능 추가
+* Go 컨트랙트를 위한 range query
+* loom.yaml에 ChainID가 추가
 
-* [EVM indexed filter](https://loomx.io/developers/docs/en/web3js-event-filters.html)
+* [EVM indexed 필터](https://loomx.io/developers/docs/en/web3js-event-filters.html)
 
-* EVM filter pool fixes and event system
-* Loom-JS EVM updates for indexed filters
-* Loom-JS EVM fixes for getting block by hash
+* EVM 필터 pool 수정 및 이벤트 시스템
+* indexed 필터를 위한 Loom-JS EVM 업데이트
+* 해시값으로 블록을 가져오기 위한 Loom-JS EVM 수정
 
-## Release 288 - July 17th
+## 릴리즈 288 - 7월 17일
 
 * [EVM indexed filter](https://loomx.io/developers/docs/en/web3js-event-filters.html)
 * EVM filter pool fixes and event system
