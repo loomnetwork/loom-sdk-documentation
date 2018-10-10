@@ -249,9 +249,9 @@ node ./gateway-cli.js map-accounts
 
 グレート、`extdev`と`Rinkeby`の間での完璧なトークンの転送の準備の全てはできているはず！
 
-## 5. Token transfer
+## 5. トークンの転送
 
-### From `Rinkeby` to `extdev`
+### `Rinkeby`から`extdev`へ
 
 Now that all contracts and accounts have been mapped you can transfer tokens and ETH to the `Rinkeby` Gateway contract.
 
@@ -336,6 +336,6 @@ node ./gateway-cli.js resume-withdrawal
 
 > NOTE: Only one pending withrawal is allowed per user.
 
-## Summary
+## 要約
 
-If you haven't already, take a look at the [Transfer Gateway Example](https://github.com/loomnetwork/transfer-gateway-example) project, which was built using the Transfer Gateway API provided by [loom-js](https://github.com/loomnetwork/loom-js).
+そこでもしまだチェックしていなければ、[Transfer Gateway Example ](https://github.com/loomnetwork/transfer-gateway-example) のプロジェクト例を見てみよう。これは [loom-js](https://github.com/loomnetwork/loom-js) により提供されるトランスファーゲートウェイを使用して構築されている。
