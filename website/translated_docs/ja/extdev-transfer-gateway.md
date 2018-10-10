@@ -258,21 +258,21 @@ node ./gateway-cli.js map-accounts
 それではERC721トークンの`MyRinkebyToken`をいくつか生成する事から始めてみよう、そしてそのうち一つを`PlasmaChain`に転送してみよう。
 
 ```bash
-# mint some tokens on Rinkeby
+# Rinkebyでトークンを生成
 node ./gateway-cli.js mint-token 1
 node ./gateway-cli.js mint-token 2
 node ./gateway-cli.js mint-token 3
 
-# transfer a token to extdev PlasmaChain
+# トークンをextdevのPlasmaChainへ転送
 node ./gateway-cli.js deposit-token 1
 
-# check how many tokens you have on Rinkeby
+# あなたがRinkebyにトークンをいくつ持っているかをチェックする
 node ./gateway-cli.js token-balance -c eth
 
-# check how many tokens you have on extdev
+# あなたがextdevにトークンをいくつ持っているかをチェックする
 node ./gateway-cli.js token-balance
 
-# check how many tokens the Gateway holds on Rinkeby
+# Rinkebyのゲートウェイがトークンをいくつ持っているかをチェックする
 node ./gateway-cli.js token-balance -a gateway -c eth
 ```
 
