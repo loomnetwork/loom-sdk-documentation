@@ -292,9 +292,9 @@ node ./gateway-cli.js coin-balance
 node ./gateway-cli.js coin-balance -a gateway -c eth
 ```
 
-### From `extdev` to `Rinkeby`
+### `extdev`から`Rinkeby`へ
 
-The ERC721 tokens can be transferred back to `Rinkeby` using the `withdraw-token` command.
+ERC721トークンは`withdraw-token`コマンドを使って`Rinkeby`に送り返す事ができる。
 
 ```bash
 # transfer a token to Rinkeby
