@@ -249,46 +249,46 @@ node ./gateway-cli.js map-accounts
 
 グレート、`extdev`と`Rinkeby`の間での完璧なトークンの転送の準備の全てはできているはず！
 
-## 5. Token transfer
+## 5. トークンの転送
 
-### From `Rinkeby` to `extdev`
+### `Rinkeby`から`extdev`へ
 
-Now that all contracts and accounts have been mapped you can transfer tokens and ETH to the `Rinkeby` Gateway contract.
+今、全てのマップしてきたコントラクトとアカウントはトークンとETHを`Rinkeby`のゲートウェイコントラクトに転送できる。
 
-Lets start by minting some of the `MyRinkebyToken` ERC721 tokens, and transferring one of them to the `PlasmaChain`.
+それではERC721トークンの`MyRinkebyToken`をいくつか生成する事から始めてみよう、そしてそのうち一つを`PlasmaChain`に転送してみよう。
 
 ```bash
-# mint some tokens on Rinkeby
+# Rinkebyでトークンを生成
 node ./gateway-cli.js mint-token 1
 node ./gateway-cli.js mint-token 2
 node ./gateway-cli.js mint-token 3
 
-# transfer a token to extdev PlasmaChain
+# トークンをextdevのPlasmaChainへ転送
 node ./gateway-cli.js deposit-token 1
 
-# check how many tokens you have on Rinkeby
+# あなたがRinkebyにトークンをいくつ持っているかをチェックする
 node ./gateway-cli.js token-balance -c eth
 
-# check how many tokens you have on extdev
+# あなたがextdevにトークンをいくつ持っているかをチェックする
 node ./gateway-cli.js token-balance
 
-# check how many tokens the Gateway holds on Rinkeby
+# Rinkebyのゲートウェイがトークンをいくつ持っているかをチェックする
 node ./gateway-cli.js token-balance -a gateway -c eth
 ```
 
-And now lets transfer some of the `MyRinkebyCoin` ERC20 tokens, a billion of them have already been minted to your account so you can transfer them right away.
+ではERC20トークンの`MyRinkebyCoin`のいくつかを転送してみよう、それらのうち10億はすでに生成されあなたのアカウントにあるのですぐに転送する事ができる。
 
 ```bash
-# transfer 120 tokens to extdev PlasmaChain
+# 120トークンをextdevのPlasmaChainに転送する
 node ./gateway-cli.js deposit-coin 120
 
-# check how many tokens you have on Rinkeby
+# Rinkebyにいくつトークンを持っているかチェックする
 node ./gateway-cli.js coin-balance -c eth
 
-# check how many tokens you have on extdev
+# extdevにいくつトークンを持っているかチェックする
 node ./gateway-cli.js coin-balance
 
-# check how many tokens the Gateway holds on Rinkeby
+# Rinkebyのゲートウェイがいくつトークンを持っているかチェックする
 node ./gateway-cli.js coin-balance -a gateway -c eth
 ```
 
@@ -326,7 +326,7 @@ node ./gateway-cli.js coin-balance
 node ./gateway-cli.js coin-balance -a gateway -c eth
 ```
 
-### Troubleshooting
+### トラブルシューティング
 
 Sometimes the withdrawal process may error out due to network issues, or because gas ran out, if that happens you can try to complete the interrupted withdrawal using the `resume-withdrawal` command.
 
@@ -334,8 +334,8 @@ Sometimes the withdrawal process may error out due to network issues, or because
 node ./gateway-cli.js resume-withdrawal
 ```
 
-> NOTE: Only one pending withrawal is allowed per user.
+> 注: ユーザーごとに保留中の引き出しは1 つだけ許可される。
 
-## Summary
+## 要約
 
-If you haven't already, take a look at the [Transfer Gateway Example](https://github.com/loomnetwork/transfer-gateway-example) project, which was built using the Transfer Gateway API provided by [loom-js](https://github.com/loomnetwork/loom-js).
+そこでもしまだチェックしていなければ、[Transfer Gateway Example ](https://github.com/loomnetwork/transfer-gateway-example) のプロジェクト例を見てみよう。これは [loom-js](https://github.com/loomnetwork/loom-js) により提供されるトランスファーゲートウェイを使用して構築されている。
