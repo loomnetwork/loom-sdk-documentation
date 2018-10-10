@@ -26,9 +26,9 @@ sidebar_label: トランスファーゲートウェイ
 
 ## ERC721コントラクトのセットアップ
 
-To transfer an ERC721 token from Ethereum to the DAppChain you'll need two of your own ERC721 contracts, one on Ethereum (Mainnet ERC721), and the other on the DAppChain (DAppChain ERC721).
+ERC721トークンをイーサリアムからDAppチェーンへと移転するには、独自のERC721コントラクトが２つ必要になる。１つはイーサリアム上(メインネットのERC721)、もう１つはDAppチェーン上(DAPpチェーンのERC721) のものだ。
 
-Your Mainnet ERC721 contract doesn't need anything special to work with the Transfer Gateway. Though you might want to add something like the `depositToGateway` method below to make it a bit easier to transfer tokens into the Mainnet Gateway:
+メインネットのERC721コントラクトは、トランスファーゲートウェイと連動させるために特別なことは何も必要としない。 しかし少しばかり簡単にメインネットゲートウェイへトークンを移転するには、下の`depositToGateway` メソッドのようなものを追加してもよい:
 
 ```solidity
 pragma solidity ^0.4.24;
