@@ -276,7 +276,7 @@ node ./gateway-cli.js token-balance
 node ./gateway-cli.js token-balance -a gateway -c eth
 ```
 
-And now lets transfer some of the `MyRinkebyCoin` ERC20 tokens, a billion of them have already been minted to your account so you can transfer them right away.
+ではERC20トークンの`MyRinkebyCoin`のいくつかを転送してみよう、それらのうち10億はすでに生成されあなたのアカウントにあるのですぐに転送する事ができる。
 
 ```bash
 # transfer 120 tokens to extdev PlasmaChain
@@ -326,7 +326,7 @@ node ./gateway-cli.js coin-balance
 node ./gateway-cli.js coin-balance -a gateway -c eth
 ```
 
-### Troubleshooting
+### トラブルシューティング
 
 Sometimes the withdrawal process may error out due to network issues, or because gas ran out, if that happens you can try to complete the interrupted withdrawal using the `resume-withdrawal` command.
 
