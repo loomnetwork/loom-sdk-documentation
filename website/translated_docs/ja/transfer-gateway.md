@@ -22,7 +22,7 @@ sidebar_label: トランスファーゲートウェイ
 
 同じトークンをイーサリアムアカウントへと戻したい場合、ユーザーはまず引き出し保留中にするため、トークンをDAppチェーンゲートウェイへと送り返さなくてはならない。 この保留中の引き出しは、引き出しの署名やDAppチェーンゲートウェイへの通知を行うゲートウェイOracleにより検知される。 DAppチェーンゲートウェイはイベントを送信し、署名済み引き出しの記録を提出すれば、メインネットゲートウェイからイーサリアムアカウントへトークンの引き出しが可能であることをユーザーに通知する。
 
-If you're a hands-on learner you might want to jump straight into the \[Transfer Gateway Example\]\[\] example project before reading any further...
+もしハンズオンで学習したければ、続きを読むよりも直接 \[Transfer Gateway Example\]\[\] のサンプルを試してみると良いかもしれない...
 
 ## ERC721コントラクトのセットアップ
 
