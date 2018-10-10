@@ -279,16 +279,16 @@ node ./gateway-cli.js token-balance -a gateway -c eth
 ではERC20トークンの`MyRinkebyCoin`のいくつかを転送してみよう、それらのうち10億はすでに生成されあなたのアカウントにあるのですぐに転送する事ができる。
 
 ```bash
-# transfer 120 tokens to extdev PlasmaChain
+# 120トークンをextdevのPlasmaChainに転送する
 node ./gateway-cli.js deposit-coin 120
 
-# check how many tokens you have on Rinkeby
+# Rinkebyにいくつトークンを持っているかチェックする
 node ./gateway-cli.js coin-balance -c eth
 
-# check how many tokens you have on extdev
+# extdevにいくつトークンを持っているかチェックする
 node ./gateway-cli.js coin-balance
 
-# check how many tokens the Gateway holds on Rinkeby
+# Rinkebyのゲートウェイがいくつトークンを持っているかチェックする
 node ./gateway-cli.js coin-balance -a gateway -c eth
 ```
 
