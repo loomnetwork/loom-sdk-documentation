@@ -328,7 +328,7 @@ node ./gateway-cli.js coin-balance -a gateway -c eth
 
 ### トラブルシューティング
 
-Sometimes the withdrawal process may error out due to network issues, or because gas ran out, if that happens you can try to complete the interrupted withdrawal using the `resume-withdrawal` command.
+時々出勤処理でネットワーク問題のせいで、もしくはgasを使い果たしてエラーが発生する。もしそれが発生した場合は`resume-withdrawal`コマンドを使って中断された出金処理を完了しようとする事ができる
 
 ```bash
 node ./gateway-cli.js resume-withdrawal
