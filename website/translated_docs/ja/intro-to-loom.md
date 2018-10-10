@@ -15,7 +15,7 @@ LoomネットワークはEthereumのスケールを手助けするための基�
 
 ## DAppChains: それぞれ独自のSidechain上に乗ったDApp
 
-Loom SDKはDAppChain(Ethereumをベースレイヤーとして使うレイヤー2のブロックチェーン) と呼ばれる物を生成する。 各DApp毎に独自のEthereumのサイドチェーンを実行する事は数々の利点があり、最も重要な事は: DAppChainは高いスケーラビリティのための最適な(DPoSなどの) コンセンサスルールを代替し利用可能である事だ。 Using Ethereum as a base-layer means DAppChain-based assets (like ERC20 and ERC721 tokens) can have the security guarantees of Ethereum, especially when backed by Plasma.
+Loom SDKはDAppChain(Ethereumをベースレイヤーとして使うレイヤー2のブロックチェーン) と呼ばれる物を生成する。 各DApp毎に独自のEthereumのサイドチェーンを実行する事は数々の利点があり、最も重要な事は: DAppChainは高いスケーラビリティのための最適な(DPoSなどの) コンセンサスルールを代替し利用可能である事だ。 Ethereumをベースレイヤーとして利用する事はDAppChainベースのアセット(ERC20やERC721トークンなど) が特にPlasmaに裏付けられたEthereum上でセキュリティの保証を持つ事ができる事を意味する。
 
 ## DPoS = Massively Scalable DApps
 
