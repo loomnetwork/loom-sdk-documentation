@@ -17,7 +17,7 @@ LoomネットワークはEthereumのスケールを手助けするための基�
 
 Loom SDKはDAppChain(Ethereumをベースレイヤーとして使うレイヤー2のブロックチェーン) と呼ばれる物を生成する。 各DApp毎に独自のEthereumのサイドチェーンを実行する事は数々の利点があり、最も重要な事は: DAppChainは高いスケーラビリティのための最適な(DPoSなどの) コンセンサスルールを代替し利用可能である事だ。 Ethereumをベースレイヤーとして利用する事はDAppChainベースのアセット(ERC20やERC721トークンなど) が特にPlasmaに裏付けられたEthereum上でセキュリティの保証を持つ事ができる事を意味する。
 
-## DPoS = Massively Scalable DApps
+## DPoS = 非常にスケーラブルなDApps
 
 Our SDK allows developers to choose their consensus algorithm and rulesets to customize the scalability / security tradeoffs to their DApps needs. Out of the box we support DPoS (Delegated Proof of Stake), which enables large-scale online games and social apps — the 2 initial types of DApps we’re focusing on (though you can build any type of DApp on the Loom SDK). Secured by Plasma on Ethereum DAppChains use Plasma-based relays to transfer assets back and forth from Ethereum, which allows ERC20 and ERC721 tokens to be used on the DAppChain while still being secured by Ethereum. In short, the Loom SDK enables developers to build the same types of apps they would build on EOS, but have them backed by Ethereum.
 
