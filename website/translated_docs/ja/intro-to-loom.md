@@ -19,7 +19,7 @@ Loom SDKはDAppChain(Ethereumをベースレイヤーとして使うレイヤー
 
 ## DPoS = 非常にスケーラブルなDApps
 
-我々のSDKにより、開発者は自身のDAppsの要求に合わせてスケーラビリティとセキュリティのトレードオフをカスタマイズするために自身でコンセンサスアルゴリズムとルールセットを選ぶ事が可能になる Out of the box we support DPoS (Delegated Proof of Stake), which enables large-scale online games and social apps — the 2 initial types of DApps we’re focusing on (though you can build any type of DApp on the Loom SDK). Secured by Plasma on Ethereum DAppChains use Plasma-based relays to transfer assets back and forth from Ethereum, which allows ERC20 and ERC721 tokens to be used on the DAppChain while still being secured by Ethereum. In short, the Loom SDK enables developers to build the same types of apps they would build on EOS, but have them backed by Ethereum.
+我々のSDKにより、開発者は自身のDAppsの要求に合わせてスケーラビリティとセキュリティのトレードオフをカスタマイズするために自身でコンセンサスアルゴリズムとルールセットを選ぶ事が可能になる 自由な発想で我々はDPoS (Delegated Proof of Stake) をサポートしている、それは大規模なオンラインゲームとソーシャルアプリを可能にする —その２つの初期のタイプのDAppsに我々はフォーカスしている(ただし、どんなタイプのDAppもLoom SDK上に作る事ができる）。 Secured by Plasma on Ethereum DAppChains use Plasma-based relays to transfer assets back and forth from Ethereum, which allows ERC20 and ERC721 tokens to be used on the DAppChain while still being secured by Ethereum. In short, the Loom SDK enables developers to build the same types of apps they would build on EOS, but have them backed by Ethereum.
 
 # Understanding DAppChains
 
