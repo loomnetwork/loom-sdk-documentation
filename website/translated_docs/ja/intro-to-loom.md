@@ -23,13 +23,13 @@ Loom SDKはDAppChain(Ethereumをベースレイヤーとして使うレイヤー
 
 # ダップチェーンの理解
 
-To better understand our core thesis on scaling and the benefits of DAppChains, read these two blog posts:
+我々のスケーリングとダップチェーンの利点についてのコアの理論をより理解するために2つのブログの投稿を読む。
 
-[DAppChains: Scaling Ethereum DApps Through Sidechains](https://medium.com/loom-network/dappchains-scaling-ethereum-dapps-through-sidechains-f99e51fff447)
+[ダップチェーン: サイドチェーンを介したEthereum DAppsのスケーリング](https://medium.com/loom-network/dappchains-scaling-ethereum-dapps-through-sidechains-f99e51fff447)
 
-[Million User DApps on Ethereum: An Introduction to Application-Specific Sidechains](https://medium.com/loom-network/million-user-dapps-on-ethereum-an-introduction-to-application-specific-sidechains-c0fdc288c5e5)
+[Ethereum上の百万人のユーザーのDApps: アプリケーション固有のサイドチェーン入門](https://medium.com/loom-network/million-user-dapps-on-ethereum-an-introduction-to-application-specific-sidechains-c0fdc288c5e5)
 
-# PlasmaChain
+# プラズマチェーン
 
 ## PlasmaChain: A Plasma Cash-backed Hub for Transacting Between Sidechains and Ethereum Mainnet
 
