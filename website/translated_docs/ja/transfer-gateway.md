@@ -50,7 +50,7 @@ contract MyAwesomeToken is ERC721Token("MyAwesomeToken", "MAT") {
 }
 ```
 
-Your DAppChain ERC721 contract must provide a public `mintToGateway` method to allow the DAppChain Gateway to mint tokens that are transferred from Ethereum:
+DAppChain ERC721コントラクトは、DAppChainゲートウェイがEthereumから移転されたトークンを生成できるよう、publicな `mintToGateway` メソッドを提供しなくてはならない:
 
 ```solidity
 pragma solidity ^0.4.24;
