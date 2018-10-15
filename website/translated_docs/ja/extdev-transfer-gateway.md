@@ -328,7 +328,7 @@ node ./gateway-cli.js coin-balance -a gateway -c eth
 
 ### トラブルシューティング
 
-時々出勤処理でネットワーク問題のせいで、もしくはgasを使い果たしてエラーが発生する。もしそれが発生した場合は`resume-withdrawal`コマンドを使って中断された出金処理を完了しようとする事ができる
+出金処理の際、ネットワーク問題のため、もしくはgasを使い果たした為にエラーが発生することがある。もしそれが発生した場合は、`resume-withdrawal`コマンドを使って中断された出金処理を完了してみよう。
 
 ```bash
 node ./gateway-cli.js resume-withdrawal
@@ -338,4 +338,4 @@ node ./gateway-cli.js resume-withdrawal
 
 ## 要約
 
-そこでもしまだチェックしていなければ、[Transfer Gateway Example ](https://github.com/loomnetwork/transfer-gateway-example) のプロジェクト例を見てみよう。これは [loom-js](https://github.com/loomnetwork/loom-js) により提供されるトランスファーゲートウェイを使用して構築されている。
+もしまだチェックしていなければ、[Transfer Gateway Example ](https://github.com/loomnetwork/transfer-gateway-example) のプロジェクト例を見てみよう。これは [loom-js](https://github.com/loomnetwork/loom-js) により提供されるトランスファーゲートウェイを使用して構築されている。
