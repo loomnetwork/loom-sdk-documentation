@@ -12,7 +12,7 @@
     "Example Games & Apps": ["etherboy-game", "phaser-sdk-demo", "phaser-sdk-demo-websocket", "phaser-sdk-demo-web3-websocket", "simple-social-network-example"],
     "Transfer Gateway": ["transfer-gateway", "transfer-gateway-example"],
     "Deployment": ["etherboy-backend", "multi-node-deployment", "docker-blueprint-phaser"],
-    "Networks": ["testnet-plasma", "validator"],
+    "Networks": ["testnet-plasma", "validator", "non-validator-node"],
     "Frequently Asked Questions": ["arch", "release-notes", "common-issues"],
     "Advanced and Internal": ["loom-yaml", "karma", "json-rpc-methods"],
     "Block Explorer": ["block-explorer-tutorial"]
