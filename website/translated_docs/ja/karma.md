@@ -179,7 +179,7 @@ type KarmaSourceReward struct {
 
 ### ソース: ResetSources
 
-The karma method `ResetSources` is used to reset the karma parameters including the sources in a running DAppChain. You might want to download the existing parameters with `GetSources` and amend that before using to set the karma configuration parameters with `UpdateConfig`.
+Karmaメソッド`ResetSources` は、実行中のDAppチェーンのソースを含めたKarmaパラメーターをリセットする為に使用される。 You might want to download the existing parameters with `GetSources` and amend that before using to set the karma configuration parameters with `UpdateConfig`.
 
 ###### loom karma get-sources
 
