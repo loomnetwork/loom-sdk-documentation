@@ -63,14 +63,14 @@ import "openzeppelin-solidity/contracts/token/ERC721/ERC721Token.sol";
  * standard, it also contains some required functionality for Loom DAppChain compatiblity.
  */
 contract MyAwesomeToken is ERC721Token {
-    // DAppChain Gateway address
+    // DAppChainゲートウェイアドレス
     address public gateway;
 
     constructor(address _gateway) ERC721Token("MyAwesomeToken", "MAT") public {
         gateway = _gateway;
     }
 
-    // Used by the DAppChain Gateway to mint tokens that have been deposited to the Mainnet Gateway
+    // DAppChainゲートウェイにより使用され、メインネットゲートウェイにデポジットされるトークンを生成する。
     function mintToGateway(uint256 _uid) public
     {
         require(msg.sender == gateway);
@@ -109,4 +109,4 @@ To complete the withdrawal process Alice must provide the withdrawal signature (
 
 ## Summary
 
-You should now have a basic understanding of how the Transfer Gateway works, though we haven't presented nor explained any of the actual API yet. If you haven't already, take a look at the \[Transfer Gateway Example\]\[\] project, which was built using the Transfer Gateway API provided by [loom-js](https://github.com/loomnetwork/loom-js).
+これでトランスファーゲートウェイの仕組みについて基礎的な理解ができたはずだ。しかし実際のAPIについてはまだ何も説明していない。 もしまだチェックしていなければ、 \[Transfer Gateway Example\]\[\] のプロジェクト例を見てみよう。これは [loom-js](https://github.com/loomnetwork/loom-js) により提供されるトランスファーゲートウェイAPIを用いて構築されている。
