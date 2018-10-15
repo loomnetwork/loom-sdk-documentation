@@ -3,7 +3,7 @@ id: intro-loom-sdk
 title: Loom Networkとは?
 sidebar_label: Loom SDK入門
 ---
-![What is Loom Network?](/developers/img/what-is-loom.png)
+![Loom Networkとは?](/developers/img/what-is-loom.png)
 
 LoomネットワークはEthereumのスケールを手助けするための基本的なインフラのプラットフォームを構築している。 それは大規模なスケールでのアプリケーションを開発者が実行できるようにし、プロダクションで動く最初のEthereumのスケーリングの解決方法となる。
 
@@ -25,9 +25,9 @@ Loom SDKはDAppChain(Ethereumをベースレイヤーとして使うレイヤー
 
 我々のスケーリングとダップチェーンの利点についてのコアの理論をより理解するために2つのブログの投稿を読む。
 
-[ダップチェーン: サイドチェーンを介したEthereum DAppsのスケーリング](https://medium.com/loom-network/dappchains-scaling-ethereum-dapps-through-sidechains-f99e51fff447)
+[ダップチェーン: サイドチェーンを介したEthereum DAppsのスケーリング](https://medium.com/loom-network-japanese/dappチェーン-f40b5783fb6e)
 
-[Ethereum上の百万人のユーザーのDApps: アプリケーション固有のサイドチェーン入門](https://medium.com/loom-network/million-user-dapps-on-ethereum-an-introduction-to-application-specific-sidechains-c0fdc288c5e5)
+[Ethereum上の百万人のユーザーのDApps: アプリケーション固有のサイドチェーン入門](https://medium.com/loom-network-japanese/イーサリアム上100万ユーザーdapps-分散型アプリケーション-bcd004ff03ed)
 
 # プラズマチェーン
 
@@ -51,13 +51,13 @@ Here’s the thing: The Zombie Battleground Marketplace is ALREADY RUNNING on Pl
 
 # Understanding Plasma Cash
 
-![Understanding Plasma Cash](/developers/img/plasma.jpg)
+![Plasma Cashの理解](/developers/img/plasma.jpg)
 
 We’ve written 2 posts explaining our usage of Plasma on Loom DAppChains:
 
-[Plasma on Loom Network DAppChains: Scalable DApps With Ethereum-Secured Assets](https://medium.com/loom-network/loom-network-plasma-5e86caaadef2)
+[Plasma on Loom Network DAppChains: Scalable DApps With Ethereum-Secured Assets](https://medium.com/loom-network-japanese/loom-network-plasma-f21e58a57b6f)
 
-[Practical Plasma (Volume I): Gaming—focuses on some of the real-world user benefits of securing sidechains with Plasma](https://medium.com/loom-network/practical-plasma-volume-i-gaming-9cfd3f971734)
+[Practical Plasma (Volume I): Gaming—focuses on some of the real-world user benefits of securing sidechains with Plasma](https://medium.com/loom-network-japanese/実践的plasma-vol-1-ゲーミング-26d9dc7b5f95)
 
 # Loom Token
 
