@@ -29,11 +29,11 @@ Loom SDKはDAppChain(Ethereumをベースレイヤーとして使うレイヤー
 
 [Ethereum上の百万人のユーザーのDApps: アプリケーション固有のサイドチェーン入門](https://medium.com/loom-network-japanese/イーサリアム上100万ユーザーdapps-分散型アプリケーション-bcd004ff03ed)
 
-# プラズマチェーン
+# PlasmaChain
 
-## PlasmaChain: A Plasma Cash-backed Hub for Transacting Between Sidechains and Ethereum Mainnet
+## PlasmaChain: Plasma Cashに裏打ちされたサイドチェーンとEthereumメインネット間のトランザクションハブ
 
-A few months back, we announced ZombieChain: “An EOS-like DPoS sidechain for Ethereum DApps.” Since we made that announcement, ZombieChain has evolved considerably. What happened is, we started building the marketplace for Zombie Battleground on top of ZombieChain — and as our feature list grew, we realized this chain had potential to become something much larger than originally intended. So we decided to upgrade this chain to have it play an even more important role in the future of our vision: It’s going to become a central hub for token transactions, linked to Ethereum by Plasma Cash. Think of it like a bridge to Ethereum mainnet with a built-in Decentralized Exchange (DEX), that other sidechains can use for faster and cheaper transactions without ever touching mainnet. Such an important role demands an important name. Thus, we’ve decided to rebrand ZombieChain to “PlasmaChain.”
+数ヶ月前、我々はZombieChain: “イーサリアムdapps用のeosスタイルdposサイドチェーン” を発表した。 この発表以来、ZombieChainは大幅に発展している。 何があったのかというと、我々はZombieChain上にZombie Battleground用のマーケットプレイスを作り始めた。そして機能リストが膨らんでいくにつれて、このチェーンは当初思っていたよりももっと大きなものになる可能性を秘めていることに我々は気づいた。 So we decided to upgrade this chain to have it play an even more important role in the future of our vision: It’s going to become a central hub for token transactions, linked to Ethereum by Plasma Cash. Think of it like a bridge to Ethereum mainnet with a built-in Decentralized Exchange (DEX), that other sidechains can use for faster and cheaper transactions without ever touching mainnet. Such an important role demands an important name. Thus, we’ve decided to rebrand ZombieChain to “PlasmaChain.”
 
 ![Plasmachain](/developers/img/plasmachain_diagram.png)
 
