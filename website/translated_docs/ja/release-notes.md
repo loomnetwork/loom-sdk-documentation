@@ -10,70 +10,70 @@ sidebar_label: リリースノート
 ## リリース 478 - 10月8日
 
 * トランスファーゲートウェイのユーティリティ更新
-* Transfer Gateway [tutorial plasma testnet](extdev-transfer-gateway.html)
+* トランスファーゲートウェイ [plasmaテストネットチュートリアル](extdev-transfer-gateway.html)
 
-## Release 458 - Sept 27th
+## リリース 458 - 9月27日
 
-**It is recommended that all users move up to this release**
+**全ユーザーにこのリリースを削除することをお勧めする。**
 
-* Plasmachain Testnets available for Devs - [Docs](testnet-plasma.html)
-* Karma Faucet for Testnets - [Faucet](http://faucet.dappchains.com)
-* Karma contracts (Sybil resistance) Loom SDK - [Karma](karma.html)
-* Massive performance increasements for high load environments
-* Initial info about running a Validator - [Validator](validator.html)
+* Plasmachainテストネットが開発者向けに利用可能 - [Docs](testnet-plasma.html)
+* テストネット用Karma Faucet - [Faucet](http://faucet.dappchains.com)
+* Karmaコントラクト (シビル耐性) Loom SDK - [Karma](karma.html)
+* 高負荷環境での大幅なパフォーマンスの向上
+* バリデーター運営についてのイニシャル情報 - [Validator](validator.html)
 
-## Release 404 - Aug 24th
+## リリース 404 - 8月24日
 
-** Features
+** 機能
 
-* ERC20 support upgraded in TransferGateway
-* Example ERC20 in Gateway - [Example](https://github.com/loomnetwork/token-gateway-example)
-* Loom SDK Doc site in [Korean](https://loomx.io/developers/ko/)
-* EVM now has limited support for Payable functions, more coming next week 
-* Loom-JS updates for ERC20/ETH transfers with TransferGateway. 
-* Loom-JS integration to DPoS contracts 
-* Experimental Support for [Plasma Debits](https://github.com/loomnetwork/plasma-cash/pull/115)
+* TransferGatewayのERC20サポートをアップグレード
+* ゲートウェイのERC20サンプル - [サンプル](https://github.com/loomnetwork/token-gateway-example)
+* Loom SDK [韓国語](https://loomx.io/developers/ko/)ドキュメンテーションサイト
+* 現在EVMはPayable関数を限定サポート。さらなるサポートは来週登場。 
+* TransferGatewayを使用したERC20/ETHトランスファー向けに、Loom-JSをアップデート 
+* DPoSコントラクトへLoom-JSを統合 
+* [Plasma Debits](https://github.com/loomnetwork/plasma-cash/pull/115)の実験的サポート
 
-** Breaking changes
+** 互換性を崩す変更
 
-* Deprecrating QueryServerHost, and consolidating all functions to the RPCServer.
-* New Config option: RPCBindAddress: "tcp://0.0.0.0:46658"
-* Upgrades of PBFT engine, this may cause incompatibility issues on upgrades, please try in staging environments 
+* QueryServerHostを廃止し、全関数をRPCサーバーへとコンソリデート。
+* 新たなConfigオプション: RPCBindAddress: "tcp://0.0.0.0:46658"
+* PBFTエンジンのアップグレード。アップグレードで非互換性の問題が起こる可能性があるため、ステージング環境にて試すこと。 
 
-## Release 375 - Aug 10th
+## リリース 375 - 8月10日
 
-*NOTE* This is a feature test release, with minor compatibility changes, please verify in staging environements before upgrading your production environment.
+*注意* これは機能テストのためのリリースで、マイナーな互換性の変更を伴っている。運用環境をアップグレードする前に、ステージング環境にて検証を行うこと。
 
-* Fixes for Eventing on EVM Contracts
-* Beta release of the [Transfer Gateway](transfer-gateway.html)
-* [Demo of Transfer Gateway](https://github.com/loomnetwork/cards-gateway-example)
-* Memory leak fixes
-* Minor api breakages, please upgrade go-loom/loom-js. Unity updates coming soon
-* Go-loom is upgraded for api breakages
-* loom-js is upgraded for this release. 
+* EVMコントラクトのイベント処理の修正
+* [トランスファゲートウェイ](transfer-gateway.html)のベータ版リリース
+* [トランスファーゲートウェイのデモ](https://github.com/loomnetwork/cards-gateway-example)
+* メモリーリークの修正
+* APIの破損がわずかにあるので、go-loom/loom-jsのアップグレードが必要。Unityのアップグレードももうすぐリリース。
+* API破損のため、Go-loomをアップデート
+* このリリースのためにloom-jsをアップグレード 
 
-## Release 330 - July 30th
+## リリース 330 -7月30日
 
-* Fix for consensus problems on EVM 
-* Updates for Zombiechain TestNet
-* Added more telemetry to measure performance
-* Range queries on Go Contracts
-* Added ChainID to loom.yaml
+* EVMでのコンセンサスの問題を修正 
+* Zombieチェーンテストネットを更新
+* パフォーマンス測定のためテレメトリをさらに追加
+* Goコントラクトの範囲クエリ
+* loom.yamlにChainIDを追加
 
-* [EVM indexed filter](https://loomx.io/developers/docs/en/web3js-event-filters.html)
+* [EVMインデックスフィルター](https://loomx.io/developers/docs/en/web3js-event-filters.html)
 
-* EVM filter pool fixes and event system
-* Loom-JS EVM updates for indexed filters
-* Loom-JS EVM fixes for getting block by hash
+* EVMフィルタープールの修正とイベントシステム
+* インデックスフィルタ向けにLoom-JS EVMをアップデート
+* ハッシュでブロックを取得できるよう、Loom-JS EVMを修正
 
-## Release 288 - July 17th
+## リリース 288 -7月17日
 
-* [EVM indexed filter](https://loomx.io/developers/docs/en/web3js-event-filters.html)
-* EVM filter pool fixes and event system
-* Loom-JS EVM updates for indexed filters
-* Loom-JS EVM fixes for getting block by hash
+* [EVMインデックスフィルター](https://loomx.io/developers/docs/en/web3js-event-filters.html)
+* EVMフィルタープールの修正とイベントシステム
+* インデックスフィルタ向けにLoom-JS EVMをアップデート
+* ハッシュでブロックを取得できるよう、Loom-JS EVMを修正
 
-## Release 276 - July 13th
+## リリース 276 -7月13日
 
 * [New Block Explorer](block-explorer-tutorial.html)
 * Multinode EVM fixes 
