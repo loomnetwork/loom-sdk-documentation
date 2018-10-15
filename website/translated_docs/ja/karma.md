@@ -26,8 +26,8 @@ Karmaモジュールは、トランザクションの制限方法を提供する
 Karmaの機能のアクティベートは、loom.yaml設定ファイルにより行われる。
 
 * `KarmaEnabled bool` Karmaモジュールのon/offを設定するフラグ。 
-* `KarmaSessionDuration int64` A Time period in seconds. Karma restricts users to a configurable number of transactions during any interval of `SessionDuration` seconds.
-* `KarmaMaxCallCount int64` Base value used to calculate number of call Transaction permitted per `SessionDuration`. A `KarmaMaxCallCount int64` of `0` indicates there are no limit imposed on call transactions number.
+* `KarmaSessionDuration int64` 期間(秒)。Karmaは、`SessionDuration`(秒)の任意のインターバル間にユーザーが設定可能なトランザクション数を制限する。
+* `KarmaMaxCallCount int64` `SessionDuration`当たりのcallトランザクション数を計算する為に使う基本値。 A `KarmaMaxCallCount int64` of `0` indicates there are no limit imposed on call transactions number.
 * `KarmaMaxDeployCount int64` Base value used to calculate number of deploy Transaction permitted per `SessionDuration`. A `KarmaMaxDeployCount int64` of `0` indicates there are no limit imposed on deploy transactions number. Example loom.yaml fragment.
 
 ```yaml
