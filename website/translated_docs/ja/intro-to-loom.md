@@ -33,31 +33,31 @@ Loom SDKはDAppChain(Ethereumをベースレイヤーとして使うレイヤー
 
 ## PlasmaChain: Plasma Cashに裏打ちされたサイドチェーンとEthereumメインネット間のトランザクションハブ
 
-数ヶ月前、我々はZombieChain: “イーサリアムdapps用のeosスタイルdposサイドチェーン” を発表した。 この発表以来、ZombieChainは大幅に発展している。 何があったのかというと、我々はZombieChain上にZombie Battleground用のマーケットプレイスを作り始めた。そして機能リストが膨らんでいくにつれて、このチェーンは当初思っていたよりももっと大きなものになる可能性を秘めていることに我々は気づいた。 So we decided to upgrade this chain to have it play an even more important role in the future of our vision: It’s going to become a central hub for token transactions, linked to Ethereum by Plasma Cash. Think of it like a bridge to Ethereum mainnet with a built-in Decentralized Exchange (DEX), that other sidechains can use for faster and cheaper transactions without ever touching mainnet. Such an important role demands an important name. Thus, we’ve decided to rebrand ZombieChain to “PlasmaChain.”
+数ヶ月前、我々はZombieChain: “イーサリアムdapps用のeosスタイルdposサイドチェーン” を発表した。 この発表以来、ZombieChainは大幅に発展している。 何があったのかというと、我々はZombieChain上にZombie Battleground用のマーケットプレイスを作り始めた。そして機能リストが膨らんでいくにつれて、このチェーンは当初思っていたよりももっと大きなものになる可能性を秘めていることに我々は気づいた。 そのためこのチェーンをアップグレードして、我々の将来的なビジョンにおいてもっと重要な役割を担うようにすることにした。つまりこのチェーンはトークントランザクションのハブとなり、Plasma CashによりEthereumと接続されたものとなるのだ。 これはEthereumメインネットの橋であり、ビルトインの分散型取引所(DEX)を備えているというふうに考えてみよう。そして他のサイドチェーンもそのDEXを使って、高速で安価なトランザクションをメインネットに触れることなく利用できるのだ。 こんな価値ある役割には、価値ある名前が必要だ。 こうして我々は、ZombieChainを “PlasmaChain” へとリブランディングすることに決めた。
 
-![Plasmachain](/developers/img/plasmachain_diagram.png)
+![PlasmaChain](/developers/img/plasmachain_diagram.png)
 
-PlasmaChain: The Sidechain Formerly Known as ZombieChain.
+PlasmaChain: 以前ZombieChainとして知られていたサイドチェーン。
 
-### Here are some of the features that will be built into PlasmaChain:
+### こういった機能がPlasmaChainに構築される:
 
-* Plasma Cash link to mainnet for native ETH, ERC20, and NFT (ERC721) support
-* Built-in DEX / marketplace functionality
-* Native payments in ETH and LOOM
-* Plans to integrate BTC payments in the future
-* Plans to enable Plasma Cash links to “Layer 3” chains, with PlasmaChain as the parent chain. (Think “sidechains of sidechains”, in which * PlasmaChain is the clearinghouse that enables trading of tokens between multiple sidechains without hitting mainnet.)
+* ネイティブなETH、ERC20及びNFT (ERC721) をサポートするメインネットへのPlasma Cashリンク
+* ビルトインのDEX / マーケットプレイス機能
+* ETH 及びLOOM でのネイティブペイメント
+* 今後 BTC ペイメントとの統合を計画
+* PlasmaChainを親チェーンとして、『レイヤー3』チェーンへのPlasma Cashリンクが可能となるように計画。 (『サイドチェーンのサイドチェーン』であると考えよう。そこではPlasmaChainを交換所として、メインネットに触れることなく複数サイドチェーン間のトークン取引が可能となる。) 
 
-Here’s the thing: The Zombie Battleground Marketplace is ALREADY RUNNING on PlasmaChain as you read this. We will also be deploying multiple testnets in the near future, which we will open to third parties to deploy their DApps. These testnets may later evolve to become their own specialized production chains. But in the meantime, they’ll help us test third-party DApps and experiment with new features to eventually incorporate into the production PlasmaChain. As the central hub that acts as a bridge between multiple sidechains and Ethereum, PlasmaChain will be one of the most important pieces in our vision moving forward.
+重要: あなたがこれを読んでいる今も、Zombie Battlegroundのマーケットプレイスはすでに稼働中なのだ。 また近い将来、複数テストネットの デプロイを予定している。これらはサードパーティーに公開され、彼らは自身のDAppsのデプロイが可能となる。 これらのテストネットは今後、独自の特色を持った本番チェーンへと発展していくかもしれない。 だがそれまでは、サードパーティーのDAppsをテストしたり、新たな機能を最終的に本番のPlasmaChainへと組み込むための実験を行ったりするために役立てていく。 複数サイドチェーンとEthereum間の橋のように機能するハブとして、PlasmaChainは前進を続ける我々のビジョンにおける最重要な部分の１つとなっていく。
 
-# Understanding Plasma Cash
+# Plasma Cashの理解
 
 ![Plasma Cashの理解](/developers/img/plasma.jpg)
 
-We’ve written 2 posts explaining our usage of Plasma on Loom DAppChains:
+Loom DAppチェーンでのPlasmaの使用について説明した２つの記事がある:
 
-[Plasma on Loom Network DAppChains: Scalable DApps With Ethereum-Secured Assets](https://medium.com/loom-network-japanese/loom-network-plasma-f21e58a57b6f)
+[Loom Network DAppチェーン上のPlasma: アセットがEthereumに守られているスケーラブルなDApps](https://medium.com/loom-network-japanese/loom-network-plasma-f21e58a57b6f)
 
-[Practical Plasma (Volume I): Gaming—focuses on some of the real-world user benefits of securing sidechains with Plasma](https://medium.com/loom-network-japanese/実践的plasma-vol-1-ゲーミング-26d9dc7b5f95)
+[実践的Plasma (Volume I): ゲーミング— サイドチェーンの安全性をPlasmaで守ることでもたらされる現実的なユーザーのメリットについてフォーカス](https://medium.com/loom-network-japanese/実践的plasma-vol-1-ゲーミング-26d9dc7b5f95)
 
 # Loom Token
 
