@@ -27,8 +27,8 @@ Karmaの機能のアクティベートは、loom.yaml設定ファイルにより
 
 * `KarmaEnabled bool` Karmaモジュールのon/offを設定するフラグ。 
 * `KarmaSessionDuration int64` 期間(秒)。Karmaは、`SessionDuration`(秒)の任意のインターバル間にユーザーが設定可能なトランザクション数を制限する。
-* `KarmaMaxCallCount int64` `SessionDuration`当たりのcallトランザクション数を計算する為に使う基本値。 A `KarmaMaxCallCount int64` of `0` indicates there are no limit imposed on call transactions number.
-* `KarmaMaxDeployCount int64` Base value used to calculate number of deploy Transaction permitted per `SessionDuration`. A `KarmaMaxDeployCount int64` of `0` indicates there are no limit imposed on deploy transactions number. Example loom.yaml fragment.
+* `KarmaMaxCallCount int64` `SessionDuration`当たりのcallトランザクション数を計算する為に使う基本値。 `KarmaMaxCallCount int64` が `0` の時は、callトランザクション数に制限がないことを示している。
+* `KarmaMaxDeployCount int64` `SessionDuration`当たりのデプロイトランザクション数を計算する為に使う基本値。 A `KarmaMaxDeployCount int64` が `0` の時は、デプロイトランザクション数に制限がないことを示している。 loom.yaml フラフメントのサンプル。
 
 ```yaml
 KarmaEnabled: true
@@ -37,9 +37,9 @@ KarmaMaxCallCount: 10
 KarmaMaxDeployCount: 5
 ```
 
-## Accessing karma methods
+## Karmaメソッドへのアクセス
 
-Public karma methods can either be run either directly in code using one of the SDKs or from the command line the using `loom` executable.
+PublicなKarmaメソッドは、SDKを使ってコード中で直接実行することもできるし、 `loom` エグゼクタブルを使用してコマンドラインから実行することもできる。
 
 ```bash
 $ ./loom karma --help
@@ -72,7 +72,7 @@ Use "loom karma [command] --help" for more information about a command.
 
 ## Oracle
 
-* It is defined in the genesis file, and can be updated by the karma method UpdateOracle.
+* これはgenesisファイルにて定義されており、KarmaメソッドのUpdateOracleによって更新することができる。
 * It is unaffected by karma restrictions.
 * To successfully call the following karma configuration transactions it is necessary to reference the oracle. 
     * `AppendSourcesForUser`
