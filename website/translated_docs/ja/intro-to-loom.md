@@ -59,6 +59,6 @@ Loom DAppチェーンでのPlasmaの使用について説明した２つの記�
 
 [実践的Plasma (Volume I): ゲーミング— サイドチェーンの安全性をPlasmaで守ることでもたらされる現実的なユーザーのメリットについてフォーカス](https://medium.com/loom-network-japanese/実践的plasma-vol-1-ゲーミング-26d9dc7b5f95)
 
-# Loom Token
+# Loomトークン
 
-For questions about the LOOM token, we have an article specifically devoted to explaining how it works: [LOOM Token FAQs — You got questions, we got answers!](https://medium.com/loom-network/loom-token-faqs-you-got-questions-we-got-answers-2d3c9185b4d0)
+LOOMトークンについての質問は、その仕組みを説明している専用記事があるので参照すること: [LOOM Tokenの FAQ — 皆さんからの質問にお答えします！](https://medium.com/loom-network-japanese/loom-tokenの-faq-45b18afa1474)
