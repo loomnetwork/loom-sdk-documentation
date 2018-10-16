@@ -293,7 +293,7 @@ period of `SessionDuration`seconds.
 A strictly positive karma is required to do any transactions.
 
 If `KarmaMaxCallCount` is zero then there is no limit, imposed here,  
-on the rate of deploy transactions.
+on the rate of call transactions.
 
 Otherwise users will only be able to run `KarmaMaxCallCount + total karma` call transactions in any 
 period of `SessionDuration`seconds. Where `total karma1` is calculated from the count of sources
@@ -315,7 +315,7 @@ type KarmaAddressSource struct {
 ```
 `Name` identifies a source and corresponds to the `Name` field in `KarmaSourceReward` above.
 `Count` the number of a particular source associated with the address.
-The karma a source provides to a user is `
+The karma source provides to a user is `
 
 `KarmaSource.Count*KarmaSourceReward.Reward`
 
@@ -371,8 +371,8 @@ karma available as soon a new DAppChain starts.  For example:
         }
 ```
 This genesis file fragment will create three sources and give the user with local address
-`QjWhaN9qvpdI9MjS1YuL1GukwLc` 20 rewards from `oauth` and3 rewards from `token`.
-This user would than start with `20*10 + 3*4 = 42` karma.
+`QjWhaN9qvpdI9MjS1YuL1GukwLc` 10 rewards from `oauth` and3 rewards from `token`.
+This user would than start with `10*3 + 3*4 = 42` karma.
 
 #### Users: AppendSourcesForUser and DeleteSourcesForUser
 In a running DAppChain we can add a source to a user with the karma method 
