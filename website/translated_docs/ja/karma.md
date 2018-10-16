@@ -411,7 +411,7 @@ sources successfully updated
 
 ###### loom karma delete-sources-for-user
 
-Existing sources can be disassociated with a user using the karma method DeleteUsersForUser. For this you can use the `loom karma delete-sources-for-user`.
+Karmaメソッド DeleteUsersForUser を用いて、既存のソースをユーザーとの連想から切り離すことができる。これを行うために、 `loom karma delete-sources-for-user` を使おう。
 
 ```bash
 $ loom karma delete-sources-for-user --help
@@ -431,7 +431,7 @@ Global Flags:
   -w, --write string     URI for sending txs (default "http://localhost:46658/rpc")
 ```
 
-For example if `default:0xDeffe041cC978a193fCf0CE18b43b25B4592FC90` is the oracle and `default:0xAfaA41C81A316111fB0A4644B7a276c26bEA2C9F` the user to which we want to remove sources.
+たとえば、`default:0xDeffe041cC978a193fCf0CE18b43b25B4592FC90` がoracleであり、 `default:0xAfaA41C81A316111fB0A4644B7a276c26bEA2C9F` がソースを削除したいユーザーであるとする。
 
 ```bash
 $ ./loom karma delete-sources-for-user default:0xAfaA41C81A316111fB0A4644B7a276c26bEA2C9F  default:0xDeffe041cC978a193fCf0CE18b43b25B4592FC90 "oauth" "token" -k ./cmd/loom/data/pri
@@ -440,7 +440,7 @@ sources successfully deleted
 
 ###### loom karma get-user-state
 
-To get the list of sources that have been associated with a user, you can use the loom command `loom karma get-user-state`.
+ユーザーと連想づけられたソースリストを取得するには、loomコマンド `loom karma get-user-state` を使うことができる。
 
 ```bash
 $ loom karma get-user-state --help
@@ -460,38 +460,38 @@ Global Flags:
   -w, --write string     URI for sending txs (default "http://localhost:46658/rpc")
 ```
 
-For example, if `default:0xDeffe041cC978a193fCf0CE18b43b25B4592FC90` is the user you are curious about
+例えば、ユーザー `default:0xDeffe041cC978a193fCf0CE18b43b25B4592FC90` について情報を取得するには:
 
 ```bash
 ./loom karma get-user-state default:0xDeffe041cC978a193fCf0CE18b43b25B4592FC90
 ```
 
-## Karma methods
+## Karmaメソッド
 
-The following methods can be called by anyone.
+次のメソッドは誰でも呼び出すことができる。
 
-* `GetSources(ctx contract.StaticContext, ko *types.Address) (*ktypes.KarmaSources, error)` Returns the current karma configuration details. This includes the current sources.
-* `GetTotal(ctx contract.StaticContext, params *types.Address) (*karma.KarmaTotal, error)` Returns the total amount of karma in the system. The sum of the karma for each user that has been associated with a source.
-* `GetUserState(ctx contract.StaticContext, user *types.Address) (*karma.KarmaState, error)` Returns the sources and counts associated with a user.
+* `GetSources(ctx contract.StaticContext, ko *types.Address) (*ktypes.KarmaSources, error)` これは現在のKarma設定詳細を返却する。現在のソースも含んでいる。
+* `GetTotal(ctx contract.StaticContext, params *types.Address) (*karma.KarmaTotal, error)` これはシステム内のKarma総量を返却する。 ソースと連想づけられた各ユーザーのKarma合計。
+* `GetUserState(ctx contract.StaticContext, user *types.Address) (*karma.KarmaState, error)` ユーザーと連想づけられたソース及びカウントを返却する。
 
-Can only be called by referencing the oracle unless there is no oracle yet.
+oracleがまだ存在しなければ、oracleを参照することによってのみ呼び出すことができる。
 
 * `UpdateOracle(ctx contract.Context, params *ktypes.KarmaNewOracleValidator) error`
 
-The following methods can only be called by referencing the oracle
+次のメソッドはoracleを参照することによってのみ呼び出すことができる。
 
-* `ResetSources(ctx contract.Context, kpo *ktypes.KarmaSourcesValidator) error` Reset the list of possible sources.
-* `AppendSourcesForUser(ctx contract.Context, ksu *karma.KarmaStateUser) error` Associate a collection of sources with counts with a user. See above for details. 
-* `DeleteSourcesForUser(ctx contract.Context, ksu *karma.KarmaStateKeyUser) error` Disassociate a collection of sources with a user. See above for details. 
+* `ResetSources(ctx contract.Context, kpo *ktypes.KarmaSourcesValidator) error` 有効なソースリストをリセットする。
+* `AppendSourcesForUser(ctx contract.Context, ksu *karma.KarmaStateUser) error` ソースの集合をカウント及びユーザーと連想づける。詳細は上記を参照。 
+* `DeleteSourcesForUser(ctx contract.Context, ksu *karma.KarmaStateKeyUser) error` ソースをユーザーとの連想から切り離す。詳細は上記を参照。 
 
-Other methods
+他のメソッド
 
 * `Meta() (plugin.Meta, error)`
 * `Init(ctx contract.Context, req *InitRequest) error`
 
-## Genesis entries
+## Genesisファイル入力
 
-An example genesis file entry is shown below. The Init block can be empty, which just installs the karma contact on the DAppChain. You can define an Oracle in the genesis file. If you don't you can still call the karma method `UpdateOracle` to create an initial Oracle. It is possible to initialise the karma contract with a list of karma sources. It you do this, you can also allocate a list of users to have allocated amounts of these sources.
+genesisファイルの入力例を以下に示した。 The Init block can be empty, which just installs the karma contact on the DAppChain. You can define an Oracle in the genesis file. If you don't you can still call the karma method `UpdateOracle` to create an initial Oracle. It is possible to initialise the karma contract with a list of karma sources. It you do this, you can also allocate a list of users to have allocated amounts of these sources.
 
 ```json
         {
