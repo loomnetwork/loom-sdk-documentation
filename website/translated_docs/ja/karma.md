@@ -491,7 +491,7 @@ oracleがまだ存在しなければ、oracleを参照することによって�
 
 ## Genesisファイル入力
 
-genesisファイルの入力例を以下に示した。 イニシャルブロックは空で良い。これはDAppChain上にKarmaコントラクトをインストールするだけのものである。 またOracleをgenesisファイル中で定義できる。 定義しない場合も、Karmaメソッド `UpdateOracle` を呼び出してイニシャルoracleを作成することができる。 またKarmaソースのリストでKarmaコントラクトを初期化することが可能である。 It you do this, you can also allocate a list of users to have allocated amounts of these sources.
+genesisファイルの入力例を以下に示した。 イニシャルブロックは空で良い。これはDAppChain上にKarmaコントラクトをインストールするだけのものである。 またOracleをgenesisファイル中で定義できる。 定義しない場合も、Karmaメソッド `UpdateOracle` を呼び出してイニシャルoracleを作成することができる。 またKarmaソースのリストでKarmaコントラクトを初期化することが可能である。 こうすると、これらのソースの量を割り当てたユーザーのリストを分配することもできる。
 
 ```json
         {
