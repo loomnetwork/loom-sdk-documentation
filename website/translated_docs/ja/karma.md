@@ -303,9 +303,9 @@ Karmaが有効になっていれば、各ユーザーは彼らのKarma配分で�
 
 それ以外の場合、ユーザーは `SessionDuration`(秒) の間に `KarmaMaxCallCount + total karma` だけのcallトランザクションを実行することができる。 `total karma1` は下で説明しているように、ユーザーのソースカウントより計算される。
 
-### #User Karma
+### #ユーザーKarma
 
-Each user will be associated with zero or more sources. This list may contain both active sources, in karma's current list of sources, or inactive sources not currently in the list of current sources.
+各ユーザーは、ゼロまたはそれより多いソースと連想付けられる。 このリストは、Karmaソースリストに現在あるアクティブソース、またはKarmaソースリストに現在ない非アクティブソースのどちらも含むことがある。
 
 ```go
 type KarmaSource struct {
