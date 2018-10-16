@@ -319,15 +319,15 @@ type KarmaAddressSource struct {
 }
 ```
 
-`Name` identifies a source and corresponds to the `Name` field in `KarmaSourceReward` above. `Count` the number of a particular source associated with the address. The karma a source provides to a user is `
+`Name` はソースを識別し、上の `KarmaSourceReward` 中の `Name` フィールドに一致している。 `Count` は、アドレスと連想付けられた特定ソースの数。 Karmaソースがユーザーに提供するのは:
 
 `KarmaSource.Count*KarmaSourceReward.Reward`
 
-The total amount of karma is the sum of the karma from each active karma source associated with the user. The sources associated with a user can configured either in the genesis file or by the karma methods `AppendSourcesForUser` and `DeleteSourcesForUser`.
+Karmaの総量は、ユーザーと連想づけられたアクティブKarmaソースのKarmaを合計したものである。 ユーザーと連想づけられたソースは、genesisファイル中でも、もしくはKarmaメソッドの `AppendSourcesForUser` 及び `DeleteSourcesForUser` によっても構成することができる。
 
-#### Users: Genesis File
+#### ユーザー: Genesis File
 
-Users can be associated with sources in the genesis file. This allows users to have karma available as soon a new DAppChain starts. For example:
+genesisファイル中でユーザーとソースを連想づけることが可能である。これにより、ユーザーは新たなdAppチェーンがスタートするとすぐに、有効なKarmaを持つことができる。例えば:
 
 ```json
         {
