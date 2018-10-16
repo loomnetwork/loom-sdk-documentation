@@ -491,7 +491,7 @@ oracleがまだ存在しなければ、oracleを参照することによって�
 
 ## Genesisファイル入力
 
-genesisファイルの入力例を以下に示した。 The Init block can be empty, which just installs the karma contact on the DAppChain. You can define an Oracle in the genesis file. If you don't you can still call the karma method `UpdateOracle` to create an initial Oracle. It is possible to initialise the karma contract with a list of karma sources. It you do this, you can also allocate a list of users to have allocated amounts of these sources.
+genesisファイルの入力例を以下に示した。 イニシャルブロックは空で良い。これはDAppChain上にKarmaコントラクトをインストールするだけのものである。 またOracleをgenesisファイル中で定義できる。 定義しない場合も、Karmaメソッド `UpdateOracle` を呼び出してイニシャルoracleを作成することができる。 またKarmaソースのリストでKarmaコントラクトを初期化することが可能である。 It you do this, you can also allocate a list of users to have allocated amounts of these sources.
 
 ```json
         {
