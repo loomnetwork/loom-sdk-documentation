@@ -374,7 +374,7 @@ genesisファイル中でユーザーとソースを連想づけることが可�
         }
 ```
 
-このgenesisファイルフラグメントは３つのソースを作成し、ローカルアドレス `QjWhaN9qvpdI9MjS1YuL1GukwLc`のユーザーに対して、 20 rewards from `oauth`から20リワード、 `token` から3リワードを与えることになる。 This user would than start with `20*10 + 3*4 = 42` karma.
+このgenesisファイルフラグメントは３つのソースを作成し、ローカルアドレス `QjWhaN9qvpdI9MjS1YuL1GukwLc`のユーザーに対して、 `oauth`から10リワード、 `token` から3リワードを与えることになる。 つまりこのユーザーは `10*3 + 3*4 = 42` Karmaでスタートする。
 
 #### Users: AppendSourcesForUser and DeleteSourcesForUser
 
