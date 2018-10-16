@@ -291,18 +291,17 @@ Karmaが有効になっていれば、各ユーザーは彼らのKarma配分で�
 
 どんなトランザクションを行うにも、ちょうど１Karmaが必要となる。
 
-If `KarmaMaxDeployCount` is zero then there is no limit, imposed here, on the rate of deploy transactions.
+`KarmaMaxDeployCount`がゼロであった場合、デプロイトランザクション数に制限はない。
 
-Otherwise users will only be able to run `KarmaMaxDeployCount` deploy transactions in any period of `SessionDuration`seconds.
+それ以外の場合、ユーザーは `SessionDuration`(秒) の間に `KarmaMaxDeployCount` だけのデプロイトランザクションを実行することができる。
 
-###### Call transactions
+###### Callトランザクション
 
-A strictly positive karma is required to do any transactions.
+どんなトランザクションを行うにも、ちょうど１Karmaが必要となる。
 
-If `KarmaMaxCallCount` is zero then there is no limit, imposed here,  
-on the rate of deploy transactions.
+`KarmaMaxCallCount` がゼロであった場合、callトランザクション数に制限はない。
 
-Otherwise users will only be able to run `KarmaMaxCallCount + total karma` call transactions in any period of `SessionDuration`seconds. Where `total karma1` is calculated from the count of sources held by the user as described below.
+それ以外の場合、ユーザーは `SessionDuration`(秒) の間に `KarmaMaxCallCount + total karma` だけのcallトランザクションを実行することができる。 `total karma1` は下で説明しているように、ユーザーのソースカウントより計算される。
 
 ### #User Karma
 
