@@ -492,7 +492,7 @@ An example genesis file entry is shown below. The Init block can be empty, which
 the karma contact on the DAppChain. 
 You can define an Oracle in the genesis file. If you don't you can still call the karma
 method `UpdateOracle` to create an initial Oracle.
-It is possible to initialise the karma contract with a list of karma sources. It you do this, you
+It is possible to initialise the karma contract with a list of karma sources. If you do this, you
 can also allocate a list of users to have allocated amounts of these sources.
 ```json
         {
