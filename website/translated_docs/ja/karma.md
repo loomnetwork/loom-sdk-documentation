@@ -299,7 +299,8 @@ Karmaが有効になっていれば、各ユーザーは彼らのKarma配分で�
 
 どんなトランザクションを行うにも、ちょうど１Karmaが必要となる。
 
-`KarmaMaxCallCount` がゼロであった場合、callトランザクション数に制限はない。
+If `KarmaMaxCallCount` is zero then there is no limit, imposed here,  
+on the rate of call transactions.
 
 それ以外の場合、ユーザーは `SessionDuration`(秒) の間に `KarmaMaxCallCount + total karma` だけのcallトランザクションを実行することができる。 `total karma1` は下で説明しているように、ユーザーのソースカウントより計算される。
 
@@ -319,7 +320,7 @@ type KarmaAddressSource struct {
 }
 ```
 
-`Name` はソースを識別し、上の `KarmaSourceReward` 中の `Name` フィールドに一致している。 `Count` は、アドレスと連想付けられた特定ソースの数。 Karmaソースがユーザーに提供するのは:
+`Name` はソースを識別し、上の `KarmaSourceReward` 中の `Name` フィールドに一致している。 `Count` は、アドレスと連想付けられた特定ソースの数。 The karma source provides to a user is `
 
 `KarmaSource.Count*KarmaSourceReward.Reward`
 
@@ -374,7 +375,7 @@ genesisファイル中でユーザーとソースを連想づけることが可�
         }
 ```
 
-このgenesisファイルフラグメントは３つのソースを作成し、ローカルアドレス `QjWhaN9qvpdI9MjS1YuL1GukwLc`のユーザーに対して、 `oauth`から10リワード、 `token` から3リワードを与えることになる。 つまりこのユーザーは `10*3 + 3*4 = 42` Karmaでスタートする。
+This genesis file fragment will create three sources and give the user with local address `QjWhaN9qvpdI9MjS1YuL1GukwLc` 10 rewards from `oauth` and3 rewards from `token`. This user would than start with `10*3 + 3*4 = 42` karma.
 
 #### ユーザー: AppendSourcesForUser 及び DeleteSourcesForUser
 
@@ -491,7 +492,7 @@ oracleがまだ存在しなければ、oracleを参照することによって�
 
 ## Genesisファイル入力
 
-genesisファイルの入力例を以下に示した。 イニシャルブロックは空で良い。これはDAppChain上にKarmaコントラクトをインストールするだけのものである。 またOracleをgenesisファイル中で定義できる。 定義しない場合も、Karmaメソッド `UpdateOracle` を呼び出してイニシャルoracleを作成することができる。 またKarmaソースのリストでKarmaコントラクトを初期化することが可能である。 こうすると、これらのソースの量を割り当てたユーザーのリストを分配することもできる。
+genesisファイルの入力例を以下に示した。 イニシャルブロックは空で良い。これはDAppChain上にKarmaコントラクトをインストールするだけのものである。 またOracleをgenesisファイル中で定義できる。 定義しない場合も、Karmaメソッド `UpdateOracle` を呼び出してイニシャルoracleを作成することができる。 またKarmaソースのリストでKarmaコントラクトを初期化することが可能である。 If you do this, you can also allocate a list of users to have allocated amounts of these sources.
 
 ```json
         {
