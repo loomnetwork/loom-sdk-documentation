@@ -259,18 +259,18 @@ sources successfully updated
 
 ##### go-loom update sources
 
-The following Go code fragment gives an example of how you might do this in Go using go-loom, error checking skipped for readability.
+次のGoコードフラグメントは、これをgo-loomを使ってGoで行う方法の例を示している。読みやすくするため、エラーチェックはスキップしている。
 
 ```go
 import `github.com/loomnetwork/go-loom/builtin/types/karma`
 
 func AddSource(name string, reward int64, signer auth.Signer, oracle loom.Address, karmaContact client.Contract) {
 
-    // Get the existing configuration parameters
+    // 既存の構成パラメーターを取得
     var resp karma.KarmaSources
     _, err := karmaContact.StaticCall("GetSources", oracle.MarshalPB(), oracle, &resp)
 
-    // Add the new source
+    // 新しいソースを追加
     var configVal karma.KarmaSourcesValidator
     configVal.Oracle = oracle.MarshalPB()
     configVal.Sources = append(resp.Sources, &karma.KarmaSourceReward {
@@ -278,18 +278,18 @@ func AddSource(name string, reward int64, signer auth.Signer, oracle loom.Addres
             Reward: reward,
     })
 
-    // Update the source information on the DAppChain
+    // DAppChain上のソース情報を更新
     _, err = karmaContact.Call("ResetSources", &configVal, signer, nil)
 }
 ```
 
-## Users
+## ユーザー
 
-If karma has been enabled, each user will be restricted in the transactions they can call by their karma allocation. If karma is enabled the following restrictions apply.
+Karmaが有効になっていれば、各ユーザーは彼らのKarma配分でトランザクションを制限される。
 
-###### Deploy transactions
+###### デプロイトランザクション
 
-A strictly positive karma is required to do any transactions.
+どんなトランザクションを行うにも、ちょうど１Karmaが必要となる。
 
 If `KarmaMaxDeployCount` is zero then there is no limit, imposed here, on the rate of deploy transactions.
 
