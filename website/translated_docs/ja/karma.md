@@ -179,11 +179,11 @@ type KarmaSourceReward struct {
 
 ### ソース: ResetSources
 
-Karmaメソッド`ResetSources` は、実行中のDAppチェーンのソースを含めたKarmaパラメーターをリセットする為に使用される。 You might want to download the existing parameters with `GetSources` and amend that before using to set the karma configuration parameters with `UpdateConfig`.
+Karmaメソッド`ResetSources` は、実行中のDAppチェーンのソースを含めたKarmaパラメーターをリセットする為に使用される。 `UpdateConfig` を使用してKarma構成パラメーターを設定する前に、 `GetSources` で既存のパラメーターをダウンロードし、それを修正することができる。
 
 ###### loom karma get-sources
 
-Use the get-sources `loom` command to list karma sources using the GetSources karma method.
+Karmaソースをリストするには、 `loom` コマンドのget-sourcesを使用する。
 
 ```bash
 $ loom karma get-sources --help
@@ -205,7 +205,7 @@ Global Flags:
 Process finished with exit code 0
 ```
 
-For example
+例
 
 ```bash
 $ loom karma get-sources
