@@ -376,13 +376,13 @@ genesisファイル中でユーザーとソースを連想づけることが可�
 
 このgenesisファイルフラグメントは３つのソースを作成し、ローカルアドレス `QjWhaN9qvpdI9MjS1YuL1GukwLc`のユーザーに対して、 `oauth`から10リワード、 `token` から3リワードを与えることになる。 つまりこのユーザーは `10*3 + 3*4 = 42` Karmaでスタートする。
 
-#### Users: AppendSourcesForUser and DeleteSourcesForUser
+#### ユーザー: AppendSourcesForUser 及び DeleteSourcesForUser
 
-In a running DAppChain we can add a source to a user with the karma method `AppendSourcesForUser`. We need a list of names of the new sources, plus a count of the number of rewards. Sources can be removed using DeleteSourcesForUser.
+Karmaメソッド `AppendSourcesForUser` を使って、実行中のDAppChainでユーザーにソースを追加することができる。 新しいソースの名前、さらにリワード数カウントのリストが必要となる。 DeleteSourcesForUser でソースを削除することが可能。
 
 ###### loom karma append-sources-for-user
 
-New sources can be associated with a user using karma method AppendSourcesForUser, this can be accessed with the `loom karma append-sources-for-user` command.
+Karmaメソッド AppendSourcesForUser を使って、新しいソースをユーザーと連想づけることができるが、これは `loom karma append-sources-for-user` コマンドでアクセス可能となっている。
 
 ```bash
 $ ./loom karma append-sources-for-user  --help
@@ -402,7 +402,7 @@ Global Flags:
   -w, --write string     URI for sending txs (default "http://localhost:46658/rpc")
 ```
 
-For example if `default:0xDeffe041cC978a193fCf0CE18b43b25B4592FC90` is the oracle and `default:0xAfaA41C81A316111fB0A4644B7a276c26bEA2C9F` the user to which we want to add new sources.
+たとえば、`default:0xDeffe041cC978a193fCf0CE18b43b25B4592FC90` がoracleであり、 `default:0xAfaA41C81A316111fB0A4644B7a276c26bEA2C9F` が新しいソースを追加したいユーザーであるとする。
 
 ```bash
 $ ./loom karma append-sources-for-user default:0xAfaA41C81A316111fB0A4644B7a276c26bEA2C9F  default:0xDeffe041cC978a193fCf0CE18b43b25B4592FC90 "oauth" 4 "token" 3 -k ./cmd/loom/data/pri
