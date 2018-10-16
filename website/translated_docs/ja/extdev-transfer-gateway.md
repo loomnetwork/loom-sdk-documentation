@@ -292,43 +292,43 @@ node ./gateway-cli.js coin-balance
 node ./gateway-cli.js coin-balance -a gateway -c eth
 ```
 
-### From `extdev` to `Rinkeby`
+### `extdev`から`Rinkeby`へ
 
-The ERC721 tokens can be transferred back to `Rinkeby` using the `withdraw-token` command.
+ERC721トークンは`withdraw-token`コマンドを使って`Rinkeby`に送り返す事ができる。
 
 ```bash
-# transfer a token to Rinkeby
+# Rinkebyに転送する
 node ./gateway-cli.js withdraw-token 1
 
-# check how many tokens you have on Rinkeby
+# Rinkebyにいくつトークンを持つかチェックする。
 node ./gateway-cli.js token-balance -c eth
 
-# check how many tokens you have on extdev
+# extdevにいくつトークンを持つかチェックする。
 node ./gateway-cli.js token-balance
 
-# check how many tokens the Gateway holds on Rinkeby
+# Rinkebyのゲートウェイがいくつトークンを持つかチェックする
 node ./gateway-cli.js token-balance -a gateway -c eth
 ```
 
-The ERC20 tokens can be transferred back to `Rinkeby` using the `withdraw-coin` command.
+ERC20トークンは`withdraw-coin`コマンドを使って`Rinkeby`に送り返す事ができる。
 
 ```bash
-# transfer 60 tokens to Rinkeby
+# 60トークンをRinkebyに転送
 node ./gateway-cli.js withdraw-coin 60
 
-# check how many tokens you have on Rinkeby
+# Rinkebyにいくつトークンを持つかチェックする
 node ./gateway-cli.js coin-balance -c eth
 
-# check how many tokens you have on extdev
+# extdevにいくつトークンを持つかチェクする
 node ./gateway-cli.js coin-balance
 
-# check how many tokens the Gateway holds on Rinkeby
+# Rinkebyのゲートウェイがいくつトークンを持つかチェックする
 node ./gateway-cli.js coin-balance -a gateway -c eth
 ```
 
 ### トラブルシューティング
 
-Sometimes the withdrawal process may error out due to network issues, or because gas ran out, if that happens you can try to complete the interrupted withdrawal using the `resume-withdrawal` command.
+出金処理の際、ネットワーク問題のため、もしくはgasを使い果たした為にエラーが発生することがある。もしそれが発生した場合は、`resume-withdrawal`コマンドを使って中断された出金処理を完了してみよう。
 
 ```bash
 node ./gateway-cli.js resume-withdrawal
@@ -338,4 +338,4 @@ node ./gateway-cli.js resume-withdrawal
 
 ## 要約
 
-そこでもしまだチェックしていなければ、[Transfer Gateway Example ](https://github.com/loomnetwork/transfer-gateway-example) のプロジェクト例を見てみよう。これは [loom-js](https://github.com/loomnetwork/loom-js) により提供されるトランスファーゲートウェイを使用して構築されている。
+もしまだチェックしていなければ、[Transfer Gateway Example ](https://github.com/loomnetwork/transfer-gateway-example) のプロジェクト例を見てみよう。これは [loom-js](https://github.com/loomnetwork/loom-js) により提供されるトランスファーゲートウェイを使用して構築されている。
