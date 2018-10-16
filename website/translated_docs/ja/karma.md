@@ -229,7 +229,7 @@ $ loom karma get-sources
 
 ###### loom karma reset-sources
 
-The sources can be reset using the ResetSources karma method reached via the `loom karma update-sources` command. If you want to add to existing sources will might want to use `loom karma get-sources` to get those existing sources.
+`loom karma update-sources` コマンドで到達したResetSourcesのKarmaメソッドを使用して、ソースをリセットすることができる。 既存のソースに追加したい場合、 `loom karma get-sources` を使って既存のソースを取得する。
 
 ```bash
 $ loom karma reset-sources --help
@@ -250,7 +250,7 @@ Global Flags:
 
 ```
 
-For example if `default:0xDeffe041cC978a193fCf0CE18b43b25B4592FC90` has previous been set as the oracle.
+例えば、`default:0xDeffe041cC978a193fCf0CE18b43b25B4592FC90` がすでにoracleとして設定されていたとしよう。
 
 ```bash
 $ loom karma reset-sources default:0xDeffe041cC978a193fCf0CE18b43b25B4592FC90 "oauth" 3 "token" 5 "test" 7
