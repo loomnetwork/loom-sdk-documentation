@@ -1,19 +1,19 @@
 ---
 id: non-validator-node
-title: Non Validator Node
+title: 非バリデーターのノード
 sidebar_label: Non Validator Node
 ---
-# Joining test-z-validator1.dappchains.com as Non-validator
+# test-z-validator1.dappchains.com に非バリデーターとして参加
 
-Follow the instructions below to join the cluster test-z-validator1.dappchains.com as a non-validator node.
+下の手順に従って、非バリデーターノードとして test-z-validator1.dappchains.com のクラスタに参加しよう。
 
-## Download Stable Version of loom
+## 安定的なバージョンのLoomをダウンロード
 
 ```bash
 curl https://raw.githubusercontent.com/loomnetwork/loom-sdk-documentation/master/scripts/get_loom.sh | sh
 ```
 
-## Create loom.yml
+## loom.ymlを作成
 
 ```yaml
 ChainID: "validator-test1"
@@ -26,13 +26,13 @@ RegistryVersion: 2
 ReceiptsVersion: 1
 ```
 
-## Initialize loom
+## Loomを初期化
 
 ```bash
 ./loom init
 ```
 
-## Replace `genesis.json` in current directory
+## 現在のディレクトリ内に `genesis.json` を置き換える
 
 ```json
 {
@@ -95,7 +95,7 @@ ReceiptsVersion: 1
 }
 ```
 
-## Replace `chaindata/config/genesis.json`
+## `chaindata/config/genesis.json` を置き換える
 
 ```json
 {
@@ -171,10 +171,10 @@ ReceiptsVersion: 1
 }
 ```
 
-## Run loom
+## loomを実行
 
 ```bash
 ./loom run --persistent-peers tcp://dfdf44ae4174a73ad507e2007a3ab691bccf000d@18.223.241.239:46656,tcp://29602cb817b2d64f5ee5c4c6b71212d9c4106665@18.216.87.146:46656,tcp://e1ea2ba014c28e1972a08a353c47c73e85660cfb@18.216.78.48:46656,tcp://7e4a87c167c5b1ce44c42c00010c6689df2fe874@18.219.1.252:46656,tcp://e77bf7cfd45eafe290fed9204831cc490f7bde8e@18.188.212.83:46656,tcp://ea8fff72a2157306cb8fc7a4dba1c71b74410300@18.224.149.206:46656,tcp://d3a252302afab26e4c5458a03c43c800ffedad29@18.224.212.250:46656,tcp://cda0ec9aa3aded9a401137a4f511599c25225b9d@18.217.68.113:46656
 ```
 
-The non-validator node will now sync with the validator nodes. Status can be queried at http://localhost:46657/status
+こうして、非バリデーターノードバリデーターノードと同期されることとなる。ステータスは http://localhost:46657/status にてクエリ可能。
