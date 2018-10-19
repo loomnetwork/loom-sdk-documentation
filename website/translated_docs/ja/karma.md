@@ -319,7 +319,7 @@ type KarmaAddressSource struct {
 }
 ```
 
-`Name` はソースを識別し、上の `KarmaSourceReward` 中の `Name` フィールドに一致している。 `Count` は、アドレスと連想付けられた特定ソースの数。 The karma source provides to a user is `
+`Name` はソースを識別し、上の `KarmaSourceReward` 中の `Name` フィールドに一致している。 `Count` は、アドレスと連想付けられた特定ソースの数。 Karmaソースがユーザーに提供するのは:
 
 `KarmaSource.Count*KarmaSourceReward.Reward`
 
