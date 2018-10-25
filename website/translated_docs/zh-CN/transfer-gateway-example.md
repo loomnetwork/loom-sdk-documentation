@@ -1,8 +1,8 @@
 ---
 id: transfer-gateway-example
-title: Transfer Gateway Example
-sidebar_label: Transfer Gateway Example
+title: 转移网关示例
+sidebar_label: 转移网关示例
 ---
-ERC721/ERC20 token example transfering tokens between chains is located on [Github](https://github.com/loomnetwork/transfer-gateway-example)
+在链之间转移代币的ERC721/ERC20代币示例在 [Github](https://github.com/loomnetwork/transfer-gateway-example) 上
 
 ![](/developers/img/tf-card-game.gif)
