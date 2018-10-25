@@ -7,9 +7,9 @@ sidebar_label: 发布日志
 
 发布日志（最新的在顶部）
 
-## Release 478 - Oct 8th
+## 第478次更新 - 10月8日
 
-* Updated Transfer Gateway utilities
+* 更新了转移网关实用程序
 * Transfer Gateway [tutorial plasma testnet](extdev-transfer-gateway.html)
 
 ## Release 458 - Sept 27th
