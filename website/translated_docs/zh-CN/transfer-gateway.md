@@ -14,11 +14,11 @@ sidebar_label: 转移网关
 - Loom DApp链上的地址映射器 Go 合约
 - 网关 Oracle（可以在DApp链节点上运行进程，也可以作为独立进程运行）
 
-![Diagram of ERC721 Transfer to DAppChain](/developers/img/transfer-gateway-erc721-to-dappchain.png)
+![ERC721 转移到 DApp链的示意图](/developers/img/transfer-gateway-erc721-to-dappchain.png)
 
 当用户希望将代币从他们的以太坊帐户转移到他们的DApp链帐户时，他们必须首先将其转移到主网网关，这会发出一个存款事件。 存款事件由网关 Oracle 接收，并将其转发到 DApp链网关。 然后，DApp链网关将代币转移到该用户的DApp链帐户。
 
-![Diagram of ERC721 Transfer to Ethereum](/developers/img/transfer-gateway-erc721-to-ethereum.png)
+![ERC721 转移到以太坊的示意图](/developers/img/transfer-gateway-erc721-to-ethereum.png)
 
 要将这个代币返回其以太坊帐户，用户必须首先将代币转移回DApp链网关，这将创建一个待处理的取款。 这个待处理的取款由网关 Oracle 接受，签署取款并通知DApp链网关。 DApp链网关发出一个事件，让用户知道他们可以通过提供已签名的取款记录，将他们的代币从主网网关提取到他们的以太坊帐户。
 
@@ -79,7 +79,7 @@ contract MyAwesomeToken is ERC721Token {
 }
 ```
 
-> The DAppChain Gateway will only attempt to mint tokens it doesn't already own, so if you'd rather manage the token supply yourself you can pre-mint them to the DAppChain Gateway instead of implementing the `mintToGateway` function.
+> DApp链网关只会尝试铸造它尚未拥有的代币，所以如果你更宁愿自己管理代币供应的话，你可以预先铸造到DApp链网关上，而不是执行 `mintToGateway` 函数。
 
 如果你对你的合约满意，可以用 Truffle 将它们部署到以太坊和DApp链，你可能要查看一下 [loom-truffle-doc](web3js-loom-provider-truffle.html)。
 
