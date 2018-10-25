@@ -16,19 +16,19 @@ sidebar_label: 转移网关
 
 ![Diagram of ERC721 Transfer to DAppChain](/developers/img/transfer-gateway-erc721-to-dappchain.png)
 
-When a user wishes to transfer a token from their Ethereum account to their DAppChain account they must first transfer it to the Mainnet Gateway, which in turns emits a deposit event. The deposit event is picked up by the Gateway Oracle which forwards it onto the DAppChain Gateway. The DAppChain Gateway then transfers the token to the DAppChain account of the user that deposited the token into the Mainnet Gateway.
+当用户希望将代币从他们的以太坊帐户转移到他们的DApp链帐户时，他们必须首先将其转移到主网网关，这会发出一个存款事件。 存款事件由网关 Oracle 接收，并将其转发到 DApp链网关。 然后，DApp链网关将代币转移到该用户的DApp链帐户。
 
 ![Diagram of ERC721 Transfer to Ethereum](/developers/img/transfer-gateway-erc721-to-ethereum.png)
 
-To get that same token back into their Ethereum account the user must first transfer the token back to the DAppChain Gateway, which creates a pending withdrawal. The pending withdrawal is picked up by the Gateway Oracle, which signs the withdrawal, and notifies the DAppChain Gateway. The DAppChain Gateway emits an event to let the user know they can withdraw their token from the Mainnet Gateway to their Ethereum account by providing the signed withdrawal record.
+要将这个代币返回其以太坊帐户，用户必须首先将代币转移回DApp链网关，这将创建一个待处理的取款。 这个待处理的取款由网关 Oracle 接受，签署取款并通知DApp链网关。 DApp链网关发出一个事件，让用户知道他们可以通过提供已签名的取款记录，将他们的代币从主网网关提取到他们的以太坊帐户。
 
-If you're a hands-on learner you might want to jump straight into the \[Transfer Gateway Example\]\[\] example project before reading any further...
+如果你是一个爱动手实践的学习者，你可能希望直接进入 [转移网关示例] 示例项目，然后再继续阅读...
 
 ## 设置 ERC721 合约
 
-To transfer an ERC721 token from Ethereum to the DAppChain you'll need two of your own ERC721 contracts, one on Ethereum (Mainnet ERC721), and the other on the DAppChain (DAppChain ERC721).
+要将 ERC721 代币从以太坊转移到 DApp链，你需要自己的两个 ERC721 合约，一个在以太坊（主网 ERC721），另一个在DApp链（DApp链 ERC721）。
 
-Your Mainnet ERC721 contract doesn't need anything special to work with the Transfer Gateway. Though you might want to add something like the `depositToGateway` method below to make it a bit easier to transfer tokens into the Mainnet Gateway:
+你的主网 ERC721 合约不需要任何特殊的功能来使用转移网关。 虽然你可能想要在下面添加类似 `depositToGateway` 方法的内容，使其更轻松地将代币传输到主网网关：
 
 ```solidity
 pragma solidity ^0.4.24;
