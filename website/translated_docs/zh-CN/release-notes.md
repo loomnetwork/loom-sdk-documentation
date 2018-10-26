@@ -81,87 +81,87 @@ sidebar_label: 发布日志
 * 僵尸链测试网修复
 * DPoS 更新
 
-## Release 209 - June 20th
+## 第209次更新 - 6月20日
 
-Major release
+主要发布
 
-* Plasma Cash initial integration - Demos coming next week
-* Multinode fixes and performance increases
-* Ansible updates for multinode
-* Querying / Filtering on EVM supports more types 
-* Unity SDK updates for EVM 
-* Loom-JS updates for EVM
+* Plasma Cash初始整合 - 下周即将推出演示
+* 多节点修复和性能提高
+* 多节点的 Ansible 更新
+* EVM上的查询/过滤支持更多类型 
+* 针对EVM 的 SDK 更新 
+* 针对 EVM 的 Loom-JS 更新
 
-## Release 186 - June 19th
+## 第186次更新 - 6月19日
 
-* [EVM Unity Example app](https://loomx.io/developers/docs/en/unity-sample-tiles-chain-evm.html)
-* Unity SDK support for Solidity Apps
-* Many fixes for Filtering/Querying Ethereum Events
+* [EVM Unity 示例应用程序](https://loomx.io/developers/docs/en/unity-sample-tiles-chain-evm.html)
+* 对 Solidity 应用的 Unity SDK 支持
+* 对过滤/查询以太坊事件的诸多修复
 
-## Release 163 - June 11th
+## 第163次更新 - 6月11日
 
-* Support for latest Build of Truffle
-* [Updated truffle example](https://github.com/loomnetwork/loom-truffle-provider)
-* Initial Implementation of Sybil resistance framework
-* Websocket events now support topics 
-* Loom-JS 1.8.0 Release with updated websocket topic support
+* 对 Truffle 最新构建的支持
+* [更新了 Truffle 示例](https://github.com/loomnetwork/loom-truffle-provider)
+* Sybil 抵抗框架的初步实现
+* Websocket 事件现支持主题 
+* Loom-JS 1.8.0版本，带有更新的 websocket 主题支持
 
-## Release 161 - June 7th
+## 第161次更新 - 6月7日
 
-* Tons of Truffle Fixes
-* Tons of web3.js fixes for Loom-Js provider
+* 大量 Truffle 修复
+* 对 Loom-Js provider 的大量 web3.js 修复
 
-## Release 155 - June 6th
+## 第155次更新 - 6月6日
 
-* [Cocos SDK is Live](cocos-sdk-quickstart.html)
-* [Truffle Support available](truffle-deploy.html)
-* Static calls to EVM now allow caller
-* EVM Fixes for a lot of scenarios 
+* [Cocos SDK 上线](cocos-sdk-quickstart.html)
+* [提供 Truffle 支持](truffle-deploy.html)
+* 现允许调用者静态调用EVM
+* 对很多场景的 EVM 修复 
 
-## Release 143 - June 1st
+## 第143次更新 - 6月1日
 
-* [BluePrint Docker Images Available](docker-blueprint.html)
-* [Japanese Hackathon Results](https://medium.com/loom-network/highlights-from-the-first-loom-unity-sdk-hackathon-tokyo-edition-6ed723747c19)
-* [Docker Images for some of Loom SDK Projects](https://hub.docker.com/r/loomnetwork/)
-* Evm TX Reciepts fixes 
+* [BluePrint Docker 图像可用](docker-blueprint.html)
+* [日本黑客松成果](https://medium.com/loom-network/highlights-from-the-first-loom-unity-sdk-hackathon-tokyo-edition-6ed723747c19)
+* [Loom SDK 项目的 Docker 图像](https://hub.docker.com/r/loomnetwork/)
+* Evm TX Reciepts 修复 
 
-## Release 137 - May 30th
+## 第137次更新 - 5月30日
 
-* Go Clients can Access EVM Contracts
-* Numerous bug fixes for EVM
-* [Social Network Example App - Solidity](simple-social-network-example.html)
+* Go 客户端可以访问 EVM 合约
+* 对 EVM 的大量 bug 修复
+* [社交网络示例应用程序 - Solidity](simple-social-network-example.html)
 
-## Release 136 - May 28th
+## 第136次更新 - 5月28日
 
-* Initial Solidity Alpha test build, you can now deploy solidity contracts
-* Websocket eventing support for solidity 
-* [Example Project for solidity Events](phaser-sdk-demo-web3-websocket.html)
-* [Multinode deployment guide](multi-node-deployment.html)
+* 初始 Solidity Alpha 测试构建，你现在可以部署 Solidity 合约
+* 对 Solidity 的 Websocket 事件支持 
+* [对 Solidity 事件的示例项目](phaser-sdk-demo-web3-websocket.html)
+* [多节点部署指南](multi-node-deployment.html)
 
-## Release 133 - May 24th
+## 第133次更新 - 5月24日
 
-* [Etherboy Demo released](https://loomx.io/developers/docs/en/etherboy-game.html)
-* [Japanese Docs released](https://loomx.io/developers/ja)
-* Updated Homepage for [docs site](https://loomx.io/developers/en/) 
+* [Etherboy 演示发布](https://loomx.io/developers/docs/en/etherboy-game.html)
+* [日语文档发布](https://loomx.io/developers/ja)
+* 更新了 [文档网站](https://loomx.io/developers/en/) 的主页 
 
-## Release 132 - May 23rd
+## 第132次更新 - 5月23日
 
-* Websocket performance fixes
-* New Websocket Demo App - TilesChain - [Github](https://github.com/loomnetwork/tiles-chain) 
+* Websocket 性能修复
+* 新的 Websocket 演示应用程序 - TilesChain - [Github](https://github.com/loomnetwork/tiles-chain) 
 
-## Release 129 - May 22rd
+## 第129次更新 - 5月22日
 
-* Websocket support for eventing
-* Updates to indexing layer for solidty contracts
+* 对事件的 Websocket 支持
+* 对 Solidty 合约的索引层更新
 * Phaser Game Dame - [Github](https://github.com/loomnetwork/phaser-sdk-demo)
 
-## Release 128 - May 21th
+## 第128次更新 - 5月21日
 
-* Lots of bug fixes for Etherboy
+* 对 Etherboy 的大量 bug 修复
 
-## Release 128 - May 19th
+## 第128次更新-5月19日
 
-* Stable Beta Release
-* Updating logging to default to multiple files 
-* Moving all RPC to a single interface
-* Updated External Process interface
+* 发布 Beta 稳定版
+* 将多个文件的日志更新为默认模式 
+* 将所有 RPC 转移到单个接口
+* 更新了外部进程接口
