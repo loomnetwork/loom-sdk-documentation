@@ -11,9 +11,9 @@ Loom Network 在构建一个帮助以太坊扩展的基础设施平台。 让开
 
 ## Loom SDK
 
-我们的核心产品是 SDK，可以让开发人员快速构建自己的区块链，而无需了解区块链基础设施。 Think of it like a “build your own blockchain” generator.
+我们的核心产品是 SDK，可以让开发人员快速构建自己的区块链，而无需了解区块链基础设施。 把它想象成一个 "构建你自己的区块链" 生成器。
 
-## DAppChains: Each DApp On Its Own Sidechain
+## DAppChain: 每个 DApp 都在自己的侧链上
 
 The Loom SDK generates what’s called a DAppChain — a layer-two blockchain that uses Ethereum as its base-layer. Running each DApp on its own sidechain to Ethereum has a number of benefits, but most importantly: DAppChains can use alternative consensus rulesets (like DPoS) that optimize for high scalability. Using Ethereum as a base-layer means DAppChain-based assets (like ERC20 and ERC721 tokens) can have the security guarantees of Ethereum, especially when backed by Plasma.
 
