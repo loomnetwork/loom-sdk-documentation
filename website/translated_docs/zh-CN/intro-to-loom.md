@@ -1,7 +1,7 @@
 ---
 id: intro-loom-sdk
-title: What is Loom Network?
-sidebar_label: Intro Loom SDK
+title: Loom Network 是什么？
+sidebar_label: 介绍 Loom SDK
 ---
 ![What is Loom Network?](/developers/img/what-is-loom.png)
 
