@@ -25,5 +25,5 @@ sidebar_label: PlasmaChain 测试网
 | 名字             | 以太坊链接   | 转移网关地址                                     |
 | -------------- | ------- | ------------------------------------------ |
 | Staging Plasma | Rinkeby | 0x6f7Eb868b2236638c563af71612c9701AC30A388 |
-| Plasma Chain   | Mainnet | n/a                                        |
-| Validator Test | Rinkeby | n/a                                        |
+| Plasma Chain   | 主网      | n/a                                        |
+| 验证者测试          | Rinkeby | n/a                                        |
