@@ -14,7 +14,7 @@ sidebar_label: PlasmaChain 测试网
 | 主网           | 用户测试版                                        |     |                                          |
 | Social Chain | [区块浏览器](https://blockchain.delegatecall.com) | 主网  | [DelegateCall](https://delegatecall.com) |
 
-Faucets are all available on this url: [Faucet](http://faucet.dappchains.com)
+这个网址上Faucet均可用：[Faucet](http://faucet.dappchains.com)
 
 **Devnets typically are wiped daily, only use for experimental features**
 
