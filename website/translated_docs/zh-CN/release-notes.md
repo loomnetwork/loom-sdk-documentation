@@ -10,9 +10,9 @@ sidebar_label: 发布日志
 ## 第478次更新 - 10月8日
 
 * 更新了转移网关实用程序
-* Transfer Gateway [tutorial plasma testnet](extdev-transfer-gateway.html)
+* Plasma测试网的[转移网关教程](extdev-transfer-gateway.html)
 
-## Release 458 - Sept 27th
+## 第458次更新 - 9月27日
 
 **It is recommended that all users move up to this release**
 
