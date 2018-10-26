@@ -5,13 +5,13 @@ sidebar_label: 介绍 Loom SDK
 ---
 ![What is Loom Network?](/developers/img/what-is-loom.png)
 
-Loom Network is building a fundamental infrastructure platform to help Ethereum scale. It allows developers to run large-scale applications, and is the first Ethereum scaling solution to be live in production.
+Loom Network 在构建一个帮助以太坊扩展的基础设施平台。 让开发人员能够运行大型应用程序，是第一个正式上线的以太坊扩展解决方案。
 
-In short, you can think of Loom Network as EOS on top of Ethereum.
+简言之，你可以把Loom network看作是以太坊上的EOS。
 
-## The Loom SDK
+## Loom SDK
 
-Our core product is an SDK that allows developers to quickly build their own blockchains without having to understand blockchain infrastructure. Think of it like a “build your own blockchain” generator.
+我们的核心产品是 SDK，可以让开发人员快速构建自己的区块链，而无需了解区块链基础设施。 Think of it like a “build your own blockchain” generator.
 
 ## DAppChains: Each DApp On Its Own Sidechain
 
