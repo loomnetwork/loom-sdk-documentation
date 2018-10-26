@@ -70,16 +70,16 @@ sidebar_label: 发布日志
 
 * [EVM 索引过滤器](https://loomx.io/developers/docs/en/web3js-event-filters.html)
 * EVM过滤器池修复和事件系统
-* Loom-JS EVM updates for indexed filters
-* Loom-JS EVM fixes for getting block by hash
+* 升级了 Loom-JS EVM 索引过滤器
+* 修复了 Loom-JS EVM 通过哈希获取块的方法
 
-## Release 276 - July 13th
+## 第276次更新-7月13日
 
-* [New Block Explorer](block-explorer-tutorial.html)
-* Multinode EVM fixes 
-* Loom-JS updates for Plasma cash
-* Zombiechain testnet fixes
-* DPoS Updates
+* [新区块浏览器](block-explorer-tutorial.html)
+* 多节点 EVM 修复 
+* Loom-JS 对 Plasma cash 更新
+* 僵尸链测试网修复
+* DPoS 更新
 
 ## Release 209 - June 20th
 
