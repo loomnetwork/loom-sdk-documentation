@@ -14,62 +14,62 @@ sidebar_label: 发布日志
 
 ## 第458次更新 - 9月27日
 
-**It is recommended that all users move up to this release**
+**建议所有用户升级到此版本**
 
-* Plasmachain Testnets available for Devs - [Docs](testnet-plasma.html)
-* Karma Faucet for Testnets - [Faucet](http://faucet.dappchains.com)
-* Karma contracts (Sybil resistance) Loom SDK - [Karma](karma.html)
-* Massive performance increasements for high load environments
-* Initial info about running a Validator - [Validator](validator.html)
+* 开发人员现已可用公共Plasmachain测试网 - [文档](testnet-plasma.html)
+* 测试网的Karma Faucet - [Faucet](http://faucet.dappchains.com)
+* Karma合约（Sybil抵抗）Loom SDK - [Karma](karma.html)
+* 高负载环境下的大量性能提升
+* 运行验证者的初始信息 - [验证者](validator.html)
 
-## Release 404 - Aug 24th
+## 第404次更新 - 8月24日
 
-** Features
+** 功能
 
-* ERC20 support upgraded in TransferGateway
-* Example ERC20 in Gateway - [Example](https://github.com/loomnetwork/token-gateway-example)
-* Loom SDK Doc site in [Korean](https://loomx.io/developers/ko/)
-* EVM now has limited support for Payable functions, more coming next week 
-* Loom-JS updates for ERC20/ETH transfers with TransferGateway. 
-* Loom-JS integration to DPoS contracts 
-* Experimental Support for [Plasma Debits](https://github.com/loomnetwork/plasma-cash/pull/115)
+* 在转移网关中升级 ERC20 支持
+* 网关中的 ERC20 示例 - [示例](https://github.com/loomnetwork/token-gateway-example)
+* Loom SDK 文档网站 [ 韩文版 ](https://loomx.io/developers/ko/)
+* EVM 目前对 Payable 功能的支持有限，下周会有更多支持 
+* 使用转移网关转移 ERC20 / ETH 的 Loom-JS 更新 
+* Loom-JS 与 DPoS 合约的集成 
+* [Plasma Debits](https://github.com/loomnetwork/plasma-cash/pull/115) 的实验支持
 
-** Breaking changes
+** 重大变化
 
-* Deprecrating QueryServerHost, and consolidating all functions to the RPCServer.
-* New Config option: RPCBindAddress: "tcp://0.0.0.0:46658"
-* Upgrades of PBFT engine, this may cause incompatibility issues on upgrades, please try in staging environments 
+* 弃用 QueryServerHost，并将所有功能合并到 RPCServer
+* 新配置选项： RPCBindAddress: "tcp://0.0.0.0:46658"
+* 升级 PBFT 引擎，这可能会导致升级时出现不兼容问题，请在测试环境中尝试 
 
-## Release 375 - Aug 10th
+## 第375次更新 - 8月10日
 
-*NOTE* This is a feature test release, with minor compatibility changes, please verify in staging environements before upgrading your production environment.
+*注意* 这是一个功能测试版本，有兼容性的小更改，升级你的生产环境之前请在测试环境中进行验证。
 
-* Fixes for Eventing on EVM Contracts
-* Beta release of the [Transfer Gateway](transfer-gateway.html)
-* [Demo of Transfer Gateway](https://github.com/loomnetwork/cards-gateway-example)
-* Memory leak fixes
-* Minor api breakages, please upgrade go-loom/loom-js. Unity updates coming soon
-* Go-loom is upgraded for api breakages
-* loom-js is upgraded for this release. 
+* 修复EVM合约的事件
+* [转移网关](transfer-gateway.html) 的Beta版本
+* [转移网关演示](https://github.com/loomnetwork/cards-gateway-example)
+* 内存泄漏修复
+* Api 的些许不兼容，请升级 go-loom / loom-js。 Unity 即将推出更新
+* Go-loom 已针对 api 不兼容升级
+* loom-js 已针对此版本升级 
 
-## Release 330 - July 30th
+## 第303次更新 - 7月30日
 
-* Fix for consensus problems on EVM 
-* Updates for Zombiechain TestNet
-* Added more telemetry to measure performance
-* Range queries on Go Contracts
-* Added ChainID to loom.yaml
+* 修复了 EVM 的共识问题 
+* 更新了僵尸链测试网
+* 增加了更多遥测来衡量性能
+* Go合约的范围查询
+* 为 loom.yaml 添加了 ChainID
 
-* [EVM indexed filter](https://loomx.io/developers/docs/en/web3js-event-filters.html)
+* [EVM 索引过滤器](https://loomx.io/developers/docs/en/web3js-event-filters.html)
 
-* EVM filter pool fixes and event system
-* Loom-JS EVM updates for indexed filters
-* Loom-JS EVM fixes for getting block by hash
+* EVM 过滤器池修复和事件系统
+* 升级了 Loom-JS EVM 索引过滤器
+* 修复了 Loom-JS EVM 通过哈希获取块的方法
 
-## Release 288 - July 17th
+## 第288次更新 - 7月17日
 
-* [EVM indexed filter](https://loomx.io/developers/docs/en/web3js-event-filters.html)
-* EVM filter pool fixes and event system
+* [EVM 索引过滤器](https://loomx.io/developers/docs/en/web3js-event-filters.html)
+* EVM过滤器池修复和事件系统
 * Loom-JS EVM updates for indexed filters
 * Loom-JS EVM fixes for getting block by hash
 
