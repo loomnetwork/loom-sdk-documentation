@@ -1,11 +1,11 @@
 ---
 id: testnet-plasma
-title: PlasmaChain Testnets
-sidebar_label: PlasmaChain Testnets
+title: PlasmaChain 测试网
+sidebar_label: PlasmaChain 测试网
 ---
-This page is purely information on where and how to access the chain. If you want a more detailed dev guide check [Join Test Net Guide](join-testnet.html)
+本页纯粹是关于如何访问链的信息。 如果需要更详细的开发人员指南, 请查看 [加入测试网指南](join-testnet.html)。
 
-| Name                | Url                                                   | Type    | Availability                             |
+| 名字                  | 网址                                                    | 类型      | 可用性                                      |
 | ------------------- | ----------------------------------------------------- | ------- | ---------------------------------------- |
 | Dev Plasma Test     | test-z-asia1.dappchains.com                           | Testnet | Experimental Beta                        |
 | External Dev Plasma | extdev-plasma-us1.dappchains.com                      | Testnet | Stable Developer Beta                    |
