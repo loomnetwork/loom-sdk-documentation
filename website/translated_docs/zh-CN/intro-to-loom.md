@@ -15,11 +15,11 @@ Loom Network 在构建一个帮助以太坊扩展的基础设施平台。 让开
 
 ## DAppChain: 每个 DApp 都在自己的侧链上
 
-Loom SDK 生成所谓的DApp链 —— 一个用以太坊作为基础层的第二层区块链。 在其自己的以太坊侧链上运行每个DApp有很多好处，但最重要的是：DApp链能使用其他的共识规则集（如DPoS）进行优化获得高度可扩展性。 Using Ethereum as a base-layer means DAppChain-based assets (like ERC20 and ERC721 tokens) can have the security guarantees of Ethereum, especially when backed by Plasma.
+Loom SDK 产生一个我们称之为DApp链的产物 —— 一个用以太坊作为基础层的第二层区块链。 将每个DApp运行在它自己的以太坊侧链上有诸多好处，但最重要的是： DApp链可以使用其他共识规则集（如DPoS）来优化高可扩展性。 用以太坊作为基础层意味着基于DApp链的资产（如ERC20和ERC721代币）会有以太坊的安全保证，尤其是当由Plasma支持时。
 
-## DPoS = Massively Scalable DApps
+## DPoS = 大规模可扩展的DApp
 
-Our SDK allows developers to choose their consensus algorithm and rulesets to customize the scalability / security tradeoffs to their DApps needs. Out of the box we support DPoS (Delegated Proof of Stake), which enables large-scale online games and social apps — the 2 initial types of DApps we’re focusing on (though you can build any type of DApp on the Loom SDK). Secured by Plasma on Ethereum DAppChains use Plasma-based relays to transfer assets back and forth from Ethereum, which allows ERC20 and ERC721 tokens to be used on the DAppChain while still being secured by Ethereum. In short, the Loom SDK enables developers to build the same types of apps they would build on EOS, but have them backed by Ethereum.
+我们的SDK允许开发者选择他们自己的共识算法和规则集，根据他们DApp的需求来自定义可扩展性和安全性之间的权衡。 Out of the box we support DPoS (Delegated Proof of Stake), which enables large-scale online games and social apps — the 2 initial types of DApps we’re focusing on (though you can build any type of DApp on the Loom SDK). Secured by Plasma on Ethereum DAppChains use Plasma-based relays to transfer assets back and forth from Ethereum, which allows ERC20 and ERC721 tokens to be used on the DAppChain while still being secured by Ethereum. In short, the Loom SDK enables developers to build the same types of apps they would build on EOS, but have them backed by Ethereum.
 
 # Understanding DAppChains
 
