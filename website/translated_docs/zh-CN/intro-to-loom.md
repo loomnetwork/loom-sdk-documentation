@@ -15,7 +15,7 @@ Loom Network 在构建一个帮助以太坊扩展的基础设施平台。 让开
 
 ## DAppChain: 每个 DApp 都在自己的侧链上
 
-The Loom SDK generates what’s called a DAppChain — a layer-two blockchain that uses Ethereum as its base-layer. Running each DApp on its own sidechain to Ethereum has a number of benefits, but most importantly: DAppChains can use alternative consensus rulesets (like DPoS) that optimize for high scalability. Using Ethereum as a base-layer means DAppChain-based assets (like ERC20 and ERC721 tokens) can have the security guarantees of Ethereum, especially when backed by Plasma.
+Loom SDK 生成所谓的DApp链 —— 一个用以太坊作为基础层的第二层区块链。 Running each DApp on its own sidechain to Ethereum has a number of benefits, but most importantly: DAppChains can use alternative consensus rulesets (like DPoS) that optimize for high scalability. Using Ethereum as a base-layer means DAppChain-based assets (like ERC20 and ERC721 tokens) can have the security guarantees of Ethereum, especially when backed by Plasma.
 
 ## DPoS = Massively Scalable DApps
 
