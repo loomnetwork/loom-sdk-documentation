@@ -1,24 +1,24 @@
 ---
 id: join-testnet
-title: Join Testnets
-sidebar_label: Join Testnets
+title: 加入测试网
+sidebar_label: 加入测试网
 ---
-This doc is for developers on how they can join the Plasmachain Testnet to do deployment. If you are looking for information on how to run nodes, or to become a validator please checkout [Validator Guide](validator.html)
+这篇文档帮助开发人员了解如何加入PlasmaChain测试网进行部署。 如果你要找如何运行节点的信息，或者如何成为验证者，请查看[验证者指南](validator.html)。
 
-**Prerequisite**
+**环境依赖**
 
-- Loom installed (see [instruction](https://loomx.io/developers/docs/en/basic-install-osx.html#installation) )
+- 已安装Loom （查看 [安装说明](https://loomx.io/developers/docs/en/basic-install-osx.html#installation) ）
 
 ```bash
  curl https://raw.githubusercontent.com/loomnetwork/loom-sdk-documentation/master/scripts/get_loom.sh | sh
 ```
 
-**How to generate a private key with Loom and get your public address**
+**如何用Loom生成私钥并获得你的公共地址**
 
     $ ./loom genkey -k priv_key -a pub_key
     
 
-result
+结果
 
 ```bash
 local address: 0x3B334bEd1e7d3e7d9214495120160D9236aCbC31
