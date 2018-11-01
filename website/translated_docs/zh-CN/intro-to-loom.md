@@ -3,7 +3,7 @@ id: intro-loom-sdk
 title: Loom Network 是什么？
 sidebar_label: 介绍 Loom SDK
 ---
-![What is Loom Network?](/developers/img/what-is-loom.png)
+![Loom Network 是什么？](/developers/img/what-is-loom.png)
 
 Loom Network 在构建一个帮助以太坊扩展的基础设施平台。 让开发人员能够运行大型应用程序，是第一个正式上线的以太坊扩展解决方案。
 
@@ -35,7 +35,7 @@ Loom SDK 产生一个我们称之为DApp链的产物 —— 一个用以太坊�
 
 几个月前，我们官宣了ZombieChain（僵尸链）：“以太坊DApp的类EOS DPoS侧链。” 自从我们宣布这一消息以来，ZombieChain已经有了很大的进展。 我们开始在ZombieChain上搭建“僵尸战场”的交易市场——而当我们的功能特性列表不断变长的时候，我们意识到这条链拥有比我们原来的预期所更大的潜力。 所以我们决定升级这条链，并让它在我们的未来愿景中扮演更重要的角色：它将成为代币事务的中心枢纽，通过Plasma Cash连接到以太坊。 可以把这条链想象成一条通往以太坊主网的桥梁，它有着一个内置的去中心化交易所（DEX），而所有其他侧链可以用其来实现更快、更便宜的事务而无需接触主网。 如此伟大的角色需要一个伟大的名字。 因此，我们决定将ZombieChain更名为“PlasmaChain”。
 
-![Plasmachain](/developers/img/plasmachain_diagram.png)
+![PlasmaChain](/developers/img/plasmachain_diagram.png)
 
 PlasmaChain，原名“ZombieChain”。
 
@@ -51,14 +51,14 @@ PlasmaChain，原名“ZombieChain”。
 
 # 了解Plasma Cash
 
-![Understanding Plasma Cash](/developers/img/plasma.jpg)
+![了解Plasma Cash](/developers/img/plasma.jpg)
 
 我们已经写了两篇文章来解释我们如何在Loom DApp链上使用Plasma：
 
-[Plasma on Loom Network DAppChains: Scalable DApps With Ethereum-Secured Assets](https://medium.com/loom-network/loom-network-plasma-5e86caaadef2)
+[在Loom Network DApp链上使用Plasma：可扩展的DApp和以太坊保护的资产](https://medium.com/loom-network/loom-network-plasma-5e86caaadef2)
 
-[Practical Plasma (Volume I): Gaming—focuses on some of the real-world user benefits of securing sidechains with Plasma](https://medium.com/loom-network/practical-plasma-volume-i-gaming-9cfd3f971734)
+[Plasma使用指南(Vol. I)：游戏——着重讨论用Plasma保护侧链对于真实用户的好处](https://medium.com/loom-network/practical-plasma-volume-i-gaming-9cfd3f971734)
 
-# Loom Token
+# Loom代币
 
-For questions about the LOOM token, we have an article specifically devoted to explaining how it works: [LOOM Token FAQs — You got questions, we got answers!](https://medium.com/loom-network/loom-token-faqs-you-got-questions-we-got-answers-2d3c9185b4d0)
+我们专门有一篇文章详细介绍了关于LOOM代币的问题： [LOOM代币FAQ —— 你的问题，我们有答案！](https://medium.com/loom-network/loom-token-faqs-you-got-questions-we-got-answers-2d3c9185b4d0)
