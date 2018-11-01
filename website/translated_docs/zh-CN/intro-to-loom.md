@@ -41,19 +41,19 @@ PlasmaChain，原名“ZombieChain”。
 
 ### 以下是一些将会构建在PlasmaChain上的特性功能：
 
-* Plasma Cash link to mainnet for native ETH, ERC20, and NFT (ERC721) support
-* Built-in DEX / marketplace functionality
-* Native payments in ETH and LOOM
-* Plans to integrate BTC payments in the future
-* Plans to enable Plasma Cash links to “Layer 3” chains, with PlasmaChain as the parent chain. (Think “sidechains of sidechains”, in which * PlasmaChain is the clearinghouse that enables trading of tokens between multiple sidechains without hitting mainnet.)
+* 连接主网的Plasma Cash，提供原生ETH、ERC20和NFT（ERC721）支持
+* 内置DEX/交易市场功能
+* ETH和LOOM的原生支付
+* 计划在未来整合BTC支付
+* 计划以PlasmaChain为母链，将Plasma Cash连接到“第3层”链。 （想想“侧链的侧链”，其中 PlasmaChain作为清算所，使多个侧链之间的代币交易不用接触主网即可实现）
 
-Here’s the thing: The Zombie Battleground Marketplace is ALREADY RUNNING on PlasmaChain as you read this. We will also be deploying multiple testnets in the near future, which we will open to third parties to deploy their DApps. These testnets may later evolve to become their own specialized production chains. But in the meantime, they’ll help us test third-party DApps and experiment with new features to eventually incorporate into the production PlasmaChain. As the central hub that acts as a bridge between multiple sidechains and Ethereum, PlasmaChain will be one of the most important pieces in our vision moving forward.
+所以呢：当你读这里时，“僵尸战场”交易市场已经在PlasmaChain上运行了！ 我们还会在不久的将来部署多个测试网，我们将向第三方开放部署他们的DApp。 这些测试网可能会在后来发展作为他们自己特定的链上线。 但期间，他们将帮助我们测试第三方DApp，对新功能进行尝试并最终将其纳入PlasmaChain。 作为中心枢纽，它充当多个侧链和以太坊之间的桥梁，PlasmaChain将成为我们愿景中最重要的组成部分之一。
 
-# Understanding Plasma Cash
+# 了解Plasma Cash
 
 ![Understanding Plasma Cash](/developers/img/plasma.jpg)
 
-We’ve written 2 posts explaining our usage of Plasma on Loom DAppChains:
+我们已经写了两篇文章来解释我们如何在Loom DApp链上使用Plasma：
 
 [Plasma on Loom Network DAppChains: Scalable DApps With Ethereum-Secured Assets](https://medium.com/loom-network/loom-network-plasma-5e86caaadef2)
 
