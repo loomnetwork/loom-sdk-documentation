@@ -31,15 +31,15 @@ Loom SDK 产生一个我们称之为DApp链的产物 —— 一个用以太坊�
 
 # PlasmaChain
 
-## PlasmaChain: A Plasma Cash-backed Hub for Transacting Between Sidechains and Ethereum Mainnet
+## PlasmaChain：用于在侧链和以太坊主网之间进行交易的受Plasma Cash支持的枢纽。
 
-A few months back, we announced ZombieChain: “An EOS-like DPoS sidechain for Ethereum DApps.” Since we made that announcement, ZombieChain has evolved considerably. What happened is, we started building the marketplace for Zombie Battleground on top of ZombieChain — and as our feature list grew, we realized this chain had potential to become something much larger than originally intended. So we decided to upgrade this chain to have it play an even more important role in the future of our vision: It’s going to become a central hub for token transactions, linked to Ethereum by Plasma Cash. Think of it like a bridge to Ethereum mainnet with a built-in Decentralized Exchange (DEX), that other sidechains can use for faster and cheaper transactions without ever touching mainnet. Such an important role demands an important name. Thus, we’ve decided to rebrand ZombieChain to “PlasmaChain.”
+几个月前，我们官宣了ZombieChain（僵尸链）：“以太坊DApp的类EOS DPoS侧链。” 自从我们宣布这一消息以来，ZombieChain已经有了很大的进展。 我们开始在ZombieChain上搭建“僵尸战场”的交易市场——而当我们的功能特性列表不断变长的时候，我们意识到这条链拥有比我们原来的预期所更大的潜力。 所以我们决定升级这条链，并让它在我们的未来愿景中扮演更重要的角色：它将成为代币事务的中心枢纽，通过Plasma Cash连接到以太坊。 可以把这条链想象成一条通往以太坊主网的桥梁，它有着一个内置的去中心化交易所（DEX），而所有其他侧链可以用其来实现更快、更便宜的事务而无需接触主网。 如此伟大的角色需要一个伟大的名字。 因此，我们决定将ZombieChain更名为“PlasmaChain”。
 
 ![Plasmachain](/developers/img/plasmachain_diagram.png)
 
-PlasmaChain: The Sidechain Formerly Known as ZombieChain.
+PlasmaChain，原名“ZombieChain”。
 
-### Here are some of the features that will be built into PlasmaChain:
+### 以下是一些将会构建在PlasmaChain上的特性功能：
 
 * Plasma Cash link to mainnet for native ETH, ERC20, and NFT (ERC721) support
 * Built-in DEX / marketplace functionality
