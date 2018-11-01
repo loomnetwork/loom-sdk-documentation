@@ -25,9 +25,9 @@ Loom SDK 产生一个我们称之为DApp链的产物 —— 一个用以太坊�
 
 为了更好地理解我们关于扩展性和DApp链优势的核心论文，请阅读以下两篇博客文章：
 
-[DAppChains: Scaling Ethereum DApps Through Sidechains](https://medium.com/loom-network/dappchains-scaling-ethereum-dapps-through-sidechains-f99e51fff447)
+[DApp链：通过侧链扩展以太坊DApp](https://medium.com/loom-network/dappchains-scaling-ethereum-dapps-through-sidechains-f99e51fff447)
 
-[Million User DApps on Ethereum: An Introduction to Application-Specific Sidechains](https://medium.com/loom-network/million-user-dapps-on-ethereum-an-introduction-to-application-specific-sidechains-c0fdc288c5e5)
+[以太坊上百万用户级Dapp ：介绍应用程序特定侧链](https://medium.com/loom-network/million-user-dapps-on-ethereum-an-introduction-to-application-specific-sidechains-c0fdc288c5e5)
 
 # PlasmaChain
 
