@@ -25,7 +25,7 @@ local address: 0x3B334bEd1e7d3e7d9214495120160D9236aCbC31
 local address base64: OzNL7R59Pn2SFElRIBYNkjasvDE=
 ```
 
-and this will create files named `priv_key` and `pub_key`, the `priv_key` file contains your private key that you'll use to deploy contracts to the DAppChain.
+这将创建名为 `priv_key` 和 `pub_key` 的文件， `priv_key` 文件里包含你将用来把合同部署到DApp链的私钥。
 
 # How to use Karma faucet
 
