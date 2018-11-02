@@ -1,11 +1,11 @@
 ---
 id: non-validator-node
-title: Non Validator Node
-sidebar_label: Non Validator Node
+title: 非验证者节点
+sidebar_label: 非验证者节点
 ---
-# Joining test-z-validator1.dappchains.com as Non-validator
+# 作为非验证者加入 test-z-validator1.dappchains.com
 
-Follow the instructions below to join the cluster test-z-validator1.dappchains.com as a non-validator node.
+按照以下说明，作为非验证者节点加入群集 test-z-validator1.dappchains.com
 
 ## Download Stable Version of loom
 
