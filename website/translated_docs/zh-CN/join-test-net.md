@@ -27,7 +27,7 @@ local address base64: OzNL7R59Pn2SFElRIBYNkjasvDE=
 
 这将创建名为 `priv_key` 和 `pub_key` 的文件， `priv_key` 文件里包含你将用来把合同部署到DApp链的私钥。
 
-# How to use Karma faucet
+# 如何使用 Karma faucet
 
 1. Go to [Karma Faucet](https://faucet.dappchains.com) website   
       
