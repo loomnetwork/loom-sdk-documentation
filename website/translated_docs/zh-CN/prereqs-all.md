@@ -5,7 +5,7 @@ sidebar_label: 安装 Go Loom SDK
 ---
 ## 安装和设置 Loom
 
-## Use your package manager to install curl
+## 使用你的软件包管理器来安装 curl
 
 OSX:
 
@@ -13,7 +13,7 @@ OSX:
 brew install curl
 ```
 
-Ubuntu / Windows Subsystem for Linux:
+适用于 Linux 的 Ubuntu/Windows 子系统:
 
 ```bash
 sudo apt install curl
@@ -29,7 +29,7 @@ sudo tar -C /usr/local -xzf go1.10.2.darwin-amd64.tar.gz
 sudo ln -s /usr/local/go/bin/go /usr/local/bin/go
 ```
 
-Linux / Windows Subsystem for Linux:
+适用于 Linux 的 Linux/Windows 子系统:
 
 ```bash
 curl -sL -o go1.10.2.linux-amd64.tar.gz https://dl.google.com/go/go1.10.2.linux-amd64.tar.gz
@@ -50,7 +50,7 @@ sudo unzip protoc-3.5.1-osx-x86_64.zip -d /usr/local
 sudo chmod +x /usr/local/bin/protoc
 ```
 
-Linux / Windows Subsystem for Linux:
+适用于 Linux 的 Linux/Windows 子系统:
 
 ```bash
 curl -sL -o protoc-3.5.1-linux-x86_64.zip https://github.com/google/protobuf/releases/download/v3.5.1/protoc-3.5.1-linux-x86_64.zip
@@ -59,17 +59,17 @@ sudo unzip protoc-3.5.1-linux-x86_64.zip -d /usr/local
 sudo chmod +x /usr/local/bin/protoc
 ```
 
-## Download loom
+## 下载 loom
 
-The following script can be used to automatically download the stable version of loom to the current directory:
+以下脚本可用于自动将稳定版的loom下载到当前目录：
 
 ```bash
 curl https://raw.githubusercontent.com/loomnetwork/loom-sdk-documentation/master/scripts/get_loom.sh | sh
 ```
 
-## Installation
+## 安装
 
-Run these in the same directory as the previous step.
+在与上一步相同的目录中运行这些。
 
 ```bash
 mkdir tmpgopath
