@@ -36,7 +36,7 @@ local address base64: OzNL7R59Pn2SFElRIBYNkjasvDE=
       
       
     
-2. Fill recipient address with your `public address` which is the same account in your truffle   
+2. 在收件人地址栏填入你的 `公共地址`，它与你的truffle账户相同。   
       
       
     ![image](/developers/img/faucet/2.png)   
