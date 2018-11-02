@@ -36,35 +36,35 @@ local address base64: OzNL7R59Pn2SFElRIBYNkjasvDE=
       
       
     
-2. 在收件人地址栏填入你的 `公共地址`，它与你的truffle账户相同。   
+2. 在 recipient address 栏内填入你的 `公共地址`，它与你的truffle账户相同。   
       
       
     ![image](/developers/img/faucet/2.png)   
       
       
     
-3. Select test-net network you want to deploy your contract   
+3. 选择你想要部署合约的测试网网络   
       
       
     ![image](/developers/img/faucet/3.png)   
       
       
     
-4. Press `request` button   
+4. 点击 `request` 按钮   
       
       
     ![image](/developers/img/faucet/4.png)   
       
       
     
-5. Make sure you get `faucet-karma` appear before deploy your contract to selected test-net   
+5. 在你部署合约到选择的测试网之前，确保有出现 `faucet-karma`   
       
       
     ![image](/developers/img/faucet/5.png)
 
 # Deploy Truffle Example to a Testnet
 
-1. Make sure you have node and yarn/npm installed
+1. 确保你已安装了节点和 yarn/npm
 2. Obtain the testnet URL from [PlasmaChain Testnets](testnet-plasma.html) page
 3. Get the source: 
         bash
