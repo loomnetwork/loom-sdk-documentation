@@ -29,7 +29,7 @@ local address base64: OzNL7R59Pn2SFElRIBYNkjasvDE=
 
 # 如何使用 Karma faucet
 
-1. Go to [Karma Faucet](https://faucet.dappchains.com) website   
+1. 访问 [Karma Faucet](https://faucet.dappchains.com) 网站   
       
       
     ![image](/developers/img/faucet/1.png)   
