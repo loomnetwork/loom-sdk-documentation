@@ -1,9 +1,9 @@
 ---
 id: prereqs-all
-title: Prerequisites (ALL)
-sidebar_label: Installation Go Loom SDK
+title: 环境依赖（所有平台）
+sidebar_label: 安装 Go Loom SDK
 ---
-## Installing and setting up Loom
+## 安装和设置 Loom
 
 ## Use your package manager to install curl
 
