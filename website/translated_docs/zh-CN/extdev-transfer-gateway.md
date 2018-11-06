@@ -223,7 +223,7 @@ contract MyRinkebyCoin is StandardToken {
 
 ## 3. Map `extdev` contracts to `Rinkeby` contracts
 
-Once you've deployed your contracts to both chains you'll need to let the Transfer Gateway know you want it to transfer tokens between the contracts. You can either do so programmatically using the `TransferGateway` class in [loom-js](https://github.com/loomnetwork/loom-js), or the `loom` CLI. For this tutorial we've built a more streamlined JS CLI with `web3` and [loom-js](https://github.com/loomnetwork/loom-js), so you don't have to go looking for contract addresses, transaction hashes, and sacrificial goats.
+将你的合约部署到两条链之后，你将需要让转移网关知道你想让它在合约之间转移代币。 你可以使用 [loom-js](https://github.com/loomnetwork/loom-js) 中的`TransferGateway`类或 `loom` CLI 以编程方式执行此操作。 For this tutorial we've built a more streamlined JS CLI with `web3` and [loom-js](https://github.com/loomnetwork/loom-js), so you don't have to go looking for contract addresses, transaction hashes, and sacrificial goats.
 
 Map the `MyToken` contract deployed on `extdev` to the `MyRinkebyToken` contract deployed on `Rinkeby`:
 
