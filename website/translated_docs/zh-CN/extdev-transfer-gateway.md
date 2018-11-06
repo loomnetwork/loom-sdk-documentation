@@ -75,9 +75,9 @@ contract MyCoin is StandardToken {
     export LOOM_BIN=`pwd`/loom
     ```
 
-2. Make sure you have `node` (v8 or later) and `yarn` installed.
+2. 确保安装了 `node`（版本8或更高版本） 和 `yarn`。
 
-3. Clone the [Truffle DAppChain Example](https://github.com/loomnetwork/truffle-dappchain-example) repo.
+3. 复制 [Truffle DApp链示例](https://github.com/loomnetwork/truffle-dappchain-example) 代码库。
     
     ```bash
     # clone the tutorial repo to the gateway-tutorial directory
