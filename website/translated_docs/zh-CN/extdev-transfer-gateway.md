@@ -5,9 +5,9 @@ sidebar_label: 转移网关测试网
 ---
 ## 概述
 
-在本文档中，我们将引导你完成在已部署到 `extdev` 和 `Rinkeby` 的代币合约之间转移代币所需的设置。 If you haven't done so already you should first read through the high level overview of the [Transfer Gateway](transfer-gateway.html).
+在本文档中，我们将引导你完成在已部署到 `extdev` 和 `Rinkeby` 的代币合约之间转移代币所需的设置。 如果你尚未这样做，则应首先阅读 [转移网关](transfer-gateway.html) 的高级概述。
 
-## 1. Deploy token contracts to `extdev`
+## 1. 将代币合约部署到 `extdev`
 
 If you wish to transfer tokens from a token contract deployed on `Rinkeby` to one that's deployed on `extdev` you'll need to ensure that the token contract you deploy to `extdev` implements the `mintToGateway` function. We've created some sample contracts and a simple CLI to interact with them.
 
