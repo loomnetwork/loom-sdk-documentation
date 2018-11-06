@@ -200,26 +200,26 @@ contract MyRinkebyCoin is StandardToken {
     cat rinkeby_account
     ```
 
-3. Give the `Rinkeby` account some ETH so it can be used to deploy contracts to `Rinkeby`, you can either use https://faucet.rinkeby.io or transfer some ETH from another account.
+3. 给 `Rinkeby` 帐户提供一些ETH，以便它可以用于将合同部署到`Rinkeby`，你可以使用 https://faucet.rinkeby.io 或从另一个帐户中转移一些 ETH。
 
-4. Set your Infura API key (get it from https://infura.io)
+4. 设置你的 Infura API 密钥 （从 https://infura.io 获取）
     
     ```bash
     export INFURA_API_KEY=XXXXXXXXXXXXXXXX
     ```
 
-5. Deploy sample contracts
+5. 部署示例合约
     
         yarn deploy:rinkeby
         
     
-    If this fails with an error similar to this one:
+    如果此操作失败, 并出现类似于这样的错误:
     
         Error encountered, bailing. Network state unknown. Review successful transactions manually.
         insufficient funds for gas * price + value
         
     
-    Transfer a bit more ETH to the account in `rinkeby_account`.
+    往 `rinkeby_account` 中的帐户再多转移点 ETH。
 
 ## 3. Map `extdev` contracts to `Rinkeby` contracts
 
