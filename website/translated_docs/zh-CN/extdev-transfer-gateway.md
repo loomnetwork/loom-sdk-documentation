@@ -99,17 +99,17 @@ contract MyCoin is StandardToken {
         local address base64: OzNL7R59Pn2SFElRIBYNkjasvDE=
         
     
-    这是你的新私钥对应的公共地址。 You'll find the private key in the `extdev_private_key` file, and the corresponding public key in the `extdev_public_key` file.
+    这是你的新私钥对应的公共地址。 你将在 `extdev_private_key` 文件里找到私钥，在 `extdev_public_key` 文件里找到对应的公钥。
 
-5. Your new account will need some karma before you can use to deploy or call contracts. Go to the [Karma Faucet](http://faucet.dappchains.com), put in the public address that was just generated for you (the hex encoded one that starts with `0x`), select the `extdev` network, and press the `Request` button to get some karma.
+5. 在你能够使用部署或调用合约之前，你的新帐户将需要一些 karma。 去 [Karma Faucet](http://faucet.dappchains.com) 上，输入刚刚为你生成的公共地址（以 `0x` 开头的十六进制编码），选择 `extdev` 网络，然后点击 `Request` 按钮获取一些 karma。
 
-6. Deploy the `MyToken` and `MyCoin` contracts to the `extdev` PlasmaChain.
+6. 将 `MyToken` 和 `MyCoin` 合约部署到 `extdev` PlasmaChain。
     
     ```bash
     yarn deploy:extdev
     ```
 
-## 2. Deploy token contracts to `Rinkeby`
+## 2. 将代币合约部署到 `Rinkeby`
 
 There aren't any special requirements for token contracts deployed to Ethereum networks, though there are safe transfer extensions you may wish to implement in your ERC20 contracts to make it easier to deposit tokens into the `Rinkeby` Gateway.
 
