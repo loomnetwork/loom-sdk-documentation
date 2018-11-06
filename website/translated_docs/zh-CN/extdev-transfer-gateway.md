@@ -225,7 +225,7 @@ contract MyRinkebyCoin is StandardToken {
 
 将你的合约部署到两条链之后，你将需要让转移网关知道你想让它在合约之间转移代币。 你可以使用 [loom-js](https://github.com/loomnetwork/loom-js) 中的`TransferGateway`类或 `loom` CLI 以编程方式执行此操作。 对于本教程，我们使用 `web3` 和 [loom-js](https://github.com/loomnetwork/loom-js) 构建了一个更简化的 JS CLI，因此你不需要寻找合约地址、事务哈希等等的东西。
 
-Map the `MyToken` contract deployed on `extdev` to the `MyRinkebyToken` contract deployed on `Rinkeby`:
+将部署在 `extdev` 的 `MyToken` 合约映射到部署在 `Rinkeby` 的 `MyRinkebyToken` 合约：
 
 ```bash
 node ./gateway-cli.js map-contracts token
