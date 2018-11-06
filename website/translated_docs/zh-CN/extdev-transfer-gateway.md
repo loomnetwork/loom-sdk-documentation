@@ -64,7 +64,7 @@ contract MyCoin is StandardToken {
 }
 ```
 
-Full source for all contracts can be found in the [Truffle DAppChain Example](https://github.com/loomnetwork/truffle-dappchain-example) repo.
+所有合约的完整源码可以在 [Truffle DApp链示例](https://github.com/loomnetwork/truffle-dappchain-example) 代码库中找到。
 
 1. Download the `loom` binary, while you won't be spinning up your own DAppChain in this tutorial, you will be using some of the CLI commands built into the `loom` binary to interact with the `extdev` PlasmaChain.
     
