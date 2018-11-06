@@ -231,13 +231,13 @@ contract MyRinkebyCoin is StandardToken {
 node ./gateway-cli.js map-contracts token
 ```
 
-Map the `MyCoin` contract deployed on `extdev` to the `MyRinkebyCoin` contract deployed on `Rinkeby`:
+将部署在 `extdev` 的 `MyCoin` 合约映射到部署在 `Rinkeby` 的 `MyRinkebyCoin` 合约：
 
 ```bash
 node ./gateway-cli.js map-contracts coin
 ```
 
-After you execute these commands the Transfer Gateway will attempt to verify that you are the creator of these contracts, this may take a couple of minutes. In the meantime you can proceed to the next step.
+执行了这些命令后，转移网关将尝试验证你是否为这些合约的创建者 ，这可能需要几分钟时间。 In the meantime you can proceed to the next step.
 
 ## 4. Map `extdev` account to `Rinkeby` account
 
