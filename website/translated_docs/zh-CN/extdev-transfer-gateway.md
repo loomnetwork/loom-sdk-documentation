@@ -77,7 +77,7 @@ contract MyCoin is StandardToken {
 
 2. 确保安装了 `node`（版本8或更高版本） 和 `yarn`。
 
-3. 复制 [Truffle DApp链示例](https://github.com/loomnetwork/truffle-dappchain-example) 代码库。
+3. 克隆 [Truffle DApp链示例](https://github.com/loomnetwork/truffle-dappchain-example) 代码库。
     
     ```bash
     # clone the tutorial repo to the gateway-tutorial directory
@@ -87,19 +87,19 @@ contract MyCoin is StandardToken {
     yarn
     ```
 
-4. Generate your own private key for deploying and calling contracts on the `extdev` PlasmaChain.
+4. 生成你自己的私钥，用于在 `extdev` PlasmaChain上部署和调用合同。
     
     ```bash
     $LOOM_BIN genkey -k extdev_private_key -a extdev_public_key
     ```
     
-    You should see something similar to this displayed in the console:
+    你应该会在控制台中看到类似这样的内容：
     
         local address: 0x3B334bEd1e7d3e7d9214495120160D9236aCbC31
         local address base64: OzNL7R59Pn2SFElRIBYNkjasvDE=
         
     
-    This is the public address that corresponds to your new private key. You'll find the private key in the `extdev_private_key` file, and the corresponding public key in the `extdev_public_key` file.
+    这是你的新私钥对应的公共地址。 You'll find the private key in the `extdev_private_key` file, and the corresponding public key in the `extdev_public_key` file.
 
 5. Your new account will need some karma before you can use to deploy or call contracts. Go to the [Karma Faucet](http://faucet.dappchains.com), put in the public address that was just generated for you (the hex encoded one that starts with `0x`), select the `extdev` network, and press the `Request` button to get some karma.
 
