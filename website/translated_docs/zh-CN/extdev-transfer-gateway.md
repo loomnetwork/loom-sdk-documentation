@@ -113,7 +113,7 @@ contract MyCoin is StandardToken {
 
 There aren't any special requirements for token contracts deployed to Ethereum networks, though there are safe transfer extensions you may wish to implement in your ERC20 contracts to make it easier to deposit tokens into the `Rinkeby` Gateway.
 
-### MyRinkebyToken ERC721 contract
+### MyRinkebyToken ERC721 合约
 
 ```solidity
 pragma solidity ^0.4.24;
