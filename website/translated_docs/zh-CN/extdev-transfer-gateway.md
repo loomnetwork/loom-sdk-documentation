@@ -11,7 +11,7 @@ sidebar_label: 转移网关测试网
 
 如果你想要将代币从部署在 `Rinkeby` 上的代币合约转移到部署在 `extdev` 上的代币合约，你需要确保你部署在 `extdev` 上的代币合约实施了 `mintToGateway` 方法。 我们创建了一些示例合约和一个简单的 CLI 来与它们进行交互。
 
-### MyToken ERC721 contract
+### MyToken ERC721合约
 
 ```solidity
 pragma solidity ^0.4.24;
@@ -35,7 +35,7 @@ contract MyToken is ERC721Token {
 }
 ```
 
-### MyCoin ERC20 contract
+### MyCoin ERC20 合约
 
 ```solidity
 pragma solidity ^0.4.24;
