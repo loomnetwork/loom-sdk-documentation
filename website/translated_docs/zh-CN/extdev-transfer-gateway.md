@@ -111,7 +111,7 @@ contract MyCoin is StandardToken {
 
 ## 2. 将代币合约部署到 `Rinkeby`
 
-There aren't any special requirements for token contracts deployed to Ethereum networks, though there are safe transfer extensions you may wish to implement in your ERC20 contracts to make it easier to deposit tokens into the `Rinkeby` Gateway.
+对于部署到以太坊网络的代币合约没有任何特殊要求，但是你可能希望在ERC20合约中实施安全转移扩展，以便更容易将代币存入 `Rinkeby` 网关。
 
 ### MyRinkebyToken ERC721 合约
 
@@ -136,7 +136,7 @@ contract MyRinkebyToken is ERC721Token {
 }
 ```
 
-### MyRinkebyCoin ERC20 contract
+### MyRinkebyCoin ERC20 合约
 
 ```solidity
 pragma solidity ^0.4.24;
@@ -183,18 +183,18 @@ contract MyRinkebyCoin is StandardToken {
 }
 ```
 
-Full source for all contracts can be found in the [Truffle DAppChain Example](https://github.com/loomnetwork/truffle-dappchain-example) repo.
+所有合约的完整源码可以在 [Truffle DApp链示例](https://github.com/loomnetwork/truffle-dappchain-example) 代码库中找到。
 
-Let's deploy these contracts to `Rinkeby`.
+我们把这些合约部署到 `Rinkeby` 吧。
 
-1. Generate an Ethereum private key:
+1. 生成一个以太坊私钥。
     
     ```bash
     # this will create the rinkeby_account, rinkeby_mnemonic, and rinkeby_private_key files
     yarn gen:rinkeby-key
     ```
 
-2. Get the address of the new `Rinkeby` account from the `rinkeby_account` file.
+2. 从 `rinkeby_account` 文件中获取 `Rinkeby` 新账户的地址。
     
     ```bash
     cat rinkeby_account
