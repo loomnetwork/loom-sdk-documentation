@@ -9,7 +9,7 @@ sidebar_label: 转移网关测试网
 
 ## 1. 将代币合约部署到 `extdev`
 
-If you wish to transfer tokens from a token contract deployed on `Rinkeby` to one that's deployed on `extdev` you'll need to ensure that the token contract you deploy to `extdev` implements the `mintToGateway` function. We've created some sample contracts and a simple CLI to interact with them.
+如果你想要将代币从部署在 `Rinkeby` 上的代币合约转移到部署在 `extdev` 上的代币合约，你需要确保你部署在 `extdev` 上的代币合约实施了 `mintToGateway` 方法。 我们创建了一些示例合约和一个简单的 CLI 来与它们进行交互。
 
 ### MyToken ERC721 contract
 
