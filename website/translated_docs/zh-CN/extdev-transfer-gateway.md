@@ -237,9 +237,9 @@ node ./gateway-cli.js map-contracts token
 node ./gateway-cli.js map-contracts coin
 ```
 
-执行了这些命令后，转移网关将尝试验证你是否为这些合约的创建者 ，这可能需要几分钟时间。 In the meantime you can proceed to the next step.
+执行了这些命令后，转移网关将尝试验证你是否为这些合约的创建者 ，这可能需要几分钟时间。 在此期间，你可以进行下一步。
 
-## 4. Map `extdev` account to `Rinkeby` account
+## 4. 将 `extdev` 账户映射到 `Rinkeby` 账户
 
 Now that the two token contracts are connected via the Transfer Gateway you can start transferring tokens from `extdev` to `Rinkeby`. However, if you want to transfer tokens from `Rinkeby` to `extdev` you'll need to connect your `extdev` account to your `Rinkeby` account.
 
