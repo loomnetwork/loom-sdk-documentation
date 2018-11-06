@@ -221,7 +221,7 @@ contract MyRinkebyCoin is StandardToken {
     
     往 `rinkeby_account` 中的帐户再多转移点 ETH。
 
-## 3. Map `extdev` contracts to `Rinkeby` contracts
+## 3. 将 `extdev` 合约映射到 `Rinkeby` 合约
 
 将你的合约部署到两条链之后，你将需要让转移网关知道你想让它在合约之间转移代币。 你可以使用 [loom-js](https://github.com/loomnetwork/loom-js) 中的`TransferGateway`类或 `loom` CLI 以编程方式执行此操作。 For this tutorial we've built a more streamlined JS CLI with `web3` and [loom-js](https://github.com/loomnetwork/loom-js), so you don't have to go looking for contract addresses, transaction hashes, and sacrificial goats.
 
