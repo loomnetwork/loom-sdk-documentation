@@ -84,3 +84,57 @@ Options: "http://127.0.0.1:45667"
 
 Port for tendermint bft engine
 
+## ReceiptsVersion
+
+Options: 1,2
+
+Most users should set this to 1, and the evm receipts will be stored in the application store. If the number is set to 2, EVM receipts are stored in a seperate database. This is better for disk usage. However it affects the AppHashes, so the entire cluster must be initialized with the same version, and it must not be changed after initialization.
+
+## RegistryVersion
+
+Options: 1,2
+
+Most users should set this to 2. This is the latest version of the smart contract registry. The entire cluster needs to be initialized with the same version, and it must not be changed after initialization.
+
+## DPOSVersion
+
+Options: 1,2
+
+Version 2 of DPoS is still experimental, only use this on dev clusters. It has better support for rewards and slashing. The entire cluster needs to be on same version, and it must not be changed after initialization.
+
+## CreateEmptyBlocks
+
+Boolean: true, false
+
+Most clusters will want to disable empty blocks to save disk space.
+
+## AppStore
+
+```yaml
+AppStore:
+  CompactOnLoad: true
+  MaxVersions: 50
+```
+
+Configures how much history is retained in app.db, should be enabled on production clusters, and dev clusters that don't get wiped often. A new app.db version is created with each block, so without these settings nodes will consume significantly more disk space.
+
+### CompactOnLoad
+
+Will compact app.db when the node starts, this affects node start times, but ensures disk space that's taken up by old app.db versions is freed.
+
+### MaxVersions
+
+Max versions stored in the app store, each time a block is committed a new version of the app state is stored in the store, this doesn't affect how many blocks/transactions are stored in the blockchain store.
+
+## HSM
+
+```yaml
+HsmConfig:
+  HsmEnabled: "true"
+  HsmDevType: "yubihsm"
+  HsmConnUrl: "localhost:12345"
+  HsmDevLogCred: "password"
+  HsmAuthKeyId: 0
+```
+ 
+Please see [HSM Page](hsm.html) for more details
