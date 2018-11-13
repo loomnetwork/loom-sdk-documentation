@@ -88,49 +88,43 @@ Port for tendermint bft engine
 
 Options: 1,2
 
-For now most users should set this to 1, and the evm receipts will be stored in the application store. If the number is set to 2, EVM receipts are stored in a seperate database. This is better for disk usage. However it effects the AppHashes, so the entire network needs to have same option
+Most users should set this to 1, and the evm receipts will be stored in the application store. If the number is set to 2, EVM receipts are stored in a seperate database. This is better for disk usage. However it affects the AppHashes, so the entire cluster must be initialized with the same version, and it must not be changed after initialization.
 
 ## RegistryVersion
 
 Options: 1,2
 
-For now most users should set this to 2. This is what version of the smart contract service registry you want to use. The entire cluster needs to be on same version.
+Most users should set this to 2. This is the latest version of the smart contract registry. The entire cluster needs to be initialized with the same version, and it must not be changed after initialization.
 
 ## DPOSVersion
 
 Options: 1,2
 
-Version 2 of DPoS is still experimental, only use this on dev clusters. It has better support for rewards and slashing. The entire cluster needs to be on same version.
+Version 2 of DPoS is still experimental, only use this on dev clusters. It has better support for rewards and slashing. The entire cluster needs to be on same version, and it must not be changed after initialization.
 
 ## CreateEmptyBlocks
 
 Boolean: true, false
 
-Most clusters will want to disable empty blocks for disk space:
+Most clusters will want to disable empty blocks to save disk space.
 
 ## AppStore
 
 ```yaml
 AppStore:
-  CompactOnLoad: True
+  CompactOnLoad: true
   MaxVersions: 50
-  PruneInterval: 30
 ```
 
-Configures if the internal loom database should be compacted. This should only be used in production environments
+Configures how much history is retained in app.db, should be enabled on production clusters, and dev clusters that don't get wiped often. A new app.db version is created with each block, so without these settings nodes will consume significantly more disk space.
 
 ### CompactOnLoad
 
-Will do a large compaction on start, this affects node start times, but ensures disk space is freed
+Will compact app.db when the node starts, this affects node start times, but ensures disk space that's taken up by old app.db versions is freed.
 
 ### MaxVersions
 
-Max blocks stored in the app store, this doesn't effect how many block/transactions are stored in the blockchain store
-
-### PruneInterval
-
-How many blocks before trying to clean up disk for the application store.
-
+Max versions stored in the app store, each time a block is committed a new version of the app state is stored in the store, this doesn't affect how many blocks/transactions are stored in the blockchain store.
 
 ## HSM
 
