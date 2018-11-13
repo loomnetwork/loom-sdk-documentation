@@ -8,7 +8,7 @@ sidebar_label: Release Notes
 
 Reverse chronology order of release notes
 
-## Release 574 - Nov 13th
+## Release 575 - Nov 13th
 
 * HSM support for Yubico Devices - [HSM Docs](hsm.html)
 *  DPoS Version2 beta - for Plasmachain external validators
