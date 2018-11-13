@@ -14,7 +14,7 @@
     "Deployment": ["etherboy-backend", "multi-node-deployment", "docker-blueprint-phaser"],
     "Networks": ["testnet-plasma", "validator", "non-validator-node"],
     "Frequently Asked Questions": ["arch", "release-notes", "common-issues"],
-    "Advanced and Internal": ["loom-yaml", "karma", "json-rpc-methods"],
+    "Advanced and Internal": ["loom-yaml", "karma", "json-rpc-methods", "hsm"],
     "Block Explorer": ["block-explorer-tutorial"]
   }
 }

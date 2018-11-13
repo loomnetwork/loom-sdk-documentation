@@ -84,3 +84,63 @@ Options: "http://127.0.0.1:45667"
 
 Port for tendermint bft engine
 
+## ReceiptsVersion
+
+Options: 1,2
+
+For now most users should set this to 1, and the evm receipts will be stored in the application store. If the number is set to 2, EVM receipts are stored in a seperate database. This is better for disk usage. However it effects the AppHashes, so the entire network needs to have same option
+
+## RegistryVersion
+
+Options: 1,2
+
+For now most users should set this to 2. This is what version of the smart contract service registry you want to use. The entire cluster needs to be on same version.
+
+## DPOSVersion
+
+Options: 1,2
+
+Version 2 of DPoS is still experimental, only use this on dev clusters. It has better support for rewards and slashing. The entire cluster needs to be on same version.
+
+## CreateEmptyBlocks
+
+Boolean: true, false
+
+Most clusters will want to disable empty blocks for disk space:
+
+## AppStore
+
+```yaml
+AppStore:
+  CompactOnLoad: True
+  MaxVersions: 50
+  PruneInterval: 30
+```
+
+Configures if the internal loom database should be compacted. This should only be used in production environments
+
+### CompactOnLoad
+
+Will do a large compaction on start, this affects node start times, but ensures disk space is freed
+
+### MaxVersions
+
+Max blocks stored in the app store, this doesn't effect how many block/transactions are stored in the blockchain store
+
+### PruneInterval
+
+How many blocks before trying to clean up disk for the application store.
+
+
+## HSM
+
+```yaml
+HsmConfig:
+  HsmEnabled: "true"
+  HsmDevType: "yubihsm"
+  HsmConnUrl: "localhost:12345"
+  HsmDevLogCred: "password"
+  HsmAuthKeyId: 0
+```
+ 
+Please see [HSM Page](hsm.html) for more details
