@@ -22,7 +22,8 @@ HsmConfig:
   HsmDevType: yubihsm
   HsmConnUrl: "localhost:12345"
   HsmDevLogCred: "password"
-  HsmAuthKeyId: 0
+  HsmAuthKeyId: 1
+  HsmSignKeyID: 0
 ```
 
 ## Config options
@@ -44,6 +45,10 @@ Http url for the yubicohsm, by default it listens to http://localhost:12345
 Password for the HSM device. 
 
 * HsmAuthKeyId:
+
+ID number for authentication on the yubico hsm. This typically will be set to 1 as its the default AuthKeyId
+
+* HsmSignKeyID:
 
 ID number of the private key on the HSM, we suggest to create this in advance. In future releases if you set this value to zero, Loom SDK will attempt to create a new private key on the HSM itself.
 
@@ -77,5 +82,5 @@ session close 0
 quit
 ```
 
-You should now have a key at with ID 100. Please set HsmAuthKeyId to 100 in your loom.yaml
+You should now have a key at with ID 100. Please set HsmSignKeyId to 100 in your loom.yaml
 

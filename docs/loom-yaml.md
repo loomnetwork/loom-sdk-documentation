@@ -134,7 +134,8 @@ HsmConfig:
   HsmDevType: "yubihsm"
   HsmConnUrl: "localhost:12345"
   HsmDevLogCred: "password"
-  HsmAuthKeyId: 0
+  HsmAuthKeyId: 1
+  HsmSignKeyId: 100
 ```
  
 Please see [HSM Page](hsm.html) for more details

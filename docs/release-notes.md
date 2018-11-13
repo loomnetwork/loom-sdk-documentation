@@ -8,13 +8,13 @@ sidebar_label: Release Notes
 
 Reverse chronology order of release notes
 
-## Release 5xx - Nov 13th
+## Release 574 - Nov 13th
 
-* HSM support for Yubico Devices 
+* HSM support for Yubico Devices - [HSM Docs](hsm.html)
 * DPoS V2 initial support, we are going to be pushing out a new DPoS algos next month for external validators joining plasmachain
 * Plasma cash massive improvements, see [Plasma Cli](https://github.com/loomnetwork/plasma-cli)
-* Pruning for the Datastore, if chain gets to large, see [Config](loom-yaml.md)
-* New EVM receipts data store, see [Config](loom-yaml.md)
+* Pruning for the Datastore, if chain gets to large, see [Config](loom-yaml.html)
+* New EVM receipts data store, see [Config](loom-yaml.html)
 
 
 ## Release 478 - Oct 8th
