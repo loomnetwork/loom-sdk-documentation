@@ -11,7 +11,6 @@ Reverse chronology order of release notes
 ## Release 5xx - Nov 13th
 
 * HSM support for Yubico Devices 
-* Initial support for web3 functions with JSON interfaces for larger compatibility 
 * DPoS V2 initial support, we are going to be pushing out a new DPoS algos next month for external validators joining plasmachain
 * Plasma cash massive improvements, see [Plasma Cli](https://github.com/loomnetwork/plasma-cli)
 * Pruning for the Datastore, if chain gets to large, see [Config](loom-yaml.md)
