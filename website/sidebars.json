@@ -8,6 +8,7 @@
     "Events": ["loomevents", "web3js-event-filters"],
     "Consensus": ["delegated-proof-of-stake"],
     "Monitoring": ["metrics", "logging"],
+    "Backup": ["loom-backup"],
     "Solidity & EVM": ["evm", "truffle-deploy"],
     "Example Games & Apps": ["etherboy-game", "phaser-sdk-demo", "phaser-sdk-demo-websocket", "phaser-sdk-demo-web3-websocket", "simple-social-network-example"],
     "Transfer Gateway": ["transfer-gateway", "transfer-gateway-example"],
