@@ -144,7 +144,7 @@ Ideally choose an older backup of the config. But you can also edit `chaindata/c
 
 The loom process was running when the backup was taken. The backup is therefore inconsistent.
 
-*You need to proactively prevent this*.
+*You need to proactively prevent this*. The `backup.sh` script can help you, but you need to be sure that it is working for your situation.
 
 #### Can't sign ___. Or node already exists. Or Duplicate node.
 
