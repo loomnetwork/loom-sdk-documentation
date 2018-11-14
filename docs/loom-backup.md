@@ -10,15 +10,15 @@ A little bit of care needs to be taken to ensure that backups are usable. So it 
 
 There are several different ways to do it, this document details one way that is known to work.
 
-Scripts to make this easier for you can be found [here](https://github.com/loomnetwork/go-loom/tree/master/backup/utils).
+Scripts to make this easier for you can be found [here](https://github.com/loomnetwork/loom-sdk-documentation/blob/master/scripts/backup/).
 
 # Backup and Restore Overview
 
 * Backup
   * On the existing nodes
-    * Backup the config. This can be done with using [backup.sh](https://github.com/loomnetwork/go-loom/tree/master/backup/utils/backup.sh) and configuring `STUFF_TO_BACKUP` accordingly.
+    * Backup the config. This can be done with using [backup.sh](https://github.com/loomnetwork/loom-sdk-documentation/blob/master/scripts/backup/backup.sh) and configuring `STUFF_TO_BACKUP` accordingly.
   * Create an extra node that has `--peers` for the other nodes, but is not in the `--peers` of the other nodes.
-    * Run the [backup.sh](https://github.com/loomnetwork/go-loom/tree/master/backup/utils/backup.sh) script periodically.
+    * Run the [backup.sh](https://github.com/loomnetwork/loom-sdk-documentation/blob/master/scripts/backup/backup.sh) script periodically.
       * Stopps the service.
       * Takes a dump.
       * Starts the service.
@@ -32,7 +32,7 @@ Scripts to make this easier for you can be found [here](https://github.com/loomn
 # Backup
 
 * Create an extra node, which will be the backup node. It should have it's `--peers` pointing to the live nodes. They should not reference this node at all.
-* Run [backup.sh](https://github.com/loomnetwork/go-loom/tree/master/backup/utils/backup.sh) periodically.
+* Run [backup.sh](https://github.com/loomnetwork/loom-sdk-documentation/blob/master/scripts/backup/backup.sh) periodically.
 
 ## backup.sh
 
@@ -124,10 +124,11 @@ IMPORTANT `chaindata/config/node_key.json`, and `--peers` in `/etc/systemd/syste
 * Restore `chaindata/config/node_key.json` from the correct backup.
 * Run `loom nodekey` from the working directory to see the configured NODE_KEY.
 
-If you are restoring to a cluster that has previously been deployed to (Eg we set up a blank cluster using ansible, which includes setting up the NODE_KEYS). you can use the [mangleDCBackupServiceDefinition.sh](https://github.com/loomnetwork/go-loom/tree/master/backup/utils/mangleDCBackupServiceDefinition.sh) to grab the existing IPs from `/etc/systemd/system/$SERVICE_NAME`, along with the NODE_KEYS from the relevant backup to create a new `/etc/systemd/system/$SERVICE_NAME`. You will need to do this on each node, because each node excludes its own details.
+If you are restoring to a cluster that has previously been deployed to (Eg we set up a blank cluster using ansible, which includes setting up the NODE_KEYS). you can use the [mangleDCBackupServiceDefinition.sh](https://github.com/loomnetwork/loom-sdk-documentation/blob/master/scripts/backup/mangleDCBackupServiceDefinition.sh) to grab the existing IPs from `/etc/systemd/system/$SERVICE_NAME`, along with the NODE_KEYS from the relevant backup to create a new `/etc/systemd/system/$SERVICE_NAME`. You will need to do this on each node, because each node excludes its own details.
 
 ## Solutions to common problems
 
-### Unexpected IDs, Keys, Tockens in the logs
+### Unexpected IDs, Keys, Tokens in the logs
 
 Almost certainly this is a miss-match between the `--peers` in `/etc/systemd/system/$SERVICE_NAME` and the values in `chaindata/config/node_key.json`.
+Assuming you trust all of the nodes, the easiest way to fix it is to look at values in the logs and search in `/etc/systemd/system/$SERVICE_NAME` for what it found, and replace it with what it expected.
