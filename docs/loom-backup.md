@@ -131,4 +131,17 @@ If you are restoring to a cluster that has previously been deployed to (Eg we se
 #### Unexpected IDs, Keys, Tokens in the logs
 
 Almost certainly this is a miss-match between the `--peers` in `/etc/systemd/system/$SERVICE_NAME` and the values in `chaindata/config/node_key.json`.
+
 Assuming you trust all of the nodes, the easiest way to fix it is to look at values in the logs and search in `/etc/systemd/system/$SERVICE_NAME` for what it found, and replace it with what it expected.
+
+#### Can't find the hash in the database
+
+I've seen this happen when the backup of the config is newer than the backup of the database.
+
+Ideally choose an older backup of the config. But you can also edit `chaindata/config/priv_validator.json` and remove the `last_.*` entries (make sure it's still valid json when you're done). This usually results in a longer startup time for the first startup after the restore.
+
+#### Lots of errors when reading the database
+
+The loom process was running when the backup was taken. The backup is therefore inconsistent.
+
+*You need to proactively prevent this*.
