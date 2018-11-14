@@ -112,6 +112,8 @@ Un-tar the data backup, restoring `app.db` and `chaindata` folders to the workin
 
 Depending on your configuration, you may or may not have configuration in with the data backup. To prevent accidents, it's worth restoring the data backup first, then restore the config backup after.
 
+The chosen data backup should be newer than the chosen config backup.
+
 ### NODE_KEYS
 
 If you are restoring backups to the same nodes that they came from, you almost certainly don't need to worry about this, because the required configuration is likely to be exactly the same. For every other situation, read on.
