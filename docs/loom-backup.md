@@ -29,12 +29,12 @@ Scripts to make this easier for you can be found [here](https://github.com/loomn
   * Restore the config. Note, you may need to alter the service definition. See NODE_KEYS below.
   * Start the service.
 
-# Backup
+## Backup
 
 * Create an extra node, which will be the backup node. It should have it's `--peers` pointing to the live nodes. They should not reference this node at all.
 * Run [backup.sh](https://github.com/loomnetwork/loom-sdk-documentation/blob/master/scripts/backup/backup.sh) periodically.
 
-## backup.sh
+### backup.sh
 
 This should be run by cron as the same user that the service runs as, or as a user with enough permissions to 
 
@@ -56,34 +56,34 @@ There are several settings you can tune. Of particular interest are
   * For the backup node use `$BACKUP_DATA`.
   * For the other nodes, use `$BACKUP_CONFIG`.
 
-## Considerations
+### Considerations
 
 
-### SHOULD_SHUTDOWN
+#### SHOULD_SHUTDOWN
 
-#### Config only
+##### Config only
 
 There's no need to shutdown to backup config from the live nodes.
 
-#### Data only
+##### Data only
 
 If you dig around in the settings of backup.sh, you'll see there are several different ways of configuring the service.
 
 Do note that we've found backups taken on a machine where the serice remains running, to be unusable once the data grows beyond a certain size. It's highly recommended to stop the service to take the backup.
 
 
-### BACKUP_METHOD
+#### BACKUP_METHOD
 
 If the service is running while the backup is taken, it is very likely that the data will be in an inconsistent state when the backup is taken, and will therefore be significantly more difficult to restore.
 
-# Restore
+## Restore
 
 * Stop the service on all nodes you want to restore the data on.
 * Restore the data.
 * Restore the config. Note, you may need to alter the service definition. See NODE_KEYS below.
 * Start the service.
 
-## Doing the restore
+### Doing the restore
 
 *Stop the service.*
 
@@ -106,15 +106,15 @@ Un-tar the data backup, restoring `app.db` and `chaindata` folders to the workin
 
 *Start everything.*
 
-## Considerations.
+### Considerations.
 
-### Restore order
+#### Restore order
 
 Depending on your configuration, you may or may not have configuration in with the data backup. To prevent accidents, it's worth restoring the data backup first, then restore the config backup after.
 
 The chosen data backup should be newer than the chosen config backup.
 
-### NODE_KEYS
+#### NODE_KEYS
 
 If you are restoring backups to the same nodes that they came from, you almost certainly don't need to worry about this, because the required configuration is likely to be exactly the same. For every other situation, read on.
 
@@ -126,9 +126,9 @@ IMPORTANT `chaindata/config/node_key.json`, and `--peers` in `/etc/systemd/syste
 
 If you are restoring to a cluster that has previously been deployed to (Eg we set up a blank cluster using ansible, which includes setting up the NODE_KEYS). you can use the [mangleDCBackupServiceDefinition.sh](https://github.com/loomnetwork/loom-sdk-documentation/blob/master/scripts/backup/mangleDCBackupServiceDefinition.sh) to grab the existing IPs from `/etc/systemd/system/$SERVICE_NAME`, along with the NODE_KEYS from the relevant backup to create a new `/etc/systemd/system/$SERVICE_NAME`. You will need to do this on each node, because each node excludes its own details.
 
-## Solutions to common problems
+### Solutions to common problems
 
-### Unexpected IDs, Keys, Tokens in the logs
+#### Unexpected IDs, Keys, Tokens in the logs
 
 Almost certainly this is a miss-match between the `--peers` in `/etc/systemd/system/$SERVICE_NAME` and the values in `chaindata/config/node_key.json`.
 Assuming you trust all of the nodes, the easiest way to fix it is to look at values in the logs and search in `/etc/systemd/system/$SERVICE_NAME` for what it found, and replace it with what it expected.
