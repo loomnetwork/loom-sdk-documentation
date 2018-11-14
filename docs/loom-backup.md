@@ -145,3 +145,25 @@ Ideally choose an older backup of the config. But you can also edit `chaindata/c
 The loom process was running when the backup was taken. The backup is therefore inconsistent.
 
 *You need to proactively prevent this*.
+
+#### Can't sign ___. Or node already exists. Or Duplicate node.
+
+Very likely the backup node has a key that is the same as one of the validators. You can create new details like this
+
+Stop `loom`.
+
+```bash
+$ cd /tmp && mkdir loom-new keys && cd loom-new keys
+$ loom init
+
+```
+
+Copy the following values from the current directory to the normal working directory.
+
+* The whole `chaindata/config/nodekey.json`.
+* In `chaindata/config/nodekey.json`
+  * `address`
+  * `pub_key`
+  * `priv_key`
+
+Start `loom`.
