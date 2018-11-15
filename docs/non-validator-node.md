@@ -4,7 +4,7 @@ title: Non Validator Node
 sidebar_label: Non Validator Node
 ---
 
-# Joining test-z-validator1.dappchains.com as Non-validator
+# Joining dposv2.dappchains.com as Non-validator
 
 Follow the instructions below to join the cluster test-z-validator1.dappchains.com as a non-validator node.
 
@@ -17,14 +17,16 @@ curl https://raw.githubusercontent.com/loomnetwork/loom-sdk-documentation/master
 ## Create loom.yml
 
 ```yaml
-ChainID: "validator-test1"
+ChainID: "dposv2"
 QueryServerHost: "tcp://0.0.0.0:9999"
 RPCListenAddress: "tcp://0.0.0.0:46657"
 TendermintLogLevel: "debug"
 LogStateDB: true
 LogEthDBBatch: true
 RegistryVersion: 2
-ReceiptsVersion: 1
+ReceiptsVersion: 2
+CreateEmptyBlocks: false
+DPOSVersion: 2
 ```
 
 ## Initialize loom
@@ -43,51 +45,65 @@ ReceiptsVersion: 1
       "format": "plugin",
       "name": "coin",
       "location": "coin:1.0.0",
-      "init": null
+      "init": {
+        "accounts": [
+          {
+            "owner": {
+              "chainId": "dposv2",
+              "local": "JC+p7V+PXHYBtUy2MOYOKp7YSbY="
+            },
+            "balance": "100"
+          },
+          {
+            "owner": {
+              "chainId": "dposv2",
+              "local": "iOKkG0ByOm40/WmMhdvmjHkHfsc="
+            },
+            "balance": "100"
+          },
+          {
+            "owner": {
+              "chainId": "dposv2",
+              "local": "Q7mRqhA3jRrBSP5QXrJSYGMwLVQ="
+            },
+            "balance": "100"
+          },
+          {
+            "owner": {
+              "chainId": "dposv2",
+              "local": "yCeaEY/UqwHcJly/BxUH52HCNvI="
+            },
+            "balance": "100"
+          }
+        ]
+      }
     },
     {
       "vm": "plugin",
       "format": "plugin",
-      "name": "dpos",
-      "location": "dpos:1.0.0",
+      "name": "dposV2",
+      "location": "dposV2:2.0.0",
       "init": {
         "params": {
-          "witnessCount": "21",
-          "electionCycleLength": "604800",
-          "minPowerFraction": "5"
+          "validatorCount": "21",
+          "electionCycleLength": "604800"
         },
         "validators": [
           {
             "power": "10",
-            "pubKey": "MMEP3Y2yWJtmAd2Cr9pwTJkEyHXLTerpbTn1QpAAFvA="
+            "pubKey": "yC1ZAMPKecOtCfBqk0Z0Jh2itcpBZueOehnCtyRb0O8="
           },
           {
             "power": "10",
-            "pubKey": "Cx79WED5Scn9ewT5miVx8qad19ZwuyXG9NvG0Yoag8I="
+            "pubKey": "NsOUCD4ZiyobzA06xZkverBR8p57Fl8qY0410ZKY0ZQ="
           },
           {
             "power": "10",
-            "pubKey": "NqUSCd3DBIsSAR5teAwgT4ZQJ4SAPp+lXj2TqcvapK4="
+            "pubKey": "lYGdZyuzLk3VOZ7KnpLMKE/EPGIOSCU8+N7G8biWPok="
           },
           {
             "power": "10",
-            "pubKey": "HQH7gAGAv6UOpbXOWQrGwvctyVcFKEKgeEbULnsFhDo="
-          },
-          {
-            "power": "10",
-            "pubKey": "OAC0w9VwNRj+O/dWNwgHRGTjhzPoJ26Ga7z6R3olh7o="
-          },
-          {
-            "power": "10",
-            "pubKey": "1bkXFUlwfhubstxsnwn9EmNTr8SHtap8XtyZWolPswE="
-          },
-          {
-            "power": "10",
-            "pubKey": "JWEesnAf7bN+SfS74KhHVXqG07BTVHFs9fkl5s/OxJY="
-          },
-          {
-            "power": "10",
-            "pubKey": "Txb+JWnrHIluNg21xVG4nIQmtcX9Td+mG0PAX4gaVkc="
+            "pubKey": "k2Uod0/yz5EC8J9b5k0AzSjXOAX1/0DDmxmZp6PXWPI="
           }
         ]
       }
@@ -101,14 +117,14 @@ ReceiptsVersion: 1
 ```json
 {
   "genesis_time": "0001-01-01T00:00:00Z",
-  "chain_id": "validator-test1",
+  "chain_id": "dposv2",
   "validators": [
     {
       "name": "",
       "power": "10",
       "pub_key": {
         "type": "tendermint/PubKeyEd25519",
-        "value": "MMEP3Y2yWJtmAd2Cr9pwTJkEyHXLTerpbTn1QpAAFvA="
+        "value": "yC1ZAMPKecOtCfBqk0Z0Jh2itcpBZueOehnCtyRb0O8="
       }
     },
     {
@@ -116,7 +132,7 @@ ReceiptsVersion: 1
       "power": "10",
       "pub_key": {
         "type": "tendermint/PubKeyEd25519",
-        "value": "Cx79WED5Scn9ewT5miVx8qad19ZwuyXG9NvG0Yoag8I="
+        "value": "NsOUCD4ZiyobzA06xZkverBR8p57Fl8qY0410ZKY0ZQ="
       }
     },
     {
@@ -124,7 +140,7 @@ ReceiptsVersion: 1
       "power": "10",
       "pub_key": {
         "type": "tendermint/PubKeyEd25519",
-        "value": "NqUSCd3DBIsSAR5teAwgT4ZQJ4SAPp+lXj2TqcvapK4="
+        "value": "lYGdZyuzLk3VOZ7KnpLMKE/EPGIOSCU8+N7G8biWPok="
       }
     },
     {
@@ -132,39 +148,7 @@ ReceiptsVersion: 1
       "power": "10",
       "pub_key": {
         "type": "tendermint/PubKeyEd25519",
-        "value": "HQH7gAGAv6UOpbXOWQrGwvctyVcFKEKgeEbULnsFhDo="
-      }
-    },
-    {
-      "name": "",
-      "power": "10",
-      "pub_key": {
-        "type": "tendermint/PubKeyEd25519",
-        "value": "OAC0w9VwNRj+O/dWNwgHRGTjhzPoJ26Ga7z6R3olh7o="
-      }
-    },
-    {
-      "name": "",
-      "power": "10",
-      "pub_key": {
-        "type": "tendermint/PubKeyEd25519",
-        "value": "1bkXFUlwfhubstxsnwn9EmNTr8SHtap8XtyZWolPswE="
-      }
-    },
-    {
-      "name": "",
-      "power": "10",
-      "pub_key": {
-        "type": "tendermint/PubKeyEd25519",
-        "value": "JWEesnAf7bN+SfS74KhHVXqG07BTVHFs9fkl5s/OxJY="
-      }
-    },
-    {
-      "name": "",
-      "power": "10",
-      "pub_key": {
-        "type": "tendermint/PubKeyEd25519",
-        "value": "Txb+JWnrHIluNg21xVG4nIQmtcX9Td+mG0PAX4gaVkc="
+        "value": "k2Uod0/yz5EC8J9b5k0AzSjXOAX1/0DDmxmZp6PXWPI="
       }
     }
   ],
@@ -175,7 +159,7 @@ ReceiptsVersion: 1
 ## Run loom
 
 ```bash
-./loom run --persistent-peers tcp://dfdf44ae4174a73ad507e2007a3ab691bccf000d@18.223.241.239:46656,tcp://29602cb817b2d64f5ee5c4c6b71212d9c4106665@18.216.87.146:46656,tcp://e1ea2ba014c28e1972a08a353c47c73e85660cfb@18.216.78.48:46656,tcp://7e4a87c167c5b1ce44c42c00010c6689df2fe874@18.219.1.252:46656,tcp://e77bf7cfd45eafe290fed9204831cc490f7bde8e@18.188.212.83:46656,tcp://ea8fff72a2157306cb8fc7a4dba1c71b74410300@18.224.149.206:46656,tcp://d3a252302afab26e4c5458a03c43c800ffedad29@18.224.212.250:46656,tcp://cda0ec9aa3aded9a401137a4f511599c25225b9d@18.217.68.113:46656
+./loom run --persistent-peers tcp://d96b4cdb4ee44ef2f88d1eb78ce4b66baa09d506@13.250.65.46:46656,tcp://2e8b6b1328c69fdd1546593c2e9fdc8e7f8240ce@54.251.141.239:46656,tcp://9d0d9dec1fd39851c2fe61e1e4de32e3655d5c71@3.0.48.99:46656,tcp://f5155e7a1eef53e98fcae0043d6d6b29c1e0ee0a@13.250.37.200:46656
 ```
 
 The non-validator node will now sync with the validator nodes. Status can be queried at http://localhost:46657/status
