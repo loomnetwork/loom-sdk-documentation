@@ -11,7 +11,9 @@ Follow the instructions below to join the cluster test-z-validator1.dappchains.c
 ## Download Stable Version of loom
 
 ```bash
-curl https://raw.githubusercontent.com/loomnetwork/loom-sdk-documentation/master/scripts/get_loom.sh | sh
+wget https://private.delegatecall.com/loom/linux/build-560/loom
+chmod +x loom
+./loom version
 ```
 
 ## Create loom.yml
