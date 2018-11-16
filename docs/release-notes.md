@@ -8,10 +8,16 @@ sidebar_label: Release Notes
 
 Reverse chronology order of release notes
 
+
+## Release 575 - Nov 16th
+
+* HSM Bug fixes for Yubico Devices  - [HSM Docs](hsm.html)
+* HSM now can create new private keys on demand
+
 ## Release 575 - Nov 13th
 
 * HSM support for Yubico Devices - [HSM Docs](hsm.html)
-*  DPoS Version2 beta - for Plasmachain external validators
+* DPoS Version2 beta - for Plasmachain external validators
 * Plasma cash massive improvements, see [Plasma Cli](https://github.com/loomnetwork/plasma-cli)
 * Pruning for the Datastore, if chain gets to large, see [Config](loom-yaml.html)
 * New EVM receipts data store, see [Config](loom-yaml.html)

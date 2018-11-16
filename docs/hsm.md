@@ -50,7 +50,7 @@ ID number for authentication on the yubico hsm. This typically will be set to 1 
 
 * HsmSignKeyID:
 
-ID number of the private key on the HSM, we suggest to create this in advance. In future releases if you set this value to zero, Loom SDK will attempt to create a new private key on the HSM itself.
+ID number of the private key on the HSM, we suggest to create this in advance. If you set this value to zero, Loom SDK will attempt to create a new private key on the HSM itself.
 
 
 
