@@ -29,38 +29,35 @@ and this will create files named `priv_key` and `pub_key`, the `priv_key` file c
 
 # How to use Karma faucet
 
-1. Go to [Karma Faucet](https://faucet.dappchains.com) website   
-      
-      
-    ![image](/developers/img/faucet/1.png)   
-      
-      
-    
+1. Go to [Karma Faucet](https://faucet.dappchains.com) website
+
+
+![image](/developers/img/faucet/1.png)   
+
+
 2. Fill recipient address with your `public address` which is the same account in your truffle   
-      
-      
-    ![image](/developers/img/faucet/2.png)   
-      
-      
-    
+
+
+![image](/developers/img/faucet/2.png)   
+
+
 3. Select test-net network you want to deploy your contract   
-      
-      
-    ![image](/developers/img/faucet/3.png)   
-      
-      
-    
+
+
+![image](/developers/img/faucet/3.png)   
+
+
 4. Press `request` button   
-      
-      
-    ![image](/developers/img/faucet/4.png)   
-      
-      
-    
+
+
+![image](/developers/img/faucet/4.png)  
+ 
+ 
 5. Make sure you get `faucet-karma` appear before deploy your contract to selected test-net   
-      
-      
-    ![image](/developers/img/faucet/5.png)
+
+
+![image](/developers/img/faucet/5.png)
+
 
 # Deploy Truffle Example to a Testnet
 

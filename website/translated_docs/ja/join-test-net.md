@@ -30,37 +30,34 @@ local address base64: OzNL7R59Pn2SFElRIBYNkjasvDE=
 # Karma Faucetの使用方法
 
 1. [Karma Faucet](https://faucet.dappchains.com)のウェブサイトにアクセスする。   
-      
-      
-    ![image](/developers/img/faucet/1.png)   
-      
-      
-    
+
+
+![image](/developers/img/faucet/1.png)   
+
+
 2. 受信者アドレス(recipient address)に、あなたのtruffleアカウントと同じアカウントの`public address` を入力する。   
-      
-      
-    ![image](/developers/img/faucet/2.png)   
-      
-      
-    
+
+
+![image](/developers/img/faucet/2.png)   
+
+
 3. コントラクトをデプロイしたいテストネット・ネットワークを選択する。   
-      
-      
-    ![image](/developers/img/faucet/3.png)   
-      
-      
-    
+
+
+![image](/developers/img/faucet/3.png)   
+
+
 4. `request` ボタンをクリックする。   
-      
-      
-    ![image](/developers/img/faucet/4.png)   
-      
-      
-    
+
+
+![image](/developers/img/faucet/4.png)   
+
+ 
 5. 選択したテストネットにコントラクトをデプロイする前に、`faucet-karma` が表示できていることを確認する。   
-      
-      
-    ![image](/developers/img/faucet/5.png)
+
+
+ ![image](/developers/img/faucet/5.png)
+
 
 # Truffleサンプルをテストネットへデプロイ
 
