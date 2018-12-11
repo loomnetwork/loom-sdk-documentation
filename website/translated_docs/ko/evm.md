@@ -775,7 +775,7 @@ Writing to a DAppChain using a `Call` transactions that can modify the state ret
 
 ### Transaction receipt
 
-The details of each EVM call transaction, or `receipts`, are stored by the DAppChain and can be accessed using the `receipt hash` returned by
+The details of each EVM transaction, or `receipts`, are stored by the DAppChain and can be accessed using the `receipt hash` returned by
 each EVM transaction. This hash is an index for accessing receipts and is only generated for EVM transaction. 
 
 This `reciept hash` is different from the `Tendermint transaction hash` used in blockchain calculations. 
