@@ -90,7 +90,7 @@ You should now have a key at with ID 100. Please set HsmSignKeyId to 100 in your
 
 
 
-### Using HSM for signing transactions like Register_canidate
+### Using HSM for signing transactions like Register Canidate
 
 1. Find out your PrivateKeyId and base64 public key
 
