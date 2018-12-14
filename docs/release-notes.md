@@ -9,6 +9,20 @@ sidebar_label: Release Notes
 Reverse chronology order of release notes
 
 
+## Loom 2.0 Initial Release Build 651 - Dec 14th
+
+* Loom SDK 2.0
+* Updated P2P Protocols
+* Blockexplorer now supports EVM
+* Loom Native token support for on chain Staking
+* Support For delegation rewards in protocol
+* Fixes for GetEvmBlockByNumber/Hash
+* Range function Prefix fixes for Go Contracts
+* HSM local key signing  - [HSM Docs](hsm.html)
+* Unity SDK Updated with better network management 
+
+Note Loom SDK 2.0 is not protocol compatible with 1.0 chains. If you have a production chain using 1.0 please contact support@loomx.io for migration help. 
+
 ## Release 575 - Nov 16th
 
 * HSM Bug fixes for Yubico Devices  - [HSM Docs](hsm.html)
