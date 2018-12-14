@@ -21,7 +21,7 @@ HsmConfig:
   HsmEnabled: true
   HsmDevType: yubihsm
   HsmConnUrl: "localhost:12345"
-  HsmDevLogCred: "password"
+  HsmAuthPasswd: "password"
   HsmAuthKeyId: 1
   HsmSignKeyID: 0
 ```
@@ -40,13 +40,17 @@ Options - yubihsm, softhsm (coming soon), pkcs11 (coming soon)
 
 Http url for the yubicohsm, by default it listens to http://localhost:12345
 
-* HsmDevLogCred: 
+* HsmAuthPasswd: 
 
-Password for the HSM device. 
+Password for the HSM device. (previously HsmDevLogCred)
 
 * HsmAuthKeyId:
 
 ID number for authentication on the yubico hsm. This typically will be set to 1 as its the default AuthKeyId
+
+* SignKeyDomain:
+
+Yubico HSMs allow multiple domains for security, you can specify, otherwise it defaults to 1
 
 * HsmSignKeyID:
 
@@ -83,4 +87,33 @@ quit
 ```
 
 You should now have a key at with ID 100. Please set HsmSignKeyId to 100 in your loom.yaml
+
+
+
+### Using HSM for signing transactions like Register_canidate
+
+1. Find out your PrivateKeyId and base64 public key
+
+cat chaindata/config/priv_validator.json
+
+get key_id and pub_key/value
+
+2. Create hsm.json
+
+```json
+hsm.json
+{
+    "YubiHsmConnURL":"localhost:12345",
+    "AuthKeyID":1,
+    "Password":"password",
+    "PrivKeyID":999999 
+}
+```
+
+put your key id into the privKeyID field
+
+
+3. ./loom call register_candidateV2 PUBLIC_KEY_IN_BASE64 10  --hsmconfig hsm.json -r http://dposv2.dappchains.com:80/query -w http://dposv2.dappchains.com:80/rpc  --chain dposv2
+
+swap PUBLIC_KEY_IN_BASE64 for the one in the priv_validator
 
