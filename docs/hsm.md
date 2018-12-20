@@ -15,7 +15,7 @@ Right now we will only support devices that can do EDDSA encryption with the ED2
 
 ## Configuring an HSM
 
-In Loom.yaml you need to add the following section
+In loom.yml you need to add the following section
 ```yaml
 HsmConfig:
   HsmEnabled: true
@@ -86,7 +86,7 @@ session close 0
 quit
 ```
 
-You should now have a key at with ID 100. Please set HsmSignKeyId to 100 in your loom.yaml
+You should now have a key at with ID 100. Please set HsmSignKeyId to 100 in your loom.yml
 
 
 
