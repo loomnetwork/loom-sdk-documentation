@@ -21,7 +21,7 @@ HsmConfig:
   HsmEnabled: true
   HsmDevType: yubihsm
   HsmConnUrl: "localhost:12345"
-  HsmAuthPasswd: "password"
+  HsmAuthPassword: "password"
   HsmAuthKeyId: 1
   HsmSignKeyID: 0
 ```
@@ -40,7 +40,7 @@ Options - yubihsm, softhsm (coming soon), pkcs11 (coming soon)
 
 Http url for the yubicohsm, by default it listens to http://localhost:12345
 
-* HsmAuthPasswd: 
+* HsmAuthPassword: 
 
 Password for the HSM device. (previously HsmDevLogCred)
 
