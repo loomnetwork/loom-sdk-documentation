@@ -27,6 +27,6 @@ Where is the Ethereum contract related to a network deployed
 Name           | Ethereum Link | TransferGateway Address
 -------------  | ------------- | ------------------------
 Staging Plasma | Rinkeby       | 0xF19D543f5ca6974b8b9b39Fcb923286dE4e9D975
-Plasma Chain   | Mainnet       | n/a 
+Plasma Chain   | Mainnet       | 0x223CA78df868367D214b444d561B9123c018963A
 Validator Test | Rinkeby       | n/a
 
