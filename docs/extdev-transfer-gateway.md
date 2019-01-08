@@ -111,12 +111,7 @@ Full source for all contracts can be found in the [Truffle DAppChain Example][] 
    This is the public address that corresponds to your new private key. You'll find the private key
    in the `extdev_private_key` file, and the corresponding public key in the `extdev_public_key` file.
 
-5. Your new account will need some karma before you can use to deploy or call contracts.
-   Go to the [Karma Faucet](http://faucet.dappchains.com), put in the public address that was just
-   generated for you (the hex encoded one that starts with `0x`), select the `extdev` network,
-   and press the `Request` button to get some karma.
-
-6. Deploy the `MyToken` and `MyCoin` contracts to the `extdev` PlasmaChain.
+5. Deploy the `MyToken` and `MyCoin` contracts to the `extdev` PlasmaChain.
 
    ```bash
    yarn deploy:extdev
