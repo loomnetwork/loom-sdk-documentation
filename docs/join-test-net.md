@@ -49,5 +49,3 @@ the `priv_key` file contains your private key that you'll use to deploy contract
     ```bash
     yarn deploy:extdev
     ```
-    If you don't have karma this will fail with error `Failed to commit Tx: origin has no karma`
-    so you need to request karma from [Karma Faucet](http://faucet.dappchains.com)
