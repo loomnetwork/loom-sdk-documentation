@@ -11,7 +11,7 @@ Follow the instructions below to join the cluster extdev-plasma-us1.dappchains.c
 ## Download Stable Version of loom
 
 ```bash
-wget https://private.delegatecall.com/loom/linux/build-690/loom
+wget https://private.delegatecall.com/loom/linux/build-762/loom
 chmod +x loom
 ./loom version
 ```
@@ -26,8 +26,6 @@ BlockchainLogLevel: "info"
 LoomLogLevel: "info"
 LogLevel: "info"
 ContractLogLevel: "info"
-LogStateDB: true
-LogEthDBBatch: true
 RegistryVersion: 2
 ReceiptsVersion: 1
 EVMAccountsEnabled: true
@@ -35,7 +33,11 @@ TransferGateway:
   ContractEnabled: true
 LoomCoinTransferGateway:
   ContractEnabled: true
-CreateEmptyBlocks: false
+CreateEmptyBlocks: true
+DPOSVersion: 2
+BootLegacyDPoS: true
+CachingStoreConfig:
+  CachingEnabled: true
 ```
 
 ## Initialize loom
@@ -48,91 +50,132 @@ CreateEmptyBlocks: false
 
 ```json
 {
-    "contracts": [
-        {
-            "vm": "plugin",
-            "format": "plugin",
-            "name": "coin",
-            "location": "coin:1.0.0",
-            "init": null
+  "contracts": [
+    {
+      "vm": "plugin",
+      "format": "plugin",
+      "name": "coin",
+      "location": "coin:1.0.0",
+      "init": {
+        "accounts": [
+          {
+            "owner": {
+              "chain_id": "extdev-plasma-us1",
+              "local": "MHMeEebYJMfnBpk6PKKXyxdv9So="
+            },
+            "balance": "1000"
+          },
+          {
+            "owner": {
+              "chain_id": "extdev-plasma-us1",
+              "local": "0Uci31f2EoaM7P3Dhl6gUMhH9O8="
+            },
+            "balance": "1000"
+          },
+          {
+            "owner": {
+              "chain_id": "extdev-plasma-us1",
+              "local": "NP3Iz4pS1LrlVfk1q5Yrja66kPg="
+            },
+            "balance": "1000"
+          },
+          {
+            "owner": {
+              "chain_id": "extdev-plasma-us1",
+              "local": "5revlBULnzPvGB0iIhPSlWszMx4="
+            },
+            "balance": "1000"
+          }
+        ]
+      }
+    },
+    {
+      "vm": "plugin",
+      "format": "plugin",
+      "name": "dposV2",
+      "location": "dposV2:2.0.0",
+      "init": {
+        "params": {
+          "validatorCount": "21",
+          "electionCycleLength": "60",
+          "oracleAddress": {
+            "chain_id": "extdev-plasma-us1",
+            "local": "Z5Qpn2pHMDcmiFer8EBAYDkleTE="
+          }
         },
-        {
-            "vm": "plugin",
-            "format": "plugin",
-            "name": "dpos",
-            "location": "dpos:1.0.0",
-            "init": {
-                "params": {
-                    "witnessCount": "21",
-                    "electionCycleLength": "604800",
-                    "minPowerFraction": "5"
-                },
-                "validators": [ {
-    "power": "10",
-    "pubKey": "H0pzKPpQ8s1oO9dsptUxrQxwgdiH78J+lgiDmiVgDX8="
-},{
-    "power": "10",
-    "pubKey": "VkmHP4iQOBEBbYNgkSuWaK+qLh40pCwNn3khgRoqi6A="
-},{
-    "power": "10",
-    "pubKey": "akjPOSkJSS70grcNK1fOWPL+bF/+BmFiLudNMja74o0="
-},{
-    "power": "10",
-    "pubKey": "TmE0QXt6ibtpC0c8euVn/pyDKvJnDDoqlOiJMAkj5RY="
-} ]
-            }
-        }
-        ,
-        {
-            "vm": "plugin",
-            "format": "plugin",
-            "name": "ethcoin",
-            "location": "ethcoin:1.0.0",
-            "init": null
+        "validators": [
+          {
+            "power": "10",
+            "pubKey": "CKjlUZIMTVT3oFWyx4+RmiBdznoszEyy0bn09uhd1XU="
+          },
+          {
+            "power": "10",
+            "pubKey": "N49Nt1P7/whXUa5nk1E/jJPZEmG3UJd0hsHpuHK1eaY="
+          },
+          {
+            "power": "10",
+            "pubKey": "q2CzaJWjZXqu2vEf+HtkPI8j/0jmbtpHz3jxN4UMF28="
+          },
+          {
+            "power": "10",
+            "pubKey": "HwS0l1v8rJw4mw7jZouh6NYmiK1qk2IA/JehcdquuaY="
+          }
+        ]
+      }
+    },
+    {
+      "vm": "plugin",
+      "format": "plugin",
+      "name": "ethcoin",
+      "location": "ethcoin:1.0.0",
+      "init": null
+    },
+    {
+      "vm": "plugin",
+      "format": "plugin",
+      "name": "addressmapper",
+      "location": "addressmapper:0.1.0",
+      "init": null
+    },
+    {
+      "vm": "plugin",
+      "format": "plugin",
+      "name": "gateway",
+      "location": "gateway:0.1.0",
+      "init": {
+        "owner": {
+          "chain_id": "extdev-plasma-us1",
+          "local": "bWVeTJjewiMi6HMxCAxQmMjPVOw="
         },
-        {
-            "vm": "plugin",
-            "format": "plugin",
-            "name": "addressmapper",
-            "location": "addressmapper:0.1.0",
-            "init": null
+        "oracles": [
+          {
+            "chain_id": "extdev-plasma-us1",
+            "local": "34hhmXhsUwL5H2cmeEfr8DdoUs0="
+          }
+        ],
+        "first_mainnet_block_num": "2863097"
+      }
+    },
+    {
+      "vm": "plugin",
+      "format": "plugin",
+      "name": "loomcoin-gateway",
+      "location": "loomcoin-gateway:0.1.0",
+      "init": {
+        "owner": {
+          "chain_id": "extdev-plasma-us1",
+          "local": "q3pFLLKx8jbzpTSQ9p5zuJCnMaU="
         },
-        {
-            "vm": "plugin",
-            "format": "plugin",
-            "name": "gateway",
-            "location": "gateway:0.1.0",
-            "init": {
-                "owner": {
-                    "chain_id": "extdev-plasma-us1",
-                    "local": "rPVlt934udB+qiTlZHvSVdxagIA="
-                },
-                "oracles": [{
-                    "chain_id": "extdev-plasma-us1",
-                    "local": "MVERAqPP6662d5xDHpHkJTL90A0="
-                }],
-                "first_mainnet_block_num": "2863097"
-            }
-        }
-        ,
-        {
-            "vm": "plugin",
-            "format": "plugin",
-            "name": "loomcoin-gateway",
-            "location": "loomcoin-gateway:0.1.0",
-            "init": {
-                "owner": {
-                    "chain_id": "extdev-plasma-us1",
-                    "local": "rPVlt934udB+qiTlZHvSVdxagIA="
-                },
-                "oracles": [{
-                    "chain_id": "extdev-plasma-us1",
-                    "local": "MVERAqPP6662d5xDHpHkJTL90A0="
-                }],
-                "first_mainnet_block_num": "2863097"
-            }
-        }
-    ]
+        "oracles": [
+          {
+            "chain_id": "extdev-plasma-us1",
+            "local": "whFzjdcqGTynXvZETvUmFPYxhsM="
+          }
+        ],
+        "first_mainnet_block_num": "2863097"
+      }
+    }
+  ]
 }
 ```
 
@@ -140,7 +183,7 @@ CreateEmptyBlocks: false
 
 ```json
 {
-  "genesis_time": "2018-12-19T12:08:15Z",
+  "genesis_time": "2019-01-25T04:38:21Z",
   "chain_id": "extdev-plasma-us1",
   "consensus_params": {
     "block_size": {
@@ -158,38 +201,41 @@ CreateEmptyBlocks: false
   },
   "validators": [
     {
-    "address": "51A6AAEE6B90585CD4570F4F0FE649952876F992",
-    "name": "",
-    "power": "10",
-    "pub_key": {
+      "address": "DF08C75CA88DF9EB71E78260A5F41DEEE5A8C93E",
+      "name": "",
+      "power": "10",
+      "pub_key": {
         "type": "tendermint/PubKeyEd25519",
-        "value": "H0pzKPpQ8s1oO9dsptUxrQxwgdiH78J+lgiDmiVgDX8="
-    }
-},{
-    "address": "93BF985EAA5C762E66179AE25C4E4F8F2F5F2E35",
-    "name": "",
-    "power": "10",
-    "pub_key": {
+        "value": "CKjlUZIMTVT3oFWyx4+RmiBdznoszEyy0bn09uhd1XU="
+      }
+    },
+    {
+      "address": "3DEB26D8718244502E46DDE48D651ADA098071AA",
+      "name": "",
+      "power": "10",
+      "pub_key": {
         "type": "tendermint/PubKeyEd25519",
-        "value": "VkmHP4iQOBEBbYNgkSuWaK+qLh40pCwNn3khgRoqi6A="
-    }
-},{
-    "address": "5630CB245BDE5BB9EF0017F52AFD81652E7C114F",
-    "name": "",
-    "power": "10",
-    "pub_key": {
+        "value": "N49Nt1P7/whXUa5nk1E/jJPZEmG3UJd0hsHpuHK1eaY="
+      }
+    },
+    {
+      "address": "F5278DA47C67FCEEE4AE160C4B3396BEA45E7753",
+      "name": "",
+      "power": "10",
+      "pub_key": {
         "type": "tendermint/PubKeyEd25519",
-        "value": "akjPOSkJSS70grcNK1fOWPL+bF/+BmFiLudNMja74o0="
-    }
-},{
-    "address": "5A05B73DBC719F3DE66969854DBDBBD33BA567BA",
-    "name": "",
-    "power": "10",
-    "pub_key": {
+        "value": "q2CzaJWjZXqu2vEf+HtkPI8j/0jmbtpHz3jxN4UMF28="
+      }
+    },
+    {
+      "address": "E7D1FF41D2B458EF4C3C8996F02E46C2FFB33C29",
+      "name": "",
+      "power": "10",
+      "pub_key": {
         "type": "tendermint/PubKeyEd25519",
-        "value": "TmE0QXt6ibtpC0c8euVn/pyDKvJnDDoqlOiJMAkj5RY="
+        "value": "HwS0l1v8rJw4mw7jZouh6NYmiK1qk2IA/JehcdquuaY="
+      }
     }
-}
   ],
   "app_hash": ""
 }
@@ -198,7 +244,7 @@ CreateEmptyBlocks: false
 ## Run loom
 
 ```bash
-./loom run --persistent-peers tcp://115d7b6764d0a651f7bacb3851108899ed7a6816@13.57.179.124:46656,tcp://19823e2ea13451aaae4dec31db7940658f0bac8d@13.57.254.58:46656,tcp://b213b03464b380dadc396b0203fb8369da24f6a5@54.193.2.204:46656,tcp://d9b20bcbcb4cc2e1bd8b89bbdd9fb92d52055681@18.144.70.230:46656
+./loom run --persistent-peers tcp://1cba97a0a108cb0de51e5a3ff6ac15d70e0fa076@54.193.2.204:46656,tcp://367a9fa0df0afeed204c3360867e37ef03da5b97@18.144.70.230:46656,tcp://7b537b6ad25b5b13864ec20bed8803489189a274@13.57.254.58:46656,tcp://d7623e990790048db76c5d6a25e12efa818aaef1@13.57.179.124:46656
 ```
 
 The non-validator node will now sync with the validator nodes. Status can be queried at http://localhost:46657/status
