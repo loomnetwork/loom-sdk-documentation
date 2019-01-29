@@ -283,10 +283,6 @@ LoomCoinTransferGateway:
 CreateEmptyBlocks: true
 PlasmaCash:
   ContractEnabled: True
-AppStore:
-  CompactOnLoad: True
-  MaxVersions: 50
-  PruneInterval: 0
 ```
 
 ## Initialize loom
