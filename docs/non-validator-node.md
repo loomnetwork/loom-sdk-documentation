@@ -244,7 +244,7 @@ CachingStoreConfig:
 ## Run loom
 
 ```bash
-./loom run --persistent-peers tcp://1cba97a0a108cb0de51e5a3ff6ac15d70e0fa076@54.193.2.204:46656,tcp://367a9fa0df0afeed204c3360867e37ef03da5b97@18.144.70.230:46656,tcp://7b537b6ad25b5b13864ec20bed8803489189a274@13.57.254.58:46656,tcp://d7623e990790048db76c5d6a25e12efa818aaef1@13.57.179.124:46656
+./loom run --persistent-peers tcp://1cba97a0a108cb0de51e5a3ff6ac15d70e0fa076@52.53.145.158:46656,tcp://367a9fa0df0afeed204c3360867e37ef03da5b97@18.144.71.222:46656,tcp://7b537b6ad25b5b13864ec20bed8803489189a274@52.53.153.109:46656,tcp://d7623e990790048db76c5d6a25e12efa818aaef1@13.57.240.102:46656
 ```
 
 The non-validator node will now sync with the validator nodes. Status can be queried at http://localhost:46657/status
