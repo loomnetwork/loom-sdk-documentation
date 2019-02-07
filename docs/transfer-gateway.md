@@ -167,7 +167,6 @@ presented nor explained any of the actual API yet. If you haven't already, take 
 [Transfer Gateway Example][] project, which was built using the Transfer Gateway API provided
 by [loom-js][].
 
-[Transfer Gateway Cards]: https://github.com/loomnetwork/transfer-gateway-example
+[Transfer Gateway Example]: https://github.com/loomnetwork/transfer-gateway-example
 [loom-js]: https://github.com/loomnetwork/loom-js
 [loom-truffle-doc]: web3js-loom-provider-truffle.html
-
