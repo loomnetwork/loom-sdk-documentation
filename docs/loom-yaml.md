@@ -168,7 +168,7 @@ Call transactions are limited by MaxCallCount and karma.
 Allows you to deploy karma contract to collect data even if chain doesn't use it
 
 ### UpkeepEnabled
-Deployed contracts have an upkeep cost. Contracts can be active or inactive, users periodically spend karma to keep contracts active.
+Enables EVM Contract upkeep. Deployed EVM contracts have an upkeep cost. Contracts can be active or inactive, users periodically spend karma to keep contracts active.
 
 ### MacCallCount
 Maximum number of call transactions allowed per session duration. This is increased by the user's karma.
