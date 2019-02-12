@@ -139,3 +139,82 @@ HsmConfig:
 ```
  
 Please see [HSM Page](hsm.html) for more details
+
+
+## Plasma
+
+```yaml
+PlasmaCash:
+  ContractEnabled: true
+  OracleEnabled: true
+```
+
+## Karma
+
+Data Types
+```yaml
+type KarmaConfig struct {
+	Enabled         bool  // Activate karma module
+	ContractEnabled bool  // Allows you to deploy karma contract to collect data even if chain doesn't use it
+	UpkeepEnabled   bool  // Adds an upkeep cost to deployed and active contracts for each user
+	MaxCallCount    int64 // Maximum number call transactions per session duration
+	SessionDuration int64 // Session length in seconds
+}
+```
+
+Example
+```yaml
+Karma:
+  Enabled: {{ .Karma.Enabled }}
+  ContractEnabled: {{ .Karma.ContractEnabled }}
+  UpkeepEnabled: {{ .Karma.UpkeepEnabled }}
+  MaxCallCount: {{ .Karma.MaxCallCount }}
+  SessionDuration: {{ .Karma.SessionDuration }}
+```
+
+## Caching Store 
+
+```yaml
+CachingStoreConfig: 
+  CachingEnabled: {{ .CachingStoreConfig.CachingEnabled }}
+  # Number of cache shards, value must be a power of two
+  Shards: {{ .CachingStoreConfig.Shards }} 
+  # Time after we need to evict the key
+  EvictionTimeInSeconds: {{ .CachingStoreConfig.EvictionTimeInSeconds }} 
+  # interval at which clean up of expired keys will occur
+  CleaningIntervalInSeconds: {{ .CachingStoreConfig.CleaningIntervalInSeconds }} 
+  # Total size of cache would be: MaxKeys*MaxSizeOfValueInBytes
+  MaxKeys: {{ .CachingStoreConfig.MaxKeys }} 
+  MaxSizeOfValueInBytes: {{ .CachingStoreConfig.MaxSizeOfValueInBytes }} 
+  # Logs operations
+  Verbose: {{ .CachingStoreConfig.Verbose }} 
+  LogLevel: "{{ .CachingStoreConfig.LogLevel }}" 
+  LogDestination: "{{ .CachingStoreConfig.LogDestination }}" 
+```
+
+
+## Event Store
+
+```yaml
+EventDispatcher:
+  # Available dispatcher: "db_indexer" | "log" | "redis"
+  Dispatcher: "db_indexer"
+  # Redis will be use when Dispatcher is "redis"
+  Redis:
+  	URI: "{{.EventDispatcher.Redis.URI}}"
+```
+
+## App store
+
+```yaml
+AppStore:
+  # If true the app store will be compacted before it's loaded to reclaim disk space.
+  CompactOnLoad: {{ .AppStore.CompactOnLoad }}
+  # Maximum number of app store versions to keep, if zero old versions will never be deleted.
+  MaxVersions: {{ .AppStore.MaxVersions }}
+  # Number of seconds to wait after pruning a batch of old versions from the app store.
+  # If this is set to zero the app store will only be pruned after a new version is saved.
+  PruneInterval: {{ .AppStore.PruneInterval }}
+  # Number of versions to prune at a time.
+  PruneBatchSize: {{ .AppStore.PruneBatchSize }}
+```
