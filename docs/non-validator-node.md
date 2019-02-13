@@ -20,7 +20,6 @@ chmod +x loom
 
 ```yaml
 ChainID: "extdev-plasma-us1"
-QueryServerHost: "tcp://0.0.0.0:9999"
 RPCListenAddress: "tcp://0.0.0.0:46657"
 BlockchainLogLevel: "info"
 LoomLogLevel: "info"
@@ -265,7 +264,6 @@ chmod +x loom
 
 ```yaml
 ChainID: "asia1"
-QueryServerHost: "tcp://0.0.0.0:9999"
 RPCListenAddress: "tcp://0.0.0.0:46657"
 BlockchainLogLevel: "info"
 LoomLogLevel: "info"

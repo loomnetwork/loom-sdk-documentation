@@ -8,7 +8,6 @@ sidebar_label: Loom Yaml and Configuration options
 
 ```
 RPCBindAddress: "tcp://0.0.0.0:46658"
-QueryServerHost: "tcp://0.0.0.0:9999"
 EventDispatcherURI: ""
 BFTLogLevel: "debug"
 LoomLogLevel: "info"
@@ -50,15 +49,6 @@ General logging for the Go Based Smart contracts.
 Options: debug, info, warn, error
 
 General logging for the BFT Layer Blockchain. This may change based on which BFT engine you are using.
-
-## QueryServerHost
-
-*Deprecated, will be removed next release, don't use this
-
-Options: url for example "tcp://0.0.0.0:9999"
-
-This is the nterface to the blockchain, set a bind port, default port is 9999 
-
 
 ## EthereumURI
 
