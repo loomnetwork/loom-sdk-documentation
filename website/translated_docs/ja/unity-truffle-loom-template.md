@@ -5,12 +5,11 @@ sidebar_label: Unity + Truffle + Loomテンプレート
 ---
 # 概要
 
-Unityクライアントを使用したLoom DAppチェーンのためのテンプレート。  
-**以下が含まれている:**
+A template for a Loom DAppChain with a Unity client. Contains:
 
 - 基本的なも文字列→文字列のMapを実装した[`Blueprint` Solidityコントラクト](https://github.com/loomnetwork/loom-unity-project-template/blob/master/TruffleProject/contracts/Blueprint.sol)テンプレート。 初めて使用するのに最適だ。
 - 構成済みのTruffleプロジェクト。コンパイル済みコントラクトのABIとバイナリを対応フォルダに自動抽出する。
-- すぐに使用可能なUnityプロジェクト。Loom SDKの `Blueprint` コントラクトを使用している。
+- Pre-configured optimally setup Unity project with `Blueprint` contract test scene, and an already included Loom SDK.
 
 # テンプレートの構造
 
