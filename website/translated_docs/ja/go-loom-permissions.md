@@ -9,7 +9,11 @@ go-loomを使って書かれたコントラクトは、任意のトークンに�
 
 これはSolidityだと[OpenZeppelin](https://github.com/OpenZeppelin/openzeppelin-solidity/blob/master/contracts/ownership/Ownable.sol) のOwnableのコンセプトに少し似ている。
 
-各権限には3つの属性がある: 1. アドレス 2. トークン 3. ロール
+Every permission has three attributes:
+
+1. address
+2. token
+3. role
 
 トークンは、オブジェクトが所有されていることを表す何かしらの文字列、もしくはバイトシーケンスとすることができる。 例えば、ある人物のユーザー名をトークンとして、その人がその所有権を持つことが可能だ。 トークンのようなその他のものにも、所有権を持たせることができる。
 
