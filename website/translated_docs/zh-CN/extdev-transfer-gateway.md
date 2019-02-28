@@ -101,9 +101,7 @@ contract MyCoin is StandardToken {
     
     这是你的新私钥对应的公共地址。 你将在 `extdev_private_key` 文件里找到私钥，在 `extdev_public_key` 文件里找到对应的公钥。
 
-5. 在你能够使用部署或调用合约之前，你的新帐户将需要一些 karma。 去 [Karma Faucet](http://faucet.dappchains.com) 上，输入刚刚为你生成的公共地址（以 `0x` 开头的十六进制编码），选择 `extdev` 网络，然后点击 `Request` 按钮获取一些 karma。
-
-6. 将 `MyToken` 和 `MyCoin` 合约部署到 `extdev` PlasmaChain。
+5. Deploy the `MyToken` and `MyCoin` contracts to the `extdev` PlasmaChain.
     
     ```bash
     yarn deploy:extdev
@@ -111,7 +109,7 @@ contract MyCoin is StandardToken {
 
 ## 2. 将代币合约部署到 `Rinkeby`
 
-对于部署到以太坊网络的代币合约没有任何特殊要求，但是你可能希望在ERC20合约中实施安全转移扩展，以便更容易将代币存入 `Rinkeby` 网关。
+There aren't any special requirements for token contracts deployed to Ethereum networks.
 
 ### MyRinkebyToken ERC721 合约
 
@@ -142,12 +140,8 @@ contract MyRinkebyToken is ERC721Token {
 pragma solidity ^0.4.24;
 
 import "openzeppelin-solidity/contracts/token/ERC20/StandardToken.sol";
-import "openzeppelin-solidity/contracts/AddressUtils.sol";
-import "./ERC20Receiver.sol";
 
 contract MyRinkebyCoin is StandardToken {
-    using AddressUtils for address;
-
     string public name = "MyRinkebyCoin";
     string public symbol = "MRC";
     uint8 public decimals = 18;
@@ -155,30 +149,9 @@ contract MyRinkebyCoin is StandardToken {
     // one billion in initial supply
     uint256 public constant INITIAL_SUPPLY = 1000000000;
 
-    bytes4 constant ERC20_RECEIVED = 0xbc04f0af;
-
     constructor() public {
         totalSupply_ = INITIAL_SUPPLY * (10 ** uint256(decimals));
         balances[msg.sender] = totalSupply_;
-    }
-
-    function safeTransferAndCall(address _to, uint256 _amount) public {
-        transfer(_to, _amount);
-        require(
-            checkAndCallSafeTransfer(msg.sender, _to, _amount),
-            "Sent to a contract which is not an ERC20 receiver"
-        );
-    }
-
-    function checkAndCallSafeTransfer(
-        address _from, address _to, uint256 _amount
-    ) internal returns (bool) {
-        if (!_to.isContract()) {
-            return true;
-        }
-
-        bytes4 retval = ERC20Receiver(_to).onERC20Received(_from, _amount);
-        return (retval == ERC20_RECEIVED);
     }
 }
 ```
@@ -241,21 +214,21 @@ node ./gateway-cli.js map-contracts coin
 
 ## 4. 将 `extdev` 账户映射到 `Rinkeby` 账户
 
-Now that the two token contracts are connected via the Transfer Gateway you can start transferring tokens from `extdev` to `Rinkeby`. However, if you want to transfer tokens from `Rinkeby` to `extdev` you'll need to connect your `extdev` account to your `Rinkeby` account.
+现在两个代币合约通过转移网关连接起来了，你可以开始将代币从 `extdev` 转移到 `Rinkeby`。 但是，如果你想把代币从 `Rinkeby` 转移到 `extdev`，你将需要将你的 `extdev` 账户和 `Rinkeby` 账户连接起来。
 
 ```bash
 node ./gateway-cli.js map-accounts
 ```
 
-Great, everything should now be ready for flawless token transfer between `extdev` and `Rinkeby`!
+太棒了，现在一切都应该准备就绪了，可以在 `extdev` 和 `Rinkeby` 之间进行完美的代币转移啦！
 
-## 5. Token transfer
+## 5. 代币转移
 
-### From `Rinkeby` to `extdev`
+### 从 `Rinkeby` 到 `extdev`
 
-Now that all contracts and accounts have been mapped you can transfer tokens and ETH to the `Rinkeby` Gateway contract.
+现在所有的合约和账户都已经映射，你可以将代币和ETH转移到 `Rinkeby` 网关合约了。
 
-Lets start by minting some of the `MyRinkebyToken` ERC721 tokens, and transferring one of them to the `PlasmaChain`.
+我们先来铸造一些 `MyRinkebyToken` ERC721 代币，并将其中一个转移到 `PlasmaChain`。
 
 ```bash
 # mint some tokens on Rinkeby
@@ -276,7 +249,7 @@ node ./gateway-cli.js token-balance
 node ./gateway-cli.js token-balance -a gateway -c eth
 ```
 
-And now lets transfer some of the `MyRinkebyCoin` ERC20 tokens, a billion of them have already been minted to your account so you can transfer them right away.
+现在，我们转移一些 `MyRinkebyCoin` ERC20 代币，十亿这样的代币已经被铸造到你的账户，你可以马上转移它们了。
 
 ```bash
 # transfer 120 tokens to extdev PlasmaChain
@@ -292,9 +265,9 @@ node ./gateway-cli.js coin-balance
 node ./gateway-cli.js coin-balance -a gateway -c eth
 ```
 
-### From `extdev` to `Rinkeby`
+### 从 `extdev` 到 `Rinkeby`
 
-The ERC721 tokens can be transferred back to `Rinkeby` using the `withdraw-token` command.
+使用 `withdraw-token` 命令，可以将 ERC721 代币转移回 `Rinkeby`。
 
 ```bash
 # transfer a token to Rinkeby
@@ -310,7 +283,7 @@ node ./gateway-cli.js token-balance
 node ./gateway-cli.js token-balance -a gateway -c eth
 ```
 
-The ERC20 tokens can be transferred back to `Rinkeby` using the `withdraw-coin` command.
+使用 `withdraw-coin` 命令可以将 ERC20 代币转移回`Rinkeby`。
 
 ```bash
 # transfer 60 tokens to Rinkeby
@@ -326,16 +299,16 @@ node ./gateway-cli.js coin-balance
 node ./gateway-cli.js coin-balance -a gateway -c eth
 ```
 
-### Troubleshooting
+### 故障排除
 
-Sometimes the withdrawal process may error out due to network issues, or because gas ran out, if that happens you can try to complete the interrupted withdrawal using the `resume-withdrawal` command.
+有时撤回过程可能由于网络问题或者gas用尽而出现错误，如果发生这种情况，你可以尝试使用 `resume-withdrawal` 命令来完成被中断的撤回。
 
 ```bash
 node ./gateway-cli.js resume-withdrawal
 ```
 
-> NOTE: Only one pending withrawal is allowed per user.
+> 注意: 每个用户只允许有一个挂起的撤回。
 
-## Summary
+## 总结
 
-If you haven't already, take a look at the [Transfer Gateway Example](https://github.com/loomnetwork/transfer-gateway-example) project, which was built using the Transfer Gateway API provided by [loom-js](https://github.com/loomnetwork/loom-js).
+如果你还没有做的话，请查看 [转移网关示例 ](https://github.com/loomnetwork/transfer-gateway-example) 项目，该项目是使用 [loom-js](https://github.com/loomnetwork/loom-js) 提供的转移网关 API 构建的。
