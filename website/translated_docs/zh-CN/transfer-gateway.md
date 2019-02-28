@@ -22,7 +22,7 @@ sidebar_label: 转移网关
 
 要将这个代币返回其以太坊帐户，用户必须首先将代币转移回DApp链网关，这将创建一个待处理的取款。 这个待处理的取款由网关 Oracle 接受，签署取款并通知DApp链网关。 DApp链网关发出一个事件，让用户知道他们可以通过提供已签名的取款记录，将他们的代币从主网网关提取到他们的以太坊帐户。
 
-如果你是一个爱动手实践的学习者，你可能希望直接进入 [转移网关示例] 项目，然后再继续阅读...
+If you're a hands-on learner you might want to jump straight into the [Transfer Gateway Example](https://github.com/loomnetwork/transfer-gateway-example) example project before reading any further...
 
 ## 设置 ERC721 合约
 
@@ -109,4 +109,4 @@ Alice 在DApp链上玩得很开心，现在她想将代币从她的DApp链账户
 
 ## 总结
 
-你现在应该对转移网关的工作原理有了基本的了解，虽然我们还没有提供或解释过任何实际的API。 如果你还没有做的话，请查看 [转移网关示例] 项目，该项目是使用 [loom-js](https://github.com/loomnetwork/loom-js) 提供的转移网关 API 构建的。
+你现在应该对转移网关的工作原理有了基本的了解，虽然我们还没有提供或解释过任何实际的API。 If you haven't already, take a look at the [Transfer Gateway Example](https://github.com/loomnetwork/transfer-gateway-example) project, which was built using the Transfer Gateway API provided by [loom-js](https://github.com/loomnetwork/loom-js).
