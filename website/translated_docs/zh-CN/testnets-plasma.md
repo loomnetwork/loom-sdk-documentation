@@ -22,8 +22,9 @@ sidebar_label: PlasmaChain 测试网
 
 与部署的网络相关的以太坊合约在哪里
 
-| 名字           | 以太坊链接   | 转移网关地址                                     |
-| ------------ | ------- | ------------------------------------------ |
-| 测试Plasma     | Rinkeby | 0x6f7Eb868b2236638c563af71612c9701AC30A388 |
-| Plasma Chain | 主网      | n/a                                        |
-| 验证者测试        | Rinkeby | n/a                                        |
+| 名字                                | 以太坊链接   | 转移网关地址                                     |
+| --------------------------------- | ------- | ------------------------------------------ |
+| Devnet Plasma (extdev-plasma-us1) | Rinkeby | 0xb73C9506cb7f4139A4D6Ac81DF1e5b6756Fab7A2 |
+| Devnet Plasma (test-z-asia1)      | Rinkeby | 0x3c826a09DF9ad39B9acF550b1bf35C9b6AfCd943 |
+| Plasma Chain                      | Mainnet | n/a                                        |
+| Validator Test                    | Rinkeby | n/a                                        |
