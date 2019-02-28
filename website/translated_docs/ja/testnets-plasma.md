@@ -22,8 +22,9 @@ FaucetはこちらのURLより利用可能: [Faucet](http://faucet.dappchains.co
 
 ここでEthereumコントラクトがデプロイしたネットワークと繋がりを持つ。
 
-| 名称             | Ethereumリンク | TransferGatewayアドレス                        |
-| -------------- | ----------- | ------------------------------------------ |
-| Staging Plasma | Rinkeby     | 0x6f7Eb868b2236638c563af71612c9701AC30A388 |
-| Plasma Chain   | Mainnet     | n/a                                        |
-| Validator Test | Rinkeby     | n/a                                        |
+| 名称                                | Ethereumリンク | TransferGatewayアドレス                        |
+| --------------------------------- | ----------- | ------------------------------------------ |
+| Devnet Plasma (extdev-plasma-us1) | Rinkeby     | 0xb73C9506cb7f4139A4D6Ac81DF1e5b6756Fab7A2 |
+| Devnet Plasma (test-z-asia1)      | Rinkeby     | 0x3c826a09DF9ad39B9acF550b1bf35C9b6AfCd943 |
+| Plasma Chain                      | Mainnet     | n/a                                        |
+| Validator Test                    | Rinkeby     | n/a                                        |
