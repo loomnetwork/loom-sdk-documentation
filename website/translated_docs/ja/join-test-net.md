@@ -27,59 +27,22 @@ local address base64: OzNL7R59Pn2SFElRIBYNkjasvDE=
 
 そしてこれは`priv_key`という名前と`pub_key`という名前でファイルを生成し、`priv_key`ファイルはあなたの秘密鍵を含みDAppチェーンへのデプロイに使う。
 
-# Karma Faucetの使用方法
+# Deploy Truffle Example to a Testnet
 
-1. [Karma Faucet](https://faucet.dappchains.com)のウェブサイトにアクセスする。   
-      
-      
-    ![image](/developers/img/faucet/1.png)   
-      
-      
-    
-2. 受信者アドレス(recipient address)に、あなたのtruffleアカウントと同じアカウントの`public address` を入力する。   
-      
-      
-    ![image](/developers/img/faucet/2.png)   
-      
-      
-    
-3. コントラクトをデプロイしたいテストネット・ネットワークを選択する。   
-      
-      
-    ![image](/developers/img/faucet/3.png)   
-      
-      
-    
-4. `request` ボタンをクリックする。   
-      
-      
-    ![image](/developers/img/faucet/4.png)   
-      
-      
-    
-5. 選択したテストネットにコントラクトをデプロイする前に、`faucet-karma` が表示できていることを確認する。   
-      
-      
-    ![image](/developers/img/faucet/5.png)
-
-# Truffleサンプルをテストネットへデプロイ
-
-1. node 及び yarn/npm がインストールされていることを確認
-2. テストネットのURLを以下ページから取得する[PlasmaChain Testnets](testnet-plasma.html)
-3. ソースを取得: 
+1. Make sure you have node and yarn/npm installed
+2. Obtain the testnet URL from [PlasmaChain Testnets](testnet-plasma.html) page
+3. Get the source: 
         bash
         git clone https://github.com/loomnetwork/truffle-dappchain-example
         cd truffle-dappchain-example
         # copy the private key generated earlier to the root directory of the example repo
         cp ../priv_key extdev_private_key
 
-4. もし例示したコントラクトを`extdev-plasma-us1`にデプロイしたい場合このステップをスキップする。そうでなければあなたがデプロイしたいネットワークを`truffle-config.js`に追加する。
-5. Nodeモジュールをインストールする: 
+4. If you wish to deploy the example contracts to `extdev-plasma-us1` skip this step. Otherwise, add the network you wish to deploy to in `truffle-config.js`.
+5. Install node modules: 
         bash
         yarn
 
-6. デプロイの実行: 
+6. Run deploy: 
         bash
-        yarn deploy:extdev もしkarmaがない場合は、これはエラーとなり失敗する。 
-    
-    `Failed to commit Tx: origin has no karma` その場合は [Karma Faucet からkarmaをリクエストする。](http://faucet.dappchains.com)
+        yarn deploy:extdev
