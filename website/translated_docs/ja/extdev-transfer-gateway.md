@@ -101,7 +101,7 @@ contract MyCoin is StandardToken {
     
     これはあなたの新しい秘密鍵と対応した公開アドレスである。 `extdev_private_key`ファイルのなかに秘密鍵が見つかり、そして対応した公開鍵は`extdev_public_key`ファイルの中に見つかる。
 
-5. Deploy the `MyToken` and `MyCoin` contracts to the `extdev` PlasmaChain.
+5. `MyToken`コントラクトおよび`MyCoin`コントラクトを`extdev` PlasmaChainへとデプロイする。
     
     ```bash
     yarn deploy:extdev
