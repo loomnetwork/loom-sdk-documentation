@@ -22,7 +22,7 @@ sidebar_label: トランスファーゲートウェイ
 
 同じトークンをイーサリアムアカウントへと戻したい場合、ユーザーはまず引き出し保留中にするため、トークンをDAppチェーンゲートウェイへと送り返さなくてはならない。 この保留中の引き出しは、引き出しの署名やDAppチェーンゲートウェイへの通知を行うゲートウェイOracleにより検知される。 DAppチェーンゲートウェイはイベントを送信し、署名済み引き出しの記録を提出すれば、メインネットゲートウェイからイーサリアムアカウントへトークンの引き出しが可能であることをユーザーに通知する。
 
-もしハンズオンで学習したければ、続きを読むよりも直接 \[Transfer Gateway Example\]\[\] のサンプルを試してみると良いかもしれない...
+If you're a hands-on learner you might want to jump straight into the [Transfer Gateway Example](https://github.com/loomnetwork/transfer-gateway-example) example project before reading any further...
 
 ## ERC721コントラクトのセットアップ
 
@@ -109,4 +109,4 @@ DAppチェーンゲートウェイがコントラクトのマッピングリク�
 
 ## まとめ
 
-これでトランスファーゲートウェイの仕組みについて基礎的な理解ができたはずだ。しかし実際のAPIについてはまだ何も説明していない。 もしまだチェックしていなければ、 \[Transfer Gateway Example\]\[\] のプロジェクト例を見てみよう。これは [loom-js](https://github.com/loomnetwork/loom-js) により提供されるトランスファーゲートウェイAPIを用いて構築されている。
+これでトランスファーゲートウェイの仕組みについて基礎的な理解ができたはずだ。しかし実際のAPIについてはまだ何も説明していない。 If you haven't already, take a look at the [Transfer Gateway Example](https://github.com/loomnetwork/transfer-gateway-example) project, which was built using the Transfer Gateway API provided by [loom-js](https://github.com/loomnetwork/loom-js).
