@@ -58,7 +58,6 @@ sidebar_label: Etherboy 后端
 ```bash
 ./loom run
 I[05-16|06:06:16.970] Using simple log event dispatcher
-I[05-16|06:06:19.999] Starting RPC HTTP server on tcp://0.0.0.0:9999 module=query-server
 ```
 
 这将在前台运行Etherboy，并将其输出打印到控制台。要更好地进行流程管理, 请查看下一节。
