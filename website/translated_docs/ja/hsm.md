@@ -9,9 +9,9 @@ sidebar_label: ハードウェア セキュリティ モジュール
 
 ## サポートされているデバイス
 
-今現在、我々はED25519アルゴリズムのEDDSA暗号化を行うことのできるデバイスをサポートしている。 我々は、[Yubico HSM2](https://www.yubico.com/products/yubihsm/)をサポートしており、これは、ビットコインやイーサリアムの電子署名に使われているようなものも含む、幅広い暗号アルゴリズムをカバーした$500前後の安価なデバイスである。 Also we'll soon support other PKCS11 enabled devices that can do EDDSA encryption.
+今現在、我々はED25519アルゴリズムのEDDSA暗号化を行うことのできるデバイスをサポートしている。 我々は今、[Yubico HSM2](https://www.yubico.com/products/yubihsm/)をサポートしており、これは、ビットコインやイーサリアムの電子署名に使われているようなものも含む、幅広い暗号アルゴリズムをカバーした$500前後の安価なデバイスである。 また、我々は間も無く、EDDSA暗号化を行うことのできる他のPKCS11対応デバイスをサポートするつもりである。
 
-## Configuring an HSM
+## HSM の構成
 
 In loom.yml you need to add the following section
 
