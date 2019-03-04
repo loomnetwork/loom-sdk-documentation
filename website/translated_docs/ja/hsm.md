@@ -13,7 +13,7 @@ sidebar_label: ハードウェア セキュリティ モジュール
 
 ## HSM の構成
 
-In loom.yml you need to add the following section
+Loom.yml の次のセクションを追加する必要があります。
 
 ```yaml
 HsmConfig:
@@ -25,35 +25,35 @@ HsmConfig:
   HsmSignKeyID: 0
 ```
 
-## Config options
+## 設定オプション
 
 * HsmEnabled
 
-Must be set to true to enable signing with the HSM device, if set to false the other setting are ignored.
+HSMデバイスで署名を有効にする場合はtrueに設定しなければならない。もし、falseに設定すると、他の設定は無視される。
 
 * HsmDevType: 
 
-Options - yubihsm, softhsm (coming soon), pkcs11 (coming soon)
+オプション - yubihsm、softhsm (近日公開)、pkcs11 (近日公開)
 
 * HsmConnUrl:
 
-Http url for the yubicohsm, by default it listens to http://localhost:12345
+yubicohsmのためのHttp urlで、デフォルトでhttp://localhost:12345になっている。
 
 * HsmAuthPassword: 
 
-Password for the HSM device. (previously HsmDevLogCred)
+HSMデバイスのためのパスワード。 (以前は、 HsmDevLogCred)
 
 * HsmAuthKeyId:
 
-ID number for authentication on the yubico hsm. This typically will be set to 1 as its the default AuthKeyId
+yubico hsm上での認証のためのID。 これは、特にそのデフォルトのAuthKeyIdとして、1を設定する。
 
 * SignKeyDomain:
 
-Yubico HSMs allow multiple domains for security, you can specify, otherwise it defaults to 1
+Yubico HSMsは、あなたが指定すれば、セキュリティのための複数のドメイン設定を可能にする。指定しなければ、デフォルトは1である。
 
 * HsmSignKeyID:
 
-ID number of the private key on the HSM, we suggest to create this in advance. If you set this value to zero, Loom SDK will attempt to create a new private key on the HSM itself.
+HSM上の秘密鍵のIDであり、前もって作っておくことをお勧めする。 If you set this value to zero, Loom SDK will attempt to create a new private key on the HSM itself.
 
 ## Setting up the Yubico HSM
 
