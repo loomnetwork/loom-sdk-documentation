@@ -1,9 +1,9 @@
 ---
 id: hsm
 title: ハードウェア セキュリティ モジュール - HSM
-sidebar_label: Hardware Security Modules
+sidebar_label: ハードウェア セキュリティ モジュール
 ---
-## Overview
+## 概要
 
 Hardware security modules ensure that private keys of the validator are not compromised even if a machine is hacked. We are highly encouraging all validators on the Plasmachain to have one for starters. In future the chain may make it a requirement to have one to participate as a validator
 
