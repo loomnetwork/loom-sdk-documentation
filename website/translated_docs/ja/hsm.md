@@ -5,7 +5,7 @@ sidebar_label: ハードウェア セキュリティ モジュール
 ---
 ## 概要
 
-Hardware security modules ensure that private keys of the validator are not compromised even if a machine is hacked. We are highly encouraging all validators on the Plasmachain to have one for starters. In future the chain may make it a requirement to have one to participate as a validator
+ハードウェア セキュリティ モジュールは、コンピューターがハッキングされたとしても、バリデーターの秘密鍵が損なわれないことを保証している。 We are highly encouraging all validators on the Plasmachain to have one for starters. In future the chain may make it a requirement to have one to participate as a validator
 
 ## Supported devices
 
