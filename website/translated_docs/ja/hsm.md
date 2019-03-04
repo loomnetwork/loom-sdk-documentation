@@ -87,7 +87,7 @@ quit
 
 これでID100のキーが手に入る。 loom.yml で HsmSignKeyId を100に設定してください。
 
-### Using HSM for signing transactions like Register Canidate
+### 登録候補のようなトランザクションに署名するための HSM の使用
 
 1. Find out your PrivateKeyId and base64 public key
 
