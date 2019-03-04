@@ -53,27 +53,27 @@ Yubico HSMsは、あなたが指定すれば、セキュリティのための複
 
 * HsmSignKeyID:
 
-HSM上の秘密鍵のIDであり、前もって作っておくことをお勧めする。 If you set this value to zero, Loom SDK will attempt to create a new private key on the HSM itself.
+HSM上の秘密鍵のIDであり、前もって作っておくことをお勧めする。 この値を0に設定すると、Loom SDKはHSM上でその新しい秘密鍵を生成する。
 
-## Setting up the Yubico HSM
+## Yubico HSM を設定
 
-1. Download yubico drivers, utils
+1. Yubico ドライバー、ユーティリティのダウンロード。
 
-<https://developers.yubico.com/YubiHSM2/Releases/> We require version 1.04 or greater.
+<https://developers.yubico.com/YubiHSM2/Releases/> バージョン 1.04 以降が必要です。
 
-2. Install the yubico drivers 
+2. Yubico ドライバのインストール。 
 
 ```bash
 dpkg -i *.deb 
 ```
 
-3. Run the yubico connector
+3. Yubico コネクタの実行。
 
 ```bash
 yubihsm-connector -d 
 ```
 
-4. Create your first private key
+4. 最初の秘密鍵の作成。
 
 ```bash
 yubihsm-shell
@@ -85,7 +85,7 @@ session close 0
 quit
 ```
 
-You should now have a key at with ID 100. Please set HsmSignKeyId to 100 in your loom.yml
+これでID100のキーが手に入る。 loom.yml で HsmSignKeyId を100に設定してください。
 
 ### Using HSM for signing transactions like Register Canidate
 
