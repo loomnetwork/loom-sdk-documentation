@@ -1,6 +1,6 @@
 ---
 id: hsm
-title: Hardware Security Modules - HSM
+title: ハードウェア セキュリティ モジュール - HSM
 sidebar_label: Hardware Security Modules
 ---
 ## Overview
