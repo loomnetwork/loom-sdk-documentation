@@ -109,6 +109,6 @@ hsm.json
 
 privKeyIDにあなたのキーのidを入れてください。
 
-3. ./loom call register_candidateV2 PUBLIC_KEY_IN_BASE64 10 --hsmconfig hsm.json -r http://dposv2.dappchains.com:80/query -w http://dposv2.dappchains.com:80/rpc --chain dposv2
+3. ./loomが以下を呼び出す。register_candidateV2 PUBLIC_KEY_IN_BASE64 10 --hsmconfig hsm.json -r http://dposv2.dappchains.com:80/query -w http://dposv2.dappchains.com:80/rpc --chain dposv2
 
-swap PUBLIC_KEY_IN_BASE64 for the one in the priv_validator
+PUBLIC_KEY_IN_BASE64 を priv_validator のそれに取り替えます。
