@@ -89,13 +89,13 @@ quit
 
 ### 登録候補のようなトランザクションに署名するための HSM の使用
 
-1. Find out your PrivateKeyId and base64 public key
+1. PrivateKeyId と base64 の公開鍵を見つける
 
 cat chaindata/config/priv_validator.json
 
 get key_id and pub_key/value
 
-2. Create hsm.json
+2. hsm.jsonを作成
 
 ```json
 hsm.json
@@ -107,7 +107,7 @@ hsm.json
 }
 ```
 
-put your key id into the privKeyID field
+privKeyIDにあなたのキーのidを入れてください。
 
 3. ./loom call register_candidateV2 PUBLIC_KEY_IN_BASE64 10 --hsmconfig hsm.json -r http://dposv2.dappchains.com:80/query -w http://dposv2.dappchains.com:80/rpc --chain dposv2
 
