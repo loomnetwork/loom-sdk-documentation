@@ -5,9 +5,9 @@ sidebar_label: ハードウェア セキュリティ モジュール
 ---
 ## 概要
 
-ハードウェア セキュリティ モジュールは、コンピューターがハッキングされたとしても、バリデーターの秘密鍵が損なわれないことを保証している。 We are highly encouraging all validators on the Plasmachain to have one for starters. In future the chain may make it a requirement to have one to participate as a validator
+ハードウェア セキュリティ モジュールは、コンピューターがハッキングされたとしても、バリデーターの秘密鍵が損なわれないことを保証している。 我々は、すべてのPlasmachain上のバリデーターに、このモジュールを手始めとして取り入れることを強く勧めている。 将来的には、チェーン上でバリデーターとして参加するためには、このモジュールを取り入れることを要求するようになるかもしれない。
 
-## Supported devices
+## サポートされているデバイス
 
 Right now we will only support devices that can do EDDSA encryption with the ED25519 algorithm. Currently we support the [Yubico HSM2](https://www.yubico.com/products/yubihsm/), an economically cheap device at around $500 that supports a wide array of encryption algorithms including those used for bitcoin/ethereum signing. Also we'll soon support other PKCS11 enabled devices that can do EDDSA encryption.
 
