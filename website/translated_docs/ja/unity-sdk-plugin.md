@@ -150,4 +150,4 @@ async void Start()
 
 1. Unityシーンに空の`GameObject`を作成し、そこに`LoomQuickStartSample`スクリプトを付け加えよう。
 2. スマートコントラクト[BluePrint](https://github.com/loomnetwork/weave-blueprint/blob/master/src/blueprint.go)をローカルのLoom DAppチェーンノードにデプロイしよう。
-3. Hit `Play` in the Unity Editor.
+3. Unityエディターで`Play`してみよう。
