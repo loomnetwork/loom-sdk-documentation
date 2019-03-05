@@ -50,25 +50,25 @@ BFTレイヤーブロックチェーン用の一般的なロギング。使用�
 
 ## EthereumURI
 
-Options: "ws://127.0.0.1:8545"
+オプション: "ws://127.0.0.1:8545"
 
-This is the url of the Ethereum Blockchain to read data for plasma and transfer gateway. In future we will have support for infura also.
+これはイーサリアム・ブロックチェーンのURLであり、Plasmaやトランスファーゲートウェイのためにデータを読み取る。 今後はinfuraのサポートも予定している。
 
 ## ChainID
 
-Options: "awesomechain"
+オプション: "awesomechain"
 
-This is the name of your chain, for example "eth", "zombiechain", "test-zombiechain", "delegatecall".
+これはあなたのチェーンの名前である。例えば "eth"、"zombiechain"、"test-zombiechain"、"delegatecall"というようなものだ。
 
 # config.toml
 
-If you are using tendermint BFT engine, you can modify this file, otherwise leave it alone.
+Tendermint BFTエンジンをお使いであれば、このファイルを修正可能だ。そうでない場合はそのままにしておこう。
 
 ## ABCIAddress
 
-Options: "http://127.0.0.1:45667"
+オプション: "http://127.0.0.1:45667"
 
-Port for tendermint bft engine
+Tendermint bftエンジン用のポート
 
 ## ReceiptsVersion
 
