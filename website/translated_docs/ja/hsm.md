@@ -5,11 +5,11 @@ sidebar_label: ハードウェアセキュリティモジュール
 ---
 ## 概要
 
-ハードウェアセキュリティモジュールは、コンピューターがハッキングされたとしても、バリデーターの秘密鍵が漏洩しないことを保証している。 すべてのPlasmachain上のバリデーターに、このモジュールを手始めに取り入れることを強くおすすめしたい。 将来的には、チェーン上でバリデーターとして参加するためには、このモジュールを取り入れることを要求するようになるかもしれない。
+ハードウェアセキュリティモジュールは、コンピューターがハッキングされたとしてもバリデーターの秘密鍵が漏洩しないことを保証しているため、 このモジュールを手始めに使用することをPlasmachainの全バリデーターにおすすめしたい。 また将来的に、このモジュールの使用をチェーンのバリデーター参加要件とする可能性がある。
 
 ## サポートされているデバイス
 
-今現在、我々はED25519アルゴリズムのEDDSA暗号化を行うことのできるデバイスをサポートしている。 我々は今、[Yubico HSM2](https://www.yubico.com/products/yubihsm/)をサポートしており、これは、ビットコインやイーサリアムの電子署名に使われているようなものも含む、幅広い暗号アルゴリズムをカバーした$500前後の安価なデバイスである。 また、我々は間も無く、EDDSA暗号化を行うことのできる他のPKCS11対応デバイスをサポートするつもりである。
+今現在、我々はED25519アルゴリズムのEDDSA暗号化を行うことのできるデバイスをサポートしている。 我々は今、[Yubico HSM2](https://www.yubico.com/products/yubihsm/)をサポートしており、これは、ビットコインやイーサリアムの電子署名に使われているようなものも含む、幅広い暗号アルゴリズムをカバーした$500前後の安価なデバイスである。 また、間も無く、EDDSA暗号化が可能な他のPKCS11対応デバイスをサポートする予定である。
 
 ## HSM の構成
 
@@ -25,11 +25,11 @@ HsmConfig:
   HsmSignKeyID: 0
 ```
 
-## 設定オプション
+## 構成オプション
 
 * HsmEnabled
 
-HSMデバイスで署名を有効にする場合はtrueに設定しなければならない。もし、falseに設定すると、他の設定は無視される。
+HSMデバイスで署名を有効にする場合はtrueに設定しなければならない。falseに設定した場合、他の設定は無視される。
 
 * HsmDevType: 
 
@@ -37,11 +37,11 @@ HSMデバイスで署名を有効にする場合はtrueに設定しなければ�
 
 * HsmConnUrl:
 
-yubicohsmのためのHttp urlで、デフォルトでhttp://localhost:12345になっている。
+yubicohsmのためのHttp urlで、デフォルトでhttp://localhost:12345をリッスンする。
 
 * HsmAuthPassword: 
 
-HSMデバイスのためのパスワード。 (以前は、 HsmDevLogCred)
+HSMデバイスのためのパスワード。 (以前は HsmDevLogCred)
 
 * HsmAuthKeyId:
 
@@ -59,7 +59,7 @@ HSM上の秘密鍵のIDであり、前もって作っておくことをお勧め
 
 1. Yubico ドライバー、ユーティリティのダウンロード。
 
-<https://developers.yubico.com/YubiHSM2/Releases/> バージョン 1.04 以降が必要です。
+<https://developers.yubico.com/YubiHSM2/Releases/> バージョン 1.04 以降が必要。
 
 2. Yubico ドライバのインストール。 
 
@@ -85,9 +85,9 @@ session close 0
 quit
 ```
 
-これでID100のキーが手に入る。 loom.yml で HsmSignKeyId を100に設定してください。
+これでID100のキーが手に入る。 loom.yml で HsmSignKeyId を100に設定すること。
 
-### 登録候補のようなトランザクションに署名するための HSM の使用
+### 登録候補者のようなトランザクションに署名するための HSM の使用
 
 1. PrivateKeyId と base64 の公開鍵を見つける
 
@@ -107,8 +107,8 @@ hsm.json
 }
 ```
 
-privKeyIDにあなたのキーのidを入れてください。
+privKeyIDにあなたのキーのidを入力。
 
-3. ./loomが以下を呼び出す。register_candidateV2 PUBLIC_KEY_IN_BASE64 10 --hsmconfig hsm.json -r http://dposv2.dappchains.com:80/query -w http://dposv2.dappchains.com:80/rpc --chain dposv2
+3. ./loom call register_candidateV2 PUBLIC_KEY_IN_BASE64 10 --hsmconfig hsm.json -r http://dposv2.dappchains.com:80/query -w http://dposv2.dappchains.com:80/rpc --chain dposv2
 
-PUBLIC_KEY_IN_BASE64 を priv_validator のそれに取り替えます。
+PUBLIC_KEY_IN_BASE64 を priv_validator のそれに取り替える。
