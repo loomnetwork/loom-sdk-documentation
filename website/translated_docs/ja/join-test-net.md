@@ -27,22 +27,22 @@ local address base64: OzNL7R59Pn2SFElRIBYNkjasvDE=
 
 そしてこれは`priv_key`という名前と`pub_key`という名前でファイルを生成し、`priv_key`ファイルはあなたの秘密鍵を含みDAppチェーンへのデプロイに使う。
 
-# Deploy Truffle Example to a Testnet
+# Truffleサンプルをテストネットへデプロイ
 
-1. Make sure you have node and yarn/npm installed
-2. Obtain the testnet URL from [PlasmaChain Testnets](testnet-plasma.html) page
-3. Get the source: 
+1. node 及び yarn/npm がインストールされていることを確認
+2. テストネットのURLを以下ページから取得する[PlasmaChain Testnets](testnet-plasma.html)
+3. ソースを取得: 
         bash
         git clone https://github.com/loomnetwork/truffle-dappchain-example
         cd truffle-dappchain-example
         # copy the private key generated earlier to the root directory of the example repo
         cp ../priv_key extdev_private_key
 
-4. If you wish to deploy the example contracts to `extdev-plasma-us1` skip this step. Otherwise, add the network you wish to deploy to in `truffle-config.js`.
-5. Install node modules: 
+4. もし例示したコントラクトを`extdev-plasma-us1`にデプロイしたい場合このステップをスキップする。そうでなければあなたがデプロイしたいネットワークを`truffle-config.js`に追加する。
+5. Nodeモジュールをインストール: 
         bash
         yarn
 
-6. Run deploy: 
+6. デプロイの実行: 
         bash
         yarn deploy:extdev
