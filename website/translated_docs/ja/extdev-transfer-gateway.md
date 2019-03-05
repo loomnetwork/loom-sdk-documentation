@@ -109,7 +109,7 @@ contract MyCoin is StandardToken {
 
 ## 2. `Rinkeby`にトークンコントラクトをデプロイする。
 
-There aren't any special requirements for token contracts deployed to Ethereum networks.
+Ethereumネットワークにデプロイされるトークンコントラクトのための特別な要件はない。
 
 ### MyRinkebyToken ERC721 コントラクト
 
