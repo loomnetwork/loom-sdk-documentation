@@ -86,7 +86,7 @@ Tendermint bftエンジン用のポート
 
 オプション: 1,2
 
-Version 2 of DPoS is still experimental, only use this on dev clusters. It has better support for rewards and slashing. The entire cluster needs to be on same version, and it must not be changed after initialization.
+DPoSのバージョン2はまだ実験段階であり、開発用クラスタでのみこれを使用する。 これはリワードとスラッシングをよりサポートする。 クラスタ全体を同じバージョンにする必要があり、初期化後に変更してはならない。
 
 ## CreateEmptyBlocks
 
