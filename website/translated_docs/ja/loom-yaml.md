@@ -106,7 +106,7 @@ Configures how much history is retained in app.db, should be enabled on producti
 
 ### CompactOnLoad
 
-Will compact app.db when the node starts, this affects node start times, but ensures disk space that's taken up by old app.db versions is freed.
+ノードの起動時にapp.dbを圧縮する。これはノードの起動時間に影響を及ぼすが、古いapp.dbバージョンによって占有されていたディスク領域が解放される。
 
 ### MaxVersions
 
