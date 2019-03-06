@@ -1,11 +1,11 @@
 ---
-id: go-events
-title: Go Event Indexing
-sidebar_label: Go Event Indexing
+id: Goイベント
+title: Goイベントのインデクシング
+sidebar_label: Goイベントのインデクシング
 ---
-Previously events emitted in Go would only go out to the websocket. Now they can be stored in a local database or redis also. Below is the config to store the events
+以前はGoで出力されたイベントはwebsocketにしか送信されなかった。 今それらはローカルデータベースまたはredisに保存することができる。 以下はイベントを保存するための設定である。
 
-## Event Store
+## イベントの保存
 
 ```yaml
 EventDispatcher:
