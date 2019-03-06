@@ -124,7 +124,7 @@ HsmConfig:
   HsmSignKeyId: 100
 ```
 
-Please see [HSM Page](hsm.html) for more details
+詳細は[HSM Page](hsm.html) を参照
 
 ## Plasma
 
@@ -146,9 +146,10 @@ type KarmaConfig struct {
     MaxCallCount    int64 // Maximum number call transactions per session duration
     SessionDuration int64 // Session length in seconds
 }
+
 ```
 
-Example
+例
 
 ```yaml
 Karma:
