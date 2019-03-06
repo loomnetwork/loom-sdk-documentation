@@ -72,7 +72,7 @@ Tendermint bftエンジン用のポート
 
 ## ReceiptsVersion
 
-Options: 1,2
+オプション: 1,2
 
 Most users should set this to 1, and the evm receipts will be stored in the application store. If the number is set to 2, EVM receipts are stored in a seperate database. This is better for disk usage. However it affects the AppHashes, so the entire cluster must be initialized with the same version, and it must not be changed after initialization.
 
