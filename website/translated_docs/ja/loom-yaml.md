@@ -74,17 +74,17 @@ Tendermint bftエンジン用のポート
 
 オプション: 1,2
 
-Most users should set this to 1, and the evm receipts will be stored in the application store. If the number is set to 2, EVM receipts are stored in a seperate database. This is better for disk usage. However it affects the AppHashes, so the entire cluster must be initialized with the same version, and it must not be changed after initialization.
+ほとんどのユーザーはこれを1に設定する必要があり、evmの受信者はアプリケーションストアに保存される。 2に設定されている場合、EVMの受信者は別のデータベースに保存される。 これはディスクの使用に適している。 ただし、これはAppHashesに影響するため、クラスター全体を同じバージョンで初期化する必要があり、初期化後に変更してはならない。
 
 ## RegistryVersion
 
-Options: 1,2
+オプション: 1,2
 
-Most users should set this to 2. This is the latest version of the smart contract registry. The entire cluster needs to be initialized with the same version, and it must not be changed after initialization.
+ほとんどのユーザーはこれを2に設定する必要がある。 これはスマートコントラクトレジストリの最新バージョンである。 クラスタ全体を同じバージョンで初期化する必要があり、初期化後に変更してはならない。
 
 ## DPOSVersion
 
-Options: 1,2
+オプション: 1,2
 
 Version 2 of DPoS is still experimental, only use this on dev clusters. It has better support for rewards and slashing. The entire cluster needs to be on same version, and it must not be changed after initialization.
 
