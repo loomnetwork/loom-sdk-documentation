@@ -25,32 +25,32 @@ Major update, major updates for Performance, Caching and DPoS. It is recommended
 * YubiHSM Fixes
 * Many new config options - [Loom Yaml Configs](loom-yaml.html)
 
-## Loom 2.0 Initial Release Build 651 - Dec 14th
+## Loom 2.0イニシャルリリース ビルド651 - 12月14日
 
 * Loom SDK 2.0
-* Updated P2P Protocols
-* Blockexplorer now supports EVM
-* Loom Native token support for on chain Staking
-* Support For delegation rewards in protocol
-* Fixes for GetEvmBlockByNumber/Hash
+* P2Pプロトコルを更新
+* Block explorerのEVMトランザクションを更新
+* オンチェーンステーキングのためのLoomネイティブトークンサポート
+* プロトコルでデリゲート報酬をサポート
+* HSMローカルキー署名
 * Range function Prefix fixes for Go Contracts
 * HSM local key signing - [HSM Docs](hsm.html)
 * Unity SDK Updated with better network management 
 
 Note Loom SDK 2.0 is not protocol compatible with 1.0 chains. If you have a production chain using 1.0 please contact support@loomx.io for migration help.
 
-## Release 575 - Nov 16th
+## リリース 575 - 11月16日
 
-* HSM Bug fixes for Yubico Devices - [HSM Docs](hsm.html)
-* HSM now can create new private keys on demand
+* YubicoデバイスのためのHSMバグ修正 - [HSM Docs](hsm.html)
+* 現在HSMは需要に応じて秘密鍵を生成できる
 
 ## リリース 575 - 11月13日
 
 * Yubicoデバイス向けのHSMサポート - [HSM Docs](hsm.html)
-* DPoS Version2 beta - for Plasmachain external validators
-* Plasma cash massive improvements, see [Plasma Cli](https://github.com/loomnetwork/plasma-cli)
-* Pruning for the Datastore, if chain gets to large, see [Config](loom-yaml.html)
-* New EVM receipts data store, see [Config](loom-yaml.html)
+* Plasmachain外部バリデーターのためのDPoS バージョン２ベータ
+* Plasma Cashを大幅に改善 [Plasma Cli](https://github.com/loomnetwork/plasma-cli)
+* データストアのプルーニング. チェーンが大きくなった場合は以下を参照 [Config](loom-yaml.html)
+* 新たなEVMレシートのデータストア [Config](loom-yaml.html)
 
 ## リリース 478 - 10月8日
 
