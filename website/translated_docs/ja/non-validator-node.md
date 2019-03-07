@@ -3,9 +3,9 @@ id: non-validator-node
 title: 非バリデーターのノード
 sidebar_label: Non Validator Node
 ---
-# Joining extdev-plasma-us1.dappchains.com as Non-validator
+# extdev-plasma-us1.dappchains.com に非バリデーターとして参加
 
-Follow the instructions below to join the cluster extdev-plasma-us1.dappchains.com as a non-validator node.
+下の手順に従って、非バリデーターノードとして extdev-plasma-us1.dappchains.com のクラスタに参加しよう。
 
 ## 安定的なバージョンのLoomをダウンロード
 
@@ -247,11 +247,11 @@ CachingStoreConfig:
 
 こうして、非バリデーターノードバリデーターノードと同期されることとなる。ステータスは http://localhost:46657/status にてクエリ可能。
 
-# Joining test-z-asia1.dappchains.com as Non-validator
+# test-z-asia1.dappchains.com に非バリデーターとして参加
 
-Follow the instructions below to join the cluster test-z-asia1.dappchains.com as a non-validator node.
+下の手順に従って、非バリデーターノードとして test-z-asia1.dappchains.com のクラスタに参加しよう。
 
-## Download Stable Version of loom
+## 安定的なバージョンのLoomをダウンロード
 
 ```bash
 wget https://private.delegatecall.com/loom/linux/build-769/loom
@@ -259,7 +259,7 @@ chmod +x loom
 ./loom version
 ```
 
-## Create loom.yml
+## loom.ymlを作成
 
 ```yaml
 ChainID: "asia1"
@@ -282,13 +282,13 @@ PlasmaCash:
   ContractEnabled: True
 ```
 
-## Initialize loom
+## Loomを初期化
 
 ```bash
 ./loom init
 ```
 
-## Replace `genesis.json` in current directory
+## 現在のディレクトリ内に `genesis.json` を置き換える
 
 ```json
 {
@@ -399,7 +399,7 @@ PlasmaCash:
 }
 ```
 
-## Replace `chaindata/config/genesis.json`
+## `chaindata/config/genesis.json` を置き換える
 
 ```json
 {
@@ -461,10 +461,10 @@ PlasmaCash:
 }
 ```
 
-## Run loom
+## loomを実行
 
 ```bash
 ./loom run --persistent-peers tcp://c50d327b10308483b8e477b8376de73b80d8b1af@3.0.41.112:46656,tcp://9bc89242b811e8616eb37e50746e25f4b1a86ec7@54.254.138.238:46656,tcp://88ba2d1759195187b47de0567a697a46099a2360@3.0.202.142:46656,tcp://6d77bd5a41289701007780311702dd6647aa39d6@13.229.250.215:46656
 ```
 
-The non-validator node will now sync with the validator nodes. Status can be queried at http://localhost:46657/status
+こうして、非バリデーターノードバリデーターノードと同期されることとなる。ステータスは http://localhost:46657/status にてクエリ可能。
