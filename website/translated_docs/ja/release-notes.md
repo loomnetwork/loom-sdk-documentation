@@ -33,11 +33,11 @@ Major update, major updates for Performance, Caching and DPoS. It is recommended
 * オンチェーンステーキングのためのLoomネイティブトークンサポート
 * プロトコルでデリゲート報酬をサポート
 * HSMローカルキー署名
-* Range function Prefix fixes for Go Contracts
-* HSM local key signing - [HSM Docs](hsm.html)
-* Unity SDK Updated with better network management 
+* GoコントラクトのためのRange関数Prefixの修正
+* HSMのローカルキー署名 - [HSM Docs](hsm.html)
+* ネットワーク管理の向上を伴うユーティリティSDKの更新 
 
-Note Loom SDK 2.0 is not protocol compatible with 1.0 chains. If you have a production chain using 1.0 please contact support@loomx.io for migration help.
+Loom SDK 2.0は1.0チェーンとプロトコルの互換性はないことに注意。1.0を用いたプロダクションチェーンがある場合は、移行についてsupport@loomx.ioまで問い合わせてほしい。
 
 ## リリース 575 - 11月16日
 
