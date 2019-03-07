@@ -17,13 +17,13 @@ sidebar_label: リリースノート
 * Karmaのアップデート
 * CheckTxのパフォーマンス向上
 * P2Pプロトコルのアップデート 
-* Go contracts now support event indexing - [Go Events Docs](go-events.html)
-* EVM Queries has improved caching layer
-* Bug for EVM contracts writting more then 11,800 keys is fixed
-* Support for non ETH block chains via TG has started
-* More metrics exposed
-* YubiHSM Fixes
-* Many new config options - [Loom Yaml Configs](loom-yaml.html)
+* Goコントラクトがイベントインデックスをサポート- [Go Events Docs](go-events.html) 
+* EVMクエリがキャッシングレイヤーを改良
+* EVMコントラクトが11,800より多くのキーを書き出すバグを修正
+* 非ETHブロックのチェーンに対するサポートをTelegramにて開始
+* メトリクスをさらに公開
+* YubiHSMの修正
+* 多くの新規構成オプション - [Loom Yaml Configs](loom-yaml.html)
 
 ## Loom 2.0イニシャルリリース ビルド651 - 12月14日
 
