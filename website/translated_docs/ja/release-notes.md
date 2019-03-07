@@ -7,16 +7,16 @@ sidebar_label: リリースノート
 
 新着順。
 
-## Loom 2.0 Release Build 789 - Feb 12th
+## Loom 2.0 ビルド789 - 2月12日
 
-Major update, major updates for Performance, Caching and DPoS. It is recommended to upgrade your testnets immediately.
+パフォーマンスやキャッシュ、DPoSをメジャーアップデート。 すぐにテストネットをアップグレードすることを推奨。
 
-* DPosV2 now supports Delegates staking and full reward cycle
-* Nonce incrementing mid block, loom-js and unity-sdk updated to support
-* Work has started on DPoSV3 to have shorter reward cycles and other improvements
-* Karma updates
-* CheckTx preformance boosts
-* Updated P2P protocol 
+* DPosV2がデリゲートステーキングとフルリワードサイクルをサポート
+* ミッドブロック、loom-js、unity-sdkのノンスインクリメントをアップデートしサポート
+* DPoSV3のリワードサイクル短縮化やその他の改善についての取り組みを開始
+* Karmaのアップデート
+* CheckTxのパフォーマンス向上
+* P2Pプロトコルのアップデート 
 * Go contracts now support event indexing - [Go Events Docs](go-events.html)
 * EVM Queries has improved caching layer
 * Bug for EVM contracts writting more then 11,800 keys is fixed
