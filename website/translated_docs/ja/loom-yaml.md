@@ -102,7 +102,7 @@ AppStore:
   MaxVersions: 50
 ```
 
-Configures how much history is retained in app.db, should be enabled on production clusters, and dev clusters that don't get wiped often. A new app.db version is created with each block, so without these settings nodes will consume significantly more disk space.
+プロダクションクラスタ及び頻繁に消去されることのないdevクラスタにおいて、app.dbに留めておくヒストリー量の設定を有効にする必要がある。 app.dbの新たなバージョンはブロック毎に作成されるため、これらのノード設定がない場合はかなり多くのディスク容量を消費することになる。
 
 ### CompactOnLoad
 
@@ -110,7 +110,7 @@ Configures how much history is retained in app.db, should be enabled on producti
 
 ### MaxVersions
 
-Max versions stored in the app store, each time a block is committed a new version of the app state is stored in the store, this doesn't affect how many blocks/transactions are stored in the blockchain store.
+アプリのストアに保存されるバージョンの最大数だけ、ブロックがコミットされるたびに新バージョンのアプリステートがストアに格納されるが、これはブロックチェーンのストアに格納されるブロック数/トランザクション数には影響しない。
 
 ## HSM
 
