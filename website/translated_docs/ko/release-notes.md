@@ -7,6 +7,51 @@ sidebar_label: 릴리즈 노트
 
 릴리즈 노트는 역순으로 구성되어 있습니다.
 
+## Loom 2.0 Release Build 789 - Feb 12th
+
+Major update, major updates for Performance, Caching and DPoS. It is recommended to upgrade your testnets immediately.
+
+* DPosV2 now supports Delegates staking and full reward cycle
+* Nonce incrementing mid block, loom-js and unity-sdk updated to support
+* Work has started on DPoSV3 to have shorter reward cycles and other improvements
+* Karma updates
+* CheckTx preformance boosts
+* Updated P2P protocol 
+* Go contracts now support event indexing - [Go Events Docs](go-events.html)
+* EVM Queries has improved caching layer
+* Bug for EVM contracts writting more then 11,800 keys is fixed
+* Support for non ETH block chains via TG has started
+* More metrics exposed
+* YubiHSM Fixes
+* Many new config options - [Loom Yaml Configs](loom-yaml.html)
+
+## Loom 2.0 Initial Release Build 651 - Dec 14th
+
+* Loom SDK 2.0
+* Updated P2P Protocols
+* Blockexplorer now supports EVM
+* Loom Native token support for on chain Staking
+* Support For delegation rewards in protocol
+* Fixes for GetEvmBlockByNumber/Hash
+* Range function Prefix fixes for Go Contracts
+* HSM local key signing - [HSM Docs](hsm.html)
+* Unity SDK Updated with better network management 
+
+Note Loom SDK 2.0 is not protocol compatible with 1.0 chains. If you have a production chain using 1.0 please contact support@loomx.io for migration help.
+
+## Release 575 - Nov 16th
+
+* HSM Bug fixes for Yubico Devices - [HSM Docs](hsm.html)
+* HSM now can create new private keys on demand
+
+## Release 575 - Nov 13th
+
+* HSM support for Yubico Devices - [HSM Docs](hsm.html)
+* DPoS Version2 beta - for Plasmachain external validators
+* Plasma cash massive improvements, see [Plasma Cli](https://github.com/loomnetwork/plasma-cli)
+* Pruning for the Datastore, if chain gets to large, see [Config](loom-yaml.html)
+* New EVM receipts data store, see [Config](loom-yaml.html)
+
 ## 릴리즈 478 - 10월 8일
 
 * Transfer Gateway 활용 예제 업데이트
@@ -48,7 +93,7 @@ sidebar_label: 릴리즈 노트
 * [Transfer Gateway](transfer-gateway.html)의 베타 릴리즈
 * [Transfer Gateway의 데모](https://github.com/loomnetwork/cards-gateway-example)
 * 메모리 누수 수정
-* 마이너 Api 충돌문제, go-loom/loom-js을 업그레이드 하세요. Unity는 곧 업데이트 예정입니다
+* 마이너 API 충돌문제, go-loom/loom-js을 업그레이드 하세요. Unity는 곧 업데이트 예정입니다
 * Go-loom은 API 충돌문제가 업그레이드 되었습니다
 * loom-js는 이번 릴리즈로 업그레이드 되었습니다. 
 
@@ -60,7 +105,7 @@ sidebar_label: 릴리즈 노트
 * Go 컨트랙트에서 범위 질의문
 * loom.yaml에 ChainID가 추가
 
-* [EVM 인덱스 필터](https://loomx.io/developers/docs/ko/web3js-event-filters.html)
+* [EVM 인덱스 필터](https://loomx.io/developers/docs/en/web3js-event-filters.html)
 
 * EVM 필터 pool 버그 수정 및 이벤트 시스템
 * Loom-JS EVM의 인덱스 필터를 위한 업데이트
@@ -68,7 +113,7 @@ sidebar_label: 릴리즈 노트
 
 ## 릴리즈 288 - 7월 17일
 
-* [EVM 인덱스 필터](https://loomx.io/developers/docs/ko/web3js-event-filters.html)
+* [EVM 인덱스 필터](https://loomx.io/developers/docs/en/web3js-event-filters.html)
 * EVM 필터 pool 버그 수정 및 이벤트 시스템
 * Loom-JS EVM의 인덱스 필터를 위한 업데이트
 * Loom-JS EVM에서 해시로 블록을 가져올 때 버그 수정
@@ -94,7 +139,7 @@ sidebar_label: 릴리즈 노트
 
 ## 릴리즈186 - 6월 19일
 
-* [EVM Unity 예제 앱](https://loomx.io/developers/docs/ko/unity-sample-tiles-chain-evm.html)
+* [EVM Unity 예제 앱](https://loomx.io/developers/docs/en/unity-sample-tiles-chain-evm.html)
 * Solidity 앱을 위한 Unity SDK 지원
 * Ethereum 이벤트 Filtering/Querying에 관한 많은 수정사항
 
@@ -113,7 +158,7 @@ sidebar_label: 릴리즈 노트
 
 ## 릴리즈 155 - 6월 6일
 
-* [Cocos SDK이 동작합니다](cocos-sdk-quickstart.html)
+* [Cocos SDK가 동작합니다](cocos-sdk-quickstart.html)
 * [Truffle을 지원합니다](truffle-deploy.html)
 * 이제 EVM에 static call이 허용됩니다
 * 수많은 시나리오에 관한 EVM 수정 
@@ -121,9 +166,9 @@ sidebar_label: 릴리즈 노트
 ## 릴리즈 143 - 6월 1일
 
 * [BluePrint 도커 이미지 사용이 가능합니다](docker-blueprint.html)
-* [일본 해커톤 결과](https://medium.com/loom-network-korean/첫-번째-loom-unity-sdk-해커톤-하이라이트-도쿄-에디션-70fe873c7fb1)
+* [일본 해커톤 결과](https://medium.com/loom-network/highlights-from-the-first-loom-unity-sdk-hackathon-tokyo-edition-6ed723747c19)
 * [몇개의 Loom SDK 프로젝트를 위한 도커 이미지](https://hub.docker.com/r/loomnetwork/)
-* Evm TX Reciepts 수정 
+* EVM TX Reciepts 수정 
 
 ## 릴리즈 137 - 5월 30일
 
@@ -152,7 +197,7 @@ sidebar_label: 릴리즈 노트
 ## 릴리즈 129 - 5월 22일
 
 * 이벤트를 위한 Websocket 지원
-* Solidity 컨트랙트를 위한 indexing 레이어 업데이트
+* Solidity 컨트랙트를 위한 인덱싱 레이어 업데이트
 * Phaser 게임 데모 - [Github](https://github.com/loomnetwork/phaser-sdk-demo)
 
 ## 릴리즈 128 - 5월 21일

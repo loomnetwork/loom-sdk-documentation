@@ -1,17 +1,17 @@
 ---
 id: extdev-transfer-gateway
-title: Transfer Gateway Testnet Tutorial
-sidebar_label: Transfer Gateway Testnet
+title: 转移网关测试网教程
+sidebar_label: 转移网关测试网
 ---
-## Overview
+## 概述
 
-In this doc we'll walk you through the setup required to transfer tokens between token contracts you've deployed to `extdev` and `Rinkeby`. If you haven't done so already you should first read through the high level overview of the [Transfer Gateway](transfer-gateway.html).
+在本文档中，我们将引导你完成在已部署到 `extdev` 和 `Rinkeby` 的代币合约之间转移代币所需的设置。 如果你尚未这样做，则应首先阅读 [转移网关](transfer-gateway.html) 的高级概述。
 
-## 1. Deploy token contracts to `extdev`
+## 1. 将代币合约部署到 `extdev`
 
-If you wish to transfer tokens from a token contract deployed on `Rinkeby` to one that's deployed on `extdev` you'll need to ensure that the token contract you deploy to `extdev` implements the `mintToGateway` function. We've created some sample contracts and a simple CLI to interact with them.
+如果你想要将代币从部署在 `Rinkeby` 上的代币合约转移到部署在 `extdev` 上的代币合约，你需要确保你部署在 `extdev` 上的代币合约实施了 `mintToGateway` 方法。 我们创建了一些示例合约和一个简单的 CLI 来与它们进行交互。
 
-### MyToken ERC721 contract
+### MyToken ERC721合约
 
 ```solidity
 pragma solidity ^0.4.24;
@@ -35,7 +35,7 @@ contract MyToken is ERC721Token {
 }
 ```
 
-### MyCoin ERC20 contract
+### MyCoin ERC20 合约
 
 ```solidity
 pragma solidity ^0.4.24;
@@ -64,9 +64,9 @@ contract MyCoin is StandardToken {
 }
 ```
 
-Full source for all contracts can be found in the [Truffle DAppChain Example](https://github.com/loomnetwork/truffle-dappchain-example) repo.
+所有合约的完整源码可以在 [Truffle DApp链示例](https://github.com/loomnetwork/truffle-dappchain-example) 代码库中找到。
 
-1. Download the `loom` binary, while you won't be spinning up your own DAppChain in this tutorial, you will be using some of the CLI commands built into the `loom` binary to interact with the `extdev` PlasmaChain.
+1. 下载 `loom` 二进制文件，在本教程中你将不会使用自己的DApp链，而是使用内置于 `loom` 二进制文件中的一些CLI命令来与 `extdev` PlasmaChain进行交互。
     
     ```bash
     curl https://raw.githubusercontent.com/loomnetwork/loom-sdk-documentation/master/scripts/get_loom.sh | sh
@@ -75,9 +75,9 @@ Full source for all contracts can be found in the [Truffle DAppChain Example](ht
     export LOOM_BIN=`pwd`/loom
     ```
 
-2. Make sure you have `node` (v8 or later) and `yarn` installed.
+2. 确保安装了 `node`（版本8或更高版本） 和 `yarn`。
 
-3. Clone the [Truffle DAppChain Example](https://github.com/loomnetwork/truffle-dappchain-example) repo.
+3. 克隆 [Truffle DApp链示例](https://github.com/loomnetwork/truffle-dappchain-example) 代码库。
     
     ```bash
     # clone the tutorial repo to the gateway-tutorial directory
@@ -87,33 +87,31 @@ Full source for all contracts can be found in the [Truffle DAppChain Example](ht
     yarn
     ```
 
-4. Generate your own private key for deploying and calling contracts on the `extdev` PlasmaChain.
+4. 生成你自己的私钥，用于在 `extdev` PlasmaChain上部署和调用合同。
     
     ```bash
     $LOOM_BIN genkey -k extdev_private_key -a extdev_public_key
     ```
     
-    You should see something similar to this displayed in the console:
+    你应该会在控制台中看到类似这样的内容：
     
         local address: 0x3B334bEd1e7d3e7d9214495120160D9236aCbC31
         local address base64: OzNL7R59Pn2SFElRIBYNkjasvDE=
         
     
-    This is the public address that corresponds to your new private key. You'll find the private key in the `extdev_private_key` file, and the corresponding public key in the `extdev_public_key` file.
+    这是你的新私钥对应的公共地址。 你将在 `extdev_private_key` 文件里找到私钥，在 `extdev_public_key` 文件里找到对应的公钥。
 
-5. Your new account will need some karma before you can use to deploy or call contracts. Go to the [Karma Faucet](http://faucet.dappchains.com), put in the public address that was just generated for you (the hex encoded one that starts with `0x`), select the `extdev` network, and press the `Request` button to get some karma.
-
-6. Deploy the `MyToken` and `MyCoin` contracts to the `extdev` PlasmaChain.
+5. Deploy the `MyToken` and `MyCoin` contracts to the `extdev` PlasmaChain.
     
     ```bash
     yarn deploy:extdev
     ```
 
-## 2. Deploy token contracts to `Rinkeby`
+## 2. 将代币合约部署到 `Rinkeby`
 
-There aren't any special requirements for token contracts deployed to Ethereum networks, though there are safe transfer extensions you may wish to implement in your ERC20 contracts to make it easier to deposit tokens into the `Rinkeby` Gateway.
+There aren't any special requirements for token contracts deployed to Ethereum networks.
 
-### MyRinkebyToken ERC721 contract
+### MyRinkebyToken ERC721 合约
 
 ```solidity
 pragma solidity ^0.4.24;
@@ -136,18 +134,14 @@ contract MyRinkebyToken is ERC721Token {
 }
 ```
 
-### MyRinkebyCoin ERC20 contract
+### MyRinkebyCoin ERC20 合约
 
 ```solidity
 pragma solidity ^0.4.24;
 
 import "openzeppelin-solidity/contracts/token/ERC20/StandardToken.sol";
-import "openzeppelin-solidity/contracts/AddressUtils.sol";
-import "./ERC20Receiver.sol";
 
 contract MyRinkebyCoin is StandardToken {
-    using AddressUtils for address;
-
     string public name = "MyRinkebyCoin";
     string public symbol = "MRC";
     uint8 public decimals = 18;
@@ -155,107 +149,86 @@ contract MyRinkebyCoin is StandardToken {
     // one billion in initial supply
     uint256 public constant INITIAL_SUPPLY = 1000000000;
 
-    bytes4 constant ERC20_RECEIVED = 0xbc04f0af;
-
     constructor() public {
         totalSupply_ = INITIAL_SUPPLY * (10 ** uint256(decimals));
         balances[msg.sender] = totalSupply_;
     }
-
-    function safeTransferAndCall(address _to, uint256 _amount) public {
-        transfer(_to, _amount);
-        require(
-            checkAndCallSafeTransfer(msg.sender, _to, _amount),
-            "Sent to a contract which is not an ERC20 receiver"
-        );
-    }
-
-    function checkAndCallSafeTransfer(
-        address _from, address _to, uint256 _amount
-    ) internal returns (bool) {
-        if (!_to.isContract()) {
-            return true;
-        }
-
-        bytes4 retval = ERC20Receiver(_to).onERC20Received(_from, _amount);
-        return (retval == ERC20_RECEIVED);
-    }
 }
 ```
 
-Full source for all contracts can be found in the [Truffle DAppChain Example](https://github.com/loomnetwork/truffle-dappchain-example) repo.
+所有合约的完整源码可以在 [Truffle DApp链示例](https://github.com/loomnetwork/truffle-dappchain-example) 代码库中找到。
 
-Let's deploy these contracts to `Rinkeby`.
+我们把这些合约部署到 `Rinkeby` 吧。
 
-1. Generate an Ethereum private key:
+1. 生成一个以太坊私钥。
     
     ```bash
     # this will create the rinkeby_account, rinkeby_mnemonic, and rinkeby_private_key files
     yarn gen:rinkeby-key
     ```
 
-2. Get the address of the new `Rinkeby` account from the `rinkeby_account` file.
+2. 从 `rinkeby_account` 文件中获取 `Rinkeby` 新账户的地址。
     
     ```bash
     cat rinkeby_account
     ```
 
-3. Give the `Rinkeby` account some ETH so it can be used to deploy contracts to `Rinkeby`, you can either use https://faucet.rinkeby.io or transfer some ETH from another account.
+3. 给 `Rinkeby` 帐户提供一些ETH，以便它可以用于将合同部署到`Rinkeby`，你可以使用 https://faucet.rinkeby.io 或从另一个帐户中转移一些 ETH。
 
-4. Set your Infura API key (get it from https://infura.io)
+4. 设置你的 Infura API 密钥 （从 https://infura.io 获取）
     
     ```bash
     export INFURA_API_KEY=XXXXXXXXXXXXXXXX
     ```
 
-5. Deploy sample contracts
+5. 部署示例合约
     
         yarn deploy:rinkeby
         
     
-    If this fails with an error similar to this one:
+    如果此操作失败, 并出现类似于这样的错误:
     
         Error encountered, bailing. Network state unknown. Review successful transactions manually.
         insufficient funds for gas * price + value
         
     
-    Transfer a bit more ETH to the account in `rinkeby_account`.
+    往 `rinkeby_account` 中的帐户再多转移点 ETH。
 
-## 3. Map `extdev` contracts to `Rinkeby` contracts
+## 3. 将 `extdev` 合约映射到 `Rinkeby` 合约
 
-Once you've deployed your contracts to both chains you'll need to let the Transfer Gateway know you want it to transfer tokens between the contracts. You can either do so programmatically using the `TransferGateway` class in [loom-js](https://github.com/loomnetwork/loom-js), or the `loom` CLI. For this tutorial we've built a more streamlined JS CLI with `web3` and [loom-js](https://github.com/loomnetwork/loom-js), so you don't have to go looking for contract addresses, transaction hashes, and sacrificial goats.
+将你的合约部署到两条链之后，你将需要让转移网关知道你想让它在合约之间转移代币。 你可以使用 [loom-js](https://github.com/loomnetwork/loom-js) 中的`TransferGateway`类或 `loom` CLI 以编程方式执行此操作。 对于本教程，我们使用 `web3` 和 [loom-js](https://github.com/loomnetwork/loom-js) 构建了一个更简化的 JS CLI，因此你不需要寻找合约地址、事务哈希等等的东西。
 
-Map the `MyToken` contract deployed on `extdev` to the `MyRinkebyToken` contract deployed on `Rinkeby`:
+将部署在 `extdev` 的 `MyToken` 合约映射到部署在 `Rinkeby` 的 `MyRinkebyToken` 合约：
 
 ```bash
 node ./gateway-cli.js map-contracts token
 ```
 
-Map the `MyCoin` contract deployed on `extdev` to the `MyRinkebyCoin` contract deployed on `Rinkeby`:
+将部署在 `extdev` 的 `MyCoin` 合约映射到部署在 `Rinkeby` 的 `MyRinkebyCoin` 合约：
 
 ```bash
 node ./gateway-cli.js map-contracts coin
 ```
 
-After you execute these commands the Transfer Gateway will attempt to verify that you are the creator of these contracts, this may take a couple of minutes. In the meantime you can proceed to the next step.
+执行了这些命令后，转移网关将尝试验证你是否为这些合约的创建者 ，这可能需要几分钟时间。 在此期间，你可以进行下一步。
 
-## 4. Map `extdev` account to `Rinkeby` account
+## 4. 将 `extdev` 账户映射到 `Rinkeby` 账户
 
-Now that the two token contracts are connected via the Transfer Gateway you can start transferring tokens from `extdev` to `Rinkeby`. However, if you want to transfer tokens from `Rinkeby` to `extdev` you'll need to connect your `extdev` account to your `Rinkeby` account.
+现在两个代币合约通过转移网关连接起来了，你可以开始将代币从 `extdev` 转移到 `Rinkeby`。 但是，如果你想把代币从 `Rinkeby` 转移到 `extdev`，你将需要将你的 `extdev` 账户和 `Rinkeby` 账户连接起来。
 
 ```bash
 node ./gateway-cli.js map-accounts
 ```
 
-Great, everything should now be ready for flawless token transfer between `extdev` and `Rinkeby`!
+太棒了，现在一切都应该准备就绪了，可以在 `extdev` 和 `Rinkeby` 之间进行完美的代币转移啦！
 
-## 5. Token transfer
+## 5. 代币转移
 
-### From `Rinkeby` to `extdev`
+### 从 `Rinkeby` 到 `extdev`
 
-Now that all contracts and accounts have been mapped you can transfer tokens and ETH to the `Rinkeby` Gateway contract.
+现在所有的合约和账户都已经映射，你可以将代币和ETH转移到 `Rinkeby` 网关合约了。
 
-Lets start by minting some of the `MyRinkebyToken` ERC721 tokens, and transferring one of them to the `PlasmaChain`.
+我们先来铸造一些 `MyRinkebyToken` ERC721 代币，并将其中一个转移到 `PlasmaChain`。
 
 ```bash
 # mint some tokens on Rinkeby
@@ -276,7 +249,7 @@ node ./gateway-cli.js token-balance
 node ./gateway-cli.js token-balance -a gateway -c eth
 ```
 
-And now lets transfer some of the `MyRinkebyCoin` ERC20 tokens, a billion of them have already been minted to your account so you can transfer them right away.
+现在，我们转移一些 `MyRinkebyCoin` ERC20 代币，十亿这样的代币已经被铸造到你的账户，你可以马上转移它们了。
 
 ```bash
 # transfer 120 tokens to extdev PlasmaChain
@@ -292,9 +265,9 @@ node ./gateway-cli.js coin-balance
 node ./gateway-cli.js coin-balance -a gateway -c eth
 ```
 
-### From `extdev` to `Rinkeby`
+### 从 `extdev` 到 `Rinkeby`
 
-The ERC721 tokens can be transferred back to `Rinkeby` using the `withdraw-token` command.
+使用 `withdraw-token` 命令，可以将 ERC721 代币转移回 `Rinkeby`。
 
 ```bash
 # transfer a token to Rinkeby
@@ -310,7 +283,7 @@ node ./gateway-cli.js token-balance
 node ./gateway-cli.js token-balance -a gateway -c eth
 ```
 
-The ERC20 tokens can be transferred back to `Rinkeby` using the `withdraw-coin` command.
+使用 `withdraw-coin` 命令可以将 ERC20 代币转移回`Rinkeby`。
 
 ```bash
 # transfer 60 tokens to Rinkeby
@@ -326,16 +299,16 @@ node ./gateway-cli.js coin-balance
 node ./gateway-cli.js coin-balance -a gateway -c eth
 ```
 
-### Troubleshooting
+### 故障排除
 
-Sometimes the withdrawal process may error out due to network issues, or because gas ran out, if that happens you can try to complete the interrupted withdrawal using the `resume-withdrawal` command.
+有时撤回过程可能由于网络问题或者gas用尽而出现错误，如果发生这种情况，你可以尝试使用 `resume-withdrawal` 命令来完成被中断的撤回。
 
 ```bash
 node ./gateway-cli.js resume-withdrawal
 ```
 
-> NOTE: Only one pending withrawal is allowed per user.
+> 注意: 每个用户只允许有一个挂起的撤回。
 
-## Summary
+## 总结
 
-If you haven't already, take a look at the [Transfer Gateway Example](https://github.com/loomnetwork/transfer-gateway-example) project, which was built using the Transfer Gateway API provided by [loom-js](https://github.com/loomnetwork/loom-js).
+如果你还没有做的话，请查看 [转移网关示例 ](https://github.com/loomnetwork/transfer-gateway-example) 项目，该项目是使用 [loom-js](https://github.com/loomnetwork/loom-js) 提供的转移网关 API 构建的。

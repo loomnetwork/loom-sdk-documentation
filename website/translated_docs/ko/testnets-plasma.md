@@ -22,8 +22,9 @@ Faucets are all available on this url: [Faucet](http://faucet.dappchains.com)
 
 Where is the Ethereum contract related to a network deployed
 
-| Name           | Ethereum Link | TransferGateway Address                    |
-| -------------- | ------------- | ------------------------------------------ |
-| Staging Plasma | Rinkeby       | 0x6f7Eb868b2236638c563af71612c9701AC30A388 |
-| Plasma Chain   | Mainnet       | n/a                                        |
-| Validator Test | Rinkeby       | n/a                                        |
+| Name                              | Ethereum Link | TransferGateway Address                    |
+| --------------------------------- | ------------- | ------------------------------------------ |
+| Devnet Plasma (extdev-plasma-us1) | Rinkeby       | 0xb73C9506cb7f4139A4D6Ac81DF1e5b6756Fab7A2 |
+| Devnet Plasma (test-z-asia1)      | Rinkeby       | 0x3c826a09DF9ad39B9acF550b1bf35C9b6AfCd943 |
+| Plasma Chain                      | Mainnet       | n/a                                        |
+| Validator Test                    | Rinkeby       | n/a                                        |

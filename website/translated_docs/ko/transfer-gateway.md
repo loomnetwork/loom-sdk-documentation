@@ -22,7 +22,7 @@ When a user wishes to transfer a token from their Ethereum account to their DApp
 
 To get that same token back into their Ethereum account the user must first transfer the token back to the DAppChain Gateway, which creates a pending withdrawal. The pending withdrawal is picked up by the Gateway Oracle, which signs the withdrawal, and notifies the DAppChain Gateway. The DAppChain Gateway emits an event to let the user know they can withdraw their token from the Mainnet Gateway to their Ethereum account by providing the signed withdrawal record.
 
-If you're a hands-on learner you might want to jump straight into the \[Transfer Gateway Example\]\[\] example project before reading any further...
+If you're a hands-on learner you might want to jump straight into the [Transfer Gateway Example](https://github.com/loomnetwork/transfer-gateway-example) example project before reading any further...
 
 ## ERC721 컨트랙트 설정하기
 
@@ -109,4 +109,4 @@ To complete the withdrawal process Alice must provide the withdrawal signature (
 
 ## 요약
 
-You should now have a basic understanding of how the Transfer Gateway works, though we haven't presented nor explained any of the actual API yet. If you haven't already, take a look at the \[Transfer Gateway Example\]\[\] project, which was built using the Transfer Gateway API provided by [loom-js](https://github.com/loomnetwork/loom-js).
+You should now have a basic understanding of how the Transfer Gateway works, though we haven't presented nor explained any of the actual API yet. If you haven't already, take a look at the [Transfer Gateway Example](https://github.com/loomnetwork/transfer-gateway-example) project, which was built using the Transfer Gateway API provided by [loom-js](https://github.com/loomnetwork/loom-js).

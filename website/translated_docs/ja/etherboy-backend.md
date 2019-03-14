@@ -58,7 +58,6 @@ sidebar_label: Etherboyバックエンド
 ```bash
 ./loom run
 I[05-16|06:06:16.970] Using simple log event dispatcher
-I[05-16|06:06:19.999] Starting RPC HTTP server on tcp://0.0.0.0:9999 module=query-server
 ```
 
 これはフォア グラウンドで Etherboy を実行し、そのアウトプットをコンソールにプリントする。プロセスマネジメントをより良く行うには、次のセクションを見てみよう。

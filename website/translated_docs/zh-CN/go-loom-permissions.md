@@ -9,7 +9,11 @@ sidebar_label: 权限助手
 
 这有点类似于在Solidity里[OpenZeppelin](https://github.com/OpenZeppelin/openzeppelin-solidity/blob/master/contracts/ownership/Ownable.sol)的 Ownable概念。
 
-每个权限都有三属性: 1. 地址 2. 代币 3. 角色
+Every permission has three attributes:
+
+1. address
+2. token
+3. role
 
 代币可以是任何字符或字节序列，表示要拥有的对象。 例如, 一个人用户名可以是代币, 那个人拥有所有权。 其他类似于代币的东西也可以拥有所有权。
 

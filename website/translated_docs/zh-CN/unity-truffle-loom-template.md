@@ -5,11 +5,11 @@ sidebar_label: Unity + Truffle + Loom 模版
 ---
 # 概览
 
-有Unity客户端的Loom DApp链模板。 **包含:**
+A template for a Loom DAppChain with a Unity client. Contains:
 
 - 模板 [`Blueprint` Solidity 合约](https://github.com/loomnetwork/loom-unity-project-template/blob/master/TruffleProject/contracts/Blueprint.sol) 实现基本的字符串到字符串映射。 完美的起点。
 - 预配置的 Truffle 项目，可自动将已编译合约的 ABI 和二进制文件提取到相应的文件夹中。
-- 准备使用 Unity 项目，它使用 Loom SDK 中的 `Blueprint` 合约。
+- Pre-configured optimally setup Unity project with `Blueprint` contract test scene, and an already included Loom SDK.
 
 # 模版结构
 

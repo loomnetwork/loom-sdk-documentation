@@ -7,6 +7,51 @@ sidebar_label: 发布日志
 
 发布日志（最新的在顶部）
 
+## Loom 2.0 Release Build 789 - Feb 12th
+
+Major update, major updates for Performance, Caching and DPoS. It is recommended to upgrade your testnets immediately.
+
+* DPosV2 now supports Delegates staking and full reward cycle
+* Nonce incrementing mid block, loom-js and unity-sdk updated to support
+* Work has started on DPoSV3 to have shorter reward cycles and other improvements
+* Karma updates
+* CheckTx preformance boosts
+* Updated P2P protocol 
+* Go contracts now support event indexing - [Go Events Docs](go-events.html)
+* EVM Queries has improved caching layer
+* Bug for EVM contracts writting more then 11,800 keys is fixed
+* Support for non ETH block chains via TG has started
+* More metrics exposed
+* YubiHSM Fixes
+* Many new config options - [Loom Yaml Configs](loom-yaml.html)
+
+## Loom 2.0 Initial Release Build 651 - Dec 14th
+
+* Loom SDK 2.0
+* Updated P2P Protocols
+* Blockexplorer now supports EVM
+* Loom Native token support for on chain Staking
+* Support For delegation rewards in protocol
+* Fixes for GetEvmBlockByNumber/Hash
+* Range function Prefix fixes for Go Contracts
+* HSM local key signing - [HSM Docs](hsm.html)
+* Unity SDK Updated with better network management 
+
+Note Loom SDK 2.0 is not protocol compatible with 1.0 chains. If you have a production chain using 1.0 please contact support@loomx.io for migration help.
+
+## Release 575 - Nov 16th
+
+* HSM Bug fixes for Yubico Devices - [HSM Docs](hsm.html)
+* HSM now can create new private keys on demand
+
+## Release 575 - Nov 13th
+
+* HSM support for Yubico Devices - [HSM Docs](hsm.html)
+* DPoS Version2 beta - for Plasmachain external validators
+* Plasma cash massive improvements, see [Plasma Cli](https://github.com/loomnetwork/plasma-cli)
+* Pruning for the Datastore, if chain gets to large, see [Config](loom-yaml.html)
+* New EVM receipts data store, see [Config](loom-yaml.html)
+
 ## Release 478 - Oct 8th
 
 * Updated Transfer Gateway utilities

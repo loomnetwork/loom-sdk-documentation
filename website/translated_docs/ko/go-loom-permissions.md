@@ -9,7 +9,11 @@ go-loom으로 작성된 컨트랙트는 임의의 토큰에 대한 퍼미션을 
 
 이것은 [OpenZeppelin](https://github.com/OpenZeppelin/openzeppelin-solidity/blob/master/contracts/ownership/Ownable.sol)의 Solidity Ownable 개념과 약간 유사하다.
 
-모든 퍼미션은 세가지의 속성을 가진다: 1. address 2. token 3. role
+Every permission has three attributes:
+
+1. address
+2. token
+3. role
 
 Token은 아무 글자나 byte 시퀀스가 될수 있고, 소유되는 것을 객체로 표현된다. 예를 들면, 사람의 username을 소유권을 가지고 있는 token이라고 해보자. 다른 token과 다른점은 소유권을 가질 수 있다는 것이다.
 

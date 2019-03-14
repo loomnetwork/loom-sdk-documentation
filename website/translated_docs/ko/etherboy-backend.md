@@ -58,7 +58,6 @@ sidebar_label: Etherboy 백엔드
 ```bash
 ./loom run
 I[05-16|06:06:16.970] Using simple log event dispatcher
-I[05-16|06:06:19.999] Starting RPC HTTP server on tcp://0.0.0.0:9999 module=query-server
 ```
 
 이것은 포그라운드에서 Etherboy를 실행하고 콘솔에 결과를 출력합니다. 더 나은 프로세스 관리를 위해서는 다음 섹션을 보세요.

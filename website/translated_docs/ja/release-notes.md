@@ -7,6 +7,51 @@ sidebar_label: リリースノート
 
 新着順。
 
+## Loom 2.0 ビルド789 - 2月12日
+
+パフォーマンスやキャッシュ、DPoSをメジャーアップデート。 すぐにテストネットをアップグレードすることを推奨。
+
+* DPosV2がデリゲートステーキングとフルリワードサイクルをサポート
+* ミッドブロック、loom-js、unity-sdkのノンスインクリメントをアップデートしサポート
+* DPoSV3のリワードサイクル短縮化やその他の改善についての取り組みを開始
+* Karmaのアップデート
+* CheckTxのパフォーマンス向上
+* P2Pプロトコルのアップデート 
+* Goコントラクトがイベントインデックスをサポート- [Go Events Docs](go-events.html) 
+* EVMクエリがキャッシングレイヤーを改良
+* EVMコントラクトが11,800より多くのキーを書き出すバグを修正
+* 非ETHブロックのチェーンに対するサポートをTelegramにて開始
+* メトリクスをさらに公開
+* YubiHSMの修正
+* 多くの新規構成オプション - [Loom Yaml Configs](loom-yaml.html)
+
+## Loom 2.0イニシャルリリース ビルド651 - 12月14日
+
+* Loom SDK 2.0
+* P2Pプロトコルを更新
+* Block explorerのEVMトランザクションを更新
+* オンチェーンステーキングのためのLoomネイティブトークンサポート
+* プロトコルでデリゲート報酬をサポート
+* HSMローカルキー署名
+* GoコントラクトのためのRange関数Prefixの修正
+* HSMのローカルキー署名 - [HSM Docs](hsm.html)
+* ネットワーク管理の向上を伴うユーティリティSDKの更新 
+
+Loom SDK 2.0は1.0チェーンとプロトコルの互換性はないことに注意。1.0を用いたプロダクションチェーンがある場合は、移行についてsupport@loomx.ioまで問い合わせてほしい。
+
+## リリース 575 - 11月16日
+
+* YubicoデバイスのためのHSMバグ修正 - [HSM Docs](hsm.html)
+* 現在HSMは需要に応じて秘密鍵を生成できる
+
+## リリース 575 - 11月13日
+
+* Yubicoデバイス向けのHSMサポート - [HSM Docs](hsm.html)
+* Plasmachain外部バリデーターのためのDPoS バージョン２ベータ
+* Plasma Cashを大幅に改善 [Plasma Cli](https://github.com/loomnetwork/plasma-cli)
+* データストアのプルーニング. チェーンが大きくなった場合は以下を参照 [Config](loom-yaml.html)
+* 新たなEVMレシートのデータストア [Config](loom-yaml.html)
+
 ## リリース 478 - 10月8日
 
 * トランスファーゲートウェイのユーティリティ更新
@@ -121,7 +166,7 @@ sidebar_label: リリースノート
 ## リリース 143 - 6月1日
 
 * [BluePrint Dockerイメージが利用可能](docker-blueprint.html)
-* [東京ハッカソンのレポート](https://medium.com/loom-network-japanese/初のloom-unity-sdkハッカソンよりハイライト-東京エディション-516ea7bc37c1)
+* [東京ハッカソンのレポート](https://medium.com/loom-network/highlights-from-the-first-loom-unity-sdk-hackathon-tokyo-edition-6ed723747c19)
 * [Loom SDKプロジェクト用のDockerイメージ](https://hub.docker.com/r/loomnetwork/)
 * Evmトランザクションレシートの修正 
 

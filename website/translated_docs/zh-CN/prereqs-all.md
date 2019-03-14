@@ -1,11 +1,11 @@
 ---
 id: prereqs-all
-title: Prerequisites (ALL)
-sidebar_label: Installation Go Loom SDK
+title: 环境依赖（所有平台）
+sidebar_label: 安装 Go Loom SDK
 ---
-## Installing and setting up Loom
+## 安装和设置 Loom
 
-## Use your package manager to install curl
+## 使用你的软件包管理器来安装 curl
 
 OSX:
 
@@ -13,7 +13,7 @@ OSX:
 brew install curl
 ```
 
-Ubuntu / Windows Subsystem for Linux:
+适用于 Linux 的 Ubuntu/Windows 子系统:
 
 ```bash
 sudo apt install curl
@@ -29,7 +29,7 @@ sudo tar -C /usr/local -xzf go1.10.2.darwin-amd64.tar.gz
 sudo ln -s /usr/local/go/bin/go /usr/local/bin/go
 ```
 
-Linux / Windows Subsystem for Linux:
+适用于 Linux 的 Linux/Windows 子系统:
 
 ```bash
 curl -sL -o go1.10.2.linux-amd64.tar.gz https://dl.google.com/go/go1.10.2.linux-amd64.tar.gz
@@ -50,7 +50,7 @@ sudo unzip protoc-3.5.1-osx-x86_64.zip -d /usr/local
 sudo chmod +x /usr/local/bin/protoc
 ```
 
-Linux / Windows Subsystem for Linux:
+适用于 Linux 的 Linux/Windows 子系统:
 
 ```bash
 curl -sL -o protoc-3.5.1-linux-x86_64.zip https://github.com/google/protobuf/releases/download/v3.5.1/protoc-3.5.1-linux-x86_64.zip
@@ -59,17 +59,17 @@ sudo unzip protoc-3.5.1-linux-x86_64.zip -d /usr/local
 sudo chmod +x /usr/local/bin/protoc
 ```
 
-## Download loom
+## 下载 loom
 
-The following script can be used to automatically download the stable version of loom to the current directory:
+以下脚本可用于自动将稳定版的loom下载到当前目录：
 
 ```bash
 curl https://raw.githubusercontent.com/loomnetwork/loom-sdk-documentation/master/scripts/get_loom.sh | sh
 ```
 
-## Installation
+## 安装
 
-Run these in the same directory as the previous step.
+在与上一步相同的目录中运行这些。
 
 ```bash
 mkdir tmpgopath
@@ -85,19 +85,19 @@ cd build
 cp ../genesis.example.json genesis.json
 ```
 
-## Run Blockchain
+## 运行区块链
 
 ```bash
 ../../loom run
 ```
 
-## Send transactions
+## 发送事务
 
-Open a second console
+打开第二个控制台
 
-This will generate a private key. Create an account. Then set a value, and then read the value from the blockchain.
+这将生成私钥。 创建一个帐户。 然后设置一个值，接着从区块链中读取值。
 
-You can read the source of the [blueprint contract here](https://github.com/loomnetwork/weave-blueprint)
+你可以在这里读取 [blueprint 合约](https://github.com/loomnetwork/weave-blueprint) 源代码
 
 ```bash
 cd blueprint/build

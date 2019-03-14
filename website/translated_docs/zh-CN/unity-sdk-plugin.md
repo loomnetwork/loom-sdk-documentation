@@ -9,7 +9,7 @@ Loom支持EVM（[以太坊虚拟机](evm.html)）和基于插件的智能合约�
 
 ## 示例代码
 
-您可以在该页面上找到所有代码，并在 [`Assets/LoomSDK/Samples/QuickStart`](https://github.com/loomnetwork/unity3d-sdk/tree/master/Assets/LoomSDK/Samples/QuickStart)下的Loom Unity SDK中找到随时可用的Unity场景。
+You can find all the code on this page and a ready-to-go Unity scene in the Loom Unity SDK under [`Assets/LoomSDK/Samples/QuickStart`](https://github.com/loomnetwork/unity-sdk/tree/master/UnityProject/Assets/LoomSDK/Samples/QuickStart).
 
 ## 连接到 DApp链
 
@@ -146,4 +146,8 @@ async void Start()
 }
 ```
 
-现在我们已经准备好了所有代码，让我们测试一下： 1. 在Unity场景中创建一个空的`GameObject`并将 `LoomQuickStartSample`脚本添加进去。 2. 在本地Loom DApp链节点上部署 [BluePrint](https://github.com/loomnetwork/weave-blueprint/blob/master/src/blueprint.go) 智能合约。 3. 在Unity编辑器中点击 `Play`。
+Now that we have all the code in place let's test it out:
+
+1. Create an empty `GameObject` in a Unity scene and attach the `LoomQuickStartSample` script to it.
+2. Deploy the [BluePrint](https://github.com/loomnetwork/weave-blueprint/blob/master/src/blueprint.go) smart contract on a local Loom DAppChain node.
+3. Hit `Play` in the Unity Editor.
