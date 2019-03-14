@@ -33,6 +33,8 @@
     "EVM": "EVM",
     "extdev-transfer-gateway": "Transfer Gateway Testnet Tutorial",
     "Transfer Gateway Testnet": "Transfer Gateway Testnet",
+    "go-events": "Go Event Indexing",
+    "Go Event Indexing": "Go Event Indexing",
     "go-loom-clients": "Building DAppChain clients in Golang",
     "Building DAppChain Clients": "Building DAppChain Clients",
     "goloomevents": "Emitting events from go-loom contracts",
