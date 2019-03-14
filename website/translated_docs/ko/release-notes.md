@@ -52,36 +52,36 @@ Note Loom SDK 2.0 is not protocol compatible with 1.0 chains. If you have a prod
 * Pruning for the Datastore, if chain gets to large, see [Config](loom-yaml.html)
 * New EVM receipts data store, see [Config](loom-yaml.html)
 
-## Release 478 - Oct 8th
+## 릴리즈 478 - 10월 8일
 
-* Updated Transfer Gateway utilities
-* Transfer Gateway [tutorial plasma testnet](extdev-transfer-gateway.html)
+* Transfer Gateway 활용 예제 업데이트
+* Transfer Gateway [플라즈마 테스트넷 튜토리얼](extdev-transfer-gateway.html)
 
-## Release 458 - Sept 27th
+## 릴리즈 458 - 9월 27일
 
-**It is recommended that all users move up to this release**
+**모든 사용자에게 이 릴리즈로 업데이트하는 것을 추천합니다.**
 
-* Plasmachain Testnets available for Devs - [Docs](testnet-plasma.html)
-* Karma Faucet for Testnets - [Faucet](http://faucet.dappchains.com)
-* Karma contracts (Sybil resistance) Loom SDK - [Karma](karma.html)
-* Massive performance increasements for high load environments
-* Initial info about running a Validator - [Validator](validator.html)
+* 개발자들을 위한 Plasmachain 테스트넷이 사용 가능합니다 - [Plasmachain 테스트넷 문서](testnet-plasma.html)
+* 테스트넷을 위한 카르마 Faucet - [Faucet](http://faucet.dappchains.com)
+* Loom SDK 카르마 컨트랙트(Sybil 저항) - [카르마](karma.html)
+* 작업량이 많은 환경을 위한 대규모 성능 향상
+* 검증자 노드 운영에 대한 초기 정보 - [검증자](validator.html)
 
-## Release 404 - Aug 24th
+## 릴리즈 404 - 8월 24일
 
-** Features
+** 기능
 
-* ERC20 support upgraded in TransferGateway
-* Example ERC20 in Gateway - [Example](https://github.com/loomnetwork/token-gateway-example)
-* Loom SDK Doc site in [Korean](https://loomx.io/developers/ko/)
-* EVM now has limited support for Payable functions, more coming next week 
-* Loom-JS updates for ERC20/ETH transfers with TransferGateway. 
-* Loom-JS integration to DPoS contracts 
-* Experimental Support for [Plasma Debits](https://github.com/loomnetwork/plasma-cash/pull/115)
+* TransferGateway의 ERC20 지원 업그레이드
+* Gateway ERC20 예제 - [예제](https://github.com/loomnetwork/token-gateway-example)
+* Loom SDK Doc 사이트 [한글화](https://loomx.io/developers/ko/)
+* EVM이 이제 Payable 함수에 대해 제한적으로 지원합니다. 다음 주에 더 업데이트됩니다. 
+* TransferGateway를 통한 ERC20/ETH 전송용 Loom-JS 업데이트 
+* DPoS 컨트랙트로 Loom-JS 통합 
+* [Plasma Debits](https://github.com/loomnetwork/plasma-cash/pull/115)에 대한 실험적 지원
 
-** Breaking changes
+** 주목해야 할 수정 사항
 
-* Deprecrating QueryServerHost, and consolidating all functions to the RPCServer.
+* QueryServerHost를 Deprecate 합니다. RPCServer로 모든 기능을 통합합니다.
 * New Config option: RPCBindAddress: "tcp://0.0.0.0:46658"
 * Upgrades of PBFT engine, this may cause incompatibility issues on upgrades, please try in staging environments 
 
@@ -194,19 +194,19 @@ Major release
 * Websocket performance fixes
 * New Websocket Demo App - TilesChain - [Github](https://github.com/loomnetwork/tiles-chain) 
 
-## Release 129 - May 22rd
+## 릴리즈 129 - 5월 22일
 
-* Websocket support for eventing
-* Updates to indexing layer for solidty contracts
-* Phaser Game Dame - [Github](https://github.com/loomnetwork/phaser-sdk-demo)
+* 이벤트를 위한 Websocket 지원
+* Solidity 컨트랙트를 위한 indexing 레이어 업데이트
+* Phaser 게임 데모 - [Github](https://github.com/loomnetwork/phaser-sdk-demo)
 
-## Release 128 - May 21th
+## 릴리즈 128 - 5월 21일
 
-* Lots of bug fixes for Etherboy
+* Etherboy와 관련된 수많은 버그 수정
 
-## Release 128 - May 19th
+## 릴리즈 128 - 5월 19일
 
-* Stable Beta Release
-* Updating logging to default to multiple files 
-* Moving all RPC to a single interface
-* Updated External Process interface
+* Stable 베타 릴리즈
+* 로깅이 기본적으로 여러 파일에 되도록 업데이트 
+* 모든 RPC를 단일 인터페이스로 이동
+* 외부 프로세스 인터페이스 업데이트
