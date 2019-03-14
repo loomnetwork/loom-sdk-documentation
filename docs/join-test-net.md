@@ -28,30 +28,6 @@ local address base64: OzNL7R59Pn2SFElRIBYNkjasvDE=
 and this will create files named `priv_key` and `pub_key`,
 the `priv_key` file contains your private key that you'll use to deploy contracts to the DAppChain.
 
-
-# How to use Karma faucet
-  
-1. Go to [Karma Faucet](https://faucet.dappchains.com) website
-<br/><br/><br/>
-![image](/developers/img/faucet/1.png)
-<br/><br/><br/>
-2. Fill recipient address with your `public address` which is the same account in your truffle
-<br/><br/><br/>
-![image](/developers/img/faucet/2.png)
-<br/><br/><br/>
-3. Select test-net network you want to deploy your contract
-<br/><br/><br/>
-![image](/developers/img/faucet/3.png)
-<br/><br/><br/>
-4. Press `request` button
-<br/><br/><br/>
-![image](/developers/img/faucet/4.png)
-<br/><br/><br/>
-5. Make sure you get `faucet-karma` appear before deploy your contract to selected test-net
-<br/><br/><br/>
-![image](/developers/img/faucet/5.png)
-
-
 # Deploy Truffle Example to a Testnet
 
 1. Make sure you have node and yarn/npm installed
@@ -73,5 +49,3 @@ the `priv_key` file contains your private key that you'll use to deploy contract
     ```bash
     yarn deploy:extdev
     ```
-    If you don't have karma this will fail with error `Failed to commit Tx: origin has no karma`
-    so you need to request karma from [Karma Faucet](http://faucet.dappchains.com)

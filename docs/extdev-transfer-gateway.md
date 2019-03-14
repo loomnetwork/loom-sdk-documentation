@@ -111,12 +111,7 @@ Full source for all contracts can be found in the [Truffle DAppChain Example][] 
    This is the public address that corresponds to your new private key. You'll find the private key
    in the `extdev_private_key` file, and the corresponding public key in the `extdev_public_key` file.
 
-5. Your new account will need some karma before you can use to deploy or call contracts.
-   Go to the [Karma Faucet](http://faucet.dappchains.com), put in the public address that was just
-   generated for you (the hex encoded one that starts with `0x`), select the `extdev` network,
-   and press the `Request` button to get some karma.
-
-6. Deploy the `MyToken` and `MyCoin` contracts to the `extdev` PlasmaChain.
+5. Deploy the `MyToken` and `MyCoin` contracts to the `extdev` PlasmaChain.
 
    ```bash
    yarn deploy:extdev
@@ -124,9 +119,7 @@ Full source for all contracts can be found in the [Truffle DAppChain Example][] 
 
 ## 2. Deploy token contracts to `Rinkeby`
 
-There aren't any special requirements for token contracts deployed to Ethereum networks, though
-there are safe transfer extensions you may wish to implement in your ERC20 contracts to make it
-easier to deposit tokens into the `Rinkeby` Gateway.
+There aren't any special requirements for token contracts deployed to Ethereum networks.
 
 ### MyRinkebyToken ERC721 contract
 
@@ -157,12 +150,8 @@ contract MyRinkebyToken is ERC721Token {
 pragma solidity ^0.4.24;
 
 import "openzeppelin-solidity/contracts/token/ERC20/StandardToken.sol";
-import "openzeppelin-solidity/contracts/AddressUtils.sol";
-import "./ERC20Receiver.sol";
 
 contract MyRinkebyCoin is StandardToken {
-    using AddressUtils for address;
-
     string public name = "MyRinkebyCoin";
     string public symbol = "MRC";
     uint8 public decimals = 18;
@@ -170,30 +159,9 @@ contract MyRinkebyCoin is StandardToken {
     // one billion in initial supply
     uint256 public constant INITIAL_SUPPLY = 1000000000;
 
-    bytes4 constant ERC20_RECEIVED = 0xbc04f0af;
-
     constructor() public {
         totalSupply_ = INITIAL_SUPPLY * (10 ** uint256(decimals));
         balances[msg.sender] = totalSupply_;
-    }
-
-    function safeTransferAndCall(address _to, uint256 _amount) public {
-        transfer(_to, _amount);
-        require(
-            checkAndCallSafeTransfer(msg.sender, _to, _amount),
-            "Sent to a contract which is not an ERC20 receiver"
-        );
-    }
-
-    function checkAndCallSafeTransfer(
-        address _from, address _to, uint256 _amount
-    ) internal returns (bool) {
-        if (!_to.isContract()) {
-            return true;
-        }
-
-        bytes4 retval = ERC20Receiver(_to).onERC20Received(_from, _amount);
-        return (retval == ERC20_RECEIVED);
     }
 }
 ```
