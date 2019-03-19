@@ -5,7 +5,7 @@ sidebar_label: Installation Loom SDK
 ---
 # Installing and setting up Loom
 
-Currently the only way to use Loom on windows is to use the [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
+현재 Windows에서 Loom을 사용하는 유일한 방법은 [Linux를 위한 Windows Subsystem](https://docs.microsoft.com/en-us/windows/wsl/install-win10)을 사용하는 것입니다.
 
 Once you install that you can continue on below.
 
