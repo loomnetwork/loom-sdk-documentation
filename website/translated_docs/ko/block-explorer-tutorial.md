@@ -65,7 +65,7 @@ Dev 서버는 `http://127.0.0.1:8080`에서 실행되고 있을 것입니다. 80
     import * as DC from '@/pbs/YOUR_PROTO_FILE_NAME_pb'
     
 
-1. You can use your own protobuf decoders to decode the block data now. You might want to write different decoding function for different data(take *delegatecall* for example):
+1. 여러분은 블록 데이터를 디코드 하기위한 자신만의 protobuf 디코더를 당장 만들수도 있습니다. 서로다른 데이터에 대한 각각 다른 디코딩 함수를 작성하길 원할 수도 있습니다(*delegatecall*을 예로 들면):
     
         function readDCProtoData(cmc: ContractMethodCall): DelegateCallTx {
           const methodName = cmc.toObject().method
