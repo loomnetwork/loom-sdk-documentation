@@ -7,23 +7,23 @@ sidebar_label: 릴리즈 노트
 
 릴리즈 노트는 역순으로 구성되어 있습니다.
 
-## Loom 2.0 Release Build 789 - Feb 12th
+## Loom 2.0 초기 릴리스 빌드 789 - 2월 12일
 
 주요 업데이트, 성능, 캐싱, DPoS를 위한 주요 업데이트. 즉시 여러분의 테스트넷을 업그레이드 할 것을 추천합니다.
 
 * DPosV2는 위임자 스테이킹과 전체 보상 사이클을 지원합니다.
-* Nonce incrementing mid block, loom-js and unity-sdk updated to support
-* Work has started on DPoSV3 to have shorter reward cycles and other improvements
-* Karma updates
-* CheckTx preformance boosts
-* Updated P2P protocol 
-* Go contracts now support event indexing - [Go Events Docs](go-events.html)
-* EVM Queries has improved caching layer
-* Bug for EVM contracts writting more then 11,800 keys is fixed
-* Support for non ETH block chains via TG has started
-* More metrics exposed
-* YubiHSM Fixes
-* Many new config options - [Loom Yaml Configs](loom-yaml.html)
+* 논스 인크리멘팅 미드 블록, loom-js과 unity-sdk 가 지원을 위해 업데이트
+* 더 짧은 보상 주기 및 다른 성능향상을 위해서 작업은 DPoSV3 에서 시작되었습니다
+* Karam 업데이트
+* CheckTx 성능 향상
+* P2P 프로토콜 업데이트 
+* Go 컨트랙트가 현재 이벤트 인덱싱을 지원 - [Go 이벤트 문서](go-events.html)
+* EVM 쿼리가 캐싱 레이어를 향상시킴
+* 11,800개 이상의 키가 써지는 EVM 컨트랙트의 버그가 수정됨
+* TG를 통해 비 ETH 블록체인을 지원하는 것이 시작됨.
+* 더 많은 메트릭을 보여줌
+* YubiHSM 수정
+* 많은 새로운 config 옵션 - [Loom Yaml Configs](loom-yaml.html)
 
 ## Loom 2.0 초기 릴리스 빌드 651 - 12월 14일
 
