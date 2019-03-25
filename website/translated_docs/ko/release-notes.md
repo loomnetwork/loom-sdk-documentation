@@ -9,9 +9,9 @@ sidebar_label: 릴리즈 노트
 
 ## Loom 2.0 Release Build 789 - Feb 12th
 
-Major update, major updates for Performance, Caching and DPoS. It is recommended to upgrade your testnets immediately.
+주요 업데이트, 성능, 캐싱, DPoS를 위한 주요 업데이트. 즉시 여러분의 테스트넷을 업그레이드 할 것을 추천합니다.
 
-* DPosV2 now supports Delegates staking and full reward cycle
+* DPosV2는 위임자 스테이킹과 전체 보상 사이클을 지원합니다.
 * Nonce incrementing mid block, loom-js and unity-sdk updated to support
 * Work has started on DPoSV3 to have shorter reward cycles and other improvements
 * Karma updates
@@ -37,7 +37,7 @@ Major update, major updates for Performance, Caching and DPoS. It is recommended
 * HSM 로컬 키 사이닝 - [HSM 문서](hsm.html)
 * 향상된 네트워크 관리를 포함한 Unity SDK 업데이트 
 
-Note Loom SDK 2.0 is not protocol compatible with 1.0 chains. If you have a production chain using 1.0 please contact support@loomx.io for migration help.
+주의 Loom SDK 2.0 은 1.0 체인과의 프로토콜이 호환되지 않습니다. 만약 여러분이 1.0 버전을 사용하는 상용 체인을 가지고 있다면 마이그레이션 도움을 위해서 support@loomx.io로 연락 바랍니다.
 
 ## 릴리즈 575 - 11월 16일
 
