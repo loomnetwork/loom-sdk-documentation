@@ -1,11 +1,11 @@
 ---
 id: prereqs-all
-title: Prerequisites (ALL)
-sidebar_label: Installation Go Loom SDK
+title: 필수요소 (모두)
+sidebar_label: Go Loom SDK 설치하기
 ---
-## Installing and setting up Loom
+## Loom 설치 및 설정하기
 
-## Use your package manager to install curl
+## curl을 설치하기 위해서 패키지 매니저를 사용하기
 
 OSX:
 
@@ -59,17 +59,17 @@ sudo unzip protoc-3.5.1-linux-x86_64.zip -d /usr/local
 sudo chmod +x /usr/local/bin/protoc
 ```
 
-## Download loom
+## Loom 다운로드
 
-The following script can be used to automatically download the stable version of loom to the current directory:
+다음 스크립트는 현재 디렉토리에 loom의 스테이블 버전을 자동으로 다운로드 하는데 사용될 수 있습니다:
 
 ```bash
 curl https://raw.githubusercontent.com/loomnetwork/loom-sdk-documentation/master/scripts/get_loom.sh | sh
 ```
 
-## Installation
+## 설치하기
 
-Run these in the same directory as the previous step.
+이전 단계와 동일한 디렉터리에서 이것을 실행합니다.
 
 ```bash
 mkdir tmpgopath
@@ -85,19 +85,19 @@ cd build
 cp ../genesis.example.json genesis.json
 ```
 
-## Run Blockchain
+## 블록체인 실행하기
 
 ```bash
 ../../loom run
 ```
 
-## Send transactions
+## 트랜잭션 전송하기
 
-Open a second console
+두 번째 콘솔을 여세요
 
-This will generate a private key. Create an account. Then set a value, and then read the value from the blockchain.
+이렇게 하면 프라이빗 키가 만들어집니다. 계정을 만들고, 값을 저장한 후 블록체인으로부터 값을 읽어옵니다.
 
-You can read the source of the [blueprint contract here](https://github.com/loomnetwork/weave-blueprint)
+여기서 [blueprint 컨트랙트](https://github.com/loomnetwork/weave-blueprint)의 소스를 볼 수 있습니다.
 
 ```bash
 cd blueprint/build
