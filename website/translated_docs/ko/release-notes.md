@@ -44,11 +44,11 @@ Note Loom SDK 2.0 is not protocol compatible with 1.0 chains. If you have a prod
 * HSM Bug fixes for Yubico Devices - [HSM Docs](hsm.html)
 * HSM now can create new private keys on demand
 
-## Release 575 - Nov 13th
+## 릴리즈 575 - 11월 13일
 
-* HSM support for Yubico Devices - [HSM Docs](hsm.html)
-* DPoS Version2 beta - for Plasmachain external validators
-* Plasma cash massive improvements, see [Plasma Cli](https://github.com/loomnetwork/plasma-cli)
+* Yubico 디바이스를 위한 HSM 지원 - [HSM 문서](hsm.html)
+* DPoS 버전 2 베타 - Plasmachain 외부 검증자를 위한
+* Plasma cash 대규모 개선사항, [Plasma Cli](https://github.com/loomnetwork/plasma-cli)을 보세요
 * Pruning for the Datastore, if chain gets to large, see [Config](loom-yaml.html)
 * New EVM receipts data store, see [Config](loom-yaml.html)
 
