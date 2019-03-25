@@ -86,7 +86,7 @@ Dev 서버는 `http://127.0.0.1:8080`에서 실행되고 있을 것입니다. 80
         }
         
     
-    For each of these decoding functions, use relative protobuf function to decode:
+    이런 각각의 디코딩 함수는 디코딩을 위한 상대적인 protobuf 함수를 사용합니다.
     
         function readVoteTxPayload(r: Uint8Array): IVoteTx {
           const DCVoteTX = DC.DelegatecallVoteTx.deserializeBinary(r).toObject()
@@ -100,4 +100,4 @@ Dev 서버는 `http://127.0.0.1:8080`에서 실행되고 있을 것입니다. 80
         }
         
 
-More scripts like `run`, `build` or `format` the code, you can read the `README.MD` file in the block explorer.
+`run`, `build` 혹은 `format` 코드와 같은 더 많은 스크립트는, 블록 탐색기의 `README.MD` 파일에서 볼 수 있습니다.
