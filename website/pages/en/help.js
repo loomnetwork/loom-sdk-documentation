@@ -69,7 +69,7 @@ class Help extends React.Component {
         title: '<translate>Browse Docs</translate>',
       },
       {
-        content: '&#8226; <translate>Ask questions about the documentation and project: <a href="https://t.me/????">Join our SDK Telegram Room </a> <br> <br> &#8226; Ask questions on <a href="https://delegatecall.com">DelegateCall</translate></a>   ',
+        content: '&#8226; <translate>Ask questions about the documentation and project: <a href="https://t.me/LoomSDK">Join our SDK Telegram Room </a> <br> <br> &#8226; Ask questions on <a href="https://delegatecall.com">DelegateCall</translate></a>   ',
         title: '<translate>Join the community</translate>',
       },
       {
