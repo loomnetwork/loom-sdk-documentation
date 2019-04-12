@@ -27,7 +27,6 @@ local address base64: OzNL7R59Pn2SFElRIBYNkjasvDE=
 
 and this will create files named `priv_key` and `pub_key`, the `priv_key` file contains your private key that you'll use to deploy contracts to the DAppChain.
 
-
 # Deploy Truffle Example to a Testnet
 
 1. Make sure you have node and yarn/npm installed
