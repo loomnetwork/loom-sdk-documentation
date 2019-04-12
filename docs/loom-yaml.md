@@ -141,26 +141,30 @@ PlasmaCash:
 
 ## Karma
 
-Data Types
-```yaml
-type KarmaConfig struct {
-	Enabled         bool  // Activate karma module
-	ContractEnabled bool  // Allows you to deploy karma contract to collect data even if chain doesn't use it
-	UpkeepEnabled   bool  // Adds an upkeep cost to deployed and active contracts for each user
-	MaxCallCount    int64 // Maximum number call transactions per session duration
-	SessionDuration int64 // Session length in seconds
-}
-```
-
-Example
 ```yaml
 Karma:
-  Enabled: {{ .Karma.Enabled }}
-  ContractEnabled: {{ .Karma.ContractEnabled }}
-  UpkeepEnabled: {{ .Karma.UpkeepEnabled }}
-  MaxCallCount: {{ .Karma.MaxCallCount }}
-  SessionDuration: {{ .Karma.SessionDuration }}
+  Enabled: true
+  ContractEnabled: false
+  UpkeepEnabled: true
+  MaxCallCount: 10
+  SessionDuration: 60
 ```
+
+### Enabled
+Enables karma functionality. Users cannot perform transactions without positive karma. 
+Call transactions are limited by MaxCallCount and karma.
+
+### ContractEnabled
+Allows you to deploy karma contract to collect data even if chain doesn't use it
+
+### UpkeepEnabled
+Enables EVM Contract upkeep. Deployed EVM contracts have an upkeep cost. Contracts can be active or inactive, users periodically spend karma to keep contracts active.
+
+### MacCallCount
+Maximum number of call transactions allowed per session duration. This is increased by the user's karma.
+
+### SessionDuration
+Session duration in seconds for restricting call transaction. 
 
 ## Caching Store 
 
