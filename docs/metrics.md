@@ -6,7 +6,7 @@ sidebar_label: Metrics
 
 ## Overview
 
-Loom instruments metrics and exposes the values of the metrics to external monitoring services. Middleware layer is introduced to enable separation of concern between application services and instrumenting. Loom SDK utilizes go-kit's `metrics` package to instrument metrics. 
+Loom instruments metrics and exposes the values of the metrics to external monitoring services. Middleware layer is introduced to enable separation of concern between application services and instrumenting. Loom SDK utilizes go-kit's `metrics` package to instrument metrics.
 
 ## Loom SDK Metrics
 
@@ -42,8 +42,8 @@ Loom also provides the two different field names for each metrics to create vari
 The followings are the example of the exposed metrics with different fields.
 
 ```
-loomchain_query_service_request_count{error="false",method="Nonce"} 
-loomchain_query_service_request_count{error="true",method="Nonce"} 
+loomchain_query_service_request_count{error="false",method="Nonce"}
+loomchain_query_service_request_count{error="true",method="Nonce"}
 loomchain_query_service_request_count{error="false",method="Query"}
 loomchain_query_service_request_count{error="true",method="Query"}
 ```
@@ -80,11 +80,13 @@ loomchain_query_service_request_latency_microseconds_count{error="true",method="
 
 Loom does not store the metrics but only exposes the metric values at the moment. To get metrics, you can either poll the metrics from the endpoint to your monitoring system or you can use [Prometheus](https://prometheus.io/docs/prometheus/latest/installation/).
 
+Since loom build 929, you can configure loom to push metrics to [Prometheus Pushgateway](https://github.com/prometheus/pushgateway)
+
 You can also visualize the metrics using tools like [Grafana](https://grafana.com/) or [Kibana](https://www.elastic.co/products/kibana).
 
-### Prometheus 
+### Prometheus (Scraping Directly)
 
-To configure prometheus server, add the following to your config file:
+To configure prometheus server, add the following to the Prometheus config:
 
 ```yaml
 scrape_configs:
@@ -95,6 +97,41 @@ scrape_configs:
     - targets:
       - 127.0.0.1:46658 # The IP address to the query server host
 ```
+
+### Prometheus (Pushing)
+
+You will need Prometheus Pushgateway set up. It is an intermediary service between loom and the Prometheus scraper.
+
+These need to be added to your loom.yml
+
+```yaml
+PrometheusPushGateway:
+  # Enable publishing via a Prometheus Pushgateway
+  Enabled: <boolean>
+  # host:port or ip:port of the Pushgateway
+  PushGateWayUrl: "<string>:<string>"
+  # Frequency with which to push metrics to Pushgateway
+  PushRateInSeconds: <integer>
+  # Job Name to include in the pushed metrics
+  JobName: "<string>"
+```
+
+loom will automatically determine the `instance` tag based on your hostname and send it in the pushed metrics.
+
+To scrape the metrics from the Pushgateway, you need to configure Prometheus:
+
+```yaml
+scrape_configs:
+  - job_name: "pushgateway"
+    metrics_path: "/metrics"
+    scrape_interval: "5s"
+    honor_labels: true
+    static_configs:
+    - targets:
+      - <ip_of_pushgateway>:9091
+```
+
+The `honor_labels` configuration need to be set to true so that `job_name` and `instance` are derived from the pushed metrics.
 
 ## List of All Metrics
 
