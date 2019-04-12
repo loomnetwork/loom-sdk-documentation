@@ -775,7 +775,14 @@ Writing to a DAppChain using a `Call` transactions that can modify the state ret
 
 ### Transaction receipt
 
-Details of each EVM call transaction are stored on the loomchain and can be accessed using the transaction hash.
+The details of each EVM transaction, or `receipts`, are stored by the DAppChain and can be accessed using the `receipt hash` returned by
+each EVM transaction. This hash is an index for accessing receipts and is only generated for EVM transaction. 
+
+This `reciept hash` is different from the `Tendermint transaction hash` used in blockchain calculations. 
+As both hashes are unique for every EVM transaction and Ethereum has only EVM transactions, 
+Ethereum is able to combines the two objects. However a DAppChain can have transactions in different languages and we maintain
+the two hashes. The `receipt index` is sometimes confusingly called `transaction hash` when identifying with the corresponding
+Ethereum object. 
 
 The loom chain `QueryService` has the method `TxReceipt(txHash []byte) 
 ([]byte, error)` which returns the receipt in a protobuf form. go-loom and loom-js provide an API for this query.
