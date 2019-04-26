@@ -89,10 +89,11 @@ body {
 
 .docsNavContainer {
   margin: 50px 0 !important;
+  border-right: 1px solid #e1e1e1;
 }
 
 .fixedHeaderContainer {
-  position: absolute;
+  position: fixed;
 }
 
 .doc .navPusher {
@@ -895,4 +896,64 @@ footer .zombie-mascot {
 }
 
 @media only screen and (min-width: 1500px) {
+}
+
+
+/* Scroll Custom */
+body, .docsNavContainer {
+  scrollbar-color: #babac0 transparent;
+  scrollbar-width: thin;
+}
+
+.docsNavContainer::-webkit-scrollbar, body::-webkit-scrollbar {
+  background-color: transparent;
+  width:10px
+}
+
+.docsNavContainer::-webkit-scrollbar-track, body::-webkit-scrollbar-track {
+  background-color:transparent;
+}
+
+.docsNavContainer::-webkit-scrollbar-thumb, body::-webkit-scrollbar-thumb {
+  background-color:#babac0;
+  /* border:2px solid transparent; */
+}
+
+.docsNavContainer::-webkit-scrollbar-button, body::-webkit-scrollbar-button {display:none}
+
+.scrollbar::-webkit-scrollbar-track {
+  background-color:#fff
+}
+.scrollbar::-webkit-scrollbar-track:hover {
+  background-color:#f4f4f4
+}
+
+/* scrollbar itself */
+.scrollbar::-webkit-scrollbar-thumb {
+  background-color:#babac0;
+  border-radius:16px;
+  border:5px solid #fff
+}
+.scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color:#a0a0a5;
+  border:4px solid #f4f4f4
+}
+
+/* 
+::-webkit-scrollbar               entire scrollbar scope 
+::-webkit-scrollbar-button        directional buttons at the top and bottom of the scrollbar 
+::-webkit-scrollbar-track         space below the scrollbar 
+::-webkit-scrollbar-track-piece   not covered area by the scrollbar-thumb 
+::-webkit-scrollbar-thumb         draggable scrollbar itself 
+::-webkit-resizer                 resizser at the bottom of the scrollbar 
+::-webkit-scrollbar-corner        bottom of the scrollbar without resizse 
+ */
+
+/* Hightlight Custom Style */
+.hljs {
+  background-color: rgba(17, 13, 22, .91);
+  border: solid 2px #4f465d;
+  border-radius: 0;
+  color: #f4f4f4;
+  font-size: 14px;
 }

@@ -57,8 +57,9 @@ const siteConfig = {
     {doc: 'basic-install-all', label: 'Docs'},
   //  {doc: 'doc4', label: 'API'},
     {page: 'help', label: 'Help'},
-    {href: 'https://medium.com/loom-network', label: 'Blog'}
+    {href: 'https://medium.com/loom-network', label: 'Blog'},
 //    {blog: true, label: 'Blog'},
+    {search: true}
   ],
 
   // If you have users set above, you add it here:
@@ -97,7 +98,7 @@ const siteConfig = {
 
   highlight: {
     // Highlight.js theme to use for syntax highlighting in code blocks
-    theme: 'default',
+    theme: 'arta',
   },
 
   // Add custom scripts here that would be placed in <script> tags
