@@ -1,8 +1,8 @@
-* * *
-
-id: logging title: 로깅 sidebar_label: 로깅
-
-* * *
+---
+id: logging
+title: 로깅
+sidebar_label: 로깅
+---
 
 ## 개요
 

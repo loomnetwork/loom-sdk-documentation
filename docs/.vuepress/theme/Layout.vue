@@ -72,7 +72,6 @@ export default {
     }
   },
   mounted() {
-    console.log(i18n)
     this.$router.afterEach(() => {
       this.isSidebarOpen = false
     })
