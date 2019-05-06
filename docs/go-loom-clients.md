@@ -3,6 +3,7 @@ id: go-loom-clients
 title: Building DAppChain clients in Golang
 sidebar_label: Building DAppChain Clients
 ---
+# Building DAppChain clients in Golang
 
 ## Overview
 
