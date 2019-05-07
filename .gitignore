@@ -3,6 +3,7 @@
 node_modules
 
 .vscode/
+.docs/.vuepress/dist
 
 
 # Mac OS X file
