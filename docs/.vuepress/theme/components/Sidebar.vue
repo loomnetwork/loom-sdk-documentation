@@ -1,21 +1,25 @@
 <template>
-  <aside class="sidebar scroll-container">
+  <aside class="sidebar">
     <img src="/img/theme-light.svg"/>
-    <NavLinks />
-    <slot name="top" />
-    <ul v-if="items.length" class="sidebar-links">
-      <li v-for="(item, i) in items" :key="i">
-        <SidebarGroup
-          v-if="item.type === 'group'"
-          :item="item"
-          :first="i === 0"
-          :open="i === openGroupIndex"
-          :collapsable="item.collapsable || item.collapsible"
-          @toggle="toggleGroup(i)"
-        />
-        <SidebarLink v-else :item="item" />
-      </li>
-    </ul>
+    <SearchBox v-if="$site.themeConfig.search !== false" />
+    
+      <NavLinks />
+      <slot name="top" />
+      <div class="scroll-container">
+      <ul v-if="items.length" class="sidebar-links">
+        <li v-for="(item, i) in items" :key="i">
+          <SidebarGroup
+            v-if="item.type === 'group'"
+            :item="item"
+            :first="i === 0"
+            :open="i === openGroupIndex"
+            :collapsable="item.collapsable || item.collapsible"
+            @toggle="toggleGroup(i)"
+          />
+          <SidebarLink v-else :item="item" />
+        </li>
+      </ul>
+    </div>
     <slot name="bottom" />
   </aside>
 </template>
@@ -24,10 +28,11 @@
 import SidebarGroup from './SidebarGroup.vue'
 import SidebarLink from './SidebarLink.vue'
 import NavLinks from './NavLinks.vue'
+import SearchBox from './SearchBox'
 import { isActive } from '../util'
 
 export default {
-  components: { SidebarGroup, SidebarLink, NavLinks },
+  components: { SidebarGroup, SidebarLink, NavLinks, SearchBox },
 
   props: ['items'],
 
@@ -103,6 +108,9 @@ function resolveOpenGroupIndex(route, items) {
       font-weight bold
     & > li:not(:first-child)
       margin-top .75rem
+  .scroll-container
+    overflow-y auto
+    height calc(100% - 200px)
 
 @media (max-width: $MQMobile)
   .sidebar

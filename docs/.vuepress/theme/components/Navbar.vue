@@ -20,8 +20,6 @@
     </router-link>
 
     <div class="links" :style="linksWrapMaxWidth ? { 'max-width': linksWrapMaxWidth + 'px' } : {}">
-      <AlgoliaSearchBox v-if="isAlgoliaSearch" :options="algolia" />
-      <!-- <SearchBox v-else-if="$site.themeConfig.search !== false" /> -->
       <NavLinks class="can-hide" />
     </div>
   </header>
@@ -29,12 +27,9 @@
 
 <script>
 import SidebarButton from './SidebarButton.vue'
-// import AlgoliaSearchBox from '@AlgoliaSearchBox'
-import AlgoliaSearchBox from './AlgoliaSearchBox'
-// import SearchBox from '@SearchBox'
 import NavLinks from './NavLinks.vue'
 export default {
-  components: { SidebarButton, NavLinks, AlgoliaSearchBox },
+  components: { SidebarButton, NavLinks },
   data() {
     return {
       linksWrapMaxWidth: null

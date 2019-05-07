@@ -10,7 +10,6 @@ export default {
       props: { item, sidebarDepth }
     }
   ) {
-    console.log(h)
     // use custom active class matching logic
     // due to edge case of paths ending with / + hash
     const selfActive = isActive($route, item.path)
@@ -20,7 +19,6 @@ export default {
       item.type === 'auto'
         ? selfActive || item.children.some(c => isActive($route, item.basePath + '#' + c.slug))
         : selfActive
-    console.log($themeLocaleConfig)
     // $themeLocaleConfig
     const path = $themeLocaleConfig.base ? $themeLocaleConfig.base + item.path : item.path
     const link = renderLink(h, path, item.title || item.path, active)

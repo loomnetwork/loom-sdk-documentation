@@ -41,6 +41,7 @@ export default {
     shouldShowNavbar() {
       const { themeConfig } = this.$site
       const { frontmatter } = this.$page
+      console.log(this.$page)
       if (frontmatter.navbar === false || themeConfig.navbar === false) {
         return false
       }

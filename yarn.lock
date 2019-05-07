@@ -900,7 +900,7 @@
   dependencies:
     "@vuepress/shared-utils" "^1.0.0-alpha.47"
 
-"@vuepress/plugin-search@^1.0.0-alpha.37", "@vuepress/plugin-search@^1.0.0-alpha.47":
+"@vuepress/plugin-search@^1.0.0-alpha.47":
   version "1.0.0-alpha.47"
   resolved "https://registry.yarnpkg.com/@vuepress/plugin-search/-/plugin-search-1.0.0-alpha.47.tgz#4463927edd915ee38fbe08510f4398ff9da43ab0"
   integrity sha512-Cc0Pckzv4bspfOFecvubazirnZMPbaT4B4KT3KPknrqCfW0Uiv4sSxXEAtzMCB+UF6P7Dlt50SfI/2MO7k58xg==

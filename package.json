@@ -4,7 +4,6 @@
     "build": "vuepress build docs"
   },
   "devDependencies": {
-    "@vuepress/plugin-search": "^1.0.0-alpha.37",
     "vuepress": "^1.0.0-alpha.47"
   },
   "dependencies": {}
