@@ -16,7 +16,10 @@ function counter(content) {
   return [cn, en]
 }
 
-export function min2read(content, { cn = 300, en = 160 } = {}) {
+export function min2read(content, {
+  cn = 300,
+  en = 160
+} = {}) {
   const len = counter(content)
   const readingTime = len[0] / cn + len[1] / en
   return readingTime < 1 ? '1' : parseInt(readingTime, 10)
@@ -101,7 +104,10 @@ export function resolvePage(pages, rawPath, base) {
 function resolvePath(relative, base, append) {
   const firstChar = relative.charAt(0)
   if (firstChar === '/') {
-    return relative
+    if (base === '/') {
+      return relative
+    }
+    return base + relative.slice(1)
   }
 
   if (firstChar === '?' || firstChar === '#') {
@@ -144,8 +150,10 @@ function resolvePath(relative, base, append) {
  * @returns { SidebarGroup }
  */
 export function resolveSidebarItems(page, regularPath, site, localePath) {
-  const { pages, themeConfig } = site
-
+  const {
+    pages,
+    themeConfig
+  } = site
   const localeConfig =
     localePath && themeConfig.locales ? themeConfig.locales[localePath] || themeConfig : themeConfig
 
@@ -158,7 +166,10 @@ export function resolveSidebarItems(page, regularPath, site, localePath) {
   if (!sidebarConfig) {
     return []
   } else {
-    const { base, config } = resolveMatchingConfig(regularPath, sidebarConfig)
+    const {
+      base,
+      config
+    } = resolveMatchingConfig(regularPath, sidebarConfig, localePath)
     return config ? config.map(item => resolveItem(item, pages, base)) : []
   }
 }
@@ -169,20 +180,18 @@ export function resolveSidebarItems(page, regularPath, site, localePath) {
  */
 function resolveHeaders(page) {
   const headers = groupHeaders(page.headers || [])
-  return [
-    {
-      type: 'group',
-      collapsable: false,
-      title: page.title,
-      children: headers.map(h => ({
-        type: 'auto',
-        title: h.title,
-        basePath: page.path,
-        path: page.path + '#' + h.slug,
-        children: h.children || []
-      }))
-    }
-  ]
+  return [{
+    type: 'group',
+    collapsable: false,
+    title: page.title,
+    children: headers.map(h => ({
+      type: 'auto',
+      title: h.title,
+      basePath: page.path,
+      path: page.path + '#' + h.slug,
+      children: h.children || []
+    }))
+  }]
 }
 
 export function groupHeaders(headers) {
@@ -193,7 +202,8 @@ export function groupHeaders(headers) {
     if (h.level === 2) {
       lastH2 = h
     } else if (lastH2) {
-      ;(lastH2.children || (lastH2.children = [])).push(h)
+      ;
+      (lastH2.children || (lastH2.children = [])).push(h)
     }
   })
   return headers.filter(h => h.level === 2)
@@ -210,10 +220,10 @@ export function resolveNavLinkItem(linkItem) {
  * @param { Array<string|string[]> | Array<SidebarGroup> | [link: string]: SidebarConfig } config
  * @returns { base: string, config: SidebarConfig }
  */
-export function resolveMatchingConfig(regularPath, config) {
+export function resolveMatchingConfig(regularPath, config, localePath = '/') {
   if (Array.isArray(config)) {
     return {
-      base: '/',
+      base: localePath,
       config: config
     }
   }
@@ -243,7 +253,7 @@ function resolveItem(item, pages, base, isNested) {
     if (isNested) {
       console.error(
         '[vuepress] Nested sidebar groups are not supported. ' +
-          'Consider using navbar + categories instead.'
+        'Consider using navbar + categories instead.'
       )
     }
     const children = item.children || []
@@ -259,4 +269,27 @@ function resolveItem(item, pages, base, isNested) {
       collapsable: item.collapsable !== false
     }
   }
+}
+
+function hasClass(el, className) {
+  if (el.classList) {
+    return el.classList.contains(className)
+  }
+  return !!el.className.match(new RegExp(`(\\s|^)${className}(\\s|$)`))
+}
+
+export function toggleDarkMode(mode) {
+  if (document.body) {
+    if (mode) {
+      if (document.body.classList) document.body.classList.add('dark-mode')
+      else if (!hasClass(document.body, 'dark-mode')) document.body.className += 'dark-mode'
+    } else {
+      if (document.body.classList) document.body.classList.remove('dark-mode')
+      else if (hasClass(document.body, 'dark-mode')) {
+        const reg = new RegExp('(\\s|^)dark-mode(\\s|$)')
+        document.body.className = document.body.className.replace(reg, ' ')
+      }
+    }
+  }
+  
 }

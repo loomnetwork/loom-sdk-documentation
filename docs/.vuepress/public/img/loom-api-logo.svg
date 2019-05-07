@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="119" height="23" viewBox="0 0 119 23">
+    <g fill="none" fill-rule="evenodd">
+        <g stroke-width="2.4">
+            <path stroke="#48BEFF" d="M18.975 20.776L3.314 9.7C2.05 8.807 1.74 7.043 2.62 5.761c.164-.238.363-.45.59-.627L6.975 2.2l15.239 10.739c1.485 1.046 1.853 3.116.822 4.622-.21.308-.47.577-.77.797l-3.291 2.42z"/>
+            <path stroke="#3C91E6" d="M10.733 7.736l-7.307 5.32c-1.469 1.07-1.805 3.145-.752 4.635.23.325.516.606.844.828l3.336 2.257 3.99-2.796M14.975 14.994l7.496-5.3c1.318-.932 1.642-2.772.724-4.11a2.93 2.93 0 0 0-.635-.67l-3.706-2.838-3.879 2.83"/>
+        </g>
+        <text fill="#3C91E6" font-family="ProximaNova-Semibold, Proxima Nova" font-size="20" font-weight="500" transform="translate(2)">
+            <tspan x="32" y="18">Loom API</tspan>
+        </text>
+    </g>
+</svg>

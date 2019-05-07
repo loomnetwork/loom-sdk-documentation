@@ -1,6 +1,6 @@
 <template>
   <router-link class="nav-link" :to="link" v-if="!isExternal(link)" :exact="exact">
-    {{ item.text }}
+    {{ $t(item.text) }}
   </router-link>
   <a
     v-else
@@ -9,7 +9,7 @@
     :target="isMailto(link) || isTel(link) ? null : '_blank'"
     :rel="isMailto(link) || isTel(link) ? null : 'noopener noreferrer'"
   >
-    {{ item.text }}
+    {{ $t(item.text) }}
     <OutboundLink />
   </a>
 </template>

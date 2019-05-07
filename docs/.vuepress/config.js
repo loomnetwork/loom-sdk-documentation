@@ -17,42 +17,55 @@ module.exports = {
   head: [
     ['link', {
       rel: "icon",
-      href: 'img/favicon/favicon.ico'
+      href: '/img/favicon/favicon.ico'
     }]
   ],
-  theme: 'awesome',
   locales: {
-    // The key is the path for the locale to be nested under.
-    // As a special case, the default locale can use '/' as its path.
     '/': {
-      lang: 'English', // this will be set as the lang attribute on <html>
+      lang: 'en',
       title: 'Loom SDK',
       description: 'Loom Platform has generators for a default project'
     },
     '/zh-CN/': {
-      lang: '中文',
+      lang: 'zh-CN',
       title: 'Loom SDK',
       description: 'Loom 平台具有默认项目的生成器。'
     },
     '/ko/': {
-      lang: '한국어',
+      lang: 'ko',
       title: 'Loom SDK',
       description: 'Loom 플랫폼은 기본 프로젝트를 위한 제네레이터를 제공합니다.'
     },
     '/ja/': {
-      lang: '日本語',
+      lang: 'ja',
       title: 'Loom SDK',
       description: 'Loomのプラットフォームには、デフォルトのプロジェクト用のジェネレータがあります。'
     }
   },
   themeConfig: {
+    locales: {
+      '/': {
+        selectText: 'English',
+        label: 'English'
+      },
+      '/zh-CN/': {
+        selectText: '中文',
+        label: '中文',
+      },
+      '/ko/': {
+        selectText: '한국어',
+        label: '한국어'
+      },
+      '/ja/': {
+        selectText: '日本語',
+        label: '日本語'
+      }
+    },
     nav: [{
-      text: 'Home',
-      link: '/'
-    }, {
       text: 'Docs',
       link: '/base-install-all'
     }],
+    logo: "/img/loom-api-logo.png",
     sidebar: [{
       title: 'Introduction',
       collapsable: true,
@@ -177,7 +190,7 @@ module.exports = {
       collapsable: true,
       sidebarDepth: 1,
       children: [
-        ['/arch', 'Architecture of a DAppChain'],
+        ['/arch', 'arch'],
         ['/release-notes', 'Release Notes'],
         ['/common-issues', 'Common Issues']
       ]

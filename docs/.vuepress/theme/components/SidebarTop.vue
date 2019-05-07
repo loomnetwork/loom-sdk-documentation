@@ -1,30 +1,29 @@
 <template>
-  <header class="navbar">
-    <SidebarButton @toggle-sidebar="$emit('toggle-sidebar')" />
-
-    <!-- <router-link :to="$localePath" class="home-link">
+  <div class="sidebar-top">
+    <router-link :to="$localePath" class="home-link">
       <img
         class="logo"
         v-if="$site.themeConfig.logo"
         :src="$withBase($site.themeConfig.logo)"
         :alt="$siteTitle"
       />
-    </router-link> -->
-
-    <div class="links" :style="linksWrapMaxWidth ? { 'max-width': linksWrapMaxWidth + 'px' } : {}">
-      <NavLinks class="can-hide" />
-    </div>
-  </header>
+    </router-link>
+    <button class="theme-swtich" @click="switchThemeMode">
+      <img src="/img/theme-light.svg" />
+    </button>
+  </div>
 </template>
 
 <script>
 import SidebarButton from './SidebarButton.vue'
 import NavLinks from './NavLinks.vue'
+import { toggleDarkMode } from '../util'
 export default {
   components: { SidebarButton, NavLinks },
   data() {
     return {
-      linksWrapMaxWidth: null
+      linksWrapMaxWidth: null,
+      darkMode: false
     }
   },
   mounted() {
@@ -45,6 +44,12 @@ export default {
     window.addEventListener('resize', handleLinksWrapWidth, false)
   },
   computed: {
+  },
+  methods: {
+    switchThemeMode() {
+      this.darkMode = !this.darkMode
+      toggleDarkMode(this.darkMode)
+    }
   }
 }
 
@@ -59,10 +64,9 @@ function css(el, property) {
 <style lang="stylus">
 $navbar-vertical-padding = 0.7rem
 $navbar-horizontal-padding = 1.5rem
-.navbar
+.sidebar-top
   padding $navbar-vertical-padding $navbar-horizontal-padding
   line-height $navbarHeight - 1.4rem
-  left $sidebarWidth !important
   a, span, img
     display inline-block
   .logo
@@ -88,10 +92,20 @@ $navbar-horizontal-padding = 1.5rem
     .search-box
       flex: 0 0 auto
       vertical-align top
+  .theme-swtich
+    background-color transparent
+    border none
+    box-shadow none 
+    padding 0
+    outline none
+    cursor pointer
+    vertical-align middle
+    width 29px
+    height 29px
+    float: right
 @media (max-width: $MQMobile)
   .navbar
     padding-left 4rem
-    left 0 !important
     .can-hide
       display none
     .links

@@ -6,22 +6,16 @@ export default {
   render(
     h,
     {
-      parent: { $page, $site, $route, $themeConfig, $themeLocaleConfig },
+      parent: { $page, $site, $route, $themeConfig, $themeLocaleConfig, $lang, $t, getUrl },
       props: { item, sidebarDepth }
     }
   ) {
-    // use custom active class matching logic
-    // due to edge case of paths ending with / + hash
     const selfActive = isActive($route, item.path)
-    // for sidebar: auto pages, a hash link should be active if one of its child
-    // matches
     const active =
       item.type === 'auto'
         ? selfActive || item.children.some(c => isActive($route, item.basePath + '#' + c.slug))
         : selfActive
-    // $themeLocaleConfig
-    const path = $themeLocaleConfig.base ? $themeLocaleConfig.base + item.path : item.path
-    const link = renderLink(h, path, item.title || item.path, active)
+    const link = renderLink(h, item.path, $t(item.title || item.path), active)
     const configDepth =
       $page.frontmatter.sidebarDepth ||
       sidebarDepth ||
@@ -79,15 +73,14 @@ function renderChildren(h, children, path, route, maxDepth, depth = 1) {
   padding-left 1rem
   font-size 0.95em
 a.sidebar-link
-  font-size 1em
+  font-size 1.15em
   font-weight 400
   display inline-block
-  color $textColor
   border-left 0.25rem solid transparent
   padding 0.35rem 1rem 0.35rem 1.25rem
-  line-height 1.4
   width: 100%
   box-sizing: border-box
+  color $sidebarLinkChildrenColor
   &:hover
     color $accentColor
   &.active

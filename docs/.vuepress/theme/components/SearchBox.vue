@@ -12,6 +12,7 @@
       @keyup.enter="go(focusIndex)"
       @keyup.up="onUp"
       @keyup.down="onDown"
+      :placeholder="$t('search')"
     >
     <ul
       class="suggestions"
@@ -175,24 +176,23 @@ export default {
 
 <style lang="stylus">
 .search-box
-  display inline-block
+  display block
   position relative
-  margin-right 1rem
   input
     cursor text
-    width 10rem
-    height: 2rem
     color lighten($textColor, 25%)
     display inline-block
     border 1px solid darken($borderColor, 10%)
-    border-radius 2rem
-    font-size 0.9rem
-    line-height 2rem
-    padding 0 0.5rem 0 2rem
+    font-size 1rem
+    font-family "proxima-nova"
+    line-height normal
+    padding 0.25rem 1.3rem 0.25rem 0.625rem
     outline none
     transition all .2s ease
-    background #fff url(/img/search.svg) 0.6rem 0.5rem no-repeat
-    background-size 1rem
+    background: transparent url(/img/search.svg) calc(100% - 0.5rem) 0.35rem no-repeat;
+    background-size: 0.875rem;
+    width: 100%
+    box-sizing: border-box;
     &:focus
       cursor auto
       border-color $accentColor
@@ -200,7 +200,8 @@ export default {
     background #fff
     width 20rem
     position absolute
-    top 1.5rem
+    z-index 99
+    top 100%
     border 1px solid darken($borderColor, 10%)
     border-radius 6px
     padding 0.4rem

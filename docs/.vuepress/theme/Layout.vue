@@ -5,21 +5,20 @@
     @touchstart="onTouchStart"
     @touchend="onTouchEnd"
   >
-    <Navbar v-if="shouldShowNavbar" @toggle-sidebar="toggleSidebar" />
-
-    <div class="sidebar-mask" @click="toggleSidebar(false)" />
-
-    <Sidebar :items="sidebarItems" @toggle-sidebar="toggleSidebar">
-      <slot slot="top" name="sidebar-top" />
-      <slot slot="bottom" name="sidebar-bottom" />
-    </Sidebar>
-
     <Home v-if="$page.frontmatter.home" />
-
-    <Page v-else :sidebar-items="sidebarItems">
-      <slot slot="top" name="page-top" />
-      <slot slot="bottom" name="page-bottom" />
-    </Page>
+    <!-- <Navbar v-if="shouldShowNavbar" @toggle-sidebar="toggleSidebar" /> -->
+    <div v-else>
+      <div class="sidebar-mask" @click="toggleSidebar(false)" />
+      <Sidebar :items="sidebarItems" @toggle-sidebar="toggleSidebar">
+        <slot slot="top" name="sidebar-top" />
+        <slot slot="bottom" name="sidebar-bottom" />
+      </Sidebar>
+      <Page :sidebar-items="sidebarItems" @toggle-sidebar="toggleSidebar">
+        <slot slot="top" name="page-top" />
+        <slot slot="bottom" name="page-bottom" />
+      </Page>
+    </div>
+    
   </div>
 </template>
 
@@ -41,7 +40,6 @@ export default {
     shouldShowNavbar() {
       const { themeConfig } = this.$site
       const { frontmatter } = this.$page
-      console.log(this.$page)
       if (frontmatter.navbar === false || themeConfig.navbar === false) {
         return false
       }

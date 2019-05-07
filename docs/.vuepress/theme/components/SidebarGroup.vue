@@ -19,12 +19,12 @@
       :to="item.path"
       @click.native="$emit('toggle')"
     >
-      <span>{{ item.title }}</span>
+      <span>{{ $t(item.title) }}</span>
       <span class="arrow" v-if="collapsable" :class="open ? 'down' : 'right'" />
     </router-link>
 
     <p v-else class="sidebar-heading" :class="{ open }" @click="$emit('toggle')">
-      <span>{{ item.title }}</span>
+      <span>{{ $t(item.title) }}</span>
       <span class="arrow" v-if="collapsable" :class="open ? 'down' : 'right'" />
     </p>
 
@@ -67,16 +67,18 @@ export default {
   &.is-sub-group
     padding-left 0
     & > .sidebar-heading
-      font-size 1.06rem
-      line-height 1.4
-      font-weight 600
-      color: #b6b6b6
+      font-size 1.3em
+      font-weight normal
+      color: $sidebarCategoryColor
       padding-left 2rem
     & > .sidebar-group-items
       padding-left 1rem
       & > li > .sidebar-link
-        font-size: 0.95em;
+        font-size: 1.2em;
         border-left none
+        font-weight 500
+        &:not(:hover):not(.active)
+          color $sidebarLinkColor
   &.depth-2
     & > .sidebar-heading
       border-left none

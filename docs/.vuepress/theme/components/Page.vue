@@ -1,5 +1,6 @@
 <template>
   <main class="page">
+    <Navbar @toggle-sidebar="$emit('toggle-sidebar')"/>
     <slot name="top" />
 
     <Content ref="content" />
@@ -47,9 +48,6 @@
       </p>
     </div>
 
-    <!-- <keep-alive>
-      <comment :options="valine" />
-    </keep-alive> -->
 
     <slot name="bottom" />
   </main>
@@ -57,11 +55,11 @@
 
 <script>
 import { resolvePage, normalize, outboundRE, endingSlashRE, wordcount, min2read } from '../util'
-// import Comment from './Comment.vue'
+import NavLinks from './NavLinks.vue'
+import Navbar from './Navbar.vue'
 
 export default {
-  // components: { Comment },
-
+  components: {NavLinks, Navbar},
   props: ['sidebarItems'],
 
   computed: {
@@ -169,8 +167,6 @@ export default {
       const $elTime = $elCounter.querySelector('#time')
       const word = wordcount(content)
       const time = min2read(content)
-      $elWord.innerHTML = word
-      $elTime.innerHTML = `${time}&nbsp;分钟`
     }
   }
 }
@@ -207,6 +203,28 @@ function find(page, items, offset) {
 .page
   padding-bottom 2rem
   display block
+  .nav
+    padding $navbar-vertical-padding $navbar-horizontal-padding
+    line-height $navbarHeight - 1.4rem
+    position fixed
+    z-index 20
+    top 0
+    left $sidebarWidth
+    right 0
+    height $navbarHeight
+    background-color #fff
+    box-sizing border-box
+    border-bottom 1px solid $borderColor
+    .links
+      padding-left 1.5rem
+      box-sizing border-box
+      background-color white
+      white-space nowrap
+      font-size 0.9rem
+      position absolute
+      right $navbar-horizontal-padding
+      top $navbar-vertical-padding
+      display flex
 
 .page-edit
   @extend $wrapper

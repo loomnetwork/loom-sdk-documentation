@@ -1,11 +1,12 @@
 <template>
   <aside class="sidebar">
-    <img src="/img/theme-light.svg"/>
-    <SearchBox v-if="$site.themeConfig.search !== false" />
-    
-      <NavLinks />
-      <slot name="top" />
-      <div class="scroll-container">
+    <SidebarTop />
+    <div class="search__wrapper">
+      <SearchBox v-if="$site.themeConfig.search !== false"/>    
+    </div>
+    <NavLinks />
+    <slot name="top" />
+    <div class="scroll-container">
       <ul v-if="items.length" class="sidebar-links">
         <li v-for="(item, i) in items" :key="i">
           <SidebarGroup
@@ -29,10 +30,11 @@ import SidebarGroup from './SidebarGroup.vue'
 import SidebarLink from './SidebarLink.vue'
 import NavLinks from './NavLinks.vue'
 import SearchBox from './SearchBox'
+import SidebarTop from './SidebarTop'
 import { isActive } from '../util'
 
 export default {
-  components: { SidebarGroup, SidebarLink, NavLinks, SearchBox },
+  components: { SidebarGroup, SidebarLink, NavLinks, SearchBox, SidebarTop },
 
   props: ['items'],
 
@@ -66,7 +68,7 @@ export default {
 
     isActive(page) {
       return isActive(this.$route, page.regularPath)
-    }
+    },
   }
 }
 
@@ -83,6 +85,11 @@ function resolveOpenGroupIndex(route, items) {
 
 <style lang="stylus">
 .sidebar
+  display flex
+  flex-direction column
+  .search__wrapper
+    margin-bottom 1rem
+    padding 0.7rem 1.5rem
   ul
     padding 0
     margin 0
@@ -103,14 +110,15 @@ function resolveOpenGroupIndex(route, items) {
   & > .sidebar-links
     padding 1.5rem 0
     & > li > a.sidebar-link
-      font-size 1.1em
+      font-size 1.25em
       line-height 1.7
       font-weight bold
     & > li:not(:first-child)
       margin-top .75rem
   .scroll-container
     overflow-y auto
-    height calc(100% - 200px)
+    flex 1
+    -webkit-overflow-scroll: touch
 
 @media (max-width: $MQMobile)
   .sidebar
