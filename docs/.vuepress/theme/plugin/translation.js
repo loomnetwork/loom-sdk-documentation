@@ -7,7 +7,7 @@ export default function translation(Vue) {
   const langs = {
     en: defaultMessage,
     'zh-CN': zhCN,
-    'jp': jpJA,
+    'ja': jpJA,
     'ko': koKR
   }
 
