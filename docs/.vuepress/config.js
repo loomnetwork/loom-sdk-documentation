@@ -13,6 +13,9 @@ module.exports = {
       // use more markdown-it plugins!
     }
   },
+  head: [
+    ['link', { rel: "icon", href: 'img/favicon/favicon.ico' }]
+  ],
   theme: 'awesome',
   locales: {
     // The key is the path for the locale to be nested under.

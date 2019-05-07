@@ -1,5 +1,6 @@
 <template>
-  <aside class="sidebar">
+  <aside class="sidebar scroll-container">
+    <img src="/img/theme-light.svg"/>
     <NavLinks />
     <slot name="top" />
     <ul v-if="items.length" class="sidebar-links">

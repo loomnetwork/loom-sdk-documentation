@@ -3,7 +3,7 @@ id: phaser-sdk-demo
 title: Phaser SDK 演示
 sidebar_label: Phaser SDK 演示
 ---
-![Game screenshot](/developers/img/screenshot.png)
+![Game screenshot](/developers/img/screenshot.png?style=centerme)
 
 一个简单的示例， 展示了一个简单的HTML5游戏和Loom Dapp链交互，使用 [Phaser](http://phaser.io) 和 [Loom.js](https://github.com/loomnetwork/loom-js)。 源代码可在 [Github](https://github.com/loomnetwork/phaser-sdk-demo) 找到。
 

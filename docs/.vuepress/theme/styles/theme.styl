@@ -1,3 +1,4 @@
+@import url("https://use.typekit.net/ycn7hsp.css")
 @require './palette'
 @require './nprogress'
 @require './code'
@@ -5,11 +6,13 @@
 @require './arrow'
 @require './wrapper'
 @require './toc'
+@require './scroll'
 
 html, body
   padding 0
   margin 0
   background-color #fff
+  font-family: "proxima-nova" !important
 
 body
   font-family -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif
@@ -67,6 +70,10 @@ body
     border-radius 4px
   img
     max-width 100%
+    &[src$="centerme"]
+      display block
+      margin-left auto
+      margin-right auto
 
 .content.custom
   padding 0
@@ -142,7 +149,7 @@ a.header-anchor
     text-decoration none
 
 code, kbd, .line-number
-  font-family source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace
+  font-family "droid-sans-mono", source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace
 
 p, ul, ol
   line-height 1.7
