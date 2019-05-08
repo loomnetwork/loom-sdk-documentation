@@ -189,7 +189,7 @@ export default {
     padding 0.25rem 1.3rem 0.25rem 0.625rem
     outline none
     transition all .2s ease
-    background: transparent url(/img/search.svg) calc(100% - 0.5rem) 0.35rem no-repeat;
+    background: transparent url('../../public/img/search.svg') calc(100% - 0.5rem) 0.35rem no-repeat;
     background-size: 0.875rem;
     width: 100%
     box-sizing: border-box;

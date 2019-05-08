@@ -8,6 +8,13 @@ export default ({
 }) => {
   // ...apply enhancements to the app
   Vue.prototype.$themeConfig = siteData.themeConfig
-  console.log(router)
+  router.beforeEach((to, from, next) => {
+    // if router locale indicates /en/, redirect
+    if(/\/en\//.test(to.path)) {
+      const target = to.path.slice(3) || '/'
+      next(target)
+    }
+    return next()
+  })
   Vue.use(Translation)
 }

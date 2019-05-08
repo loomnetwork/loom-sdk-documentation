@@ -14,6 +14,29 @@ module.exports = {
       // use more markdown-it plugins!
     }
   },
+  plugins: [
+    ['redirect', {
+      // provide i18n redirection
+      // it will automatically redirect `/foo/bar/` to `/:locale/foo/bar/` if exists
+      locales: true,
+      redirectors: [
+        // customize your redirectors
+        {
+          base: '/zh-CN/', // automatically redirect `/my-plugins/` to a subpage
+          storage: true, // save the result of the last visit to `localStorage` for the next redirect
+          alternative: [
+            // provide an alternate list
+            // if no page was matched, you will get a "404 not found"
+            '*', // equivalent to `/my-plugins/mathjax/`
+            'migrate',
+            'pangu',
+            'redirect',
+            'serve',
+          ]
+        },
+      ],
+    }],
+  ],
   head: [
     ['link', {
       rel: "icon",
