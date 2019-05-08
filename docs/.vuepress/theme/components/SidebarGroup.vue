@@ -89,7 +89,7 @@ export default {
   font-size 1.1em
   font-weight bold
   // text-transform uppercase
-  padding 0.35rem 1.5rem 0.35rem 1.25rem
+  padding 0.35rem 0.8rem 0.35rem 1.25rem
   width 100%
   box-sizing border-box
   margin 0
@@ -98,8 +98,8 @@ export default {
     color inherit
   .arrow
     position relative
-    top -0.12em
-    left 0.5em
+    top 0.4em
+    float right
   &.clickable
     &.active
       font-weight 600

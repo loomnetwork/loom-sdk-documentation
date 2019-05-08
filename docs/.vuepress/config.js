@@ -1,7 +1,22 @@
+const hljs = require('highlight.js')
+
+const highlight = (str, lang) => {
+    if (lang && hljs.getLanguage(lang)) {
+        try {
+            return '<foo></foo>'
+        } catch (__) { }
+    }
+
+    return ''
+}
+
 module.exports = {
-  // base: '/developers/',
+  base: '/developers/',
   SEARCH_MAX_SUGGESTIONS: 10,
   markdown: {
+    config: md => {
+      md.set({ highlight: highlight })
+    },
     // options for markdown-it-anchor
     anchor: {
       permalink: false
@@ -64,6 +79,9 @@ module.exports = {
     nav: [{
       text: 'Docs',
       link: '/base-install-all'
+    }, {
+      text: 'Blog',
+      link: 'https://medium.com/loom-network'
     }],
     logo: "/img/loom-api-logo.png",
     sidebar: [{

@@ -193,6 +193,8 @@ export default {
     background-size: 0.875rem;
     width: 100%
     box-sizing: border-box;
+    .dark-mode &
+      border-color $searchBorderColorDark
     &:focus
       cursor auto
       border-color $accentColor

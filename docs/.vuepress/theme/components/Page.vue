@@ -33,7 +33,11 @@
     <div v-if="prev || next" class="page-nav">
       <p class="inner">
         <span v-if="prev" class="prev">
-          ←
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="16" viewBox="0 0 18 16">
+            <g fill="none" fill-rule="nonzero" stroke="#3C91E6" stroke-width="2">
+              <path d="M9 15L2 8l7-7M2 8h16"/>
+            </g>
+          </svg>
           <router-link v-if="prev" class="prev" :to="prev.path">
             {{ prev.title || prev.path }}
           </router-link>
@@ -43,7 +47,11 @@
           <router-link v-if="next" :to="next.path">
             {{ next.title || next.path }}
           </router-link>
-          →
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="16" viewBox="0 0 18 16">
+            <g fill="none" fill-rule="nonzero" stroke="#3C91E6" stroke-width="2">
+              <path d="M9 15l7-7-7-7M16 8H0"/>
+            </g>
+          </svg>
         </span>
       </p>
     </div>
@@ -257,8 +265,18 @@ function find(page, items, offset) {
     border-top 1px solid $borderColor
     padding-top 1rem
     overflow auto // clear float
-  .next
-    float right
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    & > span
+      display flex
+      align-items center
+      svg
+        margin 0 0.5rem
+      a
+        color #3C91E6
+        font-size 0.9em
+  
 
 @media (max-width: $MQMobile)
   .page-edit

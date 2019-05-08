@@ -89,7 +89,7 @@ function resolveOpenGroupIndex(route, items) {
   flex-direction column
   .search__wrapper
     margin-bottom 1rem
-    padding 0.7rem 1.5rem
+    padding 0 1.5rem 0.7rem
   ul
     padding 0
     margin 0
@@ -116,7 +116,7 @@ function resolveOpenGroupIndex(route, items) {
     & > li:not(:first-child)
       margin-top .75rem
   .scroll-container
-    overflow-y auto
+    overflow-y scroll
     flex 1
     -webkit-overflow-scroll: touch
 

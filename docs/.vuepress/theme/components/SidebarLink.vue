@@ -71,9 +71,9 @@ function renderChildren(h, children, path, route, maxDepth, depth = 1) {
 <style lang="stylus">
 .sidebar .sidebar-sub-headers
   padding-left 1rem
-  font-size 0.95em
+  font-size 1.1em
 a.sidebar-link
-  font-size 1.15em
+  font-size 1.1em
   font-weight 400
   display inline-block
   border-left 0.25rem solid transparent

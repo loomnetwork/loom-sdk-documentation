@@ -85,6 +85,7 @@ $navbar-horizontal-padding = 1.5rem
     right $navbar-horizontal-padding
     top $navbar-vertical-padding
     display flex
+    transition background-color 0.1s ease-in-out
     .search-box
       flex: 0 0 auto
       vertical-align top

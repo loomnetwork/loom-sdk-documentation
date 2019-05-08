@@ -9,7 +9,7 @@
       />
     </router-link>
     <button class="theme-swtich" @click="switchThemeMode">
-      <img src="/img/theme-light.svg" />
+      <img :src="switchBtnImage" />
     </button>
   </div>
 </template>
@@ -44,6 +44,9 @@ export default {
     window.addEventListener('resize', handleLinksWrapWidth, false)
   },
   computed: {
+    switchBtnImage() {
+      return this.darkMode ? this.$withBase('/img/theme-dark.svg') : this.$withBase('/img/theme-light.svg')
+    }
   },
   methods: {
     switchThemeMode() {

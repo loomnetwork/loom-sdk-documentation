@@ -144,6 +144,10 @@ export default {
       border-right 4px solid transparent
       border-top 6px solid $arrowBgColor
       border-bottom 0
+      background none
+      width 0
+      height 0
+      transform none
     .nav-dropdown
       display none
       // Avoid height shaked by clicking
