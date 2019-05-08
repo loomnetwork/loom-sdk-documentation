@@ -6,7 +6,5 @@
   "devDependencies": {
     "vuepress": "^1.0.0-alpha.47"
   },
-  "dependencies": {
-    "highlight.js": "^9.15.6"
-  }
+  "dependencies": {}
 }
