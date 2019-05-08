@@ -1,5 +1,19 @@
 <template>
   <main class="home" aria-labelledby="main-title">
+    <header class="navbar">
+      <router-link :to="$localePath" class="home-link">
+        <img
+          class="logo"
+          v-if="$site.themeConfig.logo"
+          :src="$withBase($site.themeConfig.logo)"
+          :alt="$siteTitle"
+        />
+      </router-link>
+
+      <div class="links">
+        <NavLinks class="can-hide" />
+      </div>
+    </header>
     <header class="hero">
       <img v-if="data.heroImage" :src="$withBase(data.heroImage)" alt="hero" />
 
@@ -33,9 +47,10 @@
 
 <script>
 import NavLink from './NavLink.vue'
+import NavLinks from './NavLinks'
 
 export default {
-  components: { NavLink },
+  components: { NavLink, NavLinks },
 
   computed: {
     data() {
@@ -58,6 +73,8 @@ export default {
   max-width 960px
   margin 0px auto
   display block
+  .navbar
+    left 0 !important
   .hero
     text-align center
     img
