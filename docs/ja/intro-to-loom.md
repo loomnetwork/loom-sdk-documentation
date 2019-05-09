@@ -3,7 +3,7 @@ id: intro-loom-sdk
 title: Loom Networkとは?
 sidebar_label: Loom SDK入門
 ---
-![Loom Networkとは?](/developers/img/what-is-loom.png)
+![Loom Networkとは?](/developers/docs/img/what-is-loom.png)
 
 LoomネットワークはEthereumのスケールを手助けするための基本的なインフラのプラットフォームを構築している。 それは大規模なスケールでのアプリケーションを開発者が実行できるようにし、プロダクションで動く最初のEthereumのスケーリングの解決方法となる。
 
@@ -35,7 +35,7 @@ Loom SDKはDAppChain(Ethereumをベースレイヤーとして使うレイヤー
 
 数ヶ月前、我々はZombieChain: “イーサリアムdapps用のeosスタイルdposサイドチェーン” を発表した。 この発表以来、ZombieChainは大幅に発展している。 何があったのかというと、我々はZombieChain上にZombie Battleground用のマーケットプレイスを作り始めた。そして機能リストが膨らんでいくにつれて、このチェーンは当初思っていたよりももっと大きなものになる可能性を秘めていることに我々は気づいた。 そのためこのチェーンをアップグレードして、我々の将来的なビジョンにおいてもっと重要な役割を担うようにすることにした。つまりこのチェーンはトークントランザクションのハブとなり、Plasma CashによりEthereumと接続されたものとなるのだ。 これはEthereumメインネットの橋であり、ビルトインの分散型取引所(DEX)を備えているというふうに考えてみよう。そして他のサイドチェーンもそのDEXを使って、高速で安価なトランザクションをメインネットに触れることなく利用できるのだ。 こんな価値ある役割には、価値ある名前が必要だ。 こうして我々は、ZombieChainを “PlasmaChain” へとリブランディングすることに決めた。
 
-![PlasmaChain](/developers/img/plasmachain_diagram.png)
+![PlasmaChain](/developers/docs/img/plasmachain_diagram.png)
 
 PlasmaChain: 以前ZombieChainとして知られていたサイドチェーン。
 
@@ -51,7 +51,7 @@ PlasmaChain: 以前ZombieChainとして知られていたサイドチェーン�
 
 # Plasma Cashの理解
 
-![Plasma Cashの理解](/developers/img/plasma.jpg)
+![Plasma Cashの理解](/developers/docs/img/plasma.jpg)
 
 Loom DAppチェーンでのPlasmaの使用について説明した２つの記事がある:
 

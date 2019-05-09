@@ -7,7 +7,7 @@ sidebar_label: Block Explorerチュートリアル
 
 このBlock Explorerは、DAppチェーン上のブロックデータチェックに役立ちます。 
 
-![](/developers/img/block_explorer.png)![](/developers/img/block_explorer_details.png)
+![](/developers/docs/img/block_explorer.png)![](/developers/docs/img/block_explorer_details.png)
 
 ## オンラインエクスプローラー
 

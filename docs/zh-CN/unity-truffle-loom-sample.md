@@ -5,7 +5,7 @@ sidebar_label: Unity Truffle Loom 快速上手
 ---
 
 
-![](/developers/img/unity_truffle_loom.png)
+![](/developers/docs/img/unity_truffle_loom.png)
 
 本文来自我们社区里的开发者Zac Holland，原文链接： [Getting started with Loom, Truffle and Unity](https://medium.com/@zacharyholland_17606/getting-started-with-loom-truffle-and-unity-f2558ad9d213)
 
@@ -20,7 +20,7 @@ sidebar_label: Unity Truffle Loom 快速上手
 ### 第二步： 配置好你的项目目录结构
 我的项目目录看起来像这样：
 
-![](/developers/img/unity_truffle_loom_folder.jpeg)
+![](/developers/docs/img/unity_truffle_loom_folder.jpeg)
 
 
 ### 第三步：在dappchain目录配置好Truffle
@@ -41,7 +41,7 @@ __注意__： 如果部署报错不成功，原因可能有这些：
 你的合约数据将导出到这两个文件夹。
 
 然后回到你的Truffle项目，在你的`migrations` 目录添加一个名为`99_export_abis.js` 的文件。现在你的项目应该看起来像这样
-![](/developers/img/unity_truffle_loom_migration_simple.jpeg)
+![](/developers/docs/img/unity_truffle_loom_migration_simple.jpeg)
 
 你每次的部署和迁移都会在你的 `migrations` 目录里面调用，而这个 99 文件将确保它是最后一步。这些文件看起来应该像这样：
 
@@ -92,7 +92,7 @@ module.exports = async function(deployer, network, accounts) {
 ### 第六步：配置好你的Unity场景
 新建一个场景，在新场景里面创建一个空的游戏对象，给其添加一个新脚本，起名为`SimpleStoreHandler`。看起来应该是这样：
 
-![](/developers/img/unity_truffle_smaple.jpeg)
+![](/developers/docs/img/unity_truffle_smaple.jpeg)
 
 你的SimpleStoreHandler脚本代码应该如下：
 ```

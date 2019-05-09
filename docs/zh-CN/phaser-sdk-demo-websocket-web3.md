@@ -5,7 +5,7 @@ sidebar_label: JS WebSockets + EVM Web3 演示
 ---
 一个基本示例，使用 [Phaser](http://phaser.io) 和 [Loom.js](https://github.com/loomnetwork/loom-js) 进行 HTML5 + WebSockets 与 Loom Dapp链 的简单交互，这一次使用 Web3 和 Loom Provider 为以太坊开发人员创建无缝体验
 
-![](/developers/img/websocket_evm.gif)
+![](/developers/docs/img/websocket_evm.gif)
 
 ## 游戏说明
 

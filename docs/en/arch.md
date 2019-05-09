@@ -14,7 +14,7 @@ Loom Backend supports different BPFT engines, like Tendermint. In future we will
 
 Loom Consensus layer support Loom DPoS or a configurable PoS/DPoS contract per Chain. Once Casper becomes available we will add support for this
 
-![](/developers/img/loom-sdk-arch-overview.jpg)
+![](/developers/docs/img/loom-sdk-arch-overview.jpg)
 
 
 
@@ -27,7 +27,7 @@ Smart contracts can be embedded into the chain, like DPoS, Coin or EthereumVM.
 They can also be made as external processes, that the blockchain communicates to via GRPC.
 
 
-![](/developers/img/loom-sdk-arch-contracts.jpg)
+![](/developers/docs/img/loom-sdk-arch-contracts.jpg)
 
 
 ## Ethereum Integration
@@ -36,7 +36,7 @@ The SDK integrates into the Ethereum Backend with following pieces:
 
 ### Transfer Gateway
 
-![](/developers/img/loom-sdk-arch-plasma.jpg)
+![](/developers/docs/img/loom-sdk-arch-plasma.jpg)
 
 ### Transfer gateway allows for the following
 

@@ -5,7 +5,7 @@ sidebar_label: JS WebSocket + EVM Web3 데모
 ---
 [Phaser](http://phaser.io)와 [Loom.js](https://github.com/loomnetwork/loom-js)를 사용해서 Loom DappChain과 상호작용하는 간단한 HTML5 + WebSocket을 보여주는 기본적인 예제입니다. 이번에 Web3와 Loom Provider를 사용하여 Ethereum 개발자를 위한 완벽한 경험을 만들어 냈습니다.
 
-![](/developers/img/websocket_evm.gif)
+![](/developers/docs/img/websocket_evm.gif)
 
 ## Game instructions
 

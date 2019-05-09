@@ -12,7 +12,7 @@ LoomのバックエンドはTendermintのような異なるPBFTエンジンを�
 
 Loomのコンセンサスレイヤーは、Loom DPoSもしくはチェーンごとに設定可能なPoS/DPoSコントラクトをサポートしている。Casperが利用可能になれば、このサポートも追加していく。
 
-![](/developers/img/loom-sdk-arch-overview.jpg)
+![](/developers/docs/img/loom-sdk-arch-overview.jpg)
 
 ## スマートコントラクト
 
@@ -22,7 +22,7 @@ GoやSolidityなどの、GRPCサポート言語で書かれたスマートコン
 
 さらにブロックチェーンがGRPCを介して通信を行う外部プロセスとして、スマートコントラクトをし様子rこともできる。
 
-![](/developers/img/loom-sdk-arch-contracts.jpg)
+![](/developers/docs/img/loom-sdk-arch-contracts.jpg)
 
 ## イーサリアムとの統合
 
@@ -30,7 +30,7 @@ SDKは以下の部分でイーサリアムのバックエンドと統合して�
 
 ### トランスファーゲートウェイ
 
-![](/developers/img/loom-sdk-arch-plasma.jpg)
+![](/developers/docs/img/loom-sdk-arch-plasma.jpg)
 
 ### トランスファーゲートウェイで以下が可能
 

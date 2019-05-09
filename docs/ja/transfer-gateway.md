@@ -14,11 +14,11 @@ sidebar_label: トランスファーゲートウェイ
 - Loom DAppチェーン上のGoコントラクトアドレスマッパー
 - Oracleゲートウェイ (DAppチェーンノードのプロセス内、またはスタンドアロンプロセスで実行可能)
 
-![Diagram of ERC721 Transfer to DAppChain](/developers/img/transfer-gateway-erc721-to-dappchain.png)
+![Diagram of ERC721 Transfer to DAppChain](/developers/docs/img/transfer-gateway-erc721-to-dappchain.png)
 
 ユーザーがイーサリアムアカウントからDAppチェーンアカウントにトークンを移転したい場合、まずはメインネットゲートウェイに移転することが必要だ。 するとデポジットイベントが送信される。 デポジットイベントはゲートウェイOracleにより検知され、DAppチェーンゲートウェイへと転送される。 その後DAppチェーンゲートウェイは、ユーザー(メインネットゲートウェイへトークンをデポジットした者) のDAppチェーンアカウントへとトークンを移転する。
 
-![Diagram of ERC721 Transfer to Ethereum](/developers/img/transfer-gateway-erc721-to-ethereum.png)
+![Diagram of ERC721 Transfer to Ethereum](/developers/docs/img/transfer-gateway-erc721-to-ethereum.png)
 
 同じトークンをイーサリアムアカウントへと戻したい場合、ユーザーはまず引き出し保留中にするため、トークンをDAppチェーンゲートウェイへと送り返さなくてはならない。 この保留中の引き出しは、引き出しの署名やDAppチェーンゲートウェイへの通知を行うゲートウェイOracleにより検知される。 DAppチェーンゲートウェイはイベントを送信し、署名済み引き出しの記録を提出すれば、メインネットゲートウェイからイーサリアムアカウントへトークンの引き出しが可能であることをユーザーに通知する。
 

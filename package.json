@@ -6,5 +6,7 @@
   "devDependencies": {
     "vuepress": "^1.0.0-alpha.47"
   },
-  "dependencies": {}
+  "dependencies": {
+    "vuebar": "^0.0.20"
+  }
 }

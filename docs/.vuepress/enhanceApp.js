@@ -1,4 +1,5 @@
 import Translation from './theme/plugin/translation'
+import Vuebar from 'vuebar';
 
 export default ({
   Vue, // the version of Vue being used in the VuePress app
@@ -22,4 +23,5 @@ export default ({
     return next()
   })
   Vue.use(Translation)
+  Vue.use(Vuebar)
 }

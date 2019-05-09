@@ -5,4 +5,4 @@ sidebar_label: 카드 게이트웨이 예제
 ---
 체인사이에서 토큰을 전환하는 ERC721 토큰 예제는 [Github](https://github.com/loomnetwork/cards-gateway-example)에 있습니다
 
-![](/developers/img/tf-card-game.gif)
+![](/developers/docs/img/tf-card-game.gif)

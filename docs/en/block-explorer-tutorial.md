@@ -7,7 +7,7 @@ sidebar_label: Block Explorer Tutorial
 ## Overview:
 This Block Explorer helps you to check the block data on your DAppChain.
 
-![](/developers/img/block_explorer.png)![](/developers/img/block_explorer_details.png)
+![](/developers/docs/img/block_explorer.png)![](/developers/docs/img/block_explorer_details.png)
 
 ## Online explorer
 You can just visit [Loom Block Explorer](https://blockexplorer.loomx.io),

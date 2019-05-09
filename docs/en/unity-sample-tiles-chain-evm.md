@@ -5,7 +5,7 @@ sidebar_label: Tiles EVM Example
 ---
 
 A basic example showcasing a simple Unity game interacting with an EVM-based Loom DappChain, using [Loom Unity SDK](https://github.com/loomnetwork/unity3d-sdk).
-Prefer video? Here's a walkthrough of this documentation [Video](/developers/img/tiles-evm-walkthrough.mov)
+Prefer video? Here's a walkthrough of this documentation [Video](/developers/docs/img/tiles-evm-walkthrough.mov)
 
 ![](https://camo.githubusercontent.com/9d49b0ce78d692e69d1dd571bc8d1aafe5b806a8/68747470733a2f2f647a776f6e73656d72697368372e636c6f756466726f6e742e6e65742f6974656d732f315232363044327030713370304d33693232304a2f53637265656e2532305265636f7264696e67253230323031382d30352d3232253230617425323031302e3233253230414d2e6769663f763d3961353539316139)
 

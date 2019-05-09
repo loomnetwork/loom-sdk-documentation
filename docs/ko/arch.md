@@ -12,7 +12,7 @@ Loom 백엔드는 Tendermint와 같은 다른 BPFT 엔진을 지원합니다. �
 
 Loom 컨센서스 레이어는 Loom DPoS 또는 체인별 설정이 가능한 PoS/DPoS 컨트랙트를 지원합니다. Casper가 사용 가능하게 되면, 이에 대한 지원도 추가할 것입니다.
 
-![](/developers/img/loom-sdk-arch-overview.jpg)
+![](/developers/docs/img/loom-sdk-arch-overview.jpg)
 
 ## 스마트 컨트랙트
 
@@ -22,7 +22,7 @@ Go, 솔리디티 또는 GRPC를 지원하는 모든 언어로 작성된 스마�
 
 외부 프로세스로 만드는 것 또한 가능하며, 이는 GRPC를 통해 블록체인과 통신합니다.
 
-![](/developers/img/loom-sdk-arch-contracts.jpg)
+![](/developers/docs/img/loom-sdk-arch-contracts.jpg)
 
 ## 이더리움 통합
 
@@ -30,7 +30,7 @@ SDK는 다음 부분들과 함께 이더리움 백엔드에 통합됩니다:
 
 ### 전송 게이트웨이
 
-![](/developers/img/loom-sdk-arch-plasma.jpg)
+![](/developers/docs/img/loom-sdk-arch-plasma.jpg)
 
 ### 전송 게이트웨이를 통해 다음과 같은 것들을 할 수 있습니다:
 

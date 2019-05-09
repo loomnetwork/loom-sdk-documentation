@@ -5,7 +5,7 @@ sidebar_label: JS Websocket + EVM Web3 デモ
 ---
 [Phaser](http://phaser.io)と[Loom.js](https://github.com/loomnetwork/loom-js)を使用した、Loom DAppチェーンと対話するシンプルなHTML 5+ Websocketのゲーム基本サンプルだ。今回はWeb3とLoomプロバイダを使用して、イーサリアム開発者にとってのシームレスなUXとしている。
 
-![](/developers/img/websocket_evm.gif)
+![](/developers/docs/img/websocket_evm.gif)
 
 ## ゲームの説明
 

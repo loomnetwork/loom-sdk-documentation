@@ -89,7 +89,7 @@ export default {
   font-size 1.1em
   font-weight bold
   // text-transform uppercase
-  padding 0.35rem 0.8rem 0.35rem 1.25rem
+  padding 0.35rem 1.25rem
   width 100%
   box-sizing border-box
   margin 0

@@ -6,20 +6,22 @@
     </div>
     <NavLinks />
     <slot name="top" />
-    <div class="scroll-container">
-      <ul v-if="items.length" class="sidebar-links">
-        <li v-for="(item, i) in items" :key="i">
-          <SidebarGroup
-            v-if="item.type === 'group'"
-            :item="item"
-            :first="i === 0"
-            :open="i === openGroupIndex"
-            :collapsable="item.collapsable || item.collapsible"
-            @toggle="toggleGroup(i)"
-          />
-          <SidebarLink v-else :item="item" />
-        </li>
-      </ul>
+    <div v-bar>
+      <div class="scroll-container">
+        <ul v-if="items.length" class="sidebar-links">
+          <li v-for="(item, i) in items" :key="i">
+            <SidebarGroup
+              v-if="item.type === 'group'"
+              :item="item"
+              :first="i === 0"
+              :open="i === openGroupIndex"
+              :collapsable="item.collapsable || item.collapsible"
+              @toggle="toggleGroup(i)"
+            />
+            <SidebarLink v-else :item="item" />
+          </li>
+        </ul>
+      </div>
     </div>
     <slot name="bottom" />
   </aside>
@@ -116,9 +118,9 @@ function resolveOpenGroupIndex(route, items) {
     & > li:not(:first-child)
       margin-top .75rem
   .scroll-container
-    overflow-y scroll
-    flex 1
-    -webkit-overflow-scroll: touch
+    // overflow-y scroll
+    // flex 1
+    // -webkit-overflow-scroll: touch
 
 @media (max-width: $MQMobile)
   .sidebar

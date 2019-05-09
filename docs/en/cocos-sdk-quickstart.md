@@ -28,11 +28,11 @@ sidebar_label: Cocos SDK Quickstart
 
 Loom global structure diagram
 
-![](/developers/img/Loom-Cocos-SDK.png)
+![](/developers/docs/img/Loom-Cocos-SDK.png)
 
 Loom Cocos SDK structure diagram
 
-![](/developers/img/loom-cocos-sdk-struct.png)
+![](/developers/docs/img/loom-cocos-sdk-struct.png)
 
 `Loom-Cocos-SDK` have same api, same protobuf, similar contract with `loom-js`.
 
@@ -96,7 +96,7 @@ you can download `Cocos Creator` from [here](http://www.cocos.com/creator) , and
   e.g. `sample/loomDemoForCreator` use  [setscore.proto](https://github.com/loomnetwork/phaser-sdk-demo/blob/master/src/assets/protobuff/setscore.proto), and related [setscore_pb.js](https://github.com/loomnetwork/phaser-sdk-demo/blob/master/src/assets/protobuff/setscore_pb.js)
 3. write yur own contract as requirements of your game, and serailezse your data with `setscore_pb.js`, and send to Loom Blockchain, take a look at [SimpleContract](https://github.com/loomnetwork/phaser-sdk-demo/blob/master/src/SimpleContract.js)
 
-![](/developers/img/script_loom_folder.png)
+![](/developers/docs/img/script_loom_folder.png)
 
 4. invoke api of your contract at suitable position.
 5. Run

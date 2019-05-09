@@ -7,7 +7,7 @@ sidebar_label: 区块浏览器教程
 
 此区块浏览器帮助你检查你的 DApp 链上的区块数据。
 
-![](/developers/img/block_explorer.png)![](/developers/img/block_explorer_details.png)
+![](/developers/docs/img/block_explorer.png)![](/developers/docs/img/block_explorer_details.png)
 
 ## 在线浏览器
 

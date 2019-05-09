@@ -7,7 +7,7 @@ sidebar_label: 블록 탐색기 튜토리얼
 
 이번에는 블록 탐색기를 활용해, DAppChain에서 생성되는 블록들을 탐색하는 방법을 알아볼 예정입니다.
 
-![](/developers/img/block_explorer.png)![](/developers/img/block_explorer_details.png)
+![](/developers/docs/img/block_explorer.png)![](/developers/docs/img/block_explorer_details.png)
 
 ## 온라인 탐색기
 

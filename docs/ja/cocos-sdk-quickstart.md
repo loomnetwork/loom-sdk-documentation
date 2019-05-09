@@ -28,11 +28,11 @@ sidebar_label: Cocos SDKクイックスタート
 
 Loomグローバル構成ダイアグラム
 
-![](/developers/img/Loom-Cocos-SDK.png)
+![](/developers/docs/img/Loom-Cocos-SDK.png)
 
 Loom Cocos SDK構成ダイアグラム
 
-![](/developers/img/loom-cocos-sdk-struct.png)
+![](/developers/docs/img/loom-cocos-sdk-struct.png)
 
 `Loom-Cocos-SDK`には、`loom-js`と同一のAPIとprotobuf、さらに同様のコントラクトがある。
 
@@ -92,7 +92,7 @@ Cocos Creatorは、UIシステムやアニメーションエディタといっ�
 2. あなたのゲームの要件として、独自の`proto`ファイルを書こう。 例として`sample/loomDemoForCreator`は[setscore.proto](https://github.com/loomnetwork/phaser-sdk-demo/blob/master/src/assets/protobuff/setscore.proto)と関連する [setscore_pb.js](https://github.com/loomnetwork/phaser-sdk-demo/blob/master/src/assets/protobuff/setscore_pb.js)を使用している。
 3. あなたのゲームの要件として独自のコントラクトを書こう。そしてデータを`setscore_pb.js`を使ってデータをシリアライズし、Loomブロックチェーンに送信しよう。[SimpleContract](https://github.com/loomnetwork/phaser-sdk-demo/blob/master/src/SimpleContract.js)を参照すること。
 
-![](/developers/img/script_loom_folder.png)
+![](/developers/docs/img/script_loom_folder.png)
 
 1. 適切な場所であなたのコントラクトのAPIを呼び出す。
 2. 実行する。

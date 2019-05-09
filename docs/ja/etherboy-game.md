@@ -3,7 +3,7 @@ id: etherboy-game
 title: Etherboyゲーム
 sidebar_label: Etherboyゲーム
 ---
-![Header](/developers/img/ebw_splash.jpg) EtherboyはUnityで構築されたマルチプラットフォームの2Dゲームで、DAppチェーン上で稼働し、また[Loom Unity SDK](unity-sdk.html)を使用してGo言語で書かれたスマートコントラクトと対話する。
+![Header](/developers/docs/img/ebw_splash.jpg) EtherboyはUnityで構築されたマルチプラットフォームの2Dゲームで、DAppチェーン上で稼働し、また[Loom Unity SDK](unity-sdk.html)を使用してGo言語で書かれたスマートコントラクトと対話する。
 
 ## ゲームコントロール
 
@@ -69,7 +69,7 @@ $LOOM_BIN run
 
 全てここまで問題なく進んだら、Etherboyのスマートコントラクトを実行する、ローカルLoom DAppチェーンの出来上がりだ。
 
-![Animation](/developers/img/etherboy-clip.gif)
+![Animation](/developers/docs/img/etherboy-clip.gif)
 
 ### Unityプロジェクトの構築
 

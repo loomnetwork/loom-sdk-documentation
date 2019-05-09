@@ -28,11 +28,11 @@ sidebar_label: Cocos SDK快速上手
 
 Loom 全局结构
 
-![](/developers/img/Loom-Cocos-SDK.png)
+![](/developers/docs/img/Loom-Cocos-SDK.png)
 
 Loom Cocos SDK软件结构
 
-![](/developers/img/loom-cocos-sdk-struct.png)
+![](/developers/docs/img/loom-cocos-sdk-struct.png)
 
 由图可见，`Loom-Cocos-SDK` 与`loom-js`使用相同的API, 相同的 protobuf 文件, 基本类似的合约写法。
 
@@ -92,7 +92,7 @@ Cocos Creator基于开源框架Cocos2d-x，实现了一体化、可扩展、可�
 2. 根据你的游戏的需求编写自己的`proto`文件, 然后用 protoc 生成对应的 js 文件 e.g. 本例中使用的是[setscore.proto](https://github.com/loomnetwork/phaser-sdk-demo/blob/master/src/assets/protobuff/setscore.proto), 及对应生成的[setscore_pb.js](https://github.com/loomnetwork/phaser-sdk-demo/blob/master/src/assets/protobuff/setscore_pb.js)
 3. 编写适应自己游戏需求的合约, 使用上一步中的 `setscore_pb.js`将数据序列化, 并将数据发往DappChain, 参见[SimpleContract](https://github.com/loomnetwork/phaser-sdk-demo/blob/master/src/SimpleContract.js)
 
-![](/developers/img/script_loom_folder.png)
+![](/developers/docs/img/script_loom_folder.png)
 
 1. 在你的游戏中需要的位置调用上一步中的接口.
 2. 运行, 检查

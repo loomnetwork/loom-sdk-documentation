@@ -12,7 +12,7 @@ Loom Backend支持不同的BPFT引擎，如Tendermint，未来我们还将为PoA
 
 Loom共识层支持Loom DPoS或是每条链的可配置PoS/DPoS合约。一旦Casper可以使用，我们将增加对此的支持。
 
-![](/developers/img/loom-sdk-arch-overview.jpg)
+![](/developers/docs/img/loom-sdk-arch-overview.jpg)
 
 ## 智能合约
 
@@ -22,7 +22,7 @@ Loom共识层支持Loom DPoS或是每条链的可配置PoS/DPoS合约。一旦Ca
 
 它们也可以作为外部进程，即区块链通过GRPC进行通信。
 
-![](/developers/img/loom-sdk-arch-contracts.jpg)
+![](/developers/docs/img/loom-sdk-arch-contracts.jpg)
 
 ## 以太坊集成
 
@@ -30,7 +30,7 @@ SDK通过以下几部分集成到以太坊后端
 
 ### 转移网关
 
-![](/developers/img/loom-sdk-arch-plasma.jpg)
+![](/developers/docs/img/loom-sdk-arch-plasma.jpg)
 
 ### 转移官网允许实现以下功能：
 

@@ -3,7 +3,7 @@ id: truffle-deploy
 title: Truffle DAppチェーンサンプル
 sidebar_label: Truffleデプロイ
 ---
-![http://truffleframework.com](/developers/img/truffle.jpg)
+![http://truffleframework.com](/developers/docs/img/truffle.jpg)
 
 Loom DAppチェーンと対話するTruffleの簡単なサンプルだ。このサンプルは[loom-truffle-provider](https://github.com/loomnetwork/loom-truffle-provider)を使用している(さらなる詳細については、LoomTruffleProviderのリポジトリをチェックしよう)
 

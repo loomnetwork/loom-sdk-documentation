@@ -3,7 +3,7 @@ id: truffle-deploy
 title: Truffle DAppChain 예제
 sidebar_label: Truffle 배포
 ---
-![http://truffleframework.com](/developers/img/truffle.jpg)
+![http://truffleframework.com](/developers/docs/img/truffle.jpg)
 
 Loom DAppChain과 상호작용하는 간단한 Truffle 예제, 이 예제는 [loom-truffle-provider](https://github.com/loomnetwork/loom-truffle-provider)를 사용합니다 (더 자세한 사항은 LoomTruffleProvider 레파지토리를 확인해 보세요)
 

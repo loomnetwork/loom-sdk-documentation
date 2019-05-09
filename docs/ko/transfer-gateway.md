@@ -14,11 +14,11 @@ Transfer 게이트웨이는 4가지 주요 컴포넌트로 구성되어 있습�
 - Loom DAppChain 위에 올라간 어드레스 Mapper Go 컨트랙트
 - 게이트웨이 Oracle (DAppChain 노드 위에서 실행되는 프로세스 혹은 독립적인 프로세스로 동작될 수 있음)
 
-![Diagram of ERC721 Transfer to DAppChain](/developers/img/transfer-gateway-erc721-to-dappchain.png)
+![Diagram of ERC721 Transfer to DAppChain](/developers/docs/img/transfer-gateway-erc721-to-dappchain.png)
 
 When a user wishes to transfer a token from their Ethereum account to their DAppChain account they must first transfer it to the Mainnet Gateway, which in turns emits a deposit event. The deposit event is picked up by the Gateway Oracle which forwards it onto the DAppChain Gateway. The DAppChain Gateway then transfers the token to the DAppChain account of the user that deposited the token into the Mainnet Gateway.
 
-![Diagram of ERC721 Transfer to Ethereum](/developers/img/transfer-gateway-erc721-to-ethereum.png)
+![Diagram of ERC721 Transfer to Ethereum](/developers/docs/img/transfer-gateway-erc721-to-ethereum.png)
 
 To get that same token back into their Ethereum account the user must first transfer the token back to the DAppChain Gateway, which creates a pending withdrawal. The pending withdrawal is picked up by the Gateway Oracle, which signs the withdrawal, and notifies the DAppChain Gateway. The DAppChain Gateway emits an event to let the user know they can withdraw their token from the Mainnet Gateway to their Ethereum account by providing the signed withdrawal record.
 
