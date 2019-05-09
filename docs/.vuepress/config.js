@@ -1,5 +1,5 @@
 module.exports = {
-  base: '/developers/',
+  base: '/developers/doc/',
   SEARCH_MAX_SUGGESTIONS: 10,
   markdown: {
     // options for markdown-it-anchor
@@ -15,27 +15,6 @@ module.exports = {
     }
   },
   plugins: [
-    ['redirect', {
-      // provide i18n redirection
-      // it will automatically redirect `/foo/bar/` to `/:locale/foo/bar/` if exists
-      locales: true,
-      redirectors: [
-        // customize your redirectors
-        {
-          base: '/zh-CN/', // automatically redirect `/my-plugins/` to a subpage
-          storage: true, // save the result of the last visit to `localStorage` for the next redirect
-          alternative: [
-            // provide an alternate list
-            // if no page was matched, you will get a "404 not found"
-            '*', // equivalent to `/my-plugins/mathjax/`
-            'migrate',
-            'pangu',
-            'redirect',
-            'serve',
-          ]
-        },
-      ],
-    }],
   ],
   head: [
     ['link', {
@@ -44,7 +23,7 @@ module.exports = {
     }]
   ],
   locales: {
-    '/': {
+    '/en/': {
       lang: 'en',
       title: 'Loom SDK',
       description: 'Loom Platform has generators for a default project'
@@ -67,7 +46,7 @@ module.exports = {
   },
   themeConfig: {
     locales: {
-      '/': {
+      '/en/': {
         selectText: 'English',
         label: 'English'
       },
@@ -86,7 +65,7 @@ module.exports = {
     },
     nav: [{
       text: 'Docs',
-      link: '/base-install-all'
+      link: 'base-install-all'
     }, {
       text: 'Blog',
       link: 'https://medium.com/loom-network'
