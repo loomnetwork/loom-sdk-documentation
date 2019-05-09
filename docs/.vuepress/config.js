@@ -1,5 +1,5 @@
 module.exports = {
-  base: '/developers/doc/',
+  base: '/developers/docs/',
   SEARCH_MAX_SUGGESTIONS: 10,
   markdown: {
     // options for markdown-it-anchor
