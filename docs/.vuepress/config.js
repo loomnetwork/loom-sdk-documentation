@@ -79,7 +79,7 @@ module.exports = {
         ['/intro-to-loom', 'Intro Loom SDK'],
         ['/basic-install-all', 'Installation Loom SDK'],
         ['/join-testnet', 'Join Testnets'],
-        ['/extdev-transfer-gateway', 'Transfer Gateway Testnet Tutorial']
+        ['/extdev-transfer-gateway', 'extdev-transfer-gateway']
       ]
     }, {
       title: 'Javascript Client SDK',
@@ -99,7 +99,7 @@ module.exports = {
         ['/goloomstate', 'Saving and reading state'],
         ['/goloomevents', 'Emitting events'],
         ['/goloompermissions', 'Permission Helpers'],
-        ['/builtin', 'Built-in Smart Contracts'],
+        ['/builtin', 'builtin'],
         ['/go-events', 'Go Event Indexing'],
       ]
     }, {
@@ -135,7 +135,7 @@ module.exports = {
       collapsable: true,
       sidebarDepth: 1,
       children: [
-        ['/delegated-proof-of-stake', 'Delegated Proof of Stake']
+        ['/delegated-proof-of-stake', 'delegated-proof-of-stake']
       ]
     }, {
       title: 'Monitoring',
@@ -197,7 +197,7 @@ module.exports = {
       children: [
         ['/arch', 'arch'],
         ['/release-notes', 'Release Notes'],
-        ['/common-issues', 'Common Issues']
+        ['/common-issues', 'common-issues']
       ]
     }, {
       title: 'Advanced and Internal',
