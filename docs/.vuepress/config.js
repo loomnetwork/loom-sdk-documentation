@@ -65,7 +65,7 @@ module.exports = {
     },
     nav: [{
       text: 'Docs',
-      link: 'base-install-all'
+      link: 'basic-install-all'
     }, {
       text: 'Blog',
       link: 'https://medium.com/loom-network'
@@ -77,8 +77,8 @@ module.exports = {
       sidebarDepth: 1,
       children: [
         ['/intro-to-loom', 'Intro Loom SDK'],
-        ['/base-install-all', 'Installation Loom SDK'],
-        ['/join-test-net', 'Join Testnets'],
+        ['/basic-install-all', 'Installation Loom SDK'],
+        ['/join-testnet', 'Join Testnets'],
         ['/extdev-transfer-gateway', 'Transfer Gateway Testnet Tutorial']
       ]
     }, {
@@ -87,7 +87,7 @@ module.exports = {
       sidebarDepth: 1,
       children: [
         ['/loom-js-quickstart', 'NodeJS & Browser Quick Start'],
-        ['/web3js-loom-provider', 'Web3, LoomProvider and Truffle']
+        ['/web3js-loom-provider-truffle', 'Web3, LoomProvider and Truffle']
       ]
     }, {
       title: 'Go Contract SDK',
@@ -96,10 +96,10 @@ module.exports = {
       children: [
         ['/prereqs-all', 'Installation Go Loom SDK'],
         ['/go-loom-clients', 'Building DAppChain Clients'],
-        ['/read-write-state', 'Saving and reading state'],
-        ['/go-loom-events', 'Emitting events'],
-        ['/go-loom-permissions', 'Permission Helpers'],
-        ['/builtin-smart-contracts', 'Built-in Smart Contracts'],
+        ['/goloomstate', 'Saving and reading state'],
+        ['/goloomevents', 'Emitting events'],
+        ['/goloompermissions', 'Permission Helpers'],
+        ['/builtin', 'Built-in Smart Contracts'],
         ['/go-events', 'Go Event Indexing'],
       ]
     }, {
@@ -119,7 +119,7 @@ module.exports = {
         ['/unity-sdk-plugin', 'Plugin-based Smart Contract Quickstart'],
         ['/unity-sdk-evm', 'EVM-based Smart Contract Quickstart'],
         ['/unity-sample-tiles-chain-evm', 'Tiles EVM Example'],
-        ['/unity-tuffle-loom-sample', 'Unity + Truffle + Loom Quick Start'],
+        ['/unity-truffle-loom-sample', 'Unity + Truffle + Loom Quick Start'],
         ['/unity-truffle-loom-template', 'Unity + Truffle + Loom Template'],
       ]
     }, {
@@ -127,7 +127,7 @@ module.exports = {
       collapsable: true,
       sidebarDepth: 1,
       children: [
-        ['/events', 'Subscribing to events'],
+        ['/loomevents', 'Subscribing to events'],
         ['/web3js-event-filters', 'Web3 event filters']
       ]
     }, {
@@ -161,7 +161,7 @@ module.exports = {
         ['/etherboy-game', 'Etherboy Game'],
         ['/phaser-sdk-demo', 'Phaser SDK Demo'],
         ['/phaser-sdk-demo-websocket', 'Phaser + Websockets Demo'],
-        ['/phaser-sdk-demo-websocket-web3', 'JS WebSockets + EVM Web3 Demo'],
+        ['/phaser-sdk-demo-web3-websocket', 'JS WebSockets + EVM Web3 Demo'],
         ['/simple-social-network-example', 'Simple Social Network Example']
       ]
     }, {
@@ -179,7 +179,7 @@ module.exports = {
       children: [
         ['/etherboy-backend', 'Etherboy Backend'],
         ['/multi-node-deployment', 'Multi Node Deployment'],
-        ['/docker-blueprint', 'Phaser Docker Exaample']
+        ['/docker-blueprint-phaser', 'Phaser Docker Exaample']
       ]
     }, {
       title: 'Networks',
