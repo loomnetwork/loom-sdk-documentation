@@ -67,16 +67,17 @@ export default {
   &.is-sub-group
     padding-left 0
     & > .sidebar-heading
-      font-size 1.3em
-      font-weight normal
+      font-size 1.36em
+      font-weight normal 
       color: $sidebarCategoryColor
       padding-left 2rem
     & > .sidebar-group-items
       padding-left 1rem
       & > li > .sidebar-link
-        font-size: 1.2em;
+        font-size: 1.28em;
         border-left none
         font-weight 500
+        color $sidebarLinkActiveColor
         &:not(:hover):not(.active)
           color $sidebarLinkColor
   &.depth-2
