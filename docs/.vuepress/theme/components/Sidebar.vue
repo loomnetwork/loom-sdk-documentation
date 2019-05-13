@@ -1,6 +1,6 @@
 <template>
   <aside class="sidebar">
-    <SidebarTop />
+    <SidebarTop @toggle-darkmode="$emit('toggle-darkmode')" :darkMode="darkMode"/>
     <div class="search__wrapper">
       <SearchBox v-if="$site.themeConfig.search !== false"/>    
     </div>
@@ -38,7 +38,7 @@ import { isActive } from '../util'
 export default {
   components: { SidebarGroup, SidebarLink, NavLinks, SearchBox, SidebarTop },
 
-  props: ['items'],
+  props: ['items', 'darkMode'],
 
   data() {
     return {

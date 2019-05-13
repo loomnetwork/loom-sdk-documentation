@@ -8,7 +8,7 @@
         :alt="$siteTitle"
       />
     </router-link>
-    <button class="theme-swtich" @click="switchThemeMode">
+    <button class="theme-swtich" @click="$emit('toggle-darkmode')">
       <img :src="switchBtnImage" />
     </button>
   </div>
@@ -20,10 +20,10 @@ import NavLinks from './NavLinks.vue'
 import { toggleDarkMode } from '../util'
 export default {
   components: { SidebarButton, NavLinks },
+  props: ['darkMode'],
   data() {
     return {
       linksWrapMaxWidth: null,
-      darkMode: false
     }
   },
   mounted() {
@@ -48,12 +48,6 @@ export default {
       return this.darkMode ? this.$withBase('/img/theme-dark.svg') : this.$withBase('/img/theme-light.svg')
     }
   },
-  methods: {
-    switchThemeMode() {
-      this.darkMode = !this.darkMode
-      toggleDarkMode(this.darkMode)
-    }
-  }
 }
 
 function css(el, property) {
@@ -94,23 +88,14 @@ $navbar-horizontal-padding = 1.5rem
     display flex
     .search-box
       flex: 0 0 auto
-      vertical-align top
-  .theme-swtich
-    background-color transparent
-    border none
-    box-shadow none 
-    padding 0
-    outline none
-    cursor pointer
-    vertical-align middle
-    width 29px
-    height 29px
-    float: right
+      vertical-align top  
 @media (max-width: $MQMobile)
-  .navbar
+  .sidebar-top
     padding-left 4rem
     .can-hide
       display none
     .links
       padding-left 1.5rem
+    .theme-switch
+      display none
 </style>

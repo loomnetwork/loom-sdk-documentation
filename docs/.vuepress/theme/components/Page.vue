@@ -1,6 +1,6 @@
 <template>
   <main class="page">
-    <Navbar @toggle-sidebar="$emit('toggle-sidebar')"/>
+    <Navbar @toggle-sidebar="$emit('toggle-sidebar')" @toggle-darkmode="$emit('toggle-darkmode')" :darkMode="darkMode"/>
     <slot name="top" />
 
     <Content ref="content" />
@@ -68,7 +68,7 @@ import Navbar from './Navbar.vue'
 
 export default {
   components: {NavLinks, Navbar},
-  props: ['sidebarItems'],
+  props: ['sidebarItems', 'darkMode'],
 
   computed: {
     valine() {

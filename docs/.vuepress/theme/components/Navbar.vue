@@ -2,18 +2,21 @@
   <header class="navbar">
     <SidebarButton @toggle-sidebar="$emit('toggle-sidebar')" />
 
-    <!-- <router-link :to="$localePath" class="home-link">
+    <router-link :to="$localePath" class="home-link">
       <img
         class="logo"
         v-if="$site.themeConfig.logo"
         :src="$withBase($site.themeConfig.logo)"
         :alt="$siteTitle"
       />
-    </router-link> -->
+    </router-link>
 
     <div class="links" :style="linksWrapMaxWidth ? { 'max-width': linksWrapMaxWidth + 'px' } : {}">
       <NavLinks class="can-hide" />
     </div>
+    <button class="theme-swtich" @click="$emit('toggle-darkmode')">
+      <img :src="switchBtnImage" />
+    </button>
   </header>
 </template>
 
@@ -22,6 +25,7 @@ import SidebarButton from './SidebarButton.vue'
 import NavLinks from './NavLinks.vue'
 export default {
   components: { SidebarButton, NavLinks },
+  props: ['darkMode'],
   data() {
     return {
       linksWrapMaxWidth: null
@@ -45,6 +49,9 @@ export default {
     window.addEventListener('resize', handleLinksWrapWidth, false)
   },
   computed: {
+    switchBtnImage() {
+      return this.darkMode ? this.$withBase('/img/theme-dark.svg') : this.$withBase('/img/theme-light.svg')
+    }
   }
 }
 
@@ -89,6 +96,8 @@ $navbar-horizontal-padding = 1.5rem
     .search-box
       flex: 0 0 auto
       vertical-align top
+  .home-link
+    display none
 @media (max-width: $MQMobile)
   .navbar
     padding-left 4rem
@@ -97,4 +106,6 @@ $navbar-horizontal-padding = 1.5rem
       display none
     .links
       padding-left 1.5rem
+    .home-link
+      display inline-block
 </style>

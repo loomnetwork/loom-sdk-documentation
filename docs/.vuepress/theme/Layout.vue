@@ -9,11 +9,11 @@
     <!-- <Navbar v-if="shouldShowNavbar" @toggle-sidebar="toggleSidebar" /> -->
     <div v-else>
       <div class="sidebar-mask" @click="toggleSidebar(false)" />
-      <Sidebar :items="sidebarItems" @toggle-sidebar="toggleSidebar">
+      <Sidebar :items="sidebarItems" @toggle-sidebar="toggleSidebar" @toggle-darkmode="switchMode" :darkMode="darkMode">
         <slot slot="top" name="sidebar-top" />
         <slot slot="bottom" name="sidebar-bottom" />
       </Sidebar>
-      <Page :sidebar-items="sidebarItems" @toggle-sidebar="toggleSidebar">
+      <Page :sidebar-items="sidebarItems" @toggle-sidebar="toggleSidebar" @toggle-darkmode="switchMode" :darkMode="darkMode">
         <slot slot="top" name="page-top" />
         <slot slot="bottom" name="page-bottom" />
       </Page>
@@ -27,13 +27,14 @@ import Home from './components/Home.vue'
 import Navbar from './components/Navbar.vue'
 import Page from './components/Page.vue'
 import Sidebar from './components/Sidebar.vue'
-import { resolveSidebarItems } from './util'
+import { resolveSidebarItems, toggleDarkMode } from './util'
 
 export default {
   components: { Home, Page, Sidebar, Navbar },
   data() {
     return {
-      isSidebarOpen: false
+      isSidebarOpen: false,
+      darkMode: false
     }
   },
   computed: {
@@ -78,6 +79,10 @@ export default {
   methods: {
     toggleSidebar(to) {
       this.isSidebarOpen = typeof to === 'boolean' ? to : !this.isSidebarOpen
+    },
+    switchMode() {
+      this.darkMode = !this.darkMode
+      toggleDarkMode(this.darkMode)
     },
     // side swipe
     onTouchStart(e) {
