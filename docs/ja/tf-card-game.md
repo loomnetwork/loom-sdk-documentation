@@ -5,4 +5,4 @@ sidebar_label: カードゲートウェイのサンプル
 ---
 チェーン間のトークン移転を行うERC721トークンサンプルは、こちらの[Github](https://github.com/loomnetwork/cards-gateway-example)にて。
 
-![](/developers/docs/img/tf-card-game.gif)
+![](/developers/img/tf-card-game.gif)

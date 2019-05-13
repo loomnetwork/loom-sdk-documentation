@@ -9,7 +9,7 @@ Loom 은 EVM ([Ethereum Virtual Machine](evm.html)) 과 plugin 기반의 스마�
 
 ## 예제 코드
 
-You can find all the code on this page and a ready-to-go Unity scene in the Loom Unity SDK under [`Assets/LoomSDK/Samples/QuickStart`](https://github.com/loomnetwork/unity-sdk/tree/master/UnityProject/Assets/LoomSDK/Samples/QuickStart).
+여러분은 이 페이지의 모든 코드와 Loom Unity SDK의 실행가능한 Unity Scene 을 [`Assets/LoomSDK/Samples/QuickStart`](https://github.com/loomnetwork/unity-sdk/tree/master/UnityProject/Assets/LoomSDK/Samples/QuickStart) 에서 찾으실 수 있습니다.
 
 ## DAppChain에 연결하기
 
@@ -146,8 +146,8 @@ async void Start()
 }
 ```
 
-Now that we have all the code in place let's test it out:
+자 이제 모든 코드를 가지게 되었으니 테스트를 해봅시다:
 
-1. Create an empty `GameObject` in a Unity scene and attach the `LoomQuickStartSample` script to it.
-2. Deploy the [BluePrint](https://github.com/loomnetwork/weave-blueprint/blob/master/src/blueprint.go) smart contract on a local Loom DAppChain node.
-3. Hit `Play` in the Unity Editor.
+1. Unity scene에 빈 `GameObject` 를 만들고 `LoomQuickStartSample` 스크립트를 붙이세요.
+2. [BluePrint](https://github.com/loomnetwork/weave-blueprint/blob/master/src/blueprint.go) 스마트 컨트랙트를 로컬 Loom DAppChain 노드에 배포하세요.
+3. Unity 편집기에서 `Play`를 누르세요.

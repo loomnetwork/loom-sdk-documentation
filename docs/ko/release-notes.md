@@ -7,50 +7,50 @@ sidebar_label: 릴리즈 노트
 
 릴리즈 노트는 역순으로 구성되어 있습니다.
 
-## Loom 2.0 Release Build 789 - Feb 12th
+## Loom 2.0 초기 릴리스 빌드 789 - 2월 12일
 
-Major update, major updates for Performance, Caching and DPoS. It is recommended to upgrade your testnets immediately.
+주요 업데이트, 성능, 캐싱, DPoS를 위한 주요 업데이트. 즉시 여러분의 테스트넷을 업그레이드 할 것을 추천합니다.
 
-* DPosV2 now supports Delegates staking and full reward cycle
-* Nonce incrementing mid block, loom-js and unity-sdk updated to support
-* Work has started on DPoSV3 to have shorter reward cycles and other improvements
-* Karma updates
-* CheckTx preformance boosts
-* Updated P2P protocol 
-* Go contracts now support event indexing - [Go Events Docs](go-events.html)
-* EVM Queries has improved caching layer
-* Bug for EVM contracts writting more then 11,800 keys is fixed
-* Support for non ETH block chains via TG has started
-* More metrics exposed
-* YubiHSM Fixes
-* Many new config options - [Loom Yaml Configs](loom-yaml.html)
+* DPosV2는 위임자 스테이킹과 전체 보상 사이클을 지원합니다.
+* 논스 인크리멘팅 미드 블록, loom-js과 unity-sdk 가 지원을 위해 업데이트
+* 더 짧은 보상 주기 및 다른 성능향상을 위해서 작업은 DPoSV3 에서 시작되었습니다
+* Karam 업데이트
+* CheckTx 성능 향상
+* P2P 프로토콜 업데이트 
+* Go 컨트랙트가 현재 이벤트 인덱싱을 지원 - [Go 이벤트 문서](go-events.html)
+* EVM 쿼리가 캐싱 레이어를 향상시킴
+* 11,800개 이상의 키가 써지는 EVM 컨트랙트의 버그가 수정됨
+* TG를 통해 비 ETH 블록체인을 지원하는 것이 시작됨.
+* 더 많은 메트릭을 보여줌
+* YubiHSM 수정
+* 많은 새로운 config 옵션 - [Loom Yaml Configs](loom-yaml.html)
 
-## Loom 2.0 Initial Release Build 651 - Dec 14th
+## Loom 2.0 초기 릴리스 빌드 651 - 12월 14일
 
 * Loom SDK 2.0
-* Updated P2P Protocols
-* Blockexplorer now supports EVM
-* Loom Native token support for on chain Staking
-* Support For delegation rewards in protocol
-* Fixes for GetEvmBlockByNumber/Hash
-* Range function Prefix fixes for Go Contracts
-* HSM local key signing - [HSM Docs](hsm.html)
-* Unity SDK Updated with better network management 
+* P2P 프로토콜 업데이트
+* Blockexplorer는 현재 EVM을 지원합니다
+* Loom 네이티브 토큰은 온체인 스테이킹을 지원합니다
+* 프로토콜에서 위임 보상을 지원
+* GetEvmBlockByNumber/Hash 버그픽스
+* Go 컨트랙트의 Range function Prefix 버그픽스
+* HSM 로컬 키 사이닝 - [HSM 문서](hsm.html)
+* 향상된 네트워크 관리를 포함한 Unity SDK 업데이트 
 
-Note Loom SDK 2.0 is not protocol compatible with 1.0 chains. If you have a production chain using 1.0 please contact support@loomx.io for migration help.
+주의 Loom SDK 2.0 은 1.0 체인과의 프로토콜이 호환되지 않습니다. 만약 여러분이 1.0 버전을 사용하는 상용 체인을 가지고 있다면 마이그레이션 도움을 위해서 support@loomx.io로 연락 바랍니다.
 
-## Release 575 - Nov 16th
+## 릴리즈 575 - 11월 16일
 
-* HSM Bug fixes for Yubico Devices - [HSM Docs](hsm.html)
-* HSM now can create new private keys on demand
+* Yubico 디바이스를 위한 HSM 버그 픽스 - [HSM 문서](hsm.html)
+* HSM은 현재 요청시 새로운 개인키를 발급할 수 있습니다
 
-## Release 575 - Nov 13th
+## 릴리즈 575 - 11월 13일
 
-* HSM support for Yubico Devices - [HSM Docs](hsm.html)
-* DPoS Version2 beta - for Plasmachain external validators
-* Plasma cash massive improvements, see [Plasma Cli](https://github.com/loomnetwork/plasma-cli)
-* Pruning for the Datastore, if chain gets to large, see [Config](loom-yaml.html)
-* New EVM receipts data store, see [Config](loom-yaml.html)
+* Yubico 디바이스를 위한 HSM 지원 - [HSM 문서](hsm.html)
+* DPoS 버전 2 베타 - Plasmachain 외부 검증자를 위한
+* Plasma cash 대규모 개선사항, [Plasma Cli](https://github.com/loomnetwork/plasma-cli)을 보세요
+* 데이터스토어 정리, 만약 체인이 커졌다면, [Config](loom-yaml.html)를 참고하세요
+* 새로운 EVM recipts 데이터 스토어, [Config](loom-yaml.html)를 참고하세요
 
 ## 릴리즈 478 - 10월 8일
 

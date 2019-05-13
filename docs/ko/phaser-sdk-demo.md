@@ -3,7 +3,7 @@ id: phaser-sdk-demo
 title: Phaser SDK 데모
 sidebar_label: Phaser SDK 데모
 ---
-![Game screenshot](/developers/docs/img/screenshot.png)
+![Game screenshot](/developers/img/screenshot.png)
 
 [Phaser](http://phaser.io)와 [Loom.js](https://github.com/loomnetwork/loom-js)를 사용해서 Loom DappChain과 상호작용하는 간단한 HTML5 게임을 보여주는 기본적인 예제입니다. 소스코드는 [Github](https://github.com/loomnetwork/phaser-sdk-demo)에서 확인 가능합니다
 

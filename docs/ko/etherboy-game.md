@@ -3,7 +3,7 @@ id: etherboy-game
 title: Etherboy 게임
 sidebar_label: Etherboy 게임
 ---
-![Header](/developers/docs/img/ebw_splash.jpg) Etherboy는 Unity로 만들어진 멀티플랫폼 2D 게임입니다, [Loom Unity SDK](unity-sdk.html)를 사용하여 Golang으로 작성되고 Loom DAppChain에서 구동되는 스마트 컨트랙트와 상호작용합니다.
+![Header](/developers/img/ebw_splash.jpg) Etherboy는 Unity로 만들어진 멀티플랫폼 2D 게임입니다, [Loom Unity SDK](unity-sdk.html)를 사용하여 Golang으로 작성되고 Loom DAppChain에서 구동되는 스마트 컨트랙트와 상호작용합니다.
 
 ## 게인 컨트롤
 
@@ -69,7 +69,7 @@ $LOOM_BIN run
 
 지금까지 모든것이 순조롭다면 여러분은 Etherboy 스마트 컨트랙트가 돌아가고 있는 로컬 Loom DAppChain 가지게 된 것입니다!
 
-![Animation](/developers/docs/img/etherboy-clip.gif)
+![Animation](/developers/img/etherboy-clip.gif)
 
 ### Unity 프로젝트 빌드하기
 

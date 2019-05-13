@@ -28,11 +28,11 @@ sidebar_label: Cocos SDK 퀵스타트
 
 Loom 전체 구조 다이어그램
 
-![](/developers/docs/img/Loom-Cocos-SDK.png)
+![](/developers/img/Loom-Cocos-SDK.png)
 
 Loom Cocos SDK 구조 다이어그램
 
-![](/developers/docs/img/loom-cocos-sdk-struct.png)
+![](/developers/img/loom-cocos-sdk-struct.png)
 
 `Loom-Cocos-SDK`는 `loom-js`와 동일한 api, 동일한 protobuf, 비슷한 컨트랙트를 가지고 있습니다.
 
@@ -92,7 +92,7 @@ Cocos Creator는 UI 시스템 및 애니메이션 편집기와 같은 혁신적�
 2. 여러분의 게임 요구사항에 맞는 `proto` 파일을 작성하세요. 예를 들면, `sample/loomDemoForCreator`는 [setscore.proto](https://github.com/loomnetwork/phaser-sdk-demo/blob/master/src/assets/protobuff/setscore.proto)을 사용하고 있고, [setscore_pb.js](https://github.com/loomnetwork/phaser-sdk-demo/blob/master/src/assets/protobuff/setscore_pb.js)과 관련이 있지요.
 3. 여러분의 게임 요구사항에 맞는 컨트랙트를 작성하세요. 그리고 `setscore_pb.js`로 데이터를 직렬화하고, Loom Blockchain에 보내세요. [SimpleContract](https://github.com/loomnetwork/phaser-sdk-demo/blob/master/src/SimpleContract.js)를 살펴보세요.
 
-![](/developers/docs/img/script_loom_folder.png)
+![](/developers/img/script_loom_folder.png)
 
 1. 적당한 위치에서 여러분의 컨트랙트 API를 호출하세요.
 2. 실행하세요

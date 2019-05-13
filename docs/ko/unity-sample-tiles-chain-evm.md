@@ -3,7 +3,7 @@ id: unity-sample-tiles-chain-evm
 title: Tiles EVM 예제
 sidebar_label: Tiles EVM 예제
 ---
-[Loom Unity SDK](https://github.com/loomnetwork/unity3d-sdk)를 사용하여 EVM기반의 Loom DappChain과 상호작용하는 간단한 Unity game을 보여주는 기본적인 예제입니다. 비디오를 선호하세요? 여기 이 문서에 관한 둘러보기 동영상이 있습니다 [비디오](/developers/docs/img/tiles-evm-walkthrough.mov)
+[Loom Unity SDK](https://github.com/loomnetwork/unity3d-sdk)를 사용하여 EVM기반의 Loom DappChain과 상호작용하는 간단한 Unity game을 보여주는 기본적인 예제입니다. 비디오를 선호하세요? 여기 이 문서에 관한 둘러보기 동영상이 있습니다 [비디오](/developers/img/tiles-evm-walkthrough.mov)
 
 ![](https://camo.githubusercontent.com/9d49b0ce78d692e69d1dd571bc8d1aafe5b806a8/68747470733a2f2f647a776f6e73656d72697368372e636c6f756466726f6e742e6e65742f6974656d732f315232363044327030713370304d33693232304a2f53637265656e2532305265636f7264696e67253230323031382d30352d3232253230617425323031302e3233253230414d2e6769663f763d3961353539316139)
 

@@ -5,4 +5,4 @@ sidebar_label: Transfer Gatewayサンプル
 ---
 チェーン間のトークンシフトを行うERC721/ERC20トークンサンプルは[Github](https://github.com/loomnetwork/transfer-gateway-example)にて。
 
-![](/developers/docs/img/tf-card-game.gif)
+![](/developers/img/tf-card-game.gif)

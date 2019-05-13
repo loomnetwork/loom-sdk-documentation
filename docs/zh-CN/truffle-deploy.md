@@ -3,7 +3,7 @@ id: truffle-deploy
 title: Truffle DApp链示例
 sidebar_label: Truffle部署
 ---
-![http://truffleframework.com](/developers/docs/img/truffle.jpg)
+![http://truffleframework.com](/developers/img/truffle.jpg)
 
 Truffle 与 Loom DApp链交互的简单示例，此示例使用 [loom-truffle-provider](https://github.com/loomnetwork/loom-truffle-provider)（有关详细信息，请查看 LoomTruffleProvider 代码库）
 
