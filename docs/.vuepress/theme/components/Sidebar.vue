@@ -124,6 +124,10 @@ function resolveOpenGroupIndex(route, items) {
 
 @media (max-width: $MQMobile)
   .sidebar
+    .search__wrapper
+      margin-top 0.5em
+      margin-bottom 0
+      padding 0 1.5rem
     .nav-links
       display block
       .dropdown-wrapper .nav-dropdown .dropdown-item a.router-link-active::after

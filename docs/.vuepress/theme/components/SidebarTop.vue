@@ -91,11 +91,5 @@ $navbar-horizontal-padding = 1.5rem
       vertical-align top  
 @media (max-width: $MQMobile)
   .sidebar-top
-    padding-left 4rem
-    .can-hide
-      display none
-    .links
-      padding-left 1.5rem
-    .theme-switch
-      display none
+    display none
 </style>

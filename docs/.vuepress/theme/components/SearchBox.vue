@@ -232,13 +232,13 @@ export default {
   .search-box
     input
       cursor pointer
-      width 0
-      border-color transparent
-      position relative
+      // width 0
+      // border-color transparent
+      // position relative
       &:focus
         cursor text
         left 0
-        width 10rem
+        width 100%
 
 // Match IE11
 @media all and (-ms-high-contrast: none)
@@ -256,12 +256,12 @@ export default {
     input
       left 1rem
     .suggestions
-      right 0
+      left 0
 
 @media (max-width: $MQMobileNarrow)
   .search-box
     .suggestions
       width calc(100vw - 4rem)
     input:focus
-      width 8rem
+      width 100%
 </style>

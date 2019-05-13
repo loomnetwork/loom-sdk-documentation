@@ -47,3 +47,4 @@ and this will create files named `priv_key` and `pub_key`, the `priv_key` file c
 6. Run deploy: 
         bash
         yarn deploy:extdev
+        
