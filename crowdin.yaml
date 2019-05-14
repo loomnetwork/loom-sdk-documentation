@@ -3,8 +3,8 @@ api_key_env: CROWDIN_DOCUSAURUS_API_KEY
 base_path: ./
 preserve_hierarchy: true
 files:
-  - source: /docs/*.md
-    translation: /website/translated_docs/%locale%/%original_file_name%
+  - source: /docs/en/*.md
+    translation: /docs/%locale%/%original_file_name%
     languages_mapping:
       locale:
         af: af
@@ -41,5 +41,5 @@ files:
         vi: vi
         zh-CN: zh-CN
         zh-TW: zh-TW
-  - source: /website/i18n/en.json
-    translation: /website/i18n/%locale%.json
+  - source: /docs/.vuepress/locales/en.json
+    translation: /docs/.vuepress/locales/%locale%.json
