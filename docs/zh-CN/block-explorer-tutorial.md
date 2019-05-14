@@ -1,71 +1,72 @@
 ---
 id: block-explorer-tutorial
-title: 区块浏览器教程
-sidebar_label: 区块浏览器教程
+title: Block Explorer Tutorial
+sidebar_label: Block Explorer Tutorial
 ---
-## 概述:
 
-此区块浏览器帮助你检查你的 DApp 链上的区块数据。
+## Overview:
+
+This Block Explorer helps you to check the block data on your DAppChain.
 
 ![](/developers/img/block_explorer.png)![](/developers/img/block_explorer_details.png)
 
-## 在线浏览器
+## Online explorer
 
-你可以访问 [Loom 区块浏览器](https://blockexplorer.loomx.io), 如果你在本地计算机上运行了 Loom DApp 链，你将在那里看到区块数据。
+You can just visit [Loom Block Explorer](https://blockexplorer.loomx.io), If you have a Loom DAppChain running on your local machine, you should see the block data there.
 
-如果你在另一台机器上运行 Loom DApp链，可以在列表的左下角输入你的 Loom DApp链 RPC 服务器 URL，通常 URL 应该是`http://YOUR_DAPP_CHAIN_SERVER_IP:46657`.
+If you are running Loom DAppChain on another machine, you can input your Loom DAppChain RPC server URL into the bottom left corner of the list, Normally the URL should be `http://YOUR_DAPP_CHAIN_SERVER_IP:46657`.
 
-请确保你的服务器可以从外部访问。
+Make sure your server is accessible from outside.
 
-## 本地浏览器
+## Local Explorer
 
-你也可以在本地运行区块浏览器。
+You can also run the block explorer locally.
 
-一开始，先从我们的 Github 复制代码库
+To get started, clone the repo from our Github:
 
     git clone https://github.com/loomnetwork/vue-block-explorer.git
     
 
-然后安装依赖项并启动开发服务器:
+Then install the dependencies and start the dev server:
 
     yarn install
     yarn run serve
     
 
-开发服务器会运行在 `http://127.0.0.1:8080`，如果 `8080` 端口被其他程序使用，则会选择另一个。
+The dev server should run at `http://127.0.0.1:8080`, if the `8080` port is used by other programs, it will pick another one.
 
-默认情况下, 它将从 `http://127.0.0.1:46658`中读取区块数据, 如果你在另一个 IP 上运行服务器, 则可以在服务器列表中将其更改为在线版本。
+By default, it will read block data from `http://127.0.0.1:46658`, if you are running the server on another IP, you can change it in the server list as in online version.
 
-## 按区块高度搜索
+## Search By Block Height
 
-浏览器会显示当前 DApp链中的所有区块，因此，如果你运行的是共享型区块链，比如说 Loom DApp链，则很难查看你自己的区块数据，因为区块数量庞大。
+The explorer would show all blocks in current DAppChain, so if you are running a shared blockchain, like running Loom DAppChain, it'll be hard to check your own block data since there are too many of them.
 
-因此，你需要按 `block height` 来搜索：
+Therefore you need to search by the `block height`:
 
-1. 打开你的 loom 终端（运行 `loom run` 命令的地方）
-2. 找到你刚刚创建的区块链日志，`index` 就是区块高度
-3. 在区块列表的右上角, 有一个搜索输入框, 填入区块高度并搜索它。
+1. Open your loom terminal (where you run the `loom run` command)
+2. Find the blockchain log you just created, the `index` is the block height
+3. In the top right corner of the block list, there is a search input, put the block height and search it.
 
-## 构建你自己的浏览器
+## Build Your Own Explorer
 
-区块浏览器将在原始 JSON 视图中显示区块数据，如下所示：
+The block explorer would display the block data in a raw JSON view, like this:
 
-通常，如果你的 DApp 数据排列良好，采用有效的 JSON 格式，那就没问题了。 但如果不是，它只会在原始文本视图中显示而且不易阅读。
+Normally if your DApp data is arranged well in valid JSON format, it would be fine. But if it's not, it will just show in a raw text view and not easy to read.
 
-因此，你可能希望构建自己的区块浏览器，就像我们为 [delegatecall.com](http://blockchain.delegatecall.com) 所做的那样。
+So you might want to build your own explorer, just like what we did for [delegatecall.com](http://blockchain.delegatecall.com).
 
-你需要了解 `Vue`, `TypeScript` 和 `Google Protobuf` 才能开始。 阅读 [DelagateCall Block Explorer](https://github.com/loomnetwork/vue-block-explorer/tree/dc-2) 的源代码，能让事情变得容易一些。
+You need to know `Vue`, `TypeScript` and also `Google Protobuf` to start. Reading the source code of [DelagateCall Block Explorer](https://github.com/loomnetwork/vue-block-explorer/tree/dc-2) would make it easier.
 
-开始吧：
+To get started:
 
-1. 找到你的 DApp 的 `.proto` 文件。它定义了你的 DApp数据结构。 把它放入 `vue-block-explorer` 的 `src/pbs` 文件夹中。 然后运行 `yarn proto` （假定你之前已经运行了 `yarn install`）。
-2. 你会收到2个新文件`YOUR_PROTO_FILE_NAME_pb.d.ts` 和 `YOUR_PROTO_FILE_NAME_pb.js`。
-3. 在 `transaction-reader.ts` 中，引入你的 `.proto` 文件中的类。
+1. Find your own `.proto` file for your DApp.It defined your DApp data structure. Put it in the `src/pbs` folder of the `vue-block-explorer`. then run `yarn proto` (assume you already run `yarn install` before).
+2. You will get 2 new files `YOUR_PROTO_FILE_NAME_pb.d.ts` and `YOUR_PROTO_FILE_NAME_pb.js`
+3. In `transaction-reader.ts`, import the classes in your `.proto` file:
 
     import * as DC from '@/pbs/YOUR_PROTO_FILE_NAME_pb'
     
 
-1. 你现在可以使用自己的 protobuf 解码器来解码区块数据。 你可能希望为不同的数据编写不同的解码函数（以 *delegatecall* 为例）：
+4. You can use your own protobuf decoders to decode the block data now. You might want to write different decoding function for different data(take *delegatecall* for example):
     
         function readDCProtoData(cmc: ContractMethodCall): DelegateCallTx {
           const methodName = cmc.toObject().method
@@ -86,7 +87,7 @@ sidebar_label: 区块浏览器教程
         }
         
     
-    对于每一个解码函数，使用相应的 protobuf 函数进行解码：
+    For each of these decoding functions, use relative protobuf function to decode:
     
         function readVoteTxPayload(r: Uint8Array): IVoteTx {
           const DCVoteTX = DC.DelegatecallVoteTx.deserializeBinary(r).toObject()
@@ -100,4 +101,4 @@ sidebar_label: 区块浏览器教程
         }
         
 
-更多的脚本，像 `run`, `build` 或 `format` 代码，你可以阅读区块浏览器中的 `README.MD` 文件。
+More scripts like `run`, `build` or `format` the code, you can read the `README.MD` file in the block explorer.
