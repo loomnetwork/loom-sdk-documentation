@@ -1,24 +1,23 @@
 ---
-id: よくある問題点
-title: よくある問題点
+id: common-issues
+title: Common Issues
 ---
-我々は共通の課題を解決し、各リリースごとに改善するよう努めている。
 
-リリースの合間で、人々が遭遇する共通の課題についてここに記しておこう。
+We strive to resolve common issues and make them better with each release.
+
+Inbetween releases we keep common issues here that people run into.
 
 1) "Plugin Exited before we could connect"
 
-    <br />```
-        plugin: plugin process exited: path=/bin/sh
-        panic: plugin exited before we could connect
-    ```
+    <br />plugin: plugin process exited: path=/bin/sh
+    panic: plugin exited before we could connect
     
     
 
-これは通常、killする必要がある無意味に稼働しているがあるということを意味する。
+This usually means there is a process hanging around that needs to be killed
 
     ps -ef | grep blueprint
     kill -9 xxxx 
     
 
-blueprintをコントラクトの名前であるものに変更しよう。xxxxはプロセスidだ。
+Change blueprint to whatever the name of the contract is, and then the xxx is the process id
