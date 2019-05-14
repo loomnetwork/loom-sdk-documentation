@@ -1,80 +1,81 @@
 ---
 id: unity-truffle-loom-template
-title: Unity + Truffle + Loom 템플릿
-sidebar_label: Unity + Truffle + Loom 템플릿
+title: Unity + Truffle + Loom Template
+sidebar_label: Unity + Truffle + Loom Template
 ---
-# 개요
 
-Unity 클라이언트를 이용한 Loom DAppChain 용 템플릿. 다음을 포함합니다:
+# Overview
 
-- [`Blueprint` Solidity 컨트랙트](https://github.com/loomnetwork/loom-unity-project-template/blob/master/TruffleProject/contracts/Blueprint.sol) 템플릿. 기본적인 string-to-string map을 구현합니다. 입문하기에 완벽합니다.
-- ABI와 컴파일된 컨트랙트가 대응되는 폴더로 추출되어 있는 Pre-configured Truffle 프로젝트.
-- `Blueprint` 컨트랙트에 맞게 미리 최적으로 설정된 Unity 프로젝트의 테스트 장면, Loom SDK는 포함되어 있음.
+A template for a Loom DAppChain with a Unity client. Contains:
 
-# 템플릿 구조
+- Template [`Blueprint` Solidity contract](https://github.com/loomnetwork/loom-unity-project-template/blob/master/TruffleProject/contracts/Blueprint.sol) implementing a basic string-to-string map. Perfect as a starting point.
+- Pre-configured Truffle project that automatically extracts ABIs and binaries of compiled contracts into corresponding folders.
+- Pre-configured optimally setup Unity project with `Blueprint` contract test scene, and an already included Loom SDK.
+
+# Template Structure
 
 ```shell
 ├── DAppChain/
-│   ├── build/ # Loom 바이너리와 app/blockchain 스테이트 데이터가 여기에 저장된다
-│   │   ├── contracts/ # 컴파일된 컨트랙트인 .bin 이 여기에 위치한다
+│   ├── build/ # Loom binary and app/blockchain state data will be stored here
+│   │   ├── contracts/ # Compiled contracts .bin will go here
 │   │   └── ...
-│   ├── start-chain.sh # Loom DAppChain을 시작한다
-│   ├── reset-and-start-chain.sh ## app/blockchain 스테이트를 초기화하고 Loom DAppChain 시작한다
-│   ├── genesis.json # 컨트랙트를 변경/추가할때 이 파일을 수정하세요
+│   ├── start-chain.sh # Starts the Loom DAppChain
+│   ├── reset-and-start-chain.sh ## Resets app/blockchain state and starts the Loom DAppChain
+│   ├── genesis.json # Change this file when changing/adding contracts
 │   └── ...
 ├── TruffleProject/
 │   └── ...
-└── UnityClient/ # Unity client 프로젝트
+└── UnityClient/ # Unity client project
     ├── Assets/
-    │   ├── Contracts/ # 컨트랙트 ABI가 여기에 위치합니다
+    │   ├── Contracts/ # Contract ABIs will go here
     │   └── ...
     └── ...
 ```
 
 * * *
 
-## 템플릿 가져오기
+## Getting the Template
 
-먼저, Truffle을 설치해야 하고, 설치되어 있지 않다면:
+First, you need to install Truffle, if it isn't installed already:
 
 ```shell
 npm install -g truffle
 ```
 
-다음으로는, 템플릿을 다운로드 받을 수 있습니다:
+After that, you can download the template itself:
 
 ```shell
 git clone https://github.com/loomnetwork/loom-unity-project-template.git
 ```
 
-여러분의 프로젝트 이름에 맞게 `loom-unity-project-template` 폴더의 이름을 바꾸는데 주저하지 마세요.
+Feel free to rename the `loom-unity-project-template` folder right away according to the name of your project.
 
-## Truffle 프로젝트 빌드하기
+## Building the Truffle Project
 
 ```shell
-# Truffle 프로젝트를 빌드합니다. 이것은 ABI 파일을 Unity client에 추출할 것입니다,
-# 그리고 컴파일된 컨트랙트는 DAppChain/build/ 디렉토리로 보냅니다
+# Build the Truffle project. This will extract the ABI files to the Unity client,
+# and compiled contracts to the DAppChain/build/ directory
 
 cd Truffle
 truffle build
 ```
 
-## DAppChain 실행하기
+## Running the DAppChain
 
 ```shell
-# Loom DAppChain을 시작하세요. Loom 바이너리가 자동으로 다운로드 될 것입니다
+# Start the Loom DAppChain. Loom binary will be downloaded automatically
 
 cd DAppChain
 ./start-chain.sh
 ```
 
-## Unity client 실행하기
+## Running the Unity client
 
-`UnityClient` 폴더에 있는 Unity project를 여세요. `Blueprint/BlueprintTest` scene을 열고 실행/빌드하세요.
+Open the Unity project located in `UnityClient`. Open the `Blueprint/BlueprintTest` scene and run/build it.
 
-# 작업순서
+# Workflow
 
-1. 컨트랙트를 수정하세요.
-2. `truffle build`로 Truffle 프로젝트를 빌드하세요.
-3. `DAppChain/start-chain.sh`로 Loom DAppChain을 시작하세요.
-4. Unity client 프로젝트를 수정하세요.
+1. Make changes to the contracts.
+2. Build the Truffle project using `truffle build`.
+3. Start the Loom DAppChain using `DAppChain/start-chain.sh`.
+4. Make changes to the Unity client project.
