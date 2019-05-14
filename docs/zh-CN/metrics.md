@@ -1,24 +1,25 @@
 ---
 id: metrics
-title: 度量
-sidebar_label: 度量
+title: Metrics
+sidebar_label: Metrics
 ---
-## 概述
 
-Loom 检测度量并将度量值公开给外部监控服务。 引入中间件层以实现应用程序服务和检测之间的关注分离。 Loom SDK 利用 go-kit 的 `metrics` 包来检测度量。
+## Overview
 
-## Loom SDK 度量
+Loom instruments metrics and exposes the values of the metrics to external monitoring services. Middleware layer is introduced to enable separation of concern between application services and instrumenting. Loom SDK utilizes go-kit's `metrics` package to instrument metrics.
 
-Loom 获取并公开了4种不同类型的度量：
+## Loom SDK Metrics
 
-- `Counter` 仅上升的单个数值
-- `Gauge` 上升和下降的单个数值
-- `Histogram` 在滑动时间窗口上分组到桶中的观察样本
-- `Summary` 在滑动时间窗口分组到具有分位数的桶中的观察示例
+Loom captures and exposes 4 different types of metrics:
 
-以下 Go 代码显示了 Loom 如何使用 `go-kit`创建度量的一个示例。 `Namespace` 以 *loomchain* 为前缀。 `Subsystem` 可以是 *query_service 或 *backend_service*.
+- `Counter` a single numerical value that goes up only
+- `Gauge` a single numerical value that goes up and down
+- `Histogram` a sample of observation grouped into buckets over a sliding time window
+- `Summary` a sample of observation grouped into buckets with quantiles over a sliding time window
 
-例如，requestCounter 度量密钥称为 `loomchain_query_service_request_count`，requestLatency 度量密钥为 `loomchain_query_service_request_latency_microseconds`。 所有的密钥都是独一无二的。
+The following Go code shows an example of how Loom creates metrics with `go-kit`. The `Namespace` is prefixed with *loomchain*. The `Subsystem` can be either *query_service or *backend_service*.
+
+For example, the requestCounter metric key is referred as `loomchain_query_service_request_count` and the requestLatency metric key is `loomchain_query_service_request_latency_microseconds`. All the keys are unique.
 
 ```Go
 fieldKeys := []string{"method", "error"}
@@ -36,9 +37,9 @@ requestLatency := kitprometheus.NewSummaryFrom(stdprometheus.SummaryOpts{
 }, fieldKeys)
 ```
 
-Loom 还为每个度量提供两个不同的字段名称，以创建度量值的变体。 第一个是 `method`, 它是方法调用的名称。 第二个是 `error`, 如果方法调用返回错误, 则为 true。
+Loom also provides the two different field names for each metrics to create variation of metric values. The first one is `method` which is the name of the method call. The second one is `error` which will be true if the method call returns an error.
 
-以下是具有不同字段的公开度量的示例。
+The followings are the example of the exposed metrics with different fields.
 
     loomchain_query_service_request_count{error="false",method="Nonce"} 
     loomchain_query_service_request_count{error="true",method="Nonce"} 
@@ -46,21 +47,21 @@ Loom 还为每个度量提供两个不同的字段名称，以创建度量值的
     loomchain_query_service_request_count{error="true",method="Query"}
     
 
-## 度量端点
+## Metric Endpoint
 
-使用 `loom run` 命令运行智能合约时，默认度量标准端点为`127.0.0.1:46658/metrics`。 可以使用配置文件中的配置键 `RPCBindAddress` 配置端点。
+When running a smart contract using `loom run` command, the default metrics endpoint is `127.0.0.1:46658/metrics`. The endpoint is configurable using the configuration key `RPCBindAddress` in the configuration file.
 
-您可以使用 http 客户端或 Web 浏览器从端点轮询度量。 运行在 `127.0.0.1:46658` 上的服务器将显示请求计数和延迟度量，如下所示。
+You can poll the the metrics from the endpoint using http clients or web browsers. The server running on `127.0.0.1:46658` will show the request count and latency metrics as followed.
 
 ```sh
 curl 127.0.0.1:46658/metrics
 
-# 帮助 loomchain_query_service_request_count 收到请求数.
-# 键入 loomchain_query_service_request_count 计数器
+# HELP loomchain_query_service_request_count Number of requests received.
+# TYPE loomchain_query_service_request_count counter
 loomchain_query_service_request_count{error="false",method="Nonce"} 2
 loomchain_query_service_request_count{error="true",method="Query"} 2
-# 帮助 loomchain_query_service_request_latency_microseconds 请求的总持续时间（以微秒为单位）。
-# 键入 loomchain_query_service_request_latency_microseconds 摘要
+# HELP loomchain_query_service_request_latency_microseconds Total duration of requests in microseconds.
+# TYPE loomchain_query_service_request_latency_microseconds summary
 loomchain_query_service_request_latency_microseconds{error="false",method="Nonce",quantile="0.5"} 1.0352e-05
 loomchain_query_service_request_latency_microseconds{error="false",method="Nonce",quantile="0.9"} 2.4728e-05
 loomchain_query_service_request_latency_microseconds{error="false",method="Nonce",quantile="0.99"} 2.4728e-05
@@ -74,15 +75,15 @@ loomchain_query_service_request_latency_microseconds_count{error="true",method="
 
 ```
 
-## 监控度量
+## Monitoring Metrics
 
-Loom不存储度量，仅显示当前度量值。 若要获取度量值, 可以从端点向监视系统轮询度量, 也可以使用 [Prometheus](https://prometheus.io/docs/prometheus/latest/installation/)。
+Loom does not store the metrics but only exposes the metric values at the moment. To get metrics, you can either poll the metrics from the endpoint to your monitoring system or you can use [Prometheus](https://prometheus.io/docs/prometheus/latest/installation/).
 
-你还可以使用 [Grafana](https://grafana.com/) 或 [Kibana](https://www.elastic.co/products/kibana) 等工具可视化度量。
+You can also visualize the metrics using tools like [Grafana](https://grafana.com/) or [Kibana](https://www.elastic.co/products/kibana).
 
 ### Prometheus
 
-要配置Prometheus服务器, 请将以下内容添加到配置文件中:
+To configure prometheus server, add the following to your config file:
 
 ```yaml
 scrape_configs:
@@ -95,11 +96,11 @@ scrape_configs:
       - 127.0.0.1:46658 # The IP address to the query server host
 ```
 
-## 所有度量列表
+## List of All Metrics
 
-以下是由 Loom SDK 公开的度量列表:
+The following are the list of metrics exposed by Loom SDK:
 
-| 度量                                                       | 类型  | 描述：               |
-| -------------------------------------------------------- | --- | ----------------- |
-| loomchain_query_service_request_count                | 计数器 | 收到的查询请求数          |
-| loomchain_query_service_request_latency_microseconds | 摘要  | 查询请求的总持续时间 (以微秒计) |
+| Metrics                                                  | Type    | Description                                      |
+| -------------------------------------------------------- | ------- | ------------------------------------------------ |
+| loomchain_query_service_request_count                | Counter | Number of query requests received                |
+| loomchain_query_service_request_latency_microseconds | Summary | Total duration of query requests in microseconds |
