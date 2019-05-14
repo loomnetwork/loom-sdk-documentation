@@ -1,80 +1,81 @@
 ---
 id: unity-truffle-loom-template
-title: Unity + Truffle + Loomテンプレート
-sidebar_label: Unity + Truffle + Loomテンプレート
+title: Unity + Truffle + Loom Template
+sidebar_label: Unity + Truffle + Loom Template
 ---
-# 概要
 
-Unityクライアントを使用したLoom DAppチェーンのためのテンプレートで、以下が含まれている:
+# Overview
 
-- 基本的なも文字列→文字列のMapを実装した[`Blueprint` Solidityコントラクト](https://github.com/loomnetwork/loom-unity-project-template/blob/master/TruffleProject/contracts/Blueprint.sol)テンプレート。 初めて使用するのに最適だ。
-- 構成済みのTruffleプロジェクト。コンパイル済みコントラクトのABIとバイナリを対応フォルダに自動抽出する。
-- すぐに使えるUnityプロジェクト。Loom SDKの`Blueprint`コントラクトを使用している。
+A template for a Loom DAppChain with a Unity client. Contains:
 
-# テンプレートの構造
+- Template [`Blueprint` Solidity contract](https://github.com/loomnetwork/loom-unity-project-template/blob/master/TruffleProject/contracts/Blueprint.sol) implementing a basic string-to-string map. Perfect as a starting point.
+- Pre-configured Truffle project that automatically extracts ABIs and binaries of compiled contracts into corresponding folders.
+- Pre-configured optimally setup Unity project with `Blueprint` contract test scene, and an already included Loom SDK.
+
+# Template Structure
 
 ```shell
 ├── DAppChain/
-│   ├── build/ # Loomバイナリとアプリ/ブロックチェーンの状態をここに保存
-│   │   ├── contracts/ # コンパイルされたcontracts .bin はここに来る
+│   ├── build/ # Loom binary and app/blockchain state data will be stored here
+│   │   ├── contracts/ # Compiled contracts .bin will go here
 │   │   └── ...
-│   ├── start-chain.sh # Loom DAppチェーンをスタート
-│   ├── reset-and-start-chain.sh ## アプリ/ブロックチェーンの状態をリセットし、Loom DAppチェーンをスタート
-│   ├── genesis.json # コントラクト変更/追加時にこのファイルを変更
+│   ├── start-chain.sh # Starts the Loom DAppChain
+│   ├── reset-and-start-chain.sh ## Resets app/blockchain state and starts the Loom DAppChain
+│   ├── genesis.json # Change this file when changing/adding contracts
 │   └── ...
 ├── TruffleProject/
 │   └── ...
-└── UnityClient/ # Unityクライアントプロジェクト
+└── UnityClient/ # Unity client project
     ├── Assets/
-    │   ├── Contracts/ # コントラクトのABIはここへ来る
+    │   ├── Contracts/ # Contract ABIs will go here
     │   └── ...
     └── ...
 ```
 
 * * *
 
-## テンプレートの取得
+## Getting the Template
 
-Truffleをインストールしていなければ、まずはインストールが必要だ:
+First, you need to install Truffle, if it isn't installed already:
 
 ```shell
 npm install -g truffle
 ```
 
-その後テンプレート本体がダウンロード可能になる:
+After that, you can download the template itself:
 
 ```shell
 git clone https://github.com/loomnetwork/loom-unity-project-template.git
 ```
 
-Feel free to rename the `loom-unity-project-template`フォルダは、あなたのプロジェクト名に合わせてすぐに好きな名前に変更して大丈夫だ。
+Feel free to rename the `loom-unity-project-template` folder right away according to the name of your project.
 
-## Truffleプロジェクトの構築
+## Building the Truffle Project
 
 ```shell
-# Truffleプロジェクトを構築する。　これはUnityクライアントへABIファイルを、
-# さらにDAppChain/build/ディレクトリにコンパイル済みコントラクトを抽出する
+# Build the Truffle project. This will extract the ABI files to the Unity client,
+# and compiled contracts to the DAppChain/build/ directory
 
 cd Truffle
 truffle build
 ```
 
-## DAppチェーンの実行
+## Running the DAppChain
 
 ```shell
-# Loom DAppChainをスタートする。Loomバイナリは自動的にダウンロードされる
+# Start the Loom DAppChain. Loom binary will be downloaded automatically
 
 cd DAppChain
 ./start-chain.sh
 ```
 
-## Unityクライアントの実行
+## Running the Unity client
 
-`UnityClient`に置かれたUnityプロジェクトを開こう。`Blueprint/BlueprintTest`シーンを開き、それを実行/ビルドする。
+Open the Unity project located in `UnityClient`. Open the `Blueprint/BlueprintTest` scene and run/build it.
 
-# ワークフロー
+# Workflow
 
-1. コントラクトを変更
-2. `truffle build` を用いてTruffleプロジェクトをビルド
-3. `DAppChain/start-chain.sh`を使用してLoom DAppチェーンをスタート
-4. Unityクライアントプロジェクトを変更
+1. Make changes to the contracts.
+2. Build the Truffle project using `truffle build`.
+3. Start the Loom DAppChain using `DAppChain/start-chain.sh`.
+4. Make changes to the Unity client project.
