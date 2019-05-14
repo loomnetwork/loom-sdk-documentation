@@ -1,13 +1,14 @@
 ---
 id: builtin
-title: 内置智能合约
+title: Built-in Smart Contracts
 ---
-Loom包含了一些内置的智能合约，你可以在你的侧链中使用。
 
-# 币
+Loom contains a few built-in smart contracts that you can utilize in your sidechain.
 
-币实行一种ERC20样式的币可以被用作货币。
+# Coin
 
-# 委任股权证明
+Coin implements an ERC20 style coin that can be used as a currency.
 
-委任股权证明（DPOS）智能合约实行验证者选举。 请参见[delegated-proof-of-stake](delegated-proof-of-stake.html)。
+# Delegated Proof of Stake
+
+The Delegated Proof of Stake (DPOS) smart contract implements validator elections. See [delegated-proof-of-stake](delegated-proof-of-stake.html).
