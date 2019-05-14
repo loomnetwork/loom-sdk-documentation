@@ -1,37 +1,40 @@
 ---
 id: multi-node-deployment
-title: サンプルデプロイメント
-sidebar_label: マルチノードデプロイメント
+title: Example Deployment
+sidebar_label: Multi Node Deployment
 ---
-# マルチノードデプロイメント
 
-このドキュメンテーションでは、マルチノード設定でLoomを実行する方法について説明する。
+# Multi Node Deployment
 
-## インストール
+This documentation describes how to run loom in a multi node setup.
 
-これらの手順を各ノード上で実行する必要がある。
+## Installation
 
-1. ワーキングディレクトリを自分で選択しよう。この例で使っているのは: `/home/ubuntu` 
-        bash
-        cd /home/ubuntu
+These steps need to be executed on each node.
 
-2. バイナリをダウンロード 
-        bash
-        wget https://private.delegatecall.com/loom/linux/build-208/loom
-        chmod +x loom
+1. Choose a working directory of your choice. In this example we are using `/home/ubuntu`
 
-3. ワーキングディレクトリで`./loom init`を実行し、設定ファイルを初期化しよう。
-4. ワーキングディレクトリに `loom.yml` を追加しよう。 
-        yaml
-        RPCBindAddress: "tcp://0.0.0.0:46658"
+```bash
+    cd /home/ubuntu
+    ```
+1. Download the binaries:
+    ```bash
+    wget https://private.delegatecall.com/loom/linux/build-208/loom
+    chmod +x loom
+    ```
+1. Execute `./loom init` in the working directory to initialize config files.
+1. Add `loom.yml` in the working directory:
+    ```yaml
+    RPCBindAddress: "tcp://0.0.0.0:46658"
+    ```
 
-## 設定
+## Configuration
 
-２つのgenesis.jsonファイルを組み合わせなくてはならない。
+There are two genesis.json files that needs to be combined.
 
-### genesis.json #1 - ワーキングディレクトリ内
+### genesis.json #1 - in the working directory
 
-`genesis.json`ファイルは次のようなものだ:
+The `genesis.json` file looks like this:
 
 ```json
 {
@@ -66,7 +69,7 @@ sidebar_label: マルチノードデプロイメント
 }
 ```
 
-次に各ノードから全ての`validators`を収集して結合し、配列にしよう。 今度は全ノードにあるこのファイルを、結合したファイルへと置き換えなくてはならない。 ２ノードのクラスタは、このようになるはずだ:
+Next, collect all `validators` from each node, then combine them into an array. This file will now need to be replaced with the combined file, in all nodes. For a two node cluster, it should now look like this:
 
 ```json
 {
@@ -105,9 +108,9 @@ sidebar_label: マルチノードデプロイメント
 }
 ```
 
-### genesis.json #2 - chaindata/config 内
+### genesis.json #2 - inside chaindata/config
 
-ここにも`genesis.json`という名前のファイルがあるが、ワーキングディレクトリ内のものと混同しないようにしよう。ファイルの中身は以下のようである:
+You will find a file named `genesis.json`. It is not to be confused with the one in the working directory. It should look like this:
 
 ```json
 {
@@ -127,7 +130,7 @@ sidebar_label: マルチノードデプロイメント
 }
 ```
 
-次に各ノードから全ての`validators`を収集して結合し、配列にしよう。 今度は全ノードにあるこのファイルを、結合したファイルへと置き換えなくてはならない。 ２ノードのクラスタは、このようになるはずだ:
+Next, collect all the `validators` from each node, then combine them into an array. This file will now need to be replaced with the combined file, in all nodes. For a two node cluster, it should now look like this:
 
 ```json
 {
@@ -155,55 +158,55 @@ sidebar_label: マルチノードデプロイメント
 }
 ```
 
-## 起動
+## Running
 
-まず、各ノードのノードキーを取得する必要がある。ワーキングディレクトリの`loom nodekey`を実行しよう:
+First, we need to get node keys from each node. Go to the working directory and run `loom nodekey`:
 
 ```bash
 $ loom nodekey
 47cd3e4cc27ac621ff8bc59b776fa228adab827e
 ```
 
-ノードキーがどのノードのものか、はっきりとわかるようにしておくことを忘れないように。 またプライベートIP(もしくはノードが互いに通信し合うのに有効なIP)も同じく重要だ。 一般に、クラウド環境ではセキュリティとレイテンシのため、パブリックIPを使う。
+Do remember to clearly make note which node key is for which node. Also important is the private IP (or any IP that are available for the nodes to communicate with each other). Generally, in a cloud environment we use public IPs for security and latency reasons.
 
-では４ノードのサンプルを使用してみよう:
+Now, let's use an example with 4 nodes:
 
-| ノード | IP       | ノードキー                                    |
-| --- | -------- | ---------------------------------------- |
-| 1   | 10.2.3.4 | 47cd3e4cc27ac621ff8bc59b776fa228adab827e |
-| 2   | 10.6.7.8 | e728bada822af677b95cb8ff126ca72cc4e3dc74 |
-| 3   | 10.3.2.1 | 4953e5726664985cc1cc92ae2edcfc6e089ba50d |
-| 4   | 10.7.6.5 | 02c90b57d241c3c014755ecb07e0c0d232e07fff |
+| Node | IP       | Node key                                 |
+| ---- | -------- | ---------------------------------------- |
+| 1    | 10.2.3.4 | 47cd3e4cc27ac621ff8bc59b776fa228adab827e |
+| 2    | 10.6.7.8 | e728bada822af677b95cb8ff126ca72cc4e3dc74 |
+| 3    | 10.3.2.1 | 4953e5726664985cc1cc92ae2edcfc6e089ba50d |
+| 4    | 10.7.6.5 | 02c90b57d241c3c014755ecb07e0c0d232e07fff |
 
-Loomを実行するには、各ノードにそのピアについて伝える必要がある。一般的なフォーマットはこうだ:
+To run loom, we need to tell each node about its peers. The general format is:
 
 ```bash
 loom run --persistent-peers tcp://<node1_key>@<node1_ip>:46656,tcp://<node2_key>@<node2_ip>:46656,...tcp://<nodeN_key>@<nodeN_ip>:46656
 ```
 
-上の表を用いた例を見ていこう。
+Let's see examples by using the table above.
 
-ノード 1にて:
+On node 1:
 
 ```bash
 loom run --persistent-peers tcp://e728bada822af677b95cb8ff126ca72cc4e3dc74@10.6.7.8:46656,tcp://4953e5726664985cc1cc92ae2edcfc6e089ba50d@10.3.2.1:46656,tcp://02c90b57d241c3c014755ecb07e0c0d232e07fff@10.7.6.5:46656
 ```
 
-ノード２にて:
+On node 2:
 
 ```bash
 loom run --persistent-peers tcp://47cd3e4cc27ac621ff8bc59b776fa228adab827e@10.2.3.4:46656,tcp://4953e5726664985cc1cc92ae2edcfc6e089ba50d@10.3.2.1:46656,tcp://02c90b57d241c3c014755ecb07e0c0d232e07fff@10.7.6.5:46656
 ```
 
-ノード３、ノード４についても同じだ。ノード固有のキーとIPアドレスは除く。
+The same goes for node 3 and node 4. We exclude the node's own key and IP address.
 
-**全コマンドはワーキングディレクトリ内から実行されなくてはならないことを覚えておこう。**
+**Please remember that all commands need to be executed from within the working directory.**
 
-### systemdスタートアップスクリプト
+### systemd Startup Script
 
-次のスタートアップスクリプトはsystemdを使ったサービスをコントロールするために使用することができる。`WorkingDirectory`および/または`ExecStart`を変更して、あなたの設定を反映させよう。
+The following startup script can be used to control the service using systemd. Make changes to `WorkingDirectory` and/or `ExecStart` to reflect your setup.
 
-Loomを直接実行する場合、`ExecStart`は前のセクションと同じコンセプトを使用する構成となっていることに気をつけよう。これは、各ノードが異なるスタートアップスクリプトを持っているという意味である。i
+Notice `ExecStart`, it is constructed using the same concept from the previous section when running loom directly. This means each node has a different startup script.
 
 ```ini
 [Unit]
@@ -226,30 +229,30 @@ StandardError=syslog
 WantedBy=multi-user.target
 ```
 
-これを`/etc/systemd/system/loom.service`へ保存し、アクティベートするために以下を実行しよう:
+Save it to `/etc/systemd/system/loom.service`. Run these to activate it:
 
 ```bash
 sudo systemctl daemon-reload
 sudo systemctl start loom.service
 ```
 
-以下を使ってアウトプットをチェック可能だ:
+You may now inspect the output using:
 
 ```bash
 sudo journalctl -u loom.service
 ```
 
-すべてが思った通りに動いていれば、以下を実行することでブート時にサービスが開始されるようになる。
+When satisfied everything is running as intended, executing the following will enable the service so that it is started at boot:
 
 ```bash
 sudo systemctl enable loom.service
 ```
 
-## 検証
+## Verifying
 
-### ポートのリッスン
+### Listening ports
 
-全てうまくいくと、各ノードに開かれたこれらのポートを見ることができる。
+If all is well, you will be able to see these ports opened in each node.
 
 ```bash
 $ sudo netstat -tpnl
@@ -260,21 +263,21 @@ tcp6       0      0 :::46657                :::*                    LISTEN      
 tcp6       0      0 :::46658                :::*                    LISTEN      2135/loom
 ```
 
-## 自動化
+## Automation
 
-設定ファイルとスタートアップコマンドを組み合わせるのが手間であれば、Ansibleを使用して自動化する方法がある。
+If combining the configuration files and startup commands seems to be a lot of work, we have a way to automate it using Ansible.
 
-Ansibleをローカルにインストールする必要がある。
+Ansible needs to be installed locally.
 
-プレイブックは、[ここ](https://github.com/loomnetwork/loom-playbooks/blob/master/loom-playbook.yml)から利用できる。
+The playbook is available [here](https://github.com/loomnetwork/loom-playbooks/blob/master/loom-playbook.yml)
 
-自分のノード及び選択したワーキングディレクトリと一致するように、インベントリを変更しなくてはならない。
+You will need to change the inventory to match your nodes and preferred working directory.
 
-**ノードへのSSH及びsudoアクセスが利用可能か確認しよう。**
+**Please ensure SSH and sudo access to the nodes are available**
 
-### インベントリ: inventory.yaml
+### Inventory: inventory.yaml
 
-このインベントリは、ノードとそのIPアドレスを指定する。 ノードが１つのIPしか持たない場合、 `ansible_host`と`private_ip`の両方に 同じものを使用しよう。 `ansible_host`はAnsibleによってホストに接続するために使用され、一方`private_ip`はノードが互いに通信するためにノードにより使用される。
+The inventory specifies the nodes and their IP addresses. If the node only have one IP, use same for both `ansible_host` and `private_ip`. `ansible_host` is used by Ansible to connect to the host, while `private_ip` is used by the nodes to communicate with each other.
 
 ```yaml
 ---
@@ -299,29 +302,29 @@ all:
       private_ip: 10.7.6.5
 ```
 
-インベントリのノード詳細を変更したら、プレイブックを実行しよう:
+After modifying the inventory with the details of the nodes, execute the playbook:
 
 ```bash
 ansible-playbook -i inventory.yml -vv loom-playbook.yml
 ```
 
-## さらなる自動化: Vagrant
+## More Automation: Vagrant
 
-また完全なクラスタをプロビジョニングするためのVagrantfileも含まれている。Ansibleがホストマシンにインストールされていることが必要だ。
+There is also a Vagrantfile included to provision a full cluster. Ansible needs to be installed on the host machine.
 
-これはVirtualBoxプロバイダを使ってテストされる。それなりのマシン上であれば、４ノードを作成しプロビジョニングするのに２分もかからない。
+It is tested with VirtualBox provider. It takes less than two minutes on a decent machine to create and provision 4 nodes.
 
-以下の変数は必要に応じて変更されることがある。
+The following variables may be changed when needed.
 
 ```ruby
-# Vagrantによって作成されたクラスタサイズ
+# Size of the cluster created by Vagrant
 num_instances = 4
 
-# プライベートネットワークのプレフィックス
+# Private Network Prefix
 private_network_prefix = "172.31.99."
 
-# ビルド番号
+# Build numbers
 loom_build = "build-208"
 ```
 
-注: Vagrantは独自のインベントリを作成するので、`inventory.yml`は使用されない。
+Note: Vagrant creates its own inventory so `inventory.yml` is not used.

@@ -1,10 +1,11 @@
 ---
 id: prereqs-windows
-title: 环境依赖（Windows）
-sidebar_label: 安装 Windows
+title: Prerequisites Windows
+sidebar_label: Installation Windows
 ---
-在 Windows 上安装和设置 Loom
 
-目前在 Windows 上使用 Loom 的唯一方法是使用 [Windows 的 Linux 子系统](https://docs.microsoft.com/en-us/windows/wsl/install-win10)。
+Installing and setting up Loom on Windows
 
-安装完成后，你可以继续并按照[环境依赖 Ubuntu](prereqs-ubuntu.html)下的步骤操作。
+Currently the only way to use Loom on windows is to use the [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
+
+Once you install that you can continue on and follow the steps under [Prerequisites Ubuntu](prereqs-ubuntu.html).

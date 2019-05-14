@@ -1,15 +1,16 @@
 ---
 id: web3js-event-filters
-title: Web3 事件过滤器
-sidebar_label: Web3 事件过滤器
+title: Web3 event filters
+sidebar_label: Web3 event filters
 ---
-## 概述
 
-使用[Web3](https://github.com/ethereum/web3.js) 库，开发人员能够轻松地从 DAppChain 上的 [EVM](evm.html) 中收听事件， 也可以为索引值创建过滤器。
+## Overview
 
-## 过滤
+The [Web3.js](https://github.com/ethereum/web3.js) library allows developers to easily listen for events from the [EVM](evm.html) contained on Loom DAppChain. Also is possible to create filter for indexed values.
 
-让我们创建一个过滤器，获取在Loom DApp链上生成的最新块，并在控制台上连续打印块哈希。
+## Filtering
+
+Let's create a filter to get latest block created on Loom DAppChain and continuously print the block hash on console
 
 ```js
 const {
@@ -41,11 +42,11 @@ filter.watch(function (error, result) {
     console.log('Block hash', result)
 ```
 
-## 按索引值过滤
+## Filtering by indexed values
 
-另一个很棒的功能是使用`索引`值进行过滤。 这可用于在发送特定`索引`值时触发事件处理程序。
+Another great feature is filtering by `indexed` values, which can be used to trigger event handlers when a specific `indexed` value is emitted.
 
-以下合约:
+For the following contract:
 
 ```solidity
 pragma solidity ^0.4.22;
@@ -66,7 +67,7 @@ contract SimpleStore {
 }
 ```
 
-可以为 `NewValueSet` 事件设置事件处理程序, 只有当 `值` 发出时才触发div 类 = "notranslate" >> 4 </div> 10</code>, 如果合约发出任何其他值, 则不会触发该项。
+It's possible to setup an event handler for the `NewValueSet` event that's only triggered when the `value` emitted is `10`, and it won't be triggered if the contract emits any other value.
 
 ```js
 // Generate public and private keys

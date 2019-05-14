@@ -1,11 +1,12 @@
 ---
 id: basic-install-osx
-title: 필수요소 (OSX)
-sidebar_label: 설치하기 (OSX)
+title: Prerequisites (OSX)
+sidebar_label: Installation (OSX)
 ---
-OSX에서 Loom 설치 및 설정하기
 
-## 설치하기
+Installing and setting up Loom on OSX
+
+## Installation
 
 ```bash
 wget https://private.delegatecall.com/loom/osx/stable/loom
@@ -14,15 +15,15 @@ chmod +x loom
 ./loom init
 ```
 
-## 블록체인 실행하기
+## Run Blockchain
 
     ./loom run
     
 
-## Solidity + Truffle 시작하기
+## To get started with Solidity + Truffle
 
-[Truffle과 Solidity](truffle-deploy. html)에 관한 튜토리얼을 보세요
+See our tutorial on [Truffle and Solidity](truffle-deploy.html)
 
-## Golang 컨트랙트 시작하기
+## To get started on Golang Contracts
 
-[Golang 컨트랙트](prereqs.html)를 보세요
+See our [Golang Contracts](prereqs.html)

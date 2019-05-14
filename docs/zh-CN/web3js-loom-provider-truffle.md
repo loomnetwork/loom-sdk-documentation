@@ -1,71 +1,72 @@
 ---
 id: web3js-loom-provider-truffle
-title: Web3, LoomProvider 和 Truffle
-sidebar_label: Web3, LoomProvider 和 Truffle
+title: Web3, LoomProvider and Truffle
+sidebar_label: Web3, LoomProvider and Truffle
 ---
-## 概述
 
-`LoomProvider` 还附带了`loom-js` ，它允许你与 [Web3.js](https://github.com/ethereum/web3.js) 集成，从而更容易与 Loom DApp 链中包含的 [EVM](evm.html) 集成，也可以使用 [Truffle Framework](http://truffleframework.com/) 来管理测试，部署和 solidity 智能合约。</p> 
+## Overview
+
+The `loom-js` also comes with the `LoomProvider` which allows you to integrate with the [Web3.js](https://github.com/ethereum/web3.js), thus making easier the integration with [EVM](evm.html) contained on Loom DAppChain, also is possible to use [Truffle Framework](http://truffleframework.com/) to manage tests, deployments and solidity smart contracts.
 
 ### Web3
 
-正如 `Web3.js` 的官方文档所述：
+As the official documentation for `Web3.js` states:
 
-> `Web3.js` 是一个库集合，允许你使用 HTTP 或 IPC 连接与本地或远程以太坊节点进行交互。
+> `Web3.js` is a collection of libraries which allow you to interact with a local or remote ethereum node, using a HTTP or IPC connection.
 
-对于 Loom DApp 链，使用 `WebSockets` 而不是 `HTTP` 或 `IPC` 进行通信，由于 `Web3.js` 抽象了该部分，所以不需要更深入的通信知识。
+For the Loom DAppChains the communication happens using `WebSockets` instead `HTTP` or `IPC`, however the deeper knowledge of the communication isn't required since `Web3.js` abstracts that part.
 
 ### LoomProvider
 
-`Provider` 是将 `Web3.js` API 连接到以太坊节点的桥梁，为了使 `Web3.js` 调用与 Loom DApp 链兼容，你应该使用LoomProvider。
+An `Provider` is a bridge that connects the `Web3.js` API to the Ethereum node, in order to make `Web3.js` calls compatible with Loom DAppChain you should use the `LoomProvider`
 
-结合 `Web3` 和 `LoomProvider` 是一个很好的选择, 可以与部署在Loom DApp链上的智能合同进行交互,因为 `Web3` 抽象了 API 调用的构造, 不需要手动说明 [ABI](https://solidity.readthedocs.io/en/develop/abi-spec.html)。
+Combining `Web3.js` and `LoomProvider` is a good option to interact with smart contracts deployed on Loom DAppChain, because `Web3.js` abstracts the construction of API calls not needing the interpretation of the [ABI](https://solidity.readthedocs.io/en/develop/abi-spec.html) manually.
 
-### Truffle 框架
+### Truffle framework
 
-`Truffle` 的官方网站如是说：
+So the official site for `Truffle` says:
 
-> Truffle 是以太坊最受欢迎的开发框架，其使命就是让您的生活更轻松。
+> Truffle is the most popular development framework for Ethereum with a mission to make your life a whole lot easier.
 
-这完全是真的，因为 `Truffle` 可以：`编译`，`部署`，`测试`，`调试`等等。
+And that is pure true, because `Truffle` can: `compile`, `deploy`, `test`, `debug` and much more.
 
-## 从 Truffle 部署和运行
+## Deploying and run from Truffle
 
-### 下载和安装
+### Download and Install
 
-首先, 你需要安装 `Truffle`:
+First you'll need to install `Truffle`:
 
 ```bash
-# 当前支持的版本 
+# Currently supported version
 npm install -g truffle
 ```
 
-安装 `Truffle` 后, 让我们创建一个目录并初始化一个项目:
+Once `Truffle` is installed let's create a directory and initialize a project:
 
 ```bash
-# 创建目录和访问
+# Create directory and access
 mkdir simple-store
 cd simple-store
 
-# 使用 truffle 从零开始初始化项目
+# Initialize a project from zero with truffle
 truffle init
 ```
 
-新的目录结构将如下所示:
+The new directory structure will looks like:
 
     .
     ├── contracts
-    │ └── Migrations.sol
+    │   └── Migrations.sol
     ├── migrations
-    │ └── 1_initial_migration.js
+    │   └── 1_initial_migration.js
     ├── test
     ├── truffle-config.js
     └── truffle.js
     
 
-### 添加合约和迁移
+### Adding contract and migration
 
-在 `contracts` 目录上，我们应该在[Solidity](http://solidity.readthedocs.io/en/v0.4.22/)中创建合约，我们将使用著名的`SimpleStore.sol` ，它具有一个参数`value`的`set`函数，也用于状态更改，`get` 函数用于只读，没有状态更改调用，以及一个名为`NewValueSet` 的事件，它将具有参数`value`，如下例所示：
+On the `contracts` directory we should create our contract in [Solidity](http://solidity.readthedocs.io/en/v0.4.22/), we're going to use the famous `SimpleStore.sol` which has a `set` function for a parameter `value` also for an state change, a `get` function for the read only and no state change call and an event called `NewValueSet` which will have the parameter `value`, as the following example:
 
     pragma solidity ^0.4.22;
     
@@ -85,7 +86,7 @@ truffle init
     }
     
 
-接下来让我们添加一个迁移，`Truffle` 使用迁移的概念，这对跟踪更改和更新很有用。 该文件应该在迁移目录中创建，它应该是 `JavaScript` 文件，文件名应该从数字 `2` 开始变为 `2_simple_store.js`，内容应该如下：
+Next let's add an migration, `Truffle` works with the concept of migrations, which makes useful for track changes and updates. The file should be created on migrations directory and it should be `JavaScript` file and the file name should start with the number `2` becoming `2_simple_store.js`, and the content should be the following:
 
 ```Javascript
 var SimpleStore = artifacts.require("./SimpleStore.sol");
@@ -95,11 +96,11 @@ module.exports = function(deployer) {
 };
 ```
 
-> 在 https://github.com/loomnetwork/truffle-dappchain-example 上有一个完整的 Truffle 集成示例
+> There's a complete example of Truffle integration available on https://github.com/loomnetwork/truffle-dappchain-example
 
-### 下载并配置 Loom Truffle Provider
+### Download and configure Loom Truffle Provider
 
-要添加的最后一个部件是 `Loom Truffle Provider`，该插件提供 `Truffle` 和 Loom DApp链之间的连接（它下面还有 `LoomProvider`）。 我们安装吧：
+The last cog to be added is the `Loom Truffle Provider`, that plugin provides the connection between `Truffle` and Loom DAppChain (and it also has the `LoomProvider` underneath). Let's install:
 
 ```bash
 npm install loom-truffle-provider --save
@@ -107,7 +108,7 @@ npm install loom-truffle-provider --save
 yarn add loom-truffle-provider
 ```
 
-让我们编辑文件 `truffle.js` 来添加必要的配置, 如下面的示例所示:
+And let's edit the file `truffle.js` to add the necessary configuration, as the following example:
 
 ```javascript
 const { readFileSync } = require('fs')
@@ -130,23 +131,23 @@ module.exports = {
 }
 ```
 
-> 不要忘记使用命令 `loom genkey -a public_key -k private_key` 生成你的密钥
+> Don't forget to generate yours keys using the command `loom genkey -a public_key -k private_key`
 
-### 运行 Truffle 部署命令
+### Running Truffle deploy command
 
-现在, 我们准备好了运行部署命令:
+Now we're good to run the deploy command:
 
-> 但之前你需要启动 Loom DApp链
+> But before you need to start the Loom DAppChain
 
 ```bash
 truffle deploy --network loom_dapp_chain
 ```
 
-> 如果您已部署并希望重置部署，则可以运行该命令 `truffle deploy --reset --network loom_dapp_chain`
+> If you already deployed and wants to reset the deployment you can run the command `truffle deploy --reset --network loom_dapp_chain`
 
-### 添加更多帐户
+### Adding more accounts
 
-为了访问 `LoomTruffleProvider` 上的帐户, 应使用函数 `getProviderEngine`, 这将返回 `LoomProvider` 授予对属性 `accountsAddrList` 和 "帐户" 的访问权限
+In order to access accounts on `LoomTruffleProvider` you should use the function `getProviderEngine` which will return the `LoomProvider` giving access to properties `accountsAddrList` and `accounts``
 
 ```js
 const loomTruffleProvider = new LoomTruffleProvider(chainId, writeUrl, readUrl, privateKey)
@@ -156,36 +157,36 @@ console.log("Accounts list", loomProvider.accountsAddrList)
 console.log("Accounts and Private Keys", loomProvider.accounts)
 ```
 
-并添加更多帐户只需使用函数 `createExtraAccounts`
+And add more accounts just use function `createExtraAccounts`
 
 ```js
 const loomTruffleProvider = new LoomTruffleProvider(chainId, writeUrl, readUrl, privateKey)
 loomTruffleProvider.createExtraAccounts(10)
 ```
 
-## 配置和运行 Web3.js + LoomProvider
+## Configuring and running Web3.js + LoomProvider
 
-### 下载和安装
+### Download and Install
 
-你可以用 `npm` 下载 `Web3.js` 最新版
+You can download the `Web3.js` latest version using `npm`
 
 ```bash
 npm install web3 --save
-# 或
+# or
 yarn add web3
 ```
 
-下载并安装 `LoomProvider`（它位于 `loom-js`上）
+And download and install `LoomProvider` (which lives on `loom-js`)
 
 ```bash
 npm install loom-js --save
-# 或
+# or
 yarn add loom-js
 ```
 
-### 添加到项目和配置
+### Adding to project and configuring
 
-将 `Node3.js` 添加到 Node.js 项目（在 Node.js 版本8或更高版本上运行）在安装后相当简单，对于使用 `Webpack` 的项目也应该很简单：
+Adding `Web3.js` to Node.js project (running on Node.js version 8 or greater) is fairly simple after the install, it should be simple as well for projects using `Webpack` also:
 
 ```Javascript
 // Node.JS 8 or greater
@@ -195,7 +196,7 @@ const Web3 = require('web3')
 import Web3 from 'web3'
 ```
 
-下一步是配置 `LoomProvider`，与 `NodeJS & Browser Quick Start` 上的示例非常相似。
+Next step is to configure the `LoomProvider`, is quite similar from the example on `NodeJS & Browser Quick Start`.
 
 ```Javascript
 const privateKey = CryptoUtils.generatePrivateKey()
@@ -222,9 +223,9 @@ const contractAddress = '0x...'
 const contract = new web3.eth.Contract(ABI, contractAddress, {from})
 ```
 
-### 运行 Web3 合约实例
+### Running Web3 contract instance
 
-我们假设这是上面声明的 `SimpleStore.sol`，可以更容易地调用`set`和`get`函数：
+Let's assume that is the `SimpleStore.sol` which was declared up above, so we can call `set` and `get` functions easier:
 
 ```Javascript
 // Set the value 47
@@ -234,9 +235,9 @@ const tx = await contract.methods.set(47).send()
 const value = await contract.methods.get().call()
 ```
 
-还要监听事件，在这种情况下针对事件 ` NewValueSet `:
+Also listen for events, in that case for the event `NewValueSet`:
 
-```js
+```Javascript
 contract.events.NewValueSet({}, (err, event) => {
   if (err) {
     return console.error(err)

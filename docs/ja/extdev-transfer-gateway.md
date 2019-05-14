@@ -1,17 +1,18 @@
 ---
 id: extdev-transfer-gateway
-title: トランスファーゲートウェイテストネットのチュートリアル
-sidebar_label: トランスファーゲートウェイテストネット
+title: Transfer Gateway Testnet Tutorial
+sidebar_label: Transfer Gateway Testnet
 ---
-## 概要
 
-このドキュメントでは、`extdev`と`Rinkeby`にデプロイしたトークンコントラクト間のトークンの転送に必要となるセットアップの解説をする。 もしまだであれば、まず高レベルの概要 [Transfer Gateway](transfer-gateway.html)を読むべきである。
+## Overview
 
-## 1. トークンコントラクトを `extdev`にデプロイする
+In this doc we'll walk you through the setup required to transfer tokens between token contracts you've deployed to `extdev` and `Rinkeby`. If you haven't done so already you should first read through the high level overview of the [Transfer Gateway](transfer-gateway.html).
 
-トークンを `Rinkeby` にデプロイされたトークンコントラクトから`extdev` にデプロイされたコントラクトに移転したい場合、`extdev` にデプロイしたトークンコントラクトは`mintToGateway`関数を確実に実装していなければならない。 我々はそれらの対話を行うためのサンプルコントラクトと簡単なCLIを作成した。
+## 1. Deploy token contracts to `extdev`
 
-### MyToken ERC721 コントラクト
+If you wish to transfer tokens from a token contract deployed on `Rinkeby` to one that's deployed on `extdev` you'll need to ensure that the token contract you deploy to `extdev` implements the `mintToGateway` function. We've created some sample contracts and a simple CLI to interact with them.
+
+### MyToken ERC721 contract
 
 ```solidity
 pragma solidity ^0.4.24;
@@ -19,14 +20,14 @@ pragma solidity ^0.4.24;
 import "openzeppelin-solidity/contracts/token/ERC721/ERC721Token.sol";
 
 contract MyToken is ERC721Token {
-    // Transfer Gateway コントラクトアドレス
+    // Transfer Gateway contract address
     address public gateway;
 
     constructor(address _gateway) ERC721Token("MyToken", "MTC") public {
         gateway = _gateway;
     }
 
-    // DAppChainゲートウェイによって使われトークンを生成しイーサリアムゲートウェイにデポジットされる
+    // Used by the DAppChain Gateway to mint tokens that have been deposited to the Ethereum Gateway
     function mintToGateway(uint256 _uid) public
     {
         require(msg.sender == gateway, "only the gateway is allowed to mint");
@@ -35,7 +36,7 @@ contract MyToken is ERC721Token {
 }
 ```
 
-### MyCoin ERC20 コントラクト
+### MyCoin ERC20 contract
 
 ```solidity
 pragma solidity ^0.4.24;
@@ -43,7 +44,7 @@ pragma solidity ^0.4.24;
 import "openzeppelin-solidity/contracts/token/ERC20/StandardToken.sol";
 
 contract MyCoin is StandardToken {
-    // Transfer Gateway コントラクトアドレス
+    // Transfer Gateway contract address
     address public gateway;
 
     string public name = "MyCoin";
@@ -55,7 +56,7 @@ contract MyCoin is StandardToken {
         totalSupply_ = 0;
     }
 
-    // DAppChainゲートウェイによって使われトークンを生成しイーサリアムゲートウェイにデポジットされる
+    // Used by the DAppChain Gateway to mint tokens that have been deposited to the Ethereum Gateway
     function mintToGateway(uint256 _amount) public {
         require(msg.sender == gateway, "only the gateway is allowed to mint");
         totalSupply_ = totalSupply_.add(_amount);
@@ -64,54 +65,56 @@ contract MyCoin is StandardToken {
 }
 ```
 
-全てのコントラクトのソースはここで見つかる [Truffle DAppChain Example](https://github.com/loomnetwork/truffle-dappchain-example) 。
+Full source for all contracts can be found in the [Truffle DAppChain Example](https://github.com/loomnetwork/truffle-dappchain-example) repo.
 
-1. このチュートリアルではあなた自身のDAppChainを実行することはしないが、`loom` バイナリをダウンロードしよう。 `loom`バイナリにビルドインされたCLIコマンドを使って、`extdev` PlasmaChainとやりとりできる。
-    
-    ```bash
-    curl https://raw.githubusercontent.com/loomnetwork/loom-sdk-documentation/master/scripts/get_loom.sh | sh
-    # LOOM_BIN をダウンロードしたloomバイナリに参照する
-    # どこからでも簡単に実行できるようにする
-    export LOOM_BIN=`pwd`/loom
-    ```
+1. Download the `loom` binary, while you won't be spinning up your own DAppChain in this tutorial, you will be using some of the CLI commands built into the `loom` binary to interact with the `extdev` PlasmaChain.
 
-2. `node` (v8以降) と`yarn`がインストールされてるか確認する。
+```bash
+   curl https://raw.githubusercontent.com/loomnetwork/loom-sdk-documentation/master/scripts/get_loom.sh | sh
+   # set LOOM_BIN to reference the downloaded loom binary,
+   # makes it easy to invoke it from anywhere
+   export LOOM_BIN=`pwd`/loom
+   ```
 
-3. [Truffle DAppChain Example](https://github.com/loomnetwork/truffle-dappchain-example) レポジトリをクローンする。
-    
-    ```bash
-    # gateway-tutorialディレクトリにチュートリアルリポジトリをクローン
-    git clone https://github.com/loomnetwork/truffle-dappchain-example gateway-tutorial
-    cd gateway-tutorial
-    # dependenciesのインストール
-    yarn
-    ```
+2. Make sure you have `node` (v8 or later) and `yarn` installed.
 
-4. `extdev`プラズマチェーンのコントラクトを呼びデプロイするために秘密鍵を生成する
-    
-    ```bash
-    $LOOM_BIN genkey -k extdev_private_key -a extdev_public_key
-    ```
-    
-    コンソールに何かこれに似た表示を見るはずである:
-    
-        local address: 0x3B334bEd1e7d3e7d9214495120160D9236aCbC31
-        local address base64: OzNL7R59Pn2SFElRIBYNkjasvDE=
-        
-    
-    これはあなたの新しい秘密鍵と対応した公開アドレスである。 `extdev_private_key`ファイルのなかに秘密鍵が見つかり、そして対応した公開鍵は`extdev_public_key`ファイルの中に見つかる。
+3. Clone the [Truffle DAppChain Example][] repo.
 
-5. `MyToken`コントラクトおよび`MyCoin`コントラクトを`extdev` PlasmaChainへとデプロイする。
-    
-    ```bash
-    yarn deploy:extdev
-    ```
+   ```bash
+   # clone the tutorial repo to the gateway-tutorial directory
+   git clone https://github.com/loomnetwork/truffle-dappchain-example gateway-tutorial
+   cd gateway-tutorial
+   # install dependencies
+   yarn
+   ```
 
-## 2. `Rinkeby`にトークンコントラクトをデプロイする。
+4. Generate your own private key for deploying and calling contracts on the `extdev` PlasmaChain.
 
-Ethereumネットワークにデプロイされるトークンコントラクトのための特別な要件はない。
+   ```bash
+   $LOOM_BIN genkey -k extdev_private_key -a extdev_public_key
+   ```
 
-### MyRinkebyToken ERC721 コントラクト
+   You should see something similar to this displayed in the console:
+
+   ```
+   local address: 0x3B334bEd1e7d3e7d9214495120160D9236aCbC31
+   local address base64: OzNL7R59Pn2SFElRIBYNkjasvDE=
+   ```
+
+   This is the public address that corresponds to your new private key. You'll find the private key
+   in the `extdev_private_key` file, and the corresponding public key in the `extdev_public_key` file.
+
+5. Deploy the `MyToken` and `MyCoin` contracts to the `extdev` PlasmaChain.
+
+   ```bash
+   yarn deploy:extdev
+   ```
+
+## 2. Deploy token contracts to `Rinkeby`
+
+There aren't any special requirements for token contracts deployed to Ethereum networks.
+
+### MyRinkebyToken ERC721 contract
 
 ```solidity
 pragma solidity ^0.4.24;
@@ -134,7 +137,7 @@ contract MyRinkebyToken is ERC721Token {
 }
 ```
 
-### MyRinkebyCoin ERC20 コントラクト
+### MyRinkebyCoin ERC20 contract
 
 ```solidity
 pragma solidity ^0.4.24;
@@ -156,159 +159,161 @@ contract MyRinkebyCoin is StandardToken {
 }
 ```
 
-全てのコントラクトのソースは [Truffle DAppChain Example](https://github.com/loomnetwork/truffle-dappchain-example)リポジトリにある。
+Full source for all contracts can be found in the [Truffle DAppChain Example](https://github.com/loomnetwork/truffle-dappchain-example) repo.
 
-これらのコントラクトを `Rinkeby`にデプロイしよう。
+Let's deploy these contracts to `Rinkeby`.
 
-1. イーサリアム秘密鍵を生成する。
-    
-    ```bash
-    # これはrinkeby_account, rinkeby_mnemonic, rinkeby_private_key ファイル群を生成する
-    yarn gen:rinkeby-key
-    ```
+1. Generate an Ethereum private key:
 
-2. 新しい`Rinkeby`アカウントのアドレスを `rinkeby_account`ファイルから取得する。
-    
-    ```bash
-    cat rinkeby_account
-    ```
+```bash
+   # this will create the rinkeby_account, rinkeby_mnemonic, and rinkeby_private_key files
+   yarn gen:rinkeby-key
+   ```
 
-3. `Rinkeby`にコントラクトをデプロイできるよう、`Rinkeby`アカウントにETHを与える。 https://faucet.rinkeby.io を使うか、もしくは他のアカウントからETHを送っても良い。
+2. Get the address of the new `Rinkeby` account from the `rinkeby_account` file.
+   ```bash
+   cat rinkeby_account
+   ```
 
-4. InfuraのAPIキーをセットする (以下で取得https://infura.io)
-    
-    ```bash
-    export INFURA_API_KEY=XXXXXXXXXXXXXXXX
-    ```
+3. Give the `Rinkeby` account some ETH so it can be used to deploy contracts to `Rinkeby`,
+   you can either use https://faucet.rinkeby.io or transfer some ETH from another account.
 
-5. サンプルコントラクトをデプロイする
-    
-        yarn deploy:rinkeby
-        
-    
-    以下のようなエラーで失敗する場合
-    
-        Error encountered, bailing. Network state unknown. Review successful transactions manually.
-        insufficient funds for gas * price + value
-        
-    
-    さらにもう少しETHを`rinkeby_account`で転送する必要がある
+4. Set your Infura API key (get it from https://infura.io)
+   ```bash
+   export INFURA_API_KEY=XXXXXXXXXXXXXXXX
+   ```
 
-## 3. `extdev` コントラクトを `Rinkeby`コントラクトにマップする
+5. Deploy sample contracts
+   ```
+   yarn deploy:rinkeby
+   ```
 
-一度コントラクトを両方のチェーンにデプロイしたらトランスファーゲートウェイにコントラクト間でトークンを転送したいと伝える必要がある。 あなたはプログラムで [loom-js](https://github.com/loomnetwork/loom-js)の中の`TransferGateway`クラスを使うか `loom` CLIを使う事ができる このチュートリアルでは我々は `web3`と[loom-js](https://github.com/loomnetwork/loom-js)を使ってより合理的なJS CLIを作ってきたので アドレス、トランザクション、ハッシュといけにえの山羊を探して移動する必要はありません。
+   If this fails with an error similar to this one:
+   ```
+   Error encountered, bailing. Network state unknown. Review successful transactions manually.
+   insufficient funds for gas * price + value
+   ```
+   Transfer a bit more ETH to the account in `rinkeby_account`.
 
-`extdev`にデプロイされた`MyToken`コントラクトを`Rinkeby`にデプロイされた`MyRinkebyToken`コントラクトにマップする:
+## 3. Map `extdev` contracts to `Rinkeby` contracts
+
+Once you've deployed your contracts to both chains you'll need to let the Transfer Gateway know you
+want it to transfer tokens between the contracts. You can either do so programmatically using the
+`TransferGateway` class in [loom-js][], or the `loom` CLI. For this tutorial we've built a more
+streamlined JS CLI with `web3` and [loom-js][], so you don't have to go looking for contract
+addresses, transaction hashes, and sacrificial goats.
+
+Map the `MyToken` contract deployed on `extdev` to the `MyRinkebyToken` contract deployed on `Rinkeby`:
 
 ```bash
 node ./gateway-cli.js map-contracts token
 ```
 
-`extdev`にデプロイされた`MyCoin`コントラクトを`Rinkeby`にデプロイされた`MyRinkebyCoin`コントラクトにマップする:
+Map the `MyCoin` contract deployed on `extdev` to the `MyRinkebyCoin` contract deployed on `Rinkeby`:
 
 ```bash
 node ./gateway-cli.js map-contracts coin
 ```
 
-これらのコマンドを実行するとトランスファーゲートウェイはあなたがコントラクの作成者であるか検証しようとし、これは数分かかる。 その間に次のステップへ進むことができる。
+After you execute these commands the Transfer Gateway will attempt to verify that you are the creator of these contracts, this may take a couple of minutes. In the meantime you can proceed to the next step.
 
-## 4. `extdev`アカウントを`Rinkeby`アカウントにマップする
+## 4. Map `extdev` account to `Rinkeby` account
 
-今2つのトークンコントラクトはトランスファーゲートウェイ経由で接続されており`extdev`から`Rinkeby`へトークンの転送を開始できる しかし、もし`Rinkeby`から`extdev`へトークンを転送したい場合`extdev`アカウントをあなたの`Rinkeby`アカウントに接続する必要がでてくるだろう。
+Now that the two token contracts are connected via the Transfer Gateway you can start transferring tokens from `extdev` to `Rinkeby`. However, if you want to transfer tokens from `Rinkeby` to `extdev` you'll need to connect your `extdev` account to your `Rinkeby` account.
 
 ```bash
 node ./gateway-cli.js map-accounts
 ```
 
-グレート、`extdev`と`Rinkeby`の間での完璧なトークンの転送の準備の全てはできているはず！
+Great, everything should now be ready for flawless token transfer between `extdev` and `Rinkeby`!
 
-## 5. トークンの転送
+## 5. Token transfer
 
-### `Rinkeby`から`extdev`へ
+### From `Rinkeby` to `extdev`
 
-今、全てのマップしてきたコントラクトとアカウントはトークンとETHを`Rinkeby`のゲートウェイコントラクトに転送できる。
+Now that all contracts and accounts have been mapped you can transfer tokens and ETH to the `Rinkeby` Gateway contract.
 
-それではERC721トークンの`MyRinkebyToken`をいくつか生成する事から始めてみよう、そしてそのうち一つを`PlasmaChain`に転送してみよう。
+Lets start by minting some of the `MyRinkebyToken` ERC721 tokens, and transferring one of them to the `PlasmaChain`.
 
 ```bash
-# Rinkebyでトークンを生成
+# mint some tokens on Rinkeby
 node ./gateway-cli.js mint-token 1
 node ./gateway-cli.js mint-token 2
 node ./gateway-cli.js mint-token 3
 
-# トークンをextdevのPlasmaChainへ転送
+# transfer a token to extdev PlasmaChain
 node ./gateway-cli.js deposit-token 1
 
-# あなたがRinkebyにトークンをいくつ持っているかをチェックする
+# check how many tokens you have on Rinkeby
 node ./gateway-cli.js token-balance -c eth
 
-# あなたがextdevにトークンをいくつ持っているかをチェックする
+# check how many tokens you have on extdev
 node ./gateway-cli.js token-balance
 
-# Rinkebyのゲートウェイがトークンをいくつ持っているかをチェックする
+# check how many tokens the Gateway holds on Rinkeby
 node ./gateway-cli.js token-balance -a gateway -c eth
 ```
 
-ではERC20トークンの`MyRinkebyCoin`のいくつかを転送してみよう、それらのうち10億はすでに生成されあなたのアカウントにあるのですぐに転送する事ができる。
+And now lets transfer some of the `MyRinkebyCoin` ERC20 tokens, a billion of them have already been minted to your account so you can transfer them right away.
 
 ```bash
-# 120トークンをextdevのPlasmaChainに転送する
+# transfer 120 tokens to extdev PlasmaChain
 node ./gateway-cli.js deposit-coin 120
 
-# Rinkebyにいくつトークンを持っているかチェックする
+# check how many tokens you have on Rinkeby
 node ./gateway-cli.js coin-balance -c eth
 
-# extdevにいくつトークンを持っているかチェックする
+# check how many tokens you have on extdev
 node ./gateway-cli.js coin-balance
 
-# Rinkebyのゲートウェイがいくつトークンを持っているかチェックする
+# check how many tokens the Gateway holds on Rinkeby
 node ./gateway-cli.js coin-balance -a gateway -c eth
 ```
 
-### `extdev`から`Rinkeby`へ
+### From `extdev` to `Rinkeby`
 
-ERC721トークンは`withdraw-token`コマンドを使って`Rinkeby`に送り返す事ができる。
+The ERC721 tokens can be transferred back to `Rinkeby` using the `withdraw-token` command.
 
 ```bash
-# Rinkebyに転送する
+# transfer a token to Rinkeby
 node ./gateway-cli.js withdraw-token 1
 
-# Rinkebyにいくつトークンを持つかチェックする。
+# check how many tokens you have on Rinkeby
 node ./gateway-cli.js token-balance -c eth
 
-# extdevにいくつトークンを持つかチェックする。
+# check how many tokens you have on extdev
 node ./gateway-cli.js token-balance
 
-# Rinkebyのゲートウェイがいくつトークンを持つかチェックする
+# check how many tokens the Gateway holds on Rinkeby
 node ./gateway-cli.js token-balance -a gateway -c eth
 ```
 
-ERC20トークンは`withdraw-coin`コマンドを使って`Rinkeby`に送り返す事ができる。
+The ERC20 tokens can be transferred back to `Rinkeby` using the `withdraw-coin` command.
 
 ```bash
-# 60トークンをRinkebyに転送
+# transfer 60 tokens to Rinkeby
 node ./gateway-cli.js withdraw-coin 60
 
-# Rinkebyにいくつトークンを持つかチェックする
+# check how many tokens you have on Rinkeby
 node ./gateway-cli.js coin-balance -c eth
 
-# extdevにいくつトークンを持つかチェクする
+# check how many tokens you have on extdev
 node ./gateway-cli.js coin-balance
 
-# Rinkebyのゲートウェイがいくつトークンを持つかチェックする
+# check how many tokens the Gateway holds on Rinkeby
 node ./gateway-cli.js coin-balance -a gateway -c eth
 ```
 
-### トラブルシューティング
+### Troubleshooting
 
-出金処理の際、ネットワーク問題のため、もしくはgasを使い果たした為にエラーが発生することがある。もしそれが発生した場合は、`resume-withdrawal`コマンドを使って中断された出金処理を完了してみよう。
+Sometimes the withdrawal process may error out due to network issues, or because gas ran out, if that happens you can try to complete the interrupted withdrawal using the `resume-withdrawal` command.
 
 ```bash
 node ./gateway-cli.js resume-withdrawal
 ```
 
-> 注: ユーザーごとに保留中の引き出しは1 つだけ許可される。
+> NOTE: Only one pending withrawal is allowed per user.
 
-## 要約
+## Summary
 
-もしまだチェックしていなければ、[Transfer Gateway Example ](https://github.com/loomnetwork/transfer-gateway-example) のプロジェクト例を見てみよう。これは [loom-js](https://github.com/loomnetwork/loom-js) により提供されるトランスファーゲートウェイを使用して構築されている。
+If you haven't already, take a look at the [Transfer Gateway Example](https://github.com/loomnetwork/transfer-gateway-example) project, which was built using the Transfer Gateway API provided by [loom-js](https://github.com/loomnetwork/loom-js).

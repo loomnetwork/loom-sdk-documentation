@@ -1,24 +1,25 @@
 ---
 id: goloomevents
-title: 从go-loom合约中发送事件
-sidebar_label: 发送事件
+title: Emitting events from go-loom contracts
+sidebar_label: Emitting events
 ---
-## 从go-plugins发送事件
 
-Loom SDK提供了在合同上生成事件的功能，可用于多种目的，例如索引。 目前，Loom SDK支持将事件输出到一组有序的Redis。
+## Emitting events from go-plugins
 
-### Loom SDK配置
+The loom sdk gives gives a facility for the contracts to emit events that can be used for multiple purposes such as indexng. Currently the loom sdk supports emitting events into a Redis sorted set.
 
-默认情况下，loom-sdk仅将事件输出到日志。 要配置它并将其输出到Redis的有序集中，请将以下行添加到配置文件loom.yaml中。
+### Configuring the loom sdk
+
+By default the loom-sdk will only emit events to the log. To configure it to send it to a redis sorted set, add the following line to the loom.yaml config file.
 
     EventDispatcherURI: "redis://localhost:6379"
     
 
-通过这种方式，事件将使用已排序的集合` loomevents `输出到Redis服务器。每个事件都会添加到按块高度分数排序的集合中。
+This will start emitting events to the redis server in a sorted set called `loomevents`. Each event is added to the sorted set with the score being the blockchain height.
 
-### 发送事件
+### Emitting events
 
-以下代码段是一个从合约生成事件的示例代码。
+The code snippet below shows sample code for emitting events from the contract.
 
 ```go
     emitMsg := struct {
@@ -33,6 +34,6 @@ Loom SDK提供了在合同上生成事件的功能，可用于多种目的，例
     ctx.Emit(emitMsgJSON)
 ```
 
-### 订阅事件
+### Subscribing to events
 
-有关订阅事件的更多信息, 请参见 [本页](loomevents.html)
+See [this page](loomevents.html) for more information on subscribing to events

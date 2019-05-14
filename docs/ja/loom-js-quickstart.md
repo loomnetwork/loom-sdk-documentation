@@ -1,13 +1,14 @@
 ---
 id: loom-js-quickstart
-title: NodeJSとブラウザのクイックスタート
-sidebar_label: NodeJSとブラウザのクイックスタート
+title: NodeJS & Browser Quick Start
+sidebar_label: NodeJS & Browser Quick Start
 ---
-## 概要
 
-`loom-js`ライブラリには、Webアプリ構築に必要となる全てのもの、さらにNodeJSサービスが含まれている。NodeJSサービスは、Loom DAppチェーン上で実行されるスマートコントラクトと対話するためのものである。
+## Overview
 
-NPMで`loom-js`をインストール
+The `loom-js` library contains everything you need to build web apps and NodeJS services that interact with smart contracts running on Loom DAppChains.
+
+To get started install `loom-js` from NPM:
 
 ```shell
 yarn add loom-js
@@ -15,13 +16,13 @@ yarn add loom-js
 npm install loom-js
 ```
 
-## サンプル コード
+## Sample Code
 
-このページの全コードは、[Loom JS samples repo](https://github.com/loomnetwork/loom-js-samples) の `quickstart`ディレクトリにある。
+You can find all the code on this page the [Loom JS samples repo](https://github.com/loomnetwork/loom-js-samples) in the `quickstart` directory.
 
-## DAppチェーンへの接続
+## Connecting to a DAppChain
 
-`Contract` クラスは、Loom DAppチェーンで実行されるスマートコントラクトと対話するための便利な方法を提供する。 Loom SDKのサンプルスマートコントラクト [BluePrint](https://github.com/loomnetwork/weave-blueprint/blob/master/src/blueprint.go) と対話する `Contract` インスタンスを作成する関数を書いてみよう。
+The `Contract` class provides a convenient way to interact with a smart contract running on a Loom DAppChain. Let's write a function that creates a `Contract` instance to interact with the sample [BluePrint](https://github.com/loomnetwork/weave-blueprint/blob/master/src/blueprint.go) smart contract from the Loom SDK...
 
 ```js
 const {
@@ -32,10 +33,10 @@ const {
 const { MapEntry } = require('./helloworld_pb')
 
 /**
- * 新たな`Contract`インスタンスを作成し、スマートコントラクトとの対話に使えるようにする。
- * @param privateKey(秘密鍵)はコントラクトに送信されたトランザクションに署名するために使われる。
- * @param publicKey(公開鍵)は秘密鍵に対応するものである。
- * @returns `Contract`のインスタンス
+ * Creates a new `Contract` instance that can be used to interact with a smart contract.
+ * @param privateKey Private key that will be used to sign transactions sent to the contract.
+ * @param publicKey Public key that corresponds to the private key.
+ * @returns `Contract` instance.
  */
 async function getContract(privateKey, publicKey) {
   const client = new Client(
@@ -58,16 +59,16 @@ async function getContract(privateKey, publicKey) {
 }
 ```
 
-## DAppチェーンへのデータの書き込み
+## Writing data to a DAppChain
 
-スマートコントラクトの状態を変更するには、そのパブリックなメソッドのうちどれかを呼び出すことが必要であり、さらに署名済みのトランザクションが送信され、DAppチェーンによって検証されていなくてはならない。 幸いこれらのほとんどは、`Contract.CallAsync()` メソッドを使用すれば `Contract`クラスが処理を行う。
+To mutate the state of a smart contract you need to call one of its public methods, to do so a signed transaction must be sent to and validated by the DAppChain. Fortunately the `Contract` class takes care of most of this when you use the `Contract.callAsync()` method.
 
-[BluePrint](https://github.com/loomnetwork/weave-blueprint/blob/master/src/blueprint.go)スマートコントラクトは、パブリックな`SetMsg`メソッドを持っており、これはキーとバリューの連想配列を保存するよう呼び出すことができる。 このメソッドを呼び出す関数を書いてみよう。
+The [BluePrint](https://github.com/loomnetwork/weave-blueprint/blob/master/src/blueprint.go) smart contract has a public `SetMsg` method that can be called to store an association between a key and a value. Let's write a function that calls this method...
 
 ```js
 /**
- * スマートコントラクト内のキーとバリューの連想配列を格納
- * @param contract コントラクトのインスタンスが`getContract()`から返す
+ * Stores an association between a key and a value in a smart contract.
+ * @param contract Contract instance returned from `getContract()`.
  */
 async function store(contract, key, value) {
   const params = new MapEntry()
@@ -78,16 +79,16 @@ async function store(contract, key, value) {
 
 ```
 
-## DAppチェーンからのデータの読み取り
+## Reading data from a DAppChain
 
-スマートコントラクトの状態を読み取るためには、パブリックな読み取り専用メソッドのうちどれかを呼び出す必要があり、`Contract.StaticCallAsync()`メソッドを使って行うことができる。
+To read the state of a smart contract you need to call one of its public read-only methods, you can do so by using the `Contract.staticCallAsync()` method.
 
-[BluePrint](https://github.com/loomnetwork/weave-blueprint/blob/master/src/blueprint.go)スマートコントラクトは、パブリックな`GetMsg`メソッドを持っており、キーとバリューの連想配列を参照するようこれを呼び出すことができる。 このメソッドを呼び出す関数を書いてみよう。
+The [BluePrint](https://github.com/loomnetwork/weave-blueprint/blob/master/src/blueprint.go) smart contract has a public `GetMsg` method that can be called to look up an association between a key and a value. Let's write a function that calls this method...
 
 ```js
 /**
- * スマートコントラクト内にあるキーと結び付けられたバリューをロードする。
- * @param contract コントラクトのインスタンスが`getContract()`から返す
+ * Loads the value associated with a key in a smart contract.
+ * @param contract Contract instance returned from `getContract()`.
  */
 async function load(contract, key) {
   const params = new MapEntry()
@@ -98,9 +99,9 @@ async function load(contract, key) {
 }
 ```
 
-## まとめ
+## Putting it all together
 
-全て準備が整ったので、DAppチェーンが稼働していることを確認してから、次のコードを実行してみよう。`Value: hello!`とコンソールにプリントされるはずだ。
+Now that we have all the pieces in place make sure that you have the DAppChain running and then run the following code, you should see `Value: hello!` printed to the console.
 
 ```js
 (async function () {

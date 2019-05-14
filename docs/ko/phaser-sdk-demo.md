@@ -1,21 +1,22 @@
 ---
 id: phaser-sdk-demo
-title: Phaser SDK 데모
-sidebar_label: Phaser SDK 데모
+title: Phaser SDK Demo
+sidebar_label: Phaser SDK Demo
 ---
+
 ![Game screenshot](/developers/img/screenshot.png)
 
-[Phaser](http://phaser.io)와 [Loom.js](https://github.com/loomnetwork/loom-js)를 사용해서 Loom DappChain과 상호작용하는 간단한 HTML5 게임을 보여주는 기본적인 예제입니다. 소스코드는 [Github](https://github.com/loomnetwork/phaser-sdk-demo)에서 확인 가능합니다
+A basic example showcasing a simple HTML5 game interacting with a Loom DappChain, using [Phaser](http://phaser.io) and [Loom.js](https://github.com/loomnetwork/loom-js). Souce code is available on [Github](https://github.com/loomnetwork/phaser-sdk-demo)
 
-## 게임 방법
+## Game instructions
 
-이동을 위해서 방향키를 사용하고, 윗 방향키를 눌러서 점프를 하세요. 각 행을 통과할때마다, 1점이 부여됩니다. 보너스 스타를 모아서 여러분의 점수를 더 끌어올리세요.
+Use the arrow keys to move around, jump by pressing the up arrow. For each passing row of blocks, 1 point is awarded. Collect bonus stars to increase your score further.
 
-## 개발하기
+## Development
 
-1.) 여러분만의 DappChain을 실행하세요
+1.) Run your own DappChain
 
-Loom 설치하기
+Install Loom
 
 ```bash
 wget https://private.delegatecall.com/loom/osx/stable/loom
@@ -29,27 +30,27 @@ chmod +x contracts/blueprint.0.0.1
 cp ../genesis.example.json genesis.json
 ```
 
-Blockchain 구동하기
+Run Blockchain
 
     ./loom run
     
 
-여러분만의 DappChain을 실행하는 방법에 대한 더 자세한 사항은 [Loom SDK 문서](https://loomx.io/developers/docs/en/prereqs.html)를 참조하세요.
+Please consult the [Loom SDK docs](https://loomx.io/developers/en/prereqs.html) for further instruction on running your own DappChain.
 
-2.) 개발 server를 시작하세요
+2.) Start the dev server
 
-개발 server 구동하기
+Run dev server
 
-    #소스 가져오기
+    #Get Source
     git clone https://github.com/loomnetwork/phaser-sdk-demo.git
     
     cd phaser-sdk-demo
     
-    # 설치하기
+    # Install
     yarn
     
-    # protobuff를 컴파일한다
+    # Compile protobuff
     yarn run proto
     
-    # dev server를 구동한다
+    # Start the dev server
     yarn run dev

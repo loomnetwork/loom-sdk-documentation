@@ -1,19 +1,20 @@
 ---
 id: unity-sdk-evm
-title: 基于EVM的智能合约快速入门
-sidebar_label: 基于EVM的智能合约快速入门
+title: EVM-based Smart Contract Quickstart
+sidebar_label: EVM-based Smart Contract Quickstart
 ---
-Loom支持EVM（[以太坊虚拟机](evm.html)）和基于插件的智能合约。 比如，可以使用 [go-loom](https://github.com/loomnetwork/go-loom)创建基于插件的智能合约。
 
-在此示例中，我们将演示如何使用Unity SDK与基于EVM的智能合约进行通信。
+Loom supports EVM ([Ethereum Virtual Machine](evm.html)) and plugin-based smart contracts. Plugin-based smart contracts can be created with [go-loom](https://github.com/loomnetwork/go-loom), for example.
 
-## 示例代码
+In this example, we will demostrate how to use the Unity SDK to communicate with EVM-based smart contracts.
 
-这个示例使用了来自[`unity-tiles-chain-evm` 演示 ](https://github.com/loomnetwork/unity-tiles-chain-evm) 的Solidity 合约。 出于此示例的目的，我们将使用此示例合约来存储文本字符串。
+## Sample Code
 
-## 连接到 DApp链
+This sample uses the Solidity contract from [`unity-tiles-chain-evm` demo](https://github.com/loomnetwork/unity-tiles-chain-evm). For the purpose of this sample, we will use this sample contract just to store a text string.
 
-`EvmContract` 类提供了一种方便的方式与在运行着EVM-兼容智能合约的 Loom DApp链上运行的智能合约进行交互。 让我们编写一个创建`EvmContract` 实例的方法来与示例[TilesChain](https://github.com/loomnetwork/unity-tiles-chain-evm/blob/master/dappchain/TilesChain.sol) 智能合约进行交互。
+## Connecting to a DAppChain
+
+The `EvmContract` class provides a convenient way to interact with a smart contract running on a Loom DAppChain running an EVM-compatible smart contract. Let's write a method that creates an `EvmContract` instance to interact with the sample [TilesChain](https://github.com/loomnetwork/unity-tiles-chain-evm/blob/master/dappchain/TilesChain.sol) smart contract.
 
 ```csharp
 // LoomEvmQuickStartSample.cs
@@ -54,7 +55,7 @@ public class LoomEvmQuickStartSample : MonoBehaviour
         // ABI of the Solidity contract
         const string abi = "[{\"constant\":false,\"inputs\":[{\"name\":\"_tileState\",\"type\":\"string\"}],\"name\":\"SetTileMapState\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"GetTileMapState\",\"outputs\":[{\"name\":\"\",\"type\":\"string\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"name\":\"state\",\"type\":\"string\"}],\"name\":\"OnTileMapStateUpdate\",\"type\":\"event\"}]\r\n";
         // Note: With EVM based smart contracts, you can't access them by name.
-        // 将已部署合约的地址放在此处。
+        // Put the address of your deployed contract here.
         var contractAddr = Address.FromHexString("0xf420fbbb810698a74120df3723315ee06f472870");
         var callerAddr = Address.FromPublicKey(publicKey);
 
@@ -63,11 +64,11 @@ public class LoomEvmQuickStartSample : MonoBehaviour
 }
 ```
 
-## 将数据写入 DApp链
+## Writing data to a DAppChain
 
-要改变智能合约的状态，您需要调用其公共方法之一，为此必须将签名的事务发送到DApp链并由其进行验证。 幸运的是，当你使用`EvmContract.Call*Async()`系列方法时， `EvmContract`类会处理大部分内容。
+To mutate the state of a smart contract you need to call one of its public methods, to do so a signed transaction must be sent to and validated by the DAppChain. Fortunately the `EvmContract` class takes care of most of this when you use the `EvmContract.Call*Async()` family of methods.
 
-[TilesChain](https://github.com/loomnetwork/unity-tiles-chain-evm/blob/master/dappchain/TilesChain.sol) 智能合约有一个公共`SetTileMapState` 方法，可以调用该方法来存储键和值之间的关联，请注意，此方法不返回任何内容。 让我们为调用`TilesChain.SetTileMapState()`的`LoomEvmQuickStartSample` 类添加一个方法。
+The [TilesChain](https://github.com/loomnetwork/unity-tiles-chain-evm/blob/master/dappchain/TilesChain.sol) smart contract has a public `SetTileMapState` method that can be called to store an string value, note that this method doesn't return anything. Let's add a method to the `LoomEvmQuickStartSample` class that calls `TilesChain.SetTileMapState()`.
 
 ```csharp
 public async Task CallContract(EvmContract contract)
@@ -84,11 +85,11 @@ public async Task CallContract(EvmContract contract)
 }
 ```
 
-## 从DApp链读取数据
+## Reading data from a DAppChain
 
-要读取智能合约的状态，您需要调用其公共只读方法之一，调用只读方法不会修改智能合约状态。 你可以使用 `EvmContract.StaticCall*Async()` 系列方法在智能合约上调用只读方法。
+To read the state of a smart contract you need to call one of its public read-only methods, calling a read-only method doesn't modify the smart contract state. You can call a read-only method on a smart contract by using the `EvmContract.StaticCall*Async()` family of methods.
 
-[TilesChain](https://github.com/loomnetwork/unity-tiles-chain-evm/blob/master/dappchain/TilesChain.sol) 智能合约有一个公共`SetTileMapState` 方法，可以调用该方法来存储键和值之间的关联，请注意，此方法不返回任何内容。 让我们在`LoomEvmQuickStartSample` 类中添加一个方法调用 `TilesChain.GetTileMapState`。
+The [TilesChain](https://github.com/loomnetwork/unity-tiles-chain-evm/blob/master/dappchain/TilesChain.sol) smart contract has a public `GetTileMapState` method that can be called to get the stored string value. Let's add a method to the `LoomEvmQuickStartSample` class to call `TilesChain.GetTileMapState`.
 
 ```csharp
 public async Task StaticCallContract(EvmContract contract)
@@ -111,9 +112,9 @@ public async Task StaticCallContract(EvmContract contract)
 }
 ```
 
-## 从DApp链接收事件
+## Receiving events from a DAppChain
 
-DApp链可以触发事件来回应调用智能合约。 要收到有关新事件的通知，您必须订阅`EvmContract.EventReceived`事件。 但首先，我们需要定义一个指定事件参数的DTO（数据传输对象）。
+DAppChains can trigger events in reaction to calling a smart contract. To be notified of new events, you must subscribe to the `EvmContract.EventReceived` event. But first, we need to define a DTO (Data Transfer Object) that specifies the event parameters.
 
 ```csharp
 public class OnTileMapStateUpdateEvent
@@ -133,16 +134,16 @@ private void ContractEventReceived(object sender, EvmChainEventArgs e)
 }
 ```
 
-## 放在一起
+## Putting it all together
 
-将以下方法添加到 `LoomEvmQuickStartSample`类中。
+Add the following method to the `LoomEvmQuickStartSample` class.
 
 ```csharp
 async void Start()
 {
-    // 私钥用于签署发送到DApp链的事务。
-    // 通常你会为每个玩家生成一个私钥，或让他们提供自己的私钥。
-    // 在此示例中，我们每次都会生成一个新密钥。
+    // The private key is used to sign transactions sent to the DAppChain.
+    // Usually you'd generate one private key per player, or let them provide their own.
+    // In this sample we just generate a new key every time.
     var privateKey = CryptoUtils.GeneratePrivateKey();
     var publicKey = CryptoUtils.PublicKeyFromPrivateKey(privateKey);
 
@@ -157,8 +158,8 @@ async void Start()
 }
 ```
 
-现在我们已经准备好了所有代码，让我们测试一下：
+Now that we have all the code in place let's test it out:
 
-1. 在Unity场景中创建一个空的`GameObject`并将 `LoomEvmQuickStartSample`脚本添加进去。
-2. 在本地Loom DApp链节点上部署 [TilesChain](https://github.com/loomnetwork/unity-tiles-chain-evm/blob/master/dappchain/TilesChain.sol) 智能合约。
-3. 在Unity编辑器中点击 `Play`。
+1. Create an empty `GameObject` in a Unity scene and attach the `LoomEvmQuickStartSample` script to it.
+2. Deploy the [TilesChain](https://github.com/loomnetwork/unity-tiles-chain-evm/blob/master/dappchain/TilesChain.sol) smart contract on a local Loom DAppChain node.
+3. Hit `Play` in the Unity Editor.

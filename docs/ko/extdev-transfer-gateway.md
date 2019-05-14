@@ -3,6 +3,7 @@ id: extdev-transfer-gateway
 title: Transfer Gateway Testnet Tutorial
 sidebar_label: Transfer Gateway Testnet
 ---
+
 ## Overview
 
 In this doc we'll walk you through the setup required to transfer tokens between token contracts you've deployed to `extdev` and `Rinkeby`. If you haven't done so already you should first read through the high level overview of the [Transfer Gateway](transfer-gateway.html).
@@ -67,45 +68,47 @@ contract MyCoin is StandardToken {
 Full source for all contracts can be found in the [Truffle DAppChain Example](https://github.com/loomnetwork/truffle-dappchain-example) repo.
 
 1. Download the `loom` binary, while you won't be spinning up your own DAppChain in this tutorial, you will be using some of the CLI commands built into the `loom` binary to interact with the `extdev` PlasmaChain.
-    
-    ```bash
-    curl https://raw.githubusercontent.com/loomnetwork/loom-sdk-documentation/master/scripts/get_loom.sh | sh
-    # set LOOM_BIN to reference the downloaded loom binary,
-    # makes it easy to invoke it from anywhere
-    export LOOM_BIN=`pwd`/loom
-    ```
+
+```bash
+   curl https://raw.githubusercontent.com/loomnetwork/loom-sdk-documentation/master/scripts/get_loom.sh | sh
+   # set LOOM_BIN to reference the downloaded loom binary,
+   # makes it easy to invoke it from anywhere
+   export LOOM_BIN=`pwd`/loom
+   ```
 
 2. Make sure you have `node` (v8 or later) and `yarn` installed.
 
-3. Clone the [Truffle DAppChain Example](https://github.com/loomnetwork/truffle-dappchain-example) repo.
-    
-    ```bash
-    # clone the tutorial repo to the gateway-tutorial directory
-    git clone https://github.com/loomnetwork/truffle-dappchain-example gateway-tutorial
-    cd gateway-tutorial
-    # install dependencies
-    yarn
-    ```
+3. Clone the [Truffle DAppChain Example][] repo.
+
+   ```bash
+   # clone the tutorial repo to the gateway-tutorial directory
+   git clone https://github.com/loomnetwork/truffle-dappchain-example gateway-tutorial
+   cd gateway-tutorial
+   # install dependencies
+   yarn
+   ```
 
 4. Generate your own private key for deploying and calling contracts on the `extdev` PlasmaChain.
-    
-    ```bash
-    $LOOM_BIN genkey -k extdev_private_key -a extdev_public_key
-    ```
-    
-    You should see something similar to this displayed in the console:
-    
-        local address: 0x3B334bEd1e7d3e7d9214495120160D9236aCbC31
-        local address base64: OzNL7R59Pn2SFElRIBYNkjasvDE=
-        
-    
-    This is the public address that corresponds to your new private key. You'll find the private key in the `extdev_private_key` file, and the corresponding public key in the `extdev_public_key` file.
+
+   ```bash
+   $LOOM_BIN genkey -k extdev_private_key -a extdev_public_key
+   ```
+
+   You should see something similar to this displayed in the console:
+
+   ```
+   local address: 0x3B334bEd1e7d3e7d9214495120160D9236aCbC31
+   local address base64: OzNL7R59Pn2SFElRIBYNkjasvDE=
+   ```
+
+   This is the public address that corresponds to your new private key. You'll find the private key
+   in the `extdev_private_key` file, and the corresponding public key in the `extdev_public_key` file.
 
 5. Deploy the `MyToken` and `MyCoin` contracts to the `extdev` PlasmaChain.
-    
-    ```bash
-    yarn deploy:extdev
-    ```
+
+   ```bash
+   yarn deploy:extdev
+   ```
 
 ## 2. Deploy token contracts to `Rinkeby`
 
@@ -161,42 +164,44 @@ Full source for all contracts can be found in the [Truffle DAppChain Example](ht
 Let's deploy these contracts to `Rinkeby`.
 
 1. Generate an Ethereum private key:
-    
-    ```bash
-    # this will create the rinkeby_account, rinkeby_mnemonic, and rinkeby_private_key files
-    yarn gen:rinkeby-key
-    ```
+
+```bash
+   # this will create the rinkeby_account, rinkeby_mnemonic, and rinkeby_private_key files
+   yarn gen:rinkeby-key
+   ```
 
 2. Get the address of the new `Rinkeby` account from the `rinkeby_account` file.
-    
-    ```bash
-    cat rinkeby_account
-    ```
+   ```bash
+   cat rinkeby_account
+   ```
 
-3. Give the `Rinkeby` account some ETH so it can be used to deploy contracts to `Rinkeby`, you can either use https://faucet.rinkeby.io or transfer some ETH from another account.
+3. Give the `Rinkeby` account some ETH so it can be used to deploy contracts to `Rinkeby`,
+   you can either use https://faucet.rinkeby.io or transfer some ETH from another account.
 
 4. Set your Infura API key (get it from https://infura.io)
-    
-    ```bash
-    export INFURA_API_KEY=XXXXXXXXXXXXXXXX
-    ```
+   ```bash
+   export INFURA_API_KEY=XXXXXXXXXXXXXXXX
+   ```
 
 5. Deploy sample contracts
-    
-        yarn deploy:rinkeby
-        
-    
-    If this fails with an error similar to this one:
-    
-        Error encountered, bailing. Network state unknown. Review successful transactions manually.
-        insufficient funds for gas * price + value
-        
-    
-    Transfer a bit more ETH to the account in `rinkeby_account`.
+   ```
+   yarn deploy:rinkeby
+   ```
+
+   If this fails with an error similar to this one:
+   ```
+   Error encountered, bailing. Network state unknown. Review successful transactions manually.
+   insufficient funds for gas * price + value
+   ```
+   Transfer a bit more ETH to the account in `rinkeby_account`.
 
 ## 3. Map `extdev` contracts to `Rinkeby` contracts
 
-Once you've deployed your contracts to both chains you'll need to let the Transfer Gateway know you want it to transfer tokens between the contracts. You can either do so programmatically using the `TransferGateway` class in [loom-js](https://github.com/loomnetwork/loom-js), or the `loom` CLI. For this tutorial we've built a more streamlined JS CLI with `web3` and [loom-js](https://github.com/loomnetwork/loom-js), so you don't have to go looking for contract addresses, transaction hashes, and sacrificial goats.
+Once you've deployed your contracts to both chains you'll need to let the Transfer Gateway know you
+want it to transfer tokens between the contracts. You can either do so programmatically using the
+`TransferGateway` class in [loom-js][], or the `loom` CLI. For this tutorial we've built a more
+streamlined JS CLI with `web3` and [loom-js][], so you don't have to go looking for contract
+addresses, transaction hashes, and sacrificial goats.
 
 Map the `MyToken` contract deployed on `extdev` to the `MyRinkebyToken` contract deployed on `Rinkeby`:
 

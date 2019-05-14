@@ -1,53 +1,56 @@
 ---
 id: etherboy-game
-title: Etherboyゲーム
-sidebar_label: Etherboyゲーム
+title: Etherboy Game
+sidebar_label: Etherboy Game
 ---
-![Header](/developers/img/ebw_splash.jpg) EtherboyはUnityで構築されたマルチプラットフォームの2Dゲームで、DAppチェーン上で稼働し、また[Loom Unity SDK](unity-sdk.html)を使用してGo言語で書かれたスマートコントラクトと対話する。
 
-## ゲームコントロール
+![Header](/developers/img/ebw_splash.jpg) Etherboy is a multi-platform 2D game built in Unity, using the [Loom Unity SDK](unity-sdk.html) to interact with a smart contract written in Golang and running on a Loom DAppChain.
 
-### デスクトップ / WebGL
+## Game Controls
 
-- ** ↑ **: ドアから入る、ロープをよじ登る
-- ** ↓ **: ロープを下る
-- **E**: NPCに話しかける、ベッドで寝る、オブジェクトとのやり取り
-- **スペース** / **右クリック**: ジャンプ
-- **左クリック**: 攻撃 (武器が装備されたとき)
+### Desktop / WebGL
 
-## 対応プラットフォーム
+- **UP**: enter doors, go up ropes
+- **DOWN**: go down ropes
+- **E**: talk to NPCs, sleep in bed, interact with objects
+- **SPACE** / **RIGHT-CLICK**: jump
+- **LEFT-CLICK**: attack (when weapon is equipped)
+
+## Supported Platforms
 
 - WebGL
 - Android (WIP)
 - iOS (WIP)
 - Windows / Mac / Linux
 
-## 開発
+## Development
 
-現在Loom DAppチェーンを稼働させるには、MacOSもしくはLinux上で行わなければならない。だがもしWindows 10をお使いであれば、[Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10)内でUbuntuを実行可能だ (その他のディストリビューションも動くかもしれないが、ドキュメンテーションはUbuntu向けに書かれている)。
+Currently you need to be on MacOS or Linux to spin up a Loom DAppChain, but if you're on Windows 10 you can run Ubuntu in the [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10) (other distros may work but docs are written for Ubuntu).
 
 ### MacOS
 
-1. [MacOSの前提条件](prereqs.html)にある手順通りにGolangをインストールしよう(もしまだインストールしていなければ)。
-2. Loom DAppチェーンのバイナリをダウンロード 
-        bash
-        wget https://private.delegatecall.com/loom/osx/stable/loom
-        chmod +x loom
-        export LOOM_BIN=`pwd`/loom
+1. Install Golang by following the steps in [MacOS prerequisites](prereqs.html) (if you haven't done so already).
+2. Download Loom DAppChain binary
+
+```bash
+   wget https://private.delegatecall.com/loom/osx/stable/loom
+   chmod +x loom
+   export LOOM_BIN=`pwd`/loom
+   ```
 
 ### Linux
 
-1. [Ubuntuの前提条件](prereqs-ubuntu.html)にある手順通りにGolangをインストールしよう(もしまだインストールしていなければ)。
-2. Loom DAppチェーンのバイナリをダウンロード 
-        bash
-        curl -OL https://private.delegatecall.com/loom/linux/stable/loom
-        chmod +x loom
-        export LOOM_BIN=`pwd`/loom
+1. Install Golang by follwing the steps in [Ubuntu prerequisites][]  (if you haven't done so already).
+2. Download Loom DAppChain binary
+   ```bash
+   curl -OL https://private.delegatecall.com/loom/linux/stable/loom
+   chmod +x loom
+   export LOOM_BIN=`pwd`/loom
+   ```
 
-### Etherboyのコントラクトのデプロイ(OSX / Linux)
+### Deploy Etherboy contract (OSX / Linux)
 
-Githubからスマートコントラクトのコードをフェッチする。
-
+Fetch the smart contract code from Github
 ```bash
 export GOPATH=`pwd`/ebgopath
 mkdir -p ebgopath/src/github.com/loomnetwork
@@ -55,7 +58,7 @@ cd ebgopath/src/github.com/loomnetwork
 git clone https://github.com/loomnetwork/etherboy-core.git etherboy-core
 ```
 
-コントラクトの構築およびデプロイ
+Build and deploy the contract
 
 ```bash
 cd etherboy-core
@@ -67,33 +70,33 @@ cp ../genesis.json genesis.json
 $LOOM_BIN run
 ```
 
-全てここまで問題なく進んだら、Etherboyのスマートコントラクトを実行する、ローカルLoom DAppチェーンの出来上がりだ。
+Assuming everything went without a hitch so far you now have a local Loom DAppChain running the Etherboy smart contract!
 
 ![Animation](/developers/img/etherboy-clip.gif)
 
-### Unityプロジェクトの構築
+### Build the Unity project
 
-[Etherboyゲーム](https://github.com/loomnetwork/Etherboy)のUnityプロジェクトをGithubからクローンして修正しよう。
+Clone the Unity project for the [Etherboy game](https://github.com/loomnetwork/Etherboy) from Github and modify
 
-- Unityでプロジェクトを開く
-- `File`->`Build Settings`を選択
-- プラットフォームリストから`Web GL`もしくは`PC, Mac & Linux Standalone`のどちらかを選択
-- 可能であれば`Switch Platform`をクリック
-- `Build`をクリックし、ビルド出力ディレクトリを選択
+- Open the project in Unity
+- Select `File`->`Build Settings`
+- Select either `Web GL` or `PC, Mac & Linux Standalone` from the platform list
+- Press `Switch Platform` if it's enabled
+- Press `Build`, select the build output directory
 
-> WebGLのゲーム全体の構築は、完了までおよそ30分ほど必要だ。
+> WebGL builds of the full game take around 30 minutes to complete.
 
-### ゲームの実行
+### Run the game
 
-#### デスクトップ
+#### Desktop
 
-ビルド出力ディレクトリ内に生成されたバイナリをローンチするだけでよい。もしログインで問題があれば、ポート`9998`で何も実行されていないことを確認しよう。
+Just launch the binary generated in the build output directory. If you have issues logging in please ensure nothing is running on port `9998`.
 
 #### WebGL
 
-`localhost:8090`でビルド出力ディレクトリのためのhttpサーバーを実行し、ウェブブラウザで`localhost:8090`を開こう。
+Run an http server to serve the build output directory at `localhost:8090`, and open `localhost:8090` in your web browser.
 
-もしローカルのhttpサーバーのセットアップ方法がわからなければ、次の手順通りにやってみよう。
+If you don't know how to set up a local http server follow the steps below.
 
 ```bash
 brew install node
@@ -102,9 +105,9 @@ cd path/to/webgl-build-dir
 http-server -a localhost -p 8090
 ```
 
-### オプション設定
+### Optional configuration
 
-もしローカルDAppチェーンを設定して別のホストやポートで実行したい場合、**WebGL**の構築を行う前に`Assets/WebGLTemplates/Loom/settings.js`をアップデートするか、もしくは構築後にビルド出力ディレクトリ内の`settings.js`を編集してもよい:
+If you configure your local DAppChain to run on another host or port you'll need to update the following section of `Assets/WebGLTemplates/Loom/settings.js` before doing a **WebGL** build, or you can edit `settings.js` inside the build output directory after the build:
 
 ```js
   dappchain: {
@@ -113,7 +116,7 @@ http-server -a localhost -p 8090
   }
 ```
 
-デスクトップの構築をするには、`Assets/Resources/env_config.json`を編集して、デフォルトのDAppチェーンのホストおよびポートを変更する必要がある:
+For a desktop build you'll need to edit `Assets/Resources/env_config.json` to change the default DAppChain host & port:
 
 ```json
 {

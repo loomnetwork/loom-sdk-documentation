@@ -1,24 +1,25 @@
 ---
 id: metrics
-title: メトリクス
-sidebar_label: メトリクス
+title: Metrics
+sidebar_label: Metrics
 ---
+
 ## Overview
 
-Loomはメトリクスを備えており、外部のモニタリングサービスにメトリクス値を公開している。 ミドルウェアレイヤーは、アプリケーションのサービスとインストゥルメント化間の関心の分離を可能にするために導入される。 Loom SDKは、go-kitの`metrics`パッケージを利用してメトリクスを備えている。
+Loom instruments metrics and exposes the values of the metrics to external monitoring services. Middleware layer is introduced to enable separation of concern between application services and instrumenting. Loom SDK utilizes go-kit's `metrics` package to instrument metrics.
 
-## Loom SDKのメトリクス
+## Loom SDK Metrics
 
-Loomは4つの異なるタイプのメトリクスをキャプチャ及び公開している:
+Loom captures and exposes 4 different types of metrics:
 
-- `Counter` 単一の数値。増えることだけ可能。
-- `Gauge` 単一の数値で増減が可能。
-- `Histogram` スライディングタイムウインドウのバケットにグループ分けされた観察サンプル。
-- `Summary` スライディングタイムウインドウのバケットに、分位点でグループ分けされた観察サンプル。
+- `Counter` a single numerical value that goes up only
+- `Gauge` a single numerical value that goes up and down
+- `Histogram` a sample of observation grouped into buckets over a sliding time window
+- `Summary` a sample of observation grouped into buckets with quantiles over a sliding time window
 
-以下のGoコードは、`go-kit`を用いたLoomのメトリクス作成方法の例を示している。 `Namespace`は*loomchain*の前に書かれている。 `Subsystem`は*query_serviceもしくは*backend_service*のどちらも可能だ。
+The following Go code shows an example of how Loom creates metrics with `go-kit`. The `Namespace` is prefixed with *loomchain*. The `Subsystem` can be either *query_service or *backend_service*.
 
-例えば、requestCounterのメトリックキーは`loomchain_query_service_request_count`、及び requestLatencyのメトリックキーは`loomchain_query_service_request_latency_microseconds`というふうに参照される。 全てのキーは唯一のものであり同じものはない。
+For example, the requestCounter metric key is referred as `loomchain_query_service_request_count` and the requestLatency metric key is `loomchain_query_service_request_latency_microseconds`. All the keys are unique.
 
 ```Go
 fieldKeys := []string{"method", "error"}
@@ -36,9 +37,9 @@ requestLatency := kitprometheus.NewSummaryFrom(stdprometheus.SummaryOpts{
 }, fieldKeys)
 ```
 
-またLoomはメトリック値のバリエーションを作成するために、各メトリックに2つの異なるフィールド名も提供する。 まず`method`だが、これはメソッドコールの名称だ。 次に`error`だが、これはメソッドコールがエラーを返す場合にtrueとなる。
+Loom also provides the two different field names for each metrics to create variation of metric values. The first one is `method` which is the name of the method call. The second one is `error` which will be true if the method call returns an error.
 
-以下は異なるフィールドで公開されているメトリクスの例である。
+The followings are the example of the exposed metrics with different fields.
 
     loomchain_query_service_request_count{error="false",method="Nonce"} 
     loomchain_query_service_request_count{error="true",method="Nonce"} 
@@ -46,20 +47,20 @@ requestLatency := kitprometheus.NewSummaryFrom(stdprometheus.SummaryOpts{
     loomchain_query_service_request_count{error="true",method="Query"}
     
 
-## メトリックのエンドポイント
+## Metric Endpoint
 
-`loom run`コマンドを使用してスマートコントラクトを実行する際、デフォルトのメトリクスのエンドポイントは`127.0.0.1:46658/metrics`である。 このエンドポイントは、設定ファイル中の設定キー`RPCBindAddress`を使って設定可能だ。
+When running a smart contract using `loom run` command, the default metrics endpoint is `127.0.0.1:46658/metrics`. The endpoint is configurable using the configuration key `RPCBindAddress` in the configuration file.
 
-httpクライアントやwebブラウザを使用して、エンドポイントからメトリクスをポーリングすることが可能だ。`127.0.0.1:46658`で動いているサーバーは、リクエストのカウントとレイテンシーのメトリクスを以下のように示す。
+You can poll the the metrics from the endpoint using http clients or web browsers. The server running on `127.0.0.1:46658` will show the request count and latency metrics as followed.
 
 ```sh
 curl 127.0.0.1:46658/metrics
 
-# HELP loomchain_query_service_request_count 受け取ったリクエスト数。
+# HELP loomchain_query_service_request_count Number of requests received.
 # TYPE loomchain_query_service_request_count counter
 loomchain_query_service_request_count{error="false",method="Nonce"} 2
 loomchain_query_service_request_count{error="true",method="Query"} 2
-# HELP loomchain_query_service_request_latency_microseconds ミリ秒単位での全リクエストの合計時間。
+# HELP loomchain_query_service_request_latency_microseconds Total duration of requests in microseconds.
 # TYPE loomchain_query_service_request_latency_microseconds summary
 loomchain_query_service_request_latency_microseconds{error="false",method="Nonce",quantile="0.5"} 1.0352e-05
 loomchain_query_service_request_latency_microseconds{error="false",method="Nonce",quantile="0.9"} 2.4728e-05
@@ -74,15 +75,15 @@ loomchain_query_service_request_latency_microseconds_count{error="true",method="
 
 ```
 
-## メトリクスのモニタリング
+## Monitoring Metrics
 
-Loomはメトリクスを格納しないのだが、その時点でのメトリック値の公開のみ行なっている。 メトリクスの取得には、エンドポイントからモニタリングシステムへメトリクスのポーリングを行うか、もしくは[Prometheus](https://prometheus.io/docs/prometheus/latest/installation/)を使用することもできる。
+Loom does not store the metrics but only exposes the metric values at the moment. To get metrics, you can either poll the metrics from the endpoint to your monitoring system or you can use [Prometheus](https://prometheus.io/docs/prometheus/latest/installation/).
 
-また[Grafana](https://grafana.com/)や[Kibana](https://www.elastic.co/products/kibana)のようなツールを使用して、メトリクスを可視化することもできる。
+You can also visualize the metrics using tools like [Grafana](https://grafana.com/) or [Kibana](https://www.elastic.co/products/kibana).
 
 ### Prometheus
 
-Prometheusサーバーを設定するために、以下を設定ファイルに追加しよう:
+To configure prometheus server, add the following to your config file:
 
 ```yaml
 scrape_configs:
@@ -95,11 +96,11 @@ scrape_configs:
       - 127.0.0.1:46658 # The IP address to the query server host
 ```
 
-## 全メトリクスのリスト
+## List of All Metrics
 
-以下はLoom SDKによって公開されるメトリクスのリストだ:
+The following are the list of metrics exposed by Loom SDK:
 
-| メトリクス                                                    | タイプ     | 説明                   |
-| -------------------------------------------------------- | ------- | -------------------- |
-| loomchain_query_service_request_count                | Counter | 受け取ったクエリリクエスト数       |
-| loomchain_query_service_request_latency_microseconds | Summary | ミリ秒単位でのクエリリクエストの合計時間 |
+| Metrics                                                  | Type    | Description                                      |
+| -------------------------------------------------------- | ------- | ------------------------------------------------ |
+| loomchain_query_service_request_count                | Counter | Number of query requests received                |
+| loomchain_query_service_request_latency_microseconds | Summary | Total duration of query requests in microseconds |

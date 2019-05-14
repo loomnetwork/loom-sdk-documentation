@@ -3,6 +3,7 @@ id: testnet-plasma
 title: PlasmaChain Testnets
 sidebar_label: PlasmaChain Testnets
 ---
+
 This page is purely information on where and how to access the chain. If you want a more detailed dev guide check [Join Test Net Guide](join-testnet.html)
 
 | Name                | Url                                                   | Type    | Availability                             |

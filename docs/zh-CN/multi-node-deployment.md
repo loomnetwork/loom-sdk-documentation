@@ -1,37 +1,40 @@
 ---
 id: multi-node-deployment
-title: 部署示例
-sidebar_label: 多节点部署
+title: Example Deployment
+sidebar_label: Multi Node Deployment
 ---
-# 多节点部署
 
-本文档介绍了如何在多节点设置中运行 loom。
+# Multi Node Deployment
 
-## 安装
+This documentation describes how to run loom in a multi node setup.
 
-需要在每个节点上执行这些步骤。
+## Installation
 
-1. 选择一个你喜欢的工作目录。在这个例子中, 我们使用 `/home/ubuntu` 
-        bash
-        cd /home/ubuntu
+These steps need to be executed on each node.
 
-2. 下载二进制文件: 
-        bash
-        wget https://private.delegatecall.com/loom/linux/build-208/loom
-        chmod +x loom
+1. Choose a working directory of your choice. In this example we are using `/home/ubuntu`
 
-3. 在工作目录中执行 `./loom init` 以初始化配置文件。
-4. 添加 `loom.yml` 到工作目录中 
-        yaml
-        RPCBindAddress: "tcp://0.0.0.0:46658"
+```bash
+    cd /home/ubuntu
+    ```
+1. Download the binaries:
+    ```bash
+    wget https://private.delegatecall.com/loom/linux/build-208/loom
+    chmod +x loom
+    ```
+1. Execute `./loom init` in the working directory to initialize config files.
+1. Add `loom.yml` in the working directory:
+    ```yaml
+    RPCBindAddress: "tcp://0.0.0.0:46658"
+    ```
 
-## 配置
+## Configuration
 
-有两个 genesis.json 文件需要组合。
+There are two genesis.json files that needs to be combined.
 
-### genesis.json #1 - 在工作目录中
+### genesis.json #1 - in the working directory
 
-`genesis.json` 文件如下所示：
+The `genesis.json` file looks like this:
 
 ```json
 {
@@ -66,7 +69,7 @@ sidebar_label: 多节点部署
 }
 ```
 
-接下来，从每个节点收集所有 `validators`，然后将它们组合成一个数组。 此文件现在需要在所有节点中替换为组合文件。 对于双节点群集，它现在应该如下所示：
+Next, collect all `validators` from each node, then combine them into an array. This file will now need to be replaced with the combined file, in all nodes. For a two node cluster, it should now look like this:
 
 ```json
 {
@@ -105,9 +108,9 @@ sidebar_label: 多节点部署
 }
 ```
 
-### genesis.json＃2 - 在 chaindata / config 中
+### genesis.json #2 - inside chaindata/config
 
-您将找到名为 `genesis.json` 的文件。 不要与工作目录中的那个混淆。 它应该如下所示：
+You will find a file named `genesis.json`. It is not to be confused with the one in the working directory. It should look like this:
 
 ```json
 {
@@ -127,7 +130,7 @@ sidebar_label: 多节点部署
 }
 ```
 
-接下来，从每个节点收集所有 `validators`，然后将它们组合成一个数组。 此文件现在需要在所有节点中替换为组合文件。 对于双节点群集，它现在应该如下所示：
+Next, collect all the `validators` from each node, then combine them into an array. This file will now need to be replaced with the combined file, in all nodes. For a two node cluster, it should now look like this:
 
 ```json
 {
@@ -155,55 +158,55 @@ sidebar_label: 多节点部署
 }
 ```
 
-## 运行
+## Running
 
-首先，我们需要从每个节点获取节点密钥。 转到工作目录并运行 `loom nodekey`：
+First, we need to get node keys from each node. Go to the working directory and run `loom nodekey`:
 
 ```bash
 $ loom nodekey
 47cd3e4cc27ac621ff8bc59b776fa228adab827e
 ```
 
-请记住清楚地记下哪个节点密钥用于哪个节点。 同样重要的是私有IP（或任何可用于节点彼此通信的IP）。 通常，在云环境中，出于安全性和延迟原因，我们使用公共IP。
+Do remember to clearly make note which node key is for which node. Also important is the private IP (or any IP that are available for the nodes to communicate with each other). Generally, in a cloud environment we use public IPs for security and latency reasons.
 
-现在，让我们使用一个包含4个节点的示例：
+Now, let's use an example with 4 nodes:
 
-| 节点 | IP       | 节点密钥                                     |
-| -- | -------- | ---------------------------------------- |
-| 1  | 10.2.3.4 | 47cd3e4cc27ac621ff8bc59b776fa228adab827e |
-| 2  | 10.6.7.8 | e728bada822af677b95cb8ff126ca72cc4e3dc74 |
-| 3  | 10.3.2.1 | 4953e5726664985cc1cc92ae2edcfc6e089ba50d |
-| 4  | 10.7.6.5 | 02c90b57d241c3c014755ecb07e0c0d232e07fff |
+| Node | IP       | Node key                                 |
+| ---- | -------- | ---------------------------------------- |
+| 1    | 10.2.3.4 | 47cd3e4cc27ac621ff8bc59b776fa228adab827e |
+| 2    | 10.6.7.8 | e728bada822af677b95cb8ff126ca72cc4e3dc74 |
+| 3    | 10.3.2.1 | 4953e5726664985cc1cc92ae2edcfc6e089ba50d |
+| 4    | 10.7.6.5 | 02c90b57d241c3c014755ecb07e0c0d232e07fff |
 
-要运行loom，我们需要告诉每个节点它的对等体。 一般格式是：
+To run loom, we need to tell each node about its peers. The general format is:
 
 ```bash
 loom run --persistent-peers tcp://<node1_key>@<node1_ip>:46656,tcp://<node2_key>@<node2_ip>:46656,...tcp://<nodeN_key>@<nodeN_ip>:46656
 ```
 
-让我们使用上表来查看示例。
+Let's see examples by using the table above.
 
-在节点1上
+On node 1:
 
 ```bash
 loom run --persistent-peers tcp://e728bada822af677b95cb8ff126ca72cc4e3dc74@10.6.7.8:46656,tcp://4953e5726664985cc1cc92ae2edcfc6e089ba50d@10.3.2.1:46656,tcp://02c90b57d241c3c014755ecb07e0c0d232e07fff@10.7.6.5:46656
 ```
 
-在节点2上
+On node 2:
 
 ```bash
 loom run --persistent-peers tcp://47cd3e4cc27ac621ff8bc59b776fa228adab827e@10.2.3.4:46656,tcp://4953e5726664985cc1cc92ae2edcfc6e089ba50d@10.3.2.1:46656,tcp://02c90b57d241c3c014755ecb07e0c0d232e07fff@10.7.6.5:46656
 ```
 
-节点3和节点4也是如此。我们排除节点自己的密钥和IP地址。
+The same goes for node 3 and node 4. We exclude the node's own key and IP address.
 
-**请记住，所有命令都需要在工作目录中执行。**
+**Please remember that all commands need to be executed from within the working directory.**
 
-### systemd 启动脚本
+### systemd Startup Script
 
-以下启动脚本可通过使用systemd来控制服务。对 `WorkingDirectory` 和/或 `ExecStart` 进行更改以反映你的设置。
+The following startup script can be used to control the service using systemd. Make changes to `WorkingDirectory` and/or `ExecStart` to reflect your setup.
 
-注意 `ExecStart`，它直接运行 loom 时使用与上一节相同的概念进行构造。 这意味着每个节点都有不同的启动脚本。
+Notice `ExecStart`, it is constructed using the same concept from the previous section when running loom directly. This means each node has a different startup script.
 
 ```ini
 [Unit]
@@ -226,30 +229,30 @@ StandardError=syslog
 WantedBy=multi-user.target
 ```
 
-把它保存到 `/etc/systemd/system/loom.service`。运行这些操作以激活它:
+Save it to `/etc/systemd/system/loom.service`. Run these to activate it:
 
 ```bash
 sudo systemctl daemon-reload
 sudo systemctl start loom.service
 ```
 
-你现在可以使用以下方法检查输出:
+You may now inspect the output using:
 
 ```bash
 sudo journalctl -u loom.service
 ```
 
-当你满足一切都按预期运行时, 执行以下操作将启用该服务, 以便在启动时开始:
+When satisfied everything is running as intended, executing the following will enable the service so that it is started at boot:
 
 ```bash
 sudo systemctl enable loom.service
 ```
 
-## 验证
+## Verifying
 
-### 监听端口
+### Listening ports
 
-如果一切顺利, 你将能够看到这些端口在每个节点上打开。
+If all is well, you will be able to see these ports opened in each node.
 
 ```bash
 $ sudo netstat -tpnl
@@ -260,21 +263,21 @@ tcp6       0      0 :::46657                :::*                    LISTEN      
 tcp6       0      0 :::46658                :::*                    LISTEN      2135/loom
 ```
 
-## 自动化
+## Automation
 
-如果组合配置文件和启动命令似乎需要做很多工作，我们可以使用 Ansible 自动化它。
+If combining the configuration files and startup commands seems to be a lot of work, we have a way to automate it using Ansible.
 
-Ansible 需要在本地安装。
+Ansible needs to be installed locally.
 
-手册在[这里](https://github.com/loomnetwork/loom-playbooks/blob/master/loom-playbook.yml)可见。
+The playbook is available [here](https://github.com/loomnetwork/loom-playbooks/blob/master/loom-playbook.yml)
 
-您需要更改清单以匹配你的节点和首选工作目录。
+You will need to change the inventory to match your nodes and preferred working directory.
 
-**请确保 SSH 和 sudo 访问节点可用**
+**Please ensure SSH and sudo access to the nodes are available**
 
-### 清单：inventory.yaml
+### Inventory: inventory.yaml
 
-清单指定节点及其IP地址。 如果节点只有一个IP，则对`ansible_host`和`private_ip`使用相同的IP。 Ansible 使用`ansible_host`连接到主机，而节点使用`private_ip`进行相互通信。
+The inventory specifies the nodes and their IP addresses. If the node only have one IP, use same for both `ansible_host` and `private_ip`. `ansible_host` is used by Ansible to connect to the host, while `private_ip` is used by the nodes to communicate with each other.
 
 ```yaml
 ---
@@ -299,29 +302,29 @@ all:
       private_ip: 10.7.6.5
 ```
 
-使用节点的详细信息修改清单后，执行手册：
+After modifying the inventory with the details of the nodes, execute the playbook:
 
 ```bash
 ansible-playbook -i inventory.yml -vv loom-playbook.yml
 ```
 
-## 更多自动化：Vagrant
+## More Automation: Vagrant
 
-还包含一个 Vagrantfile 来配置完整群集。 Ansible 需要安装在主机上。
+There is also a Vagrantfile included to provision a full cluster. Ansible needs to be installed on the host machine.
 
-它使用 VirtualBox provider 进行测试。 在一台像样的机器上创建和配置4个节点只需不到两分钟。
+It is tested with VirtualBox provider. It takes less than two minutes on a decent machine to create and provision 4 nodes.
 
-在需要时, 可能会更改下列变量。
+The following variables may be changed when needed.
 
 ```ruby
-# Vagrant创建的集群大小
+# Size of the cluster created by Vagrant
 num_instances = 4
 
-# 专用网络前缀
+# Private Network Prefix
 private_network_prefix = "172.31.99."
 
-# 构建编号
+# Build numbers
 loom_build = "build-208"
 ```
 
-注意: Vagrant 创建自己的清单, 因此 `inventory.yml` 未使用。
+Note: Vagrant creates its own inventory so `inventory.yml` is not used.

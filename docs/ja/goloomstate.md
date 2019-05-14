@@ -1,37 +1,38 @@
 ---
-id: go-loomの状態
-title: go-loomコントラクトでの状態の保存と読み取り
-sidebar_label: 状態の保存と読み取り
+id: goloomstate
+title: Saving and reading state in go-loom contracts
+sidebar_label: Saving and reading state
 ---
-## コントラクトの状態
 
-各コントラクトは、データ格納のためにサンドボックス化された状態へアクセスすることができる。 コントラクト実行がエラーになると、状態を書き込むアクションは巻き戻される。 トランザクションが正常にコミットされるとそこにステートルートのハッシュ値が含まれるので、任意の状態がブロックチェーンへコミットされる。
+## The contract state
 
-## 状態の書き込み
+Each contract has access to a sandboxed state for storage of data. The write actions on the state are rolled back in case the contract operation returns an error. If a transaction is successfully commited, it contains the hash of the state root so that any given state is commited to the blockchain.
 
-コントラクトのコンテキストで状態を保存するには、`Set`オペレーションを使用する。
+## Writing to the state
+
+Use the `Set` operation on the contract context to save to the state.
 
     Set(key []byte, pb proto.Message) error
     
 
-go-loomは、 保存データがprotobufオブジェクトであるよう指定している。
+go-loom mandates that the data being saved is a protobuf object.
 
-## 状態の読み取り
+## Reading from the state
 
-特定のキーが状態に存在するかチェックするには、`Has` オペレーションを使用する。
+Use the `Has` operation to check whether a particular key exists in the state
 
     Has(key []byte) bool
     
 
-キーに保存されているバリューを読み取るには`Get` オペレーションを使用する。
+To read the value saved at a key use the `Get` operation
 
     Get(key []byte, pb proto.Message) error
     
 
-Getは保存データをprotobuf構造体へとアンマーシャルする。
+Get will unmarshal the saved data into a protobuf struct
 
-## キーの削除
+## Deleting a key
 
-キーに保存されたデータは以下で削除できる。
+Data saved at a key can be delete with
 
     Delete(key []byte)

@@ -1,19 +1,21 @@
 ---
 id: unity-sdk-plugin
-title: 基于插件的智能合约快速入门
-sidebar_label: 基于插件的智能合约快速入门
+title: Plugin-based Smart Contract Quickstart
+sidebar_label: Plugin-based Smart Contract Quickstart
 ---
-Loom支持EVM（[以太坊虚拟机](evm.html)）和基于插件的智能合约。 比如，可以使用 [go-loom](https://github.com/loomnetwork/go-loom)创建基于插件的智能合约。
 
-在此示例中，我们将演示如何使用Unity SDK与基于插件的智能合约进行通信。
 
-## 示例代码
+Loom supports EVM ([Ethereum Virtual Machine](evm.html)) and plugin-based smart contracts. Plugin-based smart contracts can be created with [go-loom](https://github.com/loomnetwork/go-loom), for example.
+
+In this example, we will demostrate how to use the Unity SDK to communicate with plugin-based smart contracts.
+
+## Sample Code
 
 You can find all the code on this page and a ready-to-go Unity scene in the Loom Unity SDK under [`Assets/LoomSDK/Samples/QuickStart`](https://github.com/loomnetwork/unity-sdk/tree/master/UnityProject/Assets/LoomSDK/Samples/QuickStart).
 
-## 连接到 DApp链
+## Connecting to a DAppChain
 
-`Contract` 类提供了一种方便的方式与Loom DApp链上运行的智能合约进行交互。 让我们编写一个函数，来创建一个与Loom SDK中提供的示例[BluePrint](https://github.com/loomnetwork/weave-blueprint/blob/master/src/blueprint.go) 智能合约进行交互的`Contract`实例......
+The `Contract` class provides a convenient way to interact with a smart contract running on a Loom DAppChain. Let's write a method that creates a `Contract` instance to interact with the sample [BluePrint](https://github.com/loomnetwork/weave-blueprint/blob/master/src/blueprint.go) smart contract provided in the Loom SDK...
 
 ```csharp
 // LoomQuickStartSample.cs
@@ -41,7 +43,7 @@ public class LoomQuickStartSample : MonoBehavior
         {
             Logger = Debug.unityLogger
         };
-        // 请求中间件
+        // required middleware
         client.TxMiddleware = new TxMiddleware(new ITxMiddlewareHandler[]{
             new NonceTxMiddleware{
                 PublicKey = publicKey,
@@ -56,11 +58,11 @@ public class LoomQuickStartSample : MonoBehavior
 }
 ```
 
-## 将数据写入 DApp链
+## Writing data to a DAppChain
 
-要改变智能合约的状态，您需要调用其公共方法之一，为此必须将签名的事务发送到DApp链并由其进行验证。 幸运的是, 当您使用 `Contract.CallAsync()`方法时， `Contract`类将处理其中的大部分问题。
+To mutate the state of a smart contract you need to call one of its public methods, to do so a signed transaction must be sent to and validated by the DAppChain. Fortunately the `Contract` class takes care of most of this when you use the `Contract.CallAsync()` method.
 
-[BluePrint](https://github.com/loomnetwork/weave-blueprint/blob/master/src/blueprint.go) 智能合约有一个公共`SetMsg`方法，可以调用该方法来存储键和值之间的关联，请注意，此方法不返回任何内容。 让我们为调用`BluePrint.SetMsg()`的`LoomQuickStartSample`类添加一个方法。
+The [BluePrint](https://github.com/loomnetwork/weave-blueprint/blob/master/src/blueprint.go) smart contract has a public `SetMsg` method that can be called to store an association between a key and a value, note that this method doesn't return anything. Let's add a method to the `LoomQuickStartSample` class that calls `BluePrint.SetMsg()`.
 
 ```csharp
 async Task CallContract(Contract contract)
@@ -73,7 +75,7 @@ async Task CallContract(Contract contract)
 }
 ```
 
-改变状态的智能合约方法可能会返回一个值。 [BluePrint](https://github.com/loomnetwork/weave-blueprint/blob/master/src/blueprint.go)智能合约具有公共 `SetMsgEcho`方法，该方法将存储键/值，并返回其存储的键/值。 让我们在 `LoomQuickStartSample` 类中添加另一个方法来调用`BluePrint.SetMsgEcho`。
+Smart contract methods that mutate state may return a value. The [BluePrint](https://github.com/loomnetwork/weave-blueprint/blob/master/src/blueprint.go) smart contract has a public `SetMsgEcho` method that will store a key/value and return the key/value it stored. Let's add another method to the `LoomQuickStartSample` class to call `BluePrint.SetMsgEcho`.
 
 ```csharp
 async Task CallContractWithResult(Contract contract)
@@ -86,7 +88,7 @@ async Task CallContractWithResult(Contract contract)
 
     if (result != null)
     {
-        // 这应该在Unity控制台窗口中打印：{“key”：“321”，“value”：“456”}。
+        // This should print: { "key": "321", "value": "456" } in the Unity console window.
         Debug.Log("Smart contract returned: " + result.ToString());
     }
     else
@@ -96,11 +98,11 @@ async Task CallContractWithResult(Contract contract)
 }
 ```
 
-## 从DApp链读取数据
+## Reading data from a DAppChain
 
-要读取智能合约的状态，您需要调用其公共只读方法之一，调用只读方法不会修改智能合约状态。 你可以使用`Contract.StaticCallAsync()`方法在智能合约上调用只读方法。
+To read the state of a smart contract you need to call one of its public read-only methods, calling a read-only method doesn't modify the smart contract state. You can call a read-only method on a smart contract by using the `Contract.StaticCallAsync()` method.
 
-[BluePrint](https://github.com/loomnetwork/weave-blueprint/blob/master/src/blueprint.go)智能合约具有公共 `GetMsg`方法，可以调用该方法来查找键和值之间的关联。 让我们在 `LoomQuickStartSample`类中添加一个方法来调用`BluePrint.GetMsg`。
+The [BluePrint](https://github.com/loomnetwork/weave-blueprint/blob/master/src/blueprint.go) smart contract has a public `GetMsg` method that can be called to look up an association between a key and a value. Let's add a method to the `LoomQuickStartSample` class to call `BluePrint.GetMsg`.
 
 ```csharp
 async Task StaticCallContract(Contract contract)
@@ -112,8 +114,8 @@ async Task StaticCallContract(Contract contract)
 
     if (result != null)
     {
-        // 这应该在Unity控制台窗口中打印：{ "key": "123", "value": "hello!" }
-        // 如果`LoomQuickStartSample.CallContract()` 首先被调用的话.
+        // This should print: { "key": "123", "value": "hello!" } in the Unity console window
+        // provided `LoomQuickStartSample.CallContract()` was called first.
         Debug.Log("Smart contract returned: " + result.ToString());
     }
     else
@@ -123,25 +125,25 @@ async Task StaticCallContract(Contract contract)
 }
 ```
 
-## 放在一起
+## Putting it all together
 
-将以下方法添加到 `LoomQuickStartSample`类中。
+Add the following method to the `LoomQuickStartSample` class.
 
 ```csharp
-// 用于初始化
+// Use this for initialization
 async void Start()
 {
-    // 私钥用于签署发送到DApp链的事务。
-    // 通常你会为每个玩家生成一个私钥，或让他们提供自己的私钥。
-    // 在此示例中，我们每次都会生成一个新密钥。
+    // The private key is used to sign transactions sent to the DAppChain.
+    // Usually you'd generate one private key per player, or let them provide their own.
+    // In this sample we just generate a new key every time.
     var privateKey = CryptoUtils.GeneratePrivateKey();
     var publicKey = CryptoUtils.PublicKeyFromPrivateKey(privateKey);
 
     var contract = await GetContract(privateKey, publicKey);
     await CallContract(contract);
-    //  这应该在Unity控制台窗口中打印：{ "key": "123", "value": "hello!" } 
+    // This should print: { "key": "123", "value": "hello!" } in the Unity console window
     await StaticCallContract(contract);
-    // 这应该在Unity控制台窗口中打印：{ "key": "321", "value": "456" } 
+    // This should print: { "key": "321", "value": "456" } in the Unity console window
     await CallContractWithResult(contract);
 }
 ```

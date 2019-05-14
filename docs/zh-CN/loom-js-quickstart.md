@@ -1,27 +1,28 @@
 ---
 id: loom-js-quickstart
-title: NodeJS & 浏览器快速启动
-sidebar_label: NodeJS & 浏览器快速启动
+title: NodeJS & Browser Quick Start
+sidebar_label: NodeJS & Browser Quick Start
 ---
-## 概述
 
-`loom-js` 库包含构建Web应用程序所需的一切，以及与Loom DApp链上运行的智能合约交互的NodeJS 服务。
+## Overview
 
-首先从NPM 安装 `loom-js`
+The `loom-js` library contains everything you need to build web apps and NodeJS services that interact with smart contracts running on Loom DAppChains.
+
+To get started install `loom-js` from NPM:
 
 ```shell
 yarn add loom-js
-# 或者若你更喜欢用npm的话...
+# or if you prefer...
 npm install loom-js
 ```
 
-## 示例代码
+## Sample Code
 
-您可以在 `quickstart` 目录中的 [Loom JS samples repo](https://github.com/loomnetwork/loom-js-samples) 页面上找到所有代码。
+You can find all the code on this page the [Loom JS samples repo](https://github.com/loomnetwork/loom-js-samples) in the `quickstart` directory.
 
-## 连接到DApp链
+## Connecting to a DAppChain
 
-`Contract` 类提供了一种方便的方式与Loom DApp链上运行的智能合约进行交互。 让我们编写一个函数，来创建一个与Loom SDK中提供的示例[BluePrint](https://github.com/loomnetwork/weave-blueprint/blob/master/src/blueprint.go) 智能合约进行交互的`Contract`实例......
+The `Contract` class provides a convenient way to interact with a smart contract running on a Loom DAppChain. Let's write a function that creates a `Contract` instance to interact with the sample [BluePrint](https://github.com/loomnetwork/weave-blueprint/blob/master/src/blueprint.go) smart contract from the Loom SDK...
 
 ```js
 const {
@@ -32,10 +33,10 @@ const {
 const { MapEntry } = require('./helloworld_pb')
 
 /**
- * 创建一个新`Contract`实例，它可以被用于和智能合约交互。
- * @param privateKey 将用于签署发送到合约的事务的私钥。
- * @param publicKey 与私钥相对应的公钥。
- * @returns `Contract` 实例。
+ * Creates a new `Contract` instance that can be used to interact with a smart contract.
+ * @param privateKey Private key that will be used to sign transactions sent to the contract.
+ * @param publicKey Public key that corresponds to the private key.
+ * @returns `Contract` instance.
  */
 async function getContract(privateKey, publicKey) {
   const client = new Client(
@@ -58,16 +59,16 @@ async function getContract(privateKey, publicKey) {
 }
 ```
 
-## 将数据写入 DApp链
+## Writing data to a DAppChain
 
-要改变智能合约的状态，您需要调用其公共方法之一，为此必须将签名的事务发送到DApp链并由其进行验证。 幸运的是, 当您使用 `Contract.callAsync()` 方法时， `Contract`类将处理其中的大部分问题。
+To mutate the state of a smart contract you need to call one of its public methods, to do so a signed transaction must be sent to and validated by the DAppChain. Fortunately the `Contract` class takes care of most of this when you use the `Contract.callAsync()` method.
 
-[BluePrint](https://github.com/loomnetwork/weave-blueprint/blob/master/src/blueprint.go)智能合约具有公共 `SetMsg` 方法，可以调用该方法来储存键和值之间的关联。 让我们编写一个调用此方法的函数......
+The [BluePrint](https://github.com/loomnetwork/weave-blueprint/blob/master/src/blueprint.go) smart contract has a public `SetMsg` method that can be called to store an association between a key and a value. Let's write a function that calls this method...
 
 ```js
 /**
- * 在智能合约中存储键和值之间的关联。
- * @param contract 从`getContract()`返回合约实例。
+ * Stores an association between a key and a value in a smart contract.
+ * @param contract Contract instance returned from `getContract()`.
  */
 async function store(contract, key, value) {
   const params = new MapEntry()
@@ -78,29 +79,29 @@ async function store(contract, key, value) {
 
 ```
 
-## 从DApp链读取数据
+## Reading data from a DAppChain
 
-要读取智能合约的状态，您需要调用其公共只读方法之一，您可以使用 `Contract.staticCallAsync()` 方法。
+To read the state of a smart contract you need to call one of its public read-only methods, you can do so by using the `Contract.staticCallAsync()` method.
 
-[BluePrint](https://github.com/loomnetwork/weave-blueprint/blob/master/src/blueprint.go)智能合约具有公共 `GetMsg`方法，可以调用该方法来查找键和值之间的关联。 让我们编写一个调用此方法的函数......
+The [BluePrint](https://github.com/loomnetwork/weave-blueprint/blob/master/src/blueprint.go) smart contract has a public `GetMsg` method that can be called to look up an association between a key and a value. Let's write a function that calls this method...
 
 ```js
 /**
- * 在智能合约中加载与键相关联的值。
- * @param contract 从`getContract()`返回合约实例。
+ * Loads the value associated with a key in a smart contract.
+ * @param contract Contract instance returned from `getContract()`.
  */
 async function load(contract, key) {
   const params = new MapEntry()
-  // 智能合约会查找存储在键之下的值。
+  // The smart contract will look up the value stored under this key.
   params.setKey(key)
   const result = await contract.staticCallAsync('GetMsg', params, new MapEntry())
   return result.getValue()
 }
 ```
 
-## 放在一起
+## Putting it all together
 
-现在, 我们已经有了所有的方法来确保您的 DApp链 运行, 然后运行下面的代码, 您将看到 `Value: hello!` 在控制台出现。
+Now that we have all the pieces in place make sure that you have the DAppChain running and then run the following code, you should see `Value: hello!` printed to the console.
 
 ```js
 (async function () {

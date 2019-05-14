@@ -1,64 +1,65 @@
 ---
 id: arch
-title: DAppChain架构
+title: Architecture of a DAppChain
 ---
-Loom SDK是一个可插入的Blockchain开发工具。可以在共识层和合约层插入。
 
-## 共识
+Loom SDK is a pluggable Blockchain Development Kit. Pluggable both at the consensus and contract layer
 
-Loom SDK有两层共识，一个在P2P层。
+## Consensus
 
-Loom Backend支持不同的BPFT引擎，如Tendermint，未来我们还将为PoA链支持Raft。
+Loom SDK has 2 layers of consensus. One at the P2P layer.
 
-Loom共识层支持Loom DPoS或是每条链的可配置PoS/DPoS合约。一旦Casper可以使用，我们将增加对此的支持。
+Loom Backend supports different BPFT engines, like Tendermint. In future we will support Raft for PoA chains.
+
+Loom Consensus layer support Loom DPoS or a configurable PoS/DPoS contract per Chain. Once Casper becomes available we will add support for this
 
 ![](/developers/img/loom-sdk-arch-overview.jpg)
 
-## 智能合约
+## Smart contracts
 
-它将允许使用Go,Solidity或者任何支持GRPC的语言编写智能合约。
+It allows smart contracts written in Go, Solidity or any language supporting GRPC.
 
-智能合约可以被编写入链中，如DPoS,Coin和EtherumVM.
+Smart contracts can be embedded into the chain, like DPoS, Coin or EthereumVM.
 
-它们也可以作为外部进程，即区块链通过GRPC进行通信。
+They can also be made as external processes, that the blockchain communicates to via GRPC.
 
 ![](/developers/img/loom-sdk-arch-contracts.jpg)
 
-## 以太坊集成
+## Ethereum Integration
 
-SDK通过以下几部分集成到以太坊后端
+The SDK integrates into the Ethereum Backend with following pieces:
 
-### 转移网关
+### Transfer Gateway
 
 ![](/developers/img/loom-sdk-arch-plasma.jpg)
 
-### 转移官网允许实现以下功能：
+### Transfer gateway allows for the following
 
-* 把资产转移到Dapp链
-* 把资产转移到以太坊
-* 在Dapp链上镜像（追溯）资产
-* ERC-20 代币
-* ERC-721 代币
-* 以太 
+* Transfering Assets to a DappChain
+* Transfering Assets to Ethereum
+* Mirroring(Pegging) Assets on a Dappchain
+* ERC-20 Tokens
+* ERC-721 Tokens
+* Ether 
 
-### Plama Cash合约支持：
+### Plama Cash Contract supports
 
-* ERC-721 代币
-* ERC-20 代币（7月）
-* 以太（7月）
+* ERC-721 Tokens
+* ERC-20 Tokens (July)
+* Ether (July)
 
-## 区块链服务
+## Blockchain services
 
-SDK包含了一些高层的区块链服务：
+SDK includes a number of high level blockchain services
 
-* 登录 / 授权 / Nonce 中间件
-* 内建币
-* 索引
-* Websockets 和事件
-* Solidity + 以太坊虚拟机
-* 支持游戏引擎，如Cocos，Unity以及Phaser
-* 转移网关集成
-* Plasma集成
-* Cron定时执行（即将推出）
-* 限速（早期阶段）
-* 硬叉管理（7月发布）
+* Signing / Auth / Nonce Middleware
+* Builtin Coin
+* Indexing
+* Websockets and eventing
+* Solidity + Ethereum Virtual Machine
+* Support for game engines like Cocos, Unity, and Phaser
+* Transfer Gateway integration
+* Plasma integration
+* Cron (coming soon)
+* Rate limiting (early phases)
+* Hard fork Manager (coming July)

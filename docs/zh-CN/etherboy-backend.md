@@ -1,30 +1,30 @@
 ---
 id: etherboy-backend
-title: Etherboy 后端
-sidebar_label: Etherboy 后端
+title: Etherboy Backend
+sidebar_label: Etherboy Backend
 ---
-本文档说明如何在单个服务器实例 (任何64位Linux实例) 中运行Etherboy。
 
-## 安装
+This documentation explains how to run the Etherboy DAppChain in a single server instance (any 64-bit Linux instance).
 
-1. 选择一个你喜欢的工作目录。在这个例子中, 我们使用 `/home/ubuntu` 
-        bash
-        cd /home/ubuntu
+## Installation
 
-2. 下载二进制文件:
-    
+1. Choose a working directory of your choice. In this example we are using `/home/ubuntu`
+
+```bash
+    cd /home/ubuntu
+    ```
+1. Download the binaries:
     ```bash
     wget https://private.delegatecall.com/loom/linux/stable/loom
     wget https://private.delegatecall.com/etherboy/linux/build-53/etherboycli
     chmod +x loom etherboycli
-    
+
     mkdir contracts
     wget -O contracts/etherboycore.so https://private.delegatecall.com/etherboy/linux/build-53/etherboycore.0.0.1
     ```
 
-3. 在工作目录中执行`loom init`以初始化配置文件。
-4. 在工作目录中更新 `genesis.json`:
-    
+1. Execute `loom init` in the working directory to initialize config files.
+1. Update `genesis.json` in the working directory:
     ```json
     {
         "contracts": [
@@ -34,37 +34,39 @@ sidebar_label: Etherboy 后端
                 "format": "plugin",
                 "location": "etherboycore:0.0.1",
                 "init": {
-    
+
                 }
             }
         ]
     }
     ```
 
-5. 添加 `loom.yml` 到工作目录中： 
-        yaml
-        RPCBindAddress: "tcp://0.0.0.0:46658"
+1. Add `loom.yml` in the working directory:
+    ```yaml
+    RPCBindAddress: "tcp://0.0.0.0:46658"
+    ```
 
-注意: `loom` 和 `etherboycli` 可以放置在你 `$PATH` 中的任何位置，因此你不必总是使用 `./` 执行。 但是，`etherboycore.0.0.1` 必须总是放在`$WORKING_DIRECTORY/contracts/etherboycore.so`里面。
 
-## 运行
+Note: `loom` and `etherboycli` can be placed anywhere in your `$PATH` so you don't have to always execute with `./`. However, `etherboycore.0.0.1` must always be placed in `$WORKING_DIRECTORY/contracts/etherboycore.0.0.1`.
 
-有两种方式可以运行：直接运行或者通过systemd（或任何你喜欢的过程控制系统）。
+## Running
 
-### 直接运行
+There are two ways to run - directly, or via systemd (or any process control system you prefer)
 
-在工作目录中执行`loom init`以初始化配置文件。
+### Direct execution
+
+Execute `loom run` in the working directory to run the service:
 
 ```bash
 ./loom run
 I[05-16|06:06:16.970] Using simple log event dispatcher
 ```
 
-这将在前台运行Etherboy，并将其输出打印到控制台。要更好地进行流程管理, 请查看下一节。
+This will run Etherboy in the foreground and print its output to the console. For better process management, look at the next section.
 
-### systemd启动脚本
+### systemd Startup Script
 
-以下启动脚本可通过使用systemd来控制服务。对 `WorkingDirectory` 和/或 `ExecStart` 进行更改以反映你的设置。
+The following startup script can be used to control the service using systemd. Make changes to `WorkingDirectory` and/or `ExecStart` to reflect your setup.
 
 ```ini
 [Unit]
@@ -87,30 +89,30 @@ StandardError=syslog
 WantedBy=multi-user.target
 ```
 
-把它保存到`/etc/systemd/system/etherboy.service`。运行这些操作以激活它:
+Save it to `/etc/systemd/system/etherboy.service`. Run these to activate it:
 
 ```bash
 sudo systemctl daemon-reload
 sudo systemctl start etherboy.service
 ```
 
-你现在可以使用以下方法检查输出:
+You may now inspect the output using:
 
 ```bash
 sudo journalctl -u etherboy.service
 ```
 
-当你满足一切都按预期运行时, 执行以下操作将启用该服务, 以便在启动时开始:
+When satisfied everything is running as intended, executing the following will enable the service so that it is started at boot:
 
 ```bash
 sudo systemctl enable etherboy.service
 ```
 
-## 验证
+## Verifying
 
-### 监听端口
+### Listening ports
 
-如果一切顺利, 你将能够看到这些端口在你的服务器上打开。
+If all is well, you will be able to see these ports opened in your server.
 
 ```bash
 $ sudo netstat -tpnl
@@ -121,7 +123,7 @@ tcp6       0      0 :::46657                :::*                    LISTEN      
 tcp6       0      0 :::46658                :::*                    LISTEN      14327/loom
 ```
 
-### CLI - etherboycli
+### The CLI - etherboycli
 
 ```bash
 $ pwd

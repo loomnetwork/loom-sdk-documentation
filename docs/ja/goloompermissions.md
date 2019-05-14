@@ -1,41 +1,42 @@
 ---
 id: goloompermissions
-title: go-loomでの権限ヘルパーの使用
-sidebar_label: 権限ヘルパーの使用
+title: Working with permissions helpers in go-loom
+sidebar_label: Permission Helpers
 ---
-## go-loomのコントラクトでの権限の使用
 
-go-loomを使って書かれたコントラクトは、任意のトークンに対する権限の設定とチェックをするためのヘルパー関数を使用することができる。
+## Using permissions in contracts with go-loom
 
-これはSolidityだと[OpenZeppelin](https://github.com/OpenZeppelin/openzeppelin-solidity/blob/master/contracts/ownership/Ownable.sol) のOwnableのコンセプトに少し似ている。
+Contracts written with go-loom can use helper functions for setting and checking permissions on arbitrary tokens.
 
-それぞれの権限が以下の3つの要素を持っている:
+This is somewhat similiar to in Solidity the Ownable concept from [OpenZeppelin](https://github.com/OpenZeppelin/openzeppelin-solidity/blob/master/contracts/ownership/Ownable.sol).
+
+Every permission has three attributes:
 
 1. address
 2. token
 3. role
 
-トークンは、オブジェクトが所有されていることを表す何かしらの文字列、もしくはバイトシーケンスとすることができる。 例えば、ある人物のユーザー名をトークンとして、その人がその所有権を持つことが可能だ。 トークンのようなその他のものにも、所有権を持たせることができる。
+A token can be any string or byte sequence, which represents an object to be owned. For example a persons username can be a token, that they have ownership over. Other things like tokens could also have ownership.
 
-`token`に対する権限`role`は、`address`に付与される。 例えばアカウント作成時、`username`トークンに対する`owner`権限を送信者アドレスに与えることができる。
+A permission `role` is granted to an `address` on a `token`. For example, when creating an account, the `owner` permission can be given to the sender address on the `username` token.
 
-例えば
+For example
 
         ctx.GrantPermission([]byte(userName), []string{"owner"})
     
 
-これは`userName` (トークン)に対する`owner`権限を、トランザクションの送信者アドレスに付与することになる。 このロールは、複数の権限を１回のコールで付与するための配列だ。
+will grant a `owner` permission on a `userName` (token) to the sender address of the transaction. The roles is an array to grant multiple permissions in a single call.
 
-トランザクションの送信者のアクセス権限をチェックするには、
+To check for a permission for the sender of a transaction,
 
         if ok, _ := ctx.HasPermission([]byte(userName), []string{"owner"}); !ok {
             return errors.New("User unverified")
         }
     
 
-HasPermissionでは、(一致について示す)bool値と、`address`と`role`の組み合わせと一致したロールのサブセットが返される。
+The HasPermission returns a bool (to indicate a match) and a subset of the roles that were matched for the combination of `address` and `role`
 
-他に２つ、任意のアドレスの権限を使って動く低レベル関数がある。
+There are 2 other low level functions to work with permissions on arbitrary addresses
 
         HasPermissionFor(addr loom.Address, token []byte, roles []string) (bool, []string)
         GrantPermissionTo(addr loom.Address, token []byte, role string)

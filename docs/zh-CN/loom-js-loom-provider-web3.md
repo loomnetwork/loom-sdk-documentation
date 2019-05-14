@@ -3,23 +3,24 @@ id: loom-js-loom-provider-web3
 title: Loom.js + Web3.js
 sidebar_label: Loom.js + Web3.js
 ---
-# 概览
 
-带有 `LoomProvider` 的 `loom-js` 可以以和 `Web.js` 作为 提供者连接，这样以太坊开发者就可以部署合约并向其发送事务，也可以监听运行在Loom DApp链上的智能合约事件。更多详情请阅读 [EVM 页面](evm)
+# Overview
 
-首先从NPM 安装 `loom-js`
+The `loom-js` comes with the `LoomProvider` which makes possible to connect with `Web3.js` as a provider allowing Ethereum developers to deploy and send transactions to smart contracts, listen for smart contracts events running inside the Loom DAppChains, for further details check out [EVM page](evm)
+
+To get started install `loom-js` from NPM:
 
 ```shell
 yarn add loom-js
-# 或者若你更喜欢用npm的话...
+# or if you prefer...
 npm install loom-js
 ```
 
-# 实例化合约
+# Instantiate the contract
 
-## SimpleContract
+## The SimpleContract
 
-假设我们有一个 Solidity 合约，已经编译并部署到了 Looom DApp链
+Let's say that we have a Solidity contract, which is already compiled and deployed on Loom DAppChain
 
     pragma solidity ^0.4.22;
     
@@ -39,7 +40,7 @@ npm install loom-js
     }
     
 
-有了 Solidity 编译器编译的二进制文件，下一步就是为Loom DApp链生成一个 `genesis.json` 。 (不要忘记将 ` location ` 设置为已编译的二进制文件)
+With the binary compiled with the Solidity compiler the next step is to create a `genesis.json` for the Loom DappChain. (Don't forget to set the `location` to the compiled binary)
 
 ```Javascript
 {
@@ -55,7 +56,7 @@ npm install loom-js
 
 ```
 
-在编译完合约后将生成如下的ABI接口文件:
+After compiled the contract will generate the following ABI Interface:
 
 ```js
 const ABI = [{
@@ -92,7 +93,7 @@ const ABI = [{
 }]
 ```
 
-用 `LoomProvider` 实例化和使用 `Web3` 看起来很像使用以太坊节点，不过首先我们需要正确初始化 `loom-js` 客户端。
+Instantiate and using the `Web3` with `LoomProvider` looks similar from use from an Ethereum Node, but first we need to initialize the `loom-js` client properly.
 
 ```js
 import {
@@ -120,33 +121,33 @@ const publicKey = CryptoUtils.publicKeyFromPrivateKey(privateKey)
 const client = getClient(privateKey, publicKey)
 ```
 
-现在客户端准备好了，让我们来实例化 `Web3`，为了正确初始化 `Web3` 实例，我们将传入 `LoomProvider` 以及`client`。
+Now with client ready let's instantiate the `Web3`, in order to properly initialize the `Web3` instance we're going to pass the `LoomProvider` with the `client`
 
 ```js
 const web3 = new Web3(new LoomProvider(client, privateKey))
 ```
 
-一切就绪，可以实例化合约了
+We're ready to instantiate the contract
 
 ```js
-// 基于公钥来获得地址
+// Getting our address based on public key
 const fromAddress = LocalAddress.fromPublicKey(publicKey).toString()
 
-// 获得合约地址 (我们无需知道地址，只要 genesis.json 里面指定的名字即可）
+// Get the contract address (we don't need to know the address just the name specified in genesis.json
 const loomContractAddress = await client.getContractAddressAsync('SimpleStore')
 
-// 将 loom 地址转译为十六进制以和 Web3 兼容
+// Translate loom address to hexa to be compatible with Web3
 const contractAddress = CryptoUtils.bytesToHexAddr(loomContractAddress.local.bytes)
 
-// 实例化合约
+// Instantiate the contract
 const contract = new web3.eth.Contract(ABI, contractAddress, {from: fromAddress})
 ```
 
-合约成功实例化并准备就绪
+The contract is instantiated and ready
 
-# 事务和调用
+# Transactions and Calls
 
-在 `Web3 合约` 的实例化之后, 我们将能够像这样使用事务的合约方法 (`发送`) 和调用 (`call`):
+After the instantiation of the `Web3 Contract` we'll be able to use the contract methods for transactions (`send`) and calls (`call`) like so:
 
 ```js
 (async function () {
@@ -159,9 +160,9 @@ const contract = new web3.eth.Contract(ABI, contractAddress, {from: fromAddress}
 })()
 ```
 
-# 事件
+# Events
 
-可以将事件侦听器添加到合约中, 尽管它尚不支持事件过滤。
+It is possible to add event listeners to the contract, although it don't support the filters yet
 
 ```js
 (async function () {
@@ -177,9 +178,9 @@ const contract = new web3.eth.Contract(ABI, contractAddress, {from: fromAddress}
 })()
 ```
 
-## 放在一起
+## Putting it all together
 
-现在, 我们已经有了所有的方法来确保您的 DApp链 运行, 然后运行下面的代码, 您将看到 `Value: hello!` 在控制台出现。
+Now that we have all the pieces in place make sure that you have the DAppChain running and then run the following code, you should see `Value: hello!` printed to the console.
 
 ```js
 import {

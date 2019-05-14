@@ -1,24 +1,25 @@
 ---
 id: goloomevents
-title: go-loom 컨트랙트에서 이벤트 내보내기
-sidebar_label: 이벤트 내보내기
+title: Emitting events from go-loom contracts
+sidebar_label: Emitting events
 ---
-## go-plugin 으로 이벤트 내보내기
 
-Loom sdk는 indexing 같은 여러목적으로 사용될 수 있는 이벤트를 내보내기 위한 기능을 컨트랙트에 제공합니다. 현재 Loom sdk는 Redis sorted set에 이벤트 내보내기를 지원합니다.
+## Emitting events from go-plugins
 
-### Loom sdk 설정하기
+The loom sdk gives gives a facility for the contracts to emit events that can be used for multiple purposes such as indexng. Currently the loom sdk supports emitting events into a Redis sorted set.
 
-기본적으로 loom-sdk 은 이벤트를 로그로 내보냅니다. Redis sorted set에 내보내는 것으로 설정하려면, loom.yaml 파일에 아래 라인을 추가하세요.
+### Configuring the loom sdk
+
+By default the loom-sdk will only emit events to the log. To configure it to send it to a redis sorted set, add the following line to the loom.yaml config file.
 
     EventDispatcherURI: "redis://localhost:6379"
     
 
-이것은 redis server의 `loomevents`이라 불리는 sorted set에 이벤트 내보내기를 시작합니다. 각 이벤트는 블록체인 height 가 되는 스코어와 함께 sorted set에 추가됩니다. 
+This will start emitting events to the redis server in a sorted set called `loomevents`. Each event is added to the sorted set with the score being the blockchain height.
 
-### 이벤트 내보내기
+### Emitting events
 
-아래 코드조각은 컨트랙트로부터 이벤트 내보내기를 보여주는 예제 코드입니다.
+The code snippet below shows sample code for emitting events from the contract.
 
 ```go
     emitMsg := struct {
@@ -33,6 +34,6 @@ Loom sdk는 indexing 같은 여러목적으로 사용될 수 있는 이벤트를
     ctx.Emit(emitMsgJSON)
 ```
 
-### 이벤트 구독하기
+### Subscribing to events
 
-이벤트 구독하기에 관한 더 자세한 사항은 [이 페이지](loomevents.html)를 보세요
+See [this page](loomevents.html) for more information on subscribing to events

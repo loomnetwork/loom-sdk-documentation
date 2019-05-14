@@ -3,11 +3,12 @@ id: karma
 title: Karma
 sidebar_label: Karma
 ---
-Karmaモジュールは、トランザクションの制限方法を提供する。 ユーザーは様々なkarmaパラメーターにより、トランザクションの数とタイミングを制限される。 Oracleと呼ばれるユーザーは、アクセス無制限となる。
 
-## インストール
+The karma module provides a way to limit Transactions. Users are limited in the number and timing of transactions by various karma parameters. There is one user called the Oracle who has unlimited access.
 
-インストールを行うには、チェーン初回スタート時、karmaコントラクトをgenesis.jsonファイルに含めること。
+## Installation
+
+To install, include the karma contract in the genesis.json file when starting the chain for the first time.
 
 ```json
      {
@@ -21,14 +22,14 @@ Karmaモジュールは、トランザクションの制限方法を提供する
 
 ```
 
-## アクティベーションとloom.yaml
+## Activation and loom.yaml
 
-Karmaの機能のアクティベートは、loom.yaml設定ファイルにより行われる。
+Activating the karma functionality is done from the loom.yaml configuration file.
 
-* `KarmaEnabled bool` Karmaモジュールのon/offを設定するフラグ。 
-* `KarmaSessionDuration int64` 期間(秒)。Karmaは、`SessionDuration`(秒)の任意のインターバル間にユーザーが設定可能なトランザクション数を制限する。
-* `KarmaMaxCallCount int64` `SessionDuration`当たりのcallトランザクション数を計算する為に使う基本値。 `KarmaMaxCallCount int64` が `0` の時は、callトランザクション数に制限がないことを示している。
-* `KarmaMaxDeployCount int64` `SessionDuration`当たりのデプロイトランザクション数を計算する為に使う基本値。 A `KarmaMaxDeployCount int64` が `0` の時は、デプロイトランザクション数に制限がないことを示している。 loom.yaml フラフメントのサンプル。
+* `KarmaEnabled bool` Flag that sets the karma module on or off. 
+* `KarmaSessionDuration int64` A Time period in seconds. Karma restricts users to a configurable number of transactions during any interval of `SessionDuration` seconds.
+* `KarmaMaxCallCount int64` Base value used to calculate number of call Transaction permitted per `SessionDuration`. A `KarmaMaxCallCount int64` of `0` indicates there are no limit imposed on call transactions number.
+* `KarmaMaxDeployCount int64` Base value used to calculate number of deploy Transaction permitted per `SessionDuration`. A `KarmaMaxDeployCount int64` of `0` indicates there are no limit imposed on deploy transactions number. Example loom.yaml fragment.
 
 ```yaml
 KarmaEnabled: true
@@ -37,9 +38,9 @@ KarmaMaxCallCount: 10
 KarmaMaxDeployCount: 5
 ```
 
-## Karmaメソッドへのアクセス
+## Accessing karma methods
 
-PublicなKarmaメソッドは、SDKを使ってコード中で直接実行することもできるし、 `loom` エグゼクタブルを使用してコマンドラインから実行することもできる。
+Public karma methods can either be run either directly in code using one of the SDKs or from the command line the using `loom` executable.
 
 ```bash
 $ ./loom karma --help
@@ -72,15 +73,15 @@ Use "loom karma [command] --help" for more information about a command.
 
 ## Oracle
 
-* これはgenesisファイルにて定義されており、KarmaメソッドのUpdateOracleによって更新することができる。
-* Karmaの制限による影響を受けない。
-* 次のKarma設定トランザクションの呼び出しを成功させるには、oracleを参照することが必要となる。 
+* It is defined in the genesis file, and can be updated by the karma method UpdateOracle.
+* It is unaffected by karma restrictions.
+* To successfully call the following karma configuration transactions it is necessary to reference the oracle. 
     * `AppendSourcesForUser`
     * `DeleteSourcesForUser`
     * `ResetSources`
-    * `UpdateOracle` oracleがまだ設定されていない場合、誰もが `UpdateOracle`を呼び出すことができる。 oracleが設定されている場合、 `UpdateOracle` でoracleを変更するには古いoracleを知っていなくてはならない。 
+    * `UpdateOracle` If no oracle has been set yet then anyone can call `UpdateOracle`, If an oracle has been set it is necssary to know the old oracle to change the oracle with `UpdateOracle`. 
 
-genesisファイル入力例。
+Example genesis file entry.
 
 ```json
     {
@@ -99,7 +100,7 @@ genesisファイル入力例。
 
 ###### loom karma update-oracle
 
-oracleは、`loom update-oracle` コマンドを用いて更新することができる。これはKarmaメソッドUpdateOracleを使用する。
+The oracle can be updated using the `loom update-oracle` command, which uses the UpdateOracle karma method
 
 ```bash
 $ loom karma update-oracle --help
@@ -119,19 +120,19 @@ Global Flags:
   -w, --write string     URI for sending txs (default "http://localhost:46658/rpc")
 ```
 
-oracleを `old oracle` から `new oracle`へ変更する。  
-例えば、 default:0xDeffe041cC978a193fCf0CE18b43b25B4592FC90 が現在のoracleだと
+Changes the oracle from `old oracle` to `new oracle`.  
+For example if default:0xDeffe041cC978a193fCf0CE18b43b25B4592FC90 is the current oracle
 
 ```bash
 $ karma update-oracle   default:0xAfaA41C81A316111fB0A4644B7a276c26bEA2C9F default:0xDeffe041cC978a193fCf0CE18b43b25B4592FC90  -k ./cmd/loom/data/pri
 oracle changed
 ```
 
-oracle が設定されていない場合は、古いoracle は省略できる。
+The old oracle can be omitted if no oracle has been set yet.
 
-## ソース
+## Sources
 
-Karmaはソースから生成される。ソースは、異なるユーザーのタイプや特権レベル、もしくはステータスの一時的な変更と一致する。
+Karma is generated by sources. Sources could correspond to different user types, privilege levels, promotions or temporary changes in status.
 
 ```go
 type KarmaSourceReward struct {
@@ -140,13 +141,13 @@ type KarmaSourceReward struct {
 }
 ```
 
-`Name`はソースを識別する為に使用される分類文字列である。 `Reward`は、ソースと連想されているKarmaの乗算に使われる。 高い値の `Reward` は、低い値の `Reward` よりもソースにより生成されたKarmaの各ポイントが効果的であることを意味している。
+`Name`is a descriptive string used to identify a source. `Reward`is used to multiply karma associated with the source. A high `Reward` value means each point of karma generated by the source has more effect than a source with a lower `Reward`.
 
-ソースはgenesisファイル中で、または後からKarmaメソッドの GetSources 及び ResetSources を呼び出すことで構成できる。
+Sources can be configured in the genesis file or later by calling the karma GetSources and ResetSources methods.
 
-### ソース: Genesis File
+### Sources: Genesis File
 
-ソースは、DAppChain genesisファイルのKarmaセグメント `init`にて設定できる。 こうして初めてソースが有効となり、DAppChainは実行される。例えば:
+Sources can be set up in the karma `init` segment of the DAppChain genesis file. This allows sources to be available the first time the DAppChain is run. For example:
 
 ```json
     {
@@ -175,15 +176,15 @@ type KarmaSourceReward struct {
     }
 ```
 
-これはリワードレベルを変えながら、"sms"、"oauth" 及び "token"の３つのソースでDAppチェーンを起動する。
+This starts the DAppChain with three sources, "sms", "oauth" and "token" with varying reward levels.
 
-### ソース: ResetSources
+### Sources: ResetSources
 
-Karmaメソッド`ResetSources` は、実行中のDAppチェーンのソースを含めたKarmaパラメーターをリセットする為に使用される。 `UpdateConfig` を使用してKarma構成パラメーターを設定する前に、 `GetSources` で既存のパラメーターをダウンロードし、それを修正することができる。
+The karma method `ResetSources` is used to reset the karma parameters including the sources in a running DAppChain. You might want to download the existing parameters with `GetSources` and amend that before using to set the karma configuration parameters with `UpdateConfig`.
 
 ###### loom karma get-sources
 
-Karmaソースをリストするには、 `loom` コマンドのget-sourcesを使用する。
+Use the get-sources `loom` command to list karma sources using the GetSources karma method.
 
 ```bash
 $ loom karma get-sources --help
@@ -205,7 +206,7 @@ Global Flags:
 Process finished with exit code 0
 ```
 
-例
+For example
 
 ```bash
 $ loom karma get-sources
@@ -229,7 +230,7 @@ $ loom karma get-sources
 
 ###### loom karma reset-sources
 
-`loom karma update-sources` コマンドで到達したResetSourcesのKarmaメソッドを使用して、ソースをリセットすることができる。 既存のソースに追加したい場合、 `loom karma get-sources` を使って既存のソースを取得する。
+The sources can be reset using the ResetSources karma method reached via the `loom karma update-sources` command. If you want to add to existing sources will might want to use `loom karma get-sources` to get those existing sources.
 
 ```bash
 $ loom karma reset-sources --help
@@ -250,7 +251,7 @@ Global Flags:
 
 ```
 
-例えば、`default:0xDeffe041cC978a193fCf0CE18b43b25B4592FC90` がすでにoracleとして設定されていたとしよう。
+For example if `default:0xDeffe041cC978a193fCf0CE18b43b25B4592FC90` has previous been set as the oracle.
 
 ```bash
 $ loom karma reset-sources default:0xDeffe041cC978a193fCf0CE18b43b25B4592FC90 "oauth" 3 "token" 5 "test" 7
@@ -259,18 +260,18 @@ sources successfully updated
 
 ##### go-loom update sources
 
-次のGoコードフラグメントは、これをgo-loomを使ってGoで行う方法の例を示している。読みやすくするため、エラーチェックはスキップしている。
+The following Go code fragment gives an example of how you might do this in Go using go-loom, error checking skipped for readability.
 
 ```go
 import `github.com/loomnetwork/go-loom/builtin/types/karma`
 
 func AddSource(name string, reward int64, signer auth.Signer, oracle loom.Address, karmaContact client.Contract) {
 
-    // 既存の構成パラメーターを取得
+    // Get the existing configuration parameters
     var resp karma.KarmaSources
     _, err := karmaContact.StaticCall("GetSources", oracle.MarshalPB(), oracle, &resp)
 
-    // 新しいソースを追加
+    // Add the new source
     var configVal karma.KarmaSourcesValidator
     configVal.Oracle = oracle.MarshalPB()
     configVal.Sources = append(resp.Sources, &karma.KarmaSourceReward {
@@ -278,34 +279,35 @@ func AddSource(name string, reward int64, signer auth.Signer, oracle loom.Addres
             Reward: reward,
     })
 
-    // DAppChain上のソース情報を更新
+    // Update the source information on the DAppChain
     _, err = karmaContact.Call("ResetSources", &configVal, signer, nil)
 }
 ```
 
-## ユーザー
+## Users
 
-Karmaが有効になっていれば、各ユーザーは彼らのKarma配分でトランザクションを制限される。
+If karma has been enabled, each user will be restricted in the transactions they can call by their karma allocation. If karma is enabled the following restrictions apply.
 
-###### デプロイトランザクション
+###### Deploy transactions
 
-どんなトランザクションを行うにも、ちょうど１Karmaが必要となる。
+A strictly positive karma is required to do any transactions.
 
-`KarmaMaxDeployCount`がゼロであった場合、デプロイトランザクション数に制限はない。
+If `KarmaMaxDeployCount` is zero then there is no limit, imposed here, on the rate of deploy transactions.
 
-それ以外の場合、ユーザーは `SessionDuration`(秒) の間に `KarmaMaxDeployCount` だけのデプロイトランザクションを実行することができる。
+Otherwise users will only be able to run `KarmaMaxDeployCount` deploy transactions in any period of `SessionDuration`seconds.
 
-###### Callトランザクション
+###### Call transactions
 
-どんなトランザクションを行うにも、ちょうど１Karmaが必要となる。
+A strictly positive karma is required to do any transactions.
 
-`KarmaMaxCallCount` がゼロであった場合、callトランザクション数に制限はない。
+If `KarmaMaxCallCount` is zero then there is no limit, imposed here,  
+on the rate of call transactions.
 
-それ以外の場合、ユーザーは `SessionDuration`(秒) の間に `KarmaMaxCallCount + total karma` だけのcallトランザクションを実行することができる。 `total karma1` は下で説明しているように、ユーザーのソースカウントより計算される。
+Otherwise users will only be able to run `KarmaMaxCallCount + total karma` call transactions in any period of `SessionDuration`seconds. Where `total karma1` is calculated from the count of sources held by the user as described below.
 
-### #ユーザーKarma
+### #User Karma
 
-各ユーザーは、ゼロまたはそれより多いソースと連想付けられる。 このリストは、Karmaソースリストに現在あるアクティブソース、またはKarmaソースリストに現在ない非アクティブソースのどちらも含むことがある。
+Each user will be associated with zero or more sources. This list may contain both active sources, in karma's current list of sources, or inactive sources not currently in the list of current sources.
 
 ```go
 type KarmaSource struct {
@@ -319,15 +321,15 @@ type KarmaAddressSource struct {
 }
 ```
 
-`Name` はソースを識別し、上の `KarmaSourceReward` 中の `Name` フィールドに一致している。 `Count` は、アドレスと連想付けられた特定ソースの数。 Karmaソースがユーザーに提供するのは:
+`Name` identifies a source and corresponds to the `Name` field in `KarmaSourceReward` above. `Count` the number of a particular source associated with the address. The karma source provides to a user is `
 
 `KarmaSource.Count*KarmaSourceReward.Reward`
 
-Karmaの総量は、ユーザーと連想づけられたアクティブKarmaソースのKarmaを合計したものである。 ユーザーと連想づけられたソースは、genesisファイル中でも、もしくはKarmaメソッドの `AppendSourcesForUser` 及び `DeleteSourcesForUser` によっても構成することができる。
+The total amount of karma is the sum of the karma from each active karma source associated with the user. The sources associated with a user can configured either in the genesis file or by the karma methods `AppendSourcesForUser` and `DeleteSourcesForUser`.
 
-#### ユーザー: Genesis File
+#### Users: Genesis File
 
-genesisファイル中でユーザーとソースを連想づけることが可能である。これにより、ユーザーは新たなdAppチェーンがスタートするとすぐに、有効なKarmaを持つことができる。例えば:
+Users can be associated with sources in the genesis file. This allows users to have karma available as soon a new DAppChain starts. For example:
 
 ```json
         {
@@ -374,15 +376,15 @@ genesisファイル中でユーザーとソースを連想づけることが可�
         }
 ```
 
-このgenesisファイルフラグメントは３つのソースを作成し、ローカルアドレス `QjWhaN9qvpdI9MjS1YuL1GukwLc`のユーザーに対して、 `oauth`から10リワード、 `token` から3リワードを与えることになる。 つまりこのユーザーは `10*3 + 3*4 = 42` Karmaでスタートする。
+This genesis file fragment will create three sources and give the user with local address `QjWhaN9qvpdI9MjS1YuL1GukwLc` 10 rewards from `oauth` and3 rewards from `token`. This user would than start with `10*3 + 3*4 = 42` karma.
 
-#### ユーザー: AppendSourcesForUser 及び DeleteSourcesForUser
+#### Users: AppendSourcesForUser and DeleteSourcesForUser
 
-Karmaメソッド `AppendSourcesForUser` を使って、実行中のDAppChainでユーザーにソースを追加することができる。 新しいソースの名前、さらにリワード数カウントのリストが必要となる。 DeleteSourcesForUser でソースを削除することが可能。
+In a running DAppChain we can add a source to a user with the karma method `AppendSourcesForUser`. We need a list of names of the new sources, plus a count of the number of rewards. Sources can be removed using DeleteSourcesForUser.
 
 ###### loom karma append-sources-for-user
 
-Karmaメソッド AppendSourcesForUser を使って、新しいソースをユーザーと連想づけることができるが、これは `loom karma append-sources-for-user` コマンドでアクセス可能となっている。
+New sources can be associated with a user using karma method AppendSourcesForUser, this can be accessed with the `loom karma append-sources-for-user` command.
 
 ```bash
 $ ./loom karma append-sources-for-user  --help
@@ -402,7 +404,7 @@ Global Flags:
   -w, --write string     URI for sending txs (default "http://localhost:46658/rpc")
 ```
 
-たとえば、`default:0xDeffe041cC978a193fCf0CE18b43b25B4592FC90` がoracleであり、 `default:0xAfaA41C81A316111fB0A4644B7a276c26bEA2C9F` が新しいソースを追加したいユーザーであるとする。
+For example if `default:0xDeffe041cC978a193fCf0CE18b43b25B4592FC90` is the oracle and `default:0xAfaA41C81A316111fB0A4644B7a276c26bEA2C9F` the user to which we want to add new sources.
 
 ```bash
 $ ./loom karma append-sources-for-user default:0xAfaA41C81A316111fB0A4644B7a276c26bEA2C9F  default:0xDeffe041cC978a193fCf0CE18b43b25B4592FC90 "oauth" 4 "token" 3 -k ./cmd/loom/data/pri
@@ -411,7 +413,7 @@ sources successfully updated
 
 ###### loom karma delete-sources-for-user
 
-Karmaメソッド DeleteUsersForUser を用いて、既存のソースをユーザーとの連想から切り離すことができる。これを行うために、 `loom karma delete-sources-for-user` を使おう。
+Existing sources can be disassociated with a user using the karma method DeleteUsersForUser. For this you can use the `loom karma delete-sources-for-user`.
 
 ```bash
 $ loom karma delete-sources-for-user --help
@@ -431,7 +433,7 @@ Global Flags:
   -w, --write string     URI for sending txs (default "http://localhost:46658/rpc")
 ```
 
-たとえば、`default:0xDeffe041cC978a193fCf0CE18b43b25B4592FC90` がoracleであり、 `default:0xAfaA41C81A316111fB0A4644B7a276c26bEA2C9F` がソースを削除したいユーザーであるとする。
+For example if `default:0xDeffe041cC978a193fCf0CE18b43b25B4592FC90` is the oracle and `default:0xAfaA41C81A316111fB0A4644B7a276c26bEA2C9F` the user to which we want to remove sources.
 
 ```bash
 $ ./loom karma delete-sources-for-user default:0xAfaA41C81A316111fB0A4644B7a276c26bEA2C9F  default:0xDeffe041cC978a193fCf0CE18b43b25B4592FC90 "oauth" "token" -k ./cmd/loom/data/pri
@@ -440,7 +442,7 @@ sources successfully deleted
 
 ###### loom karma get-user-state
 
-ユーザーと連想づけられたソースリストを取得するには、loomコマンド `loom karma get-user-state` を使うことができる。
+To get the list of sources that have been associated with a user, you can use the loom command `loom karma get-user-state`.
 
 ```bash
 $ loom karma get-user-state --help
@@ -460,38 +462,38 @@ Global Flags:
   -w, --write string     URI for sending txs (default "http://localhost:46658/rpc")
 ```
 
-例えば、ユーザー `default:0xDeffe041cC978a193fCf0CE18b43b25B4592FC90` について情報を取得するには:
+For example, if `default:0xDeffe041cC978a193fCf0CE18b43b25B4592FC90` is the user you are curious about
 
 ```bash
 ./loom karma get-user-state default:0xDeffe041cC978a193fCf0CE18b43b25B4592FC90
 ```
 
-## Karmaメソッド
+## Karma methods
 
-次のメソッドは誰でも呼び出すことができる。
+The following methods can be called by anyone.
 
-* `GetSources(ctx contract.StaticContext, ko *types.Address) (*ktypes.KarmaSources, error)` これは現在のKarma設定詳細を返却する。現在のソースも含んでいる。
-* `GetTotal(ctx contract.StaticContext, params *types.Address) (*karma.KarmaTotal, error)` これはシステム内のKarma総量を返却する。 ソースと連想づけられた各ユーザーのKarma合計。
-* `GetUserState(ctx contract.StaticContext, user *types.Address) (*karma.KarmaState, error)` ユーザーと連想づけられたソース及びカウントを返却する。
+* `GetSources(ctx contract.StaticContext, ko *types.Address) (*ktypes.KarmaSources, error)` Returns the current karma configuration details. This includes the current sources.
+* `GetTotal(ctx contract.StaticContext, params *types.Address) (*karma.KarmaTotal, error)` Returns the total amount of karma in the system. The sum of the karma for each user that has been associated with a source.
+* `GetUserState(ctx contract.StaticContext, user *types.Address) (*karma.KarmaState, error)` Returns the sources and counts associated with a user.
 
-oracleがまだ存在しなければ、oracleを参照することによってのみ呼び出すことができる。
+Can only be called by referencing the oracle unless there is no oracle yet.
 
 * `UpdateOracle(ctx contract.Context, params *ktypes.KarmaNewOracleValidator) error`
 
-次のメソッドはoracleを参照することによってのみ呼び出すことができる。
+The following methods can only be called by referencing the oracle
 
-* `ResetSources(ctx contract.Context, kpo *ktypes.KarmaSourcesValidator) error` 有効なソースリストをリセットする。
-* `AppendSourcesForUser(ctx contract.Context, ksu *karma.KarmaStateUser) error` ソースの集合をカウント及びユーザーと連想づける。詳細は上記を参照。 
-* `DeleteSourcesForUser(ctx contract.Context, ksu *karma.KarmaStateKeyUser) error` ソースをユーザーとの連想から切り離す。詳細は上記を参照。 
+* `ResetSources(ctx contract.Context, kpo *ktypes.KarmaSourcesValidator) error` Reset the list of possible sources.
+* `AppendSourcesForUser(ctx contract.Context, ksu *karma.KarmaStateUser) error` Associate a collection of sources with counts with a user. See above for details. 
+* `DeleteSourcesForUser(ctx contract.Context, ksu *karma.KarmaStateKeyUser) error` Disassociate a collection of sources with a user. See above for details. 
 
-他のメソッド
+Other methods
 
 * `Meta() (plugin.Meta, error)`
 * `Init(ctx contract.Context, req *InitRequest) error`
 
-## Genesisファイル入力
+## Genesis entries
 
-genesisファイルの入力例を以下に示した。 イニシャルブロックは空で良い。これはDAppChain上にKarmaコントラクトをインストールするだけのものである。 またOracleをgenesisファイル中で定義できる。 定義しない場合も、Karmaメソッド `UpdateOracle` を呼び出してイニシャルoracleを作成することができる。 またKarmaソースのリストでKarmaコントラクトを初期化することが可能である。 こうすると、これらのソースの量を割り当てたユーザーのリストを分配することもできる。
+An example genesis file entry is shown below. The Init block can be empty, which just installs the karma contact on the DAppChain. You can define an Oracle in the genesis file. If you don't you can still call the karma method `UpdateOracle` to create an initial Oracle. It is possible to initialise the karma contract with a list of karma sources. If you do this, you can also allocate a list of users to have allocated amounts of these sources.
 
 ```json
         {

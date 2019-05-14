@@ -1,19 +1,21 @@
 ---
 id: unity-sdk-plugin
-title: プラグインベースのスマートコントラクトクイックスタート
-sidebar_label: プラグインベースのスマートコントラクトクイックスタート
+title: Plugin-based Smart Contract Quickstart
+sidebar_label: Plugin-based Smart Contract Quickstart
 ---
-Loomは、EVM ([Ethereum Virtual Machine](evm.html)) 及びプラグインベースのスマートコントラクトをサポートする。 プラグインベースのスマートコントラクトは例えば [go-loom](https://github.com/loomnetwork/go-loom)で作成できる
 
-このサンプルでは、Unity SDKを使用してプラグインベースのスマートコントラクトと対話する方法をデモンストレーションする。
 
-## サンプル コード
+Loom supports EVM ([Ethereum Virtual Machine](evm.html)) and plugin-based smart contracts. Plugin-based smart contracts can be created with [go-loom](https://github.com/loomnetwork/go-loom), for example.
 
-[`Assets/Samples/QuickStart`](https://github.com/loomnetwork/unity-sdk/tree/master/UnityProject/Assets/LoomSDK/Samples/QuickStart)に、このページの全コード及びLoom Unity SDK内で用意済みのUnityシーンがある。
+In this example, we will demostrate how to use the Unity SDK to communicate with plugin-based smart contracts.
 
-## DAppチェーンへの接続
+## Sample Code
 
-`Contract` クラスは、Loom DAppチェーンで実行されるスマートコントラクトと対話するための便利な方法を提供する。 Loom SDKのサンプルスマートコントラクト[BluePrint](https://github.com/loomnetwork/weave-blueprint/blob/master/src/blueprint.go) と対話する`Contract` インスタンスを作成する関数を書いてみよう。
+You can find all the code on this page and a ready-to-go Unity scene in the Loom Unity SDK under [`Assets/LoomSDK/Samples/QuickStart`](https://github.com/loomnetwork/unity-sdk/tree/master/UnityProject/Assets/LoomSDK/Samples/QuickStart).
+
+## Connecting to a DAppChain
+
+The `Contract` class provides a convenient way to interact with a smart contract running on a Loom DAppChain. Let's write a method that creates a `Contract` instance to interact with the sample [BluePrint](https://github.com/loomnetwork/weave-blueprint/blob/master/src/blueprint.go) smart contract provided in the Loom SDK...
 
 ```csharp
 // LoomQuickStartSample.cs
@@ -56,11 +58,11 @@ public class LoomQuickStartSample : MonoBehavior
 }
 ```
 
-## DAppチェーンへのデータの書き込み
+## Writing data to a DAppChain
 
-スマートコントラクトの状態を変更するには、そのパブリックなメソッドのうちどれかを呼び出すことが必要であり、さらに署名済みのトランザクションが送信され、DAppチェーンによって検証されていなくてはならない。 幸いこれらのほとんどは、`Contract.CallAsync()` メソッドを使用すれば `Contract`クラスが処理を行う。
+To mutate the state of a smart contract you need to call one of its public methods, to do so a signed transaction must be sent to and validated by the DAppChain. Fortunately the `Contract` class takes care of most of this when you use the `Contract.CallAsync()` method.
 
-[BluePrint](https://github.com/loomnetwork/weave-blueprint/blob/master/src/blueprint.go)スマートコントラクトは、パブリックな`SetMsg`メソッドを持っており、これはキーとバリューの連想配列を保存するよう呼び出すことができる。このメソッドは何も返さないことに気をつけること。 `LoomQuickStartSample`クラスに`BluePrint.SetMsg()`を呼び出すメソッドを追加しよう。
+The [BluePrint](https://github.com/loomnetwork/weave-blueprint/blob/master/src/blueprint.go) smart contract has a public `SetMsg` method that can be called to store an association between a key and a value, note that this method doesn't return anything. Let's add a method to the `LoomQuickStartSample` class that calls `BluePrint.SetMsg()`.
 
 ```csharp
 async Task CallContract(Contract contract)
@@ -73,7 +75,7 @@ async Task CallContract(Contract contract)
 }
 ```
 
-状態を変更するスマートコントラクトのメソッドは、値を返すことがある。 [BluePrint](https://github.com/loomnetwork/weave-blueprint/blob/master/src/blueprint.go)スマートコントラクトは、パブリックな`SetMsgEcho`メソッドを持っており、これはキー/バリューの保存と、保存されたキー/バリューの返却を行う。 `LoomQuickStartSample`クラスに`BluePrint.SetMsgEcho`を呼び出すメソッドを追加しよう。
+Smart contract methods that mutate state may return a value. The [BluePrint](https://github.com/loomnetwork/weave-blueprint/blob/master/src/blueprint.go) smart contract has a public `SetMsgEcho` method that will store a key/value and return the key/value it stored. Let's add another method to the `LoomQuickStartSample` class to call `BluePrint.SetMsgEcho`.
 
 ```csharp
 async Task CallContractWithResult(Contract contract)
@@ -86,7 +88,7 @@ async Task CallContractWithResult(Contract contract)
 
     if (result != null)
     {
-        // Unityコンソールウインドウにこのようにプリントされる: { "key": "321", "value": "456" }
+        // This should print: { "key": "321", "value": "456" } in the Unity console window.
         Debug.Log("Smart contract returned: " + result.ToString());
     }
     else
@@ -96,11 +98,11 @@ async Task CallContractWithResult(Contract contract)
 }
 ```
 
-## DAppチェーンからのデータの読み取り
+## Reading data from a DAppChain
 
-スマートコントラクトの状態を読み取るには、そのパブリックな読み取り専用メソッドのうちどれかを呼び出すことが必要だ。読み取り専用メソッドの呼び出しで、スマートコントラクトの状態が変更されることはない。 スマートコントラクト上の読み取り専用メソッドは、`Contract.StaticCallAsync()` メソッドを使用して呼び出すことができる。
+To read the state of a smart contract you need to call one of its public read-only methods, calling a read-only method doesn't modify the smart contract state. You can call a read-only method on a smart contract by using the `Contract.StaticCallAsync()` method.
 
-[BluePrint](https://github.com/loomnetwork/weave-blueprint/blob/master/src/blueprint.go)スマートコントラクトは、パブリックな`GetMsg`メソッドを持っており、キーとバリューの連想配列を参照するようこれを呼び出すことができる。 `LoomQuickStartSample`クラスに`BluePrint.GetMsg()`を呼び出すメソッドを追加しよう。
+The [BluePrint](https://github.com/loomnetwork/weave-blueprint/blob/master/src/blueprint.go) smart contract has a public `GetMsg` method that can be called to look up an association between a key and a value. Let's add a method to the `LoomQuickStartSample` class to call `BluePrint.GetMsg`.
 
 ```csharp
 async Task StaticCallContract(Contract contract)
@@ -112,8 +114,8 @@ async Task StaticCallContract(Contract contract)
 
     if (result != null)
     {
-        // Unityコンソールウインドウにこのようにプリントされる: { "key": "123", "value": "hello!" }
-        // 与えられた `LoomQuickStartSample.CallContract()` が初めに呼び出される。
+        // This should print: { "key": "123", "value": "hello!" } in the Unity console window
+        // provided `LoomQuickStartSample.CallContract()` was called first.
         Debug.Log("Smart contract returned: " + result.ToString());
     }
     else
@@ -123,31 +125,31 @@ async Task StaticCallContract(Contract contract)
 }
 ```
 
-## まとめ
+## Putting it all together
 
-`LoomQuickStartSample` クラスに次のメソッドを追加しよう。
+Add the following method to the `LoomQuickStartSample` class.
 
 ```csharp
-// これで初期化する
+// Use this for initialization
 async void Start()
 {
-    // 秘密鍵(privateKey)はDAppチェーンへ送られたトランザクションへ署名するために使われる。
-    // 通常プレイヤー1人につき1つの秘密鍵を生成するか、もしくはプレイヤーが自身の秘密鍵を提供する。
-    // このサンプルでは、毎回新しく鍵を生成している。
+    // The private key is used to sign transactions sent to the DAppChain.
+    // Usually you'd generate one private key per player, or let them provide their own.
+    // In this sample we just generate a new key every time.
     var privateKey = CryptoUtils.GeneratePrivateKey();
     var publicKey = CryptoUtils.PublicKeyFromPrivateKey(privateKey);
 
     var contract = await GetContract(privateKey, publicKey);
     await CallContract(contract);
-    // Unityコンソールウインドウにこのようにプリントされる: { "key": "123", "value": "hello!" } 
+    // This should print: { "key": "123", "value": "hello!" } in the Unity console window
     await StaticCallContract(contract);
-    // Unityコンソールウインドウにこのようにプリントされる: { "key": "321", "value": "456" }
+    // This should print: { "key": "321", "value": "456" } in the Unity console window
     await CallContractWithResult(contract);
 }
 ```
 
-全コードの用意ができたので、テストしてみよう:
+Now that we have all the code in place let's test it out:
 
-1. Unityシーンに空の`GameObject`を作成し、そこに`LoomQuickStartSample`スクリプトを付け加えよう。
-2. スマートコントラクト[BluePrint](https://github.com/loomnetwork/weave-blueprint/blob/master/src/blueprint.go)をローカルのLoom DAppチェーンノードにデプロイしよう。
-3. Unityエディターで`Play`してみよう。
+1. Create an empty `GameObject` in a Unity scene and attach the `LoomQuickStartSample` script to it.
+2. Deploy the [BluePrint](https://github.com/loomnetwork/weave-blueprint/blob/master/src/blueprint.go) smart contract on a local Loom DAppChain node.
+3. Hit `Play` in the Unity Editor.

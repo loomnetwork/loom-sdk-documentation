@@ -3,6 +3,7 @@ id: intro-loom-sdk
 title: What is Loom Network?
 sidebar_label: Intro Loom SDK
 ---
+
 ![What is Loom Network?](/developers/img/what-is-loom.png)
 
 Loom Network is building a fundamental infrastructure platform to help Ethereum scale. It allows developers to run large-scale applications, and is the first Ethereum scaling solution to be live in production.

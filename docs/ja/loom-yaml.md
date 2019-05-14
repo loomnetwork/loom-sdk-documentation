@@ -1,8 +1,9 @@
 ---
 id: loom-yaml
-title: Loom Yamlと設定オプション
-sidebar_label: Loom Yamlと設定オプション
+title: Loom Yaml and Configuration options
+sidebar_label: Loom Yaml and Configuration options
 ---
+
 # loom.yaml
 
     RPCBindAddress: "tcp://0.0.0.0:46658"
@@ -22,77 +23,77 @@ sidebar_label: Loom Yamlと設定オプション
     # EthereumURI: ws://127.0.0.1:8545"
     
 
-変更したい1行があれば、そこの # を消去しよう。
+remove the # from lines you want to change
 
 ## RPCBindAddress
 
-オプション: "tcp://0.0.0.0:46658"
+Options: "tcp://0.0.0.0:46658"
 
-これは、バインディングRPCインターフェイスのためのプライマリインターフェイスである。
+This is the primary interface for binding RPC interface
 
 ## LoomLogLevel
 
-オプション: debug, info, warn, error
+Options: debug, info, warn, error
 
-Loomブロックチェーン用の一般的なロギング。
+General logging for the Loom Blockchain
 
 ## ContractLogLevel
 
-オプション: debug, info, warn, error
+Options: debug, info, warn, error
 
-Goベースのスマートコントラクト用の一般的なロギング。
+General logging for the Go Based Smart contracts.
 
 ## BFTLogLevel
 
-オプション: debug, info, warn, error
+Options: debug, info, warn, error
 
-BFTレイヤーブロックチェーン用の一般的なロギング。使用するBFTエンジンに基づき、変更となる可能性がある。
+General logging for the BFT Layer Blockchain. This may change based on which BFT engine you are using.
 
 ## EthereumURI
 
-オプション: "ws://127.0.0.1:8545"
+Options: "ws://127.0.0.1:8545"
 
-これはイーサリアム・ブロックチェーンのURLであり、Plasmaやトランスファーゲートウェイのためにデータを読み取る。 今後はinfuraのサポートも予定している。
+This is the url of the Ethereum Blockchain to read data for plasma and transfer gateway. In future we will have support for infura also.
 
 ## ChainID
 
-オプション: "awesomechain"
+Options: "awesomechain"
 
-これはあなたのチェーンの名前である。例えば "eth"、"zombiechain"、"test-zombiechain"、"delegatecall"というようなものだ。
+This is the name of your chain, for example "eth", "zombiechain", "test-zombiechain", "delegatecall".
 
 # config.toml
 
-Tendermint BFTエンジンをお使いであれば、このファイルを修正可能だ。そうでない場合はそのままにしておこう。
+If you are using tendermint BFT engine, you can modify this file, otherwise leave it alone.
 
 ## ABCIAddress
 
-オプション: "http://127.0.0.1:45667"
+Options: "http://127.0.0.1:45667"
 
-Tendermint bftエンジン用のポート
+Port for tendermint bft engine
 
 ## ReceiptsVersion
 
-オプション: 1,2
+Options: 1,2
 
-ほとんどのユーザーはこれを1に設定する必要があり、evmの受信者はアプリケーションストアに保存される。 2に設定されている場合、EVMの受信者は別のデータベースに保存される。 これはディスクの使用に適しているが、 AppHashesに影響するため、クラスター全体を同じバージョンで初期化する必要があり、初期化後に変更してはならない。
+Most users should set this to 1, and the evm receipts will be stored in the application store. If the number is set to 2, EVM receipts are stored in a seperate database. This is better for disk usage. However it affects the AppHashes, so the entire cluster must be initialized with the same version, and it must not be changed after initialization.
 
 ## RegistryVersion
 
-オプション: 1,2
+Options: 1,2
 
-ほとんどのユーザーはこれを2に設定する必要がある。 これはスマートコントラクトレジストリの最新バージョンである。 クラスタ全体を同じバージョンで初期化する必要があり、初期化後に変更してはならない。
+Most users should set this to 2. This is the latest version of the smart contract registry. The entire cluster needs to be initialized with the same version, and it must not be changed after initialization.
 
 ## DPOSVersion
 
-オプション: 1,2
+Options: 1,2
 
-DPoSのバージョン2はまだ実験段階であり、開発用クラスタでのみこれを使用する。 これはリワードとスラッシングをよりサポートする。 クラスタ全体を同じバージョンにする必要があり、初期化後に変更してはならない。
+Version 2 of DPoS is still experimental, only use this on dev clusters. It has better support for rewards and slashing. The entire cluster needs to be on same version, and it must not be changed after initialization.
 
 ## CreateEmptyBlocks
 
 Boolean: true, false
 
-多くのクラスタは、ディスク容量を節約するために空のブロックを無効にしようとする。
+Most clusters will want to disable empty blocks to save disk space.
 
 ## AppStore
 
@@ -102,15 +103,15 @@ AppStore:
   MaxVersions: 50
 ```
 
-プロダクションクラスタ及び頻繁に消去されることのないdevクラスタにおいて、app.dbに留めておくヒストリー量の設定を有効にする必要がある。 app.dbの新たなバージョンはブロック毎に作成されるため、これらのノード設定がない場合はかなり多くのディスク容量を消費することになる。
+Configures how much history is retained in app.db, should be enabled on production clusters, and dev clusters that don't get wiped often. A new app.db version is created with each block, so without these settings nodes will consume significantly more disk space.
 
 ### CompactOnLoad
 
-ノードの起動時にapp.dbを圧縮する。これはノードの起動時間に影響を及ぼすが、古いapp.dbバージョンによって占有されていたディスク領域が解放される。
+Will compact app.db when the node starts, this affects node start times, but ensures disk space that's taken up by old app.db versions is freed.
 
 ### MaxVersions
 
-アプリのストアに保存されるバージョンの最大数だけ、ブロックがコミットされるたびに新バージョンのアプリステートがストアに格納されるが、これはブロックチェーンのストアに格納されるブロック数/トランザクション数には影響しない。
+Max versions stored in the app store, each time a block is committed a new version of the app state is stored in the store, this doesn't affect how many blocks/transactions are stored in the blockchain store.
 
 ## HSM
 
@@ -124,7 +125,7 @@ HsmConfig:
   HsmSignKeyId: 100
 ```
 
-詳細は[HSM Page](hsm.html) を参照
+Please see [HSM Page](hsm.html) for more details
 
 ## Plasma
 
@@ -146,10 +147,9 @@ type KarmaConfig struct {
     MaxCallCount    int64 // Maximum number call transactions per session duration
     SessionDuration int64 // Session length in seconds
 }
-
 ```
 
-例
+Example
 
 ```yaml
 Karma:

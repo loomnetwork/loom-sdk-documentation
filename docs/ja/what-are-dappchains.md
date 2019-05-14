@@ -1,6 +1,7 @@
 ---
-id: DAppチェーンとは
-title: DAppチェーンの紹介
-sidebar_label: DAppチェーンとは
+id: what-are-dappchains
+title: Introduction to What DAppChains are
+sidebar_label: What are DAppChains
 ---
-紹介文
+
+Intro text here

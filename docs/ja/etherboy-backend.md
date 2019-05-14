@@ -1,30 +1,30 @@
 ---
 id: etherboy-backend
-title: Etherboyバックエンド
-sidebar_label: Etherboyバックエンド
+title: Etherboy Backend
+sidebar_label: Etherboy Backend
 ---
-このドキュメンテーションでは、EtherboyのDAppチェーンを単一サーバーインスタンス(64ビットのLinuxインスタンス)で稼働させる方法を説明する。
 
-## インストール
+This documentation explains how to run the Etherboy DAppChain in a single server instance (any 64-bit Linux instance).
 
-1. ワーキングディレクトリを自分で選択しよう。この例で使っているのは: `/home/ubuntu` 
-        bash
-        cd /home/ubuntu
+## Installation
 
-2. バイナリをダウンロード
-    
+1. Choose a working directory of your choice. In this example we are using `/home/ubuntu`
+
+```bash
+    cd /home/ubuntu
+    ```
+1. Download the binaries:
     ```bash
     wget https://private.delegatecall.com/loom/linux/stable/loom
     wget https://private.delegatecall.com/etherboy/linux/build-53/etherboycli
     chmod +x loom etherboycli
-    
+
     mkdir contracts
     wget -O contracts/etherboycore.so https://private.delegatecall.com/etherboy/linux/build-53/etherboycore.0.0.1
     ```
 
-3. ワーキングディレクトリで`loom init`を実行し、設定ファイルを初期化しよう。
-4. ワーキングディレクトリに`genesis.json`を更新しよう。
-    
+1. Execute `loom init` in the working directory to initialize config files.
+1. Update `genesis.json` in the working directory:
     ```json
     {
         "contracts": [
@@ -34,37 +34,39 @@ sidebar_label: Etherboyバックエンド
                 "format": "plugin",
                 "location": "etherboycore:0.0.1",
                 "init": {
-    
+
                 }
             }
         ]
     }
     ```
 
-5. ワーキングディレクトリに `loom.yml` を追加しよう。 
-        yaml
-        RPCBindAddress: "tcp://0.0.0.0:46658"
+1. Add `loom.yml` in the working directory:
+    ```yaml
+    RPCBindAddress: "tcp://0.0.0.0:46658"
+    ```
 
-注: `loom`と`etherboycli`は`$PATH`をどこにでも通すことができるので、常に`./`で実行する必要はない。 しかしながら、`etherboycore.0.0.1`は常に`$WORKING_DIRECTORY/contracts/etherboycore.0.0.1`に置かれていなくてはならない。
 
-## 起動
+Note: `loom` and `etherboycli` can be placed anywhere in your `$PATH` so you don't have to always execute with `./`. However, `etherboycore.0.0.1` must always be placed in `$WORKING_DIRECTORY/contracts/etherboycore.0.0.1`.
 
-起動するには、直接的なやり方、もしくはsystemd(またはお好きなプロセス制御システム)を通して行うやり方の2つの方法がある。
+## Running
 
-### 直接的な実行
+There are two ways to run - directly, or via systemd (or any process control system you prefer)
 
-ワーキングディレクトリで`loom run`を実行し、サービスを起動しよう:
+### Direct execution
+
+Execute `loom run` in the working directory to run the service:
 
 ```bash
 ./loom run
 I[05-16|06:06:16.970] Using simple log event dispatcher
 ```
 
-これはフォア グラウンドで Etherboy を実行し、そのアウトプットをコンソールにプリントする。プロセスマネジメントをより良く行うには、次のセクションを見てみよう。
+This will run Etherboy in the foreground and print its output to the console. For better process management, look at the next section.
 
-### systemdスタートアップスクリプト
+### systemd Startup Script
 
-次のスタートアップスクリプトは、systmdを使ったサービスをコントロールするために使用することができる。 `WorkingDirectory`及び/又は`ExecStart`を変更して、あなたのセットアップを反映させよう。
+The following startup script can be used to control the service using systemd. Make changes to `WorkingDirectory` and/or `ExecStart` to reflect your setup.
 
 ```ini
 [Unit]
@@ -87,30 +89,30 @@ StandardError=syslog
 WantedBy=multi-user.target
 ```
 
-これを`/etc/systemd/system/etherboy.service`に保存しよう。そしてアクティベートするために以下を実行しよう:
+Save it to `/etc/systemd/system/etherboy.service`. Run these to activate it:
 
 ```bash
 sudo systemctl daemon-reload
 sudo systemctl start etherboy.service
 ```
 
-以下を使ってアウトプットをチェック可能だ:
+You may now inspect the output using:
 
 ```bash
 sudo journalctl -u etherboy.service
 ```
 
-すべてが思った通りに動いていれば、以下を実行することでブート時にサービスが開始されるようになる。
+When satisfied everything is running as intended, executing the following will enable the service so that it is started at boot:
 
 ```bash
 sudo systemctl enable etherboy.service
 ```
 
-## 検証
+## Verifying
 
-### ポートのリッスン
+### Listening ports
 
-全てうまくいくと、あなたのサーバーに開かれたこれらのポートを見ることができる。
+If all is well, you will be able to see these ports opened in your server.
 
 ```bash
 $ sudo netstat -tpnl
@@ -121,7 +123,7 @@ tcp6       0      0 :::46657                :::*                    LISTEN      
 tcp6       0      0 :::46658                :::*                    LISTEN      14327/loom
 ```
 
-### CLI - etherboycli
+### The CLI - etherboycli
 
 ```bash
 $ pwd

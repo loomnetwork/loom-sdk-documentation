@@ -1,11 +1,12 @@
 ---
 id: basic-install-osx
-title: 前提条件(OSX)
-sidebar_label: インストール (OSX)
+title: Prerequisites (OSX)
+sidebar_label: Installation (OSX)
 ---
-OSXでのLoomのインストールとセットアップ
 
-## インストール
+Installing and setting up Loom on OSX
+
+## Installation
 
 ```bash
 wget https://private.delegatecall.com/loom/osx/stable/loom
@@ -14,15 +15,15 @@ chmod +x loom
 ./loom init
 ```
 
-## ブロックチェーンの起動
+## Run Blockchain
 
     ./loom run
     
 
-## Solidity + Truffleでスタートするには
+## To get started with Solidity + Truffle
 
-[TruffleとSolidity](truffle-deploy.html)のチュートリアルを参照すること。
+See our tutorial on [Truffle and Solidity](truffle-deploy.html)
 
-## Golangコントラクトでスタートするには
+## To get started on Golang Contracts
 
-[Golangコントラクト](prereqs.html)を参照すること。
+See our [Golang Contracts](prereqs.html)

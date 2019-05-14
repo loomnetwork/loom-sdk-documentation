@@ -1,25 +1,26 @@
 ---
 id: phaser-sdk-demo-websocket
-title: Javascript WebSockets 演示
-sidebar_label: Phaser + Websockets 演示
+title: Javascript WebSockets Demo
+sidebar_label: Phaser + Websockets Demo
 ---
-一个简单的示例， 展示了一个简单的 HTML5 + WebSockets 和Loom Dapp链交互，使用 [Phaser](http://phaser.io) 和 [Loom.js](https://github.com/loomnetwork/loom-js)。 源代码位于 [Github Websocket 演示](https://github.com/loomnetwork/tiles-chain)
+
+A basic example showcasing a simple HTML5 + WebSockets interacting with a Loom DappChain, using [Phaser](http://phaser.io) and [Loom.js](https://github.com/loomnetwork/loom-js). Source is on [Github Websocket Demo](https://github.com/loomnetwork/tiles-chain)
 
 ![](https://camo.githubusercontent.com/9d49b0ce78d692e69d1dd571bc8d1aafe5b806a8/68747470733a2f2f647a776f6e73656d72697368372e636c6f756466726f6e742e6e65742f6974656d732f315232363044327030713370304d33693232304a2f53637265656e2532305265636f7264696e67253230323031382d30352d3232253230617425323031302e3233253230414d2e6769663f763d3961353539316139)
 
-## 游戏说明
+## Game instructions
 
-使用鼠标光标单击黑色画布区域以创建彩色图块，每个新玩家将在画布上有不同的颜色，并在所有玩家之间共享。
+Use the mouse cursor to click on the black canvas area to create colored tiles, each new player will have a different color on the canvas which is shared amongst all players
 
-## 开发
+## Development
 
-### 1.) 下载示例项目 (Tiles Chain)
+### 1.) Download the example project (Tiles Chain)
 
 ```bash
 git clone https://github.com/loomnetwork/tiles-chain
 ```
 
-### 2.) 启动 Dapp链
+### 2.) Start the DappChain
 
 ```bash
 cd tiles-chain
@@ -44,20 +45,22 @@ cp ../genesis.example.json genesis.json
 ../loom run
 ```
 
-### 3.) 启动 web 服务器
+### 3.) Start the web server
 
 ```bash
-# 安装
+cd tiles-chain/webclient
+
+# Install
 yarn
 
-# 编译 protobuf
+# Compile protobuf
 yarn run proto
 
-# 启动演示
+# Start the demo
 yarn start
 
 ```
 
-### 5.) 运行
+### 5.) Running
 
-Tiles-Chain web 界面将在 `http://localhost:9000` 上提供
+The Tiles-Chain web interface will be available on `http://localhost:9000`

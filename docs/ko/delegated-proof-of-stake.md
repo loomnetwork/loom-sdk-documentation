@@ -1,98 +1,99 @@
 ---
 id: delegated-proof-of-stake
-title: 위임 지분 증명
+title: Delegated Proof of Stake
 ---
-위임 지분 증명 알고리즘은 토큰 보유자가 증인을 선출할 수 있게 합니다. 증인은 블록체인의 검증자 역할을 하며, 블록을 제안하고 트랜잭션이 정확한지를 검사하는 역할을 합니다. 이러한 증인들은 다시 선거를 하기 전까지 정해진 기준 기간 동안 서비스를 제공합니다.
 
-## 파라미터
+The delegated proof of stake algorithm allows token holders to elect witnesses. Witnesses act as validators of the blockchain, proposing blocks and verifying that transactions are correct. These witnesses serve a standard term length before being subject to elections again.
 
-**Coin contract address** - 투표권을 계산하는 데 사용되는 ERC20과 같은 코인 컨트랙트를 지칭합니다. 기본적으로 여기에는 `코인`의 주소가 쓰입니다.
+## Parameters
 
-**Witness count** - 선출될 수 있는 증인의 수.
+**Coin contract address** - Specifies which ERC20-like coin contract to use to calculate the power of a vote. By default this is resolved to the address at `coin`.
 
-**Witness salary** - 선택사항. 증인이 블록을 검증할 때 받는 보상의 양.
+**Witness count** - The number of witnesses that can be elected.
 
-**Vote allocation** - 각 코인 계정이 얻은 득표 수. 기본적으로 이것은 증인의 수와 같습니다.
+**Witness salary** - Optional. The amount that witnesses get paid for validating blocks.
 
-**Election cycle length** - 선거주기. 기본적으로 1주입니다.
+**Vote allocation** - Number of votes each coin account gets. By default this is equal to the number of witnesses.
 
-**Minimum power fraction** - 선택사항. 유효한 선거로 인정받기 위해 투표에 사용되어야 하는 코인의 공급량 예를들면, 5라는 값은 투표에 필요한 코인 공급량의 20%에 해당합니다.
+**Election cycle length** - How long the election cycle is. By default this is 1 week.
 
-## 후보 등록
+**Minimum power fraction** - Optional. How much of the coin supply needs to have voted for elections to be considered valid. For example, a value of 5 corresponds to 20% of the coin supply needing to have voted.
 
-모든 후보들은 그들의 주소와 일치하는 퍼블릭 키를 지정하여 등록을 해야합니다.
+## Candidate Registration
 
-## 투표
+All candidates must register by specifying the public key matching their address.
 
-각 코인 계정은 정해진 최대치 만큼의 투표권을 가지는데, 이는 일반적으로 증인들의 수와 같습니다. 하지만, 각 투표의 힘은 해당 계정이 가지고 있는 코인의 잔액과 비례합니다. 이는 지분이 더 많은 계정이 네트워크의 운영에 대해 더 큰 힘을 가지게 해줍니다. 현재 구현에서 투표에 대한 만료 기한은 없습니다. 이것은 투표를 명시적으로 변경하지 않는 한 계정 소유자는 witness의 일에 충족되며 다음 선거에서 다시 계정 소유자의 투표를 받을 것입니다. 그러나 전통적인 선거와는 달리 투표는 언제든지 할 수 있어서 "선거일"이라는 것은 없습니다. 하지만, 투표는 선거시간까지 카운팅되지 않습니다.
+## Voting
+
+Each coin account has up to a specified number of votes, generally equal to the number of witnesses. However, the power of each vote is proportional to the balance of coins the account holds. This ensures that accounts with more at stake have a greater voice in how the network is run. In the current implementation votes do not expire. This means that unless a vote is explicitly changed it is assumed that the account holder is satisfied with the job of the witness and will receive the account holder's vote again in the next election. Unlike traditional elections, voting can be done any time so there is no "election day", however votes are not counted until the election time.
 
 ### Proxying Votes
 
-Witness 후보에 대한 직접적인 투표와 더불어서, 계정은 그들의 투표를 신뢰할 수 있는 곳에 위임할 수 있습니다. 이것은 proxy는 `proxy 잔액 + 합계(위임자들의 잔액)`에 비례하는 투표 권한을 최종적으로 얻게됩니다.
+In addition to voting directly for witness candidates, accounts can also proxy their vote to a trusted party. This means the proxy ends up with a vote power proportional to `proxy balance + sum(balance of principals)`.
 
-## 선거
+## Elections
 
-네트워크에 트랜잭션을 전송하고 충분한 시간이 경과되면 어떤 계정이든 선거를 트리거 할 수 있습니다. Witness는 그들에게 주어진 총 투표권을 합산하고 상위 N명의 후보를 취하는 것으로 선출됩니다 여기서 N이란 초기 파라미터에 지정된 witness 수입니다. 이것은 모든 witness가 그들이 얼마나 많은 표를 받았는지에 상관없이 블록을 제안하는 것에 대해서 동등한 기회를 가진다는 것을 의미합니다. 만약에 최소 투표권 비율로 지정된 최소 투표권을 충족하지 못한다면 witness 세트는 변경되지 않습니다.
+Any account can trigger an election if enough time has passed by sending a transaction to the network. Witnesses are elected by summing up the total voting power given to them and taking the top N candidates where N is the witness count specified in the initial parameters. This means that all witnesses end up with an equal chance of proposing a block no matter how many votes they received. If the mininum number of power required specified by the minimum power fraction is not reached then the witness set does not change.
 
-## 추후 개선사항
+## Future Improvements
 
 ## Bonding
 
-추후에는 witness는 나쁜 행위에 대해서 압수될 수 있는 특정 수의 코인을 락업할 수도 있습니다. 이것은 witness 보상을 넘어 좋은 행위에 대한 추가적인 인센티브를 더합니다.
+In the future witnesses may lock up a specified number of coins that can be seized for bad behavior. This adds an additional incentive for good behavior beyond the witness salary.
 
 ### Proof of Authority
 
-현재 후보는 그들의 신원 증명할 필요는 없습니다, 그러나 추후에는 on-chain 공증을 활성화 시키는 것이 후보의 신원을 확인하는데 유용할 수 있습니다.
+Right now candidates do not have to proof their identity, but in the future it may be useful to enable on-chain notarization to verify candidates' identities.
 
 ### Alternating Election Cycle
 
-현재 모든 선거에서 모든 witness가 재선거를 합니다. 선거주기의 길이와 다른 재선거주기를 갖는 것이 더 나을 수도 있습니다. 용어 길이.
+Currently all witnesses are up for reelection at every election. It may be better to have an election cycle that differs from the term length.
 
-### 투표 만료
+### Vote Expiration
 
-현재 투표는 만료되지 않습니다, 하지만, 특정 기간이후에 투표가 만료되는 시나리오를 상상해 볼 수 있습니다. 이것은 분실 또는 도난당한 계좌가 선거에 부당한 영향을 끼치는 것을 방지해줄 수 있습니다. 이것은 투표 당시의 시간을 보거나 또는 계정의 마지막 활동을 살펴 보는 것이 될 수 있습니다.
+Currently votes never expire, however, one can imagine a scenario in which votes expire after a certain time period. This would prevent lost or stolen accounts from having undue influence in elections. This can be done either by looking at the time the vote was cast or by looking at the last activity on the account.
 
-## 컨트랙트 트랜잭션
+## Contract Transactions
 
 `registerCandidate`
 
-Witness가 될 후보자를 등록합니다.
+Register a candidate to be a witness.
 
 `unregisterCandidate`
 
-Witness가 될 후보자의 등록을 취소합니다.
+Unregister a candidate to be a witness.
 
 `vote`
 
-특정 후보자에게 투표합니다.
+Vote for a particular candidate.
 
 `proxyVote`
 
-여러분의 투표를 다른 계정에게 위임합니다.
+Proxy your votes to another account.
 
 `unproxyVote`
 
-여러분의 투표의 위임을 취소합니다.
+Unproxy your votes.
 
 `elect`
 
-선거를 실행합니다.
+Run the election.
 
-## CLI 사용 예제
+## Example CLI Usage
 
-시작하려면 우리는 먼저 블록체인을 초기화하는 것이 필요합니다. DPOS와 코인 스마트 컨트랙트가 자동으로 `genesis.json`에 추가될 것입니다.
+To get started we first need to initialize the blockchain. The DPOS and Coin smart contracts will automatically be added into `genesis.json`.
 
 ```shell
 loom init
 ```
 
-다음으로 우리는 예제 계정을 위한 퍼블릭/프라이빗 키를 생성합니다.
+Next we generate public/private keys for an example account.
 
 ```shell
 loom genkey -a pubkey -k privkey
 ```
 
-그런다음 우리는 약간의 투표권을 갖기 위해서 블록체인에서 초기 코인 몇개를 가져야만 합니다. 이렇게 하려면 `genesis.json`을 수정하는게 필요한데 코인 컨트랙트 구성의 `init` 섹션을 수정해야만 합니다. 이 예제에서 우리는 자신에게 100 코인을 줄 것입니다.
+Then we need to make sure some initial coins on the blockchain are given out so that we have some voting power. To do this we need to modify `genesis.json` and change the `init` section of the Coin contract configuration. In this example we'll give ourselves 100 coins.
 
 ```json
         {
@@ -105,7 +106,7 @@ loom genkey -a pubkey -k privkey
                     {
                         "owner": {
                             "chain_id": "default",
-                            "local": "<genkey로 부터 얻은 base64 로컬 주소>"
+                            "local": "<local address in base64 from genkey>"
                         },
                         "balance": 100
                     }
@@ -114,7 +115,7 @@ loom genkey -a pubkey -k privkey
         },
 ```
 
-이 예제에 대한 DPOS 설정을 조정하여 전체 투표를 기다리는 대신 선거를 실행할 수 있도록 해야합니다. `genesis.json`의 `electionCycleLength` 부분을 `0`으로 수정하면 됩니다. 또한 우리는 witness를 위해서 10 코인의 보상을 추가할 것입니다.
+We also need to tweak the DPOS settings for this example so we can run an election right now instead of waiting a full election cycle for votes to come in. We do this by changing the `electionCycleLength` in `genesis.json` to `0`. We'll also add a salary of 10 coins for witnesses.
 
 ```json
         {
@@ -131,7 +132,7 @@ loom genkey -a pubkey -k privkey
                 },
                 "validators": [
                     {
-                        "pubKey": "<여러분의 validator 퍼블릭 키>",
+                        "pubKey": "<your validator public key>",
                         "power": "10"
                     }
                 ]
@@ -139,62 +140,62 @@ loom genkey -a pubkey -k privkey
         }
 ```
 
-그런 다음 코인 및 DPOS 스마트 컨트랙트를 초기화 할 블록체인을 부팅합니다.
+We then boot the blockchain which will initialize the Coin and DPOS smart contracts.
 
 ```shell
 loom run
 ```
 
-트랜잭션을 네트워크에 보내기 위해서 우리는 [go-loom project](https://github.com/loomnetwork/go-loom)의 example-cli을 사용할 수 있습니다. 다음을 수행하여 빌드 할 수 있습니다
+To send transactions to the network we can use the example-cli from the [go-loom project](https://github.com/loomnetwork/go-loom). This can be built by running
 
 ```shell
 make example-cli
 ```
 
-우리는 `list_witnesses` 서브커맨드를 수행하여 언제든지 witness 목록을 확인할 수 있습니다.
+We can check the witness list at any time by running the `list_witnesses` subcommand.
 
 ```shell
 ./example-cli call list_witnesses
 ```
 
-먼저 witness가 돈을 받을 수 있도록 dpos 컨트랙트에 자금을 지원합니다. 이것은 단순히 `dpos` 컨트랙트로 전송하는 것입니다.
+First we'll fund the dpos contract so that witnesses can get paid. This is simply a transfer to the `dpos` contract.
 
 ```shell
 ./example-cli call transfer dpos 90 -p privkey
 ```
 
-우리는 언제든지 우리의 잔액과 dpos 컨트랙트의 잔액을 확인할 수 있습니다.
+We can also check our balance and the balance of the dpos contract at any time.
 
 ```shell
 ./example-cli call balance <your address>
 ./example-cli call balance dpos
 ```
 
-Witness 자리를 운영하려면 블록체인에 등록해야합니다. 이 예제에서는 우리 자신을 등록 만합니다.
+In order to run for a witness seat we need to register on the blockchain. For this example we'll just register ourselves.
 
 ```shell
 ./example-cli call register_candidate <public key> -p privkey
 ```
 
-그런다음 우리는 우리의 투표 할당량인 21표를 우리 자신을 위해 투표 할 것입니다.
+Then we'll vote for ourselves, giving all of our vote allocation, which is 21 votes.
 
 ```shell
 ./example-cli call vote <your address> 21 -p privkey
 ```
 
-최종적으로 우리는 선거를 실행할 것입니다, 우리가 선거를 조작했어요 :).
+Finally we'll run the election, which we've rigged :).
 
 ```shell
 ./example-cli call elect -p privkey
 ```
 
-우리가 선출 된 것을 확인하기 위해 우리는 witness 목록을 다시 점검하여 변경된 것을 볼 수 있습니다.
+To verify that we've been elected we can check the witness list again to see that it's changed.
 
 ```shell
 ./example-cli call list_witnesses
 ```
 
-우리는 다시 선거를 실시해서 우리가 우리 서비스를 위해 지불했는지를 확인할 수 있습니다.
+We can run the election again and verify we were paid for our service.
 
 ```shell
 ./example-cli call elect -p privkey

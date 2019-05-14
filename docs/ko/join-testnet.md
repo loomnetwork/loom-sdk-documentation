@@ -3,11 +3,12 @@ id: join-testnet
 title: Join Testnets
 sidebar_label: Join Testnets
 ---
+
 This doc is for developers on how they can join the Plasmachain Testnet to do deployment. If you are looking for information on how to run nodes, or to become a validator please checkout [Validator Guide](validator.html)
 
 **Prerequisite**
 
-- Loom installed (see [instruction](https://loomx.io/developers/docs/en/basic-install-osx.html#installation) )
+- Loom installed (see [instruction](https://loomx.io/developers/en/basic-install-osx.html#installation) )
 
 ```bash
  curl https://raw.githubusercontent.com/loomnetwork/loom-sdk-documentation/master/scripts/get_loom.sh | sh
@@ -26,7 +27,6 @@ local address base64: OzNL7R59Pn2SFElRIBYNkjasvDE=
 ```
 
 and this will create files named `priv_key` and `pub_key`, the `priv_key` file contains your private key that you'll use to deploy contracts to the DAppChain.
-
 
 # Deploy Truffle Example to a Testnet
 
@@ -47,4 +47,3 @@ and this will create files named `priv_key` and `pub_key`, the `priv_key` file c
 6. Run deploy: 
         bash
         yarn deploy:extdev
-        

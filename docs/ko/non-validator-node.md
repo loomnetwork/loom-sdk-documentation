@@ -3,6 +3,7 @@ id: non-validator-node
 title: Non Validator Node
 sidebar_label: Non Validator Node
 ---
+
 # Joining extdev-plasma-us1.dappchains.com as Non-validator
 
 Follow the instructions below to join the cluster extdev-plasma-us1.dappchains.com as a non-validator node.

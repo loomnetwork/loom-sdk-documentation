@@ -1,64 +1,65 @@
 ---
 id: intro-loom-sdk
-title: Loom Networkとは?
-sidebar_label: Loom SDK入門
+title: What is Loom Network?
+sidebar_label: Intro Loom SDK
 ---
-![Loom Networkとは?](/developers/img/what-is-loom.png)
 
-LoomネットワークはEthereumのスケールを手助けするための基本的なインフラのプラットフォームを構築している。 それは大規模なスケールでのアプリケーションを開発者が実行できるようにし、プロダクションで動く最初のEthereumのスケーリングの解決方法となる。
+![What is Loom Network?](/developers/img/what-is-loom.png)
 
-簡単に言うと、LoomネットワークはEthereum上のEOSであると考えられる。
+Loom Network is building a fundamental infrastructure platform to help Ethereum scale. It allows developers to run large-scale applications, and is the first Ethereum scaling solution to be live in production.
 
-## Loom SDK
+In short, you can think of Loom Network as EOS on top of Ethereum.
 
-我々のコアプロダクトはSDKで開発者がすぐに自身のブロックチェーンをその基盤を理解する必要なく構築できるようにする。 「自分のブロックチェーンの構築する」ジェネレーターの様な物と考えて欲しい。
+## The Loom SDK
 
-## DAppChains: それぞれ独自のSidechain上に乗ったDApp
+Our core product is an SDK that allows developers to quickly build their own blockchains without having to understand blockchain infrastructure. Think of it like a “build your own blockchain” generator.
 
-Loom SDKはDAppChain(Ethereumをベースレイヤーとして使うレイヤー2のブロックチェーン) と呼ばれる物を生成する。 各DApp毎に独自のEthereumのサイドチェーンを実行する事は数々の利点があり、最も重要な事は: DAppChainは高いスケーラビリティのための最適な(DPoSなどの) コンセンサスルールを代替し利用可能である事だ。 Ethereumをベースレイヤーとして利用する事はDAppChainベースのアセット(ERC20やERC721トークンなど) が特にPlasmaに裏付けられたEthereum上でセキュリティの保証を持つ事ができる事を意味する。
+## DAppChains: Each DApp On Its Own Sidechain
 
-## DPoS = 非常にスケーラブルなDApps
+The Loom SDK generates what’s called a DAppChain — a layer-two blockchain that uses Ethereum as its base-layer. Running each DApp on its own sidechain to Ethereum has a number of benefits, but most importantly: DAppChains can use alternative consensus rulesets (like DPoS) that optimize for high scalability. Using Ethereum as a base-layer means DAppChain-based assets (like ERC20 and ERC721 tokens) can have the security guarantees of Ethereum, especially when backed by Plasma.
 
-我々のSDKにより、開発者は自身のDAppsの要求に合わせてスケーラビリティとセキュリティのトレードオフをカスタマイズするために自身でコンセンサスアルゴリズムとルールセットを選ぶ事が可能になる 自由な発想で我々はDPoS (Delegated Proof of Stake) をサポートしている、それは大規模なオンラインゲームとソーシャルアプリを可能にする —その２つの初期のタイプのDAppsに我々はフォーカスしている(ただし、どんなタイプのDAppもLoom SDK上に作る事ができる）。 Ethereum上のプラズマによりセキュアにされたDappChainはプラズマベースのリレーを使いアセットをEthereumから出し入れし転送し、Ethereumがセキュアな状態の時にERC20とERC721トークンをDappChain上で使う事を可能する。 簡単に言うと、Loom SDKによって開発者はEOS上で作るであろうアプリと同じタイプの物を作れる様になり、しかしEthereumに裏づけられている。
+## DPoS = Massively Scalable DApps
 
-# ダップチェーンの理解
+Our SDK allows developers to choose their consensus algorithm and rulesets to customize the scalability / security tradeoffs to their DApps needs. Out of the box we support DPoS (Delegated Proof of Stake), which enables large-scale online games and social apps — the 2 initial types of DApps we’re focusing on (though you can build any type of DApp on the Loom SDK). Secured by Plasma on Ethereum DAppChains use Plasma-based relays to transfer assets back and forth from Ethereum, which allows ERC20 and ERC721 tokens to be used on the DAppChain while still being secured by Ethereum. In short, the Loom SDK enables developers to build the same types of apps they would build on EOS, but have them backed by Ethereum.
 
-我々のスケーリングとダップチェーンの利点についてのコアの理論をより理解するために2つのブログの投稿を読む。
+# Understanding DAppChains
 
-[ダップチェーン: サイドチェーンを介したEthereum DAppsのスケーリング](https://medium.com/loom-network-japanese/dappチェーン-f40b5783fb6e)
+To better understand our core thesis on scaling and the benefits of DAppChains, read these two blog posts:
 
-[Ethereum上の百万人のユーザーのDApps: アプリケーション固有のサイドチェーン入門](https://medium.com/loom-network-japanese/イーサリアム上100万ユーザーdapps-分散型アプリケーション-bcd004ff03ed)
+[DAppChains: Scaling Ethereum DApps Through Sidechains](https://medium.com/loom-network/dappchains-scaling-ethereum-dapps-through-sidechains-f99e51fff447)
+
+[Million User DApps on Ethereum: An Introduction to Application-Specific Sidechains](https://medium.com/loom-network/million-user-dapps-on-ethereum-an-introduction-to-application-specific-sidechains-c0fdc288c5e5)
 
 # PlasmaChain
 
-## PlasmaChain: Plasma Cashに裏打ちされたサイドチェーンとEthereumメインネット間のトランザクションハブ
+## PlasmaChain: A Plasma Cash-backed Hub for Transacting Between Sidechains and Ethereum Mainnet
 
-数ヶ月前、我々はZombieChain: “イーサリアムdapps用のeosスタイルdposサイドチェーン” を発表した。 この発表以来、ZombieChainは大幅に発展している。 何があったのかというと、我々はZombieChain上にZombie Battleground用のマーケットプレイスを作り始めた。そして機能リストが膨らんでいくにつれて、このチェーンは当初思っていたよりももっと大きなものになる可能性を秘めていることに我々は気づいた。 そのためこのチェーンをアップグレードして、我々の将来的なビジョンにおいてもっと重要な役割を担うようにすることにした。つまりこのチェーンはトークントランザクションのハブとなり、Plasma CashによりEthereumと接続されたものとなるのだ。 これはEthereumメインネットの橋であり、ビルトインの分散型取引所(DEX)を備えているというふうに考えてみよう。そして他のサイドチェーンもそのDEXを使って、高速で安価なトランザクションをメインネットに触れることなく利用できるのだ。 こんな価値ある役割には、価値ある名前が必要だ。 こうして我々は、ZombieChainを “PlasmaChain” へとリブランディングすることに決めた。
+A few months back, we announced ZombieChain: “An EOS-like DPoS sidechain for Ethereum DApps.” Since we made that announcement, ZombieChain has evolved considerably. What happened is, we started building the marketplace for Zombie Battleground on top of ZombieChain — and as our feature list grew, we realized this chain had potential to become something much larger than originally intended. So we decided to upgrade this chain to have it play an even more important role in the future of our vision: It’s going to become a central hub for token transactions, linked to Ethereum by Plasma Cash. Think of it like a bridge to Ethereum mainnet with a built-in Decentralized Exchange (DEX), that other sidechains can use for faster and cheaper transactions without ever touching mainnet. Such an important role demands an important name. Thus, we’ve decided to rebrand ZombieChain to “PlasmaChain.”
 
-![PlasmaChain](/developers/img/plasmachain_diagram.png)
+![Plasmachain](/developers/img/plasmachain_diagram.png)
 
-PlasmaChain: 以前ZombieChainとして知られていたサイドチェーン。
+PlasmaChain: The Sidechain Formerly Known as ZombieChain.
 
-### こういった機能がPlasmaChainに構築される:
+### Here are some of the features that will be built into PlasmaChain:
 
-* ネイティブなETH、ERC20及びNFT (ERC721) をサポートするメインネットへのPlasma Cashリンク
-* ビルトインのDEX / マーケットプレイス機能
-* ETH 及びLOOM でのネイティブペイメント
-* 今後 BTC ペイメントとの統合を計画
-* PlasmaChainを親チェーンとして、『レイヤー3』チェーンへのPlasma Cashリンクが可能となるように計画。 (『サイドチェーンのサイドチェーン』であると考えよう。そこではPlasmaChainを交換所として、メインネットに触れることなく複数サイドチェーン間のトークン取引が可能となる。) 
+* Plasma Cash link to mainnet for native ETH, ERC20, and NFT (ERC721) support
+* Built-in DEX / marketplace functionality
+* Native payments in ETH and LOOM
+* Plans to integrate BTC payments in the future
+* Plans to enable Plasma Cash links to “Layer 3” chains, with PlasmaChain as the parent chain. (Think “sidechains of sidechains”, in which * PlasmaChain is the clearinghouse that enables trading of tokens between multiple sidechains without hitting mainnet.)
 
-重要: あなたがこれを読んでいる今も、Zombie Battlegroundのマーケットプレイスはすでに稼働中なのだ。 また近い将来、複数テストネットの デプロイを予定している。これらはサードパーティーに公開され、彼らは自身のDAppsのデプロイが可能となる。 これらのテストネットは今後、独自の特色を持った本番チェーンへと発展していくかもしれない。 だがそれまでは、サードパーティーのDAppsをテストしたり、新たな機能を最終的に本番のPlasmaChainへと組み込むための実験を行ったりするために役立てていく。 複数サイドチェーンとEthereum間の橋のように機能するハブとして、PlasmaChainは前進を続ける我々のビジョンにおける最重要な部分の１つとなっていく。
+Here’s the thing: The Zombie Battleground Marketplace is ALREADY RUNNING on PlasmaChain as you read this. We will also be deploying multiple testnets in the near future, which we will open to third parties to deploy their DApps. These testnets may later evolve to become their own specialized production chains. But in the meantime, they’ll help us test third-party DApps and experiment with new features to eventually incorporate into the production PlasmaChain. As the central hub that acts as a bridge between multiple sidechains and Ethereum, PlasmaChain will be one of the most important pieces in our vision moving forward.
 
-# Plasma Cashの理解
+# Understanding Plasma Cash
 
-![Plasma Cashの理解](/developers/img/plasma.jpg)
+![Understanding Plasma Cash](/developers/img/plasma.jpg)
 
-Loom DAppチェーンでのPlasmaの使用について説明した２つの記事がある:
+We’ve written 2 posts explaining our usage of Plasma on Loom DAppChains:
 
-[Loom Network DAppチェーン上のPlasma: アセットがEthereumに守られているスケーラブルなDApps](https://medium.com/loom-network-japanese/loom-network-plasma-f21e58a57b6f)
+[Plasma on Loom Network DAppChains: Scalable DApps With Ethereum-Secured Assets](https://medium.com/loom-network/loom-network-plasma-5e86caaadef2)
 
-[実践的Plasma (Volume I): ゲーミング— サイドチェーンの安全性をPlasmaで守ることでもたらされる現実的なユーザーのメリットについてフォーカス](https://medium.com/loom-network-japanese/実践的plasma-vol-1-ゲーミング-26d9dc7b5f95)
+[Practical Plasma (Volume I): Gaming—focuses on some of the real-world user benefits of securing sidechains with Plasma](https://medium.com/loom-network/practical-plasma-volume-i-gaming-9cfd3f971734)
 
-# Loomトークン
+# Loom Token
 
-LOOMトークンについての質問は、その仕組みを説明している専用記事があるので参照すること: [LOOM Tokenの FAQ — 皆さんからの質問にお答えします！](https://medium.com/loom-network-japanese/loom-tokenの-faq-45b18afa1474)
+For questions about the LOOM token, we have an article specifically devoted to explaining how it works: [LOOM Token FAQs — You got questions, we got answers!](https://medium.com/loom-network/loom-token-faqs-you-got-questions-we-got-answers-2d3c9185b4d0)

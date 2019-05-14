@@ -3,6 +3,7 @@ id: evm
 title: Ethereum Virtual Machine
 sidebar_label: EVM
 ---
+
 ## Overview
 
 loom DAppChains contain an ethereum virtual machine (EVM) and allows you to deploy and run smart contracts that compile to EVM bytecode.
@@ -122,7 +123,7 @@ Transcation receipt:  [10 178 198 52 108 ... 141 155 79 250 97 129 104 243]
 
 ```
 
-The output contract address can be used to call a method on the contract in the call command. The uinique [transaction hash](https://loomx.io/developers/docs/en/evm.html#transaction-receipt) can be used to retrive a receipt of the deployment transaction.
+The output contract address can be used to call a method on the contract in the call command. The uinique [transaction hash](https://loomx.io/developers/en/evm.html#transaction-receipt) can be used to retrive a receipt of the deployment transaction.
 
 ### call
 
@@ -161,7 +162,7 @@ call -a ./data/pub -k ./data/pri -i ./cmd/loom/data/inputSet.bin \
 
 ```
 
-On completion this will return the [transaction hash](https://loomx.io/developers/docs/en/evm.html#transaction-receipt), this should be unique for each transaction call. It can be used to return a receipt of the transaction.
+On completion this will return the [transaction hash](https://loomx.io/developers/en/evm.html#transaction-receipt), this should be unique for each transaction call. It can be used to return a receipt of the transaction.
 
 ### static-call
 
@@ -556,7 +557,7 @@ go-loom and loom-js provide help for communicating with a running DAppChain usin
 
 ### go-loom
 
-This works in much the same way as described for [go-loom Contract](https://loomx.io/developers/docs/en/go-loom-clients.html#connecting-to-a-dappchain)
+This works in much the same way as described for [go-loom Contract](https://loomx.io/developers/en/go-loom-clients.html#connecting-to-a-dappchain)
 
 #### Connecting to a Solidity contract on a DAppChain
 
@@ -593,7 +594,7 @@ We can also deploy a new smart contract to a running DAppChain EVM. For this we 
 
 A solidity contract can be converted to byte code using the solidity compiler `solc --bin -o . mySolidityProgram.sol`
 
-`hex.DecodeString` can be used to convert a hex string to a []byte array. We can then use the client.DeployContract to deploy our contract. and return an EVMContract handle. The second return parameter is a [transaction hash](https://loomx.io/developers/docs/en/evm.html#transaction-receipt) that can be used to retrive a reciept of the transaction using the TxHash Query.
+`hex.DecodeString` can be used to convert a hex string to a []byte array. We can then use the client.DeployContract to deploy our contract. and return an EVMContract handle. The second return parameter is a [transaction hash](https://loomx.io/developers/en/evm.html#transaction-receipt) that can be used to retrive a reciept of the transaction using the TxHash Query.
 
 ```go
 import (
@@ -631,7 +632,7 @@ The runtime code is the inital contract's binary with the code for starting and 
 
 #### Writing to a Solidity contract on a DAppChain
 
-Writing and reading to a smart contract deployed on a DAppChain's EVM works in a similar way to [writing](https://loomx.io/developers/docs/en/go-loom-clients.html#writing-data-to-a-dappchain) and [reading](https://loomx.io/developers/docs/en/go-loom-clients.html#reading-data-from-a-dappchain) to non-EVM plugins. The main difference is that the function signature and input parameters need to be converted to bytecode using [ABI encoding](https://solidity.readthedocs.io/en/develop/abi-spec.html). You can use the go-ethereum [abi.JSON](https://godoc.org/github.com/obscuren/go-ethereum/accounts/abi#JSON) function to encode input using your contracts ABI which you can get from `solc --abi -o. MySolidiityProgram.sol`
+Writing and reading to a smart contract deployed on a DAppChain's EVM works in a similar way to [writing](https://loomx.io/developers/en/go-loom-clients.html#writing-data-to-a-dappchain) and [reading](https://loomx.io/developers/en/go-loom-clients.html#reading-data-from-a-dappchain) to non-EVM plugins. The main difference is that the function signature and input parameters need to be converted to bytecode using [ABI encoding](https://solidity.readthedocs.io/en/develop/abi-spec.html). You can use the go-ethereum [abi.JSON](https://godoc.org/github.com/obscuren/go-ethereum/accounts/abi#JSON) function to encode input using your contracts ABI which you can get from `solc --abi -o. MySolidiityProgram.sol`
 
 EvmContract's Call method is used for methods that mutate the DAppChain's state.
 
@@ -656,7 +657,7 @@ EvmContract's Call method is used for methods that mutate the DAppChain's state.
  }
 ```
 
-The Call method returns a [transaction hash](https://loomx.io/developers/docs/en/evm.html#transaction-hash) You can use the transaction hash retrieve more information about the contract using the `GetEvmTxReceipt` method. This returns a [transcation recieipt, vm.EvmTxReceipt](https://loomx.io/developers/docs/en/evm.html#transaction-receipt) object.
+The Call method returns a [transaction hash](https://loomx.io/developers/en/evm.html#transaction-hash) You can use the transaction hash retrieve more information about the contract using the `GetEvmTxReceipt` method. This returns a [transcation recieipt, vm.EvmTxReceipt](https://loomx.io/developers/en/evm.html#transaction-receipt) object.
 
 ```go
  input (
@@ -705,7 +706,7 @@ To get information from an EVM smart contract you need to call a view method usi
 
 ### loom-js
 
-In JavaScript and TypeScript you can Call methods contracts deployed on the EVM of a DAppChain in a similar way as for non-EVM plugins, outlined in the [loom-js quickstart](https://loomx.io/developers/docs/en/loom-js-quickstart.html#connecting-to-a-dappchain)
+In JavaScript and TypeScript you can Call methods contracts deployed on the EVM of a DAppChain in a similar way as for non-EVM plugins, outlined in the [loom-js quickstart](https://loomx.io/developers/en/loom-js-quickstart.html#connecting-to-a-dappchain)
 
 #### Connecting to a Solidity contract on a DAppChain
 
@@ -749,13 +750,13 @@ async function getContract(privateKey, publicKey) {
 
 #### Writing to a Solidity contract on a DAppChain
 
-Calling an EVM smart contract's method that mutates the state works the same as [writiing data to a DAppChain](https://loomx.io/developers/docs/en/loom-js-quickstart.html#writing-data-to-a-dappchain) The main difference in the case of an EvmContract is that the input takes the format of an [ABI encoded](https://solidity.readthedocs.io/en/develop/abi-spec.html) array.
+Calling an EVM smart contract's method that mutates the state works the same as [writiing data to a DAppChain](https://loomx.io/developers/en/loom-js-quickstart.html#writing-data-to-a-dappchain) The main difference in the case of an EvmContract is that the input takes the format of an [ABI encoded](https://solidity.readthedocs.io/en/develop/abi-spec.html) array.
 
 ```go
     let txHash = await evmContract.callAsync(abiEncodedInput)
 ```
 
-The return value is a [transaction hash](https://loomx.io/developers/docs/en/evm.html#transaction-hash) You can use the transaction hsh retrive more information about the contract using the `GetEvmTxReceipt` method. This returns a [transaction receipt, EvmTxReceipt](https://loomx.io/developers/docs/en/evm.html#transaction-receipt) object
+The return value is a [transaction hash](https://loomx.io/developers/en/evm.html#transaction-hash) You can use the transaction hsh retrive more information about the contract using the `GetEvmTxReceipt` method. This returns a [transaction receipt, EvmTxReceipt](https://loomx.io/developers/en/evm.html#transaction-receipt) object
 
 ```text
     let receipt = await client.getTxReceiptAsync(rtv)

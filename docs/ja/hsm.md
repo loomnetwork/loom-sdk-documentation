@@ -1,19 +1,20 @@
 ---
 id: hsm
-title: ハードウェア セキュリティ モジュール - HSM
-sidebar_label: ハードウェアセキュリティモジュール
+title: Hardware Security Modules - HSM
+sidebar_label: Hardware Security Modules
 ---
-## 概要
 
-ハードウェアセキュリティモジュールは、コンピューターがハッキングされたとしてもバリデーターの秘密鍵が漏洩しないことを保証しているため、 このモジュールを手始めに使用することをPlasmachainの全バリデーターにおすすめしたい。 また将来的に、このモジュールの使用をチェーンのバリデーター参加要件とする可能性がある。
+## Overview
 
-## サポートされているデバイス
+Hardware security modules ensure that private keys of the validator are not compromised even if a machine is hacked. We are highly encouraging all validators on the Plasmachain to have one for starters. In future the chain may make it a requirement to have one to participate as a validator
 
-今現在、我々はED25519アルゴリズムのEDDSA暗号化を行うことのできるデバイスをサポートしている。 現時点で、[Yubico HSM2](https://www.yubico.com/products/yubihsm/)をサポートしており、これは、ビットコインやイーサリアムの電子署名に使われているようなものも含む、幅広い暗号アルゴリズムをカバーした$500前後の安価なデバイスである。 また、間も無く、EDDSA暗号化が可能な他のPKCS11対応デバイスをサポートする予定である。
+## Supported devices
 
-## HSM の構成
+Right now we will only support devices that can do EDDSA encryption with the ED25519 algorithm. Currently we support the [Yubico HSM2](https://www.yubico.com/products/yubihsm/), an economically cheap device at around $500 that supports a wide array of encryption algorithms including those used for bitcoin/ethereum signing. Also we'll soon support other PKCS11 enabled devices that can do EDDSA encryption.
 
-Loom.yml の次のセクションを追加する必要がある。
+## Configuring an HSM
+
+In loom.yml you need to add the following section
 
 ```yaml
 HsmConfig:
@@ -25,55 +26,55 @@ HsmConfig:
   HsmSignKeyID: 0
 ```
 
-## 構成オプション
+## Config options
 
 * HsmEnabled
 
-HSMデバイスで署名を有効にする場合はtrueに設定しなければならない。falseに設定した場合、他の設定は無視される。
+Must be set to true to enable signing with the HSM device, if set to false the other setting are ignored.
 
 * HsmDevType: 
 
-オプション - yubihsm、softhsm (近日公開)、pkcs11 (近日公開)
+Options - yubihsm, softhsm (coming soon), pkcs11 (coming soon)
 
 * HsmConnUrl:
 
-yubicohsmのためのHttp urlで、デフォルトでhttp://localhost:12345をリッスンする。
+Http url for the yubicohsm, by default it listens to http://localhost:12345
 
 * HsmAuthPassword: 
 
-HSMデバイスのためのパスワード。 (以前は HsmDevLogCred)
+Password for the HSM device. (previously HsmDevLogCred)
 
 * HsmAuthKeyId:
 
-yubico hsm上での認証のためのID。 これは、特にそのデフォルトのAuthKeyIdとして、1を設定する。
+ID number for authentication on the yubico hsm. This typically will be set to 1 as its the default AuthKeyId
 
 * SignKeyDomain:
 
-Yubico HSMsは、あなたが指定すれば、セキュリティのための複数のドメイン設定を可能にする。指定しなければ、デフォルトは1である。
+Yubico HSMs allow multiple domains for security, you can specify, otherwise it defaults to 1
 
 * HsmSignKeyID:
 
-HSM上の秘密鍵のIDであり、前もって作っておくことをお勧めする。 この値を0に設定すると、Loom SDKはHSM上でその新しい秘密鍵を生成する。
+ID number of the private key on the HSM, we suggest to create this in advance. If you set this value to zero, Loom SDK will attempt to create a new private key on the HSM itself.
 
-## Yubico HSM を設定
+## Setting up the Yubico HSM
 
-1. Yubico ドライバー、ユーティリティのダウンロード。
+1. Download yubico drivers, utils
 
-<https://developers.yubico.com/YubiHSM2/Releases/> バージョン 1.04 以降が必要。
+<https://developers.yubico.com/YubiHSM2/Releases/> We require version 1.04 or greater.
 
-2. Yubico ドライバのインストール。 
+2. Install the yubico drivers 
 
 ```bash
 dpkg -i *.deb 
 ```
 
-3. Yubico コネクタの実行。
+3. Run the yubico connector
 
 ```bash
 yubihsm-connector -d 
 ```
 
-4. 最初の秘密鍵の作成。
+4. Create your first private key
 
 ```bash
 yubihsm-shell
@@ -85,17 +86,17 @@ session close 0
 quit
 ```
 
-これでID100のキーが手に入る。 loom.yml で HsmSignKeyId を100に設定すること。
+You should now have a key at with ID 100. Please set HsmSignKeyId to 100 in your loom.yml
 
-### 登録候補者のようなトランザクションに署名するための HSM の使用
+### Using HSM for signing transactions like Register Canidate
 
-1. PrivateKeyId と base64 の公開鍵を見つける
+1. Find out your PrivateKeyId and base64 public key
 
 cat chaindata/config/priv_validator.json
 
 get key_id and pub_key/value
 
-2. hsm.jsonを作成
+2. Create hsm.json
 
 ```json
 hsm.json
@@ -107,8 +108,8 @@ hsm.json
 }
 ```
 
-privKeyIDにあなたの鍵のidを入力。
+put your key id into the privKeyID field
 
 3. ./loom call register_candidateV2 PUBLIC_KEY_IN_BASE64 10 --hsmconfig hsm.json -r http://dposv2.dappchains.com:80/query -w http://dposv2.dappchains.com:80/rpc --chain dposv2
 
-PUBLIC_KEY_IN_BASE64 を priv_validator にあるものと入れ替える。
+swap PUBLIC_KEY_IN_BASE64 for the one in the priv_validator

@@ -1,24 +1,25 @@
 ---
 id: metrics
-title: 메트릭
-sidebar_label: 메트릭
+title: Metrics
+sidebar_label: Metrics
 ---
-## 개요
 
-Loom은 메트릭을 사용하며 메트릭 값을 외부 모니터링 서비스에 제공합니다. 미들웨어 레이어는 애플리케이션 서비스와 계측 사이를 구분짓기 위해서 도입되었습니다. Loom SDK은 go-kit의 `metrics` 패키지를 계측기 메트릭으로 활용합니다.
+## Overview
 
-## Loom SDK 메트릭
+Loom instruments metrics and exposes the values of the metrics to external monitoring services. Middleware layer is introduced to enable separation of concern between application services and instrumenting. Loom SDK utilizes go-kit's `metrics` package to instrument metrics.
 
-Loom 4가지의 서로다른 종류의 메트릭을 수집 및 제공합니다:
+## Loom SDK Metrics
 
-- `Counter` 증가만 하는 단일 숫자 값
-- `Gauge` 증가와 감소를 하는 단일 숫자 값
-- `Histogram` 슬라이딩 시간대의 버킷으로 그룹화 된 관찰 샘플
-- `Summary` 슬라이딩 시간대의 수량과 같이 버킷으로 그룹화 된 관찰 샘플
+Loom captures and exposes 4 different types of metrics:
 
-다음 Go 코드는 `go-kit`로 생성하는 메트릭이 어떤지를 보여주는 에시입니다. `Namespace`는 *loomchain*로 prefix 되었습니다. `Subsystem`은 *query_service 또는 *backend_service*가 될 수 있습니다.
+- `Counter` a single numerical value that goes up only
+- `Gauge` a single numerical value that goes up and down
+- `Histogram` a sample of observation grouped into buckets over a sliding time window
+- `Summary` a sample of observation grouped into buckets with quantiles over a sliding time window
 
-예를 들면, requestCounter 메트릭 키는 `loomchain_query_service_request_count`로 참조되어지고 requestLatency 메트릭 키는 `loomchain_query_service_request_latency_microseconds` 입니다. 모든키는 유일합니다.
+The following Go code shows an example of how Loom creates metrics with `go-kit`. The `Namespace` is prefixed with *loomchain*. The `Subsystem` can be either *query_service or *backend_service*.
+
+For example, the requestCounter metric key is referred as `loomchain_query_service_request_count` and the requestLatency metric key is `loomchain_query_service_request_latency_microseconds`. All the keys are unique.
 
 ```Go
 fieldKeys := []string{"method", "error"}
@@ -36,9 +37,9 @@ requestLatency := kitprometheus.NewSummaryFrom(stdprometheus.SummaryOpts{
 }, fieldKeys)
 ```
 
-Loom은 메트릭 값에 변형을 주기 위해서 각 메트릭 별로 두가지의 다른 필드 이름을 제공합니다. 첫번째는 메소드 콜의 이름인 `method` 입니다. 두번째는 `error`이며 메소드 콜이 에러를 반환하고자 할때 true가 됩니다.
+Loom also provides the two different field names for each metrics to create variation of metric values. The first one is `method` which is the name of the method call. The second one is `error` which will be true if the method call returns an error.
 
-다음은 다른 필드로 외부에 제공되는 메트릭의 예제입니다.
+The followings are the example of the exposed metrics with different fields.
 
     loomchain_query_service_request_count{error="false",method="Nonce"} 
     loomchain_query_service_request_count{error="true",method="Nonce"} 
@@ -46,11 +47,11 @@ Loom은 메트릭 값에 변형을 주기 위해서 각 메트릭 별로 두가�
     loomchain_query_service_request_count{error="true",method="Query"}
     
 
-## 메트릭 엔드포인트
+## Metric Endpoint
 
-`loom run` 커맨드로 스마트 컨트랙트가 실행될때, 기본 메트릭 엔드포인트는 `127.0.0.1:46658/metrics`입니다. 엔드포인트는 설정파일의 `RPCBindAddress` 설정 키를 통해서 변경이 가능합니다.
+When running a smart contract using `loom run` command, the default metrics endpoint is `127.0.0.1:46658/metrics`. The endpoint is configurable using the configuration key `RPCBindAddress` in the configuration file.
 
-Http 클라이언트나 web 브라우저를 이용해서 엔드포인트로 부터 메트릭을 폴링할 수 있습니다. `127.0.0.1:46658`에서 구동중인 서버는 다음과 같이 request count 와 latency 메트릭을 보여줄 것입니다.
+You can poll the the metrics from the endpoint using http clients or web browsers. The server running on `127.0.0.1:46658` will show the request count and latency metrics as followed.
 
 ```sh
 curl 127.0.0.1:46658/metrics
@@ -74,15 +75,15 @@ loomchain_query_service_request_latency_microseconds_count{error="true",method="
 
 ```
 
-## 메트릭 모니터링
+## Monitoring Metrics
 
-Loom은 메트릭을 저장하지 않고 순간의 메트릭 값을 보여줄 뿐입니다. 메트릭을 얻기 위해서, 엔드포인트에서 여러분의 모니터링 시스템으로 메트릭을 폴링하거나 [Prometheus](https://prometheus.io/docs/prometheus/latest/installation/)를 사용할 수 있습니다.
+Loom does not store the metrics but only exposes the metric values at the moment. To get metrics, you can either poll the metrics from the endpoint to your monitoring system or you can use [Prometheus](https://prometheus.io/docs/prometheus/latest/installation/).
 
-[Grafana](https://grafana.com/)이나 [Kibana](https://www.elastic.co/products/kibana)와 같은 툴을 사용해서 메트릭을 시각화 할 수도 있습니다.
+You can also visualize the metrics using tools like [Grafana](https://grafana.com/) or [Kibana](https://www.elastic.co/products/kibana).
 
 ### Prometheus
 
-Prometheus 서버를 설정하려면, 설정파일에 다음을 추가하세요:
+To configure prometheus server, add the following to your config file:
 
 ```yaml
 scrape_configs:
@@ -95,11 +96,11 @@ scrape_configs:
       - 127.0.0.1:46658 # The IP address to the query server host
 ```
 
-## 모든 메트릭 리스트
+## List of All Metrics
 
-다음은 Loom SDK에서 제공하는 메트릭 리스트입니다:
+The following are the list of metrics exposed by Loom SDK:
 
-| 메트릭                                                      | 타입      | 설명                             |
-| -------------------------------------------------------- | ------- | ------------------------------ |
-| loomchain_query_service_request_count                | Counter | 수신된 query request 수            |
-| loomchain_query_service_request_latency_microseconds | Summary | 마이크로초 단위의 query request 총 지속시간 |
+| Metrics                                                  | Type    | Description                                      |
+| -------------------------------------------------------- | ------- | ------------------------------------------------ |
+| loomchain_query_service_request_count                | Counter | Number of query requests received                |
+| loomchain_query_service_request_latency_microseconds | Summary | Total duration of query requests in microseconds |

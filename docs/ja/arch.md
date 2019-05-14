@@ -1,64 +1,65 @@
 ---
 id: arch
-title: DAppチェーンのアーキテクチャ
+title: Architecture of a DAppChain
 ---
-Loom SDKはプラグ可能なブロックチェーン開発キットであり、コンセンサス及びコントラクトレイヤーでプラグ可能となっている。
 
-## コンセンサス
+Loom SDK is a pluggable Blockchain Development Kit. Pluggable both at the consensus and contract layer
 
-Loom SDKには、２つのコンセンサスレイヤーがあり、その１つはP2Pレイヤーだ。
+## Consensus
 
-LoomのバックエンドはTendermintのような異なるPBFTエンジンをサポートしている。将来はPoAチェーンにRaftのサポートを予定している。
+Loom SDK has 2 layers of consensus. One at the P2P layer.
 
-Loomのコンセンサスレイヤーは、Loom DPoSもしくはチェーンごとに設定可能なPoS/DPoSコントラクトをサポートしている。Casperが利用可能になれば、このサポートも追加していく。
+Loom Backend supports different BPFT engines, like Tendermint. In future we will support Raft for PoA chains.
+
+Loom Consensus layer support Loom DPoS or a configurable PoS/DPoS contract per Chain. Once Casper becomes available we will add support for this
 
 ![](/developers/img/loom-sdk-arch-overview.jpg)
 
-## スマートコントラクト
+## Smart contracts
 
-GoやSolidityなどの、GRPCサポート言語で書かれたスマートコントラクトを使用することができる。
+It allows smart contracts written in Go, Solidity or any language supporting GRPC.
 
-スマートコントラクトは、DPoSのようなチェーン、あるいはコインやイーサリアム仮想マシンに埋め込むことが可能である。
+Smart contracts can be embedded into the chain, like DPoS, Coin or EthereumVM.
 
-さらにブロックチェーンがGRPCを介して通信を行う外部プロセスとして、スマートコントラクトをし様子rこともできる。
+They can also be made as external processes, that the blockchain communicates to via GRPC.
 
 ![](/developers/img/loom-sdk-arch-contracts.jpg)
 
-## イーサリアムとの統合
+## Ethereum Integration
 
-SDKは以下の部分でイーサリアムのバックエンドと統合している:
+The SDK integrates into the Ethereum Backend with following pieces:
 
-### トランスファーゲートウェイ
+### Transfer Gateway
 
 ![](/developers/img/loom-sdk-arch-plasma.jpg)
 
-### トランスファーゲートウェイで以下が可能
+### Transfer gateway allows for the following
 
-* DAppチェーンへのアセットの移転
-* イーサリアムへのアセットの移転
-* DAppチェーンへのアセットのミラーリング(ペギング)
-* ERC-20トークン
-* ERC-721トークン
+* Transfering Assets to a DappChain
+* Transfering Assets to Ethereum
+* Mirroring(Pegging) Assets on a Dappchain
+* ERC-20 Tokens
+* ERC-721 Tokens
 * Ether 
 
-### Plama Cashコントラクトがサポート
+### Plama Cash Contract supports
 
-* ERC-721トークン
-* ERC-20トークン(７月)
-* Ether (７月)
+* ERC-721 Tokens
+* ERC-20 Tokens (July)
+* Ether (July)
 
-## ブロックチェーンのサービス
+## Blockchain services
 
-SDKはたくさんのハイレベルなブロックチェーンサービスを含んでいる。
+SDK includes a number of high level blockchain services
 
-* 署名 / 認証 / ノンスミドルウェア
-* ビルトインコイン
-* インデックス
-* Websocketsとイベント
-* Solidity + イーサリアム仮想マシン
-* CocosやUnity、Phaserといったゲームエンジンのサポート
-* トランスファーゲートウェイの統合
-* Plasmaの統合
-* Cron (じきにサポート)
-* レートの制限 (初期フェーズ)
-* ハードフォークマネージャー(７月)
+* Signing / Auth / Nonce Middleware
+* Builtin Coin
+* Indexing
+* Websockets and eventing
+* Solidity + Ethereum Virtual Machine
+* Support for game engines like Cocos, Unity, and Phaser
+* Transfer Gateway integration
+* Plasma integration
+* Cron (coming soon)
+* Rate limiting (early phases)
+* Hard fork Manager (coming July)

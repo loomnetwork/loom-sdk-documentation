@@ -1,21 +1,22 @@
 ---
 id: phaser-sdk-demo
-title: Phaser SDK 演示
-sidebar_label: Phaser SDK 演示
+title: Phaser SDK Demo
+sidebar_label: Phaser SDK Demo
 ---
+
 ![Game screenshot](/developers/img/screenshot.png)
 
-一个简单的示例， 展示了一个简单的HTML5游戏和Loom Dapp链交互，使用 [Phaser](http://phaser.io) 和 [Loom.js](https://github.com/loomnetwork/loom-js)。 源代码可在 [Github](https://github.com/loomnetwork/phaser-sdk-demo) 找到。
+A basic example showcasing a simple HTML5 game interacting with a Loom DappChain, using [Phaser](http://phaser.io) and [Loom.js](https://github.com/loomnetwork/loom-js). Souce code is available on [Github](https://github.com/loomnetwork/phaser-sdk-demo)
 
-## 游戏说明
+## Game instructions
 
-使用箭头键移动，按向上箭头跳转。 每通过一排砖块，奖励1分。 收集奖金星星以进一步提高你的分数。
+Use the arrow keys to move around, jump by pressing the up arrow. For each passing row of blocks, 1 point is awarded. Collect bonus stars to increase your score further.
 
-## 开发
+## Development
 
-1.) 运行你自己的 Dapp 链
+1.) Run your own DappChain
 
-安装Loom
+Install Loom
 
 ```bash
 wget https://private.delegatecall.com/loom/osx/stable/loom
@@ -29,27 +30,27 @@ chmod +x contracts/blueprint.0.0.1
 cp ../genesis.example.json genesis.json
 ```
 
-运行区块链
+Run Blockchain
 
     ./loom run
     
 
-有关运行Dapp链的更多说明，请参阅[Loom SDK 文档](https://loomx.io/developers/docs/en/prereqs.html)。
+Please consult the [Loom SDK docs](https://loomx.io/developers/en/prereqs.html) for further instruction on running your own DappChain.
 
-2.) 启动 dev 服务器
+2.) Start the dev server
 
-运行 dev 服务器
+Run dev server
 
-    # 获取源代码
+    #Get Source
     git clone https://github.com/loomnetwork/phaser-sdk-demo.git
     
     cd phaser-sdk-demo
     
-    # 安装
+    # Install
     yarn
     
-    # 编译 protobuf
+    # Compile protobuff
     yarn run proto
     
-    # 启动 dev 服务器
+    # Start the dev server
     yarn run dev

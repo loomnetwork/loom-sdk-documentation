@@ -1,9 +1,10 @@
 ---
 id: prereqs
-title: 前提条件(OSX)
-sidebar_label: インストール (OSX)
+title: Prerequisites (OSX)
+sidebar_label: Installation (OSX)
 ---
-OSXでのLoomのインストールとセットアップ
+
+Installing and setting up Loom on OSX
 
 ## wget
 
@@ -22,7 +23,7 @@ export GOPATH=~/gopath
 *Add GOPATH to your bashrc  or zshrc
 ```
 
-もしくはGolangを`brew`からインストール
+or install Golang from `brew`
 
 ```bash
 brew install go
@@ -48,7 +49,7 @@ $ brew install dep
 $ brew upgrade dep
 ```
 
-## インストール
+## Installation
 
 ```bash
 wget https://private.delegatecall.com/loom/osx/stable/loom
@@ -67,18 +68,18 @@ cd build
 cp ../genesis.example.json genesis.json
 ```
 
-## ブロックチェーンの起動
+## Run Blockchain
 
     ../../loom run
     
 
-## トランザクションの送信
+## Send transactions
 
-2 番目のコンソール画面を開こう。   
+Open a second console   
   
-このようにして秘密鍵を生成し、アカウントを作成する。そしてバリューを設定し、そのバリューをブロックチェーンから読み取る。
+This will generate a private key. Create an account. Then set a value, and then read the value from the blockchain.
 
-Blueprint contract のソースは[こちら](https://github.com/loomnetwork/weave-blueprint)を参照
+You can read the source of the [blueprint contract here](https://github.com/loomnetwork/weave-blueprint)
 
 ```bash
 cd blueprint/build

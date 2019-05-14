@@ -1,37 +1,40 @@
 ---
 id: multi-node-deployment
-title: 배포 예제
-sidebar_label: 멀티 노드 배포
+title: Example Deployment
+sidebar_label: Multi Node Deployment
 ---
-# 멀티 노드 배포
 
-이 문서는 멀티 노드 셋업에서 loom을 구동하는 방법에 대해서 설명합니다.
+# Multi Node Deployment
 
-## 설치하기
+This documentation describes how to run loom in a multi node setup.
 
-이 단계는 각 노드에서 실행되어야 합니다.
+## Installation
 
-1. 여러분만의 작업 디렉토리를 선택하세요. 이 예제에서는 다음을 사용합니다 `/home/ubuntu` 
-        bash
-        cd /home/ubuntu
+These steps need to be executed on each node.
 
-2. 바이너리를 다운로드하세요: 
-        bash
-        wget https://private.delegatecall.com/loom/linux/build-208/loom
-        chmod +x loom
+1. Choose a working directory of your choice. In this example we are using `/home/ubuntu`
 
-3. 설정 파일을 초기화하기 위해서 작업 디렉토리에서 `./loom init`을 실행하세요.
-4. 작업 디렉토리에 `loom.yml` 파일을 추가하세요 
-        yaml
-        RPCBindAddress: "tcp://0.0.0.0:46658"
+```bash
+    cd /home/ubuntu
+    ```
+1. Download the binaries:
+    ```bash
+    wget https://private.delegatecall.com/loom/linux/build-208/loom
+    chmod +x loom
+    ```
+1. Execute `./loom init` in the working directory to initialize config files.
+1. Add `loom.yml` in the working directory:
+    ```yaml
+    RPCBindAddress: "tcp://0.0.0.0:46658"
+    ```
 
-## 구성하기
+## Configuration
 
-두 개의 genesis.json 파일을 결합 할 필요가 있습니다.
+There are two genesis.json files that needs to be combined.
 
-### genesis.json #1 - 작업디렉토리에 있는
+### genesis.json #1 - in the working directory
 
-`genesis.json` 파일은 다음과 같습니다:
+The `genesis.json` file looks like this:
 
 ```json
 {
@@ -66,7 +69,7 @@ sidebar_label: 멀티 노드 배포
 }
 ```
 
-다음으로, 각 노드로부터 모든 `validators`를 수집하고, 하나의 배열에 그것들을 병합하세요. 이 파일은 이제 모든 노드에서 결합 된 파일로 대체되어야 합니다. 두개의 node cluster 라면, 아래와 같은 모습일 것입니다:
+Next, collect all `validators` from each node, then combine them into an array. This file will now need to be replaced with the combined file, in all nodes. For a two node cluster, it should now look like this:
 
 ```json
 {
@@ -105,9 +108,9 @@ sidebar_label: 멀티 노드 배포
 }
 ```
 
-### genesis.json #2 - chaindata/config 내부에 있는
+### genesis.json #2 - inside chaindata/config
 
-여러분은 `genesis.json` 파일을 찾을 수 있을 것입니다. 작업 디렉토리에 있는 것과 혼동하지 마세요. 이런 모습일 것입니다:
+You will find a file named `genesis.json`. It is not to be confused with the one in the working directory. It should look like this:
 
 ```json
 {
@@ -127,7 +130,7 @@ sidebar_label: 멀티 노드 배포
 }
 ```
 
-다음으로, 각 노드로부터 모든 `validators`를 수집하고, 하나의 배열에 그것들을 병합하세요. 이 파일은 이제 모든 노드에서 결합 된 파일로 대체되어야 합니다. 두개의 node cluster 라면, 아래와 같은 모습일 것입니다:
+Next, collect all the `validators` from each node, then combine them into an array. This file will now need to be replaced with the combined file, in all nodes. For a two node cluster, it should now look like this:
 
 ```json
 {
@@ -155,18 +158,18 @@ sidebar_label: 멀티 노드 배포
 }
 ```
 
-## 실행하기
+## Running
 
-먼저, 각 노드로부터 노드 키를 얻는 것이 필요합니다. 작업 디렉토리로 가서 `loom nodekey`를 실행하세요:
+First, we need to get node keys from each node. Go to the working directory and run `loom nodekey`:
 
 ```bash
 $ loom nodekey
 47cd3e4cc27ac621ff8bc59b776fa228adab827e
 ```
 
-어떤 노드 키가 어떤 노드인지를 명확하게 기록하는 것을 잊지 마십시오. Private IP (또는 노드가 서로 통신 할 수 있는 IP) 도 중요합니다. 일반적으로, 클라우드 환경에서는 security와 latency 때문에 public IP를 사용합니다.
+Do remember to clearly make note which node key is for which node. Also important is the private IP (or any IP that are available for the nodes to communicate with each other). Generally, in a cloud environment we use public IPs for security and latency reasons.
 
-이제, 4개의 노드를 가지고 있는 있는 예제를 사용해 봅시다:
+Now, let's use an example with 4 nodes:
 
 | Node | IP       | Node key                                 |
 | ---- | -------- | ---------------------------------------- |
@@ -175,35 +178,35 @@ $ loom nodekey
 | 3    | 10.3.2.1 | 4953e5726664985cc1cc92ae2edcfc6e089ba50d |
 | 4    | 10.7.6.5 | 02c90b57d241c3c014755ecb07e0c0d232e07fff |
 
-Loom을 실행하기 위해서, 각 노드에게 피어가 누구인지 알려주어야 합니다. 일반적인 포맷은 다음과 같습니다:
+To run loom, we need to tell each node about its peers. The general format is:
 
 ```bash
 loom run --persistent-peers tcp://<node1_key>@<node1_ip>:46656,tcp://<node2_key>@<node2_ip>:46656,...tcp://<nodeN_key>@<nodeN_ip>:46656
 ```
 
-위 테이블을 사용하는 예제를 봅시다.
+Let's see examples by using the table above.
 
-노드 1:
+On node 1:
 
 ```bash
 loom run --persistent-peers tcp://e728bada822af677b95cb8ff126ca72cc4e3dc74@10.6.7.8:46656,tcp://4953e5726664985cc1cc92ae2edcfc6e089ba50d@10.3.2.1:46656,tcp://02c90b57d241c3c014755ecb07e0c0d232e07fff@10.7.6.5:46656
 ```
 
-노드 2:
+On node 2:
 
 ```bash
 loom run --persistent-peers tcp://47cd3e4cc27ac621ff8bc59b776fa228adab827e@10.2.3.4:46656,tcp://4953e5726664985cc1cc92ae2edcfc6e089ba50d@10.3.2.1:46656,tcp://02c90b57d241c3c014755ecb07e0c0d232e07fff@10.7.6.5:46656
 ```
 
-노드 3와 노드 4도 동일하게 적용됩니다. 우리는 노드 자신의 키와 IP주소는 제외합니다.
+The same goes for node 3 and node 4. We exclude the node's own key and IP address.
 
-**모든 커맨드는 작업 디렉토리 내에서 실행되어야 한다는 것을 잊지마세요.**
+**Please remember that all commands need to be executed from within the working directory.**
 
 ### systemd Startup Script
 
-다음 startup script는 systemd를 이용해서 서비스를 컨트롤하는데 사용됩니다. 설정이 반영되도록 `WorkingDirectory`와/또는 `ExecStart`을 변경하세요.
+The following startup script can be used to control the service using systemd. Make changes to `WorkingDirectory` and/or `ExecStart` to reflect your setup.
 
-`ExecStart`을 주목하세요, loom을 직접 실행했던 이전 섹션과 동일한 컨셉으로 구성되었습니다. 이것은 각 노드가 다른 startup script를 가진다는 것을 의미합니다.
+Notice `ExecStart`, it is constructed using the same concept from the previous section when running loom directly. This means each node has a different startup script.
 
 ```ini
 [Unit]
@@ -226,30 +229,30 @@ StandardError=syslog
 WantedBy=multi-user.target
 ```
 
-`/etc/systemd/system/loom.service`에 저장하세요. 활성화를 위해서 실행하세요:
+Save it to `/etc/systemd/system/loom.service`. Run these to activate it:
 
 ```bash
 sudo systemctl daemon-reload
 sudo systemctl start loom.service
 ```
 
-다음과 같이 출력을 검사할 수 있습니다:
+You may now inspect the output using:
 
 ```bash
 sudo journalctl -u loom.service
 ```
 
-의도한 대로 모든것이 구동 되었다고 판단될때, 다음을 실행하면 부팅시에 시작되도록 서비스를 활성화 할 것입니다:
+When satisfied everything is running as intended, executing the following will enable the service so that it is started at boot:
 
 ```bash
 sudo systemctl enable loom.service
 ```
 
-## 검증하기
+## Verifying
 
-### 리스닝 포트
+### Listening ports
 
-모든 것이 잘 되고 있다면, 각 노드에서 이런 포트가 열려 있는 것을 볼 수 있을 것입니다.
+If all is well, you will be able to see these ports opened in each node.
 
 ```bash
 $ sudo netstat -tpnl
@@ -260,21 +263,21 @@ tcp6       0      0 :::46657                :::*                    LISTEN      
 tcp6       0      0 :::46658                :::*                    LISTEN      2135/loom
 ```
 
-## 자동화
+## Automation
 
-설정 파일과 startup 커맨드를 조합하는 것이 많은 노력이 들어간다면, Ansible을 사용하여 자동화하는 방법이 있습니다.
+If combining the configuration files and startup commands seems to be a lot of work, we have a way to automate it using Ansible.
 
-Ansible 로컬에 설치되어야 합니다.
+Ansible needs to be installed locally.
 
-Playbook은 [여기서](https://github.com/loomnetwork/loom-playbooks/blob/master/loom-playbook.yml) 확인 가능합니다
+The playbook is available [here](https://github.com/loomnetwork/loom-playbooks/blob/master/loom-playbook.yml)
 
-여러분의 노드와 작업 디렉토리를 맞추기위해서 inventory를 변경해야할 필요가 있습니다.
+You will need to change the inventory to match your nodes and preferred working directory.
 
-**노드에 SSH와 sudo 권한이 가능하도록 하세요**
+**Please ensure SSH and sudo access to the nodes are available**
 
 ### Inventory: inventory.yaml
 
-Inventory는 노드와 노드의 IP 주소를 지정합니다. 노드가 오직 하나의 IP만 가지고 있다면, `ansible_host`와 `private_ip`에 동일한 것을 사용하세요. Ansible는 `ansible_host`를 host와 연결하기 위해서 사용하며, 반면에 `private_ip`는 노드들이 서로 통신하기 위해서 사용된다.
+The inventory specifies the nodes and their IP addresses. If the node only have one IP, use same for both `ansible_host` and `private_ip`. `ansible_host` is used by Ansible to connect to the host, while `private_ip` is used by the nodes to communicate with each other.
 
 ```yaml
 ---
@@ -299,29 +302,29 @@ all:
       private_ip: 10.7.6.5
 ```
 
-노드의 세부사항과 함께 inventory을 수정한 후, playbook을 실행하세요:
+After modifying the inventory with the details of the nodes, execute the playbook:
 
 ```bash
 ansible-playbook -i inventory.yml -vv loom-playbook.yml
 ```
 
-## 더 많은 자동화: Vagrant
+## More Automation: Vagrant
 
-전체 cluster를 provision 하기 위해 포함된Vagrantfile도 있습니다. Ansible는 호스트 머신에 설치되어야 합니다.
+There is also a Vagrantfile included to provision a full cluster. Ansible needs to be installed on the host machine.
 
-VirtualBox provider로 테스트 됩니다. 왠만한 머신에서 4개의 노드를 생성하고 provision 하는데 2분이 채 걸리지 않습니다.
+It is tested with VirtualBox provider. It takes less than two minutes on a decent machine to create and provision 4 nodes.
 
-다음 변수는 필요에 따라 변경될 수 있습니다.
+The following variables may be changed when needed.
 
 ```ruby
-# Vagrant로 생성된 cluster 사이즈
+# Size of the cluster created by Vagrant
 num_instances = 4
 
 # Private Network Prefix
 private_network_prefix = "172.31.99."
 
-# 빌드 넘버
+# Build numbers
 loom_build = "build-208"
 ```
 
-주의: Vagrant는 자신만의 inventory를 만들기 때문에 `inventory.yml`이 사용되지 않습니다.
+Note: Vagrant creates its own inventory so `inventory.yml` is not used.
