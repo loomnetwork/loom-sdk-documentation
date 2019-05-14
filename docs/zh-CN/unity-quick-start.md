@@ -1,10 +1,11 @@
 ---
 id: unity-quick-start
-title: 快速入门
-sidebar_label: 快速入门
+title: Quick Start
+sidebar_label: Quick Start
 ---
-所以你是一个游戏开发者，这太棒了！我们决心要为你们提供一些工具，它们将能够帮助你们在区块链上构建自己想做的游戏。
 
-**如果你之前有Solidity的开发经验**，那么你应该从这里[Truffle + Unity ](https://medium.com/@zacharyholland_17606/getting-started-with-loom-truffle-and-unity-f2558ad9d213) 开始。
+So you are a game developer, that's awesome! We've made it our mission to provide tools to let you build the games you want on the blockchain.
 
-**如果你从来没有了解过智能合约**，那么你可以从我们的[3分钟Unity Tilechain演示](https://loomx.io/developers/docs/en/unity-sample-tiles-chain-evm.html)开始。
+**If you have previous Solidity programming experience**, then you should start with this [truffle + unity tutorial](https://medium.com/@zacharyholland_17606/getting-started-with-loom-truffle-and-unity-f2558ad9d213)
+
+**If you have never learned about smart contracts before**, then you can get started right away with our [3 minute unity tilechain demo](https://loomx.io/developers/en/unity-sample-tiles-chain-evm.html)
