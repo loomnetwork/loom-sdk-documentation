@@ -1,13 +1,14 @@
 ---
 id: non-validator-node
-title: 非验证者节点
-sidebar_label: 非验证者节点
+title: Non Validator Node
+sidebar_label: Non Validator Node
 ---
+
 # Joining extdev-plasma-us1.dappchains.com as Non-validator
 
 Follow the instructions below to join the cluster extdev-plasma-us1.dappchains.com as a non-validator node.
 
-## 下载 loom 稳定版
+## Download Stable Version of loom
 
 ```bash
 wget https://private.delegatecall.com/loom/linux/build-762/loom
@@ -15,7 +16,7 @@ chmod +x loom
 ./loom version
 ```
 
-## 创建 lom. yml
+## Create loom.yml
 
 ```yaml
 ChainID: "extdev-plasma-us1"
@@ -38,13 +39,13 @@ CachingStoreConfig:
   CachingEnabled: true
 ```
 
-## 初始化loom
+## Initialize loom
 
 ```bash
 ./loom init
 ```
 
-## 替换当前目录中的 `genesis.json`
+## Replace `genesis.json` in current directory
 
 ```json
 {
@@ -177,7 +178,7 @@ CachingStoreConfig:
 }
 ```
 
-## 替换 `chaindata/config/genesis.json`
+## Replace `chaindata/config/genesis.json`
 
 ```json
 {
@@ -239,13 +240,13 @@ CachingStoreConfig:
 }
 ```
 
-## 运行 loom
+## Run loom
 
 ```bash
 ./loom run --persistent-peers tcp://1cba97a0a108cb0de51e5a3ff6ac15d70e0fa076@52.53.145.158:46656,tcp://367a9fa0df0afeed204c3360867e37ef03da5b97@52.53.184.91:46656,tcp://7b537b6ad25b5b13864ec20bed8803489189a274@54.193.119.132:46656,tcp://d7623e990790048db76c5d6a25e12efa818aaef1@52.53.221.33:46656
 ```
 
-现在，非验证者节点将与验证者节点同步。可以在 http://localhost:46657/status 查询状态。
+The non-validator node will now sync with the validator nodes. Status can be queried at http://localhost:46657/status
 
 # Joining test-z-asia1.dappchains.com as Non-validator
 
