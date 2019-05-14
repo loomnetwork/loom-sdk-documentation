@@ -1,17 +1,18 @@
 ---
 id: docker-blueprint-phaser
-title: Phaser Docker 示例
-sidebar_label: Phaser Docker 示例
+title: Phaser Docker Example
+sidebar_label: Phaser Docker Exaample
 ---
-我们有公共的Docker容器来直接运行Dapp链及演示程序。 你所要做的就只是需要安装Docker。
 
-每次更新代码时都会构建Docker镜像，所以它永远是最新的。
+We have public Docker containers to run DappChain and demos directly. All you need is Docker installed.
 
-注意：下面的命令公开了所有可用的端口，但可能并非总是需要。
+The Docker images are built each time the code is updated, so it is always current.
 
-## [Phaser SDK 演示](https://github.com/loomnetwork/phaser-sdk-demo)
+Note: The commands below exposes all available ports, but that may not be needed all the time.
 
-考虑到这是在本地计算机上运行的, 并没有任何其他web服务器在端口80上运行：
+## [Phaser SDK Demo](https://github.com/loomnetwork/phaser-sdk-demo)
+
+Considering that this is run on local machine, without any other web server running at port 80:
 
 ```bash
 docker run -d -p 46656:46656  -p 46658:46658  loomnetwork/weave-blueprint:latest
@@ -19,18 +20,18 @@ docker run -d -p 46656:46656  -p 46658:46658  loomnetwork/weave-blueprint:latest
 docker run -d -p 80:3000 loomnetwork/phaser-sdk-demo:latest
 ```
 
-如果在同一主机上运行web服务器，则 `phaser-sdk-demo` 的容器可以使用 `-p 127.0.0.1: 3000:3000`运行，并将web服务器配置为与端口 3000 (或任何其他可用端口) 的反向代理。
+If there is a web server running on the same host, the container for `phaser-sdk-demo` can be run with `-p 127.0.0.1:3000:3000` and configure the web server as reverse proxy to port 3000 (or any other free port).
 
-Web浏览器能够访问`weave-blueprint`容器中运行的websockets很重要。
+It is important for the web browser to be able to access the websockets running in the `weave-blueprint` container.
 
-Docker运行的参数`-p`可以根据需要进一步操纵。
+The docker run parameter `-p` can be manipulated further according to needs.
 
-## [Docker图像](https://hub.docker.com/r/loomnetwork/)
+## [Docker Images](https://hub.docker.com/r/loomnetwork/)
 
-如果你想拉出个别图像
+If you want to pull the individual images
 
-[Loom基础](https://hub.docker.com/r/loomnetwork/loom/)
+[Loom Base](https://hub.docker.com/r/loomnetwork/loom/)
 
-[蓝图合约](https://hub.docker.com/r/loomnetwork/weave-blueprint/)
+[Blueprint Contract](https://hub.docker.com/r/loomnetwork/weave-blueprint/)
 
-[Phaser SDK UI示例](https://hub.docker.com/r/loomnetwork/phaser-sdk-demo)
+[Phaser SDK UI Example](https://hub.docker.com/r/loomnetwork/phaser-sdk-demo)
