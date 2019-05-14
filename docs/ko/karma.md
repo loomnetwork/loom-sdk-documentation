@@ -3,6 +3,7 @@ id: karma
 title: Karma
 sidebar_label: Karma
 ---
+
 The karma module provides a way to limit Transactions. Users are limited in the number and timing of transactions by various karma parameters. There is one user called the Oracle who has unlimited access.
 
 ## Installation
