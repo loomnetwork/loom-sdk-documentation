@@ -1,40 +1,41 @@
 ---
 id: json-rpc-methods
-title: JSON RPCメソッド
-sidebar_label: JSON RPCメソッド
+title: JSON RPC Methods
+sidebar_label: JSON RPC Methods
 ---
-## 概要
 
-[Web3.js](https://github.com/ethereum/web3.js)との互換性があるよう、LoomProviderは[Ethereum JSON RPCメソッド](https://github.com/ethereum/wiki/wiki/JSON-RPC#json-rpc-api)と高い互換性のあるメソッドを追加した。これらのメソッドは、Loom `QueryService`または`LoomProvider`により直接的に呼び出すことができる。このチュートリアルでは、`LoomProvider`について説明していこう。
+## Overview
 
-### LoomProviderからのJSON RPCメソッドの呼び出し
+In order to be compatible with [Web3.js](https://github.com/ethereum/web3.js) LoomProvider added some methods that are quite compatible with [Ethereum JSON RPC Methods](https://github.com/ethereum/wiki/wiki/JSON-RPC#json-rpc-api), those methods are callable directly by the Loom `QueryService` or by `LoomProvider`, on this tutorial we're going to talk about `LoomProvider`
 
-プロバイダーはクライアントとLoom DAppチェーン間のブリッジとなる必要がある。下のコードサンプルでは、インスタンス化された`LoomProvider`が`JSON RPC`を呼び出し、`eth_accounts`でアカウントを取得している。
+### LoomProvider calling JSON RPC Methods
+
+The provider should be the bridge between client and the Loom DAppChain, the code below is an example of `LoomProvider` been instantiated and calling the `JSON RPC` to get accounts with `eth_accounts`
 
 ```javascript
 const privateKey = CryptoUtils.generatePrivateKey();
 const publicKey = CryptoUtils.publicKeyFromPrivateKey(privateKey);
 
-// クライアントの作成
+// Create the client
 const client = new Client(
   "default",
   "ws://127.0.0.1:46658/websocket",
   "ws://127.0.0.1:46658/queryws"
 );
 
-// 関数呼び出し元のアドレス
+// The address for the caller of the function
 const from = LocalAddress.fromPublicKey(publicKey).toString();
 
-// Loom providerのインスタンス化
+// Instantiate loom provider
 const loomProvider = new LoomProvider(client, privateKey);
 
-// eth_accounts JSON RPCの呼び出し
+// eth_accounts JSON RPC call
 const jsonRPCString = '{"id": 1,"jsonrpc": "2.0", "method": "eth_accounts", "params": []}'
 
-// sendの前にJSONをパースするステップが必要
+// Parse JSON is a necessary step before send
 await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
-// このように返却されるはずだ
+// Return should be something like
 // {
 //   "id":1,
 //   "jsonrpc": "2.0",
@@ -46,28 +47,28 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 * * *
 
-#### 説明
+#### Description
 
-LoomProviderが持つアドレスリストを返却する。
+Returns a list of addresses owned by the LoomProvider
 
-#### パラメーター
+#### Parameters
 
-なし。
+None
 
-#### 戻り値
+#### Returns
 
-`Array of DATA`, 20バイトのクライアントが持つアドレス。
+`Array of DATA`, 20 Bytes - addresses owned by the client.
 
-#### 例
+#### Example
 
 ```Javascript
-// eth_accounts JSON RPCの呼び出し
+// eth_accounts JSON RPC call
 const jsonRPCString = '{"id": 1,"jsonrpc": "2.0", "method": "eth_accounts", "params": []}'
 
-// sendの前にJSONをパースするステップが必要
+// Parse JSON is a necessary step before send
 await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
-// このように返却されるはずだ
+// Return should be something like
 // {
 //   "id":1,
 //   "jsonrpc": "2.0",
@@ -79,28 +80,28 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 * * *
 
-#### 説明
+#### Description
 
-直近で完成されたブロックの番号を返す。
+Returns the number of the most recent completed block.
 
-#### パラメーター
+#### Parameters
 
-なし。
+None
 
-#### 戻り値
+#### Returns
 
-`QUANTITY` - 整数。クライアントが取得する現在のブロック番号。
+`QUANTITY` - integer of the current block number the client is on.
 
-#### 例
+#### Example
 
 ```Javascript
-// eth_blockNumber JSON RPCの呼び出し
+// eth_blockNumber JSON RPC call
 const jsonRPCString = '{"jsonrpc":"2.0","method":"eth_blockNumber","params":[],"id":83}'
 
-// sendの前にJSONをパースするステップが必要
+// Parse JSON is a necessary step before send
 await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
-// このように返却されるはずだ
+// Return should be something like
 // {
 //   "id":83,
 //   "jsonrpc": "2.0",
@@ -112,32 +113,32 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 * * *
 
-#### 説明
+#### Description
 
-ブロック チェーン上にトランザクションを作成せず、新しいメッセージコールをすぐに実行。
+Executes a new message call immediately without creating a transaction on the block chain.
 
-#### パラメーター
+#### Parameters
 
-1. Object - トランザクションコールのオブジェクト
+1. Object - The transaction call object
 
-- from: DATA, 20バイト。トランザクション送信元のアドレス。
-- to: DATA, 20バイト。トランザクションの宛先アドレス。
-- data: DATA - メソッドのシグネチャ及びエンコードされたパラメーターのハッシュ。詳細については、Ethereum Contract ABIを参照すること。
+- from: DATA, 20 Bytes - The address the transaction is sent from.
+- to: DATA, 20 Bytes - The address the transaction is directed to.
+- data: DATA - Hash of the method signature and encoded parameters. For details see Ethereum Contract ABI
 
-#### 戻り値
+#### Returns
 
-`DATA` - 実行されたコントラクトの戻り値。
+`DATA` - the return value of the executed contract.
 
-#### 例
+#### Example
 
 ```Javascript
-// eth_call JSON RPCの呼び出し
+// eth_call JSON RPC call
 const jsonRPCString = '{"jsonrpc":"2.0","method":"eth_call","params":[{see above}],"id":1}'
 
-// sendの前にJSONをパースするステップが必要
+// Parse JSON is a necessary step before send
 await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
-// このように返却されるはずだ
+// Return should be something like
 // {
 //   "id":1,
 //   "jsonrpc": "2.0",
@@ -149,36 +150,36 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 * * *
 
-#### 説明
+#### Description
 
-ブロック番号でブロック情報を返却する。
+Returns information about a block by block number.
 
-#### パラメーター
+#### Parameters
 
-1. `QUANTITY|TAG` -ブロック番号の整数、もしくはデフォルトのブロックパラメーターの"earliest"、"latest"、"pending"の文字列。
-2. `Boolean` - 真であれば完全なトランザクションオブジェクトを返却し、偽であればトランザクションのハッシュのみとなる。
+1. `QUANTITY|TAG` - integer of a block number, or the string "earliest", "latest" or "pending", as in the default block parameter.
+2. `Boolean` - If true it returns the full transaction objects, if false only the hashes of the transactions.
 
-#### 戻り値
+#### Returns
 
-`Object` - ブロックオブジェクト、またはブロックが見つからない場合は`null`:
+`Object` - A block object, or `null` when no block was found:
 
-- `number`: `QUANTITY` - ブロック番号。ブロックの処理が保留中であればnull。
-- `hash`: `DATA`, 32バイトのブロックのハッシュ値。ブロック処理が保留中であればnull。
-- `parentHash`: `DATA`, 32バイトの親ブロックのハッシュ。
-- `logsBloom`: `DATA`, 256バイト - ブロックのログのブルームフィルタ。ブロック処理が保留中であればnull。
-- `timestamp`: `QUANTITY` - ブロックが照合された時のunixタイムスタンプ。
-- `transactions`: `Array` - トランザクションオブジェクトの配列。または与えられた最新のパラメーターに依存する、32バイトのトランザクションハッシュ。
+- `number`: `QUANTITY` - the block number. null when its pending block.
+- `hash`: `DATA`, 32 Bytes - hash of the block. null when its pending block.
+- `parentHash`: DATA`, 32 Bytes - hash of the parent block.
+- `logsBloom`: `DATA`, 256 Bytes - the bloom filter for the logs of the block. null when its pending block.
+- `timestamp`: `QUANTITY` - the unix timestamp for when the block was collated.
+- `transactions`: `Array` - Array of transaction objects, or 32 Bytes transaction hashes depending on the last given parameter.
 
-#### 例
+#### Example
 
 ```Javascript
-// eth_getBlockByNumber JSON RPCの呼び出し
+// eth_getBlockByNumber JSON RPC call
 const jsonRPCString = '{"jsonrpc":"2.0","method":"eth_getBlockByNumber","params":["0x1b4", true],"id":1}'
 
-// sendの前にJSONをパースするステップが必要
+// Parse JSON is a necessary step before send
 await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
-// このように返却されるはずだ
+// Return should be something like
 // {
 // "id":1,
 // "jsonrpc":"2.0",
@@ -197,36 +198,36 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 * * *
 
-#### 説明
+#### Description
 
-ハッシュでブロック情報を返却する。
+Returns information about a block by hash.
 
-#### パラメーター
+#### Parameters
 
-1. `DATA` - `32 Bytes` - ブロックのハッシュ。
-2. `Boolean` - `true`であれば完全なトランザクションオブジェクトを返却し、`false` であればトランザクションのハッシュのみとなる。
+1. `DATA` - `32 Bytes` - Hash of a block.
+2. `Boolean` - If `true` it returns the full transaction objects, if `false` only the hashes of the transactions.
 
-#### 戻り値
+#### Returns
 
-`Object` - ブロックオブジェクト、またはブロックが見つからない場合は`null`:
+`Object` - A block object, or `null` when no block was found:
 
-- `number`: `QUANTITY` - ブロック番号。ブロックの処理が保留中であればnull。
-- `hash`: `DATA`, 32バイトのブロックのハッシュ値。ブロック処理が保留中であればnull。
-- `parentHash`: `DATA`, 32バイトの親ブロックのハッシュ。
-- `logsBloom`: `DATA`, 256バイト - ブロックのログのブルームフィルタ。ブロック処理が保留中であればnull。
-- `timestamp`: `QUANTITY` - ブロックが照合された時のunixタイムスタンプ。
-- `transactions`: `Array` - トランザクションオブジェクトの配列。または与えられた最新のパラメーターに依存する、32バイトのトランザクションハッシュ。
+- `number`: `QUANTITY` - the block number. null when its pending block.
+- `hash`: `DATA`, 32 Bytes - hash of the block. null when its pending block.
+- `parentHash`: `DATA`, 32 Bytes - hash of the parent block.
+- `logsBloom`: `DATA`, 256 Bytes - the bloom filter for the logs of the block. null when its pending block.
+- `timestamp`: `QUANTITY` - the unix timestamp for when the block was collated.
+- `transactions`: `Array` - Array of transaction objects, or 32 Bytes transaction hashes depending on the last given parameter.
 
-#### 例
+#### Example
 
 ```Javascript
-// eth_getBlockByHash JSON RPC呼び出し
+// eth_getBlockByHash JSON RPC call
 const jsonRPCString = '{"jsonrpc":"2.0","method":"eth_getTransactionByHash","params":["0xb903239f8543d04b5dc1ba6579132b143087c68db1b2168786408fcbce568238"],"id":1}'
 
-// sendの前にJSONをパースするステップが必要
+// Parse JSON is a necessary step before send
 await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
-// このように返却されるはずだ
+// Return should be something like
 // {
 // "id":1,
 // "jsonrpc":"2.0",
@@ -245,28 +246,28 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 * * *
 
-#### 説明
+#### Description
 
-与えられたアドレスでコードを返却する。
+Returns code at a given address.
 
-#### パラメーター
+#### Parameters
 
-1. `DATA`, `20 Bytes` - アドレス。
+1. `DATA`, `20 Bytes` - address
 
-#### 戻り値
+#### Returns
 
-`DATA` - 与えられたアドレスから返却されるコード。
+`DATA` - the code from the given address.
 
-#### 例
+#### Example
 
 ```Javascript
-// eth_getCode JSON RPCの呼び出し
+// eth_getCode JSON RPC call
 const jsonRPCString = '{"jsonrpc":"2.0","method":"eth_getCode","params":["0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b", "0x2"],"id":1}'
 
-// sendの前にJSONをパースするステップが必要
+// Parse JSON is a necessary step before send
 await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
-// このように返却されるはずだ
+// Return should be something like
 // {
 //   "id":1,
 //   "jsonrpc": "2.0",
@@ -278,42 +279,42 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 * * *
 
-#### 説明
+#### Description
 
-フィルターのポーリングメソッド。最新のポール以降で発生したログの配列を返却する。
+Polling method for a filter, which returns an array of logs which occurred since last poll.
 
-#### パラメーター
+#### Parameters
 
-1. `QUANTITY` -フィルターのID。
+1. `QUANTITY` - the filter id.
 
-#### 戻り値
+#### Returns
 
-`Array` - ログオブジェクトの配列。もしくは最新ポールより何も変更がない場合は空の配列となる。
+`Array` - Array of log objects, or an empty array if nothing has changed since last poll.
 
-- `eth_newBlockFilter`で作成されたフィルターの場合、戻り値はブロックのハッシュとなる (`DATA`, 32バイト)、例`["0x3454645634534..."]`。
-- `eth_newPendingTransactionFilter` で作成されたフィルターの場合、戻り値はトランザクションのハッシュとなる (`DATA`, 32バイト)、例`["0x6345343454645..."]`。
-- `eth_newFilter`で作成されたフィルターの場合、ログは以下パラメーターをもつオブジェクトとなる:
+- For filters created with `eth_newBlockFilter` the return are block hashes (`DATA`, 32 Bytes), e.g. `["0x3454645634534..."]`.
+- For filters created with `eth_newPendingTransactionFilter` the return are transaction hashes (`DATA`, 32 Bytes), e.g. `["0x6345343454645..."]`.
+- For filters created with `eth_newFilter` logs are objects with following params:
     
-    - `removed`: `TAG` - チェーン再構成のためログが削除された場合`true` 。ログが有効な場合は`false`。
-    - `logIndex`: `QUANTITY` - ログのブロック中インデックスポジションの整数。未処理ログの場合はnull。
-    - `transactionIndex`: `QUANTITY` - トランザクションのブロック中インデックスポジションの整数。未処理ログの場合はnull。
-    - `transactionHash`: `DATA`, 32バイト - このログを作成したトランザクションのハッシュ。未処理ログの場合null。
-    - `blockHash`: `DATA`, 32バイト - このログが含まれるブロックのハッシュ。未処理ログ、未処理ブロックの場合null。
-    - `blockNumber`: `QUANTITY` - ログが含まれるブロックの番号。未処理ログ、未処理ブロックの場合null。
-    - `address`: `DATA`, 20バイト - ログ生成元のアドレス。
-    - `data`: `DATA` - 32バイト。１つ以上のインデックスされていないログの引数。
-    - `topics`: `Array of DATA` - インデックスされたログの引数`DATA`。0から432バイト。 (Solidityでは: 最初のトピックはイベントシグネチャのハッシュとなる (例: Deposit(address,bytes32,uint256))、匿名指定子でイベントを宣言した場合を除く。)
+    - `removed`: `TAG` - `true` when the log was removed, due to a chain reorganization. `false` if its a valid log.
+    - `logIndex`: `QUANTITY` - integer of the log index position in the block. null when its pending log.
+    - `transactionIndex`: `QUANTITY` - integer of the transactions index position log was created from. null when its pending log.
+    - `transactionHash`: `DATA`, 32 Bytes - hash of the transactions this log was created from. null when its pending log.
+    - `blockHash`: `DATA`, 32 Bytes - hash of the block where this log was in. null when its pending. null when its pending log.
+    - `blockNumber`: `QUANTITY` - the block number where this log was in. null when its pending. null when its pending log.
+    - `address`: `DATA`, 20 Bytes - address from which this log originated.
+    - `data`: `DATA` - contains one or more 32 Bytes non-indexed arguments of the log.
+    - `topics`: `Array of DATA` - Array of 0 to 4 32 Bytes `DATA` of indexed log arguments. (In solidity: The first topic is the hash of the signature of the event (e.g. Deposit(address,bytes32,uint256)), except you declared the event with the anonymous specifier.)
 
-#### 例
+#### Example
 
 ```Javascript
-// eth_getFilterChanges JSON RPCの呼び出し
+// eth_getFilterChanges JSON RPC call
 const jsonRPCString = '{"jsonrpc":"2.0","method":"eth_getFilterChanges","params":["0x16"],"id":73}'
 
-// sendの前にJSONをパースするステップが必要
+// Parse JSON is a necessary step before send
 await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
-// このように返却されるはずだ
+// Return should be something like
 // {
 //   "id":1,
 //   "jsonrpc":"2.0",
@@ -336,74 +337,74 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 * * *
 
-#### 説明
+#### Description
 
-与えられたフィルターオブジェクトとマッチする全ログの配列を返却する。
+Returns an array of all logs matching a given filter object.
 
-#### パラメーター
+#### Parameters
 
-1. `Object` - フィルターのオプション:
+1. `Object` - The filter options:
 
-- `fromBlock`: `QUANTITY|TAG` - (オプショナル。デフォルトは: `"latest"`) ブロック番号の整数、または最新採掘ブロックの場合 "latest"、未採掘トランザクションの場合は "pending"もしくは "earliest"となる。
-- `toBlock`: `QUANTITY|TAG` - (オプショナル。デフォルトは: "latest") ブロック番号の整数、または最新採掘ブロックの場合 "latest"、未採掘トランザクションの場合は "pending"もしくは "earliest"となる。
-- `address`: `DATA`|Array, 20バイト - (オプショナル) コントラクトアドレス、またはログ生成元のアドレスのリスト。
-- `topics`: Array of `DATA`, - (オプショナル) 32バイトの`DATA`トピックの配列。 トピックは順序に依存。 各トピックはまた、 "or"のオプションを持った`DATA`の配列であることも可能。
-- `blockhash`: `DATA`, 32バイト - (オプショナル、今後追加) blockHashはEIP-234の追加により、32バイトのblockHashで返却されるログを単一ブロックに制限する、新たなフィルターのオプションとなる。 blockHashはこれらと同様に使用できる: fromBlock = toBlock = blockHashのハッシュを持つブロックの番号。 BlockHash がフィルター条件に存在する場合は、fromBlock と toBlock のどちらも使用不可。
+- `fromBlock`: `QUANTITY|TAG` - (optional, default: `"latest"`) Integer block number, or "latest" for the last mined block or "pending", "earliest" for not yet mined transactions.
+- `toBlock`: `QUANTITY|TAG` - (optional, default: "latest") Integer block number, or "latest" for the last mined block or "pending", "earliest" for not yet mined transactions.
+- `address`: `DATA`|Array, 20 Bytes - (optional) Contract address or a list of addresses from which logs should originate.
+- `topics`: Array of `DATA`, - (optional) Array of 32 Bytes `DATA` topics. Topics are order-dependent. Each topic can also be an array of `DATA` with "or" options.
+- `blockhash`: `DATA`, 32 Bytes - (optional, future) With the addition of EIP-234, blockHash will be a new filter option which restricts the logs returned to the single block with the 32-byte hash blockHash. Using blockHash is equivalent to fromBlock = toBlock = the block number with hash blockHash. If blockHash is present in in the filter criteria, then neither fromBlock nor toBlock are allowed.
 
-#### 戻り値
+#### Returns
 
-[eth_getFilterChanges](#eth-getfilterchanges)を参照すること。
+See [eth_getFilterChanges](#eth-getfilterchanges)
 
-#### 例
+#### Example
 
 ```Javascript
-// eth_getFilterChanges JSON RPCの呼び出し
+// eth_getFilterChanges JSON RPC call
 const jsonRPCString = '{"jsonrpc":"2.0","method":"eth_getLogs","params":[{"topics":["0x000000000000000000000000a94f5374fce5edbc8e2a8697c15331677e6ebf0b"]}],"id":74}'
 
-/// sendの前にJSONをパースするステップが必要
+// Parse JSON is a necessary step before send
 await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 ```
 
-結果は[eth_getFilterChanges](#eth-getfilterchanges)を参照すること。
+Result see [eth_getFilterChanges](#eth-getfilterchanges)
 
 ## eth_getTransactionReceipt
 
 * * *
 
-#### 説明
+#### Description
 
-トランザクションハッシュでトランザクションのレシートを返却する。
+Returns the receipt of a transaction by transaction hash.
 
-**注意** 未処理トランザクションの場合、レシートは利用不可。
+**Note** That the receipt is not available for pending transactions.
 
-#### パラメーター
+#### Parameters
 
-1. `DATA`, 32バイト - トランザクションのハッシュ。
+1. `DATA`, 32 Bytes - hash of a transaction
 
-#### 戻り値
+#### Returns
 
-`Object` - トランザクションレシートオブジェクト、またはレシートが見つからない場合は`null`:
+`Object` - A transaction receipt object, or `null` when no receipt was found:
 
-- `transactionHash`: `DATA`, 32バイトのトランザクションハッシュ。
-- `transactionIndex`: `QUANTITY` - トランザクションのブロック中インデックスポジションの整数。
-- `blockHash`: `DATA`, 32バイト - トランザクションが含まれるブロックのハッシュ。
-- `blockNumber`: `QUANTITY` - トランザクションが含まれるブロックの番号。
-- `from`: `DATA`, 20バイトの送信者アドレス。
-- `to`: `DATA`, 20バイトの受信者アドレス。コントラクト作成トランザクションの場合はnull。
-- `contractAddress`: `DATA`, 20バイト - トランザクションがコントラクト作成のためのものであれば、作成されたコントラクトアドレスとなる。そうでない場合はnull。
-- `logs`: `Array` - トランザクションにより生成されたログオブジェクトの配列。
-- `status`: `QUANTITY` 1 (成功) もしくは 0 (失敗)
+- `transactionHash`: `DATA`, 32 Bytes - hash of the transaction.
+- `transactionIndex`: `QUANTITY` - integer of the transactions index position in the block.
+- `blockHash`: `DATA`, 32 Bytes - hash of the block where this transaction was in.
+- `blockNumber`: `QUANTITY` - block number where this transaction was in.
+- `from`: `DATA`, 20 Bytes - address of the sender.
+- `to`: `DATA`, 20 Bytes - address of the receiver. null when its a contract creation transaction.
+- `contractAddress`: `DATA`, 20 Bytes - The contract address created, if the transaction was a contract creation, otherwise null.
+- `logs`: `Array` - Array of log objects, which this transaction generated.
+- `status`: `QUANTITY` either 1 (success) or 0 (failure)
 
-#### 例
+#### Example
 
 ```Javascript
-// eth_getTransactionReceipt JSON RPCの呼び出し
+// eth_getTransactionReceipt JSON RPC call
 const jsonRPCString = '{"jsonrpc":"2.0","method":"eth_getTransactionReceipt","params":["0xb903239f8543d04b5dc1ba6579132b143087c68db1b2168786408fcbce568238"],"id":1}'
 
-// sendの前にJSONをパースするステップが必要
+// Parse JSON is a necessary step before send
 await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
-// このように返却されるはずだ
+// Return should be something like
 // {
 // "id":1,
 // "jsonrpc":"2.0",
@@ -425,28 +426,28 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 * * *
 
-#### 説明
+#### Description
 
-新たな未処理トランザクションが発生した場合に通知するよう、ノードにフィルタを作成する。状態が変更されたかをチェックするには、[eth_getFilterChanges](#eth-getfilterchanges)を呼び出す。
+Creates a filter in the node, to notify when new pending transactions arrive. To check if the state has changed, call [eth_getFilterChanges](#eth-getfilterchanges).
 
-#### パラメーター
+#### Parameters
 
-なし。
+None
 
-#### 戻り値
+#### Returns
 
-`QUANTITY` -フィルターのID。
+`QUANTITY` - A filter id.
 
-#### 例
+#### Example
 
 ```Javascript
-// eth_newBlockFilter JSON RPCの呼び出し
+// eth_newBlockFilter JSON RPC call
 const jsonRPCString = '{"jsonrpc":"2.0","method":"eth_newBlockFilter","params":[],"id":73}'
 
-// sendの前にJSONをパースするステップが必要
+// Parse JSON is a necessary step before send
 await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
-// このように返却されるはずだ
+// Return should be something like
 // {
 //   "id":1,
 //   "jsonrpc":  "2.0",
@@ -458,43 +459,43 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 * * *
 
-#### 説明
+#### Description
 
-状態変更(ログ)を通知するフィルターオプションに基づいたフィルターオブジェクトを作成する。状態が変更をチェックするには、[eth_getFilterChanges](#eth-getfilterchanges)を呼び出す。
+Creates a filter object, based on filter options, to notify when the state changes (logs). To check if the state has changed, call [eth_getFilterChanges](#eth-getfilterchanges).
 
-##### トピック指定フィルターについて:
+##### A note on specifying topic filters:
 
-トピックは順序に依存する。トピック[A, B]を含むログを持つトランザクションは、以下のトピックフィルターとマッチする:
+Topics are order-dependent. A transaction with a log with topics [A, B] will be matched by the following topic filters:
 
-- `[]` "条件なし"
-- `[A]` "Aが最初にある (それ以降はなんでも良い)"
-- `[null, B]` "最初のトピックはなんでも良いが、２番目にはBがある (それ以降はなんでも良い)"
-- `[A, B]` "Aが最初、かつBが２番目にある (以降はなんでも良い)"
-- `[[A, B], [A, B]]` "(A または B) は最初にあり、かつ (A または B) が２番目にある (以降はなんでも良い)"
+- `[]` "anything"
+- `[A]` "A in first position (and anything after)"
+- `[null, B]` "anything in first position AND B in second position (and anything after)"
+- `[A, B]` "A in first position AND B in second position (and anything after)"
+- `[[A, B], [A, B]]` "(A OR B) in first position AND (A OR B) in second position (and anything after)"
 
-#### パラメーター
+#### Parameters
 
-1. `Object` - フィルターのオプション:
+1. `Object` - The filter options:
 
-- `fromBlock`: `QUANTITY|TAG` - (オプショナル。デフォルトは: "latest") ブロック番号の整数、または最新採掘ブロックの場合 "latest"、未採掘トランザクションの場合は "pending"もしくは "earliest"となる。
-- `toBlock`: `QUANTITY|TAG` - (オプショナル。デフォルトは: "latest") ブロック番号の整数、または最新採掘ブロックの場合 "latest"、未採掘トランザクションの場合は "pending"もしくは "earliest"となる。
-- `address`: `DATA|Array`, 20バイト - (オプショナル) コントラクトアドレス、またはログ生成元のアドレスのリスト。
-- `topics`: `Array of DATA`, - (オプショナル) 32バイトDATAトピックの配列。トピックは順序に依存。各トピックは、"or"のオプションを持つDATAの配列であることも可能。
+- `fromBlock`: `QUANTITY|TAG` - (optional, default: "latest") Integer block number, or "latest" for the last mined block or "pending", "earliest" for not yet mined transactions.
+- `toBlock`: `QUANTITY|TAG` - (optional, default: "latest") Integer block number, or "latest" for the last mined block or "pending", "earliest" for not yet mined transactions.
+- `address`: `DATA|Array`, 20 Bytes - (optional) Contract address or a list of addresses from which logs should originate.
+- `topics`: `Array of DATA`, - (optional) Array of 32 Bytes DATA topics. Topics are order-dependent. Each topic can also be an array of DATA with "or" options.
 
-#### 戻り値
+#### Returns
 
-`QUANTITY` -フィルターのID。
+`QUANTITY` - A filter id
 
-#### 例
+#### Example
 
 ```Javascript
-// eth_newFilter JSON RPCの呼び出し
+// eth_newFilter JSON RPC call
 const jsonRPCString = '{"jsonrpc":"2.0","method":"eth_newFilter","params":[{"topics":["0x12341234"]}],"id":73}'
 
-// sendの前にJSONをパースするステップが必要
+// Parse JSON is a necessary step before send
 await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
-// このように返却されるはずだ
+// Return should be something like
 // {
 //   "id":1,
 //   "jsonrpc": "2.0",
@@ -506,34 +507,34 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 * * *
 
-#### 説明
+#### Description
 
-新規メッセージ呼び出しトランザクションの作成、またはデータフィールドにコードが含まれていればコントラクトの作成を行う。
+Creates new message call transaction or a contract creation, if the data field contains code.
 
-#### パラメーター
+#### Parameters
 
-1. `Object` - トランザクションオブジェクト。
+1. `Object` - The transaction object
 
-- `from`: `DATA`, 20バイトのトランザクション送信元アドレス。
-- `to`: `DATA`, 20バイト - (新規コントラクト作成時のオプション) トランザクションの宛先アドレス。
-- `data`: `DATA` - コントラクトのコンパイル済みコード、あるいは呼び出されたメソッドのシグネチャ及びエンコード済みパラメーター。詳細についてはEthereum Contract ABIを参照すること。
+- `from`: `DATA`, 20 Bytes - The address the transaction is send from.
+- `to`: `DATA`, 20 Bytes - (optional when creating new contract) The address the transaction is directed to.
+- `data`: `DATA` - The compiled code of a contract OR the hash of the invoked method signature and encoded parameters. For details see Ethereum Contract ABI
 
-#### 戻り値
+#### Returns
 
-`DATA`, 32バイト - トランザクションのハッシュ。またはトランザクションがまだ有効でない場合はゼロハッシュ。
+`DATA`, 32 Bytes - the transaction hash, or the zero hash if the transaction is not yet available.
 
-コントラクト作成の際のトランザクションが採掘されたら、[eth_getTransactionReceipt](#eth-gettransactionreceipt)を使用してコントラクトアドレスを取得しよう。
+Use [eth_getTransactionReceipt](#eth-gettransactionreceipt) to get the contract address, after the transaction was mined, when you created a contract.
 
-#### 例
+#### Example
 
 ```Javascript
-// eth_sendTransaction JSON RPCの呼び出し
+// eth_sendTransaction JSON RPC call
 const jsonRPCString = '{"jsonrpc":"2.0","method":"eth_sendTransaction","params":[{see above}],"id":1}'
 
-// sendの前にJSONをパースするステップが必要
+// Parse JSON is a necessary step before send
 await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
-// このように返却されるはずだ
+// Return should be something like
 // {
 //   "id":1,
 //   "jsonrpc": "2.0",
@@ -545,31 +546,31 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 * * *
 
-#### 説明
+#### Description
 
-特定イベントのサブスクライブで機能。 ノードはサブスクリプションIDを返却する。 サブスクリプションとマッチする各イベントで、サブスクリプションIDと関連データを含む通知が送信される。
+It works by subscribing to particular events. The node will return a subscription id. For each event that matches the subscription a notification with relevant data is send together with the subscription id.
 
-#### パラメーター
+#### Parameters
 
-1. `object` は次の(オプショナルの)フィールドを持つ。
+1. `object` with the following (optional) fields
 
-- `address` 単一アドレスまたはアドレスの配列のどちらか。これらのアドレスより作成されるログのみが返却される(オプショナル)
-- `topics` 特定のトピックとマッチするログのみ (オプショナル)
+- `address`, either an address or an array of addresses. Only logs that are created from these addresses are returned (optional)
+- `topics`, only logs which match the specified topics (optional)
 
-#### 戻り値
+#### Returns
 
-サブスクリプションID。
+Subscription id
 
-#### 例
+#### Example
 
 ```Javascript
 // eth_subscribe JSON RPC call
 const jsonRPCString = '{"id": 1, "method": "eth_subscribe", "params": ["logs", {"address": "0x8320fe7702b96808f7bbc0d4a888ed1468216cfd", "topics": ["0xd78a0cb8bb633d06981248b816e7bd33c2a35a6089241d099fa519e361cab902"]}]}'
 
-// sendの前にJSONをパースするステップが必要
+// Parse JSON is a necessary step before send
 await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
-// このように返却されるはずだ
+// Return should be something like
 // {
 //   "jsonrpc":"2.0",
 //   "id":2,
@@ -581,28 +582,28 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 * * *
 
-#### 説明
+#### Description
 
-与えられたIDでフィルターをアンインストールする。 ウォッチングが必要でなくなった場合は常に、このメソッドを呼び出さなくてはならない。 さらにある期間[eth_getFilterChanges](#eth-getfilterchanges)でのリクエストがない場合、フィルターはタイムアウトされる。
+Uninstalls a filter with given id. Should always be called when watch is no longer needed. Additonally Filters timeout when they aren't requested with [eth_getFilterChanges](#eth-getfilterchanges) for a period of time.
 
-#### パラメーター
+#### Parameters
 
-1. `QUANTITY` -フィルターのID。
+1. `QUANTITY` - The filter id
 
-#### 戻り値
+#### Returns
 
-`Boolean` - フィルターのアンインストールが成功すれば`true`、そうでなければ`false`。
+`Boolean` - `true` if the filter was successfully uninstalled, otherwise `false`.
 
-#### 例
+#### Example
 
 ```Javascript
-// eth_uninstallFilter JSON RPCの呼び出し
+// eth_uninstallFilter JSON RPC call
 const jsonRPCString = '{"jsonrpc":"2.0","method":"eth_uninstallFilter","params":["0xb"],"id":73}'
 
-// sendの前にJSONをパースするステップが必要
+// Parse JSON is a necessary step before send
 await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
-// このように返却されるはずだ
+// Return should be something like
 // {
 //   "id":1,
 //   "jsonrpc": "2.0",
@@ -614,30 +615,30 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 * * *
 
-#### 説明
+#### Description
 
-現在のネットワークIDを返却する。
+Returns the current network id.
 
-#### パラメーター
+#### Parameters
 
-なし。
+None
 
-#### 戻り値
+#### Returns
 
-`String` - 現在のネットワークID。
+`String` - The current network id.
 
-- "474747": 現在のネットワークIDが定義されており、`474747`と数字が単純に返却される。
+- "474747": Currently there's now network id defined, the number returned is simply `474747`
 
-#### 例
+#### Example
 
 ```Javascript
-// net_version JSON RPCの呼び出し
+// net_version JSON RPC call
 const jsonRPCString = '{"jsonrpc":"2.0","method":"net_version","params":[],"id":67}'
 
-// sendの前にJSONをパースするステップが必要
+// Parse JSON is a necessary step before send
 await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
-// このように返却されるはずだ
+// Return should be something like
 // {
 //   "id":67,
 //   "jsonrpc": "2.0",
