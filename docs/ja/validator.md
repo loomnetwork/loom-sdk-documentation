@@ -1,10 +1,12 @@
 ---
 id: validator
-title: バリデーターになるには
-sidebar_label: バリデーターになるには
+title: Become Validator
+sidebar_label: Become Validator
 ---
-このページではバリデータになる方法、もしくはPlasmaChainのノードのみを運営する方法について説明している。 現在この機能はテストネットでのみ利用できる。 バリデーターとなるには、この[フォーム](http://bit.ly/Loom_Validator_Form)を記入すること。
 
-## バリデーターとして参加するには
 
-現在はまだプライベートベータ版となっている。
+This page tells you how to become a validator, or to just run a node for Plasmachain. Currently this is only available on our Testnets. Please fill out this [form](http://bit.ly/Loom_Validator_Form) to be come a validator
+
+## How to join as a Validator
+
+Right now this is in private beta
