@@ -1,20 +1,8 @@
 module.exports = {
   base: '/developers/',
   SEARCH_MAX_SUGGESTIONS: 10,
-  markdown: {
-    // options for markdown-it-anchor
-    anchor: {
-      permalink: false
-    },
-    // options for markdown-it-toc
-    toc: {
-      includeLevel: [1, 2]
-    },
-    extendMarkdown: md => {
-      // use more markdown-it plugins!
-    }
-  },
   plugins: [
+    'vuepress-plugin-nprogress'
   ],
   head: [
     ['link', {

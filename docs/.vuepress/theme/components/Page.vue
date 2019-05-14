@@ -1,7 +1,7 @@
 <template>
   <main class="page">
-    <Navbar @toggle-sidebar="$emit('toggle-sidebar')" @toggle-darkmode="$emit('toggle-darkmode')" :darkMode="darkMode"/>
     <slot name="top" />
+    <Navbar @toggle-sidebar="$emit('toggle-sidebar')" @toggle-darkmode="$emit('toggle-darkmode')" :darkMode="darkMode"/>
 
     <Content ref="content" />
 
@@ -55,8 +55,6 @@
         </span>
       </p>
     </div>
-
-
     <slot name="bottom" />
   </main>
 </template>

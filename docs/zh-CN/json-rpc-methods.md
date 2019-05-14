@@ -296,19 +296,18 @@ await loomProvider.sendAsync(JSON.parse(jsonRPCString))
 
 - 对于使用 `eth_newBlockFilter` 创建的过滤器, 返回是块的哈希值 (`数据`, 32 字节), 例如 `["0x3454645634534......"]`。
 - 对于使用 `eth_newBlockFilter` 创建的过滤器, 返回是事务的哈希值 (`DATA`, 32 字节), 例如 `["0x6345343454645......"]`。
-- 对于使用` eth_newFilter </ code>创建的过滤器，日志将是具有以下参数的对象：</p>
+- 对于使用` eth_newFilter </ code>创建的过滤器，日志将是具有以下参数的对象：
 
-<ul>
-<li><code>removed`: `TAG` - 由于链重新配置而删除日志时为` true </ 0>。 如果它是一个有效日志，则为<code> false </ 0>。</li>
-<li><code> logIndex </ code>：<code> QUANTITY </ code> - 区块中日志索引位置的整数。 当日志为待处理时为null。</li>
-<li><code> transactionIndex`：` QUANTITY ` - 事务索引位置的整数，日志是由此创建的。当日志为待处理时为null。</li> 
+- `removed`: `TAG` - 由于链重新配置而删除日志时为`true`。 如果它是一个有效日志，则为`false`。
+- `logIndex`：`QUANTITY` - 区块中日志索引位置的整数。 当日志为待处理时为null。
+- `transactionIndex`：` QUANTITY ` - 事务索引位置的整数，日志是由此创建的。当日志为待处理时为null。
     
     - ` transactionHash`：` DATA`，32字节 - 事务的哈希，这个日志根据此创建。当日志为待处理时为null。
     - `blockHash`: `DATA`, 32 字节 - 这个日志所在区块的哈希。当它待处理时为null。当日志待处理时为null。
     - `blockNumber`: `QUANTITY` - 这个日志所在的区块编号。当它待处理时为null。当日志待处理时为null。
     - `address`: `DATA`, 20 字节 - 这个日志起源的地址。
     - `data`: `DATA` - 包含日志的一个或多个32字节的非索引参数。
-    - `topics`: `Array of DATA` - 数组0到 4 32 字节 索引日志参数的`DATA`。 （在Solidity：第一个topic是事件（例如Deposit(address,bytes32,uint256)）签名的哈希，除非你用匿名说明符声明了该事件。）</ul></li> </ul> 
+    - `topics`: `Array of DATA` - 数组0到 4 32 字节 索引日志参数的`DATA`。 （在Solidity：第一个topic是事件（例如Deposit(address,bytes32,uint256)）签名的哈希，除非你用匿名说明符声明了该事件。）
     
     #### 示例
     

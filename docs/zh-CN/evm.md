@@ -65,10 +65,9 @@ loom DApp链包含一个以太坊虚拟机（EVM）并使你可以部署以及�
     1. `plugin` 用户插件，可以由 `go-loom` 生成。
     2. `truffle` Solidity 程序，使用 truffle 编译器编译。
     3. `solidity` Solidity 程序，使用 solc 编译。
-    4. `hex` Raw Hex，例如使用 ` solc -o </ code> 选项编译的 solidty 程序。</li>
-</ol></li>
-<li><code>name` 这个名称可用于检索由 loom 或 EVM 分配的合约地址。
-    5. `location` 位于contracts目录中的文件二进制文件的版本化名称。 对于 truffle 和 solidity，可能有必要提供完整的路径。</ul> 
+    4. `hex` Raw Hex，例如使用 ` solc -o </ code> 选项编译的 solidty 程序。
+       `name` 这个名称可用于检索由 loom 或 EVM 分配的合约地址。
+    5. `location` 位于contracts目录中的文件二进制文件的版本化名称。 对于 truffle 和 solidity，可能有必要提供完整的路径。
     
     所以在这个例子中，Loom DApp链将会用我们 SimpleStore solidity 合约的 truffle 编译中的字节码。 然后将在该链的EVM上部署它。 可以在loom的登录信息中找到确认信息和合约地址。
     
@@ -651,7 +650,8 @@ loom DApp链包含一个以太坊虚拟机（EVM）并使你可以部署以及�
     Call 方法返回[事务哈希值](https://loomx.io/developers/docs/en/evm.html#transaction-hash)。你可以在` GetEvmTxReceipt </ code>方法中使用此哈希来检索有关合约的更多信息。
  这会返回一个 <a href="https://loomx.io/developers/docs/en/evm.html#transaction-receipt">transcation recieipt, vm.EvmTxReceipt</a> 对象。</p>
 
-<pre><code class="go"> input (
+```go
+ input (
    "github.com/loomnetwork/go-loom/auth"
    "github.com/loomnetwork/go-loom/client"
    "github.com/loomnetwork/go-loom/vm
@@ -668,7 +668,7 @@ loom DApp链包含一个以太坊虚拟机（EVM）并使你可以部署以及�
     receipt, err = rpcClinet.GetTxReceipt(txHash)
  ...
 
-`</pre> 
+```
     
     #### 读取DApp链上的Solidity合约
     
