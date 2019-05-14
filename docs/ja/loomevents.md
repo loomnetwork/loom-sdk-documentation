@@ -1,17 +1,18 @@
 ---
 id: loomevents
-title: イベントのサブスクライブ
-sidebar_label: イベントのサブスクライブ
+title: Subscribing to events
+sidebar_label: Subscribing to events
 ---
-## イベントの送信
 
-イベントはスマートコントラクトおよび[goプラグイン](./goloomevents)から送信される。 このイベントは２つの方法でサブスクライブできる。
+## Emitting events
 
-### イベントの構造
+Events emitted from smart contracts and [go plugins](./goloomevents). These events can be subscribed to in two ways
 
-上に示したイベントのJSONデータは、イベントストリームへ出力される前に、あるトランザクション固有のメタデータでラップされる。 メタデータの他のフィールドには、呼び出しアドレス、コントラクトアドレス、コントラクト名とトランザクションリクエストのローデータが含まれている。
+### Event structure
 
-以下はRedisへ出力される完全なメッセージの例である -
+The event JSON shown above is wrapped in some transaction specific metadata before being emitted to the event stream. The other fields in the metadata include Called address, the contract address, the contract name and the raw transaction request data.
+
+Below is an example of the full message that goes into redis -
 
 ```json
 {
@@ -30,20 +31,20 @@ sidebar_label: イベントのサブスクライブ
 }
 ```
 
-`rawRequest`及び`encodedData`は標準エンコーディングを使用したBase64でエンコードされている。
+The `rawRequest` and the `encodedData` are base64 encoded with a standard encoding.
 
-## Redisでのサブスクライブ
+## Subscribing via Redis
 
-loom-sdkは、デフォルトではログにイベントを出力するのみとなっている。これを設定してRedisのソート済みセットへ出力するには、次の１行を設定ファイルloom.yamlに追加しよう。
+By default the loom-sdk will only emit events to the log. To configure it to send it to a redis sorted set, add the following line to the loom.yaml config file.
 
     EventDispatcherURI: "redis://localhost:6379"
     
 
-こうして、Redisサーバーへ`loomevents`というソート済みセット型にてイベントが出力されるようになる。 各イベントは、ブロックの高さのスコアでソートされたセット型へと追加される。
+This will start emitting events to the redis server in a sorted set called `loomevents`. Each event is added to the sorted set with the score being the blockchain height.
 
-## websocketsでのサブスクライブ
+## Subscribing via websockets
 
-Loom SDKのクエリ・エンドポイントも、イベントストリームへサブスクライブするのに使用できる。 ここにあるのは、コマンドラインと[wscat](https://www.npmjs.com/package/wscat2) nodejs cliを使用したサンプルのサブスクリプションコードだ。
+The Loom SDK query endpoint can be used to subscribe to the event stream as well. Here is sample subscription code using a command line and the [wscat](https://www.npmjs.com/package/wscat2) nodejs cli.
 
     $ cat command.json
     {
@@ -78,8 +79,8 @@ Loom SDKのクエリ・エンドポイントも、イベントストリームへ
     }
     
 
-CLIアウトプット中の最初のjsonは、サブスクライブコマンドの応答である。次のjsonは、トランザクションを処理しているコントラクトからのイベントである。
+The first json in the cli ouptut is the response of the subscribe command. The following json is an event from a contract processing a transaction.
 
-### Goコードの例
+### Example go code
 
-[デモインデクサー](https://github.com/loomnetwork/etherboy-core/blob/master/tools/cli/indexer/etherboyindexer.go)を参照するとよい。 これは redisとwebsocketのイベントサブスクリプションを使用して、イベントの読み取りとelasticsearchの維持を行なっている。 (このコードはデモンストレーションのみを目的としていることに気をつけること)。
+You can refer to [a demo indexer](https://github.com/loomnetwork/etherboy-core/blob/master/tools/cli/indexer/etherboyindexer.go) which uses the redis and websocket event subscriptions to read the events and persist to elasticsearch. (Note that this code is meant only for demonstration purposes).
