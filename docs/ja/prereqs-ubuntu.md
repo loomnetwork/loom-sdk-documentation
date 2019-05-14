@@ -1,11 +1,12 @@
 ---
 id: prereqs-ubuntu
-title: 前提条件 (Ubuntu)
-sidebar_label: インストール (Ubuntu)
+title: Prerequisites (Ubuntu)
+sidebar_label: Installation (Ubuntu)
 ---
-UbuntuでのLoomのインストールとセットアップ
 
-## Ubuntuパッケージ
+Installing and setting up Loom on Ubuntu
+
+## Ubuntu Packages
 
 ```bash
 sudo apt -y install curl unzip make git
@@ -13,14 +14,14 @@ sudo apt -y install curl unzip make git
 
 ## Golang
 
-### 正式な方法
+### The official way
 
 ```bash
 curl -O https://dl.google.com/go/go1.10.2.linux-amd64.tar.gz
 sudo tar -C /usr/local -xzf go1.10.2.linux-amd64.tar.gz
 ```
 
-ここではbashをお使いであると想定しているが、もしzshであれば `~/.zshrc`:
+Assuming you are on bash, if zsh do to `~/.zshrc`:
 
 ```bash
 echo -e "\nexport PATH=\$PATH:/usr/local/go/bin:~/gopath/bin" >>  ~/.bashrc
@@ -46,7 +47,7 @@ export GOPATH=~/gopath
 curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
 ```
 
-## インストール
+## Installation
 
 ```bash
 curl -OL https://private.delegatecall.com/loom/linux/stable/loom
@@ -65,19 +66,19 @@ cd build
 cp ../genesis.example.json genesis.json
 ```
 
-## ブロックチェーンの起動
+## Run Blockchain
 
 ```bash
 ../../loom run
 ```
 
-## トランザクションの送信
+## Send transactions
 
-2 つ目のコンソールを開こう。
+Open a second console
 
-このようにして秘密鍵を生成し、アカウントを作成する。そしてバリューを設定し、そのバリューをブロックチェーンから読み取る。
+This will generate a private key. Create an account. Then set a value, and then read the value from the blockchain.
 
-Blueprint contract のソースは[こちら](https://github.com/loomnetwork/weave-blueprint)を参照
+You can read the source of the [blueprint contract here](https://github.com/loomnetwork/weave-blueprint)
 
 ```bash
 cd blueprint/build
