@@ -1,11 +1,12 @@
 ---
 id: prereqs-ubuntu
-title: 环境依赖 (Ubuntu)
-sidebar_label: 安装 (Ubuntu)
+title: Prerequisites (Ubuntu)
+sidebar_label: Installation (Ubuntu)
 ---
-在 Ubuntu 上安装和设置 Loom
 
-## Ubuntu 包
+Installing and setting up Loom on Ubuntu
+
+## Ubuntu Packages
 
 ```bash
 sudo apt -y install curl unzip make git
@@ -13,14 +14,14 @@ sudo apt -y install curl unzip make git
 
 ## Golang
 
-### 官方途径
+### The official way
 
 ```bash
 curl -O https://dl.google.com/go/go1.10.2.linux-amd64.tar.gz
 sudo tar -C /usr/local -xzf go1.10.2.linux-amd64.tar.gz
 ```
 
-假设你使用 bash，如果 zsh 执行 `~/.zshrc`：
+Assuming you are on bash, if zsh do to `~/.zshrc`:
 
 ```bash
 echo -e "\nexport PATH=\$PATH:/usr/local/go/bin:~/gopath/bin" >>  ~/.bashrc
@@ -46,7 +47,7 @@ export GOPATH=~/gopath
 curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
 ```
 
-## 安装
+## Installation
 
 ```bash
 curl -OL https://private.delegatecall.com/loom/linux/stable/loom
@@ -65,19 +66,19 @@ cd build
 cp ../genesis.example.json genesis.json
 ```
 
-## 运行区块链：
+## Run Blockchain
 
 ```bash
 ../../loom run
 ```
 
-## 发送事务
+## Send transactions
 
-打开第二个控制台
+Open a second console
 
-这将生成私钥。 创建一个帐户。 然后设置一个值，接着从区块链中读取值。
+This will generate a private key. Create an account. Then set a value, and then read the value from the blockchain.
 
-你可以在这里读取 [blueprint 合约](https://github.com/loomnetwork/weave-blueprint) 源代码
+You can read the source of the [blueprint contract here](https://github.com/loomnetwork/weave-blueprint)
 
 ```bash
 cd blueprint/build
