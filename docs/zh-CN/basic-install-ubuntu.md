@@ -1,11 +1,12 @@
 ---
 id: basic-install-linux
-title: 安装 (Linux)
-sidebar_label: 安装 (Linux)
+title: Installation (Linux)
+sidebar_label: Installation (Linux)
 ---
-在 Linux 上安装和设置 Loom
 
-## 安装
+Installing and setting up Loom on Linux
+
+## Installation
 
 ```bash
 wget https://private.delegatecall.com/loom/linux/stable/loom
@@ -14,21 +15,21 @@ chmod +x loom
 ./loom init
 ```
 
-## 运行区块链
+## Run Blockchain
 
     ./loom run
     
 
-## 开始使用 Solidity + Truffle
+## To get started with Solidity + Truffle
 
-看看我们的 [Truffle 和 Solidity](truffle-deploy.html) 相关教程
+See our tutorial on [Truffle and Solidity](truffle-deploy.html)
 
-## 开始使用 Golang 合约
+## To get started on Golang Contracts
 
-看看我们的 [Golang 合约](prereqs.html)
+See our [Golang Contracts](prereqs.html)
 
-## 设置生产环境集群
+## Setup a production cluster
 
-*注意：Linux 仅支持生产环境集群的操作系统
+*Note Linux is only supported OS for Production clusters
 
-浏览 [生产环境集群](multi-node-deployment.html) 相关文档
+See docs on [Production clusters](multi-node-deployment.html)
