@@ -1,57 +1,58 @@
 ---
 id: web3js-loom-provider-truffle
-title: Web3, LoomProvider, Truffle
-sidebar_label: Web3, LoomProvider, Truffle
+title: Web3, LoomProvider and Truffle
+sidebar_label: Web3, LoomProvider and Truffle
 ---
-## 개요
 
-`loom-js`는`LoomProvider`와 함께 제공되므로 여러분이 [Web3.js](https://github.com/ethereum/web3.js)를 가지고 통합하는 것을 가능하게 해줍니다, 이것은 Loom DAppChain에 탑재된 [EVM](evm.html)과 함께 통합하는 것이 손쉬워 집니다, 또한 테스트, 배포, 그리고 solidity 스마트 컨트랙트를 관리하기 위해서 [Truffle Framework](http://truffleframework.com/)의 사용이 가능합니다.
+## Overview
+
+The `loom-js` also comes with the `LoomProvider` which allows you to integrate with the [Web3.js](https://github.com/ethereum/web3.js), thus making easier the integration with [EVM](evm.html) contained on Loom DAppChain, also is possible to use [Truffle Framework](http://truffleframework.com/) to manage tests, deployments and solidity smart contracts.
 
 ### Web3
 
-`Web3.js` 공식 문서에는 이렇게 언급되어 있습니다:
+As the official documentation for `Web3.js` states:
 
-> `Web3.js`는 여러분이 HTTP나 IPC 커넥션을 사용하는 로컬 혹은 리모트 이더리움 노드와 상호작용 하는것을 가능하게 해주는 라이브러리의 집합입니다.
+> `Web3.js` is a collection of libraries which allow you to interact with a local or remote ethereum node, using a HTTP or IPC connection.
 
-Loom DAppChain에서 통신은 `HTTP`나 `IPC` 대신 `WebSockets`을 사용하여 일어납니다, 하지만 더 깊은 통신 지식이 요구되지는 않습니다 왜냐하면 `Web3.js`가 그 부분을 추상화 해주기 때문입니다.
+For the Loom DAppChains the communication happens using `WebSockets` instead `HTTP` or `IPC`, however the deeper knowledge of the communication isn't required since `Web3.js` abstracts that part.
 
 ### LoomProvider
 
-`Provider`는 `Web3.js` API와 이더리움 노드를 연결시켜주는 다리역할을 합니다, `Web3.js` call이 Loom DAppChain과 호환되게 만들기위해서 여러분은 `LoomProvider`을 사용해야만 합니다
+An `Provider` is a bridge that connects the `Web3.js` API to the Ethereum node, in order to make `Web3.js` calls compatible with Loom DAppChain you should use the `LoomProvider`
 
-`Web3.js`과 `LoomProvider`의 조합은 Loom DAppChain에 배포된 스마트 컨트랙트와의 상호작용을 위한 좋은 선택입니다, 왜냐하면 `Web3.js`는 [ABI](https://solidity.readthedocs.io/en/develop/abi-spec.html)의 해석을 수동으로 해줄 필요없이 API 호출 구성을 추상화 해주기 때문입니다.
+Combining `Web3.js` and `LoomProvider` is a good option to interact with smart contracts deployed on Loom DAppChain, because `Web3.js` abstracts the construction of API calls not needing the interpretation of the [ABI](https://solidity.readthedocs.io/en/develop/abi-spec.html) manually.
 
-### Truffle 프레임워크
+### Truffle framework
 
-`Truffle` 공식 사이트에서는 아래와 같이 말하고 있습니다:
+So the official site for `Truffle` says:
 
-> Truffle은 가장 인기있는 이더리움 개발 프레임워크로써 여러분의 삶을 훨씬 쉽게 만드는 미션을 가지고 있습니다.
+> Truffle is the most popular development framework for Ethereum with a mission to make your life a whole lot easier.
 
-이것은 정말입니다, 왜냐하면 `Truffle`은: `compile`, `deploy`, `test`, `debug`와 더 많은 것들을 할 수 있습니다.
+And that is pure true, because `Truffle` can: `compile`, `deploy`, `test`, `debug` and much more.
 
-## Truffle로 배포하기 및 실행하기
+## Deploying and run from Truffle
 
-### 다운로드 및 설치
+### Download and Install
 
-먼저 `Truffle`을 설치하는게 필요합니다:
+First you'll need to install `Truffle`:
 
 ```bash
-# 현재 지원 버전
+# Currently supported version
 npm install -g truffle
 ```
 
-일단 `Truffle`이 설치되면 디렉토리를 생성하고 프로젝트를 초기화 합시다:
+Once `Truffle` is installed let's create a directory and initialize a project:
 
 ```bash
-# 디렉토리를 생성하고 들어간다
+# Create directory and access
 mkdir simple-store
 cd simple-store
 
-# truffle로 빈 프로젝트를 초기화한다
+# Initialize a project from zero with truffle
 truffle init
 ```
 
-새로운 디렉토리 구조는 다음과 같습니다:
+The new directory structure will looks like:
 
     .
     ├── contracts
@@ -63,9 +64,9 @@ truffle init
     └── truffle.js
     
 
-### 컨트랙트를 추가하고 마이그레이션 하기
+### Adding contract and migration
 
-`contracts` 디렉토리에서 우리는 [Solidity](http://solidity.readthedocs.io/en/v0.4.22/)로 우리의 컨트랙트를 생성해야만 합니다, 우리는 유명한 `SimpleStore.sol`을 사용할 것입니다 이것은 스테이트 변경을 위한 파라미터 `value`를 가지는 `set` 함수, 읽기전용이고 스테이트 변경을 하지 않는 `get` 함수와 파라미터 `value`를 가지는 `NewValueSet` 이벤트를 가지고 있습니다, 다음 예제를 보세요:
+On the `contracts` directory we should create our contract in [Solidity](http://solidity.readthedocs.io/en/v0.4.22/), we're going to use the famous `SimpleStore.sol` which has a `set` function for a parameter `value` also for an state change, a `get` function for the read only and no state change call and an event called `NewValueSet` which will have the parameter `value`, as the following example:
 
     pragma solidity ^0.4.22;
     
@@ -85,7 +86,7 @@ truffle init
     }
     
 
-다음으로 마이그레이션을 추가해 봅시다, `Truffle`는 마이그레이션이라는 컨셉으로 동작합니다, 변경사항과 업데이트를 추적하는데 매우 유용합니다. migrations 디렉토리에 파일이 생성되어야 하고고 `JavaScript` 파일 이어야하며 파일 이름은 숫자 `2`로 시작해야만되어서 `2_simple_store.js`가 됩니다, 내용은 다음과 같아야 합니다:
+Next let's add an migration, `Truffle` works with the concept of migrations, which makes useful for track changes and updates. The file should be created on migrations directory and it should be `JavaScript` file and the file name should start with the number `2` becoming `2_simple_store.js`, and the content should be the following:
 
 ```Javascript
 var SimpleStore = artifacts.require("./SimpleStore.sol");
@@ -95,19 +96,19 @@ module.exports = function(deployer) {
 };
 ```
 
-> Truffle 통합의 전체 예제는 https://github.com/loomnetwork/truffle-dappchain-example 에서 확인 가능합니다
+> There's a complete example of Truffle integration available on https://github.com/loomnetwork/truffle-dappchain-example
 
-### 다운로드 및 Loom Truffle Provider 설정
+### Download and configure Loom Truffle Provider
 
-마지막으로 추가할 사항은 `Loom Truffle Provider` 입니다, 이 플러그인은 `Truffle`과 Loom DAppChain 사이의 연결을 제공합니다 (그리고 또한 하위에 `LoomProvider`를 가지고 있습니다). 설치해 봅시다:
+The last cog to be added is the `Loom Truffle Provider`, that plugin provides the connection between `Truffle` and Loom DAppChain (and it also has the `LoomProvider` underneath). Let's install:
 
 ```bash
 npm install loom-truffle-provider --save
-# 또는
+#or
 yarn add loom-truffle-provider
 ```
 
-그리고 필요한 설정을 추가하기 위해서 `truffle.js` 파일을 수정해 봅시다, 다음 예제와 같습니다:
+And let's edit the file `truffle.js` to add the necessary configuration, as the following example:
 
 ```javascript
 const { readFileSync } = require('fs')
@@ -130,23 +131,23 @@ module.exports = {
 }
 ```
 
-> `loom genkey -a public_key -k private_key` 커맨드로 여러분의 키를 생성하는 것을 잊지마세요
+> Don't forget to generate yours keys using the command `loom genkey -a public_key -k private_key`
 
-### Truffle 배포 명령어 실행하기
+### Running Truffle deploy command
 
-이제 배포 명령어를 실행하기에 좋습니다:
+Now we're good to run the deploy command:
 
-> 하지만 그전에 Loom DAppChain의 시작이 필요합니다
+> But before you need to start the Loom DAppChain
 
 ```bash
 truffle deploy --network loom_dapp_chain
 ```
 
-> 이미 배포를 하였고 배포를 재설정 하려면 `truffle deploy --reset --network loom_dapp_chain` 명령어를 실행할 수 있습니다
+> If you already deployed and wants to reset the deployment you can run the command `truffle deploy --reset --network loom_dapp_chain`
 
-### 더 많은 계정 추가하기
+### Adding more accounts
 
-`LoomTruffleProvider`의 계정에 접근하려면 `getProviderEngine` 함수를 사용해야만 합니다. 이 하수는 `accountsAddrList` 및`accounts` 속성에 대한 액세스를 제공하는 `LoomProvider`를 반환합니다.
+In order to access accounts on `LoomTruffleProvider` you should use the function `getProviderEngine` which will return the `LoomProvider` giving access to properties `accountsAddrList` and `accounts``
 
 ```js
 const loomTruffleProvider = new LoomTruffleProvider(chainId, writeUrl, readUrl, privateKey)
@@ -156,85 +157,85 @@ console.log("Accounts list", loomProvider.accountsAddrList)
 console.log("Accounts and Private Keys", loomProvider.accounts)
 ```
 
-그리고 함수 `createExtraAccounts`를 사용하는 것만으로 더 많은 계정을 추가합니다
+And add more accounts just use function `createExtraAccounts`
 
 ```js
 const loomTruffleProvider = new LoomTruffleProvider(chainId, writeUrl, readUrl, privateKey)
 loomTruffleProvider.createExtraAccounts(10)
 ```
 
-## 설정 및 Web3.js + LoomProvider의 실행
+## Configuring and running Web3.js + LoomProvider
 
-### 다운로드 및 설치
+### Download and Install
 
-`npm`을 통해서 최신버전의 `Web3.js`을 다운로드 받을 수 있습니다
+You can download the `Web3.js` latest version using `npm`
 
 ```bash
 npm install web3 --save
-# 또는
+# or
 yarn add web3
 ```
 
-그리고 `LoomProvider`를 다운로드 하고 설치하세요 (이것은 `loom-js` 내에 존재합니다)
+And download and install `LoomProvider` (which lives on `loom-js`)
 
 ```bash
 npm install loom-js --save
-# 또는
+# or
 yarn add loom-js
 ```
 
-### 프로젝트에 추가하기 및 설정
+### Adding to project and configuring
 
-`Web3.js`를 Node.js 프로젝트에 추가하는 것은 (Node.js 버전 8 또는 이후버전이 실행중인) 설치후에 매우 간단합니다, `Webpack`을 사용하는 프로젝트에서도 물론 간단합니다:
+Adding `Web3.js` to Node.js project (running on Node.js version 8 or greater) is fairly simple after the install, it should be simple as well for projects using `Webpack` also:
 
 ```Javascript
-// Node.JS 8 또는 이후버전
+// Node.JS 8 or greater
 const Web3 = require('web3')
 
-// ES2016을 지원하는 Webpack
+// Webpack with ES2016 support
 import Web3 from 'web3'
 ```
 
-다음 단계는 `LoomProvider`를 설정하는 것입니다, `NodeJS & Browser 퀵스타트`에 관한 예제와 매우 유사합니다.
+Next step is to configure the `LoomProvider`, is quite similar from the example on `NodeJS & Browser Quick Start`.
 
 ```Javascript
 const privateKey = CryptoUtils.generatePrivateKey()
 const publicKey = CryptoUtils.publicKeyFromPrivateKey(privateKey)
 
-// client를 생성한다
+// Create the client
 const client = new Client(
   'default',
   'ws://127.0.0.1:46658/websocket',
   'ws://127.0.0.1:46658/queryws',
 )
 
-// 함수 호출자 주소
+// The address for the caller of the function
 const from = LocalAddress.fromPublicKey(publicKey).toString()
 
-// LoomProvider로 web3 client를 인스턴스화 하기
+// Instantiate web3 client using LoomProvider
 const web3 = new Web3(new LoomProvider(client, privateKey))
 
 const ABI = [{"anonymous":false,"inputs":[{"indexed":false,"name":"_value","type":"uint256"}],"name":"NewValueSet","type":"event"},{"constant":false,"inputs":[{"name":"_value","type":"uint256"}],"name":"set","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"get","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"}]
 
 const contractAddress = '0x...'
 
-// 컨트랙트를 인스턴스화 하고 사용가능한 상태로 만들기
+// Instantiate the contract and let it ready to be used
 const contract = new web3.eth.Contract(ABI, contractAddress, {from})
 ```
 
-### Web3 컨트랙트 인스턴스 실행하기
+### Running Web3 contract instance
 
-`SimpleStore.sol`를 위애서 선언했다고 가정하고, 우리는 `set`과 `get` 함수를 쉽게 호출할 수 있습니다:
+Let's assume that is the `SimpleStore.sol` which was declared up above, so we can call `set` and `get` functions easier:
 
 ```Javascript
-// 값에 47을 넣는다
+// Set the value 47
 const tx = await contract.methods.set(47).send()
 
-// 47인 값을 읽어온다
+// Get the value 47
 const value = await contract.methods.get().call()
 ```
 
-또한 이벤트를 listen합니다, 여기에선 `NewValueSet` 이벤트:
+Also listen for events, in that case for the event `NewValueSet`:
 
 ```Javascript
 contract.events.NewValueSet({}, (err, event) => {
