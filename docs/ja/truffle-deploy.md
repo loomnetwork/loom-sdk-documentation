@@ -1,23 +1,24 @@
 ---
 id: truffle-deploy
-title: Truffle DAppチェーンサンプル
-sidebar_label: Truffleデプロイ
+title: Truffle DAppChain Example
+sidebar_label: Truffle Deploy
 ---
+
 ![http://truffleframework.com](/developers/img/truffle.jpg)
 
-Loom DAppチェーンと対話するTruffleの簡単なサンプルだ。このサンプルは[loom-truffle-provider](https://github.com/loomnetwork/loom-truffle-provider)を使用している(さらなる詳細については、LoomTruffleProviderのリポジトリをチェックしよう)
+Simple example of Truffle interacting with Loom DAppChain, this example uses [loom-truffle-provider](https://github.com/loomnetwork/loom-truffle-provider) (check LoomTruffleProvider repository for more details)
 
-## 要件
+## Requirements
 
 ```bash
 Node >= 8
 ```
 
-## インストール
+## Install
 
-Truffle DAppチェーンサンプルをダウンロードするには、GitもしくはUnboxの２つの方法がある。
+In order to download the Truffle DAppChain Example there're two methods Git or Unbox
 
-### Gitの方法
+### Git method
 
 ```bash
 git clone https://github.com/loomnetwork/truffle-dappchain-example
@@ -27,14 +28,14 @@ git clone https://github.com/loomnetwork/truffle-dappchain-example
 cd truffle-dappchain-example
 
 yarn install
-# もしくは
+# or
 npm install
 ```
 
-### Unboxの方法
+### Unbox method
 
 ```bash
-# もしまだであれば、Truffleをインストール
+# Install Truffle if not installed
 npm install -g truffle
 
 mkdir truffle-dappchain-example
@@ -43,44 +44,44 @@ cd truffle-dappchain-example
 truffle unbox loomnetwork/truffle-dappchain-example
 ```
 
-## DAppチェーンのスタート
+## Start DappChain
 
 ```bash
-# ダウンロード
+# Download
 wget https://private.delegatecall.com/loom/osx/stable/loom
 chmod +x loom
 
-# 起動
+# Run
 ./loom init
 ./loom run
 ```
 
-## Truffleのデプロイ
+## Deploy Truffle
 
 ```bash
-# ２つ目のターミナル画面で
+# On second terminal
 
-# Migrations.sol 及び SimpleStore.sol をデプロイ
+# Deploy Migrations.sol and SimpleStore.sol
 yarn deploy
 
-# ディレクトリ /test にてテストを実行
+# Running test on directory /test
 yarn test
 ```
 
-> コントラクトを正しく再デプロイするには "yarn deploy:reset" というコマンドがある。
+> In order to correctly redeploy the contracts there's a command "yarn deploy:reset"
 > 
-> また "yarn truffle" を呼び出すことで、Truffleコマンドを直接呼び出すこともできる。
+> Also is possible to call truffle command directly by call "yarn truffle"
 > 
-> このサンプルのためのビルドディレクトリのバージョニングは行なっていないが、バージョニングを行うことをおすすめする。この制限は .gitignore を編集することで解除できる。
+> We're not versioning the build directory for this particular example, although is recommended to versioning, the limitation can be removed by editing .gitignore
 
-## 現在の制限
+## Current limitations
 
-* スマートコントラクト上で宣言されたイベントは、`SimpleStore.sol`にある`NewValueSet(uint _value)`のように、名前のあるパラメーターを持っていなくてはならない。
+* Events declared on smart contracts should have an named parameter like `NewValueSet(uint _value)` in the contract `SimpleStore.sol`. Also it helps to dealing with events
 
 ## Loom Network
 
 <https://loomx.io>
 
-## ライセンス
+## License
 
 BSD 3-Clause License
