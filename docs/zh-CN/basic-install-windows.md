@@ -1,15 +1,16 @@
 ---
 id: basic-install-windows
-title: 安装 (Windows)
-sidebar_label: 安装 (Windows)
+title: Installation (Windows)
+sidebar_label: Installation (Windows)
 ---
-在 Windows 上安装和设置 Loom
 
-目前在 Windows 上使用 Loom 的唯一方法是使用 [Windows 的 Linux 子系统](https://docs.microsoft.com/en-us/windows/wsl/install-win10)。
+Installing and setting up Loom on Windows
 
-安装完成后，你可以继续执行以下操作并运行 Linux 安装步骤。
+Currently the only way to use Loom on windows is to use the [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
 
-## 安装
+Once you install that you can continue on below and run the Linux install steps.
+
+## Installation
 
 ```bash
 wget https://private.delegatecall.com/loom/linux/stable/loom
@@ -18,15 +19,15 @@ chmod +x loom
 ./loom init
 ```
 
-## 运行区块链
+## Run Blockchain
 
     ./loom run
     
 
-## 开始使用 Solidity + Truffle
+## To get started with Solidity + Truffle
 
-看看我们的 [Truffle 和 Solidity](truffle-deploy.html) 相关教程
+See our tutorial on [Truffle and Solidity](truffle-deploy.html)
 
-## 开始使用 Golang 合约
+## To get started on Golang Contracts
 
-看看我们的 [Golang 合约](prereqs.html)
+See our [Golang Contracts](prereqs.html)
