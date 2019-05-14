@@ -1,19 +1,20 @@
 ---
 id: simple-social-network-example
-title: シンプルなソーシャルネットワークのサンプル
-sidebar_label: シンプルなソーシャル ネットワークのサンプル
+title: Simple Social Network Example
+sidebar_label: Simple Social Network Example
 ---
-これは、`Web3`と[Loom.js](https://github.com/loomnetwork/loom-js)を使ってLoom DAppチェーン上にソーシャルネットワーキングを構築するサンプルである。 このシンプルなソーシャルネットワークでは、ユーザーは投稿及び投稿へのコメントができる。 ソースコードは[Github](https://github.com/loomnetwork/solidity-social-example)で利用可能。
+
+This example shows how to build a social network on a Loom DAppChain, using `Web3` and [Loom.js](https://github.com/loomnetwork/loom-js). In this simple social network users can post and comment on posts. Source is available on [Github](https://github.com/loomnetwork/solidity-social-example).
 
 ![](https://dzwonsemrish7.cloudfront.net/items/2W3c2O3G2A1q1l3f3D3d/Screen%20Recording%202018-05-29%20at%2003.35%20PM.gif)
 
-> コンパイルされたこのサンプル用のスマートコントラクトは、 Solidity version 0.4.24 (SimpleSocialNetwork.sol)を使用している。
+> The smart contract compiled for this example uses the Solidity version 0.4.24 (SimpleSocialNetwork.sol)
 
-## 開発
+## Development
 
-### 1.) 自分のDAppチェーンを起動しよう
+### 1.) Run your own DappChain
 
-[前提条件](https://loomx.io/developers/docs/en/prereqs.html)に記されているように、Golangをインストール済みか確認すること。
+Please ensure you've installed Golang as documented in the [prerequisites](https://loomx.io/developers/en/prereqs.html).
 
 ```bash
 git clone https://github.com/loomnetwork/solidity-social-example
@@ -24,17 +25,17 @@ cd dappchain
 wget https://private.delegatecall.com/loom/osx/stable/loom
 chmod +x loom
 
-# 設定
+# Configure
 ./loom init
 cp genesis.example.json genesis.json
 
-# 起動
+# Run
 ./loom run
 ```
 
-### 2.) ElasticSearchとRedisのスタート
+### 2.) Start ElasticSearch and Redis
 
-> 両サービスは、起動の修正とアプリケーションとの対話のために必要であることに注意しよう。
+> Notice that both services are required in order to correct run and interact with the application
 
 ```bash
 # macOS
@@ -42,43 +43,43 @@ brew tap homebrew/services
 brew install elasticsearch
 brew install redis
 
-# macOSでサービスをスタート
+# Start services on macOS
 brew services start elasticsearch
 brew services start redis
 ```
 
-### 3.) インデクサーをスタート
+### 3.) Start indexer
 
-インデクサーは、スマートコントラクトから全イベントを受け取り、それをメッセージキューと高速データベース上に構築されたキャッシュレイヤーへと保存するサービスである。 このサービスによって蓄積されたデータは、`http://localhost:8081/posts`及び`http://localhost:8081/comments`にて提供される。
+The indexer is a service that will receive all events from the smart contract and feed a cache layer built on a message queue and a fast database (Redis + ElasticSearch). The data accumulated by this service is served at `http://localhost:8081/posts` and `http://localhost:8081/comments`
 
-注：これはNode8 で最も良く機能する。
+Note this works best on Node8
 
     brew install node@8
     
 
 ```bash
-# ２つ目のターミナルで
+# On second terminal
 cd solidity-social-example/webclient
 yarn
 node indexer.js
 ```
 
-### 4.) webサーバーのスタート
+### 4.) Start the web server
 
-WEBサーバーは、ユーザーがLoom DAppチェーン上のスマートコントラクトと対話可能となるフロントエンドを提供する。
+The webserver will serve the frontend which allows users to interact with the smart contracts on the Loom DappChain.
 
 ```bash
-# ３つ目のターミナルで
+# On third terminal
 cd solidity-social-example/webclient
 
-# インストール
+# Install
 yarn
 
-# デモのスタート
+# Start the demo
 yarn start
 
 ```
 
-### 5.) 起動
+### 5.) Running
 
-ウェブブラウザで`http://localhost:8080`を開いて、シンプルなソーシャルネットワークを使ってみよう。
+Open `http://localhost:8080` in your web browser to use the Simple Social Network.
