@@ -1,27 +1,28 @@
 ---
 id: loom-js-quickstart
-title: NodeJS & Browser 퀵스타트
-sidebar_label: NodeJS & Browser 퀵스타트
+title: NodeJS & Browser Quick Start
+sidebar_label: NodeJS & Browser Quick Start
 ---
-## 개요
 
-`loom-js` 라이브러리는 여러분이 Loom DAppChain에서 구동되는 스마트 컨트랙트와 상호작용하는데 필요한 web 앱과 NodeJS 서비스를 개발하는데 필요한 모든 것을 제공합니다.
+## Overview
 
-NPM을 통해서 `loom-js` 설치를 시작하기:
+The `loom-js` library contains everything you need to build web apps and NodeJS services that interact with smart contracts running on Loom DAppChains.
+
+To get started install `loom-js` from NPM:
 
 ```shell
 yarn add loom-js
-# 혹은 여러분이 선호하는 것으로...
+# or if you prefer...
 npm install loom-js
 ```
 
-## 예제코드
+## Sample Code
 
-[Loom JS 예제 레파지토리](https://github.com/loomnetwork/loom-js-samples)의 `quickstart` 디렉토리에서 모든 코드들을 확인하실 수 있습니다..
+You can find all the code on this page the [Loom JS samples repo](https://github.com/loomnetwork/loom-js-samples) in the `quickstart` directory.
 
-## DAppChain에 연결하기
+## Connecting to a DAppChain
 
-`Contract` 클래스는 Loom DAppChain 위에서 구동되는 스마트 컨트랙트와 상호작용하는 편리한 방법을 제공합니다. Loom SDK의 [BluePrint](https://github.com/loomnetwork/weave-blueprint/blob/master/src/blueprint.go) 스마트 컨트랙트 예제와 상호작용하는 `Contract` 인스턴스를 생성하는 함수를 작성해 봅시다... 
+The `Contract` class provides a convenient way to interact with a smart contract running on a Loom DAppChain. Let's write a function that creates a `Contract` instance to interact with the sample [BluePrint](https://github.com/loomnetwork/weave-blueprint/blob/master/src/blueprint.go) smart contract from the Loom SDK...
 
 ```js
 const {
@@ -32,10 +33,10 @@ const {
 const { MapEntry } = require('./helloworld_pb')
 
 /**
- * 스마트 컨트랙트와 상호작용하는데 사용되는 새로운 `Contract` 인스턴스를 생성합니다.
- * @param privateKey 컨트랙트에 보내지는 트랜잭션을 서명하기 위해 사용되는 프라이빗 키.
- * @param publicKey 프라이빗 키에 대응되는 퍼블릭 키.
- * @returns `Contract` 인스턴스.
+ * Creates a new `Contract` instance that can be used to interact with a smart contract.
+ * @param privateKey Private key that will be used to sign transactions sent to the contract.
+ * @param publicKey Public key that corresponds to the private key.
+ * @returns `Contract` instance.
  */
 async function getContract(privateKey, publicKey) {
   const client = new Client(
@@ -43,7 +44,7 @@ async function getContract(privateKey, publicKey) {
     'ws://127.0.0.1:46658/websocket',
     'ws://127.0.0.1:46658/queryws'
   )
-  // middleware가 요구됩니다.
+  // required middleware
   client.txMiddleware = [
     new NonceTxMiddleware(publicKey, client),
     new SignedTxMiddleware(privateKey)
@@ -58,16 +59,16 @@ async function getContract(privateKey, publicKey) {
 }
 ```
 
-## DAppChain에 데이터 쓰기
+## Writing data to a DAppChain
 
-스마트 컨트랙트의 스테이트를 변경시키기 위해서는 여러분은 public 메소드 호출이 필요합니다, 그렇게 하기 위해서는 서명된 트랜잭션이 반드시 DAppChain에 보내져서 검증이 되어야 합니다. 다행히도 `Contract` 클래스는 여러분이 `Contract.callAsync()` 메소드를 사용할때 이런 것들을 대부분 처리해줍니다.
+To mutate the state of a smart contract you need to call one of its public methods, to do so a signed transaction must be sent to and validated by the DAppChain. Fortunately the `Contract` class takes care of most of this when you use the `Contract.callAsync()` method.
 
-[BluePrint](https://github.com/loomnetwork/weave-blueprint/blob/master/src/blueprint.go) 스마트 컨트랙트는 키에 연관된 값을 저장하는데 사용될 수 있는 public `SetMsg` 메소드를 제공합니다. 이 함수를 호출하는 함수를 작성해 봅시다...
+The [BluePrint](https://github.com/loomnetwork/weave-blueprint/blob/master/src/blueprint.go) smart contract has a public `SetMsg` method that can be called to store an association between a key and a value. Let's write a function that calls this method...
 
 ```js
 /**
- * 스마트 컨트랙트내의 키에 값을 저장합니다.
- * @param contract `getContract()` 에서 반환되는 컨트랙트 인스턴스.
+ * Stores an association between a key and a value in a smart contract.
+ * @param contract Contract instance returned from `getContract()`.
  */
 async function store(contract, key, value) {
   const params = new MapEntry()
@@ -78,28 +79,29 @@ async function store(contract, key, value) {
 
 ```
 
-## DAppChain에서 데이터 읽기
+## Reading data from a DAppChain
 
-스마트 컨트랙트의 스테이트를 읽기 위해서는 여러분은 하나의 public read-only 메소드를 호출해야만 합니다, `Contract.staticCallAsync()` 메소드를 사용하는 것도 가능할 것입니다.
+To read the state of a smart contract you need to call one of its public read-only methods, you can do so by using the `Contract.staticCallAsync()` method.
 
-[BluePrint](https://github.com/loomnetwork/weave-blueprint/blob/master/src/blueprint.go) 스마트 컨트랙트는 키에 연관된 값을 조회할 때 호출될 수 있는 public `GetMsg` 메소드를 가지고 있습니다... 이 메소드를 호출하는 함수를 작성해 봅시다...
+The [BluePrint](https://github.com/loomnetwork/weave-blueprint/blob/master/src/blueprint.go) smart contract has a public `GetMsg` method that can be called to look up an association between a key and a value. Let's write a function that calls this method...
 
 ```js
-스마트 컨트랙트 내에서 키에 연관된 값을 가져옵니다.
- * @param contract `getContract()` 에서 반환된 컨트랙트 인스턴스.
+/**
+ * Loads the value associated with a key in a smart contract.
+ * @param contract Contract instance returned from `getContract()`.
  */
 async function load(contract, key) {
   const params = new MapEntry()
-  // 스마트 컨트랙트는 이 키로 저장된 값을 조회할 것입니다.
+  // The smart contract will look up the value stored under this key.
   params.setKey(key)
   const result = await contract.staticCallAsync('GetMsg', params, new MapEntry())
   return result.getValue()
 }
 ```
 
-## 한꺼번에 해보기
+## Putting it all together
 
-자 이제 모든 코드를 가지고 DAppChain이 구동되어 있는지 확인하고 다음 코드를 실행하세요, 그러면 여러분은 콘솔에서 `Value: hello!`이 출력되는 것을 볼 수 있을 것입니다.
+Now that we have all the pieces in place make sure that you have the DAppChain running and then run the following code, you should see `Value: hello!` printed to the console.
 
 ```js
 (async function () {
