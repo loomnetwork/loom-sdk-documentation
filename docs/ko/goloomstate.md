@@ -1,37 +1,38 @@
 ---
 id: goloomstate
-title: go-loom 컨트랙트에 스테이트를 저장 및 읽기
-sidebar_label: 스테이트를 저장 및 읽기
+title: Saving and reading state in go-loom contracts
+sidebar_label: Saving and reading state
 ---
-## 컨트랙트 스테이트
 
-각 컨트랙트는 데이터 저장소를 위한 샌드박스된 스테이트에 대한 접근권한을 가집니다. 컨트랙트가 에러를 반환하는 경우에는 스테이트 쓰기 동작은 롤백됩니다. 트랜잭션이 정상적으로 수행되면, 스테이트 루트의 해쉬값을 가지게 되고 어떤 특정 스테이트가 블록체인에 기록됩니다.
+## The contract state
 
-## 스테이트에 쓰기
+Each contract has access to a sandboxed state for storage of data. The write actions on the state are rolled back in case the contract operation returns an error. If a transaction is successfully commited, it contains the hash of the state root so that any given state is commited to the blockchain.
 
-스테이트에 저장하기 위해서는 컨트랙트 컨텍스트의 `Set` 오퍼레이션을 사용하세요.
+## Writing to the state
+
+Use the `Set` operation on the contract context to save to the state.
 
     Set(key []byte, pb proto.Message) error
     
 
-go-loom은 저장되는 데이터가 protobuf 객체일 것을 요구합니다.
+go-loom mandates that the data being saved is a protobuf object.
 
-## 스테이트로부터 읽어오기
+## Reading from the state
 
-스테이트에 특정 키가 존재하는지를 확인하려면 `Has` 오퍼레이션을 사용하세요
+Use the `Has` operation to check whether a particular key exists in the state
 
     Has(key []byte) bool
     
 
-키에 저장된 값을 읽기위해서는 `Get` 오퍼레이션을 사용하세요
+To read the value saved at a key use the `Get` operation
 
     Get(key []byte, pb proto.Message) error
     
 
-Get 오퍼레이션은 저장된 데이터를 protobuf 구조체로 unmarshal 합니다.
+Get will unmarshal the saved data into a protobuf struct
 
-## 키 삭제하기
+## Deleting a key
 
-키에 저장된 데이터는 아래와 같이 삭제할 수 있습니다
+Data saved at a key can be delete with
 
     Delete(key []byte)
