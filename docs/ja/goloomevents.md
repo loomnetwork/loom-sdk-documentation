@@ -1,24 +1,25 @@
 ---
 id: goloomevents
-title: go-loomコントラクトからのイベントの発生
-sidebar_label: イベントの発生
+title: Emitting events from go-loom contracts
+sidebar_label: Emitting events
 ---
-## go-pluginsからのイベントの発生
 
-Loom SDKはコントラクトにイベントを発生させる機能を提供しており、これはインデックスなどの複数の目的で使用することができる。 現在Loom SDKは、Redisのソート済みセットへのイベント出力をサポートしている。
+## Emitting events from go-plugins
 
-### Loom SDKの設定
+The loom sdk gives gives a facility for the contracts to emit events that can be used for multiple purposes such as indexng. Currently the loom sdk supports emitting events into a Redis sorted set.
 
-loom-sdkは、デフォルトではログにイベントを出力するのみとなっている。これを設定してRedisのソート済みセットへ出力するには、次の１行を設定ファイルloom.yamlに追加しよう。
+### Configuring the loom sdk
+
+By default the loom-sdk will only emit events to the log. To configure it to send it to a redis sorted set, add the following line to the loom.yaml config file.
 
     EventDispatcherURI: "redis://localhost:6379"
     
 
-こうして、Redisサーバーへ`loomevents`というソート済みセットにてイベントが出力されるようになる。 各イベントは、ブロックの高さのスコアでソートされたセットへと追加される。
+This will start emitting events to the redis server in a sorted set called `loomevents`. Each event is added to the sorted set with the score being the blockchain height.
 
-### イベントの発生
+### Emitting events
 
-以下のコードスニペットは、コントラクトからイベントを発生させるサンプルコードである。
+The code snippet below shows sample code for emitting events from the contract.
 
 ```go
     emitMsg := struct {
@@ -33,6 +34,6 @@ loom-sdkは、デフォルトではログにイベントを出力するのみと
     ctx.Emit(emitMsgJSON)
 ```
 
-### イベントのサブスクライブ
+### Subscribing to events
 
-イベントのサブスクライブについて、[このページ](loomevents.html)でさらに情報を参照しよう。
+See [this page](loomevents.html) for more information on subscribing to events
