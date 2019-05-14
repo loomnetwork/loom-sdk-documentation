@@ -1,8 +1,9 @@
 ---
 id: loom-yaml
-title: Loom Yaml 和配置选项
-sidebar_label: Loom Yaml 和配置选项
+title: Loom Yaml and Configuration options
+sidebar_label: Loom Yaml and Configuration options
 ---
+
 # loom.yaml
 
     RPCBindAddress: "tcp://0.0.0.0:46658"
@@ -22,31 +23,31 @@ sidebar_label: Loom Yaml 和配置选项
     # EthereumURI: ws://127.0.0.1:8545"
     
 
-从要更改的行中删除 #
+remove the # from lines you want to change
 
 ## RPCBindAddress
 
-选项： "tcp://0.0.0.0:46658"
+Options: "tcp://0.0.0.0:46658"
 
-这是绑定 RPC 接口的主要接口
+This is the primary interface for binding RPC interface
 
 ## LoomLogLevel
 
-选项: 调试、信息、警告、错误
+Options: debug, info, warn, error
 
-Loom 区块链的常规日志记录
+General logging for the Loom Blockchain
 
 ## ContractLogLevel
 
-选项: 调试、信息、警告、错误
+Options: debug, info, warn, error
 
-Go Based 智能合约的常规日志记录
+General logging for the Go Based Smart contracts.
 
 ## BFTLogLevel
 
-选项: 调试、信息、警告、错误
+Options: debug, info, warn, error
 
-BFT 层区块链的常规日志记录。这可能会根据你使用的 BFT 引擎而改变。
+General logging for the BFT Layer Blockchain. This may change based on which BFT engine you are using.
 
 ## EthereumURI
 
