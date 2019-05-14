@@ -1,40 +1,41 @@
 ---
 id: basic-install-all
-title: 安装 Loom SDK
-sidebar_label: 安装 Loom SDK
+title: Installation Loom SDK
+sidebar_label: Installation Loom SDK
 ---
-# 安装和设置 Loom
 
-目前在 Windows 上使用 Loom 的唯一方法是使用 [Windows 的 Linux 子系统](https://docs.microsoft.com/en-us/windows/wsl/install-win10)。
+# Installing and setting up Loom
 
-安装好之后，可进行下一步操作。
+Currently the only way to use Loom on windows is to use the [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
 
-## 下载 loom
+Once you install that you can continue on below.
 
-以下脚本可用于自动将稳定版的loom下载到当前目录：
+## Download loom
+
+The following script can be used to automatically download the stable version of loom to the current directory:
 
 ```bash
 curl https://raw.githubusercontent.com/loomnetwork/loom-sdk-documentation/master/scripts/get_loom.sh | sh
 ```
 
-## 安装
+## Installation
 
 ```bash
 ./loom init
 ```
 
-## 运行区块链
+## Run Blockchain
 
-从安装步骤中创建的目录中运行。
+Run from within the directory created in the installation step.
 
 ```bash
 ./loom run
 ```
 
-## 开始使用 Solidity + Truffle
+## To get started with Solidity + Truffle
 
-看看我们的 [Truffle 和 Solidity](join-testnet.html) 相关教程
+See our tutorial on [Truffle and Solidity](join-testnet.html)
 
-## 开始使用 Golang 合约
+## To get started on Golang Contracts
 
-看看我们的 [Golang 合约](prereqs-all.html)
+See our [Golang Contracts](prereqs-all.html)
