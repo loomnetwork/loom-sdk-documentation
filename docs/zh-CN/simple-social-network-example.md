@@ -1,19 +1,20 @@
 ---
 id: simple-social-network-example
-title: 简单的社交网络示例
-sidebar_label: 简单的社交网络示例
+title: Simple Social Network Example
+sidebar_label: Simple Social Network Example
 ---
-此示例显示如何使用 `Web3` 和 [Loom.js](https://github.com/loomnetwork/loom-js) 在Loom DApp链上构建社交网络。 在这个简单的社交网络中, 用户可以发布和评论帖子。 源代码可在 [Github](https://github.com/loomnetwork/solidity-social-example) 找到。
+
+This example shows how to build a social network on a Loom DAppChain, using `Web3` and [Loom.js](https://github.com/loomnetwork/loom-js). In this simple social network users can post and comment on posts. Source is available on [Github](https://github.com/loomnetwork/solidity-social-example).
 
 ![](https://dzwonsemrish7.cloudfront.net/items/2W3c2O3G2A1q1l3f3D3d/Screen%20Recording%202018-05-29%20at%2003.35%20PM.gif)
 
-> 为此示例编译的智能合约使用Solidity版本0.4.24（SimpleSocialNetwork.sol）
+> The smart contract compiled for this example uses the Solidity version 0.4.24 (SimpleSocialNetwork.sol)
 
-## 开发
+## Development
 
-### 1.) 运行你自己的 Dapp 链
+### 1.) Run your own DappChain
 
-请确保您已按照[必须条件](https://loomx.io/developers/docs/en/prereqs.html)中的说明安装了Golang。
+Please ensure you've installed Golang as documented in the [prerequisites](https://loomx.io/developers/en/prereqs.html).
 
 ```bash
 git clone https://github.com/loomnetwork/solidity-social-example
@@ -32,9 +33,9 @@ cp genesis.example.json genesis.json
 ./loom run
 ```
 
-### 2.) 启动 ElasticSearch 和 Redis
+### 2.) Start ElasticSearch and Redis
 
-> 请注意，为了纠正运行并与应用程序交互，需要这两个服务
+> Notice that both services are required in order to correct run and interact with the application
 
 ```bash
 # macOS
@@ -42,43 +43,43 @@ brew tap homebrew/services
 brew install elasticsearch
 brew install redis
 
-# 在 macOS 上启动服务
+# Start services on macOS
 brew services start elasticsearch
 brew services start redis
 ```
 
-### 3.) 启动索引器
+### 3.) Start indexer
 
-索引器是一种服务，它将从智能合约接收所有事件，并提供构建在消息队列和快速数据库（Redis + ElasticSearch）上的缓存层。 此服务累积的数据在 `http://localhost:8081/posts` and `http://localhost:8081/comments` 中提供。
+The indexer is a service that will receive all events from the smart contract and feed a cache layer built on a message queue and a fast database (Redis + ElasticSearch). The data accumulated by this service is served at `http://localhost:8081/posts` and `http://localhost:8081/comments`
 
-注意这在 Node8 上效果最佳。
+Note this works best on Node8
 
     brew install node@8
     
 
 ```bash
-# 在第二个终端上
+# On second terminal
 cd solidity-social-example/webclient
 yarn
 node indexer.js
 ```
 
-### 4.) 启动 web 服务器
+### 4.) Start the web server
 
-网络服务器将服务于前端，允许用户与Loom Dapp链上的智能合约进行交互。
+The webserver will serve the frontend which allows users to interact with the smart contracts on the Loom DappChain.
 
 ```bash
-# 在第三个终端上
+# On third terminal
 cd solidity-social-example/webclient
 
-# 安装
+# Install
 yarn
 
-# 开始演示
+# Start the demo
 yarn start
 
 ```
 
-### 5.) 运行
+### 5.) Running
 
-在 web 浏览器中打开`http://localhost:8080`来使用这个简单的社交网络。
+Open `http://localhost:8080` in your web browser to use the Simple Social Network.
