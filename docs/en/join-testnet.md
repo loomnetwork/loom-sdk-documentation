@@ -7,7 +7,7 @@ sidebar_label: Join Testnets
 This doc is for developers on how they can join the Plasmachain Testnet to do deployment. If you are looking for information on how to run nodes, or to become a validator please checkout [Validator Guide](validator.html)
 
 **Prerequisite**
- - Loom installed (see [instruction](https://loomx.io/developers/docs/en/basic-install-osx.html#installation) )
+ - Loom installed (see [instruction](https://loomx.io/developers/en/basic-install-osx.html#installation) )
 
 ```bash
  curl https://raw.githubusercontent.com/loomnetwork/loom-sdk-documentation/master/scripts/get_loom.sh | sh

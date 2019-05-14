@@ -108,14 +108,14 @@ Note Loom SDK 2.0 is not protocol compatible with 1.0 chains. If you have a prod
 * Range queries on Go Contracts
 * Added ChainID to loom.yaml
 
-* [EVM indexed filter](https://loomx.io/developers/docs/en/web3js-event-filters.html)
+* [EVM indexed filter](https://loomx.io/developers/en/web3js-event-filters.html)
 * EVM filter pool fixes and event system
 * Loom-JS EVM updates for indexed filters
 * Loom-JS EVM fixes for getting block by hash
 
 ## Release 288 - July 17th
 
-* [EVM indexed filter](https://loomx.io/developers/docs/en/web3js-event-filters.html)
+* [EVM indexed filter](https://loomx.io/developers/en/web3js-event-filters.html)
 * EVM filter pool fixes and event system
 * Loom-JS EVM updates for indexed filters
 * Loom-JS EVM fixes for getting block by hash
@@ -140,7 +140,7 @@ Major release
 
 ## Release 186 - June 19th
 
-* [EVM Unity Example app](https://loomx.io/developers/docs/en/unity-sample-tiles-chain-evm.html)
+* [EVM Unity Example app](https://loomx.io/developers/en/unity-sample-tiles-chain-evm.html)
 * Unity SDK support for Solidity Apps
 * Many fixes for Filtering/Querying Ethereum Events
 
@@ -189,7 +189,7 @@ Major release
 
 ## Release 133 - May 24th
 
-* [Etherboy Demo released](https://loomx.io/developers/docs/en/etherboy-game.html)
+* [Etherboy Demo released](https://loomx.io/developers/en/etherboy-game.html)
 * [Japanese Docs released](https://loomx.io/developers/ja)
 * Updated Homepage for [docs site](https://loomx.io/developers/en/) 
 

@@ -6,7 +6,7 @@ export default {
   render(
     h,
     {
-      parent: { $page, $site, $route, $themeConfig, $themeLocaleConfig, $lang, $t, getUrl },
+      parent: { $page, $site, $route, $themeConfig, $themeLocaleConfig, $t },
       props: { item, sidebarDepth }
     }
   ) {

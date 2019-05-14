@@ -4,7 +4,7 @@ title: Etherboy Game
 sidebar_label: Etherboy Game
 ---
 
-![Header](/developers/docs/img/ebw_splash.jpg)
+![Header](/developers/img/ebw_splash.jpg)
 Etherboy is a multi-platform 2D game built in Unity, using the [Loom Unity SDK][] to interact with a
 smart contract written in Golang and running on a Loom DAppChain.
 
@@ -75,7 +75,7 @@ $LOOM_BIN run
 Assuming everything went without a hitch so far you now have a local Loom DAppChain running the
 Etherboy smart contract!
 
-![Animation](/developers/docs/img/etherboy-clip.gif)
+![Animation](/developers/img/etherboy-clip.gif)
 
 
 ### Build the Unity project

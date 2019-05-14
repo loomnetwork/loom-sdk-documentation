@@ -20,7 +20,7 @@ sidebar_label: Cocos SDK Quickstart
 1. Python 2.7
 2. Git
 3. [NodeJS](https://nodejs.org/en/), [NPM](https://www.npmjs.com/get-npm)
-4. [Loom](https://loomx.io/), [Install Steps](https://loomx.io/developers/docs/en/prereqs.html)
+4. [Loom](https://loomx.io/), [Install Steps](https://loomx.io/developers/en/prereqs.html)
 5. [Cocos Creator](http://www.cocos.com/creator)
 6. [Cocos Loom SDK Repo](https://github.com/loomnetwork/cocos-sdk/)
 
@@ -28,11 +28,11 @@ sidebar_label: Cocos SDK Quickstart
 
 Loom global structure diagram
 
-![](/developers/docs/img/Loom-Cocos-SDK.png)
+![](/developers/img/Loom-Cocos-SDK.png)
 
 Loom Cocos SDK structure diagram
 
-![](/developers/docs/img/loom-cocos-sdk-struct.png)
+![](/developers/img/loom-cocos-sdk-struct.png)
 
 `Loom-Cocos-SDK` have same api, same protobuf, similar contract with `loom-js`.
 
@@ -75,7 +75,7 @@ pkill blueprint # kill server first
 
 
 
-Please consult the [Loom SDK docs](https://loomx.io/developers/docs/en/prereqs.html) for further instruction on running your own DappChain.
+Please consult the [Loom SDK docs](https://loomx.io/developers/en/prereqs.html) for further instruction on running your own DappChain.
 
 ## Install Cocos Creator
 
@@ -96,7 +96,7 @@ you can download `Cocos Creator` from [here](http://www.cocos.com/creator) , and
   e.g. `sample/loomDemoForCreator` use  [setscore.proto](https://github.com/loomnetwork/phaser-sdk-demo/blob/master/src/assets/protobuff/setscore.proto), and related [setscore_pb.js](https://github.com/loomnetwork/phaser-sdk-demo/blob/master/src/assets/protobuff/setscore_pb.js)
 3. write yur own contract as requirements of your game, and serailezse your data with `setscore_pb.js`, and send to Loom Blockchain, take a look at [SimpleContract](https://github.com/loomnetwork/phaser-sdk-demo/blob/master/src/SimpleContract.js)
 
-![](/developers/docs/img/script_loom_folder.png)
+![](/developers/img/script_loom_folder.png)
 
 4. invoke api of your contract at suitable position.
 5. Run
@@ -117,5 +117,5 @@ Test Steps
 
 ## Notice
 
-* `Loom Block Chain` configuration, Contract's usage, take a look at [this](https://loomx.io/developers/docs/en/prereqs.html)
+* `Loom Block Chain` configuration, Contract's usage, take a look at [this](https://loomx.io/developers/en/prereqs.html)
 * Sample `dark-slash` come from `Cocos Creator` [Tutorial Project](https://github.com/cocos-creator/tutorial-dark-slash)

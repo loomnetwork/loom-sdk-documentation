@@ -16,7 +16,7 @@ Development
 
 ### 1.) Run your own DappChain
 
-Please ensure you've installed Golang as documented in the [prerequisites](https://loomx.io/developers/docs/en/prereqs.html).
+Please ensure you've installed Golang as documented in the [prerequisites](https://loomx.io/developers/en/prereqs.html).
 
 ```bash
 git clone https://github.com/loomnetwork/solidity-social-example

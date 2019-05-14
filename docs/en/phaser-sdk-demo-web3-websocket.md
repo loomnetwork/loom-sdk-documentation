@@ -6,7 +6,7 @@ sidebar_label: JS WebSockets + EVM Web3 Demo
 
 A basic example showcasing a simple HTML5 + WebSockets interacting with a Loom DappChain, using [Phaser](http://phaser.io) and [Loom.js](https://github.com/loomnetwork/loom-js), this time using Web3 and Loom Provider to create a seamless experience for Ethereum Developers
 
-![](/developers/docs/img/websocket_evm.gif)
+![](/developers/img/websocket_evm.gif)
 
 
 Game instructions
@@ -19,7 +19,7 @@ Development
 
 ### 1.) Run your own DappChain
 
-Please consult the [Loom SDK docs](https://loomx.io/developers/docs/en/prereqs.html) for further instruction on running your own DappChain.
+Please consult the [Loom SDK docs](https://loomx.io/developers/en/prereqs.html) for further instruction on running your own DappChain.
 
 ### 2.) Download the example project (Tiles Chain EVM)
 

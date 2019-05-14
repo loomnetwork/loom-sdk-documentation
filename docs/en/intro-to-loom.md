@@ -4,7 +4,7 @@ title: What is Loom Network?
 sidebar_label: Intro Loom SDK 
 ---
 
-![What is Loom Network?](/developers/docs/img/what-is-loom.png)
+![What is Loom Network?](/developers/img/what-is-loom.png)
 
 Loom Network is building a fundamental infrastructure platform to help Ethereum scale.
 It allows developers to run large-scale applications, and is the first Ethereum scaling solution to be live in production.
@@ -44,7 +44,7 @@ So we decided to upgrade this chain to have it play an even more important role 
 Think of it like a bridge to Ethereum mainnet with a built-in Decentralized Exchange (DEX), that other sidechains can use for faster and cheaper transactions without ever touching mainnet.
 Such an important role demands an important name. Thus, we’ve decided to rebrand ZombieChain to “PlasmaChain.”
 
-![Plasmachain](/developers/docs/img/plasmachain_diagram.png)
+![Plasmachain](/developers/img/plasmachain_diagram.png)
 
 PlasmaChain: The Sidechain Formerly Known as ZombieChain.
 ### Here are some of the features that will be built into PlasmaChain:
@@ -61,7 +61,7 @@ As the central hub that acts as a bridge between multiple sidechains and Ethereu
 
 # Understanding Plasma Cash
 
-![Understanding Plasma Cash](/developers/docs/img/plasma.jpg)
+![Understanding Plasma Cash](/developers/img/plasma.jpg)
 
 We’ve written 2 posts explaining our usage of Plasma on Loom DAppChains:
 

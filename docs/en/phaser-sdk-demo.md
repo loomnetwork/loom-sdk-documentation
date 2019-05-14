@@ -4,7 +4,7 @@ title: Phaser SDK Demo
 sidebar_label: Phaser SDK Demo
 ---
 
-![Game screenshot](/developers/docs/img/screenshot.png)
+![Game screenshot](/developers/img/screenshot.png)
 
 A basic example showcasing a simple HTML5 game interacting with a Loom DappChain, using [Phaser](http://phaser.io) and [Loom.js](https://github.com/loomnetwork/loom-js). Souce code is available on [Github](https://github.com/loomnetwork/phaser-sdk-demo)
 
@@ -40,7 +40,7 @@ Run Blockchain
 ./loom run
 ```
 
-Please consult the [Loom SDK docs](https://loomx.io/developers/docs/en/prereqs.html) for further instruction on running your own DappChain.
+Please consult the [Loom SDK docs](https://loomx.io/developers/en/prereqs.html) for further instruction on running your own DappChain.
 
 
 2.) Start the dev server

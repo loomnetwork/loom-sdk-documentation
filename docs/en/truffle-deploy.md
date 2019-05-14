@@ -4,7 +4,7 @@ title: Truffle DAppChain Example
 sidebar_label: Truffle Deploy
 ---
 
-![http://truffleframework.com](/developers/docs/img/truffle.jpg)
+![http://truffleframework.com](/developers/img/truffle.jpg)
 
 Simple example of Truffle interacting with Loom DAppChain, this example uses [loom-truffle-provider](https://github.com/loomnetwork/loom-truffle-provider) (check LoomTruffleProvider repository for more details)
 

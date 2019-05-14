@@ -148,7 +148,7 @@ Transcation receipt:  [10 178 198 52 108 ... 141 155 79 250 97 129 104 243]
 ```
 The output contract address can be used to call a method on the contract in 
 the call command.
-The uinique [transaction hash](https://loomx.io/developers/docs/en/evm.html#transaction-receipt)
+The uinique [transaction hash](https://loomx.io/developers/en/evm.html#transaction-receipt)
 can be used to retrive a receipt of the deployment transaction. 
 
 ### call
@@ -189,7 +189,7 @@ call -a ./data/pub -k ./data/pri -i ./cmd/loom/data/inputSet.bin \
   -w http://localhost:46658/rpc -r http://localhost:46658/query                         
         
 ```
-On completion this will return the [transaction hash](https://loomx.io/developers/docs/en/evm.html#transaction-receipt), this should be unique
+On completion this will return the [transaction hash](https://loomx.io/developers/en/evm.html#transaction-receipt), this should be unique
  for each transaction call. It can be used to return a receipt of the transaction.
 
 ### static-call
@@ -609,7 +609,7 @@ using a RPC client.
 ### go-loom
 
 This works in much the same way as described for
-[go-loom Contract](https://loomx.io/developers/docs/en/go-loom-clients.html#connecting-to-a-dappchain)
+[go-loom Contract](https://loomx.io/developers/en/go-loom-clients.html#connecting-to-a-dappchain)
 
 #### Connecting to a Solidity contract on a DAppChain
 
@@ -651,7 +651,7 @@ code using the solidity compiler `solc --bin -o . mySolidityProgram.sol`
 `hex.DecodeString` can be used to convert a hex string to a []byte array.
 We can then use the client.DeployContract to deploy our contract. and return an
  EVMContract handle. The second return parameter is a 
- [transaction hash](https://loomx.io/developers/docs/en/evm.html#transaction-receipt)
+ [transaction hash](https://loomx.io/developers/en/evm.html#transaction-receipt)
 that can be used to retrive a reciept of the transaction using the TxHash Query.
 ```go
 import (
@@ -690,9 +690,9 @@ and construting the contract removed as its no longer needed.
 
 Writing and reading to a smart contract deployed on a DAppChain's EVM works 
 in a similar way to 
-[writing](https://loomx.io/developers/docs/en/go-loom-clients.html#writing-data-to-a-dappchain)
+[writing](https://loomx.io/developers/en/go-loom-clients.html#writing-data-to-a-dappchain)
  and 
- [reading](https://loomx.io/developers/docs/en/go-loom-clients.html#reading-data-from-a-dappchain) 
+ [reading](https://loomx.io/developers/en/go-loom-clients.html#reading-data-from-a-dappchain) 
  to non-EVM plugins. The main difference is that the function signature and 
  input parameters need to be converted to bytecode using
  [ABI encoding](https://solidity.readthedocs.io/en/develop/abi-spec.html). 
@@ -723,10 +723,10 @@ in a similar way to
  }
  ```
  The Call method returns a 
-[transaction hash](https://loomx.io/developers/docs/en/evm.html#transaction-hash)
+[transaction hash](https://loomx.io/developers/en/evm.html#transaction-hash)
 You can use the transaction hash retrieve more information about the contract 
 using the  `GetEvmTxReceipt` method. This returns a 
-[transcation recieipt, vm.EvmTxReceipt](https://loomx.io/developers/docs/en/evm.html#transaction-receipt)
+[transcation recieipt, vm.EvmTxReceipt](https://loomx.io/developers/en/evm.html#transaction-receipt)
 object.
 ```go
  input (
@@ -782,7 +782,7 @@ arguments are
 
 In JavaScript and TypeScript you can Call methods contracts deployed on the EVM 
 of a DAppChain in a similar way as for non-EVM plugins, outlined in the 
-[loom-js quickstart](https://loomx.io/developers/docs/en/loom-js-quickstart.html#connecting-to-a-dappchain)
+[loom-js quickstart](https://loomx.io/developers/en/loom-js-quickstart.html#connecting-to-a-dappchain)
 
 #### Connecting to a Solidity contract on a DAppChain
 
@@ -827,16 +827,16 @@ async function getContract(privateKey, publicKey) {
 #### Writing to a Solidity contract on a DAppChain
 
 Calling an EVM smart contract's method that mutates the state works the same as 
-[writiing data to a DAppChain](https://loomx.io/developers/docs/en/loom-js-quickstart.html#writing-data-to-a-dappchain)
+[writiing data to a DAppChain](https://loomx.io/developers/en/loom-js-quickstart.html#writing-data-to-a-dappchain)
 The main difference in the case of an EvmContract is that the input takes the
  format of an [ABI encoded](https://solidity.readthedocs.io/en/develop/abi-spec.html) array. 
 ```go
     let txHash = await evmContract.callAsync(abiEncodedInput)
 ```
-The return value is a [transaction hash](https://loomx.io/developers/docs/en/evm.html#transaction-hash)
+The return value is a [transaction hash](https://loomx.io/developers/en/evm.html#transaction-hash)
 You can use the transaction hsh retrive more information about the contract 
 using the `GetEvmTxReceipt` method. This returns a 
-[transaction receipt, EvmTxReceipt](https://loomx.io/developers/docs/en/evm.html#transaction-receipt)
+[transaction receipt, EvmTxReceipt](https://loomx.io/developers/en/evm.html#transaction-receipt)
 object
 ```text
     let receipt = await client.getTxReceiptAsync(rtv)
