@@ -1,29 +1,30 @@
 ---
 id: phaser-sdk-demo-web3-websocket
-title: Javascript WebSocketsとWeb3のデモ
-sidebar_label: JS Websocket + EVM Web3 デモ
+title: Javascript WebSockets and Web3 Demo
+sidebar_label: JS WebSockets + EVM Web3 Demo
 ---
-[Phaser](http://phaser.io)と[Loom.js](https://github.com/loomnetwork/loom-js)を使用した、Loom DAppチェーンと対話するシンプルなHTML 5+ Websocketのゲーム基本サンプルだ。今回はWeb3とLoomプロバイダを使用して、イーサリアム開発者にとってのシームレスなUXとしている。
 
-![](/developers/docs/img/websocket_evm.gif)
+A basic example showcasing a simple HTML5 + WebSockets interacting with a Loom DappChain, using [Phaser](http://phaser.io) and [Loom.js](https://github.com/loomnetwork/loom-js), this time using Web3 and Loom Provider to create a seamless experience for Ethereum Developers
 
-## ゲームの説明
+![](/developers/img/websocket_evm.gif)
 
-マウスカーソルを使って黒いキャンバス領域をクリックし、色のついたタイルを作る。新しいプレイヤーはキャンバス上でそれぞれ異なる色を持つち、キャンバスは全てのプレイヤーから共有される。
+## Game instructions
 
-## 開発
+Use the mouse cursor to click on the black canvas area to create colored tiles, each new player will have a different color on the canvas which is shared amongst all players
 
-### 1.) 自分のDAppチェーンを起動しよう
+## Development
 
-自分のDAppチェーン起動についてのさらなる説明は、[Loom SDKドキュメンテーション](https://loomx.io/developers/docs/en/prereqs.html)を参照すること。
+### 1.) Run your own DappChain
 
-### 2.) サンプルプロジェクトのダウンロード(Tiles Chain EVM)
+Please consult the [Loom SDK docs](https://loomx.io/developers/en/prereqs.html) for further instruction on running your own DappChain.
+
+### 2.) Download the example project (Tiles Chain EVM)
 
 ```bash
 git clone https://github.com/loomnetwork/tiles-chain-evm
 ```
 
-### 3.) DAppチェーンのスタート
+### 3.) Start the DappChain
 
 ```bash
 cd tiles-chain-evm
@@ -32,27 +33,27 @@ cd dappchain
 wget https://private.delegatecall.com/loom/osx/stable/loom
 chmod +x loom
 
-# 設定
+# Configure
 ./loom init
 cp genesis.example.json genesis.json
 
-# 起動
+# Run
 ./loom run
 ```
 
-### 4.) webサーバーのスタート
+### 4.) Start the web server
 
 ```bash
-# ２つ目のターミナルにて
+# On second terminal
 cd tiles-chain-evm/webclient
 
-# インストール
+# Install
 yarn
 
-# デモのスタート
+# Start the demo
 yarn start
 ```
 
-### 5.) 起動
+### 5.) Running
 
-Tiles-Chainウェブインターフェースは今後`http://localhost:9000`で利用可能となる。
+The Tiles-Chain web interface will be available on `http://localhost:9000`
