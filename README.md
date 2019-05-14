@@ -4,7 +4,6 @@ Files to file generate the *new* Loom SDK doc site at https://loomx.io/developer
 
 ## Usage
 ```
-cd website
 # first time setup
 yarn
 # rebuild site after changing docs/*.md

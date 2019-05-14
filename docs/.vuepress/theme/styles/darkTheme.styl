@@ -1,0 +1,18 @@
+body.dark-mode
+  background-color $backgroundColorDark
+  color $textColorDark
+  .navbar
+    background-color $backgroundColorDark
+    .links
+      background-color $backgroundColorDark
+  .sidebar
+    background-color $backgroundColorDark
+    .sidebar-group
+      &.is-sub-group
+        padding-left 0
+        & > .sidebar-heading
+          color: $sidebarLinkColor
+        & > .sidebar-group-items
+          & > li > .sidebar-link
+            &:not(:hover):not(.active)
+              color $sidebarLinkColorDark
