@@ -14,7 +14,7 @@
         <NavLinks class="can-hide" />
       </div>
     </header>
-    <header class="hero">
+    <!-- <header class="hero">
       <img v-if="data.heroImage" :src="$withBase(data.heroImage)" alt="hero" />
 
       <h1 id="main-title">
@@ -37,7 +37,7 @@
       </div>
     </div>
 
-    <Content class="custom" />
+    <Content class="custom" /> -->
 
     <div v-if="data.footer" class="footer">
       {{ data.footer }}

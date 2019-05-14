@@ -85,7 +85,6 @@ export function isActive(route, path) {
 }
 
 export function resolvePage(pages, rawPath, base) {
-  console.log(base)
   if (base) {
     rawPath = resolvePath(rawPath, base)
   }
@@ -98,7 +97,7 @@ export function resolvePage(pages, rawPath, base) {
       })
     }
   }
-  // console.error(`[vuepress] No matching page found for sidebar item "${rawPath}"`)
+  console.error(`[vuepress] No matching page found for sidebar item "${rawPath}"`)
   return {}
 }
 
@@ -224,12 +223,11 @@ export function resolveNavLinkItem(linkItem) {
 export function resolveMatchingConfig(regularPath, config, localePath = '/') {
   if (Array.isArray(config)) {
     return {
-      base: `${localePath}`,
+      base: localePath,
       config: config
     }
   }
   for (const base in config) {
-    console.log('base: '+ base)
     if (ensureEndingSlash(regularPath).indexOf(base) === 0) {
       return {
         base,
