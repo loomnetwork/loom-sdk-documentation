@@ -1,40 +1,41 @@
 ---
 id: basic-install-all
-title: Loom SDKのインストール
-sidebar_label: Loom SDKのインストール
+title: Installation Loom SDK
+sidebar_label: Installation Loom SDK
 ---
-# Loomのインストールとセットアップ
 
-現在LoomをWindowsで使うには、[Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10)を使用するのが唯一の方法である。
+# Installing and setting up Loom
 
-これをインストールしたら、 下記の通り実行しよう。
+Currently the only way to use Loom on windows is to use the [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
 
-## Loomをダウンロード
+Once you install that you can continue on below.
 
-次のスクリプトは、現在のディレクトリへ自動的にLoomの安定的なバージョンをダウンロードするのに使用できる。
+## Download loom
+
+The following script can be used to automatically download the stable version of loom to the current directory:
 
 ```bash
 curl https://raw.githubusercontent.com/loomnetwork/loom-sdk-documentation/master/scripts/get_loom.sh | sh
 ```
 
-## インストール
+## Installation
 
 ```bash
 ./loom init
 ```
 
-## ブロックチェーンの起動
+## Run Blockchain
 
-インストール手順で作成したディレクトリ内から実行する。
+Run from within the directory created in the installation step.
 
 ```bash
 ./loom run
 ```
 
-## Solidity + Truffleでスタートするには
+## To get started with Solidity + Truffle
 
-[TruffleとSolidity](join-testnet.html)のチュートリアルを参照すること。
+See our tutorial on [Truffle and Solidity](join-testnet.html)
 
-## Golangコントラクトでスタートするには
+## To get started on Golang Contracts
 
-[Golangコントラクト](prereqs-all.html)を参照すること。
+See our [Golang Contracts](prereqs-all.html)
