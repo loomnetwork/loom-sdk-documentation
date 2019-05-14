@@ -5,7 +5,7 @@ sidebar_label: 이벤트 구독하기
 ---
 ## 이벤트 내보내기
 
-이벤트는 스마트 컨트랙트와 [go plugins](./goloomevents)에서 내보낸다. 이런 이벤트는 두가지 방법으로 구독할 수 있다.
+이벤트는 스마트 컨트랙트와 [go plugins](./goloomevents.html)에서 내보낸다. 이런 이벤트는 두가지 방법으로 구독할 수 있다.
 
 ### 이벤트 구조
 

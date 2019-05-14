@@ -5,7 +5,7 @@ sidebar_label: 订阅事件
 ---
 ## 发送事件
 
-事件由智能合约和 [go plugins](./goloomevents)发出。 有两种方式订阅这些事件：
+事件由智能合约和 [go plugins](./goloomevents.html)发出。 有两种方式订阅这些事件：
 
 ### 事件结构
 

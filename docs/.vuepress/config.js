@@ -1,6 +1,5 @@
 module.exports = {
   base: '/developers/',
-  docBase: '/docs/',
   SEARCH_MAX_SUGGESTIONS: 10,
   markdown: {
     // options for markdown-it-anchor
@@ -187,7 +186,7 @@ module.exports = {
       collapsable: true,
       sidebarDepth: 1,
       children: [
-        ['/testnets-plasma', 'PlasmaChain Testnets'],
+        ['/testnet-plasma', 'PlasmaChain Testnets'],
         ['/validator', 'Become Validator'],
         ['/non-validator-node', 'Non Validator Node']
       ]

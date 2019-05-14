@@ -1,5 +1,6 @@
 import Translation from './theme/plugin/translation'
 import Vuebar from 'vuebar';
+require('./public/js/drip');
 
 export default ({
   Vue, // the version of Vue being used in the VuePress app

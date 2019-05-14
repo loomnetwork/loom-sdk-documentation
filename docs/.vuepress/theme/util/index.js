@@ -103,16 +103,17 @@ export function resolvePage(pages, rawPath, base) {
 
 function resolvePath(relative, base, append) {
   const firstChar = relative.charAt(0)
-  if (firstChar === '/') {
-    if (base === '/') {
-      return relative
-    }
-    return base + relative.slice(1)
-  }
+  // if (firstChar === '/') {
+  //   if (base === '/') {
+  //     return relative
+  //   }
+  //   return base + relative.slice(1)
+  // }
 
-  if (firstChar === '?' || firstChar === '#') {
-    return base + relative
-  }
+  // if (firstChar === '?' || firstChar === '#') {
+  //   return base + relative
+  // }
+
 
   const stack = base.split('/')
 
