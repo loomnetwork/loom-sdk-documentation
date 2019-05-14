@@ -3,6 +3,7 @@ id: go-events
 title: Go Event Indexing
 sidebar_label: Go Event Indexing
 ---
+
 Previously events emitted in Go would only go out to the websocket. Now they can be stored in a local database or redis also. Below is the config to store the events
 
 ## Event Store
