@@ -1,15 +1,16 @@
 ---
 id: basic-install-windows
-title: インストール (Windows)
-sidebar_label: インストール (Windows)
+title: Installation (Windows)
+sidebar_label: Installation (Windows)
 ---
-WindowsでのLoomのインストールとセットアップ
 
-現在LoomをWindowsで使うには、[Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10)を使用するのが唯一の方法である。
+Installing and setting up Loom on Windows
 
-これをインストールしたら、 下記の通りLinuxインストール手順を実行しよう。
+Currently the only way to use Loom on windows is to use the [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
 
-## インストール
+Once you install that you can continue on below and run the Linux install steps.
+
+## Installation
 
 ```bash
 wget https://private.delegatecall.com/loom/linux/stable/loom
@@ -18,15 +19,15 @@ chmod +x loom
 ./loom init
 ```
 
-## ブロックチェーンの起動
+## Run Blockchain
 
     ./loom run
     
 
-## Solidity + Truffleでスタートするには
+## To get started with Solidity + Truffle
 
-[TruffleとSolidity](truffle-deploy.html)のチュートリアルを参照すること。
+See our tutorial on [Truffle and Solidity](truffle-deploy.html)
 
-## Golangコントラクトでスタートするには
+## To get started on Golang Contracts
 
-[Golangコントラクト](prereqs.html)を参照すること。
+See our [Golang Contracts](prereqs.html)
