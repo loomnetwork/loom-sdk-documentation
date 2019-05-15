@@ -269,11 +269,16 @@ function find(page, items, offset) {
     & > span
       display flex
       align-items center
+      flex 1
       svg
         margin 0 0.5rem
       a
         color #3C91E6
         font-size 0.9em
+        line-height normal
+    .next
+      a
+        text-align right
     .dark-mode &
       border-top 1px solid $borderColorDark  
 
@@ -285,6 +290,10 @@ function find(page, items, offset) {
       font-size .8em
       float none
       text-align left
+  .page-nav
+    .inner
+      & > span a
+        font-size 0.8em
 
 .word-count
   margin-left .25rem
