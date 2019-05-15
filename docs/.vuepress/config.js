@@ -17,22 +17,22 @@ module.exports = {
     '/en/': {
       lang: 'en',
       title: 'Loom SDK',
-      description: 'Loom Platform has generators for a default project'
+      description: 'Loom Developer Documentation. Learn all you need to know about building your own DApps on top of Loom PlasmaChain.'
     },
     '/zh-CN/': {
       lang: 'zh-CN',
       title: 'Loom SDK',
-      description: 'Loom 平台具有默认项目的生成器。'
+      description: 'Loom开发文档：学习关于在Loom PlasmaChain上构建DApp所需的全部知识。'
     },
     '/ko/': {
       lang: 'ko',
       title: 'Loom SDK',
-      description: 'Loom 플랫폼은 기본 프로젝트를 위한 제네레이터를 제공합니다.'
+      description: '이 페이지는 Loom 개발자 문서입니다. Loom 플라즈마체인상에 여러분의 DApp을 구축하기 위해 알아야 하는 모든 것들을 이 문서를 통해 배워보세요!'
     },
     '/ja/': {
       lang: 'ja',
       title: 'Loom SDK',
-      description: 'Loomのプラットフォームには、デフォルトのプロジェクト用のジェネレータがあります。'
+      description: 'Loom 開発者ドキュメント。LoomのPlasmaChain上でのDApp開発に必要な全てを学びましょう。'
     }
   },
   themeConfig: {
