@@ -15,7 +15,7 @@ export default {
       item.type === 'auto'
         ? selfActive || item.children.some(c => isActive($route, item.basePath + '#' + c.slug))
         : selfActive
-    const link = renderLink(h, item.path, $t(item.title || item.path), active)
+    const link = renderLink(h, item.path, $t(item.title), active)
     const configDepth =
       $page.frontmatter.sidebarDepth ||
       sidebarDepth ||
@@ -57,7 +57,7 @@ function renderChildren(h, children, path, route, maxDepth, depth = 1) {
   return h(
     'ul',
     { class: 'sidebar-sub-headers' },
-    children.map(c => {
+    children.map(c => {      
       const active = isActive(route, path + '#' + c.slug)
       return h('li', { class: 'sidebar-sub-header' }, [
         renderLink(h, path + '#' + c.slug, c.title, active),

@@ -1,21 +1,8 @@
 module.exports = {
   base: '/developers/',
-  docBase: '/docs/',
   SEARCH_MAX_SUGGESTIONS: 10,
-  markdown: {
-    // options for markdown-it-anchor
-    anchor: {
-      permalink: false
-    },
-    // options for markdown-it-toc
-    toc: {
-      includeLevel: [1, 2]
-    },
-    extendMarkdown: md => {
-      // use more markdown-it plugins!
-    }
-  },
   plugins: [
+    'vuepress-plugin-nprogress'
   ],
   head: [
     ['link', {
@@ -187,7 +174,7 @@ module.exports = {
       collapsable: true,
       sidebarDepth: 1,
       children: [
-        ['/testnets-plasma', 'PlasmaChain Testnets'],
+        ['/testnet-plasma', 'PlasmaChain Testnets'],
         ['/validator', 'Become Validator'],
         ['/non-validator-node', 'Non Validator Node']
       ]

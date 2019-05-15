@@ -114,6 +114,7 @@ function resolvePath(relative, base, append) {
     return base + relative
   }
 
+
   const stack = base.split('/')
 
   // remove trailing segment if:
