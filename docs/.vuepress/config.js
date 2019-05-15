@@ -16,7 +16,7 @@ module.exports = {
     '/en/': {
       lang: 'en',
       title: 'Loom SDK',
-      description: 'Loom Platform has generators for a default project'
+      description: 'Loom Developer Documentation. Learn all you need to know about building your own DApps on top of Loom PlasmaChain.'
     },
     '/zh-CN/': {
       lang: 'zh-CN',
