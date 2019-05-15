@@ -2,7 +2,8 @@ module.exports = {
   base: '/developers/',
   SEARCH_MAX_SUGGESTIONS: 10,
   plugins: [
-    'vuepress-plugin-nprogress'
+    'vuepress-plugin-nprogress',
+    '@vuepress/active-header-links'
   ],
   head: [
     ['link', {
@@ -42,7 +43,7 @@ module.exports = {
       },
       '/zh-CN/': {
         selectText: '中文',
-        label: '中文',
+        label: '中文'
       },
       '/ko/': {
         selectText: '한국어',
@@ -55,7 +56,7 @@ module.exports = {
     },
     nav: [{
       text: 'Docs',
-      link: 'basic-install-all'
+      link: '/'
     }, {
       text: 'Blog',
       link: 'https://medium.com/loom-network'
