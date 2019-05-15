@@ -72,9 +72,6 @@ export default {
     }
   },
   mounted() {
-    import('../public/js/drip.js').then(module => {
-      // use code
-    })
     this.$router.afterEach(() => {
       this.isSidebarOpen = false
     })
