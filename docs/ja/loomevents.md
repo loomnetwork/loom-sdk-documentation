@@ -6,7 +6,7 @@ sidebar_label: Subscribing to events
 
 ## Emitting events
 
-Events emitted from smart contracts and [go plugins](./goloomevents). These events can be subscribed to in two ways
+Events emitted from smart contracts and [go plugins](./goloomevents.html). These events can be subscribed to in two ways
 
 ### Event structure
 
