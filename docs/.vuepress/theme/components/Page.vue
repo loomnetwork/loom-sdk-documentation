@@ -274,7 +274,8 @@ function find(page, items, offset) {
       a
         color #3C91E6
         font-size 0.9em
-  
+    .dark-mode &
+      border-top 1px solid $borderColorDark  
 
 @media (max-width: $MQMobile)
   .page-edit
