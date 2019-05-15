@@ -55,9 +55,6 @@ module.exports = {
       }
     },
     nav: [{
-      text: 'Docs',
-      link: '/'
-    }, {
       text: 'Blog',
       link: 'https://medium.com/loom-network'
     }],
