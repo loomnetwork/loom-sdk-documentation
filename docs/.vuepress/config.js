@@ -8,7 +8,9 @@ module.exports = {
     ['link', {
       rel: "icon",
       href: '/img/favicon/favicon.ico'
-    }]
+    }],
+    ["script", { src: "https://buttons.github.io/buttons.js" }],
+    ["script", { src: "/js/drip.js" }]
   ],
   locales: {
     '/en/': {
