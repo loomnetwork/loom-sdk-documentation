@@ -39,13 +39,13 @@
             </g>
           </svg>
           <router-link v-if="prev" class="prev" :to="prev.path">
-            {{ prev.title || prev.path }}
+            {{ $t(prev.title) || $t(prev.path) }}
           </router-link>
         </span>
 
         <span v-if="next" class="next">
           <router-link v-if="next" :to="next.path">
-            {{ next.title || next.path }}
+            {{ $t(next.title) || $t(next.path) }}
           </router-link>
           <svg xmlns="http://www.w3.org/2000/svg" width="18" height="16" viewBox="0 0 18 16">
             <g fill="none" fill-rule="nonzero" stroke="#3C91E6" stroke-width="2">
@@ -276,9 +276,14 @@ function find(page, items, offset) {
         color #3C91E6
         font-size 0.9em
         line-height normal
-    .next
-      a
-        text-align right
+      &.prev
+        justify-content flex-start
+        a
+          text-align left
+      &.next
+        justify-content flex-end
+        a
+          text-align right
     .dark-mode &
       border-top 1px solid $borderColorDark  
 
