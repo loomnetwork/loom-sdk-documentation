@@ -108,6 +108,14 @@ export default {
             position absolute
             top calc(50% - 2px)
             left 9px
+        .dark-mode &
+          color #b6b6b6
+          &:hover
+            color $sidebarLinkActiveColorDark
+          &.router-link-active
+            color $sidebarLinkActiveColorDark
+            &::after
+              border-left 5px solid $sidebarLinkActiveColorDark
       &:first-child h4
         margin-top 0
         padding-top 0
@@ -160,10 +168,12 @@ export default {
       right 0
       background-color #fff
       padding 0.6rem 0
-      border 1px solid #ddd
-      border-bottom-color #ccc
+      border 1px solid $dropdownBoderColor
       text-align left
       border-radius 0.25rem
       white-space nowrap
       margin 0
+      .dark-mode &
+        background-color $backgroundColorDark
+        border 1px solid $dropdownBoderColorDark
 </style>

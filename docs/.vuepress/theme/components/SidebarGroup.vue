@@ -68,7 +68,7 @@ export default {
     padding-left 0
     & > .sidebar-heading
       font-size 1.36em
-      font-weight normal 
+      font-weight 500 
       color: $sidebarCategoryColor
       padding-left 2rem
     & > .sidebar-group-items
@@ -76,10 +76,11 @@ export default {
       & > li > .sidebar-link
         font-size: 1.28em;
         border-left none
-        font-weight 500
+        font-weight bold
         color $sidebarLinkActiveColor
         &:not(:hover):not(.active)
           color $sidebarLinkColor
+          font-weight 500
   &.depth-2
     & > .sidebar-heading
       border-left none
@@ -89,7 +90,6 @@ export default {
   cursor pointer
   font-size 1.1em
   font-weight bold
-  // text-transform uppercase
   padding 0.35rem 1.25rem
   width 100%
   box-sizing border-box

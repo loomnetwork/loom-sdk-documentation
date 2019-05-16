@@ -205,11 +205,14 @@ export default {
     z-index 99
     top 100%
     border 1px solid darken($borderColor, 10%)
-    border-radius 6px
+    border-radius 2px
     padding 0.4rem
     list-style-type none
     &.align-right
       right 0
+    .dark-mode &
+      background-color $backgroundColorDark
+      border-color $dropdownBoderColorDark
   .suggestion
     line-height 1.4
     padding 0.4rem 0.6rem
@@ -227,6 +230,13 @@ export default {
       background-color #f3f4f5
       a
         color $accentColor
+    .dark-mode &
+      a
+        color #b6b6b6
+      &.focused
+        background-color transparent
+        a
+          color $sidebarLinkActiveColorDark
 
 @media (max-width: $MQNarrow)
   .search-box
