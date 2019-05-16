@@ -1,1 +1,17 @@
-<?xml version="1.0" encoding="UTF-8"?><svg xmlns="http://www.w3.org/2000/svg" width="12" height="13"><g stroke-width="2" stroke="#aaa" fill="none"><path d="M11.29 11.71l-4-4"/><circle cx="5" cy="5" r="4"/></g></svg>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="19px" viewBox="0 0 16 19" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>search</title>
+    <desc>Created with Sketch.</desc>
+    <g id="to_html" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard" transform="translate(-377.000000, -79.000000)">
+            <g id="search" transform="translate(377.000000, 79.000000)">
+                <rect id="Rectangle" fill="#FFFFFF" fill-rule="nonzero" opacity="0.011672247" x="0" y="0" width="15" height="18"></rect>
+                <g id="Search_icon" opacity="0.69938151" transform="translate(0.000000, 2.000000)">
+                    <circle id="Oval-Copy" stroke="#B6B6B6" stroke-width="1.4" cx="6.76715177" cy="6.76715177" r="6.06715177"></circle>
+                    <polygon id="Rectangle-22-Copy" fill="#B6B6B6" transform="translate(12.465628, 13.248845) rotate(-45.000000) translate(-12.465628, -13.248845) " points="10.9375618 10.4394806 13.9936949 10.4394806 13.9936949 16.0582097 10.9375618 16.0582097"></polygon>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
