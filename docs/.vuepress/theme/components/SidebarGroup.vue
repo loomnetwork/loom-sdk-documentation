@@ -76,11 +76,10 @@ export default {
       & > li > .sidebar-link
         font-size: 1.28em;
         border-left none
-        font-weight bold
+        font-weight 500
         color $sidebarLinkActiveColor
         &:not(:hover):not(.active)
           color $sidebarLinkColor
-          font-weight 500
   &.depth-2
     & > .sidebar-heading
       border-left none

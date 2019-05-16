@@ -10,8 +10,26 @@ pre
     background-color $codeBorderColor
   &::-webkit-scrollbar-button
     display none
-.dark-mode .vb > .vb-dragger > .vb-dragger-styler 
-  background-color $scorllThumbColorDark
+.dark-mode 
+	.vb 
+		& > .vb-dragger 
+			& > .vb-dragger-styler 
+				background-color $scorllThumbColorDark
+			&:hover
+				& > .vb-dragger-styler 
+					background-color: $scrollThumbActiveColorDark
+		&.vb-scrolling-phantom 
+			& > .vb-dragger 
+				& > .vb-dragger-styler 
+					background-color $scrollThumbActiveColorDark
+		&.vb-dragging 
+			& > .vb-dragger 
+				& > .vb-dragger-styler 
+					background-color $scrollThumbActiveColorDark
+		&.vb-dragging-phantom 
+			& > .vb-dragger 
+				& > .vb-dragger-styler 
+					background-color $scrollThumbActiveColorDark
 .vb 
 	& > .vb-dragger 
 		z-index 5
