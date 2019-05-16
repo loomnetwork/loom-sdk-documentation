@@ -638,7 +638,7 @@ EvmContractのCallメソッドは、DAppチェーンの状態を変更するメ�
  input (
    "github.com/loomnetwork/go-loom/auth"
    "github.com/loomnetwork/go-loom/client"
-   "github.com/loomnetwork/go-loom/vm
+   "github.com/loomnetwork/go-loom/vm"
    "github.com/ethereum/go-ethereum/accounts/abi"   
  )
 
@@ -661,7 +661,7 @@ Callメソッドは、[トランザクションのハッシュ値](https://loomx
  input (
    "github.com/loomnetwork/go-loom/auth"
    "github.com/loomnetwork/go-loom/client"
-   "github.com/loomnetwork/go-loom/vm
+   "github.com/loomnetwork/go-loom/vm"
    "github.com/ethereum/go-ethereum/accounts/abi"   
  )
 
@@ -685,7 +685,7 @@ EVMスマートコントラクトから情報を取得するには、EvmContract
  input (
    "github.com/loomnetwork/go-loom/auth"
    "github.com/loomnetwork/go-loom/client"
-   "github.com/loomnetwork/go-loom/vm
+   "github.com/loomnetwork/go-loom/vm"
    "github.com/ethereum/go-ethereum/accounts/abi"   
  )
 

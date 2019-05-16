@@ -639,7 +639,7 @@ EvmContract's Call method is used for methods that mutate the DAppChain's state.
  input (
    "github.com/loomnetwork/go-loom/auth"
    "github.com/loomnetwork/go-loom/client"
-   "github.com/loomnetwork/go-loom/vm
+   "github.com/loomnetwork/go-loom/vm"
    "github.com/ethereum/go-ethereum/accounts/abi"   
  )
 
@@ -662,7 +662,7 @@ The Call method returns a [transaction hash](https://loomx.io/developers/docs/en
  input (
    "github.com/loomnetwork/go-loom/auth"
    "github.com/loomnetwork/go-loom/client"
-   "github.com/loomnetwork/go-loom/vm
+   "github.com/loomnetwork/go-loom/vm"
    "github.com/ethereum/go-ethereum/accounts/abi"   
  )
 
@@ -675,7 +675,6 @@ The Call method returns a [transaction hash](https://loomx.io/developers/docs/en
     var receipt vm.EvmTxReceipt
     receipt, err = rpcClinet.GetTxReceipt(txHash)
  ...
-
 ```
 
 #### Reading from a Solidity contract on a DAppCahin
@@ -686,7 +685,7 @@ To get information from an EVM smart contract you need to call a view method usi
  input (
    "github.com/loomnetwork/go-loom/auth"
    "github.com/loomnetwork/go-loom/client"
-   "github.com/loomnetwork/go-loom/vm
+   "github.com/loomnetwork/go-loom/vm"
    "github.com/ethereum/go-ethereum/accounts/abi"   
  )
 
@@ -752,13 +751,13 @@ async function getContract(privateKey, publicKey) {
 Calling an EVM smart contract's method that mutates the state works the same as [writiing data to a DAppChain](https://loomx.io/developers/docs/en/loom-js-quickstart.html#writing-data-to-a-dappchain) The main difference in the case of an EvmContract is that the input takes the format of an [ABI encoded](https://solidity.readthedocs.io/en/develop/abi-spec.html) array.
 
 ```go
-    let txHash = await evmContract.callAsync(abiEncodedInput)
+  let txHash = await evmContract.callAsync(abiEncodedInput)
 ```
 
 The return value is a [transaction hash](https://loomx.io/developers/docs/en/evm.html#transaction-hash) You can use the transaction hsh retrive more information about the contract using the `GetEvmTxReceipt` method. This returns a [transaction receipt, EvmTxReceipt](https://loomx.io/developers/docs/en/evm.html#transaction-receipt) object
 
 ```text
-    let receipt = await client.getTxReceiptAsync(rtv)
+  let receipt = await client.getTxReceiptAsync(rtv)
 ```
 
 #### Reading from a Solidity contract on a DAppCahin
@@ -766,7 +765,7 @@ The return value is a [transaction hash](https://loomx.io/developers/docs/en/evm
 To get information from an EVM smart contract you need to call a view method using the EvmContract's staticCall. This returns the result in an ABI encoded []byte. As for other EVM methods the function signature and input arguments are [ABI encoded](https://solidity.readthedocs.io/en/develop/abi-spec.html).
 
 ```go
-    let txResult = await evmContract.staticCallAsync(abiEncodedInput)
+  let txResult = await evmContract.staticCallAsync(abiEncodedInput)
 ```
 
 ## Transaction hash

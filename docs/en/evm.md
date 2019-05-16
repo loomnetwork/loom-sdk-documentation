@@ -706,7 +706,7 @@ in a similar way to
  input (
    "github.com/loomnetwork/go-loom/auth"
    "github.com/loomnetwork/go-loom/client"
-   "github.com/loomnetwork/go-loom/vm
+   "github.com/loomnetwork/go-loom/vm"
    "github.com/ethereum/go-ethereum/accounts/abi"   
  )
  
@@ -732,7 +732,7 @@ object.
  input (
    "github.com/loomnetwork/go-loom/auth"
    "github.com/loomnetwork/go-loom/client"
-   "github.com/loomnetwork/go-loom/vm
+   "github.com/loomnetwork/go-loom/vm"
    "github.com/ethereum/go-ethereum/accounts/abi"   
  )
  
@@ -761,7 +761,7 @@ arguments are
  input (
    "github.com/loomnetwork/go-loom/auth"
    "github.com/loomnetwork/go-loom/client"
-   "github.com/loomnetwork/go-loom/vm
+   "github.com/loomnetwork/go-loom/vm"
    "github.com/ethereum/go-ethereum/accounts/abi"   
  )
  
