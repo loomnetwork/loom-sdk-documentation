@@ -71,6 +71,10 @@ export default {
       font-weight 500 
       color: $sidebarCategoryColor
       padding-left 2rem
+      display flex
+      align-items center
+      & > span:first-child
+        flex 1
     & > .sidebar-group-items
       padding-left 1rem
       & > li > .sidebar-link
@@ -98,8 +102,6 @@ export default {
     color inherit
   .arrow
     position relative
-    top 0.4em
-    float right
   &.clickable
     &.active
       font-weight 600
