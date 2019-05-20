@@ -7,41 +7,41 @@ sidebar_label: Saving and reading state
 ## The contract state
 
 Each contract has access to a sandboxed state for storage of data. The write actions on the state are rolled back in case the contract operation returns an error.
-If a transaction is successfully commited, it contains the hash of the
-state root so that any given state is commited to the blockchain.
+If a transaction is successfully committed, it contains the hash of the
+state root so that any given state is committed to the blockchain.
 
 
 ## Writing to the state
 
 Use the `Set` operation on the contract context to save to the state.
 
-```
+```go
 Set(key []byte, pb proto.Message) error
 ```
 
-go-loom mandates that the data being saved is a protobuf object.
+`go-loom` mandates that the data being saved is a protobuf object.
 
 ## Reading from the state
 
 Use the `Has` operation to check whether a particular key exists in
 the state
 
-```
+```go
 Has(key []byte) bool
 ```
 
-To read the value saved at a key use the `Get` operation
+To read the value saved at a key, use the `Get` operation
 
-```
+```go
 Get(key []byte, pb proto.Message) error
 ```
 
-Get will unmarshal the saved data into a protobuf struct
+Get will unmarshal the saved data into a protobuf struct.
 
 ## Deleting a key
 
-Data saved at a key can be delete with
+Data saved at a key can be deleted with
 
-```
+```go
 Delete(key []byte)
 ```
