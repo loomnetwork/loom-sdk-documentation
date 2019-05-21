@@ -14,8 +14,6 @@ sidebar_label: PlasmaChainテストネット
 | Mainnet             | ユーザーベータ                                               |        |                                          |
 | Social Chain        | [Block Explorer](https://blockchain.delegatecall.com) | メインネット | [DelegateCall](https://delegatecall.com) |
 
-FaucetはこちらのURLより利用可能: [Faucet](http://faucet.dappchains.com)
-
 **開発者ネットは、通常日々消去されるので、実験的機能のみの使用を目的としている。**
 
 # コントラクトアドレスのトランスファーゲートウェイ
