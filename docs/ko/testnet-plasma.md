@@ -14,8 +14,6 @@ This page is purely information on where and how to access the chain. If you wan
 | Mainnet             | User Beta                                             |         |                                          |
 | Social Chain        | [Block Explorer](https://blockchain.delegatecall.com) | Mainnet | [DelegateCall](https://delegatecall.com) |
 
-Faucets are all available on this url: [Faucet](http://faucet.dappchains.com)
-
 **Devnets typically are wiped daily, only use for experimental features**
 
 # Contract Addresses Transfer Gateway
