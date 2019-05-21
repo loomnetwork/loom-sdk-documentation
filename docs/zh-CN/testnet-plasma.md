@@ -14,8 +14,6 @@ sidebar_label: PlasmaChain 测试网
 | 主网           | 用户测试版                                        |     |                                          |
 | Social Chain | [区块浏览器](https://blockchain.delegatecall.com) | 主网  | [DelegateCall](https://delegatecall.com) |
 
-这个网址上Faucet均可用：[Faucet](http://faucet.dappchains.com)
-
 **通常每天都会清理Devnet，仅用于实验性功能。**
 
 # 合约地址转移网关

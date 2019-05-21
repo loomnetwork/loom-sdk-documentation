@@ -16,7 +16,6 @@ Plasma Chain   | plasma.dappchains.com            | Mainnet   | End User Beta (L
 Mainnet   | User Beta
 Social Chain   | [Block Explorer](https://blockchain.delegatecall.com) | Mainnet | [DelegateCall](https://delegatecall.com)
 
-Faucets are all available on this url: [Faucet](http://faucet.dappchains.com)
 
 **Devnets typically are wiped daily, only use for experimental features**
 
@@ -30,4 +29,3 @@ Devnet Plasma (extdev-plasma-us1)  | Rinkeby       | 0xb73C9506cb7f4139A4D6Ac81D
 Devnet Plasma (test-z-asia1) | Rinkeby       | 0x3c826a09DF9ad39B9acF550b1bf35C9b6AfCd943
 Plasma Chain   | Mainnet       | 0x223CA78df868367D214b444d561B9123c018963A
 Validator Test | Rinkeby       | n/a
-
