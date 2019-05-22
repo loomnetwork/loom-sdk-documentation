@@ -68,7 +68,7 @@ export default {
     padding-left 0
     & > .sidebar-heading
       font-size 1.36em
-      font-weight 500 
+      font-weight 600 
       color: $sidebarCategoryColor
       padding-left 2rem
       display flex
@@ -78,9 +78,9 @@ export default {
     & > .sidebar-group-items
       padding-left 1rem
       & > li > .sidebar-link
-        font-size: 1.28em;
+        font-size: 1.3em;
         border-left none
-        font-weight 500
+        font-weight 600
         color $sidebarLinkActiveColor
         &:not(:hover):not(.active)
           color $sidebarLinkColor
