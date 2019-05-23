@@ -3,7 +3,8 @@ id: etherboy-game
 title: Etherboy 게임
 sidebar_label: Etherboy 게임
 ---
-![Header](/developers/img/ebw_splash.jpg) Etherboy는 Unity로 만들어진 멀티플랫폼 2D 게임입니다, [Loom Unity SDK](unity-sdk.html)를 사용하여 Golang으로 작성되고 Loom DAppChain에서 구동되는 스마트 컨트랙트와 상호작용합니다.
+
+![Header](/developers/img/ebw_splash.jpg) Etherboy는 Unity로 만들어진 멀티플랫폼 2D 게임입니다, [Loom Unity SDK](unity-sdk-plugin.html)를 사용하여 Golang으로 작성되고 Loom DAppChain에서 구동되는 스마트 컨트랙트와 상호작용합니다.
 
 ## 게인 컨트롤
 
@@ -29,20 +30,20 @@ sidebar_label: Etherboy 게임
 ### MacOS
 
 1. [MacOS 필수요소](prereqs.html) 단계에 따라 Golang을 설치하세요 (만약 아직 설치하지 않으셨다면).
-2. Loom DAppChain 바이너리를 다운로드 하세요 
-        bash
-        wget https://private.delegatecall.com/loom/osx/stable/loom
-        chmod +x loom
-        export LOOM_BIN=`pwd`/loom
+2. Loom DAppChain 바이너리를 다운로드 하세요
+   bash
+   wget https://private.delegatecall.com/loom/osx/stable/loom
+   chmod +x loom
+   export LOOM_BIN=`pwd`/loom
 
 ### Linux
 
 1. [Ubuntu 필수요소](prereqs-ubuntu.html) 단계에 따라 Golang을 설치하세요 (만약 아직 설치하지 않으셨다면).
-2. Loom DAppChain 바이너리를 다운로드 하세요 
-        bash
-        curl -OL https://private.delegatecall.com/loom/linux/stable/loom
-        chmod +x loom
-        export LOOM_BIN=`pwd`/loom
+2. Loom DAppChain 바이너리를 다운로드 하세요
+   bash
+   curl -OL https://private.delegatecall.com/loom/linux/stable/loom
+   chmod +x loom
+   export LOOM_BIN=`pwd`/loom
 
 ### Etherboy 컨트랙트 배포하기 (OSX / Linux)
 
@@ -117,7 +118,7 @@ http-server -a localhost -p 8090
 
 ```json
 {
-    "write_host": "http://localhost:46658/rpc",
-    "read_host": "http://localhost:46658/query"
+  "write_host": "http://localhost:46658/rpc",
+  "read_host": "http://localhost:46658/query"
 }
 ```
