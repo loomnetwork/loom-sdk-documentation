@@ -7,15 +7,13 @@ sidebar_label: Subscribing to events
 ## Emitting events
 
 Events emitted from smart contracts and [go plugins](./goloomevents.html).
-These events can be subscribed to in two ways
+These events can be subscribed to in two ways- via Redis or via web sockets.
 
 ### Event structure
 
-The event JSON shown above is wrapped in some transaction specific metadata before being emitted
-to the event stream. The other fields in the metadata include Called address, the contract address,
-the contract name and the raw transaction request data.
+The event JSON shown above is wrapped in some transaction specific metadata before being emitted to the event stream. The other fields in the metadata include Called address, the contract address, the contract name, and the raw transaction request data.
 
-Below is an example of the full message that goes into redis -
+Below is an example of the full message that goes into Redis:
 
 ```json
 {
@@ -34,25 +32,22 @@ Below is an example of the full message that goes into redis -
 }
 ```
 
-The `rawRequest` and the `encodedData` are base64 encoded with a standard encoding.
-
+The `rawRequest` and the `encodedData` are base64 encoded with standard encoding.
 
 ## Subscribing via Redis
 
-By default the loom-sdk will only emit events to the log. To configure it to send it to a redis
-sorted set, add the following line to the loom.yaml config file.
+By default, the `loom-sdk` will only emit events to the log. To configure it to send it to a Redis sorted set, add the following line to the `loom.yaml` config file:
 
 ```
 EventDispatcherURI: "redis://localhost:6379"
 ```
 
-This will start emitting events to the redis server in a sorted set called `loomevents`.
-Each event is added to the sorted set with the score being the blockchain height.
+This will start emitting events to the Redis server in a sorted set called `loomevents`. Each event is added to the sorted set with the score being the blockchain height.
 
-## Subscribing via websockets
+## Subscribing via web sockets
 
 The Loom SDK query endpoint can be used to subscribe to the event stream as well.
-Here is sample subscription code using a command line and the [wscat](https://www.npmjs.com/package/wscat2) nodejs cli.
+Here is a sample subscription code using a command line and the [wscat](https://www.npmjs.com/package/wscat2) nodejs cli.
 
 ```
 $ cat command.json
@@ -88,9 +83,9 @@ $ wscat -k ws://localhost:46658/queryws < command.json
 }
 ```
 
-The first json in the cli ouptut is the response of the subscribe command. The following json is an event from a contract processing a transaction.
+The first json in the cli output is the response of the `subscribe` command. The following json is an event from a contract processing a transaction.
 
 ### Example go code
 
-You can refer to [a demo indexer](https://github.com/loomnetwork/etherboy-core/blob/master/tools/cli/indexer/etherboyindexer.go) which uses the redis and websocket event subscriptions to read the events and persist to elasticsearch.
+You can refer to [a demo indexer](https://github.com/loomnetwork/etherboy-core/blob/master/tools/cli/indexer/etherboyindexer.go) which uses the Redis and web socket event subscriptions to read the events and persist to elasticsearch.
 (Note that this code is meant only for demonstration purposes).
