@@ -4,32 +4,31 @@ title: Example Deployment
 sidebar_label: Multi Node Deployment
 ---
 
-# Multi Node Deployment
+# Multi-Node Deployment
 
-This documentation describes how to run loom in a multi node setup.
+This documentation describes how to run loom in a multi-node setup.
 
 ## Installation
 
-These steps need to be executed on each node.
+The following steps need to be executed on each node:
 
-1. Choose a working directory of your choice. In this example we are using `/home/ubuntu`
+1. Choose a working directory of your choice. In this example, we are using `/home/ubuntu`
     ```bash
     cd /home/ubuntu
     ```
-1. Download the binaries:
+2. Download the binaries:
     ```bash
-    wget https://private.delegatecall.com/loom/linux/build-208/loom
-    chmod +x loom
+    curl https://raw.githubusercontent.com/loomnetwork/loom-sdk-documentation/master/scripts/get_loom.sh | sh
     ```
-1. Execute `./loom init` in the working directory to initialize config files.
-1. Add `loom.yml` in the working directory:
+3. Execute `./loom init` in the working directory to initialize config files.
+4. Add `loom.yml` in the working directory:
     ```yaml
     RPCBindAddress: "tcp://0.0.0.0:46658"
     ```
 
 ## Configuration
 
-There are two genesis.json files that needs to be combined.
+There are two genesis.json files that need to be combined.
 
 ### genesis.json #1 - in the working directory
 
@@ -68,7 +67,7 @@ The `genesis.json` file looks like this:
 }
 ```
 
-Next, collect all `validators` from each node, then combine them into an array. This file will now need to be replaced with the combined file, in all nodes. For a two node cluster, it should now look like this:
+Next, collect all `validators` from each node, combine them into an array, and save everything to a new file. This old file will now need to be replaced with the new combined file. Do this for all nodes. For a two-node cluster, it should now look like this:
 
 ```json
 {
@@ -129,7 +128,7 @@ You will find a file named `genesis.json`. It is not to be confused with the one
 }
 ```
 
-Next, collect all the `validators` from each node, then combine them into an array. This file will now need to be replaced with the combined file, in all nodes. For a two node cluster, it should now look like this:
+Next, collect all the `validators` from each node, combine them into an array, and save everything to a new file. The old file will now need to be replaced with the new combined file. Do this for all nodes. For a two-node cluster, it should now look like this:
 
 ```json
 {
@@ -162,11 +161,16 @@ Next, collect all the `validators` from each node, then combine them into an arr
 First, we need to get node keys from each node. Go to the working directory and run `loom nodekey`:
 
 ```bash
-$ loom nodekey
+loom nodekey
+```
+
+You should see something like this:
+
+```text
 47cd3e4cc27ac621ff8bc59b776fa228adab827e
 ```
 
-Do remember to clearly make note which node key is for which node. Also important is the private IP (or any IP that are available for the nodes to communicate with each other). Generally, in a cloud environment we use public IPs for security and latency reasons.
+Do remember to clearly make a note which node key is for which node. Also important is the private IP (or any IP that are available for the nodes to communicate with each other). Generally, in a cloud environment, we use public IPs for security and latency reasons.
 
 Now, let's use an example with 4 nodes:
 
@@ -249,7 +253,7 @@ sudo systemctl enable loom.service
 
 ## Verifying
 
-### Listening ports
+### Listening Ports
 
 If all is well, you will be able to see these ports opened in each node.
 
@@ -266,9 +270,9 @@ tcp6       0      0 :::46658                :::*                    LISTEN      
 
 If combining the configuration files and startup commands seems to be a lot of work, we have a way to automate it using Ansible.
 
-Ansible needs to be installed locally.
+> Note that Ansible needs to be installed locally.
 
-The playbook is available [here](https://github.com/loomnetwork/loom-playbooks/blob/master/loom-playbook.yml)
+The playbook is available [here](https://github.com/loomnetwork/loom-playbooks/blob/master/loom-playbook.yml).
 
 You will need to change the inventory to match your nodes and preferred working directory.
 
@@ -276,7 +280,7 @@ You will need to change the inventory to match your nodes and preferred working 
 
 ### Inventory: inventory.yaml
 
-The inventory specifies the nodes and their IP addresses. If the node only have one IP, use same for both `ansible_host` and `private_ip`. `ansible_host` is used by Ansible to connect to the host, while `private_ip` is used by the nodes to communicate with each other.
+The inventory specifies the nodes and their IP addresses. If the node only has one IP, use the same for both `ansible_host` and `private_ip`. `ansible_host` is used by Ansible to connect to the host, while `private_ip` is used by the nodes to communicate with each other.
 
 ```yaml
 ---
@@ -313,7 +317,7 @@ There is also a Vagrantfile included to provision a full cluster. Ansible needs 
 
 It is tested with VirtualBox provider. It takes less than two minutes on a decent machine to create and provision 4 nodes.
 
-The following variables may be changed when needed.
+The following variables may be changed when needed:
 
 ```ruby
 # Size of the cluster created by Vagrant
