@@ -10,65 +10,15 @@ pre
     background-color $codeBorderColor
   &::-webkit-scrollbar-button
     display none
-.dark-mode 
-	.vb 
-		& > .vb-dragger 
-			& > .vb-dragger-styler 
-				background-color $scorllThumbColorDark
-			&:hover
-				& > .vb-dragger-styler 
-					background-color: $scrollThumbActiveColorDark
-		&.vb-scrolling-phantom 
-			& > .vb-dragger 
-				& > .vb-dragger-styler 
-					background-color $scrollThumbActiveColorDark
-		&.vb-dragging 
-			& > .vb-dragger 
-				& > .vb-dragger-styler 
-					background-color $scrollThumbActiveColorDark
-		&.vb-dragging-phantom 
-			& > .vb-dragger 
-				& > .vb-dragger-styler 
-					background-color $scrollThumbActiveColorDark
-.vb 
-	& > .vb-dragger 
-		z-index 5
-		width 12px
-		right 0
-		& > .vb-dragger-styler 
-			-webkit-backface-visibility hidden
-			backface-visibility hidden
-			-webkit-transform rotate3d(0,0,0,0)
-			transform rotate3d(0,0,0,0)
-			-webkit-transition background-color 100ms ease-out,
-        margin 100ms ease-out,
-        height 100ms ease-out
-			transition background-color 100ms ease-out,
-        margin 100ms ease-out,
-        height 100ms ease-out
-			background-color $scorllThumbColor
-			margin 5px 1px 5px 0
-			height 100%
-			display block
-		&:hover 
-			& > .vb-dragger-styler 
-				background-color $scrollThumbActiveColor
-	&.vb-scrolling-phantom 
-		& > .vb-dragger 
-			& > .vb-dragger-styler 
-				background-color $scrollThumbActiveColor
-	&.vb-dragging 
-		& > .vb-dragger 
-			& > .vb-dragger-styler 
-				background-color $scrollThumbActiveColor
-	&.vb-dragging-phantom 
-		& > .vb-dragger 
-			& > .vb-dragger-styler 
-				background-color $scrollThumbActiveColor
-@media (max-width: $MQMobile)
-	.vb
-		.vb-content
-			padding-right 0 !important
-			width: 100% !important
-		& > .vb-dragger
-			display none !important
+.custom-scroll
+	scrollbar-color $codeBorderColor $codeBgColor
+  scrollbar-width thin
+  &::-webkit-scrollbar
+    background-color $codeBgColor
+    width 12px
+  &::-webkit-scrollbar-track
+    background-color transparent
+  &::-webkit-scrollbar-thumb
+    background-color $codeBorderColor
+  &::-webkit-scrollbar-button
+    display none
