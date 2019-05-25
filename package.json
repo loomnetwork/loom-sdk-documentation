@@ -7,7 +7,5 @@
     "vuepress": "^1.0.0-alpha.47",
     "vuepress-plugin-autonav": "^0.1.2"
   },
-  "dependencies": {
-    "vuebar": "^0.0.20"
-  }
+  "dependencies": {}
 }

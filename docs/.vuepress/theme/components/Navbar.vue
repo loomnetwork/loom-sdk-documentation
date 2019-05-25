@@ -14,9 +14,9 @@
     <div class="links" :style="linksWrapMaxWidth ? { 'max-width': linksWrapMaxWidth + 'px' } : {}">
       <NavLinks class="can-hide" />
     </div>
-    <button class="theme-swtich" @click="$emit('toggle-darkmode')">
+    <a class="theme-swtich" @click="$emit('toggle-darkmode')">
       <img :src="switchBtnImage" />
-    </button>
+    </a>
   </header>
 </template>
 

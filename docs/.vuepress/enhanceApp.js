@@ -1,5 +1,4 @@
 import Translation from './theme/plugin/translation'
-import Vuebar from 'vuebar';
 
 export default ({
   Vue, // the version of Vue being used in the VuePress app
@@ -23,8 +22,9 @@ export default ({
         return next(target)
       }
     }
-    const segments = to.path.match(/(?<!\?.+)(?<=\/)[\w-.]+(?=[/\r\n?]|$)/g)
-    if (segments.length < 2 || segments[1] === '') {
+    const segments = to.path.split('/');
+    // const segments = to.path.match(/(?<!\?.+)(?<=\/)[\w-.]+(?=[/\r\n?]|$)/g)
+    if (segments.length < 2 || segments[2] === '') {
       const target = `${to.path}intro-to-loom.html`
       return next(target)
     }
@@ -32,5 +32,4 @@ export default ({
     return next()
   })
   Vue.use(Translation)
-  Vue.use(Vuebar)
 }
