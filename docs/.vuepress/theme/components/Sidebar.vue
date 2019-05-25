@@ -94,6 +94,7 @@ $topWrapperWidth = $sidebarWidth - 0.1
   // flex-direction column
   overflow-y scroll
   padding-top 8rem
+  padding-bottom 1rem
   .sidebar-top__wrapper
     position fixed
     top 0

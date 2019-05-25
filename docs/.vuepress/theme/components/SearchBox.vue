@@ -214,15 +214,15 @@ export default {
 
   .suggestions {
     background: #fff;
-    width: 20rem;
+    width: 100%;
     position: absolute;
-    z-index: 99;
+    z-index: 199;
     top: 100%;
     border: 1px solid darken($borderColor, 10%);
     border-radius: 2px;
     padding: 0.4rem;
     list-style-type: none;
-
+    box-sizing: border-box;
     &.align-right {
       right: 0;
     }
