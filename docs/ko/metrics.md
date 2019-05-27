@@ -37,12 +37,12 @@ requestLatency := kitprometheus.NewSummaryFrom(stdprometheus.SummaryOpts{
 }, fieldKeys)
 ```
 
-Loom also provides the two different field names for each metrics to create variation of metric values. The first one is `method` which is the name of the method call. The second one is `error` which will be true if the method call returns an error.
+Loom also provides the two different field names for each metrics to create a variety of metric values. The first one is `method` which is the name of the method call. The second one is `error` which will be true if the method call returns an error.
 
 The followings are the example of the exposed metrics with different fields.
 
-    loomchain_query_service_request_count{error="false",method="Nonce"} 
-    loomchain_query_service_request_count{error="true",method="Nonce"} 
+    loomchain_query_service_request_count{error="false",method="Nonce"}
+    loomchain_query_service_request_count{error="true",method="Nonce"}
     loomchain_query_service_request_count{error="false",method="Query"}
     loomchain_query_service_request_count{error="true",method="Query"}
     
@@ -51,7 +51,7 @@ The followings are the example of the exposed metrics with different fields.
 
 When running a smart contract using `loom run` command, the default metrics endpoint is `127.0.0.1:46658/metrics`. The endpoint is configurable using the configuration key `RPCBindAddress` in the configuration file.
 
-You can poll the the metrics from the endpoint using http clients or web browsers. The server running on `127.0.0.1:46658` will show the request count and latency metrics as followed.
+You can poll the metrics from the endpoint using HTTP clients or web browsers. The server running on `127.0.0.1:46658` will show the request count and latency metrics as followed.
 
 ```sh
 curl 127.0.0.1:46658/metrics
@@ -83,7 +83,7 @@ You can also visualize the metrics using tools like [Grafana](https://grafana.co
 
 ### Prometheus
 
-To configure prometheus server, add the following to your config file:
+To configure the Prometheus server, add the following to your config file:
 
 ```yaml
 scrape_configs:
