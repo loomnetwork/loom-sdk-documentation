@@ -6,11 +6,11 @@ sidebar_label: NodeJS & Browser Quick Start
 
 ## Overview
 
-The `loom-js` library contains everything you need to build web apps and NodeJS services that interact with smart contracts running on Loom DAppChains.
+[Loom-js](https://github.com/loomnetwork/loom-js) contains everything you need to build web apps and NodeJS services that interact with smart contracts running on Loom DAppChains.
 
-To get started install `loom-js` from NPM:
+To get started install `loom-js`, run the following command:
 
-```shell
+```bash
 yarn add loom-js
 # or if you prefer...
 npm install loom-js
@@ -18,11 +18,11 @@ npm install loom-js
 
 ## Sample Code
 
-You can find all the code on this page the [Loom JS samples repo](https://github.com/loomnetwork/loom-js-samples) in the `quickstart` directory.
+Check out the [Truffle DAppChain Example](https://github.com/loomnetwork/truffle-dappchain-example) repo.
 
 ## Connecting to a DAppChain
 
-The `Contract` class provides a convenient way to interact with a smart contract running on a Loom DAppChain. Let's write a function that creates a `Contract` instance to interact with the sample [BluePrint](https://github.com/loomnetwork/weave-blueprint/blob/master/src/blueprint.go) smart contract from the Loom SDK...
+The `Contract` class provides a convenient way to interact with a smart contract running on a Loom DAppChain. Let's write a function that creates a `Contract` instance to interact with the sample [BluePrint](https://github.com/loomnetwork/weave-blueprint/blob/master/src/blueprint.go) smart contract from the Loom SDK:
 
 ```js
 const {
@@ -61,9 +61,9 @@ async function getContract(privateKey, publicKey) {
 
 ## Writing data to a DAppChain
 
-To mutate the state of a smart contract you need to call one of its public methods, to do so a signed transaction must be sent to and validated by the DAppChain. Fortunately the `Contract` class takes care of most of this when you use the `Contract.callAsync()` method.
+To mutate the state of a smart contract you need to call one of its public methods. To do so a signed transaction must be sent to and validated by the DAppChain. Fortunately, the `Contract` class takes care of most of this when you use the `Contract.callAsync()` method.
 
-The [BluePrint](https://github.com/loomnetwork/weave-blueprint/blob/master/src/blueprint.go) smart contract has a public `SetMsg` method that can be called to store an association between a key and a value. Let's write a function that calls this method...
+The [BluePrint](https://github.com/loomnetwork/weave-blueprint/blob/master/src/blueprint.go) smart contract has a public `SetMsg` method that can be called to store an association between a key and a value. Let's write a function that calls this method:
 
 ```js
 /**
@@ -81,9 +81,9 @@ async function store(contract, key, value) {
 
 ## Reading data from a DAppChain
 
-To read the state of a smart contract you need to call one of its public read-only methods, you can do so by using the `Contract.staticCallAsync()` method.
+To read the state of a smart contract you need to call one of its public read-only methods. You can do so by using the `Contract.staticCallAsync()` method.
 
-The [BluePrint](https://github.com/loomnetwork/weave-blueprint/blob/master/src/blueprint.go) smart contract has a public `GetMsg` method that can be called to look up an association between a key and a value. Let's write a function that calls this method...
+The [BluePrint](https://github.com/loomnetwork/weave-blueprint/blob/master/src/blueprint.go) smart contract has a public `GetMsg` method that can be called to look up an association between a key and a value. Let's write a function that calls this method:
 
 ```js
 /**
@@ -101,7 +101,7 @@ async function load(contract, key) {
 
 ## Putting it all together
 
-Now that we have all the pieces in place make sure that you have the DAppChain running and then run the following code, you should see `Value: hello!` printed to the console.
+Now that we have all the pieces in place, make sure the DAppChain is running and then run the following code.
 
 ```js
 (async function () {
@@ -114,3 +114,5 @@ Now that we have all the pieces in place make sure that you have the DAppChain r
   console.log('Value: ' + value)
 })()
 ```
+
+You should see `Value: hello!` printed out to the console.
