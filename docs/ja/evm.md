@@ -640,7 +640,7 @@ EvmContract's Call method is used for methods that mutate the DAppChain's state.
  input (
    "github.com/loomnetwork/go-loom/auth"
    "github.com/loomnetwork/go-loom/client"
-   "github.com/loomnetwork/go-loom/vm
+   "github.com/loomnetwork/go-loom/vm"
    "github.com/ethereum/go-ethereum/accounts/abi"   
  )
 
@@ -663,7 +663,7 @@ The Call method returns a [transaction hash](https://loomx.io/developers/en/evm.
  input (
    "github.com/loomnetwork/go-loom/auth"
    "github.com/loomnetwork/go-loom/client"
-   "github.com/loomnetwork/go-loom/vm
+   "github.com/loomnetwork/go-loom/vm"
    "github.com/ethereum/go-ethereum/accounts/abi"   
  )
 
@@ -687,7 +687,7 @@ To get information from an EVM smart contract you need to call a view method usi
  input (
    "github.com/loomnetwork/go-loom/auth"
    "github.com/loomnetwork/go-loom/client"
-   "github.com/loomnetwork/go-loom/vm
+   "github.com/loomnetwork/go-loom/vm"
    "github.com/ethereum/go-ethereum/accounts/abi"   
  )
 
