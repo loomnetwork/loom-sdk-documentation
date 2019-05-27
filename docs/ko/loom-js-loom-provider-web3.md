@@ -6,11 +6,11 @@ sidebar_label: Loom.js + Web3.js
 
 # Overview
 
-The `loom-js` comes with the `LoomProvider` which makes possible to connect with `Web3.js` as a provider allowing Ethereum developers to deploy and send transactions to smart contracts, listen for smart contracts events running inside the Loom DAppChains, for further details check out [EVM page](evm)
+[Loom-js](https://github.com/loomnetwork/loom-js) comes with the `LoomProvider` which makes possible to connect with `web3.js` as a provider. This allows Ethereum developers to deploy and send transactions to smart contracts, listen for smart contracts events running inside the Loom DAppChains. For further details check out [EVM page](evm).
 
-To get started install `loom-js` from NPM:
+To get started install `loom-js`, run the following command:
 
-```shell
+```bash
 yarn add loom-js
 # or if you prefer...
 npm install loom-js
@@ -20,43 +20,28 @@ npm install loom-js
 
 ## The SimpleContract
 
-Let's say that we have a Solidity contract, which is already compiled and deployed on Loom DAppChain
+Let's say that we have a Solidity contract, which is already compiled and deployed on Loom DAppChain:
 
-    pragma solidity ^0.4.22;
-    
-    contract SimpleStore {
-      uint value;
-    
-      event NewValueSet(uint);
-    
-      function set(uint _value) public {
-        value = _value;
-        emit NewValueSet(value);
-      }
-    
-      function get() public view returns (uint) {
-        return value;
-      }
-    }
-    
+```solidity
+pragma solidity ^0.4.22;
 
-With the binary compiled with the Solidity compiler the next step is to create a `genesis.json` for the Loom DappChain. (Don't forget to set the `location` to the compiled binary)
+contract SimpleStore {
+  uint value;
 
-```Javascript
-{
-    "contracts": [
-        {
-            "vm": "EVM",
-            "format": "hex",
-            "name": "SimpleStore",
-            "location": "/path_to_simple_store/SimpleStore.bin"
-        }
-    ]
+  event NewValueSet(uint);
+
+  function set(uint _value) public {
+    value = _value;
+    emit NewValueSet(value);
+  }
+
+  function get() public view returns (uint) {
+    return value;
+  }
 }
-
 ```
 
-After compiled the contract will generate the following ABI Interface:
+The Solidity compiler will generate the following ABI Interface:
 
 ```js
 const ABI = [{
@@ -93,7 +78,7 @@ const ABI = [{
 }]
 ```
 
-Instantiate and using the `Web3` with `LoomProvider` looks similar from use from an Ethereum Node, but first we need to initialize the `loom-js` client properly.
+Now, let's see how we can initialize the `loom-js` client:
 
 ```js
 import {
@@ -121,13 +106,13 @@ const publicKey = CryptoUtils.publicKeyFromPrivateKey(privateKey)
 const client = getClient(privateKey, publicKey)
 ```
 
-Now with client ready let's instantiate the `Web3`, in order to properly initialize the `Web3` instance we're going to pass the `LoomProvider` with the `client`
+Next, with the client ready, the next step is to instantiate `web3` as follows:
 
 ```js
 const web3 = new Web3(new LoomProvider(client, privateKey))
 ```
 
-We're ready to instantiate the contract
+We're now ready to instantiate the contract:
 
 ```js
 // Getting our address based on public key
@@ -143,11 +128,11 @@ const contractAddress = CryptoUtils.bytesToHexAddr(loomContractAddress.local.byt
 const contract = new web3.eth.Contract(ABI, contractAddress, {from: fromAddress})
 ```
 
-The contract is instantiated and ready
+Great! We’ve instantiated our Solidity contract. Next, we're going to show you how to make transactions and calls.
 
 # Transactions and Calls
 
-After the instantiation of the `Web3 Contract` we'll be able to use the contract methods for transactions (`send`) and calls (`call`) like so:
+At this point, we can make transactions (by calling `send`) and calls (by calling `call`) like so:
 
 ```js
 (async function () {
@@ -162,7 +147,7 @@ After the instantiation of the `Web3 Contract` we'll be able to use the contract
 
 # Events
 
-It is possible to add event listeners to the contract, although it don't support the filters yet
+It is possible to add event listeners to the contract, although there's no support for filters yet:
 
 ```js
 (async function () {
@@ -180,7 +165,7 @@ It is possible to add event listeners to the contract, although it don't support
 
 ## Putting it all together
 
-Now that we have all the pieces in place make sure that you have the DAppChain running and then run the following code, you should see `Value: hello!` printed to the console.
+Now that we have all the pieces in place, spin up a DAppChain and run the following snippet:
 
 ```js
 import {
@@ -245,3 +230,5 @@ const web3 = new Web3(new LoomProvider(client, privateKey))
 })()
 
 ```
+
+If all goes well, `Value: hello!` should get printed out to the console.
