@@ -4,7 +4,7 @@ title: Etherboy Game
 sidebar_label: Etherboy Game
 ---
 
-![Header](/developers/img/ebw_splash.jpg) Etherboy is a multi-platform 2D game built in Unity, using the [Loom Unity SDK](unity-sdk.html) to interact with a smart contract written in Golang and running on a Loom DAppChain.
+![Header](/developers/img/ebw_splash.jpg) Etherboy is a multi-platform 2D game built in Unity, using the [Loom Unity SDK](unity-sdk-plugin.html) to interact with a smart contract written in Golang and running on a Loom DAppChain.
 
 ## Game Controls
 
@@ -40,7 +40,7 @@ Currently you need to be on MacOS or Linux to spin up a Loom DAppChain, but if y
 
 ### Linux
 
-1. Install Golang by follwing the steps in [Ubuntu prerequisites][]  (if you haven't done so already).
+1. Install Golang by follwing the steps in [Ubuntu prerequisites][] (if you haven't done so already).
 2. Download Loom DAppChain binary
    ```bash
    curl -OL https://private.delegatecall.com/loom/linux/stable/loom
@@ -51,6 +51,7 @@ Currently you need to be on MacOS or Linux to spin up a Loom DAppChain, but if y
 ### Deploy Etherboy contract (OSX / Linux)
 
 Fetch the smart contract code from Github
+
 ```bash
 export GOPATH=`pwd`/ebgopath
 mkdir -p ebgopath/src/github.com/loomnetwork
@@ -120,7 +121,7 @@ For a desktop build you'll need to edit `Assets/Resources/env_config.json` to ch
 
 ```json
 {
-    "write_host": "http://localhost:46658/rpc",
-    "read_host": "http://localhost:46658/query"
+  "write_host": "http://localhost:46658/rpc",
+  "read_host": "http://localhost:46658/query"
 }
 ```
