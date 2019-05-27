@@ -7543,11 +7543,6 @@ vue@^2.5.16:
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.6.10.tgz#a72b1a42a4d82a721ea438d1b6bf55e66195c637"
   integrity sha512-ImThpeNU9HbdZL3utgMCq0oiMzAkt1mcgy3/E6zWC/G6AaQoeuFdsl9nDhTDU3X1R6FK7nsIUuRACVcjI+A2GQ==
 
-vuebar@^0.0.20:
-  version "0.0.20"
-  resolved "https://registry.yarnpkg.com/vuebar/-/vuebar-0.0.20.tgz#fd6313c2d3a2202c49e42419fe1d9ef126134200"
-  integrity sha512-Pq72X10Yl5QyQPcX4hR8KdhA2o+qpqzOdwkoIHUnAJfXWLODBKJhUPAnWvKvBcgst0HuHASLDrcFBSQz98gd9g==
-
 vuepress-html-webpack-plugin@^3.2.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/vuepress-html-webpack-plugin/-/vuepress-html-webpack-plugin-3.2.0.tgz#219be272ad510faa8750d2d4e70fd028bfd1c16e"

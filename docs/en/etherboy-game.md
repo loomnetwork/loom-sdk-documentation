@@ -52,6 +52,7 @@ Currently you need to be on MacOS or Linux to spin up a Loom DAppChain, but if y
 ### Deploy Etherboy contract (OSX / Linux)
 
 Fetch the smart contract code from Github
+
 ```bash
 export GOPATH=`pwd`/ebgopath
 mkdir -p ebgopath/src/github.com/loomnetwork
@@ -60,6 +61,7 @@ git clone https://github.com/loomnetwork/etherboy-core.git etherboy-core
 ```
 
 Build and deploy the contract
+
 ```bash
 cd etherboy-core
 make deps
@@ -73,7 +75,6 @@ $LOOM_BIN run
 Assuming everything went without a hitch, you now have a local Loom DAppChain running the [Etherboy smart contract]!
 
 ![Animation](/developers/img/etherboy-clip.gif)
-
 
 ### Build the Unity project
 
@@ -122,14 +123,14 @@ For a desktop build you'll need to edit `Assets/Resources/env_config.json` to ch
 
 ```json
 {
-    "write_host": "http://localhost:46658/rpc",
-    "read_host": "http://localhost:46658/query"
+  "write_host": "http://localhost:46658/rpc",
+  "read_host": "http://localhost:46658/query"
 }
 ```
 
-[MacOS prerequisites]: prereqs.html
-[Ubuntu prerequisites]: prereqs-ubuntu.html
-[Windows Subsystem for Linux]: https://docs.microsoft.com/en-us/windows/wsl/install-win10
-[Loom Unity SDK]: unity-sdk.html
-[Etherboy game]: https://github.com/loomnetwork/Etherboy
-[Etherboy smart contract]: https://github.com/loomnetwork/etherboy-core
+[macos prerequisites]: prereqs.html
+[ubuntu prerequisites]: prereqs-ubuntu.html
+[windows subsystem for linux]: https://docs.microsoft.com/en-us/windows/wsl/install-win10
+[loom unity sdk]: unity-sdk-plugin.html
+[etherboy game]: https://github.com/loomnetwork/Etherboy
+[etherboy smart contract]: https://github.com/loomnetwork/etherboy-core

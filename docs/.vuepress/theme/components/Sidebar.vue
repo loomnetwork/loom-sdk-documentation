@@ -1,12 +1,14 @@
 <template>
-  <aside class="sidebar">
-    <SidebarTop @toggle-darkmode="$emit('toggle-darkmode')" :darkMode="darkMode"/>
-    <div class="search__wrapper">
-      <SearchBox v-if="$site.themeConfig.search !== false"/>    
+  <aside class="sidebar custom-scroll">
+    <div class="sidebar-top__wrapper">
+      <SidebarTop @toggle-darkmode="$emit('toggle-darkmode')" :darkMode="darkMode"/>
+      <div class="search__wrapper">
+        <SearchBox v-if="$site.themeConfig.search !== false"/>    
+      </div>
     </div>
     <NavLinks />
     <slot name="top" />
-    <div v-bar>
+    <!-- <div v-bar> -->
       <div class="scroll-container">
         <ul v-if="items.length" class="sidebar-links">
           <li v-for="(item, i) in items" :key="i">
@@ -22,7 +24,7 @@
           </li>
         </ul>
       </div>
-    </div>
+    <!-- </div> -->
     <slot name="bottom" />
   </aside>
 </template>
@@ -86,9 +88,20 @@ function resolveOpenGroupIndex(route, items) {
 </script>
 
 <style lang="stylus">
+$topWrapperWidth = $sidebarWidth - 0.1
 .sidebar
-  display flex
-  flex-direction column
+  // display flex
+  // flex-direction column
+  overflow-y scroll
+  padding-top 8rem
+  padding-bottom 1rem
+  .sidebar-top__wrapper
+    position fixed
+    top 0
+    left 0
+    width $topWrapperWidth
+    background-color #ffffff
+    z-index 99
   .search__wrapper
     margin-bottom 1rem
     padding 0 1.5rem 0.7rem

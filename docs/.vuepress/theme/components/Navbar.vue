@@ -14,9 +14,9 @@
     <div class="links" :style="linksWrapMaxWidth ? { 'max-width': linksWrapMaxWidth + 'px' } : {}">
       <NavLinks class="can-hide" />
     </div>
-    <button class="theme-swtich" @click="$emit('toggle-darkmode')">
+    <a class="theme-swtich" @click="$emit('toggle-darkmode')">
       <img :src="switchBtnImage" />
-    </button>
+    </a>
   </header>
 </template>
 
@@ -69,7 +69,7 @@ $navbar-horizontal-padding = 1.5rem
 .navbar
   padding $navbar-vertical-padding $navbar-horizontal-padding
   line-height $navbarHeight - 1.4rem
-  left $sidebarWidth !important
+  left $sidebarWidth
   a, span, img
     display inline-block
   .logo

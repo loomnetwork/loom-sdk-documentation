@@ -1,14 +1,19 @@
 @require './config'
 
 $mobileSidebarWidth = $sidebarWidth * 0.9
+$mobileSidebarTopWrapperWidth = $mobileSidebarWidth - 0.1
 
 // narrow desktop / iPad
 @media (max-width: $MQNarrow)
   .sidebar
     font-size 15px
     width $mobileSidebarWidth
+    .sidebar-top__wrapper
+      width $mobileSidebarTopWrapperWidth
   .page
     padding-left $mobileSidebarWidth
+  .navbar
+    left $mobileSidebarWidth
 
 // wide mobile
 @media (max-width: $MQMobile)
