@@ -38,230 +38,300 @@
 
 <script>
 /* global SEARCH_MAX_SUGGESTIONS, SEARCH_PATHS */
-import { SEARCH_MAX_SUGGESTIONS } from '../../config.js'
+import { SEARCH_MAX_SUGGESTIONS } from "../../config.js";
 export default {
-  data () {
+  data() {
     return {
-      query: '',
+      query: "",
       focused: false,
       focusIndex: 0
-    }
+    };
   },
 
   computed: {
-    showSuggestions () {
-      return (
-        this.focused
-        && this.suggestions
-        && this.suggestions.length
-      )
+    showSuggestions() {
+      return this.focused && this.suggestions && this.suggestions.length;
     },
 
-    suggestions () {
-      const query = this.query.trim().toLowerCase()
+    suggestions() {
+      const query = this.query.trim().toLowerCase();
       if (!query) {
-        return
+        return;
       }
 
-      const { pages } = this.$site
-      const max = SEARCH_MAX_SUGGESTIONS
-      const localePath = this.$localePath
-      const matches = item => (
-        item.title
-        && item.title.toLowerCase().indexOf(query) > -1
-      )
-      const res = []
+      const { pages } = this.$site;
+      const max = SEARCH_MAX_SUGGESTIONS;
+      const localePath = this.$localePath;
+      const matches = item =>
+        item.title && item.title.toLowerCase().indexOf(query) > -1;
+      const res = [];
       for (let i = 0; i < pages.length; i++) {
-        if (res.length >= max) break
-        const p = pages[i]
+        if (res.length >= max) break;
+        const p = pages[i];
         // filter out results that do not match current locale
         if (this.getPageLocalePath(p) !== localePath) {
-          continue
+          continue;
         }
 
         // filter out results that do not match searchable paths
         if (!this.isSearchable(p)) {
-          continue
+          continue;
         }
 
         if (matches(p)) {
-          res.push(p)
+          res.push(p);
         } else if (p.headers) {
           for (let j = 0; j < p.headers.length; j++) {
-            if (res.length >= max) break
-            const h = p.headers[j]
+            if (res.length >= max) break;
+            const h = p.headers[j];
             if (matches(h)) {
-              res.push(Object.assign({}, p, {
-                path: p.path + '#' + h.slug,
-                header: h
-              }))
+              res.push(
+                Object.assign({}, p, {
+                  path: p.path + "#" + h.slug,
+                  header: h
+                })
+              );
             }
           }
         }
       }
-      return res
+      return res;
     },
 
     // make suggestions align right when there are not enough items
-    alignRight () {
-    //   const navCount = (this.$site.themeConfig.nav || []).length
-    //   const repo = this.$site.repo ? 1 : 0
-    //   return navCount + repo <= 2
-        return true
+    alignRight() {
+      //   const navCount = (this.$site.themeConfig.nav || []).length
+      //   const repo = this.$site.repo ? 1 : 0
+      //   return navCount + repo <= 2
+      return true;
     }
   },
 
   methods: {
-    getPageLocalePath (page) {
+    getPageLocalePath(page) {
       for (const localePath in this.$site.locales || {}) {
-        if (localePath !== '/' && page.path.indexOf(localePath) === 0) {
-          return localePath
+        if (localePath !== "/" && page.path.indexOf(localePath) === 0) {
+          return localePath;
         }
       }
-      return '/'
+      return "/";
     },
 
-    isSearchable (page) {
-      let searchPaths = null
+    isSearchable(page) {
+      let searchPaths = null;
 
       // all paths searchables
-      if (searchPaths === null) { return true }
+      if (searchPaths === null) {
+        return true;
+      }
 
-      searchPaths = Array.isArray(searchPaths) ? searchPaths : new Array(searchPaths)
+      searchPaths = Array.isArray(searchPaths)
+        ? searchPaths
+        : new Array(searchPaths);
 
-      return searchPaths.filter(path => {
-        return page.path.match(path)
-      }).length > 0
+      return (
+        searchPaths.filter(path => {
+          return page.path.match(path);
+        }).length > 0
+      );
     },
 
-    onUp () {
+    onUp() {
       if (this.showSuggestions) {
         if (this.focusIndex > 0) {
-          this.focusIndex--
+          this.focusIndex--;
         } else {
-          this.focusIndex = this.suggestions.length - 1
+          this.focusIndex = this.suggestions.length - 1;
         }
       }
     },
 
-    onDown () {
+    onDown() {
       if (this.showSuggestions) {
         if (this.focusIndex < this.suggestions.length - 1) {
-          this.focusIndex++
+          this.focusIndex++;
         } else {
-          this.focusIndex = 0
+          this.focusIndex = 0;
         }
       }
     },
 
-    go (i) {
+    go(i) {
       if (!this.showSuggestions) {
-        return
+        return;
       }
-      this.$router.push(this.suggestions[i].path)
-      this.query = ''
-      this.focusIndex = 0
+      this.$router.push(this.suggestions[i].path);
+      this.query = "";
+      this.focusIndex = 0;
     },
 
-    focus (i) {
-      this.focusIndex = i
+    focus(i) {
+      this.focusIndex = i;
     },
 
-    unfocus () {
-      this.focusIndex = -1
+    unfocus() {
+      this.focusIndex = -1;
+    }
+  },
+  watch: {
+    $route() {
+      this.query = "";
     }
   }
-}
+};
 </script>
 
 <style lang="stylus">
-.search-box
-  display block
-  position relative
-  input
-    cursor text
-    color lighten($textColor, 25%)
-    display inline-block
-    border 1px solid darken($borderColor, 10%)
-    font-size 1rem
-    font-family "proxima-nova"
-    line-height normal
-    padding 0.25rem 1.3rem 0.25rem 0.625rem
-    outline none
-    transition all .2s ease
+.search-box {
+  display: block;
+  position: relative;
+
+  input {
+    cursor: text;
+    color: lighten($textColor, 25%);
+    display: inline-block;
+    border: 1px solid darken($borderColor, 10%);
+    font-size: 1rem;
+    font-family: 'proxima-nova';
+    line-height: normal;
+    padding: 0.25rem 1.3rem 0.25rem 0.625rem;
+    outline: none;
+    transition: all 0.2s ease;
     background: transparent url('../../public/img/search.svg') calc(100% - 0.5rem) 0.35rem no-repeat;
     background-size: 0.875rem;
-    width: 100%
+    width: 100%;
     box-sizing: border-box;
-    .dark-mode &
-      border-color $searchBorderColorDark
-    &:focus
-      cursor auto
-      border-color $accentColor
-  .suggestions
-    background #fff
-    width 20rem
-    position absolute
-    z-index 99
-    top 100%
-    border 1px solid darken($borderColor, 10%)
-    border-radius 6px
-    padding 0.4rem
-    list-style-type none
-    &.align-right
-      right 0
-  .suggestion
-    line-height 1.4
-    padding 0.4rem 0.6rem
-    border-radius 4px
-    cursor pointer
-    a
-      white-space normal
-      color lighten($textColor, 35%)
-      .page-title
-        font-weight 600
-      .header
-        font-size 0.9em
-        margin-left 0.25em
-    &.focused
-      background-color #f3f4f5
-      a
-        color $accentColor
 
-@media (max-width: $MQNarrow)
-  .search-box
-    input
-      cursor pointer
+    .dark-mode & {
+      border-color: $searchBorderColorDark;
+    }
+
+    &:focus {
+      cursor: auto;
+      border-color: $accentColor;
+    }
+  }
+
+  .suggestions {
+    background: #fff;
+    width: 100%;
+    position: absolute;
+    z-index: 199;
+    top: 100%;
+    border: 1px solid darken($borderColor, 10%);
+    border-radius: 2px;
+    padding: 0.4rem;
+    list-style-type: none;
+    box-sizing: border-box;
+    &.align-right {
+      right: 0;
+    }
+
+    .dark-mode & {
+      background-color: $backgroundColorDark;
+      border-color: $dropdownBoderColorDark;
+    }
+  }
+
+  .suggestion {
+    line-height: 1.4;
+    padding: 0.4rem 0.6rem;
+    border-radius: 4px;
+    cursor: pointer;
+
+    a {
+      white-space: normal;
+      color: lighten($textColor, 35%);
+
+      .page-title {
+        font-weight: 600;
+      }
+
+      .header {
+        font-size: 0.9em;
+        margin-left: 0.25em;
+      }
+    }
+
+    &.focused {
+      background-color: #f3f4f5;
+
+      a {
+        color: $accentColor;
+      }
+    }
+
+    .dark-mode & {
+      a {
+        color: #b6b6b6;
+      }
+
+      &.focused {
+        background-color: transparent;
+
+        a {
+          color: $sidebarLinkActiveColorDark;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $MQNarrow) {
+  .search-box {
+    input {
+      cursor: pointer;
+
       // width 0
       // border-color transparent
       // position relative
-      &:focus
-        cursor text
-        left 0
-        width 100%
+      &:focus {
+        cursor: text;
+        left: 0;
+        width: 100%;
+      }
+    }
+  }
+}
 
 // Match IE11
-@media all and (-ms-high-contrast: none)
-  .search-box input
-    height 2rem
+@media all and (-ms-high-contrast: none) {
+  .search-box input {
+    height: 2rem;
+  }
+}
 
-@media (max-width: $MQNarrow) and (min-width: $MQMobile)
-  .search-box
-    .suggestions
-      left 0
+@media (max-width: $MQNarrow) and (min-width: $MQMobile) {
+  .search-box {
+    .suggestions {
+      left: 0;
+    }
+  }
+}
 
-@media (max-width: $MQMobile)
-  .search-box
-    margin-right 0
-    input
-      left 1rem
-    .suggestions
-      left 0
+@media (max-width: $MQMobile) {
+  .search-box {
+    margin-right: 0;
 
-@media (max-width: $MQMobileNarrow)
-  .search-box
-    .suggestions
-      width calc(100vw - 4rem)
-    input:focus
-      width 100%
+    input {
+      left: 1rem;
+    }
+
+    .suggestions {
+      left: 0;
+    }
+  }
+}
+
+@media (max-width: $MQMobileNarrow) {
+  .search-box {
+    .suggestions {
+      width: calc(100vw - 4rem);
+    }
+
+    input:focus {
+      width: 100%;
+    }
+  }
+}
 </style>

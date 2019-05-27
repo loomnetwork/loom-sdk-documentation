@@ -7,12 +7,20 @@ body.dark-mode
       background-color $backgroundColorDark
   .sidebar
     background-color $backgroundColorDark
+    .sidebar-top__wrapper 
+      background-color $backgroundColorDark
+    a.sidebar-link
+      color $sidebarChildrenColorDark
+      &.active, &:hover
+        color $sidebarChildrenActiveColorDark
     .sidebar-group
       &.is-sub-group
         padding-left 0
         & > .sidebar-heading
-          color: $sidebarLinkColor
+          color: $sidebarHeaderColorDark
         & > .sidebar-group-items
           & > li > .sidebar-link
             &:not(:hover):not(.active)
               color $sidebarLinkColorDark
+            &.active, &:hover
+              color $sidebarLinkActiveColorDark

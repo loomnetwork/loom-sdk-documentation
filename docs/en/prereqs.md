@@ -76,17 +76,26 @@ cp ../genesis.example.json genesis.json
 
 ## Send transactions
 
-Open a second console
-<br/>
-<br/>
-This will generate a private key. Create an account. Then set a value, and then read the value from the blockchain.
-
-You can read the source of the <a href="https://github.com/loomnetwork/weave-blueprint">blueprint contract here</a>
+Open a second console and run the following commands:
 
 ```bash
 cd blueprint/build
 ../../loom genkey -k priv_key -a pub_key
 ./blueprint call create-acct -p priv_key
+```
+
+This will generate a private key and create an account.
+
+Next, let's set a value:
+
+```bash
 ./blueprint call set -v 1 -p priv_key
+```
+
+and read it:
+
+```bash
 ./blueprint call get
 ```
+
+You can read the source of the <a href="https://github.com/loomnetwork/weave-blueprint">blueprint contract here</a>
