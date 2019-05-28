@@ -36,6 +36,16 @@ Run from within the directory created in the installation step.
 
 See our tutorial on [Truffle and Solidity](join-testnet.html)
 
-## To get started on Golang Contracts
+## To get started with Golang Contracts
 
 See our [Golang Contracts](prereqs-all.html)
+
+
+## To get started with universal transaction signing
+
+Loom Mainnet has the ability to verify and accept transactions signed by native Ethereum wallets. In a nutshell, users can simply use their MetaMask account or any other native Ethereum wallet — further blending the line between Layer 1 and Layer 2.
+
+
+### Demo Project
+
+We've built a small demo project to showcase this functionality. The source code is available [here](https://github.com/loomnetwork/Eth-Signing-Demo).
