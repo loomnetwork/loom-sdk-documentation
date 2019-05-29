@@ -49,18 +49,25 @@ Finally, you can query the events using [something like this](https://plasma.dap
 
 Use the following example to query and decode events in Go:
 
-```golang
-func (c *DAppChainRPCClient) GetContractEvents(fromBlock, toBlock uint64, contractName string) (ptypes.ContractEventsResult, error) {
-	var result ptypes.ContractEventsResult
-	params := map[string]interface{}{
-		"fromBlock": strconv.FormatUint(fromBlock, 10),
-		"toBlock":   strconv.FormatUint(toBlock, 10),
-		"contract":  contractName,
+```go
+type MyEvent struct {
+	Owner  string
+	Method string
+	Addr   []byte
+}
+
+rpcClient := client.NewDAppChainRPCClient("default", "http://plasma.dappchains.com:80/rpc", "http://plasma.dappchains.com:80/query")
+fromBlock := uint64(5216300)
+toBlock := uint64(5216320)
+result, err := rpcClient.GetContractEvents(fromBlock, toBlock, "")
+if err != nil {
+	panic(err)
+}
+for _, event := range result.Events {
+	var decodedEvent MyEvent
+	if err := json.Unmarshal(event.EncodedBody, &decodedEvent); err != nil {
+		panic(err)
 	}
-	if err := c.queryClient.Call("contractevents", params, c.getNextRequestID(), &result); err != nil {
-		return result, err
-	}
-	return result, nil
 }
 ```
 
