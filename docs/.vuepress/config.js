@@ -183,7 +183,6 @@ module.exports = {
         collapsable: true,
         sidebarDepth: 1,
         children: [
-          ['/universal-transaction-signing', 'Universal Transaction Signing'],
           ['/testnet-plasma', 'PlasmaChain Testnets'],
           ['/validator', 'Become Validator'],
           ['/non-validator-node', 'Non Validator Node'],
