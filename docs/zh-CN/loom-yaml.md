@@ -198,6 +198,8 @@ EventDispatcher:
 
 ```yaml
 AppStore:
+  # Version is default to 1, if you want higher perfromant evm.db split store use 3 
+  Version: 3
   # If true the app store will be compacted before it's loaded to reclaim disk space.
   CompactOnLoad: {{ .AppStore.CompactOnLoad }}
   # Maximum number of app store versions to keep, if zero old versions will never be deleted.
@@ -207,4 +209,29 @@ AppStore:
   PruneInterval: {{ .AppStore.PruneInterval }}
   # Number of versions to prune at a time.
   PruneBatchSize: {{ .AppStore.PruneBatchSize }}
+```
+
+## Universal Signing
+
+[Universal signing medium](https://medium.com/loom-network/universal-transaction-signing-seamless-layer-2-dapp-scaling-for-ethereum-b63a733fc65c)
+
+```yaml
+Auth:
+  Chains:
+    default:
+      TxType: "loom"
+    eth:
+      TxType: "eth"
+      AccountType: 1
+    tron:
+      TxType: "tron"
+      AccountType: 1
+```
+
+## Leveldb Tweaks
+
+```yaml
+DBBackendConfig:
+   # Caching size in memory before data is written to disk
+   CacheSizeMegs: 500
 ```
