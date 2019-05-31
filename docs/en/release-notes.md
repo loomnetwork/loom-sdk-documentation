@@ -8,6 +8,23 @@ sidebar_label: Release Notes
 
 Reverse chronology order of release notes
 
+## Loom 2.0 Release Build 1085 - May 31th
+
+We have been focusing on mainnet builds so this has a large backlog of features for third party chains.
+
+Major update, major updates for Performance, Caching and DPoS. It is recommended to upgrade your testnets immediately. 
+
+* DposV3 live to see features - [DPosV3 Medium Post](https://medium.com/loom-network/plasmachain-upgrade-whats-new-in-dpos-v3-66798adda108)
+* New EVM Database store - To enable Set Appstore to Version: 3
+* Core database performance updates
+* New configs for Leveldb, `DBBackendConfig -> CacheSizeMegs` see our [config page](loom-yaml.html) for details
+* Universal transaction signing, Eth, Tron, more details - [Universal signing medium](https://medium.com/loom-network/universal-transaction-signing-seamless-layer-2-dapp-scaling-for-ethereum-b63a733fc65c)
+* More Web3 Json RPC Comptability, Blockexplorers such as Blockscout can index Loom
+* Feature Flags, ability to enable disable chain features with soft or hard forks. Light form of governance
+* More Metrics around Leveldb
+* Windows native build support - `make loom-windows`
+* CachingStore updates see our - [config page](loom-yaml.html) for details
+
 ## Loom 2.0 Release Build 789 - Feb 12th
 
 Major update, major updates for Performance, Caching and DPoS. It is recommended to upgrade your testnets immediately. 
