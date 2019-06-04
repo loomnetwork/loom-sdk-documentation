@@ -6,11 +6,11 @@ sidebar_label: Web3 event filters
 
 ## Overview
 
-The [Web3.js](https://github.com/ethereum/web3.js) library allows developers to easily listen for events from the [EVM](evm.html) contained on Loom DAppChain. Also is possible to create filter for indexed values.
+The [Web3.js](https://github.com/ethereum/web3.js) library allows developers to easily listen for events from the [EVM](evm.html) contained on Loom DAppChain. Also, is possible to create filters for indexed values.
 
 ## Filtering
 
-Let's create a filter to get latest block created on Loom DAppChain and continuously print the block hash on console
+Let's create a filter to get the latest block created on Loom DAppChain and continuously print the block hash on the console:
 
 ```js
 const {
@@ -34,7 +34,7 @@ const web3 = new Web3(new LoomProvider(client, privateKey));
 // Create filter to get the latest block
 const filter = web3.eth.filter('latest');
 
-// Watch filter will return the hash of the latest block continuously 
+// Watch filter will return the hash of the latest block continuously
 filter.watch(function (error, result) {
   if (error) {
     console.error(error)
@@ -67,7 +67,7 @@ contract SimpleStore {
 }
 ```
 
-It's possible to setup an event handler for the `NewValueSet` event that's only triggered when the `value` emitted is `10`, and it won't be triggered if the contract emits any other value.
+It's possible to set up an event handler for the `NewValueSet` event that's only triggered when the `value` emitted is `10`, and it won't be triggered if the contract emits any other value.
 
 ```js
 // Generate public and private keys
