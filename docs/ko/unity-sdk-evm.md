@@ -4,13 +4,15 @@ title: EVM-based Smart Contract Quickstart
 sidebar_label: EVM-based Smart Contract Quickstart
 ---
 
+## Unity SDK & EVM-based Smart Contracts Quickstart
+
 Loom supports EVM ([Ethereum Virtual Machine](evm.html)) and plugin-based smart contracts. Plugin-based smart contracts can be created with [go-loom](https://github.com/loomnetwork/go-loom), for example.
 
-In this example, we will demostrate how to use the Unity SDK to communicate with EVM-based smart contracts.
+In the following sections, we will demonstrate how to use the Unity SDK to communicate with an EVM-based smart contract.
 
 ## Sample Code
 
-This sample uses the Solidity contract from [`unity-tiles-chain-evm` demo](https://github.com/loomnetwork/unity-tiles-chain-evm). For the purpose of this sample, we will use this sample contract just to store a text string.
+This sample uses the Solidity contract from [`unity-tiles-chain-evm` demo](https://github.com/loomnetwork/unity-tiles-chain-evm). For the purpose of this sample, we will use this sample contract just to store a string.
 
 ## Connecting to a DAppChain
 
@@ -66,9 +68,9 @@ public class LoomEvmQuickStartSample : MonoBehaviour
 
 ## Writing data to a DAppChain
 
-To mutate the state of a smart contract you need to call one of its public methods, to do so a signed transaction must be sent to and validated by the DAppChain. Fortunately the `EvmContract` class takes care of most of this when you use the `EvmContract.Call*Async()` family of methods.
+To mutate the state of a smart contract you need to call one of its public methods. To do so a signed transaction must be sent to and validated by the DAppChain. Fortunately, the `EvmContract` class takes care of most of this when you use the `EvmContract.Call*Async()` family of methods.
 
-The [TilesChain](https://github.com/loomnetwork/unity-tiles-chain-evm/blob/master/dappchain/TilesChain.sol) smart contract has a public `SetTileMapState` method that can be called to store an string value, note that this method doesn't return anything. Let's add a method to the `LoomEvmQuickStartSample` class that calls `TilesChain.SetTileMapState()`.
+The [TilesChain](https://github.com/loomnetwork/unity-tiles-chain-evm/blob/master/dappchain/TilesChain.sol) smart contract has a public `SetTileMapState` method that can be called to store a string value. Note that this method doesn't return anything. Let's add a method to the `LoomEvmQuickStartSample` class that calls `TilesChain.SetTileMapState()`:
 
 ```csharp
 public async Task CallContract(EvmContract contract)
@@ -87,9 +89,9 @@ public async Task CallContract(EvmContract contract)
 
 ## Reading data from a DAppChain
 
-To read the state of a smart contract you need to call one of its public read-only methods, calling a read-only method doesn't modify the smart contract state. You can call a read-only method on a smart contract by using the `EvmContract.StaticCall*Async()` family of methods.
+To read the state of a smart contract you need to call one of its public read-only methods. Calling a read-only method doesn't modify the smart contract state. You can call a read-only method on a smart contract by using the `EvmContract.StaticCall*Async()` family of methods.
 
-The [TilesChain](https://github.com/loomnetwork/unity-tiles-chain-evm/blob/master/dappchain/TilesChain.sol) smart contract has a public `GetTileMapState` method that can be called to get the stored string value. Let's add a method to the `LoomEvmQuickStartSample` class to call `TilesChain.GetTileMapState`.
+The [TilesChain](https://github.com/loomnetwork/unity-tiles-chain-evm/blob/master/dappchain/TilesChain.sol) smart contract has a public `GetTileMapState` method that can be called to get the stored string value. Let's add a method to the `LoomEvmQuickStartSample` class that calls `TilesChain.GetTileMapState`.
 
 ```csharp
 public async Task StaticCallContract(EvmContract contract)
@@ -114,7 +116,7 @@ public async Task StaticCallContract(EvmContract contract)
 
 ## Receiving events from a DAppChain
 
-DAppChains can trigger events in reaction to calling a smart contract. To be notified of new events, you must subscribe to the `EvmContract.EventReceived` event. But first, we need to define a DTO (Data Transfer Object) that specifies the event parameters.
+DAppChains can trigger events in reaction to calling a smart contract. To be notified of new events, you must subscribe to the `EvmContract.EventReceived` event. But first, we need to define a DTO (Data Transfer Object) that specifies the event parameters:
 
 ```csharp
 public class OnTileMapStateUpdateEvent
@@ -158,7 +160,7 @@ async void Start()
 }
 ```
 
-Now that we have all the code in place let's test it out:
+Now that we have all the code in place, let's test it out:
 
 1. Create an empty `GameObject` in a Unity scene and attach the `LoomEvmQuickStartSample` script to it.
 2. Deploy the [TilesChain](https://github.com/loomnetwork/unity-tiles-chain-evm/blob/master/dappchain/TilesChain.sol) smart contract on a local Loom DAppChain node.
