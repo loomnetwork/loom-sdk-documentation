@@ -25,7 +25,7 @@ sidebar_label: Etherboy Game
 
 ## Development
 
-Currently you need to be on MacOS or Linux to spin up a Loom DAppChain, but if you're on Windows 10 you can run Ubuntu in the [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10) (other distros may work but docs are written for Ubuntu).
+Currently you need to be on MacOS or Linux to spin up a Loom DAppChain, but if you're on Windows 10 you can run Ubuntu in the [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10). Note that other distros may work but docs are written for Ubuntu.
 
 ### MacOS
 
@@ -40,7 +40,7 @@ Currently you need to be on MacOS or Linux to spin up a Loom DAppChain, but if y
 
 ### Linux
 
-1. Install Golang by follwing the steps in [Ubuntu prerequisites][] (if you haven't done so already).
+1. Install Golang by following the steps in [Ubuntu prerequisites][]  (if you haven't done so already).
 2. Download Loom DAppChain binary
    ```bash
    curl -OL https://private.delegatecall.com/loom/linux/stable/loom
@@ -71,7 +71,7 @@ cp ../genesis.json genesis.json
 $LOOM_BIN run
 ```
 
-Assuming everything went without a hitch so far you now have a local Loom DAppChain running the Etherboy smart contract!
+Assuming everything went without a hitch, you now have a local Loom DAppChain running the [Etherboy smart contract](https://github.com/loomnetwork/etherboy-core)!
 
 ![Animation](/developers/img/etherboy-clip.gif)
 
@@ -91,7 +91,7 @@ Clone the Unity project for the [Etherboy game](https://github.com/loomnetwork/E
 
 #### Desktop
 
-Just launch the binary generated in the build output directory. If you have issues logging in please ensure nothing is running on port `9998`.
+Just launch the binary generated in the build output directory. If you have issues logging in, please ensure nothing is running on port `9998`.
 
 #### WebGL
 
