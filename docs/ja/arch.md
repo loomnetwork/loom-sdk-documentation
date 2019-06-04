@@ -3,15 +3,19 @@ id: arch
 title: Architecture of a DAppChain
 ---
 
-Loom SDK is a pluggable Blockchain Development Kit. Pluggable both at the consensus and contract layer
+Loom SDK is a pluggable Blockchain Development Kit. Pluggable both at the consensus and contract layer.
 
 ## Consensus
 
-Loom SDK has 2 layers of consensus. One at the P2P layer.
+Loom SDK has 2 layers of consensus- P2P layer (a BFT system) and Loom Consensus (DPoS).
 
-Loom Backend supports different BPFT engines, like Tendermint. In future we will support Raft for PoA chains.
+### P2P Layer
 
-Loom Consensus layer support Loom DPoS or a configurable PoS/DPoS contract per Chain. Once Casper becomes available we will add support for this
+Loom Backend supports different BPFT engines, like Tendermint. In the future, we will support Raft for PoA chains.
+
+### DPoS Layer
+
+Loom Consensus layer support Loom DPoS or a configurable PoS/DPoS contract per Chain. Once Casper becomes available we will add support for this.
 
 ![](/developers/img/loom-sdk-arch-overview.jpg)
 
@@ -27,22 +31,22 @@ They can also be made as external processes, that the blockchain communicates to
 
 ## Ethereum Integration
 
-The SDK integrates into the Ethereum Backend with following pieces:
+The SDK integrates into the Ethereum Backend with the following pieces:
 
 ### Transfer Gateway
 
 ![](/developers/img/loom-sdk-arch-plasma.jpg)
 
-### Transfer gateway allows for the following
+### Transfer gateway allows for the following:
 
 * Transfering Assets to a DappChain
 * Transfering Assets to Ethereum
 * Mirroring(Pegging) Assets on a Dappchain
 * ERC-20 Tokens
 * ERC-721 Tokens
-* Ether 
+* Ether
 
-### Plama Cash Contract supports
+### Plasma Cash Contract supports
 
 * ERC-721 Tokens
 * ERC-20 Tokens (July)
@@ -50,10 +54,10 @@ The SDK integrates into the Ethereum Backend with following pieces:
 
 ## Blockchain services
 
-SDK includes a number of high level blockchain services
+SDK includes a number of high-level blockchain services:
 
 * Signing / Auth / Nonce Middleware
-* Builtin Coin
+* Built-in Coin
 * Indexing
 * Websockets and eventing
 * Solidity + Ethereum Virtual Machine
