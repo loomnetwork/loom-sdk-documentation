@@ -4,10 +4,11 @@ title: Plugin-based Smart Contract Quickstart
 sidebar_label: Plugin-based Smart Contract Quickstart
 ---
 
+## Plugin-based Smart Contract Quickstart
 
-Loom supports EVM ([Ethereum Virtual Machine](evm.html)) and plugin-based smart contracts. Plugin-based smart contracts can be created with [go-loom](https://github.com/loomnetwork/go-loom), for example.
+Loom supports EVM ([Ethereum Virtual Machine](evm.html)) and plugin-based smart contracts. As an example, Plugin-based smart contracts can be created with [go-loom](https://github.com/loomnetwork/go-loom).
 
-In this example, we will demostrate how to use the Unity SDK to communicate with plugin-based smart contracts.
+In this quick tutorial, we will demonstrate how to use the Unity SDK to communicate with plugin-based smart contracts.
 
 ## Sample Code
 
@@ -15,7 +16,7 @@ You can find all the code on this page and a ready-to-go Unity scene in the Loom
 
 ## Connecting to a DAppChain
 
-The `Contract` class provides a convenient way to interact with a smart contract running on a Loom DAppChain. Let's write a method that creates a `Contract` instance to interact with the sample [BluePrint](https://github.com/loomnetwork/weave-blueprint/blob/master/src/blueprint.go) smart contract provided in the Loom SDK...
+The `Contract` class provides a convenient way to interact with a smart contract running on a Loom DAppChain. Let's write a method that creates a `Contract` instance to interact with the sample [BluePrint](https://github.com/loomnetwork/weave-blueprint/blob/master/src/blueprint.go) smart contract provided in the Loom SDK:
 
 ```csharp
 // LoomQuickStartSample.cs
@@ -60,9 +61,9 @@ public class LoomQuickStartSample : MonoBehavior
 
 ## Writing data to a DAppChain
 
-To mutate the state of a smart contract you need to call one of its public methods, to do so a signed transaction must be sent to and validated by the DAppChain. Fortunately the `Contract` class takes care of most of this when you use the `Contract.CallAsync()` method.
+To mutate the state of a smart contract you need to call one of its public methods. To do so, a signed transaction must be sent to and validated by the DAppChain. Fortunately, the `Contract` class takes care of most of this when you use the `Contract.CallAsync()` method.
 
-The [BluePrint](https://github.com/loomnetwork/weave-blueprint/blob/master/src/blueprint.go) smart contract has a public `SetMsg` method that can be called to store an association between a key and a value, note that this method doesn't return anything. Let's add a method to the `LoomQuickStartSample` class that calls `BluePrint.SetMsg()`.
+The [BluePrint](https://github.com/loomnetwork/weave-blueprint/blob/master/src/blueprint.go) smart contract has a public `SetMsg` method that can be called to store an association between a key and a value. Note that this method doesn't return anything. Let's add a method to the `LoomQuickStartSample` class that calls `BluePrint.SetMsg()`:
 
 ```csharp
 async Task CallContract(Contract contract)
@@ -75,7 +76,7 @@ async Task CallContract(Contract contract)
 }
 ```
 
-Smart contract methods that mutate state may return a value. The [BluePrint](https://github.com/loomnetwork/weave-blueprint/blob/master/src/blueprint.go) smart contract has a public `SetMsgEcho` method that will store a key/value and return the key/value it stored. Let's add another method to the `LoomQuickStartSample` class to call `BluePrint.SetMsgEcho`.
+Smart contract methods that mutate the state may return a value. The [BluePrint](https://github.com/loomnetwork/weave-blueprint/blob/master/src/blueprint.go) smart contract has a public `SetMsgEcho` method that will store a key/value and return the key/value it stored. Let's add another method to the `LoomQuickStartSample` class that calls `BluePrint.SetMsgEcho`.
 
 ```csharp
 async Task CallContractWithResult(Contract contract)
@@ -100,9 +101,9 @@ async Task CallContractWithResult(Contract contract)
 
 ## Reading data from a DAppChain
 
-To read the state of a smart contract you need to call one of its public read-only methods, calling a read-only method doesn't modify the smart contract state. You can call a read-only method on a smart contract by using the `Contract.StaticCallAsync()` method.
+To read the state of a smart contract, you need to call one of its public read-only methods. Calling a read-only method doesn't modify the smart contract state. You can call a read-only method on a smart contract by using the `Contract.StaticCallAsync()` method.
 
-The [BluePrint](https://github.com/loomnetwork/weave-blueprint/blob/master/src/blueprint.go) smart contract has a public `GetMsg` method that can be called to look up an association between a key and a value. Let's add a method to the `LoomQuickStartSample` class to call `BluePrint.GetMsg`.
+The [BluePrint](https://github.com/loomnetwork/weave-blueprint/blob/master/src/blueprint.go) smart contract has a public `GetMsg` method that can be called to look up an association between a key and a value. Let's add a method to the `LoomQuickStartSample` class that calls `BluePrint.GetMsg`:
 
 ```csharp
 async Task StaticCallContract(Contract contract)
@@ -127,7 +128,7 @@ async Task StaticCallContract(Contract contract)
 
 ## Putting it all together
 
-Add the following method to the `LoomQuickStartSample` class.
+Add the following method to the `LoomQuickStartSample` class:
 
 ```csharp
 // Use this for initialization
