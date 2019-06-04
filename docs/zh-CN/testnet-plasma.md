@@ -25,5 +25,11 @@ Where is the Ethereum contract related to a network deployed
 | --------------------------------- | ------------- | ------------------------------------------ |
 | Devnet Plasma (extdev-plasma-us1) | Rinkeby       | 0xb73C9506cb7f4139A4D6Ac81DF1e5b6756Fab7A2 |
 | Devnet Plasma (test-z-asia1)      | Rinkeby       | 0x3c826a09DF9ad39B9acF550b1bf35C9b6AfCd943 |
-| Plasma Chain                      | Mainnet       | 0x223CA78df868367D214b444d561B9123c018963A |
+| Plasma Chain                      | Mainnet       | 0xe080079ac12521d57573f39543e1725ea3e16dcc |
 | Validator Test                    | Rinkeby       | n/a                                        |
+
+On PlasmaChain, you can resolve the address of the gateway contract by name as follows:
+
+```js
+const contractAddr = await client.getContractAddressAsync('gateway')
+```
