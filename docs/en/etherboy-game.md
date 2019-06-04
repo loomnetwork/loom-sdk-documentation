@@ -27,9 +27,7 @@ smart contract written in Golang and running on a Loom DAppChain.
 
 ## Development
 
-Currently you need to be on MacOS or Linux to spin up a Loom DAppChain, but if you're on Windows 10
-you can run Ubuntu in the [Windows Subsystem for Linux][] (other distros may work but docs are
-written for Ubuntu).
+Currently you need to be on MacOS or Linux to spin up a Loom DAppChain, but if you're on Windows 10 you can run Ubuntu in the [Windows Subsystem for Linux][]. Note that other distros may work but docs are written for Ubuntu.
 
 ### MacOS
 
@@ -43,7 +41,7 @@ written for Ubuntu).
 
 ### Linux
 
-1. Install Golang by follwing the steps in [Ubuntu prerequisites][] (if you haven't done so already).
+1. Install Golang by following the steps in [Ubuntu prerequisites][]  (if you haven't done so already).
 2. Download Loom DAppChain binary
    ```bash
    curl -OL https://private.delegatecall.com/loom/linux/stable/loom
@@ -74,8 +72,7 @@ cp ../genesis.json genesis.json
 $LOOM_BIN run
 ```
 
-Assuming everything went without a hitch so far you now have a local Loom DAppChain running the
-Etherboy smart contract!
+Assuming everything went without a hitch, you now have a local Loom DAppChain running the [Etherboy smart contract]!
 
 ![Animation](/developers/img/etherboy-clip.gif)
 
@@ -95,8 +92,7 @@ Clone the Unity project for the [Etherboy game][] from Github and modify
 
 #### Desktop
 
-Just launch the binary generated in the build output directory. If you have issues logging in
-please ensure nothing is running on port `9998`.
+Just launch the binary generated in the build output directory. If you have issues logging in, please ensure nothing is running on port `9998`.
 
 #### WebGL
 
@@ -114,9 +110,7 @@ http-server -a localhost -p 8090
 
 ### Optional configuration
 
-If you configure your local DAppChain to run on another host or port you'll need to update the
-following section of `Assets/WebGLTemplates/Loom/settings.js` before doing a **WebGL** build, or
-you can edit `settings.js` inside the build output directory after the build:
+If you configure your local DAppChain to run on another host or port you'll need to update the following section of `Assets/WebGLTemplates/Loom/settings.js` before doing a **WebGL** build, or you can edit `settings.js` inside the build output directory after the build:
 
 ```js
   dappchain: {
@@ -125,8 +119,7 @@ you can edit `settings.js` inside the build output directory after the build:
   }
 ```
 
-For a desktop build you'll need to edit `Assets/Resources/env_config.json` to change the default
-DAppChain host & port:
+For a desktop build you'll need to edit `Assets/Resources/env_config.json` to change the default DAppChain host & port:
 
 ```json
 {

@@ -6,43 +6,34 @@ sidebar_label: Web3, LoomProvider and Truffle
 
 ## Overview
 
-The `loom-js` also comes with the `LoomProvider` which allows you to integrate with the [Web3.js](https://github.com/ethereum/web3.js),
-thus making easier the integration with [EVM](evm.html) contained on Loom DAppChain, also is possible to use [Truffle Framework](http://truffleframework.com/) to manage tests, deployments and solidity smart contracts.
+The [loom-js](https://github.com/loomnetwork/loom-js) library comes with the `LoomProvider` which makes it possible to connect with `Web3.js` as a provider. This way, Ethereum developers can deploy, send transactions to smart contracts, and listen for smart contracts events running on Loom DAppChains. Also, it is possible to use [Truffle Framework](http://truffleframework.com/) to manage tests, deployments and solidity smart contracts. For further details check out [EVM page](evm).
 
 ### Web3
 
 As the official documentation for `Web3.js` states:
 
-> `Web3.js` is a collection of libraries which allow you to interact with a local or remote ethereum node, using a HTTP or IPC connection.
+> `Web3.js` is a collection of libraries which allow you to interact with a local or remote ethereum node, using an HTTP or IPC connection.
 
-For the Loom DAppChains the communication happens using `WebSockets` instead `HTTP` or `IPC`, however the deeper knowledge of the communication isn't required since `Web3.js` abstracts that part.
+For the Loom DAppChains, the communication happens using `WebSockets` instead `HTTP` or `IPC`. However, in-depth knowledge isn't required since `Web3.js` abstracts that part.
 
 ### LoomProvider
 
-An `Provider` is a bridge that connects the `Web3.js` API to the Ethereum node, in order to make `Web3.js` calls compatible with Loom DAppChain you should use the `LoomProvider`
+A `Provider` is a bridge that connects the `Web3.js` API to an Ethereum node. So, in order to make `Web3.js` calls compatible with Loom DAppChain, you should use the `LoomProvider`
 
-Combining `Web3.js` and `LoomProvider` is a good option to interact with smart contracts deployed on Loom DAppChain, because `Web3.js` abstracts the construction of API calls not needing the interpretation of the [ABI](https://solidity.readthedocs.io/en/develop/abi-spec.html) manually.
+Combining `Web3.js` and `LoomProvider` is a good option to interact with smart contracts deployed on Loom DAppChain because `Web3.js` abstracts the construction of API calls.
 
-### Truffle framework
-
-So the official site for `Truffle` says:
-
-> Truffle is the most popular development framework for Ethereum with a mission to make your life a whole lot easier.
-
-And that is pure true, because `Truffle` can: `compile`, `deploy`, `test`, `debug` and much more.
-
-## Deploying and run from Truffle
+## Deploying with Truffle
 
 ### Download and Install
 
-First you'll need to install `Truffle`:
+First, you'll need to install `Truffle`:
 
 ```bash
 # Currently supported version
 npm install -g truffle
 ```
 
-Once `Truffle` is installed let's create a directory and initialize a project:
+Once `Truffle` is installed, let's create a directory and initialize a project:
 
 ```bash
 # Create directory and access
@@ -53,7 +44,7 @@ cd simple-store
 truffle init
 ```
 
-The new directory structure will looks like:
+The new directory structure will look like this:
 
 ```
 .
@@ -68,7 +59,10 @@ The new directory structure will looks like:
 
 ### Adding contract and migration
 
-On the `contracts` directory we should create our contract in [Solidity](http://solidity.readthedocs.io/en/v0.4.22/), we're going to use the famous `SimpleStore.sol` which has a `set` function for a parameter `value` also for an state change, a `get` function for the read only and no state change call and an event called `NewValueSet` which will have the parameter `value`, as the following example:
+In the `contracts` directory, we're going to add the famous `SimpleStore.sol`, a smart contract which has:
+
+ - a `set` function that takes a parameter called `_value` and changes the state by saving it to the blockchain. Then, it fires an event called `NewValueSet`.
+ - a `get` function that lets you read the `value` variable.
 
 ```
 pragma solidity ^0.4.22;
@@ -89,7 +83,7 @@ contract SimpleStore {
 }
 ```
 
-Next let's add an migration, `Truffle` works with the concept of migrations, which makes useful for track changes and updates. The file should be created on migrations directory and it should be `JavaScript` file and the file name should start with the number `2` becoming `2_simple_store.js`, and the content should be the following:
+Next, let's add a migration, `Truffle` works with the concept of migrations, which makes it useful to track changes and updates. In the `migrations` directory, create a new file called `2_simple_store.js` and paste the following content into it:
 
 ```Javascript
 var SimpleStore = artifacts.require("./SimpleStore.sol");
@@ -99,11 +93,11 @@ module.exports = function(deployer) {
 };
 ```
 
-> There's a complete example of Truffle integration available on https://github.com/loomnetwork/truffle-dappchain-example
+> We've already built a complete example of how to integrate with Truffle. You can check it out [here](https://github.com/loomnetwork/truffle-dappchain-example).
 
 ### Download and configure Loom Truffle Provider
 
-The last cog to be added is the `Loom Truffle Provider`, that plugin provides the connection between `Truffle` and Loom DAppChain (and it also has the `LoomProvider` underneath). Let's install:
+The last cog to be added is the `Loom Truffle Provider`. This plugin basically connects `Truffle` with the Loom DAppChain. Let's install it by running:
 
 ```bash
 npm install loom-truffle-provider --save
@@ -111,7 +105,7 @@ npm install loom-truffle-provider --save
 yarn add loom-truffle-provider
 ```
 
-And let's edit the file `truffle.js` to add the necessary configuration, as the following example:
+Now, let's edit the file `truffle.js` to add the necessary configuration:
 
 ```javascript
 const { readFileSync } = require('fs')
@@ -134,23 +128,23 @@ module.exports = {
 }
 ```
 
-> Don't forget to generate yours keys using the command `loom genkey -a public_key -k private_key`
+> Don't forget to generate your keys by running `loom genkey -a public_key -k private_key`.
 
 ### Running Truffle deploy command
 
-Now we're good to run the deploy command:
-
-> But before you need to start the Loom DAppChain
+Now we're ready to deploy our smart contract:
 
 ```bash
 truffle deploy --network loom_dapp_chain
 ```
 
-> If you already deployed and wants to reset the deployment you can run the command `truffle deploy --reset --network loom_dapp_chain`
+> We're assuming loom is already running on your computer. If not, follow [this tutorial](basic-install-all.html).
+
+> If you already deployed and want to reset the deployment, you can run the command `truffle deploy --reset --network loom_dapp_chain`
 
 ### Adding more accounts
 
-In order to access accounts on `LoomTruffleProvider` you should use the function `getProviderEngine` which will return the `LoomProvider` giving access to properties `accountsAddrList` and `accounts``
+In order to access the `accounts` with `LoomTruffleProvider`, you should do something like this:
 
 ```js
 const loomTruffleProvider = new LoomTruffleProvider(chainId, writeUrl, readUrl, privateKey)
@@ -160,7 +154,7 @@ console.log("Accounts list", loomProvider.accountsAddrList)
 console.log("Accounts and Private Keys", loomProvider.accounts)
 ```
 
-And add more accounts just use function `createExtraAccounts`
+To add more accouns, just call `createExtraAccounts`:
 
 ```js
 const loomTruffleProvider = new LoomTruffleProvider(chainId, writeUrl, readUrl, privateKey)
@@ -171,7 +165,7 @@ loomTruffleProvider.createExtraAccounts(10)
 
 ### Download and Install
 
-You can download the `Web3.js` latest version using `npm`
+Install `Web3.js`latest version using `npm`:
 
 ```bash
 npm install web3 --save
@@ -179,7 +173,7 @@ npm install web3 --save
 yarn add web3
 ```
 
-And download and install `LoomProvider` (which lives on `loom-js`)
+Install `loom-js` which includes `LoomProvider`:
 
 ```bash
 npm install loom-js --save
@@ -189,7 +183,7 @@ yarn add loom-js
 
 ### Adding to project and configuring
 
-Adding `Web3.js` to Node.js project (running on Node.js version 8 or greater) is fairly simple after the install, it should be simple as well for projects using `Webpack` also:
+To add `Web3.js` to a Node.js project is fairly simple:
 
 ```Javascript
 // Node.JS 8 or greater
@@ -199,7 +193,9 @@ const Web3 = require('web3')
 import Web3 from 'web3'
 ```
 
-Next step is to configure the `LoomProvider`, is quite similar from the example on `NodeJS & Browser Quick Start`.
+> If you're using webpack, the process should be similar.
+
+The next step is to configure the `LoomProvider`:
 
 ```Javascript
 const privateKey = CryptoUtils.generatePrivateKey()
@@ -228,7 +224,7 @@ const contract = new web3.eth.Contract(ABI, contractAddress, {from})
 
 ### Running Web3 contract instance
 
-Let's assume that is the `SimpleStore.sol` which was declared up above, so we can call `set` and `get` functions easier:
+Now, we can call `set` and `get` functions like this:
 
 ```Javascript
 // Set the value 47
@@ -238,7 +234,7 @@ const tx = await contract.methods.set(47).send()
 const value = await contract.methods.get().call()
 ```
 
-Also listen for events, in that case for the event `NewValueSet`:
+Also, we can listen to events::
 
 ```Javascript
 contract.events.NewValueSet({}, (err, event) => {
