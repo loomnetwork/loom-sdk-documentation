@@ -186,6 +186,8 @@ module.exports = {
           ['/testnet-plasma', 'PlasmaChain Testnets'],
           ['/validator', 'Become Validator'],
           ['/non-validator-node', 'Non Validator Node'],
+          ['/jump-start-plasma', 'plasma Jump Start'],
+          ['/jump-start-extdev-plasma-us1', 'extdev-plasma-us1 Jump Start'],
         ],
       },
       {
