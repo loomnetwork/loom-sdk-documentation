@@ -189,6 +189,14 @@ module.exports = {
         ],
       },
       {
+        title: 'Tron Integration',
+        collapsable: true,
+        sidebarDepth: 1,
+        children: [
+          ['/deposit-and-withdraw-trx', 'Deposit and Withdraw TRX'],
+        ],
+      },
+      {
         title: 'Frequently Asked Questions',
         collapsable: true,
         sidebarDepth: 1,
