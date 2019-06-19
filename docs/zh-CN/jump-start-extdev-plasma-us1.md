@@ -20,12 +20,12 @@ There are two available locations where you can download it from, USA or Singapo
 ### United States
 
 * Archive: <http://loom-share.s3-website.us-east-2.amazonaws.com/extdev-plasma-us1-jump-start-min.tar.gz>
-* MD5: <http://loom-share.s3-website.us-east-2.amazonaws.com/extdev-plasma-us1-jump-start-min.tar.gz>
+* MD5: <http://loom-share.s3-website.us-east-2.amazonaws.com/extdev-plasma-us1-jump-start-min.tar.gz.md5sum>
 
 ### Singapore
 
 * Archive: <http://loom-share-sg.s3-website.ap-southeast-1.amazonaws.com/extdev-plasma-us1-jump-start-min.tar.gz>
-* MD5: <http://loom-share-sg.s3-website.ap-southeast-1.amazonaws.com/extdev-plasma-us1-jump-start-min.tar.gz>
+* MD5: <http://loom-share-sg.s3-website.ap-southeast-1.amazonaws.com/extdev-plasma-us1-jump-start-min.tar.gz.md5sum>
 
 ## Extract archive
 
