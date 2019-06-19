@@ -23,19 +23,19 @@ In each location, there are two different archives. One is full and another is t
 
 * Full image: 
   * Archive: <http://loom-share.s3-website.us-east-2.amazonaws.com/plasma-jump-start.tar.gz>
-  * MD5: <http://loom-share.s3-website.us-east-2.amazonaws.com/plasma-jump-start.tar.gz>
+  * MD5: <http://loom-share.s3-website.us-east-2.amazonaws.com/plasma-jump-start.tar.gz.md5sum>
 * Smaller image: 
   * Archive: <http://loom-share.s3-website.us-east-2.amazonaws.com/plasma-jump-start-min.tar.gz>
-  * MD5: <http://loom-share.s3-website.us-east-2.amazonaws.com/plasma-jump-start-min.tar.gz>
+  * MD5: <http://loom-share.s3-website.us-east-2.amazonaws.com/plasma-jump-start-min.tar.gz.md5sum>
 
 ### Singapore
 
 * Full image: 
   * Archive: <http://loom-share-sg.s3-website.ap-southeast-1.amazonaws.com/plasma-jump-start.tar.gz>
-  * MD5: <http://loom-share-sg.s3-website.ap-southeast-1.amazonaws.com/plasma-jump-start.tar.gz>
+  * MD5: <http://loom-share-sg.s3-website.ap-southeast-1.amazonaws.com/plasma-jump-start.tar.gz.md5sum>
 * Smaller image: 
   * Archive: <http://loom-share-sg.s3-website.ap-southeast-1.amazonaws.com/plasma-jump-start-min.tar.gz>
-  * MD5: <http://loom-share-sg.s3-ap-website.southeast-1.amazonaws.com/plasma-jump-start-min.tar.gz>
+  * MD5: <http://loom-share-sg.s3-website.ap-southeast-1.amazonaws.com/plasma-jump-start-min.tar.gz.md5sum>
 
 ## Extract archive
 
