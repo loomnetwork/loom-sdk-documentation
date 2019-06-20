@@ -221,7 +221,7 @@ From the left pane, click on the "Deploy to Plasmachain". You will be redirected
 
 ![New Account Options](/developers/img/deploy-to-loom-deposit-loom.png)
 
-Notice that, in order to deploy to Plasmachain, you need to stake 10 LOOM. Click on the "Deposit more Loom to Plasmachain" and follow the instructions.
+Notice that, in order to deploy to Plasmachain, you need to stake some LOOM. Click on the "Deposit more Loom to Plasmachain" and follow the instructions.
 
 ### Adding the Public Keys
 
@@ -268,8 +268,9 @@ import { LoomTruffleProvider } from 'loom-truffle-provider'
  - Next, we'll have to compute the private key from mnemonic as follows:
 
  ```js
-const privateKeyUint8ArrayFromSeed = await CryptoUtils.generatePrivateKeyFromSeed(new Uint8Array(sha256.array(mnemonic)))
-const privateKeyB64 = await CryptoUtils.Uint8ArrayToB64(privateKeyUint8ArrayFromSeed)
+const seed = mnemonicToSeedSync(mnemonic)
+const privateKeyUint8ArrayFromSeed = CryptoUtils.generatePrivateKeyFromSeed(new Uint8Array(sha256.array(seed)))
+const privateKeyB64 = CryptoUtils.Uint8ArrayToB64(privateKeyUint8ArrayFromSeed)
  ```
 
 - Lastly, we can instantiate `loomProvider` like this:
@@ -285,6 +286,7 @@ Wrapping it up, your `truffle-config.js` file should look something like this:
 import { sha256 } from 'js-sha256'
 import { CryptoUtils } from 'loom-js'
 import { LoomTruffleProvider } from 'loom-truffle-provider'
+import { mnemonicToSeedSync } from 'bip39'
 
 const mnemonic = 'YOUR MNEMONIC'
 
@@ -295,8 +297,9 @@ module.exports = {
         const chainId = 'default'
         const writeUrl = 'http://plasma.dappchains.com/rpc'
         const readUrl = 'http://plasma.dappchains.com/query'
-        const privateKeyUint8ArrayFromSeed = await CryptoUtils.generatePrivateKeyFromSeed(new Uint8Array(sha256.array(mnemonic)))
-        const privateKeyB64 = await CryptoUtils.Uint8ArrayToB64(privateKeyUint8ArrayFromSeed)
+        const seed = mnemonicToSeedSync(mnemonic)
+        const privateKeyUint8ArrayFromSeed = CryptoUtils.generatePrivateKeyFromSeed(new Uint8Array(sha256.array(seed)))
+        const privateKeyB64 = CryptoUtils.Uint8ArrayToB64(privateKeyUint8ArrayFromSeed)
         return new LoomTruffleProvider(chainId, writeUrl, readUrl, privateKeyB64)
       },
       network_id: '*'
