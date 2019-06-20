@@ -3,6 +3,7 @@ id: multi-node-deployment
 title: 배포 예제
 sidebar_label: 멀티 노드 배포
 ---
+
 # 멀티 노드 배포
 
 이 문서는 멀티 노드 셋업에서 loom을 구동하는 방법에 대해서 설명합니다.
@@ -11,19 +12,25 @@ sidebar_label: 멀티 노드 배포
 
 이 단계는 각 노드에서 실행되어야 합니다.
 
-1. 여러분만의 작업 디렉토리를 선택하세요. 이 예제에서는 다음을 사용합니다 `/home/ubuntu` 
-        bash
-        cd /home/ubuntu
+1. 여러분만의 작업 디렉토리를 선택하세요. 이 예제에서는 다음을 사용합니다 `/home/ubuntu`
 
-2. 바이너리를 다운로드하세요: 
-        bash
-        wget https://private.delegatecall.com/loom/linux/build-208/loom
-        chmod +x loom
+    ```bash
+    cd /home/ubuntu
+    ```
+
+2. 바이너리를 다운로드하세요:
+
+    ```bash
+    curl https://raw.githubusercontent.com/loomnetwork/loom-sdk-documentation/master/scripts/get_loom.sh | sh
+    ```
 
 3. 설정 파일을 초기화하기 위해서 작업 디렉토리에서 `./loom init`을 실행하세요.
-4. 작업 디렉토리에 `loom.yml` 파일을 추가하세요 
-        yaml
-        RPCBindAddress: "tcp://0.0.0.0:46658"
+4. 작업 디렉토리에 `loom.yml` 파일을 추가하세요
+
+    ```yaml
+    RPCBindAddress: "tcp://0.0.0.0:46658"
+    DPOSVersion: 3
+    ```
 
 ## 구성하기
 
@@ -31,7 +38,7 @@ sidebar_label: 멀티 노드 배포
 
 ### genesis.json #1 - 작업디렉토리에 있는
 
-`genesis.json` 파일은 다음과 같습니다:
+The `genesis.json` that was generated should look something like below. You should **NOT** copy the file below as it is an example. Use the file generated in your working directory.
 
 ```json
 {
@@ -46,18 +53,45 @@ sidebar_label: 멀티 노드 배포
     {
       "vm": "plugin",
       "format": "plugin",
-      "name": "dpos",
-      "location": "dpos:1.0.0",
+      "name": "dposV3",
+      "location": "dposV3:3.0.0",
       "init": {
         "params": {
-          "witnessCount": "21",
-          "electionCycleLength": "604800",
-          "minPowerFraction": "5"
+          "validatorCount": "21"
         },
         "validators": [
           {
-            "pubKey": "RLYcH6fzeg4k5bDtGwRi/sM2UhO2Yw/kLdtrvvvn6CE=",
+            "pubKey": "2MysikRZ8Yzk3KPDVEl/g2tHSyX0i3DGrAMwtDcYH10=",
             "power": "10"
+          }
+        ]
+      }
+    },
+    {
+      "vm": "plugin",
+      "format": "plugin",
+      "name": "addressmapper",
+      "location": "addressmapper:0.1.0",
+      "init": null
+    },
+    {
+      "vm": "plugin",
+      "format": "plugin",
+      "name": "chainconfig",
+      "location": "chainconfig:1.0.0",
+      "init": {
+        "owner": {
+          "chainId": "default",
+          "local": "aMt0mxDIxz5MCYKp9c0jEzG1en8="
+        },
+        "params": {
+          "voteThreshold": "67",
+          "numBlockConfirmations": "10"
+        },
+        "features": [
+          {
+            "name": "test",
+            "status": "WAITING"
           }
         ]
       }
@@ -66,93 +100,81 @@ sidebar_label: 멀티 노드 배포
 }
 ```
 
-다음으로, 각 노드로부터 모든 `validators`를 수집하고, 하나의 배열에 그것들을 병합하세요. 이 파일은 이제 모든 노드에서 결합 된 파일로 대체되어야 합니다. 두개의 node cluster 라면, 아래와 같은 모습일 것입니다:
+Next, collect all `validators` from each node, combine them into an array, and save everything to a new file. This old file will now need to be replaced with the new combined file. Do this for all nodes. For a two-node cluster, the **validators** array should look something like this:
 
 ```json
-{
-  "contracts": [
+  "validators": [
     {
-      "vm": "plugin",
-      "format": "plugin",
-      "name": "coin",
-      "location": "coin:1.0.0",
-      "init": null
+      "pubKey": "2MysikRZ8Yzk3KPDVEl/g2tHSyX0i3DGrAMwtDcYH10=",
+      "power": "10"
     },
     {
-      "vm": "plugin",
-      "format": "plugin",
-      "name": "dpos",
-      "location": "dpos:1.0.0",
-      "init": {
-        "params": {
-          "witnessCount": "21",
-          "electionCycleLength": "604800",
-          "minPowerFraction": "5"
-        },
-        "validators": [
-          {
-            "pubKey": "RLYcH6fzeg4k5bDtGwRi/sM2UhO2Yw/kLdtrvvvn6CE=",
-            "power": "10"
-          },
-          {
-            "pubKey": "gCn5WayR3cgQjNlNXYiBSYgQ3c1pGIsFWajVGczByZulGa09mb",
-            "power": "10"
-          }
-        ]
-      }
+      "pubKey": "gCn5WayR3cgQjNlNXYiBSYgQ3c1pGIsFWajVGczByZulGa09mb",
+      "power": "10"
     }
   ]
-}
 ```
 
 ### genesis.json #2 - chaindata/config 내부에 있는
 
-여러분은 `genesis.json` 파일을 찾을 수 있을 것입니다. 작업 디렉토리에 있는 것과 혼동하지 마세요. 이런 모습일 것입니다:
+You will find it at `chaindata/config/genesis.json`. It is not to be confused with the one in the working directory. You should **NOT** copy the file below as it is an example and it should look something like:
 
 ```json
 {
-  "genesis_time": "0001-01-01T00:00:00Z",
+  "genesis_time": "2019-06-20T08:58:17.011337021Z",
   "chain_id": "default",
+  "consensus_params": {
+    "block_size": {
+      "max_bytes": "22020096",
+      "max_gas": "-1"
+    },
+    "evidence": {
+      "max_age": "100000"
+    },
+    "validator": {
+      "pub_key_types": [
+        "ed25519"
+      ]
+    }
+  },
   "validators": [
     {
-      "name": "",
-      "power": 10,
+      "address": "825F1AE812A4395EFF0F88A032AAB2CE42F120EE",
       "pub_key": {
-          "type": "ABCD1234ABCD12",
-          "value": "RLYcH6fzeg4k5bDtGwRi/sM2UhO2Yw/kLdtrvvvn6CE"
-      }
+        "type": "tendermint/PubKeyEd25519",
+        "value": "2MysikRZ8Yzk3KPDVEl/g2tHSyX0i3DGrAMwtDcYH10="
+      },
+      "power": "10",
+      "name": ""
     }
   ],
   "app_hash": ""
 }
 ```
 
-다음으로, 각 노드로부터 모든 `validators`를 수집하고, 하나의 배열에 그것들을 병합하세요. 이 파일은 이제 모든 노드에서 결합 된 파일로 대체되어야 합니다. 두개의 node cluster 라면, 아래와 같은 모습일 것입니다:
+Next, collect all the `validators` from each node, combine them into an array, and save everything to a new file. The old file will now need to be replaced with the new combined file. Do this for all nodes. For a two-node cluster, the **validators** array should look something like this:
 
 ```json
-{
-  "genesis_time": "0001-01-01T00:00:00Z",
-  "chain_id": "default",
   "validators": [
     {
-      "name": "",
-      "power": 10,
+      "address": "825F1AE812A4395EFF0F88A032AAB2CE42F120EE",
       "pub_key": {
-          "type": "AC26791624DE60",
-          "value": "RLYcH6fzeg4k5bDtGwRi/sM2UhO2Yw/kLdtrvvvn6CE"
-      }
+        "type": "tendermint/PubKeyEd25519",
+        "value": "2MysikRZ8Yzk3KPDVEl/g2tHSyX0i3DGrAMwtDcYH10="
+      },
+      "power": "10",
+      "name": ""
     },
     {
-      "name": "",
-      "power": 10,
+      "address": "825F1AE812A4395EFF0F88A032AAB2CE42F120EE",
       "pub_key": {
-          "type": "AC26791624DE60",
-          "value": "gCn5WayR3cgQjNlNXYiBSYgQ3c1pGIsFWajVGczByZulGa09mb"
-      }
+        "type": "tendermint/PubKeyEd25519",
+        "value": "gCn5WayR3cgQjNlNXYiBSYgQ3c1pGIsFWajVGczByZulGa09mb"
+      },
+      "power": "10",
+      "name": ""
     }
   ],
-  "app_hash": ""
-}
 ```
 
 ## 실행하기
