@@ -1,64 +1,313 @@
 ---
 id: intro-loom-sdk
-title: Loom Network 是什么？
-sidebar_label: 介绍 Loom SDK
+title: What is Loom Network?
+sidebar_label: Intro Loom SDK
 ---
-![Loom Network 是什么？](/developers/img/what-is-loom.png)
 
-Loom Network 在构建一个帮助以太坊扩展的基础设施平台。 让开发人员能够运行大型应用程序，是第一个正式上线的以太坊扩展解决方案。
+![What is Loom Network?](/developers/img/what-is-loom.png)
 
-简言之，你可以把Loom network看作是以太坊上的EOS。
+Loom Network is building a fundamental infrastructure platform to help Ethereum scale. It allows developers to run large-scale applications and is the first Ethereum scaling solution to be live in production.
 
-## Loom SDK
+In short, you can think of Loom Network as EOS on top of Ethereum.
 
-我们的核心产品是 SDK，可以让开发人员快速构建自己的区块链，而无需了解区块链基础设施。 把它想象成一个 "构建你自己的区块链" 生成器。
+# What is the Loom SDK?
 
-## DAppChain: 每个 DApp 都在自己的侧链上
+Our core product is an SDK that allows developers to quickly build their own blockchains without having to understand blockchain infrastructure. Think of it like a “build your own blockchain” generator.
 
-Loom SDK 产生一个我们称之为DApp链的产物 —— 一个用以太坊作为基础层的第二层区块链。 将每个DApp运行在它自己的以太坊侧链上有诸多好处，但最重要的是： DApp链可以使用其他共识规则集（如DPoS）来优化高可扩展性。 用以太坊作为基础层意味着基于DApp链的资产（如ERC20和ERC721代币）会有以太坊的安全保证，尤其是当由Plasma支持时。
+## What is PlasmaChain?
 
-## DPoS = 大规模可扩展的DApp
+So, the Loom SDK allows for developers to spin up an unlimited number of sidechains to scale their dapps as needed — a crucial piece in our long-term vision of blockchain scalability, and one that is now being used by multiple games and dapps in production.
 
-我们的SDK允许开发者选择他们自己的共识算法和规则集，根据他们DApp的需求来自定义可扩展性和安全性之间的权衡。 开箱即用，我们支持DPoS（股份授权股权证明），使大型在线游戏和社交应用成为可能 —— 是我们关注的两种初始类型的DApp（尽管你可以在Loom SDK上构建任何类型的DApp）。 以太坊上的Plasma提供安全保障 DApp链使用基于Plasma的中继来与以太坊之间来回转移资产，这使得ERC20和ERC721代币可以在DApp链上使用的同时，仍然由以太坊保障安全。 简而言之，Loom SDK可以让开发者们构建他们会在EOS上构建的相同类型的应用，但是它们将会有以太坊的支持。
+But PlasmaChain will be the central hub that all these chains connect to as their bridge to Ethereum, for interchain communication with other major blockchains (such as Cosmos, EOS, and Tron), and as a shared liquidity pool for tokenized assets.
 
-# 了解DApp链
+Thus, our company’s primary objectives over the next year are all related to growing PlasmaChain to become the “universal Layer 2” for high performance dapps.
 
-为了更好地理解我们关于扩展性和DApp链优势的核心论文，请阅读以下两篇博客文章：
+In the next chapter, you will learn how to deploy your first app to Loom PlasmaChain. Let's get started!
 
-[DApp链：通过侧链扩展以太坊DApp](https://medium.com/loom-network/dappchains-scaling-ethereum-dapps-through-sidechains-f99e51fff447)
 
-[以太坊上百万用户级Dapp ：介绍应用程序特定侧链](https://medium.com/loom-network/million-user-dapps-on-ethereum-an-introduction-to-application-specific-sidechains-c0fdc288c5e5)
+## Deploying to Testnet
 
-# PlasmaChain
+Deploying to Loom PlasmaChain is no different from deploying to the Ethereum main net, or to Rinkeby. If you know how to do one, you also know how to do the other.
 
-## PlasmaChain：用于在侧链和以太坊主网之间进行交易的受Plasma Cash支持的枢纽。
+We at Loom are using Truffle to build, test, and deploy our smart contracts. To make our life easier, we developed something called a provider that lets Truffle deploy to Loom PlasmaChain just like it deploys to Ethereum.
 
-几个月前，我们官宣了ZombieChain（僵尸链）：“以太坊DApp的类EOS DPoS侧链。” 自从我们宣布这一消息以来，ZombieChain已经有了很大的进展。 我们开始在ZombieChain上搭建“僵尸战场”的交易市场——而当我们的功能特性列表不断变长的时候，我们意识到这条链拥有比我们原来的预期所更大的潜力。 所以我们决定升级这条链，并让它在我们的未来愿景中扮演更重要的角色：它将成为代币事务的中心枢纽，通过Plasma Cash连接到以太坊。 可以把这条链想象成一条通往以太坊主网的桥梁，它有着一个内置的去中心化交易所（DEX），而所有其他侧链可以用其来实现更快、更便宜的事务而无需接触主网。 如此伟大的角色需要一个伟大的名字。 因此，我们决定将ZombieChain更名为“PlasmaChain”。
+Without delving too much into details, the provider works like a bridge that makes Web3.js calls compatible with Loom PlasmaChain.
 
-![PlasmaChain](/developers/img/plasmachain_diagram.png)
+This chapter shows how you can use `Truffle` and the [Loom Truffle Provider](https://github.com/loomnetwork/loom-truffle-provider) to build a simple Web UI that interacts with Loom PlasmaChain.
 
-PlasmaChain，原名“ZombieChain”。
+### Requirements
 
-### 以下是一些将会构建在PlasmaChain上的特性功能：
+Make sure the following requirements are met and then follow the steps in the next section:
 
-* 连接主网的Plasma Cash，提供原生ETH、ERC20和NFT（ERC721）支持
-* 内置DEX/交易市场功能
-* ETH和LOOM的原生支付
-* 计划在未来整合BTC支付
-* 计划以PlasmaChain为母链，将Plasma Cash连接到“第3层”链。 （想想“侧链的侧链”，其中 PlasmaChain作为清算所，使多个侧链之间的代币交易不用接触主网即可实现）
+```text
+Node >= 8
+yarn or npm
+```
 
-所以呢：当你读这里时，“僵尸战场”交易市场已经在PlasmaChain上运行了！ 我们还会在不久的将来部署多个测试网，我们将向第三方开放部署他们的DApp。 这些测试网可能会在后来发展作为他们自己特定的链上线。 但期间，他们将帮助我们测试第三方DApp，对新功能进行尝试并最终将其纳入PlasmaChain。 作为中心枢纽，它充当多个侧链和以太坊之间的桥梁，PlasmaChain将成为我们愿景中最重要的组成部分之一。
+### Install
 
-# 了解Plasma Cash
+First, let's clone the [Truffle DAppChainExample](https://github.com/loomnetwork/truffle-dappchain-example/) repository. Open a terminal, `cd` into the directory where you store your projects, and run the following command:
 
-![了解Plasma Cash](/developers/img/plasma.jpg)
+```bash
+git clone https://github.com/loomnetwork/truffle-dappchain-example
+```
 
-我们已经写了两篇文章来解释我们如何在Loom DApp链上使用Plasma：
+Next, `cd` into `truffle-dappchain-example`:
 
-[在Loom Network DApp链上使用Plasma：可扩展的DApp和以太坊保护的资产](https://medium.com/loom-network/loom-network-plasma-5e86caaadef2)
+```bash
+cd truffle-dappchain-example
+```
 
-[Plasma使用指南(Vol. I)：游戏——着重讨论用Plasma保护侧链对于真实用户的好处](https://medium.com/loom-network/practical-plasma-volume-i-gaming-9cfd3f971734)
+and run:
 
-# Loom代币
+```bash
+yarn install
+```
 
-我们专门有一篇文章详细介绍了关于LOOM代币的问题： [LOOM代币FAQ —— 你的问题，我们有答案！](https://medium.com/loom-network/loom-token-faqs-you-got-questions-we-got-answers-2d3c9185b4d0)
+### Run against Loom Testnet
+
+#### Generate the Loom private key
+
+The following command will download the `loom` binary and generate the private key for you:
+
+```bash
+yarn gen:extdev-key
+```
+
+> The Loom private key will be saved into a file called `extdev_private_key`.
+
+
+#### Deploy to extdev_plasma_us1
+
+As an example, we will deploy and run our application against `extdev_plasma_us1`.
+
+Run the following command:
+
+```bash
+yarn deploy:extdev
+```
+
+>The above command will **compile and then deploy** our smart contract to `extdev_plasma_us1`
+
+
+#### Test
+
+Run this command below to send transactions to the smart contract deployed to `extdev_plasma_us1`:
+
+
+```test
+yarn test:extdev
+```
+
+If everything looks good, let's spin up a web server and interact with our smart contract.
+
+#### Start the web interface
+
+The web interface is built with React and Webpack. Open a new terminal and run the following command:
+
+```bash
+yarn serve:extdev
+```
+
+> The web interface is available on http://localhost:8080.
+
+
+### Run against local Loom chain
+
+First, you have to generate a private key using:
+
+```bash
+yarn gen:loom-key
+```
+
+#### Spin up Loom Chain
+
+In a new terminal, run:
+
+```bash
+yarn loom-init
+```
+
+#### Deploy the smart contract
+
+To deploy, run the following command:
+
+```bash
+yarn deploy
+```
+
+You will see something like this:
+
+```text
+Starting migrations...
+======================
+> Network name:    'loom_dapp_chain'
+> Network id:      13654820909954
+> Block gas limit: 0
+```
+
+Copy the `Network id` paste it into a text file. We'll use it later.
+
+#### Test
+
+```
+yarn test
+```
+
+### Web interface
+
+Open the `src/contract.js` file in your text editor of choice and go to line 87.
+
+Now, say your `Network id` is `13654820909954`. Replace
+
+```javascript
+return Promise.resolve('default')
+```
+
+with
+
+```javascript
+return Promise.resolve('13654820909954')
+```
+
+
+We're ready to start the web server. In a new terminal, run:
+
+```bash
+yarn serve
+```
+
+
+### Useful information
+
+1. In order to correctly redeploy the contracts, there's a command `yarn deploy:reset`.
+
+2. Also, is possible to call truffle directly with `yarn truffle`.
+
+3. We're not versioning the build directory for this particular example, although is recommended to do so. The limitation can be removed by editing the `.gitignore` file.
+
+
+## Deploying to Loom
+
+In this section, we will explore the steps required to deploy your first smart contract to Loom.
+
+First, head over to our [Developer Dashboard](https://dev-dashboard.dappchains.com/login). We offer 3 different ways in which you can connect and sign transactions:
+
+![Select Wallet](/developers/img/deploy-to-loom-select-wallet.png)
+
+Depending on your preference click "Ledger", "Metamask" or "Trezor via Metamask".
+
+Next, you will be asked if you want to link your existing Relentless Marketplace account:
+
+![Link Marketplace Account](/developers/img/deploy-to-loom-link-marketplace-account.png)
+
+
+If so, click on the "Link my account" button and follow the instructions.
+
+If you don't have a Relentless Marketplace account or you want to use a different account, just click on the "Nope, I'm not from Relentless Marketplace" button.
+
+Say we choose to create a new account. Once we've selected this option, you'll see a Metamask popup like this:
+
+<img src="/developers/img/deploy-to-loom-map-accounts.png" alt="Map Accounts" width="400"/>
+
+Click "Sign" and, under the hood, the dashboard will map your accounts. Next, you will be redirected to your dashboard. It'll look similar to this:
+
+![Map Accounts](/developers/img/deploy-to-loom-dashboard.png)
+
+
+### Deposit Loom to Plasmachain
+
+From the left pane, click on the "Deploy to Plasmachain". You will be redirected to a page similar to the one below:
+
+![New Account Options](/developers/img/deploy-to-loom-deposit-loom.png)
+
+Notice that, in order to deploy to Plasmachain, you need to stake some LOOM. Click on the "Deposit more Loom to Plasmachain" and follow the instructions.
+
+### Adding the Public Keys
+
+From here you have two options. You either create a new account, or you use an existing address:
+
+Let's explore both a bit further.
+
+#### Option 1 - Creating a New Account
+
+Say you clicked "Generate New Key". Next, a new window will pop showing the details of the new account:
+
+![New Account Details](/developers/img/deploy-to-loom-create-new-account.png)
+
+We can't emphasize this more: **store the mnemonic somewhere safe**.
+
+Next, copy the public address and paste it into the "Your Loom Public Address" textbox:
+
+![Public Address](/developers/img/deploy-to-loom-paste-public-address.png)
+
+Lastly, click "Add Key" and you're set.
+
+#### Option 2 - Use an Existing Address
+
+Now, as an example, let's suppose you already have a Loom address- `0xC8613234a93977079d464e9b77bF60b227DB67A1`. If so, all you have to do is to replace the `0x` prefix with `loom`.  It'll look something like this: `loomC8613234a93977079d464e9b77bF60b227DB67A1`.
+
+Lastly, click "Add Key" and you're ready to deploy to Loom.
+
+#### Deploying to Loom
+
+If in the previous step, you chose to use an existing address, chances are that you already know how to use your private key to deploy to Loom. Thus, we won't describe that scenario.
+
+However, if you chose to generate a new address, here's what you have to do:
+
+ - Fire up your favorite text editor and open `truffle-config.js`
+
+ - Start by importing a few things:
+
+```js
+import { sha256 } from "js-sha256"
+import { CryptoUtils } from "loom-js"
+import { LoomTruffleProvider } from 'loom-truffle-provider'
+```
+
+ - Next, we'll have to compute the private key from mnemonic as follows:
+
+ ```js
+const seed = mnemonicToSeedSync(mnemonic)
+const privateKeyUint8ArrayFromSeed = CryptoUtils.generatePrivateKeyFromSeed(new Uint8Array(sha256.array(seed)))
+const privateKeyB64 = CryptoUtils.Uint8ArrayToB64(privateKeyUint8ArrayFromSeed)
+ ```
+
+- Lastly, we can instantiate `loomProvider` like this:
+
+```js
+new LoomTruffleProvider(chainId, writeUrl, readUrl, privateKeyB64)
+```
+
+Wrapping it up, your `truffle-config.js` file should look something like this:
+
+```js
+
+import { sha256 } from 'js-sha256'
+import { CryptoUtils } from 'loom-js'
+import { LoomTruffleProvider } from 'loom-truffle-provider'
+import { mnemonicToSeedSync } from 'bip39'
+
+const mnemonic = 'YOUR MNEMONIC'
+
+module.exports = {
+  networks: {
+    loom: {
+      provider: function () {
+        const chainId = 'default'
+        const writeUrl = 'http://plasma.dappchains.com/rpc'
+        const readUrl = 'http://plasma.dappchains.com/query'
+        const seed = mnemonicToSeedSync(mnemonic)
+        const privateKeyUint8ArrayFromSeed = CryptoUtils.generatePrivateKeyFromSeed(new Uint8Array(sha256.array(seed)))
+        const privateKeyB64 = CryptoUtils.Uint8ArrayToB64(privateKeyUint8ArrayFromSeed)
+        return new LoomTruffleProvider(chainId, writeUrl, readUrl, privateKeyB64)
+      },
+      network_id: '*'
+    }
+  }
+}
+```
+
+Well done!👏🏻👏🏻👏🏻
+
+You are now ready to deploy your first smart contract to Loom!

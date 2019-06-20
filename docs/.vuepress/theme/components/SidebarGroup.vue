@@ -23,10 +23,10 @@
       <span class="arrow" v-if="collapsable" :class="open ? 'down' : 'right'" />
     </router-link>
 
-    <p v-else class="sidebar-heading" :class="{ open }" @click="$emit('toggle')">
+    <a href="javascript:;" v-else class="sidebar-heading" :class="{ open }" @click="$emit('toggle')">
       <span>{{ $t(item.title) }}</span>
       <span class="arrow" v-if="collapsable" :class="open ? 'down' : 'right'" />
-    </p>
+    </a>
 
     <DropdownTransition>
       <SidebarLinks

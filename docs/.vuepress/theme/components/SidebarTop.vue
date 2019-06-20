@@ -8,9 +8,9 @@
         :alt="$siteTitle"
       />
     </router-link>
-    <button class="theme-swtich" @click="$emit('toggle-darkmode')">
+    <a href="javascript:;" class="theme-swtich" @click="$emit('toggle-darkmode')">
       <img :src="switchBtnImage" />
-    </button>
+    </a>
   </div>
 </template>
 

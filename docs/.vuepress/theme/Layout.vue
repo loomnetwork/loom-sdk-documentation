@@ -33,7 +33,7 @@ export default {
   data() {
     return {
       isSidebarOpen: false,
-      darkMode: false
+      darkMode: true
     }
   },
   computed: {
@@ -74,6 +74,7 @@ export default {
     this.$router.afterEach(() => {
       this.isSidebarOpen = false
     })
+    toggleDarkMode(this.darkMode);
   },
   methods: {
     toggleSidebar(to) {
