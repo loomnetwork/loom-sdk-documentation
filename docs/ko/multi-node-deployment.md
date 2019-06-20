@@ -17,14 +17,19 @@ The following steps need to be executed on each node:
 ```bash
     cd /home/ubuntu
     ```
+
 2. Download the binaries:
+
     ```bash
     curl https://raw.githubusercontent.com/loomnetwork/loom-sdk-documentation/master/scripts/get_loom.sh | sh
     ```
+
 3. Execute `./loom init` in the working directory to initialize config files.
 4. Add `loom.yml` in the working directory:
+
     ```yaml
     RPCBindAddress: "tcp://0.0.0.0:46658"
+    DPOSVersion: 3
     ```
 
 ## Configuration
@@ -33,7 +38,7 @@ There are two genesis.json files that need to be combined.
 
 ### genesis.json #1 - in the working directory
 
-The `genesis.json` file looks like this:
+The `genesis.json` that was generated should look something like below. You should **NOT** copy the file below as it is an example. Use the file generated in your working directory.
 
 ```json
 {
@@ -48,18 +53,45 @@ The `genesis.json` file looks like this:
     {
       "vm": "plugin",
       "format": "plugin",
-      "name": "dpos",
-      "location": "dpos:1.0.0",
+      "name": "dposV3",
+      "location": "dposV3:3.0.0",
       "init": {
         "params": {
-          "witnessCount": "21",
-          "electionCycleLength": "604800",
-          "minPowerFraction": "5"
+          "validatorCount": "21"
         },
         "validators": [
           {
-            "pubKey": "RLYcH6fzeg4k5bDtGwRi/sM2UhO2Yw/kLdtrvvvn6CE=",
+            "pubKey": "2MysikRZ8Yzk3KPDVEl/g2tHSyX0i3DGrAMwtDcYH10=",
             "power": "10"
+          }
+        ]
+      }
+    },
+    {
+      "vm": "plugin",
+      "format": "plugin",
+      "name": "addressmapper",
+      "location": "addressmapper:0.1.0",
+      "init": null
+    },
+    {
+      "vm": "plugin",
+      "format": "plugin",
+      "name": "chainconfig",
+      "location": "chainconfig:1.0.0",
+      "init": {
+        "owner": {
+          "chainId": "default",
+          "local": "aMt0mxDIxz5MCYKp9c0jEzG1en8="
+        },
+        "params": {
+          "voteThreshold": "67",
+          "numBlockConfirmations": "10"
+        },
+        "features": [
+          {
+            "name": "test",
+            "status": "WAITING"
           }
         ]
       }
@@ -68,93 +100,81 @@ The `genesis.json` file looks like this:
 }
 ```
 
-Next, collect all `validators` from each node, combine them into an array, and save everything to a new file. This old file will now need to be replaced with the new combined file. Do this for all nodes. For a two-node cluster, it should now look like this:
+Next, collect all `validators` from each node, combine them into an array, and save everything to a new file. This old file will now need to be replaced with the new combined file. Do this for all nodes. For a two-node cluster, the **validators** array should look something like this:
 
 ```json
-{
-  "contracts": [
+  "validators": [
     {
-      "vm": "plugin",
-      "format": "plugin",
-      "name": "coin",
-      "location": "coin:1.0.0",
-      "init": null
+      "pubKey": "2MysikRZ8Yzk3KPDVEl/g2tHSyX0i3DGrAMwtDcYH10=",
+      "power": "10"
     },
     {
-      "vm": "plugin",
-      "format": "plugin",
-      "name": "dpos",
-      "location": "dpos:1.0.0",
-      "init": {
-        "params": {
-          "witnessCount": "21",
-          "electionCycleLength": "604800",
-          "minPowerFraction": "5"
-        },
-        "validators": [
-          {
-            "pubKey": "RLYcH6fzeg4k5bDtGwRi/sM2UhO2Yw/kLdtrvvvn6CE=",
-            "power": "10"
-          },
-          {
-            "pubKey": "gCn5WayR3cgQjNlNXYiBSYgQ3c1pGIsFWajVGczByZulGa09mb",
-            "power": "10"
-          }
-        ]
-      }
+      "pubKey": "gCn5WayR3cgQjNlNXYiBSYgQ3c1pGIsFWajVGczByZulGa09mb",
+      "power": "10"
     }
   ]
-}
 ```
 
 ### genesis.json #2 - inside chaindata/config
 
-You will find a file named `genesis.json`. It is not to be confused with the one in the working directory. It should look like this:
+You will find it at `chaindata/config/genesis.json`. It is not to be confused with the one in the working directory. You should **NOT** copy the file below as it is an example and it should look something like:
 
 ```json
 {
-  "genesis_time": "0001-01-01T00:00:00Z",
+  "genesis_time": "2019-06-20T08:58:17.011337021Z",
   "chain_id": "default",
+  "consensus_params": {
+    "block_size": {
+      "max_bytes": "22020096",
+      "max_gas": "-1"
+    },
+    "evidence": {
+      "max_age": "100000"
+    },
+    "validator": {
+      "pub_key_types": [
+        "ed25519"
+      ]
+    }
+  },
   "validators": [
     {
-      "name": "",
-      "power": 10,
+      "address": "825F1AE812A4395EFF0F88A032AAB2CE42F120EE",
       "pub_key": {
-          "type": "ABCD1234ABCD12",
-          "value": "RLYcH6fzeg4k5bDtGwRi/sM2UhO2Yw/kLdtrvvvn6CE"
-      }
+        "type": "tendermint/PubKeyEd25519",
+        "value": "2MysikRZ8Yzk3KPDVEl/g2tHSyX0i3DGrAMwtDcYH10="
+      },
+      "power": "10",
+      "name": ""
     }
   ],
   "app_hash": ""
 }
 ```
 
-Next, collect all the `validators` from each node, combine them into an array, and save everything to a new file. The old file will now need to be replaced with the new combined file. Do this for all nodes. For a two-node cluster, it should now look like this:
+Next, collect all the `validators` from each node, combine them into an array, and save everything to a new file. The old file will now need to be replaced with the new combined file. Do this for all nodes. For a two-node cluster, the **validators** array should look something like this:
 
 ```json
-{
-  "genesis_time": "0001-01-01T00:00:00Z",
-  "chain_id": "default",
   "validators": [
     {
-      "name": "",
-      "power": 10,
+      "address": "825F1AE812A4395EFF0F88A032AAB2CE42F120EE",
       "pub_key": {
-          "type": "AC26791624DE60",
-          "value": "RLYcH6fzeg4k5bDtGwRi/sM2UhO2Yw/kLdtrvvvn6CE"
-      }
+        "type": "tendermint/PubKeyEd25519",
+        "value": "2MysikRZ8Yzk3KPDVEl/g2tHSyX0i3DGrAMwtDcYH10="
+      },
+      "power": "10",
+      "name": ""
     },
     {
-      "name": "",
-      "power": 10,
+      "address": "825F1AE812A4395EFF0F88A032AAB2CE42F120EE",
       "pub_key": {
-          "type": "AC26791624DE60",
-          "value": "gCn5WayR3cgQjNlNXYiBSYgQ3c1pGIsFWajVGczByZulGa09mb"
-      }
+        "type": "tendermint/PubKeyEd25519",
+        "value": "gCn5WayR3cgQjNlNXYiBSYgQ3c1pGIsFWajVGczByZulGa09mb"
+      },
+      "power": "10",
+      "name": ""
     }
   ],
-  "app_hash": ""
-}
 ```
 
 ## Running
