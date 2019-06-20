@@ -60,6 +60,14 @@ this.client = new Client(
 )
 ```
 
+Once the client gets instantiated, we must force personal sign by pretending to be MetaMask no matter what the web3 provider actually is:
+
+```js
+let provider = this.web3js.currentProvider
+provider.isMetaMask = true
+const ethersProvider = new ethers.providers.Web3Provider(provider)
+```
+
 Next, let's call the `createDefaultTxMiddleware` function as follows:
 
 ```js
@@ -116,3 +124,11 @@ Note that you just signed transactions on Loom without even accessing your eth w
 ### Demo Project
 
 We've built a small demo project to showcase this functionality. The source code is available [here](https://github.com/loomnetwork/Eth-Signing-Demo).
+
+## Universal transaction signing with Portis
+
+Universal transactions signing works with Portis as well. We've added a simple demo to our [example repo](https://github.com/loomnetwork/eth-signing-demo/blob/master/src/eth-signing-portis.js).
+
+![Portis Demo](/developers/img/Portis-demo.gif)
+
+To see it in action, you must checkout [the repo](https://github.com/loomnetwork/eth-signing-demo) and follow the instructions in the README.md file.
