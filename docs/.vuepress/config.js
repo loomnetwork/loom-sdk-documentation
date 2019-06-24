@@ -189,6 +189,14 @@ module.exports = {
         ],
       },
       {
+        title: 'Top ERC20s',
+        collapsable: true,
+        sidebarDepth: 1,
+        children: [
+          ['/top-erc20s', 'Top ERC20s Deployed to Loom'],
+        ],
+      },
+      {
         title: 'Tron Integration',
         collapsable: true,
         sidebarDepth: 1,
