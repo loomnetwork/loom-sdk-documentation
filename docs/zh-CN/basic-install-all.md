@@ -127,4 +127,4 @@ We've built a small demo project to showcase this functionality. The source code
 
 ### Other Wallets
 
-If you use Portis or Fortmatic, head over to [this page](others).
+If you use Portis or Fortmatic, head over to [this page](others.html).
