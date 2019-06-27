@@ -73,8 +73,8 @@ module.exports = {
         children: [
           ['/intro-to-loom', 'Intro to Loom'],
           ['/join-testnet', 'Join Testnets'],
-          ['/deploy-loom-mainnet', 'Deploy to Loom mainnet'],
           ['/extdev-transfer-gateway', 'extdev-transfer-gateway'],
+          ['/deploy-loom-mainnet', 'Deploy to Loom mainnet'],
           ['/basic-install-all', 'Installation Loom SDK'],
         ],
       },
