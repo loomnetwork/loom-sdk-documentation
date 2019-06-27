@@ -76,6 +76,7 @@ module.exports = {
           ['/extdev-transfer-gateway', 'extdev-transfer-gateway'],
           ['/deploy-loom-mainnet', 'Deploy to Loom mainnet'],
           ['/basic-install-all', 'Installation Loom SDK'],
+          ['/deploy-loom-mainnet', 'Deploy to Loom mainnet'],
         ],
       },
       {
