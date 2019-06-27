@@ -25,7 +25,7 @@ Thus, our company’s primary objectives over the next year are all related to g
 In the next chapter, you will learn how to deploy your first app to Loom PlasmaChain. Let's get started!
 
 
-## Deploying Your First App
+## Deploying to Testnet
 
 Deploying to Loom PlasmaChain is no different from deploying to the Ethereum main net, or to Rinkeby. If you know how to do one, you also know how to do the other.
 
@@ -176,7 +176,6 @@ We're ready to start the web server. In a new terminal, run:
 ```bash
 yarn serve
 ```
-
 
 ### Useful information
 
