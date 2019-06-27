@@ -71,10 +71,11 @@ module.exports = {
         collapsable: true,
         sidebarDepth: 1,
         children: [
-          ['/intro-to-loom', 'Intro Loom SDK'],
-          ['/basic-install-all', 'Installation Loom SDK'],
+          ['/intro-to-loom', 'Intro to Loom'],
           ['/join-testnet', 'Join Testnets'],
           ['/extdev-transfer-gateway', 'extdev-transfer-gateway'],
+          ['/deploy-loom-mainnet', 'Deploy to Loom mainnet'],
+          ['/basic-install-all', 'Installation Loom SDK'],
         ],
       },
       {
