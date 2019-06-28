@@ -102,12 +102,6 @@ module.exports = {
         ],
       },
       {
-        title: 'Game SDKs',
-        collapsable: true,
-        sidebarDepth: 1,
-        children: [['/cocos-sdk-quickstart', 'Cocos SDK Quickstart']],
-      },
-      {
         title: 'Unity SDK',
         collapsable: true,
         sidebarDepth: 1,
