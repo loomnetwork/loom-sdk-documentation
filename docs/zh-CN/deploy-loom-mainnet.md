@@ -99,7 +99,7 @@ const { sha256 } = require ('js-sha256')
 const { CryptoUtils } = require ('loom-js')
 const { mnemonicToSeedSync } = require ('bip39')
 
-const mnemonic = readFileSync(path.join(__dirname, 'loom_mnemonic'), 'utf-8')
+const mnemonic = readFileSync(path.join(__dirname, 'loom_mnemonic'), 'utf-8').toString().trim()
 
 module.exports = {
   networks: {
