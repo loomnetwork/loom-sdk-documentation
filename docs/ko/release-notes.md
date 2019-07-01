@@ -129,31 +129,31 @@ Note Loom SDK 2.0 is not protocol compatible with 1.0 chains. If you have a prod
 * Loom-JS EVM updates for indexed filters
 * Loom-JS EVM fixes for getting block by hash
 
-## Release 288 - July 17th
+## 릴리즈 288 - 7월 17일
 
-* [EVM indexed filter](https://loomx.io/developers/en/web3js-event-filters.html)
-* EVM filter pool fixes and event system
-* Loom-JS EVM updates for indexed filters
-* Loom-JS EVM fixes for getting block by hash
+* [EVM indexed 필터](https://loomx.io/developers/en/web3js-event-filters.html)
+* EVM 필터 pool 수정 및 이벤트 시스템
+* indexed 필터를 위한 Loom-JS EVM 업데이트
+* 해시값으로 블록을 가져오기 위한 Loom-JS EVM 수정
 
-## Release 276 - July 13th
+## 릴리즈 276 - 7월 13일
 
-* [New Block Explorer](block-explorer-tutorial.html)
-* Multinode EVM fixes 
-* Loom-JS updates for Plasma cash
-* Zombiechain testnet fixes
-* DPoS Updates
+* [새로운 블록 탐색기](block-explorer-tutorial.html)
+* 멀티노드 EVM 수정 
+* 플라즈마 캐시를 위한 Loom-JS 업데이트
+* Zombiechain 테스트넷 수정
+* DPoS 업데이트
 
-## Release 209 - June 20th
+## 릴리즈 209 - 6월 20일
 
-Major release
+주요 릴리즈
 
-* Plasma Cash initial integration - Demos coming next week
-* Multinode fixes and performance increases
-* Ansible updates for multinode
-* Querying / Filtering on EVM supports more types 
-* Unity SDK updates for EVM 
-* Loom-JS updates for EVM
+* 플라즈마 캐시 초기 통합 - 데모는 다음주에 나올 예정입니다
+* 멀티노드 수정 및 성능 향상
+* 멀티노드를 위한 Ansible 업데이트
+* EVM에서의 Querying / Filtering에 더 많은 타입을 지원 
+* EVM을 위한 Unity SDK 업데이트 
+* EVM을 위한 Loom-JS 업데이트
 
 ## Release 186 - June 19th
 
@@ -161,32 +161,32 @@ Major release
 * Unity SDK support for Solidity Apps
 * Many fixes for Filtering/Querying Ethereum Events
 
-## Release 163 - June 11th
+## 릴리즈 163 - 6월 11일
 
-* Support for latest Build of Truffle
-* [Updated truffle example](https://github.com/loomnetwork/loom-truffle-provider)
-* Initial Implementation of Sybil resistance framework
-* Websocket events now support topics 
-* Loom-JS 1.8.0 Release with updated websocket topic support
+* Truffle의 최신 빌드를 위한 지원
+* [Truffle 예제 업데이트](https://github.com/loomnetwork/loom-truffle-provider)
+* Sybil resistance 프레임웍의 초기 구현
+* Websocket 이벤트가 이제 topic을 지원합니다 
+* 업데이트된 websocket topic 지원이 포함된 Loom-JS 1.8.0 릴리즈
 
-## Release 161 - June 7th
+## 릴리즈 161 - 6월 7일
 
-* Tons of Truffle Fixes
-* Tons of web3.js fixes for Loom-Js provider
+* 수많은 Truffle 수정사항들
+* 수많은 Loom-Js provider와 관련된 web3.js 수정사항들
 
 ## 릴리즈 155 - 6월 6일
 
-* [Cocos SDK is Live](cocos-sdk-quickstart.html)
-* [Truffle Support available](truffle-deploy.html)
-* Static calls to EVM now allow caller
-* EVM Fixes for a lot of scenarios 
+* [Cocos SDK 사용 가능](cocos-sdk-quickstart.html)
+* [Truffle을 지원합니다](truffle-deploy.html)
+* 이제 EVM에 static call이 허용됩니다
+* 수많은 시나리오에 관한 EVM 수정 
 
 ## 릴리즈 143 - 6월 1일
 
 * [BluePrint 도커 이미지 사용이 가능합니다](docker-blueprint.html)
 * [일본 해커톤 결과](https://medium.com/loom-network/highlights-from-the-first-loom-unity-sdk-hackathon-tokyo-edition-6ed723747c19)
 * [몇 가지 Loom SDK 프로젝트를 위한 도커 이미지](https://hub.docker.com/r/loomnetwork/)
-* Evm TX Reciepts 수정 
+* EVM TX Reciepts 수정 
 
 ## 릴리즈 137 - 5월 30일
 
