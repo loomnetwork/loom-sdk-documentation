@@ -16,8 +16,8 @@ sidebar_label: リリースノート
 * DPoSV3のリワードサイクル短縮化やその他の改善についての取り組みを開始
 * Karmaのアップデート
 * CheckTxのパフォーマンス向上
-* P2Pプロトコルのアップデート 
-* Goコントラクトがイベントインデックスをサポート- [Go Events Docs](go-events.html) 
+* P2Pプロトコルのアップデート
+* Goコントラクトがイベントインデックスをサポート- [Go Events Docs](go-events.html)
 * EVMクエリがキャッシングレイヤーを改良
 * EVMコントラクトが11,800より多くのキーを書き出すバグを修正
 * 非ETHブロックのチェーンに対するサポートをTelegramにて開始
@@ -35,7 +35,7 @@ sidebar_label: リリースノート
 * HSMローカルキー署名
 * GoコントラクトのためのRange関数Prefixの修正
 * HSMのローカルキー署名 - [HSM Docs](hsm.html)
-* ネットワーク管理の向上を伴うユーティリティSDKの更新 
+* ネットワーク管理の向上を伴うユーティリティSDKの更新
 
 Loom SDK 2.0は1.0チェーンとプロトコルの互換性はないことに注意。1.0を用いたプロダクションチェーンがある場合は、移行についてsupport@loomx.ioまで問い合わせてほしい。
 
@@ -74,16 +74,16 @@ Loom SDK 2.0は1.0チェーンとプロトコルの互換性はないことに�
 * TransferGatewayのERC20サポートをアップグレード
 * ゲートウェイのERC20サンプル - [サンプル](https://github.com/loomnetwork/token-gateway-example)
 * Loom SDK [韓国語](https://loomx.io/developers/ko/)ドキュメンテーションサイト
-* 現在EVMはPayable関数を限定サポート。さらなるサポートは来週登場。 
-* TransferGatewayを使用したERC20/ETHトランスファー向けに、Loom-JSをアップデート 
-* DPoSコントラクトへLoom-JSを統合 
+* 現在EVMはPayable関数を限定サポート。さらなるサポートは来週登場。
+* TransferGatewayを使用したERC20/ETHトランスファー向けに、Loom-JSをアップデート
+* DPoSコントラクトへLoom-JSを統合
 * [Plasma Debits](https://github.com/loomnetwork/plasma-cash/pull/115)の実験的サポート
 
 ** 互換性を崩す変更
 
 * QueryServerHostを廃止し、全関数をRPCサーバーへとコンソリデート。
 * 新たなConfigオプション: RPCBindAddress: "tcp://0.0.0.0:46658"
-* PBFTエンジンのアップグレード。アップグレードで非互換性の問題が起こる可能性があるため、ステージング環境にて試すこと。 
+* PBFTエンジンのアップグレード。アップグレードで非互換性の問題が起こる可能性があるため、ステージング環境にて試すこと。
 
 ## リリース 375 - 8月10日
 
@@ -95,11 +95,11 @@ Loom SDK 2.0は1.0チェーンとプロトコルの互換性はないことに�
 * メモリーリークの修正
 * APIの破損がわずかにあるので、go-loom/loom-jsのアップグレードが必要。Unityのアップグレードももうすぐリリース。
 * API破損のため、Go-loomをアップデート
-* このリリースのためにloom-jsをアップグレード 
+* このリリースのためにloom-jsをアップグレード
 
 ## リリース 330 -7月30日
 
-* EVMでのコンセンサスの問題を修正 
+* EVMでのコンセンサスの問題を修正
 * Zombieチェーンテストネットを更新
 * パフォーマンス測定のためテレメトリをさらに追加
 * Goコントラクトの範囲クエリ
@@ -121,7 +121,7 @@ Loom SDK 2.0は1.0チェーンとプロトコルの互換性はないことに�
 ## リリース 276 -7月13日
 
 * [新たなBlock Explorer](block-explorer-tutorial.html)
-* マルチノードEVMを修正 
+* マルチノードEVMを修正
 * Plasma Cash向けにLoom-JSをアップデート
 * ZombieChainテストネットの修正
 * DPoSのアップデート
@@ -131,10 +131,10 @@ Loom SDK 2.0は1.0チェーンとプロトコルの互換性はないことに�
 メジャーリリース
 
 * Plasma Cash 初期インテグレーション - 次週デモを発表
-* マルチノード修正、パフォーマンス向上 
-* マルチノード向けのAnsible更新 
-* EVM上のクエリ/フィルタがより多くの型をサポート 
-* EVM向けのUnity SDK更新 
+* マルチノード修正、パフォーマンス向上
+* マルチノード向けのAnsible更新
+* EVM上のクエリ/フィルタがより多くの型をサポート
+* EVM向けのUnity SDK更新
 * EVM向けのLoom-JS更新
 
 ## リリース 186 - 6月19日
@@ -148,7 +148,7 @@ Loom SDK 2.0は1.0チェーンとプロトコルの互換性はないことに�
 * Truffleの最新ビルドをサポート
 * [Truffleサンプルをアップデート](https://github.com/loomnetwork/loom-truffle-provider)
 * シビル攻撃耐性フレームワークの初期実装
-* Websocketイベントのトピックサポート 
+* Websocketイベントのトピックサポート
 * Loom-JS 1.8.0リリースで、websocketトピックをサポートするようアップデート
 
 ## リリース 161 - 6月7日
@@ -161,44 +161,44 @@ Loom SDK 2.0は1.0チェーンとプロトコルの互換性はないことに�
 * [Cocos SDKをリリース](cocos-sdk-quickstart.html)
 * [Truffleのサポートが利用可能に](truffle-deploy.html)
 * EVMへの静的コールで呼び出し元を許可
-* 多くのシナリオ用のEVMを修正 
+* 多くのシナリオ用のEVMを修正
 
 ## リリース 143 - 6月1日
 
 * [BluePrint Dockerイメージが利用可能](docker-blueprint.html)
 * [東京ハッカソンのレポート](https://medium.com/loom-network/highlights-from-the-first-loom-unity-sdk-hackathon-tokyo-edition-6ed723747c19)
 * [Loom SDKプロジェクト用のDockerイメージ](https://hub.docker.com/r/loomnetwork/)
-* Evmトランザクションレシートの修正 
+* Evmトランザクションレシートの修正
 
 ## リリース 137 - 5月30日
 
 * GoクライアントがEVMコントラクトへアクセス可能に
 * EVMのバグを多数修正
-* [ソーシャルネットワークのサンプルアプリ- Solidity](simple-social-network-example.html)
+* ソーシャルネットワークのサンプルアプリ- Solidity
 
 ## リリース 136 - 5月28日
 
 * 初期Solidityアルファ版テストビルド。Solidityコントラクトがデプロイ可能に。
-* Splidityでのイベントサポート 
-* [Solidityイベントのサンプルプロジェクト](phaser-sdk-demo-web3-websocket.html)
+* Solidityでのイベントサポート
+* Solidityイベントのサンプルプロジェクト
 * [マルチノードデプロイメントガイド](multi-node-deployment.html)
 
 ## リリース 133 - 5月24日
 
-* [Etherboyのデモをリリース](https://loomx.io/developers/docs/en/etherboy-game.html)
+* Etherboyのデモをリリース
 * [日本語ドキュメンテーションをリリース](https://loomx.io/developers/ja)
-* [ドキュメンテーションサイト](https://loomx.io/developers/en/)をアップデート 
+* [ドキュメンテーションサイト](https://loomx.io/developers/en/)をアップデート
 
 ## リリース 132 - 5月23日
 
 * Websocketのパフォーマンスを修正
-* 新しいWebsocketのデモアプリ - TilesChain - [Github](https://github.com/loomnetwork/tiles-chain) 
+* 新しいWebsocketのデモアプリ - TilesChain - [Github](https://github.com/loomnetwork/tiles-chain)
 
 ## リリース 129 - 5月22日
 
 * イベントでのWebsocketサポート
-* インデックスレイヤー機能をSolidityコントラクト向けにアップデート 
-* Phaserゲームデモ - [Github](https://github.com/loomnetwork/phaser-sdk-demo)
+* インデックスレイヤー機能をSolidityコントラクト向けにアップデート
+* Phaserゲームデモ
 
 ## リリース 128 - 5月21日
 
@@ -207,6 +207,6 @@ Loom SDK 2.0は1.0チェーンとプロトコルの互換性はないことに�
 ## リリース 128 - 5月19日
 
 * 安定したベータ版をリリース
-* ロギングをデフォルトで複数ファイルでできるようアップデート 
+* ロギングをデフォルトで複数ファイルでできるようアップデート
 * 全RPCを一つのインターフェースへ移動
 * 外部プロセスインターフェースのアップデート

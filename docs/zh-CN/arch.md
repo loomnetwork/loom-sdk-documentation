@@ -39,7 +39,7 @@ SDK通过以下几部分集成到以太坊后端
 * 在Dapp链上镜像（追溯）资产
 * ERC-20 代币
 * ERC-721 代币
-* 以太 
+* 以太
 
 ### Plama Cash合约支持：
 
@@ -56,7 +56,7 @@ SDK包含了一些高层的区块链服务：
 * 索引
 * Websockets 和事件
 * Solidity + 以太坊虚拟机
-* 支持游戏引擎，如Cocos，Unity以及Phaser
+* Unity
 * 转移网关集成
 * Plasma集成
 * Cron定时执行（即将推出）
