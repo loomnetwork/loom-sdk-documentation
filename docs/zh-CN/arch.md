@@ -61,7 +61,7 @@ SDK includes a number of high-level blockchain services:
 * Indexing
 * Websockets and eventing
 * Solidity + Ethereum Virtual Machine
-* Support for game engines like Cocos, Unity, and Phaser
+* Support for game engines like Unity
 * Transfer Gateway integration
 * Plasma integration
 * Cron (coming soon)
