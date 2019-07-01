@@ -1,14 +1,14 @@
 ---
-id: release-notes
-title: Release Notes
-sidebar_label: Release Notes
+id: 릴리즈 노트
+title: 릴리즈 노트
+sidebar_label: 릴리즈 노트
 ---
 
-## Overview
+## 개요
 
-Reverse chronology order of release notes
+릴리즈 노트는 역순으로 구성되어 있습니다.
 
-## Loom 2.0 Release Build 1085 - May 31th
+## Loom 2.0 릴리즈 빌드 1085 - 5월 31일
 
 We have been focusing on mainnet builds so this has a large backlog of features for third party chains.
 
@@ -25,7 +25,7 @@ Major update, major updates for Performance, Caching and DPoS. It is recommended
 * Windows native build support - `make loom-windows`
 * CachingStore updates see our - [config page](loom-yaml.html) for details
 
-## Loom 2.0 Release Build 789 - Feb 12th
+## Loom 2.0 릴리즈 빌드 789 - 2월 12일
 
 Major update, major updates for Performance, Caching and DPoS. It is recommended to upgrade your testnets immediately.
 
@@ -43,26 +43,26 @@ Major update, major updates for Performance, Caching and DPoS. It is recommended
 * YubiHSM Fixes
 * Many new config options - [Loom Yaml Configs](loom-yaml.html)
 
-## Loom 2.0 Initial Release Build 651 - Dec 14th
+## Loom 2.0 초기 릴리즈 빌드 651 - 12월 14일
 
 * Loom SDK 2.0
-* Updated P2P Protocols
-* Blockexplorer now supports EVM
-* Loom Native token support for on chain Staking
-* Support For delegation rewards in protocol
-* Fixes for GetEvmBlockByNumber/Hash
-* Range function Prefix fixes for Go Contracts
-* HSM local key signing - [HSM Docs](hsm.html)
-* Unity SDK Updated with better network management 
+* P2P 프로토콜 업데이트
+* Blockexplorer는 현재 EVM을 지원합니다
+* Loom 네이티브 토큰은 온체인 스테이킹을 지원합니다
+* 프로토콜에서 위임 보상을 지원
+* GetEvmBlockByNumber/Hash 버그픽스
+* Go 컨트랙트의 Range function Prefix 버그픽스
+* HSM 로컬 키 서명 - [HSM 문서](hsm.html)
+* 향상된 네트워크 관리를 포함한 Unity SDK 업데이트 
 
 Note Loom SDK 2.0 is not protocol compatible with 1.0 chains. If you have a production chain using 1.0 please contact support@loomx.io for migration help.
 
-## Release 575 - Nov 16th
+## 릴리즈 575 - 11월 16일
 
-* HSM Bug fixes for Yubico Devices - [HSM Docs](hsm.html)
-* HSM now can create new private keys on demand
+* Yubico 디바이스를 위한 HSM 버그 픽스 - [HSM 문서](hsm.html)
+* HSM은 현재 요청시 새로운 개인키를 발급할 수 있습니다
 
-## Release 575 - Nov 13th
+## 릴리즈 575 - 11월 13일
 
 * HSM support for Yubico Devices - [HSM Docs](hsm.html)
 * DPoS Version2 beta - for Plasmachain external validators
@@ -174,57 +174,57 @@ Major release
 * Tons of Truffle Fixes
 * Tons of web3.js fixes for Loom-Js provider
 
-## Release 155 - June 6th
+## 릴리즈 155 - 6월 6일
 
 * [Cocos SDK is Live](cocos-sdk-quickstart.html)
 * [Truffle Support available](truffle-deploy.html)
 * Static calls to EVM now allow caller
 * EVM Fixes for a lot of scenarios 
 
-## Release 143 - June 1st
+## 릴리즈 143 - 6월 1일
 
-* [BluePrint Docker Images Available](docker-blueprint.html)
-* [Japanese Hackathon Results](https://medium.com/loom-network/highlights-from-the-first-loom-unity-sdk-hackathon-tokyo-edition-6ed723747c19)
-* [Docker Images for some of Loom SDK Projects](https://hub.docker.com/r/loomnetwork/)
-* Evm TX Reciepts fixes 
+* [BluePrint 도커 이미지 사용이 가능합니다](docker-blueprint.html)
+* [일본 해커톤 결과](https://medium.com/loom-network/highlights-from-the-first-loom-unity-sdk-hackathon-tokyo-edition-6ed723747c19)
+* [몇 가지 Loom SDK 프로젝트를 위한 도커 이미지](https://hub.docker.com/r/loomnetwork/)
+* Evm TX Reciepts 수정 
 
-## Release 137 - May 30th
+## 릴리즈 137 - 5월 30일
 
-* Go Clients can Access EVM Contracts
-* Numerous bug fixes for EVM
-* [Social Network Example App - Solidity](simple-social-network-example.html)
+* Go Client가 EVM 컨트랙트에 접근 가능합니다
+* EVM을 위한 수많은 버그 수정
+* [소셜 네트워크 예제 앱 - 솔리디티](simple-social-network-example.html)
 
-## Release 136 - May 28th
+## 릴리즈 136 - 5월 28일
 
-* Initial Solidity Alpha test build, you can now deploy solidity contracts
-* Websocket eventing support for solidity 
-* [Example Project for solidity Events](phaser-sdk-demo-web3-websocket.html)
-* [Multinode deployment guide](multi-node-deployment.html)
+* 초기 솔리디티 알파 테스트 빌드, 이제 솔리디티 컨트랙트를 배포할 수 있습니다
+* 솔리디티를 위한 Websocket 이벤트 지원 
+* [솔리디티 이벤트 관련 예제 프로젝트](phaser-sdk-demo-web3-websocket.html)
+* [멀티노드 배포 가이드](multi-node-deployment.html)
 
-## Release 133 - May 24th
+## 릴리즈 133 - 5월 24일
 
-* [Etherboy Demo released](https://loomx.io/developers/en/etherboy-game.html)
-* [Japanese Docs released](https://loomx.io/developers/ja)
-* Updated Homepage for [docs site](https://loomx.io/developers/en/) 
+* [Etherboy 데모 릴리즈](https://loomx.io/developers/en/etherboy-game.html)
+* [일본어 문서 릴리즈](https://loomx.io/developers/ja)
+* [문서 사이트](https://loomx.io/developers/ko/)를 위한 홈페이지 업데이트 
 
-## Release 132 - May 23rd
+## 릴리즈 132 - 5월 23일
 
-* Websocket performance fixes
-* New Websocket Demo App - TilesChain - [Github](https://github.com/loomnetwork/tiles-chain) 
+* Websocket 성능 개선
+* 새로운 Websocket 데모 앱 - TilesChain - [Github](https://github.com/loomnetwork/tiles-chain) 
 
-## Release 129 - May 22rd
+## 릴리즈 129 - 5월 22일
 
-* Websocket support for eventing
-* Updates to indexing layer for solidty contracts
-* Phaser Game Dame - [Github](https://github.com/loomnetwork/phaser-sdk-demo)
+* 이벤트를 위한 Websocket 지원
+* 솔리디티 컨트랙트를 위한 인덱싱 레이어 업데이트
+* Phaser 게임 데모 - [Github](https://github.com/loomnetwork/phaser-sdk-demo)
 
-## Release 128 - May 21th
+## 릴리즈 128 - 5월 21일
 
-* Lots of bug fixes for Etherboy
+* Etherboy와 관련된 수많은 버그 수정
 
-## Release 128 - May 19th
+## 릴리즈 128 - 5월 19일
 
-* Stable Beta Release
-* Updating logging to default to multiple files 
-* Moving all RPC to a single interface
-* Updated External Process interface
+* Stable 베타 릴리즈
+* 로깅이 기본적으로 여러 파일에 되도록 업데이트 
+* 모든 RPC를 단일 인터페이스로 이동
+* 외부 프로세스 인터페이스 업데이트
