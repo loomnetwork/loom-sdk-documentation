@@ -64,77 +64,77 @@ Note Loom SDK 2.0 is not protocol compatible with 1.0 chains. If you have a prod
 
 ## 릴리즈 575 - 11월 13일
 
-* HSM support for Yubico Devices - [HSM Docs](hsm.html)
-* DPoS Version2 beta - for Plasmachain external validators
-* Plasma cash massive improvements, see [Plasma Cli](https://github.com/loomnetwork/plasma-cli)
-* Pruning for the Datastore, if chain gets to large, see [Config](loom-yaml.html)
-* New EVM receipts data store, see [Config](loom-yaml.html)
+* Yubico 디바이스를 위한 HSM 지원 - [HSM 문서](hsm.html)
+* Plasmachain 외부 검증자를 위한 DPoS 버전 2 베타
+* Plasma cash 대규모 개선사항, [Plasma Cli](https://github.com/loomnetwork/plasma-cli)를 참고하세요
+* 데이터스토어 정리, 만약 체인이 커졌다면, [Config](loom-yaml.html)를 참고하세요
+* 새로운 EVM recipts 데이터 스토어, [Config](loom-yaml.html)를 참고하세요
 
-## Release 478 - Oct 8th
+## 릴리즈 478 - 10월 8일
 
-* Updated Transfer Gateway utilities
-* Transfer Gateway [tutorial plasma testnet](extdev-transfer-gateway.html)
+* Transfer Gateway 활용 예제 업데이트
+* Transfer Gateway [플라즈마 테스트넷 튜토리얼](extdev-transfer-gateway.html)
 
-## Release 458 - Sept 27th
+## 릴리즈 458 - 9월 27일
 
-**It is recommended that all users move up to this release**
+**모든 사용자에게 이 릴리즈로 업데이트하는 것을 추천합니다.**
 
-* Plasmachain Testnets available for Devs - [Docs](testnet-plasma.html)
-* Karma Faucet for Testnets - [Faucet](http://faucet.dappchains.com)
-* Karma contracts (Sybil resistance) Loom SDK - [Karma](karma.html)
-* Massive performance increasements for high load environments
-* Initial info about running a Validator - [Validator](validator.html)
+* 개발자들을 위한 Plasmachain 테스트넷이 사용 가능합니다 - [Plasmachain 테스트넷 문서](testnet-plasma.html)
+* 테스트넷을 위한 카르마 Faucet - [Faucet](http://faucet.dappchains.com)
+* Loom SDK 카르마 컨트랙트(Sybil 저항) - [카르마](karma.html)
+* 작업량이 많은 환경을 위한 대규모 성능 향상
+* 검증자 노드 운영에 대한 초기 정보 - [검증자](validator.html)
 
-## Release 404 - Aug 24th
+## 릴리즈 404 - 8월 24일
 
-** Features
+** 기능
 
-* ERC20 support upgraded in TransferGateway
-* Example ERC20 in Gateway - [Example](https://github.com/loomnetwork/token-gateway-example)
-* Loom SDK Doc site in [Korean](https://loomx.io/developers/ko/)
-* EVM now has limited support for Payable functions, more coming next week 
-* Loom-JS updates for ERC20/ETH transfers with TransferGateway. 
-* Loom-JS integration to DPoS contracts 
-* Experimental Support for [Plasma Debits](https://github.com/loomnetwork/plasma-cash/pull/115)
+* TransferGateway의 ERC20 지원 업그레이드
+* Gateway ERC20 예제 - [예제](https://github.com/loomnetwork/token-gateway-example)
+* Loom SDK Doc 사이트 [한글화](https://loomx.io/developers/ko/)
+* EVM이 이제 Payable 함수에 대해 제한적으로 지원합니다. 다음 주에 더 업데이트됩니다. 
+* TransferGateway를 통한 ERC20/ETH 전송용 Loom-JS 업데이트 
+* DPoS 컨트랙트로 Loom-JS 통합 
+* [Plasma Debits](https://github.com/loomnetwork/plasma-cash/pull/115)에 대한 실험적 지원
 
-** Breaking changes
+** 주목해야 할 수정 사항
 
-* Deprecrating QueryServerHost, and consolidating all functions to the RPCServer.
-* New Config option: RPCBindAddress: "tcp://0.0.0.0:46658"
-* Upgrades of PBFT engine, this may cause incompatibility issues on upgrades, please try in staging environments 
+* QueryServerHost를 Deprecate 합니다. RPCServer로 모든 기능을 통합합니다.
+* 새로운 설정 옵션: RPCBindAddress: "tcp://0.0.0.0:46658"
+* PBFT 엔진의 업그레이드. 이로 인해 업그레이드 시 호환성 문제가 발생할 수 있습니다. 스테이징 환경에서 시도하세요! 
 
-## Release 375 - Aug 10th
+## 릴리즈 375 - 8월 10일
 
-*NOTE* This is a feature test release, with minor compatibility changes, please verify in staging environements before upgrading your production environment.
+*주의* 이것은 마이너 호환성 변경사항을 포함한 기능 테스트 릴리즈입니다, 여러분의 프로덕션 환경을 업그레이드 하기 앞서 임시 환경에서 확인을 부탁드립니다.
 
-* Fixes for Eventing on EVM Contracts
-* Beta release of the [Transfer Gateway](transfer-gateway.html)
-* [Demo of Transfer Gateway](https://github.com/loomnetwork/cards-gateway-example)
-* Memory leak fixes
+* EVM 컨트랙트의 이벤트와 관련된 수정
+* [Transfer Gateway](transfer-gateway.html)의 베타 릴리즈
+* [Transfer Gateway 데모](https://github.com/loomnetwork/cards-gateway-example)
+* 메모리 누수 수정
 * Minor api breakages, please upgrade go-loom/loom-js. Unity updates coming soon
-* Go-loom is upgraded for api breakages
-* loom-js is upgraded for this release. 
+* Go-loom은 API 충돌문제가 업그레이드 되었습니다
+* loom-js는 이번 릴리즈로 업그레이드 되었습니다. 
 
-## Release 330 - July 30th
+## 릴리즈 330 - 7월 30일
 
-* Fix for consensus problems on EVM 
-* Updates for Zombiechain TestNet
-* Added more telemetry to measure performance
-* Range queries on Go Contracts
-* Added ChainID to loom.yaml
+* EVM 상의 컨센서스 문제 해결 
+* Zombiechain 테스트넷을 위한 업데이트
+* 성능 측정을 위한 더 많은 원격 측정 기능 추가
+* Go 컨트랙트에서 범위 질의문
+* loom.yaml에 ChainID가 추가
 
-* [EVM indexed filter](https://loomx.io/developers/en/web3js-event-filters.html)
+* [EVM 인덱스 필터](https://loomx.io/developers/ko/web3js-event-filters.html)
 
-* EVM filter pool fixes and event system
-* Loom-JS EVM updates for indexed filters
-* Loom-JS EVM fixes for getting block by hash
+* EVM 필터 pool 버그 수정 및 이벤트 시스템
+* Loom-JS EVM의 인덱스 필터를 위한 업데이트
+* Loom-JS EVM에서 해시로 블록을 가져올 때 버그 수정
 
 ## 릴리즈 288 - 7월 17일
 
-* [EVM indexed 필터](https://loomx.io/developers/en/web3js-event-filters.html)
-* EVM 필터 pool 수정 및 이벤트 시스템
-* indexed 필터를 위한 Loom-JS EVM 업데이트
-* 해시값으로 블록을 가져오기 위한 Loom-JS EVM 수정
+* [EVM 인덱스 필터](https://loomx.io/developers/ko/web3js-event-filters.html)
+* EVM 필터 pool 버그 수정 및 이벤트 시스템
+* Loom-JS EVM의 인덱스 필터를 위한 업데이트
+* Loom-JS EVM에서 해시로 블록을 가져올 때 버그 수정
 
 ## 릴리즈 276 - 7월 13일
 
@@ -157,7 +157,7 @@ Note Loom SDK 2.0 is not protocol compatible with 1.0 chains. If you have a prod
 
 ## Release 186 - June 19th
 
-* [EVM Unity Example app](https://loomx.io/developers/en/unity-sample-tiles-chain-evm.html)
+* [EVM Unity Example app](https://loomx.io/developers/ko/unity-sample-tiles-chain-evm.html)
 * Unity SDK support for Solidity Apps
 * Many fixes for Filtering/Querying Ethereum Events
 
@@ -184,7 +184,7 @@ Note Loom SDK 2.0 is not protocol compatible with 1.0 chains. If you have a prod
 ## 릴리즈 143 - 6월 1일
 
 * [BluePrint 도커 이미지 사용이 가능합니다](docker-blueprint.html)
-* [일본 해커톤 결과](https://medium.com/loom-network/highlights-from-the-first-loom-unity-sdk-hackathon-tokyo-edition-6ed723747c19)
+* [일본 해커톤 결과](https://medium.com/loom-network-korean/첫-번째-loom-unity-sdk-해커톤-하이라이트-도쿄-에디션-70fe873c7fb1)
 * [몇 가지 Loom SDK 프로젝트를 위한 도커 이미지](https://hub.docker.com/r/loomnetwork/)
 * EVM TX Reciepts 수정 
 
@@ -203,8 +203,8 @@ Note Loom SDK 2.0 is not protocol compatible with 1.0 chains. If you have a prod
 
 ## 릴리즈 133 - 5월 24일
 
-* [Etherboy 데모 릴리즈](https://loomx.io/developers/en/etherboy-game.html)
-* [일본어 문서 릴리즈](https://loomx.io/developers/ja)
+* [Etherboy 데모 릴리즈](https://loomx.io/developers/ko/etherboy-game.html)
+* [일본어 문서 릴리즈](https://loomx.io/developers/ko)
 * [문서 사이트](https://loomx.io/developers/ko/)를 위한 홈페이지 업데이트 
 
 ## 릴리즈 132 - 5월 23일
