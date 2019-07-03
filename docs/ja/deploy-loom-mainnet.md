@@ -60,9 +60,9 @@ Next, click "Add Key" and you're ready to deploy to Loom mainnet.
 
 ## Deploying to Loom mainnet
 
-If in the previous step, you chose to use an existing address, chances are that you already know how to use your private key to deploy to Loom. Thus, we won't describe that scenario.
+If in the previous step, you chose to use an existing address, save your private key to a file called `mainnet_private_key`. If you chose to generate a new address, paste your mnemonic into a file called `mainnet_mnemonic`.
 
-However, if you chose to generate a new address, here's what you have to do:
+Here's what you have to do next:
 
 - Fire up your favorite text editor and open `truffle-config.js`
 
@@ -73,20 +73,29 @@ const LoomTruffleProvider = require('loom-truffle-provider')
 const { sha256 } = require ('js-sha256')
 const { CryptoUtils } = require ('loom-js')
 const { mnemonicToSeedSync } = require ('bip39')
+const fs = require('fs')
+const PrivateKeyProvider = require("truffle-privatekey-provider")
 ```
 
-- Next, we'll have to compute the private key from mnemonic as follows:
+- If you're using an existing private key, you can instantiate a new `LoomProvider` as follows:
 
 ```js
-const seed = mnemonicToSeedSync(mnemonic)
-const privateKeyUint8ArrayFromSeed = CryptoUtils.generatePrivateKeyFromSeed(new Uint8Array(sha256.array(seed)))
-const privateKeyB64 = CryptoUtils.Uint8ArrayToB64(privateKeyUint8ArrayFromSeed)
+ function getLoomProviderWithPrivateKey (privateKeyPath, chainId, writeUrl, readUrl) {
+   const privateKey = readFileSync(privateKeyPath, 'utf-8')
+   return new LoomTruffleProvider(chainId, writeUrl, readUrl, privateKey)
+ }
 ```
 
-- Lastly, we can instantiate `loomProvider` like this:
+- If you're using a newly generated mnemonic, the code would look a bit different:
 
 ```js
-new LoomTruffleProvider(chainId, writeUrl, readUrl, privateKeyB64)
+ function getLoomProviderWithMnemonic (mnemonicPath, chainId, writeUrl, readUrl) {
+   const mnemonic = readFileSync(mnemonicPath, 'utf-8').toString().trim()
+   const seed = mnemonicToSeedSync(mnemonic)
+   const privateKeyUint8ArrayFromSeed = CryptoUtils.generatePrivateKeyFromSeed(new Uint8Array(sha256.array(seed)))
+   const privateKeyB64 = CryptoUtils.Uint8ArrayToB64(privateKeyUint8ArrayFromSeed)
+   return new LoomTruffleProvider(chainId, writeUrl, readUrl, privateKeyB64)
+ }
 ```
 
 Wrapping it up, your `truffle-config.js` file should look something like this:
@@ -96,8 +105,22 @@ Wrapping it up, your `truffle-config.js` file should look something like this:
 const { sha256 } = require ('js-sha256')
 const { CryptoUtils } = require ('loom-js')
 const { mnemonicToSeedSync } = require ('bip39')
+const fs = require('fs')
+const PrivateKeyProvider = require("truffle-privatekey-provider")
 
-const mnemonic = readFileSync(path.join(__dirname, 'loom_mnemonic'), 'utf-8').toString().trim()
+function getLoomProviderWithPrivateKey (privateKeyPath, chainId, writeUrl, readUrl) {
+  const privateKey = readFileSync(privateKeyPath, 'utf-8')
+  return new LoomTruffleProvider(chainId, writeUrl, readUrl, privateKey)
+}
+
+function getLoomProviderWithMnemonic (mnemonicPath, chainId, writeUrl, readUrl) {
+  const mnemonic = readFileSync(mnemonicPath, 'utf-8').toString().trim()
+  const seed = mnemonicToSeedSync(mnemonic)
+  const privateKeyUint8ArrayFromSeed = CryptoUtils.generatePrivateKeyFromSeed(new Uint8Array(sha256.array(seed)))
+  const privateKeyB64 = CryptoUtils.Uint8ArrayToB64(privateKeyUint8ArrayFromSeed)
+  return new LoomTruffleProvider(chainId, writeUrl, readUrl, privateKeyB64)
+}
+
 
 module.exports = {
   networks: {
@@ -106,13 +129,18 @@ module.exports = {
         const chainId = 'default'
         const writeUrl = 'http://plasma.dappchains.com/rpc'
         const readUrl = 'http://plasma.dappchains.com/query'
-        const seed = mnemonicToSeedSync(mnemonic)
-        const privateKeyUint8ArrayFromSeed = CryptoUtils.generatePrivateKeyFromSeed(new Uint8Array(sha256.array(seed)))
-        const privateKeyB64 = CryptoUtils.Uint8ArrayToB64(privateKeyUint8ArrayFromSeed)
-        return new LoomTruffleProvider(chainId, writeUrl, readUrl, privateKeyB64)
+        const mnemonicPath = path.join(__dirname, 'mainnet_mnemonic')
+        const privateKeyPath = path.join(__dirname, 'mainnet_private_key')
+        if (fs.existsSync(privateKeyPath)) {
+          const loomTruffleProvider = getLoomProviderWithPrivateKey(privateKeyPath, chainId, writeUrl, readUrl)
+          return loomTruffleProvider
+        } else if (fs.existsSync(mnemonicPath)) {
+          const loomTruffleProvider = getLoomProviderWithMnemonic(mnemonicPath, chainId, writeUrl, readUrl)
+          return loomTruffleProvider
+        }
       },
       network_id: '*'
-    }
+    },
   }
 }
 ```
