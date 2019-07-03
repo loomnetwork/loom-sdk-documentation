@@ -143,18 +143,6 @@ module.exports = {
         children: [['/evm', 'EVM'], ['/truffle-deploy', 'Truffle Deploy']],
       },
       {
-        title: 'Example Games & Apps',
-        collapsable: true,
-        sidebarDepth: 1,
-        children: [
-          ['/etherboy-game', 'Etherboy Game'],
-          ['/phaser-sdk-demo', 'Phaser SDK Demo'],
-          ['/phaser-sdk-demo-websocket', 'Phaser + Websockets Demo'],
-          ['/phaser-sdk-demo-web3-websocket', 'JS WebSockets + EVM Web3 Demo'],
-          ['/simple-social-network-example', 'Simple Social Network Example'],
-        ],
-      },
-      {
         title: 'Transfer Gateway',
         collapsable: true,
         sidebarDepth: 1,
@@ -168,9 +156,7 @@ module.exports = {
         collapsable: true,
         sidebarDepth: 1,
         children: [
-          ['/etherboy-backend', 'Etherboy Backend'],
           ['/multi-node-deployment', 'Multi Node Deployment'],
-          ['/docker-blueprint-phaser', 'Phaser Docker Example'],
         ],
       },
       {
@@ -181,6 +167,8 @@ module.exports = {
           ['/testnet-plasma', 'PlasmaChain Testnets'],
           ['/validator', 'Become Validator'],
           ['/non-validator-node', 'Non Validator Node'],
+          ['/jump-start-plasma', 'plasma Jump Start'],
+          ['/jump-start-extdev-plasma-us1', 'extdev-plasma-us1 Jump Start'],
         ],
       },
       {

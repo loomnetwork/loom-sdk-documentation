@@ -3,6 +3,7 @@ id: multi-node-deployment
 title: 部署示例
 sidebar_label: 多节点部署
 ---
+
 # 多节点部署
 
 本文档介绍了如何在多节点设置中运行 loom。
@@ -11,19 +12,25 @@ sidebar_label: 多节点部署
 
 需要在每个节点上执行这些步骤。
 
-1. 选择一个你喜欢的工作目录。在这个例子中, 我们使用 `/home/ubuntu` 
-        bash
-        cd /home/ubuntu
+1. 选择一个你喜欢的工作目录。在这个例子中, 我们使用 `/home/ubuntu`
 
-2. 下载二进制文件: 
-        bash
-        wget https://private.delegatecall.com/loom/linux/build-208/loom
-        chmod +x loom
+    ```bash
+    cd /home/ubuntu
+    ```
+
+2. 下载二进制文件:
+
+    ```bash
+    curl https://raw.githubusercontent.com/loomnetwork/loom-sdk-documentation/master/scripts/get_loom.sh | sh
+    ```
 
 3. 在工作目录中执行 `./loom init` 以初始化配置文件。
-4. 添加 `loom.yml` 到工作目录中 
-        yaml
-        RPCBindAddress: "tcp://0.0.0.0:46658"
+4. 添加 `loom.yml` 到工作目录中
+
+    ```yaml
+    RPCBindAddress: "tcp://0.0.0.0:46658"
+    DPOSVersion: 3
+    ```
 
 ## 配置
 
@@ -31,7 +38,7 @@ sidebar_label: 多节点部署
 
 ### genesis.json #1 - 在工作目录中
 
-`genesis.json` 文件如下所示：
+The `genesis.json` that was generated should look something like below. You should **NOT** copy the file below as it is an example. Use the file generated in your working directory.
 
 ```json
 {
@@ -46,18 +53,45 @@ sidebar_label: 多节点部署
     {
       "vm": "plugin",
       "format": "plugin",
-      "name": "dpos",
-      "location": "dpos:1.0.0",
+      "name": "dposV3",
+      "location": "dposV3:3.0.0",
       "init": {
         "params": {
-          "witnessCount": "21",
-          "electionCycleLength": "604800",
-          "minPowerFraction": "5"
+          "validatorCount": "21"
         },
         "validators": [
           {
-            "pubKey": "RLYcH6fzeg4k5bDtGwRi/sM2UhO2Yw/kLdtrvvvn6CE=",
+            "pubKey": "2MysikRZ8Yzk3KPDVEl/g2tHSyX0i3DGrAMwtDcYH10=",
             "power": "10"
+          }
+        ]
+      }
+    },
+    {
+      "vm": "plugin",
+      "format": "plugin",
+      "name": "addressmapper",
+      "location": "addressmapper:0.1.0",
+      "init": null
+    },
+    {
+      "vm": "plugin",
+      "format": "plugin",
+      "name": "chainconfig",
+      "location": "chainconfig:1.0.0",
+      "init": {
+        "owner": {
+          "chainId": "default",
+          "local": "aMt0mxDIxz5MCYKp9c0jEzG1en8="
+        },
+        "params": {
+          "voteThreshold": "67",
+          "numBlockConfirmations": "10"
+        },
+        "features": [
+          {
+            "name": "test",
+            "status": "WAITING"
           }
         ]
       }
@@ -66,93 +100,81 @@ sidebar_label: 多节点部署
 }
 ```
 
-接下来，从每个节点收集所有 `validators`，然后将它们组合成一个数组。 此文件现在需要在所有节点中替换为组合文件。 对于双节点群集，它现在应该如下所示：
+Next, collect all `validators` from each node, combine them into an array, and save everything to a new file. This old file will now need to be replaced with the new combined file. Do this for all nodes. For a two-node cluster, the **validators** array should look something like this:
 
 ```json
-{
-  "contracts": [
+  "validators": [
     {
-      "vm": "plugin",
-      "format": "plugin",
-      "name": "coin",
-      "location": "coin:1.0.0",
-      "init": null
+      "pubKey": "2MysikRZ8Yzk3KPDVEl/g2tHSyX0i3DGrAMwtDcYH10=",
+      "power": "10"
     },
     {
-      "vm": "plugin",
-      "format": "plugin",
-      "name": "dpos",
-      "location": "dpos:1.0.0",
-      "init": {
-        "params": {
-          "witnessCount": "21",
-          "electionCycleLength": "604800",
-          "minPowerFraction": "5"
-        },
-        "validators": [
-          {
-            "pubKey": "RLYcH6fzeg4k5bDtGwRi/sM2UhO2Yw/kLdtrvvvn6CE=",
-            "power": "10"
-          },
-          {
-            "pubKey": "gCn5WayR3cgQjNlNXYiBSYgQ3c1pGIsFWajVGczByZulGa09mb",
-            "power": "10"
-          }
-        ]
-      }
+      "pubKey": "gCn5WayR3cgQjNlNXYiBSYgQ3c1pGIsFWajVGczByZulGa09mb",
+      "power": "10"
     }
   ]
-}
 ```
 
 ### genesis.json＃2 - 在 chaindata / config 中
 
-您将找到名为 `genesis.json` 的文件。 不要与工作目录中的那个混淆。 它应该如下所示：
+You will find it at `chaindata/config/genesis.json`. It is not to be confused with the one in the working directory. You should **NOT** copy the file below as it is an example and it should look something like:
 
 ```json
 {
-  "genesis_time": "0001-01-01T00:00:00Z",
+  "genesis_time": "2019-06-20T08:58:17.011337021Z",
   "chain_id": "default",
+  "consensus_params": {
+    "block_size": {
+      "max_bytes": "22020096",
+      "max_gas": "-1"
+    },
+    "evidence": {
+      "max_age": "100000"
+    },
+    "validator": {
+      "pub_key_types": [
+        "ed25519"
+      ]
+    }
+  },
   "validators": [
     {
-      "name": "",
-      "power": 10,
+      "address": "825F1AE812A4395EFF0F88A032AAB2CE42F120EE",
       "pub_key": {
-          "type": "ABCD1234ABCD12",
-          "value": "RLYcH6fzeg4k5bDtGwRi/sM2UhO2Yw/kLdtrvvvn6CE"
-      }
+        "type": "tendermint/PubKeyEd25519",
+        "value": "2MysikRZ8Yzk3KPDVEl/g2tHSyX0i3DGrAMwtDcYH10="
+      },
+      "power": "10",
+      "name": ""
     }
   ],
   "app_hash": ""
 }
 ```
 
-接下来，从每个节点收集所有 `validators`，然后将它们组合成一个数组。 此文件现在需要在所有节点中替换为组合文件。 对于双节点群集，它现在应该如下所示：
+Next, collect all the `validators` from each node, combine them into an array, and save everything to a new file. The old file will now need to be replaced with the new combined file. Do this for all nodes. For a two-node cluster, the **validators** array should look something like this:
 
 ```json
-{
-  "genesis_time": "0001-01-01T00:00:00Z",
-  "chain_id": "default",
   "validators": [
     {
-      "name": "",
-      "power": 10,
+      "address": "825F1AE812A4395EFF0F88A032AAB2CE42F120EE",
       "pub_key": {
-          "type": "AC26791624DE60",
-          "value": "RLYcH6fzeg4k5bDtGwRi/sM2UhO2Yw/kLdtrvvvn6CE"
-      }
+        "type": "tendermint/PubKeyEd25519",
+        "value": "2MysikRZ8Yzk3KPDVEl/g2tHSyX0i3DGrAMwtDcYH10="
+      },
+      "power": "10",
+      "name": ""
     },
     {
-      "name": "",
-      "power": 10,
+      "address": "825F1AE812A4395EFF0F88A032AAB2CE42F120EE",
       "pub_key": {
-          "type": "AC26791624DE60",
-          "value": "gCn5WayR3cgQjNlNXYiBSYgQ3c1pGIsFWajVGczByZulGa09mb"
-      }
+        "type": "tendermint/PubKeyEd25519",
+        "value": "gCn5WayR3cgQjNlNXYiBSYgQ3c1pGIsFWajVGczByZulGa09mb"
+      },
+      "power": "10",
+      "name": ""
     }
   ],
-  "app_hash": ""
-}
 ```
 
 ## 运行

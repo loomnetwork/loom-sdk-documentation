@@ -15,7 +15,6 @@ sidebar_label: Unity Truffle Loom 快速上手
 ### 第一步：安装loom
 这个部分非常简单。只需在 [这里选择适合你操作系统的教程](https://loomx.io/developers/docs/zh-CN/prereqs.html) ，一步步做就可以了。安装好以后启动Loom即可。（`loom run`）
 
-他们还有一些一直保持更新的 [Docker容器](https://loomx.io/developers/docs/zh-CN/docker-blueprint-phaser.html) ，这些容器的链接你可以在本文末尾找到。
 
 ### 第二步： 配置好你的项目目录结构
 我的项目目录看起来像这样：
