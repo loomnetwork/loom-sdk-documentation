@@ -6,7 +6,7 @@ set -ex
 yarn
 yarn run build
 
-cp -R ./docs/public/json/* ./docs/.vuepress/dist
+cp -R ./docs/public/json/. ./docs/.vuepress/dist
 
 if [ "$GIT_BRANCH" = "origin/master" ]
 then
