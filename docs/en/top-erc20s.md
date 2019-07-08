@@ -110,4 +110,4 @@ Here's the list of the top ERC20 smart contracts already deployed to Loom:
 100 | BNB | BNB | 0xcf2851b1ad63d093238ea296524be8d7cd920e0b |
 
 
-You can download the JSON file containing the contract addresses from [here](/json/topTokensList.json).
+You can download the JSON file containing the contract addresses from [here](/topTokensList.json).
