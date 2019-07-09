@@ -44,11 +44,11 @@ Loomを初期化するには、以下のようにタイプしよう:
 
 ## ユニバーサルトランザクション署名でスタートするには
 
-Loomメインネットは、ネイティブのEthereumウォレットで署名されたトランザクションの検証と受容が可能である。 In a nutshell, users can simply use their MetaMask account or any other native Ethereum wallet — further blending the line between Layer 1 and Layer 2.
+Loomメインネットは、ネイティブのEthereumウォレットで署名されたトランザクションの検証と受容が可能である。 簡単に言うと、ユーザーはMetamaskアカウントもしくはネイティブのEthereumウォレットを使うだけでよく、さらにレイヤー１とレイヤー２の境界線を融合させることが可能だ。
 
-In the next sections, we'll briefly walk you through the setup required to enable universal transaction signing in your app.
+次のセクションでは、ユニバーサルトランザクション署名をアプリ内で有効にするために必要なセットアップを簡潔に取り上げていこう。
 
-### Connecting to Loom
+### Loomへの接続
 
 The first thing we want to do is to instantiate a new `Client`:
 
