@@ -21,3 +21,5 @@ So, the Loom SDK allows for developers to spin up an unlimited number of sidecha
 But PlasmaChain will be the central hub that all these chains connect to as their bridge to Ethereum, for interchain communication with other major blockchains (such as Cosmos, EOS, and Tron), and as a shared liquidity pool for tokenized assets.
 
 Thus, our company’s primary objectives over the next year are all related to growing PlasmaChain to become the “universal Layer 2” for high performance dapps.
+
+In the next chapter, you will learn how to deploy your first app to Loom PlasmaChain. Let's get started!
