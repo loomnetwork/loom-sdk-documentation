@@ -1,0 +1,1409 @@
+{
+  "tokens": [
+    {
+      "filename": "PAXToken",
+      "name": "Paxos Standard",
+      "decimal": 18,
+      "pricePerCent": 1,
+      "symbol": "PAX",
+      "address": {
+        "1": "0x8e870d67f660d95d5be530380d0ec0bd388289e1",
+        "asia1": "0xd779ffec3bf1b48af0fefa0391e8b3374b4f3a5a",
+        "stage": "0x56c80de2eafe0086d690b87082472548f7bb917f",
+        "rinkeby-asia1": "0xdee0c474378f740ea8fec66320e83d46429982da",
+        "rinkeby-us1": "0x08eff0e92291b70cdb5c1cfe81352aca669a9e19",
+        "plasma": "0xd443c9cee967b5d068dbf7471c33a2e0bd135f97"
+      }
+    },
+    {
+      "filename": "DAIToken",
+      "name": "Dai Stablecoin v1.0",
+      "decimal": 18,
+      "pricePerCent": 1,
+      "symbol": "DAI",
+      "address": {
+        "1": "0x89d24a6b4ccb1b6faa2625fe562bdd9a23260359",
+        "asia1": "0xeed6901b0aaa20943527a805a50f48f58df3a7c6",
+        "stage": "0x11d5783f0d52084d53827ace17416199d4ba7780",
+        "rinkeby-asia1": "0xd5e04bf1c3cbaa233240483325839538ea665084",
+        "rinkeby-us1": "0x25541c0abf616fe8cca29537c09f602161328cb6",
+        "plasma": "0xc377ce132f561364390974af13d4715f8b744319"
+      }
+    },
+    {
+      "filename": "USDCToken",
+      "name": "USD Coin",
+      "decimal": 6,
+      "pricePerCent": 1,
+      "symbol": "USDC",
+      "address": {
+        "1": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+        "asia1": "0x6f0b9e68d5b87a60168177c37a5bfa3312c679ab",
+        "stage": "0xf10e45f706c62fc3b0178daacc18b4fb61cb373f",
+        "rinkeby-asia1": "0xb9de9fa099e1415b491ed6072b4f947955e6b596",
+        "rinkeby-us1": "0x945320adb4e5716abddcedd568ec2105eb05a76c",
+        "plasma": "0xbb79321b1284d8d6b2d4b319451912f11c8da34d"
+      }
+    },
+    {
+      "filename": "TUSDToken",
+      "name": "TrueUSD",
+      "decimal": 18,
+      "pricePerCent": 1,
+      "symbol": "TUSD",
+      "address": {
+        "1": "0x0000000000085d4780B73119b644AE5ecd22b376",
+        "asia1": "0x76eaca8411d26009179af78dd5ff629b151be02a",
+        "stage": "0x19a5536ad6567b7e98a00609f109d4a376f103ac",
+        "rinkeby-asia1": "0x1afd57bbdc42f26dd07c7df1f252d40053cefd48",
+        "rinkeby-us1": "0x1e84d23320dd7b063a7e24ca5832fd07d32abf24",
+        "plasma": "0xfa443641b57919a53e87e72ee9fa54dc0ff7bdbe"
+      }
+    },
+    {
+      "filename": "GUSDToken",
+      "name": "Gemini dollar",
+      "decimal": 2,
+      "symbol": "GUSD",
+      "address": {
+        "1": "0x056Fd409E1d7A124BD7017459dFEa2F387b6d5Cd",
+        "asia1": "0xd1d6c78cc8963b522a7e21a0dc523737fbe64d5e",
+        "rinkeby-asia1": "0xfc5bbb8f001679f9cffa68f72393fcbc325edf23",
+        "stage": "0xde9b44a887e79b79ad6860d9239f4dda8da18d9b",
+        "rinkeby-us1": "0xf065cf8752032626ca930381b1ba4d39b530229c",
+        "plasma": "0x11d5783f0d52084d53827ace17416199d4ba7780"
+      }
+    },
+    {
+      "filename": "ZILToken",
+      "name": "Zilliqa",
+      "decimal": 12,
+      "symbol": "ZIL",
+      "address": {
+        "1": "0x05f4a42e251f2d52b8ed15E9FEdAacFcEF1FAD27",
+        "asia1": "0xac870ad3ae5fb7dab811a9050fb193dd95c38b7e",
+        "rinkeby-asia1": "0xbf2392950d3a4a4930695b8fd0cd636a1e9cd8f0",
+        "stage": "0x7d4c1251dd741d294b294bbe4b5de9c3f5d98d32",
+        "rinkeby-us1": "0x610c7806af36652469e9fe8dad80d262a7598516",
+        "plasma": "0xf10e45f706c62fc3b0178daacc18b4fb61cb373f"
+      }
+    },
+    {
+      "filename": "EDGToken",
+      "name": "Edgeless",
+      "decimal": 0,
+      "symbol": "EDG",
+      "address": {
+        "1": "0x08711D3B02C8758F2FB3ab4e80228418a7F8e39c",
+        "asia1": "0x9d71b59a00fdfe8219c432ab4844bd0c6f07940b",
+        "rinkeby-asia1": "0x85bd3db7cbadec1e165f19c892363eded329260d",
+        "stage": "0x0097d34f9fe2a30c5f7d00cb97b503fe370bf60c",
+        "rinkeby-us1": "0x6eab427eb25c010072ec29ad40e8cd96a8b13515",
+        "plasma": "0x19a5536ad6567b7e98a00609f109d4a376f103ac"
+      }
+    },
+    {
+      "filename": "BATToken",
+      "name": "Basic Attention Token",
+      "decimal": 18,
+      "symbol": "BAT",
+      "address": {
+        "1": "0x0D8775F648430679A709E98d2b0Cb6250d2887EF",
+        "asia1": "0xd5a482359fa8ac99508dac01ce9222a425a45898",
+        "rinkeby-asia1": "0x4831abf2d8d337a9b39003f8541b6e98aeebc31d",
+        "stage": "0x5cad8fc9edf2d28f5d6c604c8daebf757d44fd74",
+        "rinkeby-us1": "0x890b6f2667bda5be3aa576597d12697f850ed0b3",
+        "plasma": "0x3e442b4837f9128d9686614507cc244758817b5f"
+      }
+    },
+    {
+      "filename": "MANAToken",
+      "name": "Decentraland MANA",
+      "decimal": 18,
+      "symbol": "MANA",
+      "address": {
+        "1": "0x0F5D2fB29fb7d3CFeE444a200298f468908cC942",
+        "asia1": "0xf79552d72be701707d9e914e8fe2d5fb2e723a47",
+        "rinkeby-asia1": "0xd3137a7009a1059b44ff11529ff6e83ec071e510",
+        "stage": "0x9d5dd04317a58a16a33b7730e0c02673039148af",
+        "rinkeby-us1": "0xcaea5f1b6f0c14a546d66ee1a1d63e67e63a2099",
+        "plasma": "0xaf84bdfc6acc1c7c0091ee162f252c3a72bdc625"
+      }
+    },
+    {
+      "filename": "GVTToken",
+      "name": "Genesis Vision",
+      "decimal": 18,
+      "symbol": "GVT",
+      "address": {
+        "1": "0x103c3A209da59d3E7C4A89307e66521e081CFDF0",
+        "asia1": "0x2021fe8e14fc6b92d2741a3487618c18fd672066",
+        "rinkeby-asia1": "0x2785190fd118fd2c1f908282bd6c08274d338a27",
+        "stage": "0xe4dbf2f97bf613a780a544f0a1bc3982908ad78d",
+        "rinkeby-us1": "0x1b2e6c183ab9ebb6e9589c44d1d88076fa648267",
+        "plasma": "0xd5a41496ca3d518389437b644863fae8aa8d47d2"
+      }
+    },
+    {
+      "filename": "CENNZToken",
+      "name": "Centrality",
+      "decimal": 18,
+      "symbol": "CENNZ",
+      "address": {
+        "1": "0x1122B6a0E00DCe0563082b6e2953f3A943855c1F",
+        "asia1": "0x77d0d856d45e1cc1f2e1b5faa31cb975c39026c7",
+        "rinkeby-asia1": "0xbdbc3bfb03af6b1ef49fccd231cf8acd90733021",
+        "stage": "0xe5426598561c4a73775e784542dfcc01951733b5",
+        "rinkeby-us1": "0x3266884f94b1f50d67b1b55557e9eafb83f8e9c6",
+        "plasma": "0x216588df24e93a7ef40a35642484d16e13f82941"
+      }
+    },
+    {
+      "filename": "CHXToken",
+      "name": "Own",
+      "decimal": 18,
+      "symbol": "CHX",
+      "address": {
+        "1": "0x1460a58096d80a50a2F1f956DDA497611Fa4f165",
+        "asia1": "0xa1982991358ffad470b36e5eac6ab5b4726db046",
+        "rinkeby-asia1": "0xbfd70a92bb739cf93eed32f7892da8df6e2b4e30",
+        "stage": "0x314f454987da2a572b39e3011c7629fe6cf9bbaa",
+        "rinkeby-us1": "0xe6231694a7034430bab7f10406df34ba58bda952",
+        "plasma": "0x10001e069cc08856f09fd321827fdb0edaf9b003"
+      }
+    },
+    {
+      "filename": "PRLToken",
+      "name": "Oyster Pearl",
+      "decimal": 18,
+      "symbol": "PRL",
+      "address": {
+        "1": "0x1844b21593262668B7248d0f57a220CaaBA46ab9",
+        "asia1": "0x2602d163b6ef0808a72fee9266304704b0f939ec",
+        "rinkeby-asia1": "0xcb2e6077b62457abee318f42d586aaa836f8ddf4",
+        "stage": "0x7b06c3e820933dd730ead06b8b8702ef929eb526",
+        "rinkeby-us1": "0xd8778cfe24c967624302bc95d22b62f2e068ce24",
+        "plasma": "0xf8ec62d6804b2280d4bdfe65811b7c5c13773c32"
+      }
+    },
+    {
+      "filename": "REPToken",
+      "name": "Augur",
+      "decimal": 18,
+      "symbol": "REP",
+      "address": {
+        "1": "0x1985365e9f78359a9B6AD760e32412f4a445E862",
+        "asia1": "0x56a4626a1003ad504ff6d6bc008c5296861f0550",
+        "rinkeby-asia1": "0xc894540901ee66be7e7ad12bc05ddc41548d8870",
+        "stage": "0xcff6aba6d90012ad6e673dd8536a5126432aa9ce",
+        "rinkeby-us1": "0xd259b7a5bf28466bbcde1c4cc8cb8b4e49cb6c21",
+        "plasma": "0x04d42ee1a41d810ca9e29958c2b63e30df6f1fd1"
+      }
+    },
+    {
+      "filename": "DGTXToken",
+      "name": "DigitexFutures",
+      "decimal": 18,
+      "symbol": "DGTX",
+      "address": {
+        "1": "0x1C83501478f1320977047008496DACBD60Bb15ef",
+        "asia1": "0x3171304a4892447888b9a5f62ea37c5b508da014",
+        "rinkeby-asia1": "0x802ea392680ae51dbbf5b08abcc1448d64305f04",
+        "stage": "0x22d87e9c3f9fb5aa5fb97165b1d9f102927ea8d2",
+        "rinkeby-us1": "0x62e66c01c79b40494b2cb1c012af6505aded6b7d",
+        "plasma": "0x3f1691cfbcb322af756db7820e22df4f226fb84c"
+      }
+    },
+    {
+      "filename": "BNTToken",
+      "name": "Bancor",
+      "decimal": 18,
+      "symbol": "BNT",
+      "address": {
+        "1": "0x1F573D6Fb3F13d689FF844B4cE37794d79a7FF1C",
+        "asia1": "0x337d16917d514ca0a200d4349807e8a61fd2997a",
+        "rinkeby-asia1": "0xe79674e4c6d61280fea548417c4d62558f0b76f3",
+        "stage": "0xf5ab6209c96749d34069262f8331b67f45b26e9d",
+        "rinkeby-us1": "0x7014736135256c3eae5feb1455f2f0aa17c1e938",
+        "plasma": "0xdd3d2fc7a6cebf1732f2dd8a868ff1bcab461b9f"
+      }
+    },
+    {
+      "filename": "DENTToken",
+      "name": "DENT",
+      "decimal": 8,
+      "symbol": "DENT",
+      "address": {
+        "1": "0x3597bfD533a99c9aa083587B074434E61Eb0A258",
+        "asia1": "0xe6ac469feca631516a7cc58e847caa124ad66c8f",
+        "rinkeby-asia1": "0x3b367cb4cf6c4431b7146a5cecc0d073eb4179b0",
+        "stage": "0x5e9f0c62d42bb50ef21278fcd56711d22956cd33",
+        "rinkeby-us1": "0x7f67ed9c8611693dd8e2d82de48ed926d28fc1bd",
+        "plasma": "0xebef9a60161b683d8814d7098b7511821d6fb0d2"
+      }
+    },
+    {
+      "filename": "THETAToken",
+      "name": "Theta Token",
+      "decimal": 18,
+      "symbol": "THETA",
+      "address": {
+        "1": "0x3883f5e181fccaF8410FA61e12b59BAd963fb645",
+        "asia1": "0x76a2b104c8089042e3edec9a00226f6e1b121644",
+        "rinkeby-asia1": "0x120e4168257bd62ba2df2952732a7a80aa755504",
+        "stage": "0xf7adaec653aa7022d391f9f6e143481428f37bf9",
+        "rinkeby-us1": "0x86021159a7225f0f7ea3d8a5e4f5ada5c02434fd",
+        "plasma": "0x17a31c443db471c72b75d7831d4fc9d8bec041b0"
+      }
+    },
+    {
+      "filename": "WAXToken",
+      "name": "WAX",
+      "decimal": 8,
+      "symbol": "WAX",
+      "address": {
+        "1": "0x39Bb259F66E1C59d5ABEF88375979b4D20D98022",
+        "asia1": "0xb870a03b198ed90b5e0261c6eff2dde5d8d453f4",
+        "rinkeby-asia1": "0xf84e8cebc1ee34ba67bb2b61b0f8cce87fa8532c",
+        "stage": "0x5fd461ae0c8c75f69f2df5135b4883e513253184",
+        "rinkeby-us1": "0xed2e16e0794f28eb8cecf3734bc281222c4519ed",
+        "plasma": "0x4cdc10f1be789499ff8c5487387ecb09e07f1ab9"
+      }
+    },
+    {
+      "filename": "MGOToken",
+      "name": "MobileGo",
+      "decimal": 8,
+      "symbol": "MGO",
+      "address": {
+        "1": "0x40395044Ac3c0C57051906dA938B54BD6557F212",
+        "asia1": "0xb1f4a0926167917c332b87b5600f951b2c41684e",
+        "rinkeby-asia1": "0x362b0799138e92a2633c01e8dfcf9bdfd2c4e1e0",
+        "stage": "0x56c80de2eafe0086d690b87082472548f7bb917f",
+        "rinkeby-us1": "0xabd84df4a3dc682ba330e1806456228e791b129c",
+        "plasma": "0xe5bcdff289c04fdd1848e3ae0579e662fba53b8c"
+      }
+    },
+    {
+      "filename": "FUNToken",
+      "name": "Funfair",
+      "decimal": 8,
+      "symbol": "FUN",
+      "address": {
+        "1": "0x419D0d8BdD9aF5e606Ae2232ed285Aff190E711b",
+        "asia1": "0x9ab4e22d56c0c4f7d494442714c82a605d2f28e0",
+        "rinkeby-asia1": "0xce211b2d9d6e731fd8249c8f4759c15cb3a8e2d4",
+        "stage": "0x11d5783f0d52084d53827ace17416199d4ba7780",
+        "rinkeby-us1": "0xd22b495c3470d5ffebe371a48f79ee61a7184048",
+        "plasma": "0xa0868cefe5032d0d8edc42bf1d5930eb3c2da9de"
+      }
+    },
+    {
+      "filename": "DRGNToken",
+      "name": "Dragon",
+      "decimal": 18,
+      "symbol": "DRGN",
+      "address": {
+        "1": "0x419c4dB4B9e25d6Db2AD9691ccb832C8D9fDA05E",
+        "asia1": "0x20ab2a05a834168eeae774e281779af80ec7a7a6",
+        "rinkeby-asia1": "0x000bbda29e63dd29bd9763ee9bab232c415748d4",
+        "stage": "0xf10e45f706c62fc3b0178daacc18b4fb61cb373f",
+        "rinkeby-us1": "0x9458d037117faedce1510de90236a5c900c3e37f",
+        "plasma": "0xae89c901df49d8c956109b0713bb2df82a661287"
+      }
+    },
+    {
+      "filename": "CVCToken",
+      "name": "Civic",
+      "decimal": 8,
+      "symbol": "CVC",
+      "address": {
+        "1": "0x41e5560054824eA6B0732E656E3Ad64E20e94E45",
+        "asia1": "0xd1614763de9065904c9b099e181324570fa2e453",
+        "rinkeby-asia1": "0x5eae374fa32cd23fbc5605fe06ecc8ee8a2b44dc",
+        "stage": "0x19a5536ad6567b7e98a00609f109d4a376f103ac",
+        "rinkeby-us1": "0x2956237dc0131a990a4b39ee7cf6b067a221e887",
+        "plasma": "0xdf03ccce94c91c9a274b7549e7acdd29bf8d95d3"
+      }
+    },
+    {
+      "filename": "RToken",
+      "name": "Revain",
+      "decimal": 0,
+      "symbol": "R",
+      "address": {
+        "1": "0x48f775EFBE4F5EcE6e0DF2f7b5932dF56823B990",
+        "asia1": "0x2e82082e11b131d52b419611b6a5358d258f4ba2",
+        "rinkeby-asia1": "0x67b2ef7fedae4353311013d7400045958f418296",
+        "stage": "0x3e442b4837f9128d9686614507cc244758817b5f",
+        "rinkeby-us1": "0x8eaaf5654be6411aa25669ab8756698640246acd",
+        "plasma": "0xebe247f0eabd37c7547cfe1a690a5d76992e9c45"
+      }
+    },
+    {
+      "filename": "LKYToken",
+      "name": "Linkey",
+      "decimal": 18,
+      "symbol": "LKY",
+      "address": {
+        "1": "0x49bD2DA75b1F7AF1E4dFd6b1125FEcDe59dBec58",
+        "asia1": "0xfef8ee739e52cb51148ecd3762f2cd6472a51ab6",
+        "rinkeby-asia1": "0xf2f3f3c6e199972fcfde007f7b2557c6f6a41dd0",
+        "stage": "0xaf84bdfc6acc1c7c0091ee162f252c3a72bdc625",
+        "rinkeby-us1": "0x23b251ef39f95667ff355a2e8da1064ca3899a21",
+        "plasma": "0xd62b70b4237bacf8d9f83fe42bf680b151435cdc"
+      }
+    },
+    {
+      "filename": "AIONToken",
+      "name": "Aion",
+      "decimal": 8,
+      "symbol": "AION",
+      "address": {
+        "1": "0x4CEdA7906a5Ed2179785Cd3A40A69ee8bc99C466",
+        "asia1": "0x52c80bc380a23e614403c6beaac709590d3c6834",
+        "rinkeby-asia1": "0xaaa730c786753e7d8e0f15c9fbb81d94d8e90bb7",
+        "stage": "0xd5a41496ca3d518389437b644863fae8aa8d47d2",
+        "rinkeby-us1": "0x4d98e7fb96c51d3bbca96225e6c5838ab20adaf5",
+        "plasma": "0x53ef805dea52ec7af06368f1ce921de590c47362"
+      }
+    },
+    {
+      "filename": "QNTToken",
+      "name": "Quant",
+      "decimal": 18,
+      "symbol": "QNT",
+      "address": {
+        "1": "0x4a220E6096B25EADb88358cb44068A3248254675",
+        "asia1": "0xebec272ccb6f356b31cd1a5489b4023d350bbafa",
+        "rinkeby-asia1": "0x73fec6fa5330609a91b26f2f390b11aee1bba9d4",
+        "stage": "0x216588df24e93a7ef40a35642484d16e13f82941",
+        "rinkeby-us1": "0xa67035736573e6514e71fcf6343ed694eb284296",
+        "plasma": "0xe456d44b04ee3e18e416f0b4224a0546cb09ddd5"
+      }
+    },
+    {
+      "filename": "MDAToken",
+      "name": "Moeda Loyalty Points",
+      "decimal": 18,
+      "symbol": "MDA",
+      "address": {
+        "1": "0x51DB5Ad35C671a87207d88fC11d593AC0C8415bd",
+        "asia1": "0xe91ebeeb15f3adc7fe62b26d5c1999f738f968fe",
+        "rinkeby-asia1": "0x04abaa5a651fed3bf79b1737342c2648d20ccc5e",
+        "stage": "0x10001e069cc08856f09fd321827fdb0edaf9b003",
+        "rinkeby-us1": "0x406c1015ec83dee1f917d618fc91ae25b29db19b",
+        "plasma": "0xfe330ffbe368fdd2af4f38ef2fb58e5e9180b9c5"
+      }
+    },
+    {
+      "filename": "BRDToken",
+      "name": "Bread",
+      "decimal": 18,
+      "symbol": "BRD",
+      "address": {
+        "1": "0x558EC3152e2eb2174905cd19AeA4e34A23DE9aD6",
+        "asia1": "0x590d4acd23947a8a16fae6677e36c59fc27907e0",
+        "rinkeby-asia1": "0x05c7863878829a5c6cb74696adeea9e04b4a70fc",
+        "stage": "0xf8ec62d6804b2280d4bdfe65811b7c5c13773c32",
+        "rinkeby-us1": "0x28d9c69b293b339834053fe8e3a52c823df18d1b",
+        "plasma": "0x7e279831c8995bda13ef923c25b7d74b58487031"
+      }
+    },
+    {
+      "filename": "CREDOToken",
+      "name": "Credo / Bitbounce",
+      "decimal": 18,
+      "symbol": "CREDO",
+      "address": {
+        "1": "0x4E0603e2A27A30480E5e3a4Fe548e29EF12F64bE",
+        "asia1": "0x07c4a11c720f2c87d5c2dbbea3583c76f68a9899",
+        "rinkeby-asia1": "0xf573c43b0e1b8b8d36d3f18b73c321036defffb2",
+        "stage": "0x04d42ee1a41d810ca9e29958c2b63e30df6f1fd1",
+        "rinkeby-us1": "0x0b4aab112da7f84d4114c07b33b93b046605d555",
+        "plasma": "0x66c509a53e69030a5f822461f15b11f572a0701e"
+      }
+    },
+    {
+      "filename": "POWRToken",
+      "name": "PowerLedger",
+      "decimal": 6,
+      "symbol": "POWR",
+      "address": {
+        "1": "0x595832F8FC6BF59c85C527fEC3740A1b7a361269",
+        "asia1": "0x5d01a6c84a4828ec28d3f8698364dd2230a327a2",
+        "rinkeby-asia1": "0x21dd3a452788fe4f6ce0dc03acbf4180e04ee583",
+        "stage": "0x3f1691cfbcb322af756db7820e22df4f226fb84c",
+        "rinkeby-us1": "0x9c20ed2c8d2a6e30401cb186b2232702fc4b37cd",
+        "plasma": "0x25b307d0a4050909bedb90e3a37aeddcf82d697c"
+      }
+    },
+    {
+      "filename": "AEToken",
+      "name": "aeternity",
+      "decimal": 18,
+      "symbol": "AE",
+      "address": {
+        "1": "0x5CA9a71B1d01849C0a95490Cc00559717fCF0D1d",
+        "asia1": "0xaef550afe348e7d072470307f84420208db9e3be",
+        "rinkeby-asia1": "0xc2949d358c1f1092252819574cd00df08022e764",
+        "stage": "0xdd3d2fc7a6cebf1732f2dd8a868ff1bcab461b9f",
+        "rinkeby-us1": "0xa3b7813fa7e1ee5a35354e72a1a78854ac36eaef",
+        "plasma": "0xf3e73d9e5de2cdc7ecb0ab993bf5061f8469b1be"
+      }
+    },
+    {
+      "filename": "NASToken",
+      "name": "Nebula",
+      "decimal": 18,
+      "symbol": "NAS",
+      "address": {
+        "1": "0x5d65D971895Edc438f465c17DB6992698a52318D",
+        "asia1": "0x3c2d654cd468633d7f84ae5a93da1b543b74c164",
+        "rinkeby-asia1": "0x0e326451c03852a759f5c45146778755c664b28b",
+        "stage": "0xebef9a60161b683d8814d7098b7511821d6fb0d2",
+        "rinkeby-us1": "0x4461ec10f777787344b220b0a71f35c40227397e",
+        "plasma": "0xc54569fa56bc1ed684cceb216f538bcc16e6cc27"
+      }
+    },
+    {
+      "filename": "RLCToken",
+      "name": "IEx.ec",
+      "decimal": 9,
+      "symbol": "RLC",
+      "address": {
+        "1": "0x607F4C5BB672230e8672085532f7e901544a7375",
+        "asia1": "0x8bfb068a5e205ca8a27741a1405392902abeca05",
+        "rinkeby-asia1": "0x7173304782631c018f2e8e0bfe247fe2cfc4abbb",
+        "stage": "0x17a31c443db471c72b75d7831d4fc9d8bec041b0",
+        "rinkeby-us1": "0xb90e17f09d7189052a52c21d92e4906a735ab26a",
+        "plasma": "0x0e1ff2bc6f80b343e1cd81c75c1fb09163a847b7"
+      }
+    },
+    {
+      "filename": "QASHToken",
+      "name": "QASH",
+      "decimal": 6,
+      "symbol": "QASH",
+      "address": {
+        "1": "0x618E75Ac90b12c6049Ba3b27f5d5F8651b0037F6",
+        "asia1": "0x5243d4e780104180aed9d84bd4e7c15639ea3258",
+        "rinkeby-asia1": "0x99c6c37c3371a2e76e762614bdfe83a5247ec682",
+        "stage": "0x4cdc10f1be789499ff8c5487387ecb09e07f1ab9",
+        "rinkeby-us1": "0x9b112db9df8ad3f1f26e29b7c42d78f4cc651237",
+        "plasma": "0x82250ba4f6111da312e1f6dbbf01c3e9475c4c23"
+      }
+    },
+    {
+      "filename": "WICToken",
+      "name": "WickNote",
+      "decimal": 0,
+      "symbol": "WIC",
+      "address": {
+        "1": "0x62CD07D414Ec50B68C7EcAa863a23d344f2d062f",
+        "asia1": "0x5d8dc28c6af2317fa16c3d80b404eb17d5efe6ea",
+        "rinkeby-asia1": "0x508fa741922e347ba7b9515f9e26a7de35ee1916",
+        "stage": "0xe5bcdff289c04fdd1848e3ae0579e662fba53b8c",
+        "rinkeby-us1": "0xb04e0c7c7bb57ebb64e0ae5c8d9fd8d8766da1be",
+        "plasma": "0xdfba675c0cdf3dbb76e23a06c5fbbae028ba5a22"
+      }
+    },
+    {
+      "filename": "AUTOToken",
+      "name": "Cube",
+      "decimal": 18,
+      "symbol": "AUTO",
+      "address": {
+        "1": "0x622dFfCc4e83C64ba959530A5a5580687a57581b",
+        "asia1": "0xd3a0a5e25d93554c21674477b8cecb72da9af886",
+        "rinkeby-asia1": "0x762afb72afa1cbd9351b6b68df455f5ce545419d",
+        "stage": "0xa0868cefe5032d0d8edc42bf1d5930eb3c2da9de",
+        "rinkeby-us1": "0x4d84fb1ff2aa4efe01acfcaa95a647bb1f4cf55d",
+        "plasma": "0x2981bd504a82ee930fa1382a378da2000b302880"
+      }
+    },
+    {
+      "filename": "HTToken",
+      "name": "Huobi Token",
+      "decimal": 18,
+      "symbol": "HT",
+      "address": {
+        "1": "0x6f259637dcD74C767781E37Bc6133cd6A68aa161",
+        "asia1": "0x4ee8ed4c00832cf538d117a772d9347efa77851b",
+        "rinkeby-asia1": "0xc843b1d0634595fdb1776decb82af78bf62380ff",
+        "stage": "0xae89c901df49d8c956109b0713bb2df82a661287",
+        "rinkeby-us1": "0xfb12898f9ec46b3919b3fc7d9123c7456d107c99",
+        "plasma": "0x1113bb3cb7f5bf254de31ad2f969e7e165960373"
+      }
+    },
+    {
+      "filename": "IOTXToken",
+      "name": "IoTeX Network",
+      "decimal": 18,
+      "symbol": "IOTX",
+      "address": {
+        "1": "0x6fB3e0A217407EFFf7Ca062D46c26E5d60a14d69",
+        "asia1": "0x46c4a22075aefb56cf3a8ff68d37fcc78b83bf77",
+        "rinkeby-asia1": "0xbb44850802f08f095039df0b63fd15e0312d6c44",
+        "stage": "0xdf03ccce94c91c9a274b7549e7acdd29bf8d95d3",
+        "rinkeby-us1": "0x9b8c513cb3f7082fa54265587d957c348bf09d95",
+        "plasma": "0xfb35c461202b96818fea5c836db5037b78bd3730"
+      }
+    },
+    {
+      "filename": "SNTToken",
+      "name": "Status Network Token",
+      "decimal": 18,
+      "symbol": "SNT",
+      "address": {
+        "1": "0x744d70FDBE2Ba4CF95131626614a1763DF805B9E",
+        "asia1": "0xc47a3a6952362f1ef00cabd00906b4fe004055a7",
+        "rinkeby-asia1": "0x3fd8e425bf7c659f5884ea327a17a2b77043c153",
+        "stage": "0xebe247f0eabd37c7547cfe1a690a5d76992e9c45",
+        "rinkeby-us1": "0xd6f81dc2f990e343f473fbec3e8a65ea2d43d9c7",
+        "plasma": "0x56da785b2fe996be3cf7d1069cc221df5d23048b"
+      }
+    },
+    {
+      "filename": "PRGToken",
+      "name": "Paragon",
+      "decimal": 6,
+      "symbol": "PRG",
+      "address": {
+        "1": "0x7728dFEF5aBd468669EB7f9b48A7f70a501eD29D",
+        "asia1": "0x4ca6a183519ac4b46069d54199949cfa31d4db64",
+        "rinkeby-asia1": "0x52150c0e1183e6fe647712eac64d5df2a8a49b48",
+        "stage": "0xd62b70b4237bacf8d9f83fe42bf680b151435cdc",
+        "rinkeby-us1": "0x67a1ff3375a77e6e1a9ecfa6797cb08445052f38",
+        "plasma": "0x311ae5e28771c228410585dbe76accb21e05d26e"
+      }
+    },
+    {
+      "filename": "SANToken",
+      "name": "Santiment",
+      "decimal": 18,
+      "symbol": "SAN",
+      "address": {
+        "1": "0x7C5A0CE9267ED19B22F8cae653F198e3E8daf098",
+        "asia1": "0x06f18465c75caaebc2c5180caa5c2eae5d890dbc",
+        "rinkeby-asia1": "0x2967fbff6b3094ed46ae97837672b26931afff65",
+        "stage": "0x53ef805dea52ec7af06368f1ce921de590c47362",
+        "rinkeby-us1": "0xe97f12d89528801ca78c16ba1031c9871291649c",
+        "plasma": "0x41f25e466b897024fa0c99b7cf755e1416814118"
+      }
+    },
+    {
+      "filename": "KINToken",
+      "name": "Kin Foundation",
+      "decimal": 18,
+      "symbol": "KIN",
+      "address": {
+        "1": "0x818Fc6C2Ec5986bc6E2CBf00939d90556aB12ce5",
+        "asia1": "0x3a25fd6f5d1408c0f87f52cc4c187fd107d9d4fd",
+        "rinkeby-asia1": "0xb1e602845629fc8896e8f70bf31a4c98d6a13e69",
+        "stage": "0xe456d44b04ee3e18e416f0b4224a0546cb09ddd5",
+        "rinkeby-us1": "0x63862f0f87966813471c206de57718f0f984a20a",
+        "plasma": "0x7f3798f397e67ffb3f461633976331eccde47459"
+      }
+    },
+    {
+      "filename": "TOMOToken",
+      "name": "Tomocoin",
+      "decimal": 18,
+      "symbol": "TOMO",
+      "address": {
+        "1": "0x8b353021189375591723E7384262F45709A3C3dC",
+        "asia1": "0x30d2094a2479767e4ccbd2c040602db762a4877e",
+        "rinkeby-asia1": "0x708bedef59ee7bdc07d80793be37c6474c051128",
+        "stage": "0xfe330ffbe368fdd2af4f38ef2fb58e5e9180b9c5",
+        "rinkeby-us1": "0x06e39927f5bf3f96703d98eb1ec7326252cce88a",
+        "plasma": "0xdbf74a3e79aa6ae9c75bd31e28d7d375e6192188"
+      }
+    },
+    {
+      "filename": "AGIToken",
+      "name": "SingularityNET",
+      "decimal": 8,
+      "symbol": "AGI",
+      "address": {
+        "1": "0x8eB24319393716668D768dCEC29356ae9CfFe285",
+        "asia1": "0xa824d0df915e164ec5c85a8db00644bc15facad2",
+        "rinkeby-asia1": "0x9e16187a786d626f784ce3b1fe34da214ea336fe",
+        "stage": "0x7e279831c8995bda13ef923c25b7d74b58487031",
+        "rinkeby-us1": "0x978ee98b89396b1a8e397b74fa6d78eac8184ae1",
+        "plasma": "0x496feabcdcd036c3654110ddc2f0afe16c5468b9"
+      }
+    },
+    {
+      "filename": "VERIToken",
+      "name": "Veritaseum",
+      "decimal": 18,
+      "symbol": "VERI",
+      "address": {
+        "1": "0x8f3470A7388c05eE4e7AF3d01D8C722b0FF52374",
+        "asia1": "0xc6ae372dde23289f93e81e1591616b6aa6e4b888",
+        "rinkeby-asia1": "0x6bd4456e9ce50463679fe6d01bb78dd1637745ec",
+        "stage": "0x66c509a53e69030a5f822461f15b11f572a0701e",
+        "rinkeby-us1": "0xd26655b53e41249a7dfedcd1466f990a054eb916",
+        "plasma": "0xd338144011a1d82dd07dc3f2cb2027046939909d"
+      }
+    },
+    {
+      "filename": "POLYToken",
+      "name": "Polymath Network",
+      "decimal": 18,
+      "symbol": "POLY",
+      "address": {
+        "1": "0x9992eC3cF6A55b00978cdDF2b27BC6882d88D1eC",
+        "asia1": "0x99a82701959d1bc8f0d3d821879afd767fe78534",
+        "rinkeby-asia1": "0x44ea6a0fa6ac0cfd7c7dff137e9a96abe83599bc",
+        "stage": "0x25b307d0a4050909bedb90e3a37aeddcf82d697c",
+        "rinkeby-us1": "0xc174fbf06fd18ab8609f354d29d78448de01a794",
+        "plasma": "0xf59725c9aeab1a4c788d4519affa4de364bdefbd"
+      }
+    },
+    {
+      "filename": "AOAToken",
+      "name": "Aurora",
+      "decimal": 18,
+      "symbol": "AOA",
+      "address": {
+        "1": "0x9ab165D795019b6d8B3e971DdA91071421305e5a",
+        "asia1": "0x74776bd26a18860b05287ddfcad79eff6f3dcb9b",
+        "rinkeby-asia1": "0x0a49de2735ee385e7a96e62b5bffeab44e69ff61",
+        "stage": "0xf3e73d9e5de2cdc7ecb0ab993bf5061f8469b1be",
+        "rinkeby-us1": "0xa3a148d8e66dbfd13f0e61af31ae1f0decf1e5ff",
+        "plasma": "0x6c621e82e658bbf1353e1ae4d24977335cf36368"
+      }
+    },
+    {
+      "filename": "MKRToken",
+      "name": "MakerDAO",
+      "decimal": 18,
+      "symbol": "MKR",
+      "address": {
+        "1": "0x9f8F72aA9304c8B593d555F12eF6589cC3A579A2",
+        "asia1": "0x014906e600df33cd338940ace288b13ec8d49506",
+        "rinkeby-asia1": "0x46c2a09942748d870c43557df11c4e677d539572",
+        "stage": "0xc54569fa56bc1ed684cceb216f538bcc16e6cc27",
+        "rinkeby-us1": "0x99a706b317b3a7c17cde604be6dbc9aca5041451",
+        "plasma": "0x723dd89911fd0fba80d4c9c1a0b748ede4a2cb99"
+      }
+    },
+    {
+      "filename": "NPXSToken",
+      "name": "Pundi X Token",
+      "decimal": 18,
+      "symbol": "NPXS",
+      "address": {
+        "1": "0xA15C7Ebe1f07CaF6bFF097D8a589fb8AC49Ae5B3",
+        "asia1": "0xc1ba024ce9ebd0cbf1a0e8bb89bf4430dc62e63f",
+        "rinkeby-asia1": "0xe66136e156507e621f2ba70863486fbf92c495aa",
+        "stage": "0x0e1ff2bc6f80b343e1cd81c75c1fb09163a847b7",
+        "rinkeby-us1": "0x978c0ba5d9bdb709e40a8662de2d87b2ab543df8",
+        "plasma": "0x723625199415e281ca60dd12e2844c904eae4666"
+      }
+    },
+    {
+      "filename": "LOOMToken",
+      "name": "Loom Network",
+      "decimal": 18,
+      "symbol": "LOOM",
+      "address": {
+        "1": "0xA4e8C3Ec456107eA67d3075bF9e3DF3A75823DB0",
+        "asia1": "0xae1b74376dcd7d21a2c25bd8e564265ae3944eb2",
+        "rinkeby-asia1": "0xc4401163b0e39718b0369195970d172842d9b43a",
+        "stage": "0x82250ba4f6111da312e1f6dbbf01c3e9475c4c23",
+        "rinkeby-us1": "0xda43bcfb07111c049809aea9165e27bbedbed59c",
+        "plasma": "0xcff6aba6d90012ad6e673dd8536a5126432aa9ce"
+      }
+    },
+    {
+      "filename": "STORJToken",
+      "name": "STORJ",
+      "decimal": 8,
+      "symbol": "STORJ",
+      "address": {
+        "1": "0xB64ef51C888972c908CFacf59B47C1AfBC0Ab8aC",
+        "asia1": "0x6a5e8db42159b339d24f8fa78cee529c8810193d",
+        "rinkeby-asia1": "0xa5ac1acc381af310b44684853cea55259e3adead",
+        "stage": "0xdfba675c0cdf3dbb76e23a06c5fbbae028ba5a22",
+        "rinkeby-us1": "0x3d53d757dd0ff274b9f9b04117e935d770e46fd4",
+        "plasma": "0x3c43e43ce64b0403d64f28adfffdc63aab50a807"
+      }
+    },
+    {
+      "filename": "NULSToken",
+      "name": "NULS",
+      "decimal": 18,
+      "symbol": "NULS",
+      "address": {
+        "1": "0xB91318F35Bdb262E9423Bc7c7c2A3A93DD93C92C",
+        "asia1": "0xbaebb12f24f6db2e88e57392e3333b6d19dba035",
+        "rinkeby-asia1": "0x7d647f5425eddb4dc20794558a7a6bab9b13e434",
+        "stage": "0x2981bd504a82ee930fa1382a378da2000b302880",
+        "rinkeby-us1": "0xae054e5dd671a4ed28434ad6d9cc24c3c5f45b7f",
+        "plasma": "0x5f43c8ea0c371d9e333da421aaf242b890e99ccd"
+      }
+    },
+    {
+      "filename": "PAYToken",
+      "name": "TenX",
+      "decimal": 18,
+      "symbol": "PAY",
+      "address": {
+        "1": "0xB97048628DB6B661D4C2aA833e95Dbe1A905B280",
+        "asia1": "0x0482d645ffc4b91166ad1a97c0a8786c1f25d348",
+        "rinkeby-asia1": "0xc12171cdfd3fc50c4682bf81f542aedb5bdb1a09",
+        "stage": "0x1113bb3cb7f5bf254de31ad2f969e7e165960373",
+        "rinkeby-us1": "0xed4efd87596f00d7446f7407719ce0156a23aff5",
+        "plasma": "0x002eeb223d56c192915fe378c4ee0936effad41b"
+      }
+    },
+    {
+      "filename": "NEXOToken",
+      "name": "Nexo",
+      "decimal": 18,
+      "symbol": "NEXO",
+      "address": {
+        "1": "0xB62132e35a6c13ee1EE0f84dC5d40bad8d815206",
+        "asia1": "0x344f839ec0ffe79461e402badbe8c75e9f5bb90d",
+        "rinkeby-asia1": "0x774eb1c2458f1dc8b850e03861563eca8aaf0e0a",
+        "stage": "0xfb35c461202b96818fea5c836db5037b78bd3730",
+        "rinkeby-us1": "0x09e695bd8555fd3d8c90ea2f18136797f3a1dea7",
+        "plasma": "0xb1c6241de6c574aa2296d7560b1907c69b597c30"
+      }
+    },
+    {
+      "filename": "MCOToken",
+      "name": "Crypto.com",
+      "decimal": 8,
+      "symbol": "MCO",
+      "address": {
+        "1": "0xB63B606Ac810a52cCa15e44bB630fd42D8d1d83d",
+        "asia1": "0x40c9399ceca3f6b7030d8363c1f32e4b744839f3",
+        "rinkeby-asia1": "0x8d48471a1d7deafb2445c545b09d54ea6774736c",
+        "stage": "0x56da785b2fe996be3cf7d1069cc221df5d23048b",
+        "rinkeby-us1": "0x234d48281a4e1baa02589ce22cdadab96d780f80",
+        "plasma": "0xb3d6bba49d2bae5b4af826a956a5fd8751ffab0c"
+      }
+    },
+    {
+      "filename": "QBITToken",
+      "name": "Qubitica",
+      "decimal": 6,
+      "symbol": "QBIT",
+      "address": {
+        "1": "0xCb5ea3c190d8f82DEADF7ce5Af855dDbf33e3962",
+        "asia1": "0xe0d8bc044dab8afa23cf98422ce71e60aca1d5fd",
+        "rinkeby-asia1": "0x232844eb4441630b62339be8b5fbd3960c5415b3",
+        "stage": "0x311ae5e28771c228410585dbe76accb21e05d26e",
+        "rinkeby-us1": "0xd1589946670362a0431c804ef880d453ee98b662",
+        "plasma": "0xca33b6820ba02f1fd276081a4b1174fe4c4ee81e"
+      }
+    },
+    {
+      "filename": "NECToken",
+      "name": "Ethfinex Nectar Token",
+      "decimal": 18,
+      "symbol": "NEC",
+      "address": {
+        "1": "0xCc80C051057B774cD75067Dc48f8987C4Eb97A5e",
+        "asia1": "0x178f1e6d23842821aed9127e11ced8856e094037",
+        "rinkeby-asia1": "0x272013983747f19a5360dd96aa207d7ee79e443d",
+        "stage": "0x41f25e466b897024fa0c99b7cf755e1416814118",
+        "rinkeby-us1": "0xaffbf75671f2414e7016c3c386d211428ece3eb8",
+        "plasma": "0x2fd53606fcb702b384565850896f10604b6d4fa2"
+      }
+    },
+    {
+      "filename": "EDOToken",
+      "name": "Eidoo",
+      "decimal": 18,
+      "symbol": "EDO",
+      "address": {
+        "1": "0xCeD4E93198734dDaFf8492d525Bd258D49eb388E",
+        "asia1": "0xc227ca55bc1face4d76490b7e58ea4230d602dc3",
+        "rinkeby-asia1": "0x16c1396b1f29f0b19827df9bb49e818ee1edb9a4",
+        "stage": "0x7f3798f397e67ffb3f461633976331eccde47459",
+        "rinkeby-us1": "0x36816b15c21c453d220466d90ccb02e450004184",
+        "plasma": "0x02e844dafea6b20f54f9917a3e24a470d59c8e6e"
+      }
+    },
+    {
+      "filename": "FSNToken",
+      "name": "Fusion",
+      "decimal": 18,
+      "symbol": "FSN",
+      "address": {
+        "1": "0xD0352a019e9AB9d757776F532377aAEbd36Fd541",
+        "asia1": "0x0ff1b5c50a4ed3e012822ed60000888188059293",
+        "rinkeby-asia1": "0x29eb0294cd340023610a3853b4195d04757ceb00",
+        "stage": "0xdbf74a3e79aa6ae9c75bd31e28d7d375e6192188",
+        "rinkeby-us1": "0xb85f0241f9ee63e987ae9769dfa458d0c57f8c61",
+        "plasma": "0x1713139c9ba52e253a67f57748a949568ca6be4c"
+      }
+    },
+    {
+      "filename": "VENToken",
+      "name": "VeChain",
+      "decimal": 18,
+      "symbol": "VEN",
+      "address": {
+        "1": "0xD850942eF8811f2A866692A623011bDE52a462C1",
+        "asia1": "0x98b7930a0449390caf5f837f006462edfa7bec8b",
+        "rinkeby-asia1": "0x1cf941617a5a9bafd7a592ab85872ec529f580a9",
+        "stage": "0x496feabcdcd036c3654110ddc2f0afe16c5468b9",
+        "rinkeby-us1": "0x9e46348b62e4089bddf8c0cb240e38b803a1034a",
+        "plasma": "0x76b20b7a58d8ef389f3a6da674659d9a992a9bb9"
+      }
+    },
+    {
+      "filename": "MFTToken",
+      "name": "Mainframe Token",
+      "decimal": 18,
+      "symbol": "MFT",
+      "address": {
+        "1": "0xDF2C7238198Ad8B389666574f2d8bc411A4b7428",
+        "asia1": "0xcc019a214c5b35b8bf4890d21a81a41681b9ca55",
+        "rinkeby-asia1": "0xd0df3e3dc2a4f3a65c6fb254377f02aecdd98931",
+        "stage": "0xd338144011a1d82dd07dc3f2cb2027046939909d",
+        "rinkeby-us1": "0x9e8029602b8b8800040eb07d9881b65767330e57",
+        "plasma": "0xc5e5ac836cb203e40f5542173c4ac5d95ee50303"
+      }
+    },
+    {
+      "filename": "DGDToken",
+      "name": "Digix DAO",
+      "decimal": 9,
+      "symbol": "DGD",
+      "address": {
+        "1": "0xE0B7927c4aF23765Cb51314A0E0521A9645F0E2A",
+        "asia1": "0x209c93462325bf02fef51f3f960d6e4e975ec4bc",
+        "rinkeby-asia1": "0xc44c08a26ec1d7d2a6075c24681184004afbab54",
+        "stage": "0xf59725c9aeab1a4c788d4519affa4de364bdefbd",
+        "rinkeby-us1": "0x26e5219456d97c4259ae9b316883e4af44426472",
+        "plasma": "0xa0493d7827632424d31fbc82f725a52bf65027a6"
+      }
+    },
+    {
+      "filename": "ZRXToken",
+      "name": "0x Project",
+      "decimal": 18,
+      "symbol": "ZRX",
+      "address": {
+        "1": "0xE41d2489571d322189246DaFA5ebDe1F4699F498",
+        "asia1": "0x8538fd77b354a11e467b50787e28770152cb6fdb",
+        "rinkeby-asia1": "0xeccf36615891bbbead6393be6be516f3ce391f0f",
+        "stage": "0x6c621e82e658bbf1353e1ae4d24977335cf36368",
+        "rinkeby-us1": "0x671134c2800730abea625779555665fd547c0143",
+        "plasma": "0x51c7d6766643f451471487674d926863da5647f3"
+      }
+    },
+    {
+      "filename": "LAToken",
+      "name": "LATOKEN",
+      "decimal": 18,
+      "symbol": "LA",
+      "address": {
+        "1": "0xE50365f5D679CB98a1dd62D6F6e58e59321BcdDf",
+        "asia1": "0x62ee1b80aca5009f700bb1d91e2dfacc66e6a46d",
+        "rinkeby-asia1": "0x70f8fe62af92031191d52e34484895b9edb83d22",
+        "stage": "0x723dd89911fd0fba80d4c9c1a0b748ede4a2cb99",
+        "rinkeby-us1": "0x6c4a6c524d908361f30a09c974f1afb0a64e4f5c",
+        "plasma": "0xc02a6c1bd48d1563921b96e054fd00207ddda19d"
+      }
+    },
+    {
+      "filename": "QKCToken",
+      "name": "QuarkChain",
+      "decimal": 18,
+      "symbol": "QKC",
+      "address": {
+        "1": "0xEA26c4aC16D4a5A106820BC8AEE85fd0b7b2b664",
+        "asia1": "0x29e4b4697ef654155ff32164944f353617f0dc8f",
+        "rinkeby-asia1": "0x62802326089cb95bbb564818702fc43fd7a27f37",
+        "stage": "0x723625199415e281ca60dd12e2844c904eae4666",
+        "rinkeby-us1": "0xac35daa870a2437641729fe1f443ba2dc6d81e7b",
+        "plasma": "0xcdc7d036b0d647215d1bb0520696e04fb901725e"
+      }
+    },
+    {
+      "filename": "BHPCToken",
+      "name": "BHPCash",
+      "decimal": 18,
+      "symbol": "BHPC",
+      "address": {
+        "1": "0xEE74110fB5A1007b06282e0DE5d73A61bf41d9Cd",
+        "asia1": "0x86d79d001bf634b8bbd13945a0ed7f1b8e1e2383",
+        "rinkeby-asia1": "0xeb1ee93e08fcc7cae01a691ada561e28b80cae4d",
+        "stage": "0x3c43e43ce64b0403d64f28adfffdc63aab50a807",
+        "rinkeby-us1": "0x56acc8efc17c5abcb9ec2fd99d13ba439e08786d",
+        "plasma": "0x236c80222bf244a17d0df722e6330a2df200b86d"
+      }
+    },
+    {
+      "filename": "LRCToken",
+      "name": "Loopring",
+      "decimal": 18,
+      "symbol": "LRC",
+      "address": {
+        "1": "0xEF68e7C694F40c8202821eDF525dE3782458639f",
+        "asia1": "0x1ea7954bc25227851051d45f0477d2b9667e4d5d",
+        "rinkeby-asia1": "0x652f9f676dde9fad1161f4acd2fbd000b854f80c",
+        "stage": "0x5f43c8ea0c371d9e333da421aaf242b890e99ccd",
+        "rinkeby-us1": "0x6c8468d3c2321c0ee5551874d4ac299b3c6d9585",
+        "plasma": "0x7c781878ddb2f401b6e2a7eca50f625e8dfbe962"
+      }
+    },
+    {
+      "filename": "CTXCToken",
+      "name": "Cortex",
+      "decimal": 18,
+      "symbol": "CTXC",
+      "address": {
+        "1": "0xEa11755Ae41D889CeEc39A63E6FF75a02Bc1C00d",
+        "asia1": "0x90f989f9a67457613bf9edeac8d9e706d3d3c462",
+        "rinkeby-asia1": "0xb134064a9f6333b1b9ba719e895110a082b3751d",
+        "stage": "0x002eeb223d56c192915fe378c4ee0936effad41b",
+        "rinkeby-us1": "0xf4e243e195d4aa97920ab1cda0988d56a1035dd4",
+        "plasma": "0x22a800e7e6de53df5fe794fe91b300e844c0a6d4"
+      }
+    },
+    {
+      "filename": "ENJToken",
+      "name": "ENJIN",
+      "decimal": 18,
+      "symbol": "ENJ",
+      "address": {
+        "1": "0xF629cBd94d3791C9250152BD8dfBDF380E2a3B9c",
+        "asia1": "0x2d4c2fae9a08722185d63777ea1bb18e8750b3ec",
+        "rinkeby-asia1": "0x1557974d73e910401c0280a7cf8cf0617274f90c",
+        "stage": "0xb1c6241de6c574aa2296d7560b1907c69b597c30",
+        "rinkeby-us1": "0x8f6308fea2c56f3c99ac30e7e6ff9aad5fecee4b",
+        "plasma": "0x80043dc153d01a088018013e426a7314cc031aa9"
+      }
+    },
+    {
+      "filename": "IOSTToken",
+      "name": "IOSToken",
+      "decimal": 18,
+      "symbol": "IOST",
+      "address": {
+        "1": "0xFA1a856Cfa3409CFa145Fa4e20Eb270dF3EB21ab",
+        "asia1": "0x6b6487e11c96c449e02dc6c5b4ac0b7cdaf5834e",
+        "rinkeby-asia1": "0x5556e7ad63b6ae0c31cffb2d992c740153883023",
+        "stage": "0xb3d6bba49d2bae5b4af826a956a5fd8751ffab0c",
+        "rinkeby-us1": "0x5a14da8c192199b69e1591e7a4defabe4c5ff6d9",
+        "plasma": "0x393740ccde8a254c19cc9f0402cea50d777201a4"
+      }
+    },
+    {
+      "filename": "RNTToken",
+      "name": "OneRoot Network",
+      "decimal": 18,
+      "symbol": "RNT",
+      "address": {
+        "1": "0xFF603F43946A3A28DF5E6A73172555D8C8b02386",
+        "asia1": "0x3c807e181642997ca13d59a39ad63f7590e29250",
+        "rinkeby-asia1": "0x908f3a630605bc87973246c8bb628b1655a5b926",
+        "stage": "0xca33b6820ba02f1fd276081a4b1174fe4c4ee81e",
+        "rinkeby-us1": "0x3ba55d49739ade590be5e38aab2f676592f64f64",
+        "plasma": "0x8376b670e664c6e9876adbaacd0773098f65d44f"
+      }
+    },
+    {
+      "filename": "GNTToken",
+      "name": "Golem",
+      "decimal": 18,
+      "symbol": "GNT",
+      "address": {
+        "1": "0xa74476443119A942dE498590Fe1f2454d7D4aC0d",
+        "asia1": "0x08f45467c7effc0c38c52f7ce3ae9c2cabe74470",
+        "rinkeby-asia1": "0x08c80e3a6f5e50a1f8f45284dd153a5870717adc",
+        "stage": "0x2fd53606fcb702b384565850896f10604b6d4fa2",
+        "rinkeby-us1": "0x5a18dd864bb8b850a7dd6c284c5070a5e055a641",
+        "plasma": "0xf4de19921d94d336a36818a408eaafc6aaba2ee8"
+      }
+    },
+    {
+      "filename": "TKNToken",
+      "name": "TokenCard",
+      "decimal": 8,
+      "symbol": "TKN",
+      "address": {
+        "1": "0xaAAf91D9b90dF800Df4F55c205fd6989c977E73a",
+        "asia1": "0x755f5f2092865af88d33dde5ddccc14cea9b5ade",
+        "rinkeby-asia1": "0x8b5908bb16efd76e954085522f558953dfc88c77",
+        "stage": "0x02e844dafea6b20f54f9917a3e24a470d59c8e6e",
+        "rinkeby-us1": "0xa805587870b78b3ce2e397bda8a2d5e832692c56",
+        "plasma": "0xec2007716a382bde7e21034cdf788292eddd22d1"
+      }
+    },
+    {
+      "filename": "BIXToken",
+      "name": "Bibox Token",
+      "decimal": 18,
+      "symbol": "BIX",
+      "address": {
+        "1": "0xb3104b4B9Da82025E8b9F8Fb28b3553ce2f67069",
+        "asia1": "0xae7c379cdd83344ff08621a9fae0b9414a6e0638",
+        "rinkeby-asia1": "0xa45e4de71afca63e97b0a8fe90066a33c98599c4",
+        "stage": "0x1713139c9ba52e253a67f57748a949568ca6be4c",
+        "rinkeby-us1": "0x1668e5877231642f690827fb6a2bb61a530ee0dd",
+        "plasma": "0xf108af7fed07155da7428282447f362cbe44d388"
+      }
+    },
+    {
+      "filename": "ICXToken",
+      "name": "ICON",
+      "decimal": 18,
+      "symbol": "ICX",
+      "address": {
+        "1": "0xb5A5F22694352C15B00323844aD545ABb2B11028",
+        "asia1": "0x6439e2b0a45a410ae40e0d1bebd40bc816bc2d63",
+        "rinkeby-asia1": "0x344c7cab74fac0c3a5f537480e4c2c069baa4992",
+        "stage": "0x76b20b7a58d8ef389f3a6da674659d9a992a9bb9",
+        "rinkeby-us1": "0x56f570fa234a2f85ea5b21220f6137d8c0928644",
+        "plasma": "0x22c7399dbaaf61447a0c403e66e8ef450098fbec"
+      }
+    },
+    {
+      "filename": "WTCToken",
+      "name": "Waltonchain",
+      "decimal": 18,
+      "symbol": "WTC",
+      "address": {
+        "1": "0xb7cB1C96dB6B22b0D3d9536E0108d062BD488F74",
+        "asia1": "0x9ad13fa05e6fd45a3807e7223615f7e36d14a79e",
+        "rinkeby-asia1": "0x16fe904e1dee9f67cd2eb33c2dcafb79840bb46e",
+        "stage": "0xc5e5ac836cb203e40f5542173c4ac5d95ee50303",
+        "rinkeby-us1": "0x940997a1d8293b349d0224ba3aa255b4c57ce044",
+        "plasma": "0xf396bdbe1c4916eb6d3ebb5f4c60e86565ff9257"
+      }
+    },
+    {
+      "filename": "ELFToken",
+      "name": "ELF Token",
+      "decimal": 18,
+      "symbol": "ELF",
+      "address": {
+        "1": "0xbf2179859fc6D5BEE9Bf9158632Dc51678a4100e",
+        "asia1": "0x1f6c727aafe891f7a024fa2cf12015e5843a900a",
+        "rinkeby-asia1": "0x0c805e0c3db67beee1a59c5483e27857fc5d4d58",
+        "stage": "0xa0493d7827632424d31fbc82f725a52bf65027a6",
+        "rinkeby-us1": "0x7d2ce5c8004af87cc5a927816fc0afcfd6b68de7",
+        "plasma": "0xd256eff515a24996e5968821a34d41662a32ff26"
+      }
+    },
+    {
+      "filename": "EDRToken",
+      "name": "Endor Protocol Token",
+      "decimal": 18,
+      "symbol": "EDR",
+      "address": {
+        "1": "0xc528c28FEC0A90C083328BC45f587eE215760A0F",
+        "asia1": "0x5ab6eed725e257a71fbc38b3c56e5d31212a4d7b",
+        "rinkeby-asia1": "0xa051d86d25e9951ff9df7ec50120368affdc1438",
+        "stage": "0x51c7d6766643f451471487674d926863da5647f3",
+        "rinkeby-us1": "0x729cd0ab33bda7a855c154b7d4df5605262da5cf",
+        "plasma": "0x38e46fc7921e03deb42eb7fd41efce38d87cb562"
+      }
+    },
+    {
+      "filename": "BTMToken",
+      "name": "Bytom",
+      "decimal": 8,
+      "symbol": "BTM",
+      "address": {
+        "1": "0xcB97e65F07DA24D46BcDD078EBebd7C6E6E3d750",
+        "asia1": "0x5cfb0d3fe09fe7f403a41ec36410e5a044b77e91",
+        "rinkeby-asia1": "0xc23bf0e1745781fe008ba56fd62f24effa876f3e",
+        "stage": "0xc02a6c1bd48d1563921b96e054fd00207ddda19d",
+        "rinkeby-us1": "0xb0581c8e1f0a75750e847ac03aa195330d569bcb",
+        "plasma": "0x74e3e862ea35f0f3ecfce130ce8f61b12cac950b"
+      }
+    },
+    {
+      "filename": "OMGToken",
+      "name": "OmiseGO",
+      "decimal": 18,
+      "symbol": "OMG",
+      "address": {
+        "1": "0xd26114cd6EE289AccF82350c8d8487fedB8A0C07",
+        "asia1": "0xd72fb7edb394ef16a9a3252cd8c744951b789371",
+        "rinkeby-asia1": "0xf10000151cd82f12cd707101ae5d80a6ed02c2bf",
+        "stage": "0xcdc7d036b0d647215d1bb0520696e04fb901725e",
+        "rinkeby-us1": "0x50a71f0fa0dcd62aa60a8517f175505fd8a14172",
+        "plasma": "0x5dbc4e2ba686c5c46cc1653b8bd59fe3d8eb105b"
+      }
+    },
+    {
+      "filename": "PPTToken",
+      "name": "Populous",
+      "decimal": 8,
+      "symbol": "PPT",
+      "address": {
+        "1": "0xd4fa1460F537bb9085d22C7bcCB5DD450Ef28e3a",
+        "asia1": "0xacc4945874e2fe857c780f5523d63d1ae31ee06b",
+        "rinkeby-asia1": "0x8f8638b8f950a0e153bc0ea64e08c5839c25752b",
+        "stage": "0x236c80222bf244a17d0df722e6330a2df200b86d",
+        "rinkeby-us1": "0xe86da4a8eab71d8f825fc508b635bab0c6ba31ff",
+        "plasma": "0xede70472f54b12609fb70ed885900d5f2f4df7db"
+      }
+    },
+    {
+      "filename": "CNDToken",
+      "name": "Cindicator",
+      "decimal": 18,
+      "symbol": "CND",
+      "address": {
+        "1": "0xd4c435F5B09F855C3317c8524Cb1F586E42795fa",
+        "asia1": "0xc6c48704139dbb8b07843e57be80621c57eef2d2",
+        "rinkeby-asia1": "0x73e65dd4b8208052b4982172ee7939beedb2100c",
+        "stage": "0x7c781878ddb2f401b6e2a7eca50f625e8dfbe962",
+        "rinkeby-us1": "0xdeee4f9150875a5ec4538591ea2373f50e042e8c",
+        "plasma": "0xaab868b9aaab8ba564751193a985fd07f2a9dad3"
+      }
+    },
+    {
+      "filename": "KNCToken",
+      "name": "Kyber Network",
+      "decimal": 18,
+      "symbol": "KNC",
+      "address": {
+        "1": "0xdd974D5C2e2928deA5F71b9825b8b646686BD200",
+        "asia1": "0x490a3e907c82d468abb133363320cff3df9b2355",
+        "rinkeby-asia1": "0x250d7f72a00450695d9c1da65e6176c85d522d6f",
+        "stage": "0x22a800e7e6de53df5fe794fe91b300e844c0a6d4",
+        "rinkeby-us1": "0x91762983a27e56dcffe4b13a82e71545c581ac2a",
+        "plasma": "0x8de3a76fdbe03924a5b4a503cfe72aaa524726aa"
+      }
+    },
+    {
+      "filename": "ENGToken",
+      "name": "Enigma",
+      "decimal": 8,
+      "symbol": "ENG",
+      "address": {
+        "1": "0xf0Ee6b27b759C9893Ce4f094b49ad28fd15A23e4",
+        "asia1": "0x5eced352552757f95fe8a4a6a4f55ab0b1686c07",
+        "rinkeby-asia1": "0x5af187e081045440f4487be28055bb787b69929b",
+        "stage": "0x80043dc153d01a088018013e426a7314cc031aa9",
+        "rinkeby-us1": "0x361538e551f7bcac59f98f2bd2992f23e284097a",
+        "plasma": "0x1c30864a8935680ad84d5382277eeecce73b93ac"
+      }
+    },
+    {
+      "filename": "EURSToken",
+      "name": "STASIS EURS",
+      "decimal": 2,
+      "symbol": "EURS",
+      "address": {
+        "1": "0xdB25f211AB05b1c97D595516F45794528a807ad8",
+        "asia1": "0xc8052b77e170354a7d3d5bb6d7cf2e9f784962a9",
+        "rinkeby-asia1": "0xb78638483988b90d27d3661b4586b12007ed56da",
+        "stage": "0x393740ccde8a254c19cc9f0402cea50d777201a4",
+        "rinkeby-us1": "0x9b97118d7dd68c1a1ce91d32b23105f5641acbab",
+        "plasma": "0xa23ef9547485d3902963e11b03f5ec3453b5622a"
+      }
+    },
+    {
+      "filename": "CMTToken",
+      "name": "CyberMiles Token",
+      "decimal": 18,
+      "symbol": "CMT",
+      "address": {
+        "1": "0xf85fEea2FdD81d51177F6b8F35F0e6734Ce45F5F",
+        "asia1": "0xc7cc2d15640be1d7f4525f7f9ca70305b5695c0b",
+        "rinkeby-asia1": "0xed5cc27054c050b25f8610d509386108f898db69",
+        "stage": "0x8376b670e664c6e9876adbaacd0773098f65d44f",
+        "rinkeby-us1": "0xe16035815b5b34d28410f8e8b2f648a6f4e79221",
+        "plasma": "0xf570d537c0c7425a087273ebce346210de6d5fbf"
+      }
+    },
+    {
+      "filename": "HOTToken",
+      "name": "HOT",
+      "decimal": 18,
+      "symbol": "HOT",
+      "address": {
+        "1": "0x6c6ee5e31d828de241282b9606c8e98ea48526e2",
+        "asia1": "0xaae41766c765dc16615d745ef5921b09f5fdb186",
+        "rinkeby-asia1": "0x5e66730cbbed0ce15d48edd0e0d05636f7410099",
+        "stage": "0xf4de19921d94d336a36818a408eaafc6aaba2ee8",
+        "rinkeby-us1": "0x44dc857bc48b742585c3286247bf9f4b5a7b5abc",
+        "plasma": "0x427656bb95a20f1112e0c18ed8e548fa16a24b28"
+      }
+    },
+    {
+      "filename": "LINKToken",
+      "name": "LINK",
+      "decimal": 18,
+      "symbol": "LINK",
+      "address": {
+        "1": "0x514910771af9ca656af840dff83e8264ecf986ca",
+        "asia1": "0x8d0881214ab3978de3813de36d443f44ac23a217",
+        "rinkeby-asia1": "0x800ac6c83f121b4c34b85910ecb02a6ffd58cd0b",
+        "stage": "0xec2007716a382bde7e21034cdf788292eddd22d1",
+        "rinkeby-us1": "0x855bc6999642b5d26b02460ce1643f1a238c454d",
+        "plasma": "0xa91135b56a2e6531e97d8ed9654a985ae431dc19"
+      }
+    },
+    {
+      "filename": "XINToken",
+      "name": "XIN",
+      "decimal": 18,
+      "symbol": "XIN",
+      "address": {
+        "1": "0xa974c709cfb4566686553a20790685a47aceaa33",
+        "asia1": "0x49e7ff558bd89e2a6c7cd68f8dcf97a230aac888",
+        "rinkeby-asia1": "0x31c583fa93671e8dd56e1d1a0f03405527c9e868",
+        "stage": "0xf108af7fed07155da7428282447f362cbe44d388",
+        "rinkeby-us1": "0x4e9f5e3821d28051c267402dc6e4aa12b2e6e502",
+        "plasma": "0xdca0f8346958f6c3c67845279ffd84ccffec6913"
+      }
+    },
+    {
+      "filename": "HPTToken",
+      "name": "HPT",
+      "decimal": 18,
+      "symbol": "HPT",
+      "address": {
+        "1": "0xa66daa57432024023db65477ba87d4e7f5f95213",
+        "asia1": "0x6f3fa9af14c6ce04bc7a88dc92fa84bf3c40907a",
+        "rinkeby-asia1": "0x20ec632f752718dc75aadd2e8c9df334a086890d",
+        "stage": "0x22c7399dbaaf61447a0c403e66e8ef450098fbec",
+        "rinkeby-us1": "0xb8707dbd1dc3ea6323b4fb8456b3bfc68039dd2c",
+        "plasma": "0x679697d9ff1ce5a3eec5edd8e2628861b9f0a6e4"
+      }
+    },
+    {
+      "filename": "INBToken",
+      "name": "INB",
+      "decimal": 18,
+      "symbol": "INB",
+      "address": {
+        "1": "0x17aa18a4b64a55abed7fa543f2ba4e91f2dce482",
+        "asia1": "0xb83730cded6cb4a5fef90e1a87794469016a675b",
+        "rinkeby-asia1": "0xb06a881fc5c01a7eaff574bdf497abba5c76c00d",
+        "stage": "0xf396bdbe1c4916eb6d3ebb5f4c60e86565ff9257",
+        "rinkeby-us1": "0x735a3441fde956b754be573b4930a381f9da44b6",
+        "plasma": "0xf5ed880319faf96da801fcbd4d4c97f4046c36ca"
+      }
+    },
+    {
+      "filename": "ODEMToken",
+      "name": "ODEM",
+      "decimal": 18,
+      "symbol": "ODEM",
+      "address": {
+        "1": "0xbf52f2ab39e26e0951d2a02b49b7702abe30406a",
+        "asia1": "0xb5924c73085d03b4083efd5788f4a00e0281b491",
+        "rinkeby-asia1": "0x00ec64ab1302450af5974d7535609a0fa3165f0a",
+        "stage": "0xd256eff515a24996e5968821a34d41662a32ff26",
+        "rinkeby-us1": "0x2fec4496b1fba9cd922ebf6e7e9dffa5b1399b57",
+        "plasma": "0x02498d5a45ea50e9ace1da35d8c0a2aaf71c0ad8"
+      }
+    },
+    {
+      "filename": "CROToken",
+      "name": "Crypto.com Chain",
+      "decimal": 8,
+      "symbol": "CRO",
+      "address": {
+        "1": "0xa0b73e1ff0b80914ab6fe0444e65848c4c34450b",
+        "asia1": "0x3ad97c0fcf69656bf7861feb3c2ab30f929730f7",
+        "rinkeby-asia1": "0xfdfc42d6fba9d3493f6ff7efbf47efb4fcb87c61",
+        "stage": "0x38e46fc7921e03deb42eb7fd41efce38d87cb562",
+        "rinkeby-us1": "0x6b34fde8e26828941d84465652b707a5d70595e7",
+        "plasma": "0x876d7ee0f869e22103881404d730de78c06a829b"
+      }
+    },
+    {
+      "filename": "DCNToken",
+      "name": "Dentacoin",
+      "decimal": 0,
+      "symbol": "DCN",
+      "address": {
+        "1": "0x08d32b0da63e2C3bcF8019c9c5d849d7a9d791e6",
+        "asia1": "0x29a595c73767d76ce770e16c92c1dd02ff52e8cd",
+        "rinkeby-asia1": "0x0c0efbd8ea8dba9362d9e6f89e48e7387c4b53bc",
+        "stage": "0x74e3e862ea35f0f3ecfce130ce8f61b12cac950b",
+        "rinkeby-us1": "0xe1b0448dfe3c7fed1d62382f31079f2441129f34",
+        "plasma": "0x5cccaa9165bf67101a92b1e31a8beabfb8dabcd0"
+      }
+    },
+    {
+      "filename": "MXMToken",
+      "name": "MXM",
+      "decimal": 18,
+      "symbol": "MXM",
+      "address": {
+        "1": "0x6a750d255416483bec1a31ca7050c6dac4263b57",
+        "asia1": "0x07e8207a56ad281eede8d8e54e32e9efe04a5267",
+        "rinkeby-asia1": "0x8fdec707afa35e80fb1cd9078eff315580981acb",
+        "stage": "0x5dbc4e2ba686c5c46cc1653b8bd59fe3d8eb105b",
+        "rinkeby-us1": "0xb5ba4d64ee06106618dfff23844fe20fc1970a7c",
+        "plasma": "0xcb2dca3750bb65f8fbc29206453d3d2ccb9b41bd"
+      }
+    },
+    {
+      "filename": "TCTToken",
+      "name": "TCT",
+      "decimal": 18,
+      "symbol": "TCT",
+      "address": {
+        "1": "0x4824a7b64e3966b0133f4f4ffb1b9d6beb75fff7",
+        "asia1": "0x74cfd5862b1e6fe14becda7d3de04ee66c3f12ad",
+        "rinkeby-asia1": "0x9a8e6b8345b513448028fa3c112aaf0b51b901cd",
+        "stage": "0xede70472f54b12609fb70ed885900d5f2f4df7db",
+        "rinkeby-us1": "0x3ce2ea505b6fa713d8bb3f521b88abfa860b0bdf",
+        "plasma": "0xf9c8fb263683734a64ae0f48de186968016c402b"
+      }
+    },
+    {
+      "filename": "INOToken",
+      "name": "INO",
+      "decimal": 0,
+      "symbol": "INO",
+      "address": {
+        "1": "0xc9859fccc876e6b4b3c749c5d29ea04f48acb74f",
+        "asia1": "0x7c429ca4c8139c9591b76736f7a0ceed3efd4c03",
+        "rinkeby-asia1": "0x2957e8ca1130bc10c9ec34469b7a7497487514b5",
+        "stage": "0xaab868b9aaab8ba564751193a985fd07f2a9dad3",
+        "rinkeby-us1": "0x5bc98f3675f71de2ce0b73c67e7b3ccbad4a6f45",
+        "plasma": "0x2694de3c02ac90c123ae646181de18e0a4bbeeb8"
+      }
+    },
+    {
+      "filename": "HEDGToken",
+      "name": "HEDG",
+      "decimal": 18,
+      "symbol": "HEDG",
+      "address": {
+        "1": "0x3363d570f6df3c74d486bb8785d3ebfb9e2347d3",
+        "asia1": "0x7bc78065703f3cf8fe7ede12cef9c1e8b8666329",
+        "rinkeby-asia1": "0xe399da65311de4dfffb118c15c7c9b2efd523538",
+        "stage": "0x8de3a76fdbe03924a5b4a503cfe72aaa524726aa",
+        "rinkeby-us1": "0x6407fc0a7800b7cae49c20e83df88788332033ea",
+        "plasma": "0x5fdb06b8c3db44c850e152503cec55cd7bd5ac8b"
+      }
+    },
+    {
+      "filename": "BNBToken",
+      "name": "BNB",
+      "decimal": 18,
+      "pricePerCent": 14.357,
+      "symbol": "BNB",
+      "address": {
+        "1": "0xb8c77482e45f1f44de1745f52c74426c631bdd52",
+        "asia1": "0xb09364aadfd41a18ad1126f00de8c42c753bd12f",
+        "stage": "0x4f087fa9f997c850f3664e2f37eef262ad0781c2",
+        "rinkeby-asia1": "0xd2701c4c062e64ea23573367b0b807c67f542802",
+        "rinkeby-us1": "0x1b2dc7a2a27431a4037455a5e8283587583260c7",
+        "plasma": "0xcf2851b1ad63d093238ea296524be8d7cd920e0b"
+      }
+    }
+  ]
+}

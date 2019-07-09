@@ -185,6 +185,7 @@ module.exports = {
         sidebarDepth: 1,
         children: [
           ['/arch', 'arch'],
+          ['/top-erc20s', 'Top ERC20s Deployed to Loom'],
           ['/release-notes', 'Release Notes'],
           ['/common-issues', 'common-issues'],
         ],
