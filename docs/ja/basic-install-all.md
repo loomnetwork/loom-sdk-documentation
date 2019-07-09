@@ -60,7 +60,7 @@ this.client = new Client(
 )
 ```
 
-Once the client gets instantiated, we must force personal sign by pretending to be MetaMask no matter what the web3 provider actually is:
+clientがインスタンス化されると、実際のweb3プロバイダがどんなものであったとしても、MetaMaskであるかのように個人署名を実行しなくてはならない:
 
 ```js
 let provider = this.web3js.currentProvider
@@ -68,7 +68,7 @@ provider.isMetaMask = true
 const ethersProvider = new ethers.providers.Web3Provider(provider)
 ```
 
-Next, let's call the `createDefaultTxMiddleware` function as follows:
+次は、以下のようにして `createDefaultTxMiddleware`関数を呼び出そう:
 
 ```js
 this.client.txMiddleware = createDefaultTxMiddleware(this.client, privateKey)
@@ -76,9 +76,9 @@ this.client.txMiddleware = createDefaultTxMiddleware(this.client, privateKey)
 
 This allows us to create the default set of tx middleware required to successfully commit transactions to Loom.
 
-### Configuring LoomProvider
+### LoomProviderの構成
 
-Now, we want to instantiate and configure `LoomProvider`:
+今度は`LoomProvider`のインスタンス化と構成を行いたい:
 
 ```js
 this.loomProvider = new LoomProvider(this.client, privateKey)
