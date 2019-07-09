@@ -50,7 +50,7 @@ Loomメインネットは、ネイティブのEthereumウォレットで署名�
 
 ### Loomへの接続
 
-The first thing we want to do is to instantiate a new `Client`:
+まずはじめに行いたいのは、新たな`Client`のインスタンス化である:
 
 ```js
 this.client = new Client(
