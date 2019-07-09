@@ -1,50 +1,50 @@
 ---
 id: basic-install-all
-title: Install Loom SDK
-sidebar_label: Install Loom SDK
+title: Loom SDKのインストール
+sidebar_label: Loom SDKのインストール
 ---
 
-# Installing and setting up Loom
+# Loomのインストールとセットアップ
 
-Currently the only way to use Loom on Windows is to use the [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10).1
+現在LoomをWindowsで使うには、[Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10)を使用するのが唯一の方法である。
 
-Once you install that you can continue with the below sections.
+これをインストールしたら、 下記の通り実行しよう。
 
-## Download loom
+## Loomをダウンロード
 
-The following script automatically downloads the latest stable version of loom to the current directory:
+次のスクリプトは、現在のディレクトリへ自動的にLoomの安定的なバージョンをダウンロードする：
 
 ```bash
 curl https://raw.githubusercontent.com/loomnetwork/loom-sdk-documentation/master/scripts/get_loom.sh | sh
 ```
 
-## Initialize
+## 初期化
 
-To initialize loom, type:
+Loomを初期化するには、以下のようにタイプしよう:
 
 ```bash
 ./loom init
 ```
 
-## Run Blockchain
+## ブロックチェーンの起動
 
-Run the following command from within the directory created in the installation step:
+インストール手順で作成したディレクトリ内から以下のコマンドで実行する：
 
 ```bash
 ./loom run
 ```
 
-## To get started with Solidity + Truffle
+## Solidity + Truffleでスタートするには
 
-See our tutorial on [Truffle and Solidity](join-testnet.html)
+[TruffleとSolidity](join-testnet.html)のチュートリアルを参照すること。
 
-## To get started with Golang Contracts
+## Golangコントラクトでスタートするには
 
-See our [Golang Contracts](prereqs-all.html)
+[Golangコントラクト](prereqs-all.html)を参照すること。
 
-## To get started with universal transaction signing
+## ユニバーサルトランザクション署名でスタートするには
 
-Loom Mainnet has the ability to verify and accept transactions signed by native Ethereum wallets. In a nutshell, users can simply use their MetaMask account or any other native Ethereum wallet — further blending the line between Layer 1 and Layer 2.
+Loomメインネットは、ネイティブのEthereumウォレットで署名されたトランザクションの検証と受容が可能である。 In a nutshell, users can simply use their MetaMask account or any other native Ethereum wallet — further blending the line between Layer 1 and Layer 2.
 
 In the next sections, we'll briefly walk you through the setup required to enable universal transaction signing in your app.
 
