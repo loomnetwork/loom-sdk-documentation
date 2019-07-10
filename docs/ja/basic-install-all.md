@@ -74,7 +74,7 @@ const ethersProvider = new ethers.providers.Web3Provider(provider)
 this.client.txMiddleware = createDefaultTxMiddleware(this.client, privateKey)
 ```
 
-This allows us to create the default set of tx middleware required to successfully commit transactions to Loom.
+こうして、トランザクションをうまくLoomにコミットするのに必要となるトランザクションミドルウェアのデフォルトセットを作成する。
 
 ### LoomProviderの構成
 
@@ -92,9 +92,9 @@ this.loomProvider.setMiddlewaresForAddress(to.local.toString(), [
 ])
 ```
 
-Note that we're using the `SignedEthTxMiddleware` which lets us sign transactions via an Ethereum compatible wallet like Metamask.
+我々は`SignedEthTxMiddleware`を使用しており、これはMetaMaskのようなEthereum互換ウォレットを使ってトランザクションへの署名を可能にするということに注意しよう。
 
-### Instantianting the contract
+### コントラクトのインスタンス化
 
 For the scope of this example, we are using the [SimpleStore](https://github.com/loomnetwork/eth-signing-demo/blob/master/truffle/contracts/SimpleStore.sol) smart contract. Instantiating it is as simple as:
 
