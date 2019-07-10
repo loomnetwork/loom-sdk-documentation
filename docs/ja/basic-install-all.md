@@ -96,16 +96,16 @@ this.loomProvider.setMiddlewaresForAddress(to.local.toString(), [
 
 ### コントラクトのインスタンス化
 
-For the scope of this example, we are using the [SimpleStore](https://github.com/loomnetwork/eth-signing-demo/blob/master/truffle/contracts/SimpleStore.sol) smart contract. Instantiating it is as simple as:
+例として、[SimpleStore](https://github.com/loomnetwork/eth-signing-demo/blob/master/truffle/contracts/SimpleStore.sol)スマートコントラクトを使用している。 インスタンス化はこのように簡単にできる:
 
 ```js
 const web3 = new Web3(this.loomProvider)
 this.contract = new web3.eth.Contract(SimpleStoreJSON.abi, SimpleStoreJSON.networks[this.networkId].address)
 ```
 
-### Universal transaction signing in action
+### ユニバーサルトランザクション署名の実行
 
-Now, to execute the `set` method of our smart contract, we can do something like this:
+では今度は以下のようにして、我々のスマートコントラクトにある`set`メソッドを実行することができる:
 
 ```js
 await this.contract.methods
@@ -115,16 +115,16 @@ await this.contract.methods
   })
 ```
 
-If everything works well you should see a Metamask popup asking you to confirm the transaction:
+全てがうまく動いている場合、MetaMaskのポップアップでトランザクションの承認を尋ねられるはずだ:
 
 ![Eth Signing](/developers/img/eth-signing-metamask-popup.gif)
 
-Note that you just signed transactions on Loom without even accessing your eth wallet keys😉.
+ETHウォレットの鍵にアクセスすることすらなく、Loom上でトランザクション署名を行ったことに注目しよう😉。
 
-### Demo Project
+### デモプロジェクト
 
-We've built a small demo project to showcase this functionality. The source code is available [here](https://github.com/loomnetwork/Eth-Signing-Demo).
+この機能をお見せするために、小さなデモプロジェクトを作成した。 ソースコードは[こちら](https://github.com/loomnetwork/Eth-Signing-Demo)から利用可能だ。
 
-### Other Wallets
+### 他のウォレット
 
-If you use Portis or Fortmatic, head over to [this page](others.html).
+PortisやFortmaticをお使いであれば、[このページ](others.html)を見てみよう。
