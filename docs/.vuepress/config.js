@@ -180,6 +180,14 @@ module.exports = {
         ],
       },
       {
+        title: 'Binance Integration',
+        collapsable: true,
+        sidebarDepth: 1,
+        children: [
+          ['/deposit-and-withdraw-bnb', 'Deposit and Withdraw BNB'],
+        ],
+      },
+      {
         title: 'Frequently Asked Questions',
         collapsable: true,
         sidebarDepth: 1,
