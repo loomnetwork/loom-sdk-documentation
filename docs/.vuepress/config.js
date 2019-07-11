@@ -72,10 +72,10 @@ module.exports = {
         sidebarDepth: 1,
         children: [
           ['/intro-to-loom', 'Intro to Loom'],
-          ['/join-testnet', 'Join Testnets'],
+          ['/deploy-loom-testnet', 'Deploy to Loom Testnet'],
           ['/extdev-transfer-gateway', 'extdev-transfer-gateway'],
-          ['/basic-install-all', 'Installation Loom SDK'],
-          ['/deploy-loom-mainnet', 'Deploy to Loom mainnet'],
+          ['/deploy-loom-mainnet', 'Deploy to Loom Mainnet'],
+          ['/basic-install-all', 'Setup Local Loom Chain'],
         ],
       },
       {
@@ -185,9 +185,10 @@ module.exports = {
         sidebarDepth: 1,
         children: [
           ['/arch', 'arch'],
+          ['/how-to-get-started', 'How to Get Started '],
           ['/top-erc20s', 'Top ERC20s Deployed to Loom'],
           ['/release-notes', 'Release Notes'],
-          ['/common-issues', 'common-issues'],
+          ['/common-issues', 'Common Issues'],
         ],
       },
       {
