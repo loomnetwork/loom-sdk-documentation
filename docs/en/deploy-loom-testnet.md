@@ -1,7 +1,7 @@
 ---
-id: join-testnet
-title: Join Testnets
-sidebar_label: Join Testnets
+id: deploy-loom-testnet
+title: Deploy to Loom Testnet
+sidebar_label: Deploy to Loom Testnet
 ---
 
 ## Who Should Read This Document

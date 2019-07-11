@@ -10,7 +10,7 @@ Loom Network is building a fundamental infrastructure platform to help Ethereum 
 
 In short, you can think of Loom Network as EOS on top of Ethereum.
 
-# What is the Loom SDK?
+## What is the Loom SDK?
 
 Our core product is an SDK that allows developers to quickly build their own blockchains without having to understand blockchain infrastructure. Think of it like a “build your own blockchain” generator.
 
