@@ -1,34 +1,38 @@
 ---
 id: basic-install-all
-title: Loom SDKのインストール
-sidebar_label: Loom SDKのインストール
+title: Setup Local Loom Chain
+sidebar_label: Setup Local Loom Chain
 ---
+
+## Purpose
+
+The purpose of this document is to walk you through the process of setting up a local Loom Chain. This step is ***not required for deploying to Loom Testnet or Loom Mainnet***, but we've included it because some people might find it useful. Say, for example, you're offline for large amounts of time. Why wouldn't you want to use that time do some dev work? So, for those of you considering working offline, this document will provide the necessary details.
 
 # Loomのインストールとセットアップ
 
-現在LoomをWindowsで使うには、[Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10)を使用するのが唯一の方法である。
+Currently the only way to use Loom on Windows is to use the [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10).1
 
-これをインストールしたら、 下記の通り実行しよう。
+Once you install that, you can continue with the below sections.
 
-## Loomをダウンロード
+## Download loom
 
-次のスクリプトは、現在のディレクトリへ自動的にLoomの安定的なバージョンをダウンロードする：
+The following script automatically downloads the latest stable version of loom to the current directory:
 
 ```bash
 curl https://raw.githubusercontent.com/loomnetwork/loom-sdk-documentation/master/scripts/get_loom.sh | sh
 ```
 
-## 初期化
+## Initialize
 
-Loomを初期化するには、以下のようにタイプしよう:
+To initialize loom, type:
 
 ```bash
 ./loom init
 ```
 
-## ブロックチェーンの起動
+## Run Blockchain
 
-インストール手順で作成したディレクトリ内から以下のコマンドで実行する：
+Run the following command from within the directory created in the installation step:
 
 ```bash
 ./loom run
