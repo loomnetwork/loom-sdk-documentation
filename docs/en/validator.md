@@ -8,17 +8,11 @@ sidebar_label: Become Validator
 
 This page walks you through the steps necessary to become a validator.
 
-## How to join as a Validator
-
-Start by filling out this [form](http://bit.ly/Loom_Validator_Form). We will review your application and, once it gets approved, proceed with the steps below.
-
-## How to Whitelist Your Address
-
-This section shows you how to create a Loom public-private key pair and then how to use our validator self-service to get your address whitelisted.
+First, we will describe how to create a Loom public-private key pair, and then we'll show you how to use our validator self-service to get your address whitelisted.
 
 >Note that, in order to whitelist your address, you need 1.25M Loom.
 
-## Creating a Loom Public-Private Key Pair
+### Creating a Loom Public-Private Key Pair
 
 First, you need to download the latest stable version of Loom. Fire up a terminal and run the following command:
 
