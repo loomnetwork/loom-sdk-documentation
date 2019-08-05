@@ -14,6 +14,6 @@ Validator nodes are required to:
 
 However, none of this is necessary to run a non-validator node. Simply put, non-validator nodes just verify the new blocks and keep up with the consensus protocol. Thus, joining as a non-validator is much simpler.
 
-## How to Add a Non-Validator Node
+## How to Run a Non-Validator Node
 
 Follow the instructions at [extdev-plasma-us1 jump start](jump-start-extdev-plasma-us1.html) to spin up your own non-validator node.
