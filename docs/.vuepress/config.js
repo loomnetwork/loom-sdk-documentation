@@ -102,6 +102,15 @@ module.exports = {
         ],
       },
       {
+        title: 'JSON RPC',
+        collapsable: true,
+        sidebarDepth: 1,
+        children: [
+          ['/json-rpc-interface', 'HTTP & WebSocket'],
+          ['/json-rpc-methods-2', 'JSON RPC Methods'],
+        ],
+      },
+      {
         title: 'Unity SDK',
         collapsable: true,
         sidebarDepth: 1,

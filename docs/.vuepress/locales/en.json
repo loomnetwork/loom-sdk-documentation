@@ -135,5 +135,6 @@
   "Help Translate|recruit community translators for your project": "Help Translate",
   "Edit this Doc|recruitment message asking to edit the doc source": "Edit",
   "Translate this Doc|recruitment message asking to translate the docs": "Translate",
+  "json-rpc-interface": "JSON RPC Interface",
   "search": "Search"
 }
