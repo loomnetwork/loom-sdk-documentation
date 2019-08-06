@@ -208,6 +208,7 @@ module.exports = {
           ['/karma', 'Karma'],
           ['/json-rpc-methods', 'JSON RPC Methods'],
           ['/hsm', 'Hardware Security Modules'],
+          ['/dapp-metrics-website-info', 'DApp Metrics Website Info']
         ],
       },
       {
