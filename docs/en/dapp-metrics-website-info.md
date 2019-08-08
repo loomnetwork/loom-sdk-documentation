@@ -13,6 +13,13 @@ This guide shows how to get useful information on the DApps running on Loom Main
 - [MainNet Block Explorer](http://plasma-blockexplorer.dappchains.com/)
 - [TestNet Block Explorer](http://extdev-blockexplorer.dappchains.com)
 
+
+## Overview
+
+Loom provides support for `JSON-RPC` via `HTTP` or `WebSocket`. To interact with Loom via `HTTP` from the command line, we recommend [curl](https://github.com/curl/curl). If you would want to interact with Loom via `WebSocket`, consider using [wscat2](9https://www.npmjs.com/package/wscat2).
+
+Compared to `HTTP`, `WebSocket` is a bi-directional, full-duplex protocol which uses a single TCP connection. With `WebSocket`, a client can subscribe and wait for contract events instead of polling for them. See the [Ethereum RPC PUB SUB] page for more details (https://github.com/ethereum/go-ethereum/wiki/RPC-PUB-SUB)
+
 ## Web3 Endpoints
 
 You can use the following endpoints to interact with Loom:
@@ -54,7 +61,7 @@ Content-Type: application/json
 
 #### Example
 
-**Request**
+**HTTP Request**
 
 ```bash
 curl --location --request POST "https://plasma-alpha.dappchains.com/eth" \
@@ -69,9 +76,18 @@ curl --location --request POST "https://plasma-alpha.dappchains.com/eth" \
 }"
 ```
 
-**Result**
+**WebSocket Request**
 
 ```bash
+echo "{ \"jsonrpc\":\"2.0\",
+  \"method\":\"eth_getTransactionReceipt\",
+   \"params\":[ \"0x34a641c643aab0028a94c4a3d4a4e057c08f742ef86b262d93ca7ab55c8b2d7f\" ],
+   \"id\":1 }" | wscat wss://plasma.dappchains.com/eth
+```
+
+**Result**
+
+```json
 {
   "result": {
     "transactionHash": "0x34a641c643aab0028a94c4a3d4a4e057c08f742ef86b262d93ca7ab55c8b2d7f",
@@ -124,7 +140,7 @@ QUANTITY - integer of the current block number the client is on.
 
 #### Example
 
-**Request**
+**HTTP Request**
 
 ```bash
 curl --location --request POST "https://plasma-alpha.dappchains.com/eth" \
@@ -137,13 +153,70 @@ curl --location --request POST "https://plasma-alpha.dappchains.com/eth" \
 }"
 ```
 
-**Result**
+**WebSocket Request**
 
 ```bash
+echo "{ \"jsonrpc\":\"2.0\",
+  \"method\":\"eth_blockNumber\",
+  \"params\":[],
+  \"id\":83 }" | wscat wss://plasma.dappchains.com/eth
+```
+
+**Result**
+
+```json
 {
   "result": "0x911e01",
   "jsonrpc": "2.0",
   "id": 83
+}
+```
+
+### eth_call
+
+Executes a new message call immediately without creating a transaction on the blockchain.
+
+#### Parameters
+
+1.  Object - The transaction call object
+
+- `from`: DATA, 20 Bytes - The address the transaction is sent from.
+- `to`: DATA, 20 Bytes - The address the transaction is directed to.
+- `data`: DATA - Hash of the method signature and encoded parameters. For details see Ethereum Contract ABI
+
+#### Returns
+
+`DATA` - the return value of the executed contract.
+
+#### Example
+
+**HTTP Request**
+
+```bash
+curl --location --request POST "https://plasma-alpha.dappchains.com/eth" \
+  --header "Content-Type: application/json" \
+  --data  '{"jsonrpc":"2.0",
+  "method":"eth_call",
+  "params":[{see above}],
+  "id":1}'
+```
+
+**WebSocket Request**
+
+```bash
+echo '{"jsonrpc":"2.0",
+"method":"eth_call",
+"params":[{see above}],
+"id":1}' | wscat wss://plasma.dappchains.com/eth
+```
+
+**Result**
+
+```json
+{
+  "result": "0x",
+  "jsonrpc": "2.0",
+  "id":1,
 }
 ```
 
@@ -187,7 +260,7 @@ Content-Type: application/json
 
 #### Example
 
-**Request**
+**HTTP Request**
 
 ```bash
 curl --location --request POST "https://plasma-alpha.dappchains.com/eth" \
@@ -203,9 +276,23 @@ curl --location --request POST "https://plasma-alpha.dappchains.com/eth" \
 }"
 ```
 
-**Result**
+**WebSocket Request**
 
 ```bash
+echo "{
+  \"jsonrpc\":\"2.0\",
+  \"method\":\"eth_getBlockByNumber\",
+  \"params\":[
+  \"latest\",
+  true
+  ],
+  \"id\":1
+}" | wscat wss://plasma.dappchains.com/eth
+```
+
+**Result**
+
+```json
 {
   "result": {
     "number": "0x9121d9",
@@ -273,7 +360,7 @@ Content-Type: application/json
 
 #### Example
 
-**Request**
+**HTTP Request**
 
 ```bash
 curl --location --request POST "https://plasma-alpha.dappchains.com/eth" \
@@ -286,12 +373,26 @@ curl --location --request POST "https://plasma-alpha.dappchains.com/eth" \
                 true
         ],
         \"id\":1
-}
+}"
+```
+
+**WebSocket Request**
+
+```bash
+echo "{
+        \"jsonrpc\":\"2.0\",
+        \"method\":\"eth_getBlockByHash\",
+        \"params\":[
+                \"0xfbb4018172ebeb0d0163103072ed8dfbd439ffa65730e861af4602d82af40d73\",
+                true
+        ],
+        \"id\":1
+}" | wscat wss://plasma.dappchains.com/eth
 ```
 
 **Result**
 
-```bash
+```json
 {
   "result": {
     "number": "0x912015",
@@ -352,7 +453,7 @@ DATA - the code from the given address.
 
 #### Example
 
-**Request**
+**HTTP Request**
 
 ```bash
 curl --location --request POST "https://plasma-alpha.dappchains.com/eth" \
@@ -365,17 +466,748 @@ curl --location --request POST "https://plasma-alpha.dappchains.com/eth" \
                 \"0x2\"
         ],
         \"id\":1
-}
+}"
+```
+
+**WebSocket Request**
+
+```bash
+echo "{
+        \"jsonrpc\":\"2.0\",
+        \"method\":\"eth_getCode\",
+        \"params\":[
+                \"0xc72783049049c3d887a85df8061f3141e2c931cc\",
+                \"0x2\"
+        ],
+        \"id\":1
+}" | wscat wss://plasma.dappchains.com/eth
 ```
 
 **Result**
 
-```bash
+```json
 {
   "result": "0x608060405260043610603f576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff168063f6b4dfb4146044575b600080fd5b348015604f57600080fd5b5060566098565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b73e288d6eec7150d6a22fde33f0aa2d81e06591c4d815600a165627a7a72305820b8b6992011e1a3286b9546ca427bf9cb05db8bd25addbee7a9894131d9db12500029",
   "jsonrpc": "2.0",
   "id": 1
 }
+```
+
+### eth_getBalance
+
+Returns the balance of the account of given address.
+
+#### Parameters
+
+1. `DATA`, 20 Bytes - address to check for balance.
+2. `QUANTITY|TAG` - the string "latest"
+
+#### Headers
+
+Content-Type: application/json
+
+#### Returns
+
+`QUANTITY` - integer of the current balance in wei.
+
+#### Example
+
+**HTTP Request**
+
+```bash
+curl --location --request POST "https://plasma-alpha.dappchains.com/eth" \
+  --header "Content-Type: application/json" \
+  --data '{"id": 0,
+    "jsonrpc":"2.0",
+    "method": "eth_getBalance",
+    "params": ["0xc85972bC975a52b62bC16388FFB590E04d5C6beF",
+    "latest"
+    ]}'
+```
+
+**WebSocket Request**
+
+```bash
+echo '{"id": 0,
+    "jsonrpc":"2.0",
+    "method": "eth_getBalance",
+    "params": ["0xc85972bC975a52b62bC16388FFB590E04d5C6beF",
+    "latest"
+    ]}' | wscat wss://plasma.dappchains.com/eth
+```
+
+**Result**
+
+```json
+{
+  "result": "0xa2fb63a1d437a000",
+  "jsonrpc": "2.0",
+  "id": 0
+}
+```
+
+### eth_getBlockTransactionCountByNumber
+
+Returns the number of transactions in a block matching the given block number.
+
+#### Parameters
+
+1. `QUANTITY|TAG` - integer of a block number, or the string "earliest", "latest" or "pending", as in the default block parameter.
+
+#### Headers
+
+Content-Type: application/json
+
+#### Returns
+
+1. `QUANTITY` - integer of the number of transactions in this block.
+
+#### Example
+
+**HTTP Request**
+
+```bash
+curl --location --request POST "https://plasma-alpha.dappchains.com/eth" \
+  --header "Content-Type: application/json" \
+  --data '{"jsonrpc":"2.0",
+    "method":"eth_getBlockTransactionCountByNumber",
+    "params":["0xe8"],
+    "id":1}'
+```
+
+**WebSocket Request**
+
+```bash
+echo '{"jsonrpc":"2.0",
+    "method":"eth_getBlockTransactionCountByNumber",
+    "params":["0xe8"],
+    "id":1}' | wscat wss://plasma.dappchains.com/eth
+```
+
+**Result**
+
+```json
+{
+  "result": "0x1",
+  "jsonrpc": "2.0",
+  "id": 1
+}
+```
+
+### eth_getBlockTransactionCountByHash
+
+Returns the number of transactions in a block matchung the given hash.
+
+#### Parameters
+
+1. `DATA`, 32 Bytes - hash of a block.
+
+#### Headers
+
+Content-Type: application/json
+
+#### Returns
+
+`QUANTITY` - integer of the number of transactions in this block.
+
+#### Example
+
+**HTTP Request**
+
+```bash
+curl --location --request POST "https://plasma-alpha.dappchains.com/eth" \
+  --header "Content-Type: application/json" \
+  --data
+    '{"jsonrpc":"2.0",
+    "method":"eth_getBlockTransactionCountByHash",
+    "params":["0xa5fbf0b8f384d1ab67708e73c50777f6cb958d916a3c83e052752abbbea8571d"],
+    "id":1}'
+```
+
+**WebSocket Request**
+
+```bash
+echo '{"jsonrpc":"2.0",
+    "method":"eth_getBlockTransactionCountByHash",
+    "params":["0xa5fbf0b8f384d1ab67708e73c50777f6cb958d916a3c83e052752abbbea8571d"],
+    "id":1}' | wscat wss://plasma.dappchains.com/eth
+```
+
+**Result**
+
+```json
+{
+  "result": "0x1",
+  "jsonrpc": "2.0",
+  "id": 1
+}
+```
+
+### eth_getFilterChanges
+
+Polling method for a filter. Returns an array of logs generated since the last poll.
+
+#### Parameters
+
+1.  `QUANTITY` - the filter id.
+
+#### Headers
+
+Content-Type: application/json
+
+#### Returns
+
+`Array` - Array of log objects, or an empty array if nothing has changed since the last poll.
+
+- For filters created with `eth_newBlockFilter`, the return values are block hashes (`DATA`, 32 Bytes), e.g. `["0x3454645634534..."]`.
+- For filters created with `eth_newPendingTransactionFilter`, the return values are transaction hashes (`DATA`, 32 Bytes), e.g. `["0x6345343454645..."]`.
+- For filters created with `eth_newFilter`, logs are objects with following params:
+
+  - `removed`: `TAG` - `true` when the log was removed due to a chain reorganization. `false` if it's a valid log.
+  - `logIndex`: `QUANTITY` - integer of the log index position in the block. `null` when it's a pending log.
+  - `transactionIndex`: `QUANTITY` - integer index of the transactions index position the log was created from. `null` when it's a pending log.
+  - `transactionHash`: `DATA`, 32 Bytes - hash of the transactions this log was created from. `null` when it's a pending log.
+  - `blockHash`: `DATA`, 32 Bytes - hash of the block where this log was in. null when it's pending. `null` when it's a pending log.
+  - `blockNumber`: `QUANTITY` - the block number where this log was in. null when it's pending. `null` when it's a pending log.
+  - `address`: `DATA`, 20 Bytes - address from which this log originated.
+  - `data`: `DATA` - contains one or more 32 Bytes non-indexed arguments of the log.
+  - `topics`: `Array of DATA` - Array of 0 to 4 32 Bytes `DATA` of indexed log arguments. In Solidity, the first topic is the hash of the signature of the event (e.g. Deposit(address,bytes32,uint256), except if you declared the event with the anonymous specifier.
+
+
+#### Example
+
+**HTTP Request**
+
+```bash
+curl --location --request POST "https://plasma-alpha.dappchains.com/eth" \
+  --header "Content-Type: application/json" \
+  --data '{"jsonrpc":"2.0",
+  "method":"eth_getFilterChanges",
+  "params":["0x16"],
+  "id":73}'
+```
+
+**WebSocket Request**
+
+```bash
+echo '{"jsonrpc":"2.0",
+  "method":"eth_getFilterChanges",
+  "params":["0x16"],
+  "id":73}'  | wscat wss://plasma.dappchains.com/eth
+```
+
+**Result**
+
+```json
+{
+  "id":1,
+  "jsonrpc":"2.0",
+  "result": [{
+    "logIndex": "0x1", // 1
+    "blockNumber":"0x1b4", // 436
+    "blockHash": "0x8216c5785ac562ff41e2dcfdf5785ac562ff41e2dcfdf829c5a142f1fccd7d",
+    "transactionHash":  "0xdf829c5a142f1fccd7d8216c5785ac562ff41e2dcfdf5785ac562ff41e2dcf",
+    "transactionIndex": "0x0", // 0
+    "address": "0x16c5785ac562ff41e2dcfdf829c5a142f1fccd7d",
+    "data":"0x0000000000000000000000000000000000000000000000000000000000000000",
+    "topics": ["0x59ebeb90bc63057b6515673c3ecf9438e5058bca0f92585014eced636878c9a5"]
+    },{
+      ...
+    }]
+}
+```
+
+### eth_getFilterLogs
+
+Returns an array of all logs matching a filter with a given id.
+
+#### Parameters
+
+1. `QUANTITY` - The filter id.
+
+#### Headers
+
+Content-Type: application/json
+
+#### Returns
+
+See [eth_getFilterChanges](#eth-getfilterchanges).
+
+#### Example
+
+**HTTP Request**
+
+```bash
+curl --location --request POST "https://plasma-alpha.dappchains.com/eth" \
+  --header "Content-Type: application/json" \
+  --data  '{"jsonrpc":"2.0",
+  "method":"eth_getFilterLogs",
+  "params":["0x16"],
+  "id":74}'
+```
+
+**WebSocket Request**
+
+```bash
+echo '{"jsonrpc":"2.0",
+  "method":"eth_getFilterLogs",
+  "params":["0x16"],
+  "id":74}' | wscat wss://plasma.dappchains.com/eth
+```
+
+**Result**
+
+See [eth_getFilterChanges](#eth-getfilterchanges).
+
+### eth_getLogs
+
+Returns an array of all logs matching a given filter object.
+
+#### Parameters
+
+1.  `Object` - The filter options:
+
+- `fromBlock`: `QUANTITY|TAG` - (optional, default: `"latest"`) Integer block number, or "latest" for the last mined block or "pending", "earliest" for not yet mined transactions.
+- `toBlock`: `QUANTITY|TAG` - (optional, default: "latest") Integer block number, or "latest" for the last mined block or "pending", "earliest" for not yet mined transactions.
+- `address`: `DATA`|Array, 20 Bytes - (optional) Contract address or a list of addresses from which logs should originate.
+- `topics`: Array of `DATA`, - (optional) Array of 32 Bytes `DATA` topics. Topics are order-dependent. Each topic can also be an array of `DATA` with "or" options.
+- `blockhash`: `DATA`, 32 Bytes - (optional, future) With the addition of EIP-234, `blockHash` will be a new filter option which restricts the logs returned to the single block with the 32-byte hash `blockHash`. Using `blockHash` is equivalent to fromBlock = toBlock = the block number with hash `blockHash`. If `blockHash` is present in the filter criteria, then neither `fromBlock` nor `toBlock` are allowed.
+
+#### Headers
+
+Content-Type: application/json
+
+#### Returns
+
+See [eth_getFilterChanges](#eth-getfilterchanges)
+
+#### Example
+
+**HTTP Request**
+
+```bash
+curl --location --request POST "https://plasma-alpha.dappchains.com/eth" \
+  --header "Content-Type: application/json" \
+  --data  '{"jsonrpc":"2.0",
+  "method":"eth_getLogs",
+  "params":[{"topics":["0x000000000000000000000000a94f5374fce5edbc8e2a8697c15331677e6ebf0b"]}],
+  "id":74}'
+```
+
+**WebSocket Request**
+
+```bash
+echo '{"jsonrpc":"2.0",
+  "method":"eth_getLogs",
+  "params":[{"topics":["0x000000000000000000000000a94f5374fce5edbc8e2a8697c15331677e6ebf0b"]}],
+  "id":74}' | wscat wss://plasma.dappchains.com/eth
+```
+
+**Result**
+
+Result see [eth_getFilterChanges](#eth-getfilterchanges)
+
+### eth_getTransactionByBlockNumberAndIndex
+
+Returns information about a transaction by block number and transaction index position.
+
+#### Parameters
+
+1. `QUANTITY|TAG` - a block number, or the string "earliest", "latest" or "pending", as in the default block parameter.
+2. `QUANTITY` - the transaction index position.
+
+#### Headers
+
+Content-Type: application/json
+
+#### Returns
+
+See [eth_getTransactionByHash](#eth-getblockbyhash).
+
+#### Example
+
+**HTTP Request**
+
+```bash
+curl --location --request POST "https://plasma-alpha.dappchains.com/eth" \
+  --header "Content-Type: application/json" \
+  --data  '{"jsonrpc":"2.0",
+  "method":"eth_getTransactionByBlockNumberAndIndex",
+  "params":["0x918b89", "0x0"],
+  "id":1}'
+```
+
+**WebSocket Request**
+
+```bash
+echo '{"jsonrpc":"2.0",
+  "method":"eth_getTransactionByBlockNumberAndIndex",
+  "params":["0x918b89", "0x0"],
+  "id":1}' | wscat wss://plasma.dappchains.com/eth
+```
+
+**Result**
+
+```json
+{
+  "result": {
+    "hash": "0x2aa19fe52dd961a7f41849f43ffc1623f26726827694ef8a02605fa00ef2f161",
+    "nonce": "0x253e0",
+    "blockHash": "0xa5fbf0b8f384d1ab67708e73c50777f6cb958d916a3c83e052752abbbea8571d",
+    "blockNumber": "0x918b89",
+    "transactionIndex": "0x0",
+    "from": "0xd21bad2b76e1f45c996ed53855f196728b102b5c",
+    "to": "0xe9837e455f09300e98f5ac59d862da781da594e7",
+    "value": "0x0",
+    "gasPrice": "0x0",
+    "gas": "0x0",
+    "input": "0xdee11cb0"
+  },
+  "jsonrpc": "2.0",
+  "id": 1
+}
+```
+
+### eth_getTransactionCount
+
+Returns the number of transactions sent from an address.
+
+#### Parameters
+
+1. `DATA`, 20 Bytes - address.
+
+#### Headers
+
+Content-Type: application/json
+
+#### Returns
+
+`QUANTITY` - integer of the number of transactions send from this address.
+
+#### Example
+
+**HTTP Request**
+
+```bash
+curl --location --request POST "https://plasma-alpha.dappchains.com/eth" \
+  --header "Content-Type: application/json" \
+  --data  '{"id": 0, "jsonrpc":"2.0",
+  "method": "eth_getTransactionCount",
+  "params": ["0x90F8bf6A479f320ead074411a4B0e7944Ea8c9C1"]}'
+```
+
+**WebSocket Request**
+
+```bash
+echo '{"id": 0, "jsonrpc":"2.0",
+  "method": "eth_getTransactionCount",
+  "params": ["0x90F8bf6A479f320ead074411a4B0e7944Ea8c9C1"]}' | wscat wss://plasma.dappchains.com/eth
+```
+
+**Result**
+
+```
+{
+  "result": "0x1",
+  "jsonrpc": "2.0",
+  "id": 0
+}
+```
+
+### eth_newBlockFilter
+
+Creates a filter. This notifies when new pending transactions arrive. To check if the state has changed, call [eth_getFilterChanges](#eth-getfilterchanges).
+
+#### Parameters
+
+None
+
+#### Headers
+
+Content-Type: application/json
+
+#### Returns
+
+`QUANTITY` - A filter id.
+
+#### Example
+
+**HTTP Request**
+
+```bash
+curl --location --request POST "https://plasma-alpha.dappchains.com/eth" \
+  --header "Content-Type: application/json" \
+  --data '{"id": 0, "jsonrpc":"2.0",
+  "method": "eth_newBlockFilter",
+  "params": []}'
+```
+
+**WebSocket Request**
+
+```bash
+echo '{"id": 0, "jsonrpc":"2.0",
+  "method": "eth_newBlockFilter",
+  "params": []}' | wscat wss://plasma.dappchains.com/eth
+```
+
+**Result**
+
+```json
+"result": "0xcdcbd464cf4336bd350520424bc2ecf3",
+"jsonrpc": "2.0",
+"id": 0
+}
+```
+
+### eth_newFilter
+
+Creates a filter object, based on filter options, to notify when the state changes (logs). To check if the state has changed, call [eth_getFilterChanges](#eth-getfilterchanges).
+
+A note on specifying topic filters:
+
+Topics are order-dependent. A transaction with a log with topics [A, B] will be matched by the following topic filters:
+
+- `[]` "anything"
+- `[A]` "A in the first position (and anything after)"
+- `[null, B]` "anything in first position AND B in second position (and anything after)"
+- `[A, B]` "A in the first position AND B in second position (and anything after)"
+- `[[A, B], [A, B]]` "(A OR B) in first position AND (A OR B) in second position (and anything after)"
+
+#### Parameters
+
+1.  `Object` - The filter options:
+
+- `fromBlock`: `QUANTITY|TAG` - (optional, default: "latest") Integer block number, or "latest" for the last mined block or "pending", "earliest" for not yet mined transactions.
+- `toBlock`: `QUANTITY|TAG` - (optional, default: "latest") Integer block number, or "latest" for the last mined block or "pending", "earliest" for not yet mined transactions.
+- `address`: `DATA|Array`, 20 Bytes - (optional) Contract address or a list of addresses from which logs should originate.
+- `topics`: `Array of DATA`, - (optional) Array of 32 Bytes DATA topics. Topics are order-dependent. Each topic can also be an array of DATA with "or" options.
+
+#### Returns
+
+`QUANTITY` - A filter id
+
+#### Headers
+
+Content-Type: application/json
+
+#### Example
+
+**HTTP Request**
+
+```bash
+curl --location --request POST "https://plasma-alpha.dappchains.com/eth" \
+  --header "Content-Type: application/json" \
+  --data '{"id": 0,
+  "jsonrpc":"2.0",
+  "method": "eth_newFilter",
+  "params": [{"topics":["0xb922f092a64f1a076de6f21e4d7c6400b6e55791cc935e7bb8e7e90f7652f15b"]}]}'
+```
+
+**WebSocket Request**
+
+```bash
+echo '{"id": 0,
+  "jsonrpc":"2.0",
+  "method": "eth_newFilter",
+  "params": [{"topics":["0xb922f092a64f1a076de6f21e4d7c6400b6e55791cc935e7bb8e7e90f7652f15b"]}]}' | wscat wss://plasma.dappchains.com/eth
+```
+
+**Result**
+
+```json
+{
+  "result": "0xcd49f4967c9eb8c92123beaa728a6f98",
+  "jsonrpc": "2.0",
+  "id": 0
+}
+```
+
+### eth_sendRawTransaction
+
+Creates new message call transaction or a contract creation for signed transactions.
+
+#### Parameters
+
+1.  `Object` - The signed transaction data
+
+#### Headers
+
+Content-Type: application/json
+
+#### Returns
+
+`DATA`, 32 Bytes - the transaction hash, or the zero hash if the transaction is not yet available.
+
+#### Example
+
+**HTTP Request**
+
+```bash
+curl --location --request POST "https://plasma-alpha.dappchains.com/eth" \
+  --header "Content-Type: application/json" \
+  --data '{"jsonrpc":"2.0",
+  "method":"eth_sendRawTransaction",
+  "params": ["0xf901420485174876e8008347e7c48080b8f06060604052341561000f57600..."]}'
+```
+
+**WebSocket Request**
+
+```bash
+echo '{"jsonrpc":"2.0",
+  "method":"eth_sendRawTransaction",
+  "params": ["0xf901420485174876e8008347e7c48080b8f06060604052341561000f57600..."]}' | wscat wss://plasma.dappchains.com/eth
+
+```
+
+**Result**
+
+```json
+{
+  "result": "0xe670ec64341771606e55d6b4ca35a1a6b75ee3d5145a99d05921026d1527331"
+  "jsonrpc": "2.0",
+  "id":1,
+}
+```
+
+### eth_subscribe
+
+Sbscribing to particular events. The node will return a subscription id. For each event that matches the subscription, a notification with relevant data is send together with the subscription id.
+
+#### Parameters
+
+1.  `object` with the following (optional) fields:
+
+- `address`, either an address or an array of addresses. Only logs that are created from these addresses are returned (optional)
+- `topics`, only logs which match the specified topics (optional)
+
+#### Headers
+
+Content-Type: application/json
+
+#### Returns
+
+Subscription id
+
+#### Example
+
+**HTTP Request**
+
+```bash
+curl --location --request POST "https://plasma-alpha.dappchains.com/eth" \
+  --header "Content-Type: application/json" \
+  --data '{"jsonrpc":"2.0",
+  "method":"eth_sendRawTransaction",
+  "params": ["logs", {"address": "0x8320fe7702b96808f7bbc0d4a888ed1468216cfd","topics": ["0xd78a0cb8bb633d06981248b816e7bd33c2a35a6089241d099fa519e361cab902"]}]}'
+```
+
+**WebSocket Request**
+
+```bash
+echo '{"jsonrpc":"2.0",
+  "method":"eth_sendRawTransaction",
+  "params": ["logs", {"address": "0x8320fe7702b96808f7bbc0d4a888ed1468216cfd","topics": ["0xd78a0cb8bb633d06981248b816e7bd33c2a35a6089241d099fa519e361cab902"]}]}' | wscat wss://plasma.dappchains.com/eth
+```
+
+**Result**
+
+```json
+{
+  "result":"0x4a8a4c0517381924f9838102c5a4dcb7",
+  "jsonrpc":"2.0",
+  "id":2
+}
+```
+
+### eth_unsubscribe
+
+Subscriptions are cancelled with a regular RPC call with eth_unsubscribe as method and the subscription id as first parameter. It returns a bool indicating if the subscription was cancelled successful.
+
+#### Parameters
+
+1. Subscription id
+
+#### Headers
+
+Content-Type: application/json
+
+#### Returns
+
+`Boolean`
+
+#### Example
+
+**HTTP Request**
+
+```bash
+curl --location --request POST "https://plasma-alpha.dappchains.com/eth" \
+  --header "Content-Type: application/json" \
+  --data  '{"id": 1,
+  "method": "eth_unsubscribe",
+  "params": ["0x9cef478923ff08bf67fde6c64013158d"]}'
+```
+
+**WebSocket Request**
+
+```bash
+echo '{"id": 1,
+  "method": "eth_unsubscribe",
+  "params": ["0x9cef478923ff08bf67fde6c64013158d"]}' | wscat wss://plasma.dappchains.com/eth
+```
+
+**Result**
+
+```json
+{
+  "result": true,
+  "jsonrpc": "2.0",
+  "id": 1
+}
+```
+
+### eth_uninstallFilter
+
+Uninstalls a filter with the given id. It should always be called when watching is no longer needed. Note that filters time out when they are not requested with [eth_getFilterChanges](#eth-getfilterchanges) for a period of time.
+
+#### Parameters
+
+1.  `QUANTITY` - The filter id
+
+#### Headers
+
+Content-Type: application/json
+
+#### Returns
+
+`Boolean` - `true` if the filter was successfully uninstalled, otherwise `false`.
+
+#### Example
+
+**HTTP Request**
+
+```bash
+curl --location --request POST "https://plasma-alpha.dappchains.com/eth" \
+  --header "Content-Type: application/json" \
+  --data '{"jsonrpc":"2.0",
+  "method":"eth_sendRawTransaction",
+  "params": ["0xb"]}'
+```
+
+**WebSocket Request**
+
+```bash
+echo '{"jsonrpc":"2.0",
+  "method":"eth_sendRawTransaction",
+  "params": ["0xb"]}' | wscat wss://plasma.dappchains.com/eth
+```
+
+**Result**
+
+```json
+{
+  "result": true,
+  "jsonrpc": "2.0",
+  "id": 1
+  }
 ```
 
 ## Busy Contracts
