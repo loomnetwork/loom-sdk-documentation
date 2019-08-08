@@ -50,7 +50,7 @@ cd ../loom-jump-start
 
 > Before starting the node, check the open files limit on your system. See the [Open Files Limit](#open-files-limit) section for more details
 
-Now let start the node by running:
+Now, let's start the node by running:
 
 
 ```bash
