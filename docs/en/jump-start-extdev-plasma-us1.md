@@ -4,7 +4,9 @@ title: extdev-plasma-us1 Jump Start
 sidebar_label: extdev-plasma-us1 Jump Start
 ---
 
-Follow the instructions below to launch a extdev-plasma-us1 node from the jump start
+## Purpose
+
+This page shows you how to launch an extdev-plasma-us1 node from the jump start.
 
 ## Download stable version of loom
 
@@ -46,6 +48,11 @@ cd ../loom-jump-start
 
 ## Start the node
 
+> NOTE: Check the open files limit on your system before starting the node! See [Open Files Limit](#open-files-limit).
+
+Now, let's start the node by running:
+
+
 ```bash
 ../loom run --persistent-peers tcp://1cba97a0a108cb0de51e5a3ff6ac15d70e0fa076@52.53.145.158:46656,tcp://367a9fa0df0afeed204c3360867e37ef03da5b97@52.53.184.91:46656,tcp://7b537b6ad25b5b13864ec20bed8803489189a274@54.193.119.132:46656,tcp://d7623e990790048db76c5d6a25e12efa818aaef1@52.53.221.33:46656
 ```
@@ -67,7 +74,7 @@ After=network.target
 Type=simple
 User=<user that runs loom>
 WorkingDirectory=<working directory of loom>
-ExecStart=<path to loom>/loom run --persistent-peers tcp://5dcfe8f23c2eeefad39247f9f7c6c33bf112f6c0@52.15.45.21:46656,tcp://29f2d48d3d61687324eeeed0a43b736c4506dd64@18.225.14.100:46656
+ExecStart=<path to loom>/loom run --persistent-peers tcp://1cba97a0a108cb0de51e5a3ff6ac15d70e0fa076@52.53.145.158:46656,tcp://367a9fa0df0afeed204c3360867e37ef03da5b97@52.53.184.91:46656,tcp://7b537b6ad25b5b13864ec20bed8803489189a274@54.193.119.132:46656,tcp://d7623e990790048db76c5d6a25e12efa818aaef1@52.53.221.33:46656
 Restart=always
 RestartSec=2
 StartLimitInterval=0
