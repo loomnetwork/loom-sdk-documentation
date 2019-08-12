@@ -8,6 +8,19 @@ sidebar_label: Release Notes
 
 Reverse chronology order of release notes
 
+## Loom 2.0 Release Build 1213 – 2019/08/12
+
+This release upgrades the Binance Transfer Gateway and the EVM. It allows third-party developers to transfer BEP2 tokens they’ve created on Binance Chain, and upgrades the EVM to support Solidity v.0.5.x.
+
+* Support for mapping BEP2 tokens on Binance Chain to ERC20 contracts on PlasmaChain
+* Binance Chain to PlasmaChain account mapping
+* Validator slashing (if validators miss too many blocks)
+* Referrer handling fixes in DPoS contract
+* Third-party self-service deployer whitelist middleware updates
+* Additional validation in coin contracts
+* Additional validation of EVM transaction values
+* Support for EVM features introduced in the Ethereum Constantinople fork (makes it possible to use Solidity v0.5.x)
+
 ## Loom 2.0 Release Build 1085 - May 31th
 
 We have been focusing on mainnet builds so this has a large backlog of features for third party chains.
