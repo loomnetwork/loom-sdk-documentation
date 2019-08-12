@@ -148,7 +148,6 @@ module.exports = {
         sidebarDepth: 1,
         children: [
           ['/transfer-gateway', 'Transfer Gateway'],
-          ['/transfer-gateway-example', 'Transfer Gateway Example'],
         ],
       },
       {
