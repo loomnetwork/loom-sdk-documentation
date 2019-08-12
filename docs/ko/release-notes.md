@@ -10,7 +10,7 @@ sidebar_label: 릴리즈 노트
 
 ## Loom 2.0 Release Build 1213 – 2019/08/12
 
-This release upgrades the Binance Transfer Gateway and the EVM. It allows third-party developers to transfer BEP2 tokens they’ve created on Binance Chain, and upgrades the EVM to support Solidity v.0.5.x.
+This release upgrades the Binance Transfer Gateway and the EVM.
 
 * Support for mapping BEP2 tokens on Binance Chain to ERC20 contracts on PlasmaChain
 * Binance Chain to PlasmaChain account mapping
@@ -21,7 +21,7 @@ This release upgrades the Binance Transfer Gateway and the EVM. It allows third-
 * Additional validation of EVM transaction values
 * Support for EVM features introduced in the Ethereum Constantinople fork (makes it possible to use Solidity v0.5.x)
 
-## Loom 2.0 Release Build 1085 - May 31th
+## Loom 2.0 Release Build 1085 - 2019/05/31
 
 We have been focusing on mainnet builds so this has a large backlog of features for third party chains.
 
@@ -38,7 +38,7 @@ Major update, major updates for Performance, Caching and DPoS. It is recommended
 * Windows native build support - `make loom-windows`
 * CachingStore updates see our - [config page](loom-yaml.html) for details
 
-## Loom 2.0 Release Build 789 - Feb 12th
+## Loom 2.0 Release Build 789 - 2019/02/12
 
 Major update, major updates for Performance, Caching and DPoS. It is recommended to upgrade your testnets immediately.
 
@@ -56,7 +56,7 @@ Major update, major updates for Performance, Caching and DPoS. It is recommended
 * YubiHSM Fixes
 * Many new config options - [Loom Yaml Configs](loom-yaml.html)
 
-## Loom 2.0 Initial Release Build 651 - Dec 14th
+## Loom 2.0 Initial Release Build 651 - 2018/12/14
 
 * Loom SDK 2.0
 * Updated P2P Protocols
@@ -70,12 +70,12 @@ Major update, major updates for Performance, Caching and DPoS. It is recommended
 
 Note Loom SDK 2.0 is not protocol compatible with 1.0 chains. If you have a production chain using 1.0 please contact support@loomx.io for migration help.
 
-## Release 575 - Nov 16th
+## Release 575 - 2018/11/16
 
 * HSM Bug fixes for Yubico Devices - [HSM Docs](hsm.html)
 * HSM now can create new private keys on demand
 
-## Release 575 - Nov 13th
+## Release 575 - 2018/11/13
 
 * HSM support for Yubico Devices - [HSM Docs](hsm.html)
 * DPoS Version2 beta - for Plasmachain external validators
@@ -83,12 +83,12 @@ Note Loom SDK 2.0 is not protocol compatible with 1.0 chains. If you have a prod
 * Pruning for the Datastore, if chain gets to large, see [Config](loom-yaml.html)
 * New EVM receipts data store, see [Config](loom-yaml.html)
 
-## Release 478 - Oct 8th
+## Release 478 - 2018/10/08
 
 * Updated Transfer Gateway utilities
 * Transfer Gateway [tutorial plasma testnet](extdev-transfer-gateway.html)
 
-## Release 458 - Sept 27th
+## Release 458 - 2018/09/27
 
 **It is recommended that all users move up to this release**
 
@@ -98,7 +98,7 @@ Note Loom SDK 2.0 is not protocol compatible with 1.0 chains. If you have a prod
 * Massive performance increasements for high load environments
 * Initial info about running a Validator - [Validator](validator.html)
 
-## Release 404 - Aug 24th
+## Release 404 - 2018/08/24
 
 ** Features
 
@@ -116,7 +116,7 @@ Note Loom SDK 2.0 is not protocol compatible with 1.0 chains. If you have a prod
 * New Config option: RPCBindAddress: "tcp://0.0.0.0:46658"
 * Upgrades of PBFT engine, this may cause incompatibility issues on upgrades, please try in staging environments
 
-## Release 375 - Aug 10th
+## Release 375 - 2018/08/10
 
 *NOTE* This is a feature test release, with minor compatibility changes, please verify in staging environements before upgrading your production environment.
 
@@ -128,7 +128,7 @@ Note Loom SDK 2.0 is not protocol compatible with 1.0 chains. If you have a prod
 * Go-loom is upgraded for api breakages
 * loom-js is upgraded for this release.
 
-## Release 330 - July 30th
+## Release 330 - 2018/07/30
 
 * Fix for consensus problems on EVM
 * Updates for Zombiechain TestNet
@@ -142,14 +142,14 @@ Note Loom SDK 2.0 is not protocol compatible with 1.0 chains. If you have a prod
 * Loom-JS EVM updates for indexed filters
 * Loom-JS EVM fixes for getting block by hash
 
-## Release 288 - July 17th
+## Release 288 - 2018/07/17
 
 * [EVM indexed filter](https://loomx.io/developers/en/web3js-event-filters.html)
 * EVM filter pool fixes and event system
 * Loom-JS EVM updates for indexed filters
 * Loom-JS EVM fixes for getting block by hash
 
-## Release 276 - July 13th
+## Release 276 - 2018/07/13
 
 * [New Block Explorer](block-explorer-tutorial.html)
 * Multinode EVM fixes
@@ -157,7 +157,7 @@ Note Loom SDK 2.0 is not protocol compatible with 1.0 chains. If you have a prod
 * Zombiechain testnet fixes
 * DPoS Updates
 
-## Release 209 - June 20th
+## Release 209 - 2018/06/20
 
 Major release
 
@@ -168,13 +168,13 @@ Major release
 * Unity SDK updates for EVM
 * Loom-JS updates for EVM
 
-## Release 186 - June 19th
+## Release 186 - 2018/06/19
 
 * [EVM Unity Example app](https://loomx.io/developers/en/unity-sample-tiles-chain-evm.html)
 * Unity SDK support for Solidity Apps
 * Many fixes for Filtering/Querying Ethereum Events
 
-## Release 163 - June 11th
+## Release 163 - 2018/06/11
 
 * Support for latest Build of Truffle
 * [Updated truffle example](https://github.com/loomnetwork/loom-truffle-provider)
@@ -182,60 +182,60 @@ Major release
 * Websocket events now support topics
 * Loom-JS 1.8.0 Release with updated websocket topic support
 
-## Release 161 - June 7th
+## Release 161 - 2018/06/07
 
 * Tons of Truffle Fixes
 * Tons of web3.js fixes for Loom-Js provider
 
-## Release 155 - June 6th
+## Release 155 - 2018/06/06
 
 * [Cocos SDK is Live](cocos-sdk-quickstart.html)
 * [Truffle Support available](truffle-deploy.html)
 * Static calls to EVM now allow caller
 * EVM Fixes for a lot of scenarios
 
-## Release 143 - June 1st
+## Release 143 - 2018/06/01
 
 * [BluePrint Docker Images Available](docker-blueprint.html)
 * [Japanese Hackathon Results](https://medium.com/loom-network/highlights-from-the-first-loom-unity-sdk-hackathon-tokyo-edition-6ed723747c19)
 * [Docker Images for some of Loom SDK Projects](https://hub.docker.com/r/loomnetwork/)
 * Evm TX Reciepts fixes
 
-## Release 137 - May 30th
+## Release 137 - 2018/05/30
 
 * Go Clients can Access EVM Contracts
 * Numerous bug fixes for EVM
 * Social Network Example App - Solidity
 
-## Release 136 - May 28th
+## Release 136 - 2018/05/28
 
 * Initial Solidity Alpha test build, you can now deploy solidity contracts
 * Websocket eventing support for solidity
 * Example Project for solidity Events
 * [Multinode deployment guide](multi-node-deployment.html)
 
-## Release 133 - May 24th
+## Release 133 - 2018/05/24
 
 * Etherboy Demo released
 * [Japanese Docs released](https://loomx.io/developers/ja)
 * Updated Homepage for [docs site](https://loomx.io/developers/en/)
 
-## Release 132 - May 23rd
+## Release 132 - 2018/05/23
 
 * Websocket performance fixes
 * New Websocket Demo App - TilesChain - [Github](https://github.com/loomnetwork/tiles-chain)
 
-## Release 129 - May 22rd
+## Release 129 - 2018/05/22
 
 * Websocket support for eventing
 * Updates to indexing layer for solidty contracts
 * Phaser Game Demo
 
-## Release 128 - May 21th
+## Release 128 - 2018/05/21
 
 * Lots of bug fixes for Etherboy
 
-## Release 128 - May 19th
+## Release 128 - 2018/05/19
 
 * Stable Beta Release
 * Updating logging to default to multiple files
