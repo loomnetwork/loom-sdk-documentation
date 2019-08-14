@@ -20,7 +20,7 @@ Let's get the ball rolling!
 
 ## Prerequisites
 
-- Node.js 10 or higher (recmmended v10.15.3)
+- Node.js 10 or higher (recommended v10.15.3)
 
 To check out if Node.js is installed on your computer, fire up a terminal and type the following command:
 
@@ -45,7 +45,7 @@ If Node.js is not installed, or you're running an older version, you can downloa
 
 Issuing a new token on Binance TestNet will require you to pay a fee of 500 TestNet BNB tokens. Thus, before moving forward with this example, you must get at least 500 TestNet BNB tokens by following the steps from below:
 
-- Go to the Binance [Create New Wallet](https://testnet.binance.org/en/create) page and create **three** Binance TestNet wallets. Let's call them A, B, and C. Download the keystore files and give them some meaningful names such as 'keystore_a` and so on.
+- Go to the Binance [Create New Wallet](https://testnet.binance.org/en/create) page and create **three** Binance TestNet wallets. Let's call them A, B, and C. Download the keystore files and give them some meaningful names such as `keystore_a`, `keystore_b`, and `keystore_c`.
 - Head over to the [Unlock Page](https://testnet.binance.org/en/unlock) and unlock wallet A. This will take you the Binance DEX main page. Select your account from the top menu bar and copy your address. Next, paste it to a new document.
 
 ![Select Wallet](/developers/img/bep2-loom-grab-your-address.png)
