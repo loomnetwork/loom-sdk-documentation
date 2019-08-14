@@ -1,20 +1,21 @@
 ---
 id: deposit-and-withdraw-BEP2
-title: Deposit and Withdraw BEP2 Tokens
+title: Deposit and Withdraw BEP-2 Tokens
 ---
 
-## Getting Started - What is BEP2
+## Getting Started - What is BEP-2
 
 BEP-2 represents a common set of rules for token management on the Binance Chain and it specifies:
 
 - What information makes a token on Binance Chain
 - What actions can be performed on a token on Binance Chain
 
-See the [BEP2 GitHub page](https://github.com/binance-chain/BEPs/blob/master/BEP2.md) for more details.
+See the [BEP-2 GitHub page](https://github.com/binance-chain/BEPs/blob/master/BEP2.md) for more details.
 
 ## Purpose
 
-This is the second guide in our Binance series. First, we walked you through the process of [transferring BNB](deposit-and-withdraw-bnb.html) between Binance and Loom. However, as a developer, you can also launch your BEP2 token on Binance. Thus, this guide shows how to build a simple DApp that transfers BEP2 tokens between Binance TestNet and Loom TestNet. The third guide in the series will explain how to transfer a token between Binance, Loom, and Ethereum.
+This is the second guide in our Binance series. First, we walked you through the process of [transferring BNB](deposit-and-withdraw-bnb.html) between Binance and Loom. However, as a developer, you can also launch your BEP2 token on Binance. 
+This guide shows how to build a simple DApp that transfers BEP2 tokens between Binance TestNet and Loom TestNet. The third guide in the series will explain how to transfer a token between Binance, Loom, and Ethereum.
 
 Let's get the ball rolling!
 
@@ -57,16 +58,15 @@ Issuing a new token on Binance TestNet will require you to pay a fee of 500 Test
 
 - Once finished, click the `Submit button`. This will credit each wallet with 200 TestNet BNB tokens.
 
-- Now, what's left to do is to transfer the BNB TestNet tokens from wallet B and C to wallet A. Let's [unlock](https://testnet.binance.org/en/unlock) wallet A by uploading the keystore file and typing the password. This will redirect you to the Binance TestNet home page. From the top menu bar select `Balances` and then click `Send`.
-
+- Now, what's left to do is to transfer the BNB TestNet tokens from wallet B and C to wallet A. Let's [unlock](https://testnet.binance.org/en/unlock) wallet B by uploading the keystore file and typing the password. This will redirect you to the Binance TestNet home page. From the top menu bar select `Balances` and then click `Send`:
 
 ![Send BNB](/developers/img/bep2-loom-send-bnb.png)
 
-- Fill in the input box with the wallet A address and make sure you send all the tokens by clicking the 'Max` button.
+- Fill in the input box with the address of the wallet A and make sure you send all the tokens by clicking the `Max` button:
 
 ![Select Wallet](/developers/img/bep2-loom-send-asset.png)
 
-- Now, confirm the transaction details and the tokens will be transferred to wallet A.
+- Now, confirm the transaction details and the tokens will be transferred to wallet A:
 
 ![Confirm transaction](/developers/img/bep2-loom-confirm-transaction.png)
 
@@ -77,13 +77,13 @@ At this point, `wallet A` should hold 600 BNB tokens.
 
 ### 1.a Importing Your Wallet
 
-Before issuing our new token on Binance TestNet, we must import `wallet A` locally. To do so, `cd` into the directory where you downloaded the Binance TestNet CLI and run the following command:
+Before issuing a new token on Binance TestNet, you must import `wallet A` locally. To do so, `cd` into the directory where you downloaded the Binance TestNet CLI and run the following command:
 
 ```bash
 ./tbnbcli keys add testkey --recover
 ```
 
-This will recover your import your wallet by recovering it from your seed phrase. You will be asked to type a password and then to enter your recovery seed phrase:
+This will import your wallet by recovering it from your seed phrase. You will be asked to type your password and then to enter your recovery seed phrase:
 
 ```bash
 Enter a passphrase for your key:
@@ -91,7 +91,7 @@ Repeat the passphrase:
 > Enter your recovery seed phrase:
 ```
 
-To check if your key was successfully imported, type:
+You can check if your key was successfully imported with the following:
 
 ```bash
 ./bnbcli keys list
@@ -107,7 +107,7 @@ testkey local   tbnb178zcz9nhuufdtk7esy22rel5k8zpsvqelr596w bnbp1addwnpepqt
 
 ### 1.b Issuing a token on Binance TestNet
 
-Run the following command to issue a mintable token on Binance TestNet:
+Run the following command to issue a `mintable` token on Binance TestNet:
 
 ```bash
 ./tbnbcli token issue --token-name "BTE" --total-supply 100000000000000000 --symbol BTE --mintable --from testkey --chain-id=Binance-Chain-Nile --node=data-seed-pre-2-s1.binance.org:80 --trust-node
@@ -126,7 +126,7 @@ Password to sign with 'testkey':
 Committed at block 30761571 (tx hash: A164760DDF6BD6227F670CCBA2252EDA818D7D943A629881DDEC1B22F536B1F1, response: {Code:0 Data:[123 34 110 97 109 101 34 58 34 66 84 69 34 44 34 115 121 109 98 111 108 34 58 34 66 84 69 45 65 49 54 34 44 34 111 114 105 103 105 110 97 108 95 115 121 109 98 111 108 34 58 34 66 84 69 34 44 34 116 111 116 97 108 95 115 117 112 112 108 121 34 58 34 49 48 48 48 48 48 48 48 48 48 46 48 48 48 48 48 48 48 48 34 44 34 111 119 110 101 114 34 58 34 116 98 110 98 49 55 56 122 99 122 57 110 104 117 117 102 100 116 107 55 101 115 121 50 50 114 101 108 53 107 56 122 112 115 118 113 101 108 114 53 57 54 119 34 44 34 109 105 110 116 97 98 108 101 34 58 116 114 117 101 125] Log:Msg 0: Issued BTE-A16 Info: GasWanted:0 GasUsed:0 Tags:[{Key:[97 99 116 105 111 110] Value:[105 115 115 117 101 77 115 103] XXX_NoUnkeyedLiteral:{} XXX_unrecognized:[] XXX_sizecache:0}] Codespace: XXX_NoUnkeyedLiteral:{} XXX_unrecognized:[] XXX_sizecache:0})
 ```
 
-Note that, to make sure the token name is unique, Binance is adding a 3 letter suffix. This way, the name of your new token should look something like this `BTE-A16`.
+Note that, to make sure the token name is unique, Binance is adding a 3 letter suffix. Thus, the name of your new token should look something like this `BTE-A16`.
 
 For more details on how to issue tokens, see the [Binance Asset Management](https://docs.binance.org/tokens.html#asset-management) page.
 
@@ -138,7 +138,7 @@ Minting tokens is as easy as running this command:
 ./tbnbcli token mint --amount 100000000000000000 --symbol BTE --from testKey --chain-id=Binance-Chain-Nile --node=data-seed-pre-2-s1.binance.org:80 --trust-node
 ```
 
-You will be required to type your password and then you'll see something similar to the following:
+You will be required to type your password and then you should see something like:
 
 ```bash
 Password to sign with 'testkey':
@@ -164,7 +164,7 @@ npm install
 
 ## 1.e Deploying to Loom Testnet
 
-To move BEP2 tokens between Binance TestNet and Loom TestNet we must deploy a corresponding ERC20 smart contract to Loom. Let's call it `SampleBEP2Token`:
+To move BEP-2 tokens between Binance TestNet and Loom TestNet we must deploy a corresponding ERC20 smart contract to Loom. For demonstration purposes, we've created a shell of an smart contract - `SampleBEP2Token`. Its source code is listed below:
 
 
 ```solidity
@@ -179,7 +179,7 @@ contract SampleBEP2Token is BEP2TokenTemplate {
 }
 ```
 
-As you can see, it inherits from `./BEP2TokenTemplate.sol`. Let's now take a look at `./BEP2TokenTemplate.sol`:
+As you can see, it basically inherits from `./BEP2TokenTemplate.sol,` which provides a set of useful functions. Let's go ahead take a look at `./BEP2TokenTemplate.sol`:
 
 ```solidity
 pragma solidity 0.4.24;
@@ -248,15 +248,15 @@ The most important thing to note is the `mintToGateway` function. This allows th
 > Note: You can find these contracts in the `./truffle/contracts` directory.
 
 
-Now that we know how our ERC20 smart contracts look like, it is time to generate a Loom private key by running:
+Now that we know how our ERC20 smart contracts look like, it is time to generate a Loom private key with this:
 
 ```bash
 npm run gen:loom-key
 ```
 
-This will create a new private key and save it to `./truffle/loom_private_key`.
+The above command will create a new private key and save it to the `./truffle/loom_private_key` file.
 
-We're now ready to deploy our smart contract to Loom TestNet. This is as simple as:
+At this point, you're ready to deploy the smart contract to Loom TestNet. This is as simple as:
 
 
 ```bash
@@ -265,7 +265,8 @@ npm run migrate:sample-bep2-token
 
 ## 1.f Mapping Contracts
 
-Once you've deployed the `SampleBEP2Token` contract you'll need to send a request to the Transfer Gateway to create a mapping between the BEP2 and ERC20 tokens. This way, when the Transfer Gateway is notified that a token from Binance has been deposited to the Transfer Gateway, it will mint a matching token in your Loom ERC20 contract (unless the token already exists on the Loom TestNet). The Transfer Gateway will refuse to create a contract mapping unless you provide proof that you deployed both contracts. We've baked all the logic in the `./scripts/map-binance-contracts.js` script. Feel free to take a look and get a glimpse of how it works.
+Once you've deployed the `SampleBEP2Token` contract you'll need to send a request to the Transfer Gateway to create a mapping between the BEP2 and ERC20 tokens. This way, when the Transfer Gateway is notified that a token from Binance has been deposited to the Transfer Gateway, it will mint a matching token in your Loom ERC20 contract (unless the token already exists on the Loom TestNet). The Transfer Gateway will refuse to create a contract mapping unless you provide proof that you deployed both contracts. We've baked all the logic in the `./scripts/map-binance-contracts.js` script. Once you finish this tutorial, feel free to take a look and get a glimpse of how it works.
+
 However, before running the said script, we need to do some prep work:
 
  - First, let's save the name of our BEP2 token into a file called `./binance/binance-token-name.txt`:
@@ -274,7 +275,7 @@ However, before running the said script, we need to do some prep work:
 echo "<YOUR_BEP2_TOKEN_NAME" > ./binance/binance-token-name.txt
 ```
 
-- Next, we need to extract the Binance private key from the keystore file. Copy your `keystore_a` file into the `./binance` folder and rename it to `binance_keystore`
+- Next, we need to extract the Binance private key from the keystore file. Copy your `keystore_a` file into the `./binance` folder and rename it to `binance_keystore`.
 
  - To map the contracts, type:
 
@@ -302,14 +303,14 @@ Of course, your initial BEP2 and BNB balances will be 0. Go to Binance, and tran
 
 So far, we learned how to set things up and spin up the demo. Next, we'll look into how it works under the hood.
 
-## 2 Under the Hood of the BEP2 Demo
+## 2 Under the Hood of the BEP-2 Demo
 
-We've baked all the logic into three files:
+In this section, we'll explain the basics of building a bare bones web user interface that lets users move tokens between Binance and Loom. We've baked all the logic into three files:
  - `src/bep2-deposit-withdraw.js`
  - `src/bep2/BEP2Coin.js`
  - `src/bnb/BNBCoin.js`
 
- In the next chapters, we'll take a closer look at each of these files.
+In the next chapters, we'll take a closer look at each of these files.
 
 ### 2.a bep2-deposit-withdraw.js
 
@@ -326,7 +327,7 @@ this.bnbCoin = new BNBCoin()
 this.bnbCoin.load()
 ```
 
-- then, the `withdrawBEP2` first calls `this.bnbCoin.approveFee` to approve the fee and only after the fee gets approved, it goes ahead and calls `this.bep2Coin.withdrawBEP2`
+- then, the `withdrawBEP2` first calls `this.bnbCoin.approveFee` to approve the fee and only after the fee gets approved, it goes ahead and calls `this.bep2Coin.withdrawBEP2`:
 
 ```js
 async withdrawBEP2 () {
@@ -363,7 +364,7 @@ async approveFee () {
  }
 ```
 
-Also, we've removed the hardcoded Transfer Gateway address and added a function that resolves the address by name:
+Also, we've replaced the hard coded Transfer Gateway address with a nice function that resolves the address by name:
 
 ```js
 async _getBinanceTransferGatewayAddress () {
@@ -374,7 +375,7 @@ async _getBinanceTransferGatewayAddress () {
 
 ## 2.c BEP2Coin.js
 
-This class is similar in many respects to `BNBCoin` class but there are also a few differences. Let's take a closer look at how it works:
+The `BEP2Coin` class  is similar in many respects to `BNBCoin` class, but there are a few differences. Let's take a closer look at how it works:
 
 - First, we initialize a couple of things:
 
@@ -393,9 +394,9 @@ async load () {
  }
 ```
 
-This instantiates a new `Client`, gets the Loom address, initializes a web3 instance and our contracts. Then it calls `_filterEvents` so the balances get automatically updated. Finally, it reads the initial balance and updates the status to `waiting` for a transaction.
+This sets the current network to `extdev`, instantiates a new `Client`, gets the Loom address, initializes a web3 instance and our contracts. Then it calls `_filterEvents` so the balances get automatically updated. Lastly, it reads the initial balance and updates the status to `waiting`.
 
- - To withdraw some BEP2 tokens we must first approve the transfer gateway to take them, then we wait a bit and check if the `allowance` gets updated. If so, we go ahead and call `withdrawTokenAsync`, the function that actually withdraw the tokens:
+ - To withdraw BEP2 tokens we must first approve the transfer gateway to take them, then we wait a bit and check if the `allowance` gets updated. If so, we go ahead and call `withdrawTokenAsync` (that is the function that actually withdraw the tokens):
 
 ```js
  async withdrawBEP2 (binanceAddress, amountToWithdraw) {
