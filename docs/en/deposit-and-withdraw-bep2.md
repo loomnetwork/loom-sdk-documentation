@@ -179,7 +179,7 @@ contract SampleBEP2Token is BEP2TokenTemplate {
 }
 ```
 
-As you can see, it basically inherits from `./BEP2TokenTemplate.sol,` which provides a set of useful functions. Let's go ahead take a look at `./BEP2TokenTemplate.sol`:
+As you can see, it basically inherits from `./BEP2TokenTemplate.sol,`. This smart contract provides a buch of useful functions and you can use it in your own apps by simply inheriting from it. Let's go ahead take a look at `./BEP2TokenTemplate.sol`:
 
 ```solidity
 pragma solidity 0.4.24;
@@ -248,7 +248,7 @@ The most important thing to note is the `mintToGateway` function. This allows th
 > Note: You can find these contracts in the `./truffle/contracts` directory.
 
 
-Now that we know how our ERC20 smart contracts look like, it is time to generate a Loom private key with this:
+Now that we know how our ERC20 smart contracts look like, it is time to generate a Loom private key:
 
 ```bash
 npm run gen:loom-key
@@ -265,9 +265,42 @@ npm run migrate:sample-bep2-token
 
 ## 1.f Mapping Contracts
 
-Once you've deployed the `SampleBEP2Token` contract you'll need to send a request to the Transfer Gateway to create a mapping between the BEP2 and ERC20 tokens. This way, when the Transfer Gateway is notified that a token from Binance has been deposited to the Transfer Gateway, it will mint a matching token in your Loom ERC20 contract (unless the token already exists on the Loom TestNet). The Transfer Gateway will refuse to create a contract mapping unless you provide proof that you deployed both contracts. We've baked all the logic in the `./scripts/map-binance-contracts.js` script. Once you finish this tutorial, feel free to take a look and get a glimpse of how it works.
+Once you've deployed the `SampleBEP2Token` contract you'll need to send a request to the Transfer Gateway to create a mapping between the BEP2 and ERC20 tokens. This way, when the Transfer Gateway is notified that a token from Binance has been deposited to the hot wallet address, it will mint a matching token in your Loom ERC20 contract (unless the token already exists on the Loom TestNet). The Transfer Gateway will refuse to create a contract mapping unless you provide proof that you deployed both contracts.
+To prove that you deployed both contracts, you are required to:
 
-However, before running the said script, we need to do some prep work:
+ - convert your Binance token name to an address that `loom-js` is able to work with:
+
+ ```js
+ const binanceTokenAddress = ethers.utils.hexZeroPad('0x' + Buffer.from(binanceTokenName, 'utf8').toString('hex'), 20)
+ ```
+
+ - build a message by concating the addresses of your Binance and Loom tokens:
+
+ ```js
+const msg = binanceTokenAddress + tokenExtdevAddress.slice(2)
+ ```
+ 
+ - sign the message using your Binance private key:
+
+ ```js
+ const foreignContractCreatorSig = await signer.signAsync(msg)
+ ```
+
+ - Lastly, call the `addContractMappingAsync` on the Binance Gateway with a bunch of parameters:
+
+ ```js
+ await gatewayContract.addContractMappingAsync({
+    localContract,
+    foreignContract,
+    foreignContractCreatorSig,
+    foreignContractCreatorTxHash })
+ ```
+
+Note that, on success,`addContractMappingAsync` doesn't return anything. However, if the mapping already exists, it'll throw- `Failed to commit Tx: TG012: contract mapping already exists`.
+
+We've gone ahead and baked all the logic in the `./scripts/map-binance-contracts.js` script. Once you finish this tutorial, feel free to take a look and get a glimpse of how it works.
+
+But before running the said script, we need to do some prep work:
 
  - First, let's save the name of our BEP2 token into a file called `./binance/binance-token-name.txt`:
 
@@ -305,12 +338,12 @@ So far, we learned how to set things up and spin up the demo. Next, we'll look i
 
 ## 2 Under the Hood of the BEP-2 Demo
 
-In this section, we'll explain the basics of building a bare bones web user interface that lets users move tokens between Binance and Loom. We've baked all the logic into three files:
+In this section, we'll explain the basics of building a bare bones web user interface that lets users move tokens between Binance and Loom. You'll find everything into to the following files:
  - `src/bep2-deposit-withdraw.js`
  - `src/bep2/BEP2Coin.js`
  - `src/bnb/BNBCoin.js`
 
-In the next chapters, we'll take a closer look at each of these files.
+In the next chapters, we'll take a closer look at the most important lines of code from these files.
 
 ### 2.a bep2-deposit-withdraw.js
 
@@ -318,7 +351,7 @@ This file deals with user interaction.
 
 Things to note:
 
- - since withdrawing BEP2 tokens to Binance requires a fee to be paid, the `depositWithdrawBEP2Example` function instantiates both the `BNBCoin` and `BEP2Coin` classes:
+ - Withdrawing BEP2 tokens to Binance requires a fee to be paid. Hence, the `depositWithdrawBEP2Example` function instantiates and then initializes both the `BNBCoin` and `BEP2Coin` classes:
 
  ```js
 this.bep2Coin = new BEP2Coin()
@@ -327,7 +360,7 @@ this.bnbCoin = new BNBCoin()
 this.bnbCoin.load()
 ```
 
-- then, the `withdrawBEP2` first calls `this.bnbCoin.approveFee` to approve the fee and only after the fee gets approved, it goes ahead and calls `this.bep2Coin.withdrawBEP2`:
+- Next, the `withdrawBEP2` first calls `this.bnbCoin.approveFee` to approve the fee and only after the fee gets approved, it goes ahead and calls `this.bep2Coin.withdrawBEP2`:
 
 ```js
 async withdrawBEP2 () {
@@ -346,7 +379,7 @@ async withdrawBEP2 () {
 
 ## 2.b BNBCoin.js
 
-If you followed along with our BNB tutorial, then this should look very familiar to you. The most important change we've made is that we've added the `approveFee` function:
+If you followed along with our BNB tutorial, this should look very familiar to you. The most important change we've made is that we've added the `approveFee` function:
 
 ```js
 async approveFee () {
@@ -375,7 +408,7 @@ async _getBinanceTransferGatewayAddress () {
 
 ## 2.c BEP2Coin.js
 
-The `BEP2Coin` class  is similar in many respects to `BNBCoin` class, but there are a few differences. Let's take a closer look at how it works:
+The `BEP2Coin` class  is similar in many respects to `BNBCoin` class, but there are a few differences. Let's take a closer look at how it works.
 
 - First, we initialize a couple of things:
 
@@ -394,7 +427,7 @@ async load () {
  }
 ```
 
-This sets the current network to `extdev`, instantiates a new `Client`, gets the Loom address, initializes a web3 instance and our contracts. Then it calls `_filterEvents` so the balances get automatically updated. Lastly, it reads the initial balance and updates the status to `waiting`.
+This sets the current network to `extdev`, instantiates a new `Client`, gets the Loom address, initializes a web3 instance and our contracts. Then, it calls `_filterEvents` so the balances get automatically updated. Lastly, it reads the initial balance and updates the status to `waiting`.
 
  - To withdraw BEP2 tokens we must first approve the transfer gateway to take them, then we wait a bit and check if the `allowance` gets updated. If so, we go ahead and call `withdrawTokenAsync` (that is the function that actually withdraw the tokens):
 
