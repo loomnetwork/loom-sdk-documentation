@@ -270,10 +270,10 @@ npm run migrate:sample-bep2-token
 Once you've deployed the `SampleBEP2Token` contract you'll need to send a request to the Transfer Gateway to create a mapping between the BEP2 and ERC20 tokens. This way, when the Transfer Gateway is notified that a token from Binance has been deposited to the hot wallet address, it will mint a matching token in your Loom ERC20 contract (unless the token already exists on the Loom TestNet). The Transfer Gateway will refuse to create a contract mapping unless you provide proof that you deployed both contracts.
 To prove that you deployed both contracts, you are required to:
 
- - convert your Binance token name to an address that `loom-js` is able to work with:
+ - convert your Binance token symbol to an address that `loom-js` is able to work with:
 
  ```js
- const binanceTokenAddress = ethers.utils.hexZeroPad('0x' + Buffer.from(binanceTokenName, 'utf8').toString('hex'), 20)
+ const binanceTokenAddress = ethers.utils.hexZeroPad('0x' + Buffer.from(binanceTokenSymbol, 'utf8').toString('hex'), 20)
  ```
 
  - build a message by concating the addresses of your Binance and Loom tokens:
