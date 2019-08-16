@@ -185,6 +185,7 @@ module.exports = {
         sidebarDepth: 1,
         children: [
           ['/deposit-and-withdraw-bnb', 'Deposit and Withdraw BNB'],
+          ['/deposit-and-withdraw-bep2', 'Deposit and Withdraw BEP2'],
         ],
       },
       {
