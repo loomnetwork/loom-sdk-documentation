@@ -113,7 +113,7 @@ Run the following command to issue a `mintable` token on Binance TestNet:
 ./tbnbcli token issue --token-name "<YOUR-TOKEN-NAME>" --total-supply 100000000000000000 --symbol <YOUR-TOKEN-SYMBOL> --mintable --from testkey --chain-id=Binance-Chain-Nile --node=data-seed-pre-2-s1.binance.org:80 --trust-node
 ```
 
-> Note: In the above command, replace <YOUR-TOKEN-NAME> and <YOUR-TOKEN-SYMBOL> with your token name and symbol. Make sure they're unique.
+>Note: In the above command, replace `<YOUR-TOKEN-NAME>` and `<YOUR-TOKEN-SYMBOL>` with your token name and symbol. Make sure they're unique.
 
 First, you will be asked to type the password you set earlier:
 
