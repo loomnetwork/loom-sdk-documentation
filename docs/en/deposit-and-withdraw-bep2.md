@@ -46,7 +46,7 @@ If Node.js is not installed, or you're running an older version, you can downloa
 
 Issuing a new token on Binance TestNet will require you to pay a fee of 500 TestNet BNB tokens. Thus, before moving forward with this example, you must get at least 500 TestNet BNB tokens by following the steps from below:
 
-- Go to the Binance [Create New Wallet](https://testnet.binance.org/en/create) page and create **three** Binance TestNet wallets. Let's call them A, B, and C. Download the keystore files and give them some meaningful names such as `keystore_a`, `keystore_b`, and `keystore_c`.
+- Go to the Binance [Create New Wallet](https://testnet.binance.org/en/create) page and create **three** Binance TestNet wallets. Let's call them A, B, and C. Download the keystore files and give them some meaningful names such as `keystore_a`, `keystore_b`, and `keystore_c`. Alsdo, don't forget to save the mnemonics somewhere safe.
 - Head over to the [Unlock Page](https://testnet.binance.org/en/unlock) and unlock wallet A. This will take you the Binance DEX main page. Select your account from the top menu bar and copy your address. Next, paste it to a new document.
 
 ![Select Wallet](/developers/img/bep2-loom-grab-your-address.png)
@@ -83,7 +83,7 @@ Before issuing a new token on Binance TestNet, you must import `wallet A` locall
 ./tbnbcli keys add testkey --recover
 ```
 
-This will import your wallet by recovering it from your seed phrase. You will be asked to type your password and then to enter your recovery seed phrase:
+This will import your wallet by recovering it from your seed phrase. Note that the recovery seed phrase is just the mnemonic phrase we asked you to save somewhere safe a bit earlier. You will be asked to type your password and then to enter your recovery seed phrase:
 
 ```bash
 Enter a passphrase for your key:
@@ -110,8 +110,10 @@ testkey local   tbnb178zcz9nhuufdtk7esy22rel5k8zpsvqelr596w bnbp1addwnpepqt
 Run the following command to issue a `mintable` token on Binance TestNet:
 
 ```bash
-./tbnbcli token issue --token-name "BTE" --total-supply 100000000000000000 --symbol BTE --mintable --from testkey --chain-id=Binance-Chain-Nile --node=data-seed-pre-2-s1.binance.org:80 --trust-node
+./tbnbcli token issue --token-name "<YOUR-TOKEN-NAME>" --total-supply 100000000000000000 --symbol <YOUR-TOKEN-SYMBOL> --mintable --from testkey --chain-id=Binance-Chain-Nile --node=data-seed-pre-2-s1.binance.org:80 --trust-node
 ```
+
+> Note: In the above command, replace <YOUR-TOKEN-NAME> and <YOUR-TOKEN-SYMBOL> with your token name and symbol. Make sure they're unique.
 
 First, you will be asked to type the password you set earlier:
 
@@ -126,7 +128,7 @@ Password to sign with 'testkey':
 Committed at block 30761571 (tx hash: A164760DDF6BD6227F670CCBA2252EDA818D7D943A629881DDEC1B22F536B1F1, response: {Code:0 Data:[123 34 110 97 109 101 34 58 34 66 84 69 34 44 34 115 121 109 98 111 108 34 58 34 66 84 69 45 65 49 54 34 44 34 111 114 105 103 105 110 97 108 95 115 121 109 98 111 108 34 58 34 66 84 69 34 44 34 116 111 116 97 108 95 115 117 112 112 108 121 34 58 34 49 48 48 48 48 48 48 48 48 48 46 48 48 48 48 48 48 48 48 34 44 34 111 119 110 101 114 34 58 34 116 98 110 98 49 55 56 122 99 122 57 110 104 117 117 102 100 116 107 55 101 115 121 50 50 114 101 108 53 107 56 122 112 115 118 113 101 108 114 53 57 54 119 34 44 34 109 105 110 116 97 98 108 101 34 58 116 114 117 101 125] Log:Msg 0: Issued BTE-A16 Info: GasWanted:0 GasUsed:0 Tags:[{Key:[97 99 116 105 111 110] Value:[105 115 115 117 101 77 115 103] XXX_NoUnkeyedLiteral:{} XXX_unrecognized:[] XXX_sizecache:0}] Codespace: XXX_NoUnkeyedLiteral:{} XXX_unrecognized:[] XXX_sizecache:0})
 ```
 
-Note that, to make sure the token name is unique, Binance is adding a 3 letter suffix. Thus, the name of your new token should look something like this `BTE-A16`.
+Note that Binance is adding a 3 letter suffix. As seen above (`Issued BTE-A16`), our token symbol is `BTE-A16`. Yours will be different.
 
 For more details on how to issue tokens, see the [Binance Asset Management](https://docs.binance.org/tokens.html#asset-management) page.
 
@@ -135,7 +137,7 @@ For more details on how to issue tokens, see the [Binance Asset Management](http
 Minting tokens is as easy as running this command:
 
 ```bash
-./tbnbcli token mint --amount 100000000000000000 --symbol BTE --from testKey --chain-id=Binance-Chain-Nile --node=data-seed-pre-2-s1.binance.org:80 --trust-node
+./tbnbcli token mint --amount 100000000000000000 --symbol <YOUR-TOKEN-SYMBOL> --from testKey --chain-id=Binance-Chain-Nile --node=data-seed-pre-2-s1.binance.org:80 --trust-node
 ```
 
 You will be required to type your password and then you should see something like:
@@ -302,11 +304,11 @@ We've gone ahead and baked all the logic in the `./scripts/map-binance-contracts
 
 But before running the said script, we need to do some prep work:
 
- - First, let's save the name of our BEP2 token into a file called `./binance/binance-token-name.txt`:
+ - Save the symbol of our BEP2 token into a file called `./binance/binance-token-symbol.txt`:
 
  ```bash
-echo "<YOUR_BEP2_TOKEN_NAME" > ./binance/binance-token-name.txt
-```
+ echo -n "<YOUR-TOKEN-NAME" > ./binance/binance-token-symbol.txt
+ ```
 
 - Next, we need to extract the Binance private key from the keystore file. Copy your `keystore_a` file into the `./binance` folder and rename it to `binance_keystore`.
 
