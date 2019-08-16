@@ -125,7 +125,8 @@ Next you'll see something like this printed out to the console:
 
 ```bash
 Password to sign with 'testkey':
-Committed at block 30761571 (tx hash: A164760DDF6BD6227F670CCBA2252EDA818D7D943A629881DDEC1B22F536B1F1, response: {Code:0 Data:[123 34 110 97 109 101 34 58 34 66 84 69 34 44 34 115 121 109 98 111 108 34 58 34 66 84 69 45 65 49 54 34 44 34 111 114 105 103 105 110 97 108 95 115 121 109 98 111 108 34 58 34 66 84 69 34 44 34 116 111 116 97 108 95 115 117 112 112 108 121 34 58 34 49 48 48 48 48 48 48 48 48 48 46 48 48 48 48 48 48 48 48 34 44 34 111 119 110 101 114 34 58 34 116 98 110 98 49 55 56 122 99 122 57 110 104 117 117 102 100 116 107 55 101 115 121 50 50 114 101 108 53 107 56 122 112 115 118 113 101 108 114 53 57 54 119 34 44 34 109 105 110 116 97 98 108 101 34 58 116 114 117 101 125] Log:Msg 0: Issued BTE-A16 Info: GasWanted:0 GasUsed:0 Tags:[{Key:[97 99 116 105 111 110] Value:[105 115 115 117 101 77 115 103] XXX_NoUnkeyedLiteral:{} XXX_unrecognized:[] XXX_sizecache:0}] Codespace: XXX_NoUnkeyedLiteral:{} XXX_unrecognized:[] XXX_sizecache:0})
+Committed at block 30761571 (tx hash: A164760DDF6BD6227F670CCBA2252EDA818D7D943A629881DDEC1B22F536B1F1, response: {Code:0 Data:[123 34 110 97 109 101 34 58 34 66 84 69 34 44 34 115 121 109 98 111 108 34 58 34 66 84 69 45 65 49 54 34 44 34 111 114 105 103 105 110 97 108 95 115 121 109 98 111 108 34 58 34 66 84 69 34 44 34 116 111 116 97 108 95 115 117 112 112 108 121 34 58 34 49 48 48 48 48 48 48 48 48 48 46 48 48 48 48 48 48 48 48 34 44 34 111 119 110 101 114 34 58 34 116 98 110 98 49 55 56 122 99 122 57 110 104 117 117 102 100 116 107 55 101 115 121 50 50 114 101 108 53 107 56 122 112 115 118 113 101 108 114 53 57 54 119 34 44 34 109 105 110 116 97 98 108 101 34 58 116 114 117 101 125] 
+Log:Msg 0: Issued BTE-A16 Info: GasWanted:0 GasUsed:0 Tags:[{Key:[97 99 116 105 111 110] Value:[105 115 115 117 101 77 115 103] XXX_NoUnkeyedLiteral:{} XXX_unrecognized:[] XXX_sizecache:0}] Codespace: XXX_NoUnkeyedLiteral:{} XXX_unrecognized:[] XXX_sizecache:0})
 ```
 
 Note that Binance is adding a 3 letter suffix. As seen above (`Issued BTE-A16`), our token symbol is `BTE-A16`. Yours will be different.
@@ -307,7 +308,7 @@ But before running the said script, we need to do some prep work:
  - Save the symbol of our BEP2 token into a file called `./binance/binance-token-symbol.txt`:
 
  ```bash
- echo -n "<YOUR-TOKEN-SYMBOL" > ./binance/binance-token-symbol.txt
+ echo -n "YOUR-TOKEN-SYMBOL" ./binance/binance-token-symbol.txt
  ```
 
 - Next, we need to extract the Binance private key from the keystore file. Copy your `keystore_a` file into the `./binance` folder and rename it to `binance_keystore`.
