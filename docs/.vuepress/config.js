@@ -116,6 +116,12 @@ module.exports = {
         ],
       },
       {
+        title: 'Develop',
+        collapsable: true,
+        sidebarDepth: 1,
+        children: ['/how-to-develop-locally', 'How to Develop Locally'],
+      },
+      {
         title: 'Events',
         collapsable: true,
         sidebarDepth: 1,
