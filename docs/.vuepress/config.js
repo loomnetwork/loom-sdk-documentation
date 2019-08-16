@@ -76,6 +76,7 @@ module.exports = {
           ['/extdev-transfer-gateway', 'extdev-transfer-gateway'],
           ['/deploy-loom-mainnet', 'Deploy to Loom Mainnet'],
           ['/basic-install-all', 'Setup Local Loom Chain'],
+          ['/how-to-develop-locally', 'How to Develop Locally']
         ],
       },
       {
@@ -114,12 +115,6 @@ module.exports = {
           ['/unity-truffle-loom-sample', 'Unity + Truffle + Loom Quick Start'],
           ['/unity-truffle-loom-template', 'Unity + Truffle + Loom Template'],
         ],
-      },
-      {
-        title: 'Develop',
-        collapsable: true,
-        sidebarDepth: 1,
-        children: ['/how-to-develop-locally', 'How to Develop Locally'],
       },
       {
         title: 'Events',
