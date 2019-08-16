@@ -307,7 +307,7 @@ But before running the said script, we need to do some prep work:
  - Save the symbol of our BEP2 token into a file called `./binance/binance-token-symbol.txt`:
 
  ```bash
- echo -n "<YOUR-TOKEN-NAME" > ./binance/binance-token-symbol.txt
+ echo -n "<YOUR-TOKEN-SYMBOL" > ./binance/binance-token-symbol.txt
  ```
 
 - Next, we need to extract the Binance private key from the keystore file. Copy your `keystore_a` file into the `./binance` folder and rename it to `binance_keystore`.
