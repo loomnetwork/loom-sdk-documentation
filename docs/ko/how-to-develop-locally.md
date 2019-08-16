@@ -531,4 +531,4 @@ You should see something similar to the following:
       2 passing (14s)
     
 
-Great! Now that you've learned how to develop and test locally, you might want to further your knowledge and learn how to join the Loom Testnet. If so, head over to [this guide](/developers/join-testnet) and follow the instructions.
+Great! Now that you've learned how to develop and test locally, you might want to further your knowledge and learn how to join the Loom Testnet. If so, head over to [this guide](deploy-loom-testnet.html) and follow the instructions.
