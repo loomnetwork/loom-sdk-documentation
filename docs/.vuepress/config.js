@@ -187,6 +187,7 @@ module.exports = {
         children: [
           ['/deposit-and-withdraw-bnb', 'Deposit and Withdraw BNB'],
           ['/deposit-and-withdraw-bep2', 'Deposit and Withdraw BEP2'],
+          ['/binance-loom-ethereum', 'Move tokens between Binance, Loom, and Ethereum'],
         ],
       },
       {
