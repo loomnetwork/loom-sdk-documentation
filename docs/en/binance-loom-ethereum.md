@@ -29,7 +29,7 @@ Now, to move tokens to Ethereum, we are required to deploy a new contract to the
 cd mainnet && npm install && cd ..
 ```
 
-Then, use the following commands to deploy to Rinkeby:
+Then, use the following commands to deploy the new contract to Rinkeby:
 
 ```bash
 export INFURA_API_KEY=<YOUR API KEY> && npm run migrate:rinkeby-bep2-token
@@ -43,7 +43,7 @@ npm run map:bep2-contracts
 
 ## Spinning Up the Demo
 
-Once you completed the previous steps, you are ready to see it in action. Run the following command:
+Once you completed the previous steps, you are ready to see the demo in action. Run the following command:
 
 ```bash
 npm run start
@@ -122,13 +122,15 @@ You can check the full source code of this smart contract on GitHub.
 
 //TODO: add links to the scripts we use to create the mappings
  
-## The User Interface
+## The Front-End
 
 In this section, we'll take a quick look at what happens under the hood of the user interface.
 
 We splitted the code roughly into two files:
 
-- `./src/binance-loom-ethereum.js` mainly deals with the user interface. Also, since transferring tokens to Binance and Ethereum will require us to pay fees, we import and initialize the [BNBCoin](https://github.com/loomnetwork/loom-examples/blob/master/src/bnb/BNBCoin.js) and [LoomEthCoin](https://github.com/loomnetwork/loom-examples/blob/master/src/LoomEthCoin/LoomEthCoin.js) classes:
+### ./src/binance-loom-ethereum.js
+
+This file mainly deals with the user interface. Also, since transferring tokens to Binance and Ethereum will require us to pay fees, we import and initialize the [BNBCoin](https://github.com/loomnetwork/loom-examples/blob/master/src/bnb/BNBCoin.js) and [LoomEthCoin](https://github.com/loomnetwork/loom-examples/blob/master/src/LoomEthCoin/LoomEthCoin.js) classes:
 
 ```js
 this.bep2Coin = new BinanceExtdevRinkeby()
@@ -140,18 +142,8 @@ await this.ethCoin.load(this.web3js)
 
 ```
 
-For convenience, we've added a new function to each class that approves the gateway to take the fees:
+For convenience, we've added a new function to the `BNBCoin` that approves the gateway to take the fee:
 
-**LoomEthCoin.js**
-
-```js
-async approveFee () {
-  const gatewayAddress = Address.fromString(this.loomGatewayContract.address.toString())
-  await this.ethCoin.approveAsync(gatewayAddress, new BN(this._gas()))
-}
-```
-
-**BNBCoin.js**
 
 ```js
 async approveFee () {
@@ -169,8 +161,19 @@ async approveFee () {
 }
 
 ```
+
+Then, we did the same for the `LoomEthCoin.js` class:
+
+```js
+async approveFee () {
+  const gatewayAddress = Address.fromString(this.loomGatewayContract.address.toString())
+  await this.ethCoin.approveAsync(gatewayAddress, new BN(this._gas()))
+}
+```
+
+### ./src/bep2/BinanceExtdevRinkeby.js
   
-- The `BinanceExtdevRinkeby` class is where we've baked most of the logic. First, we import a few things:
+The `BinanceExtdevRinkeby` class is where we've baked most of the logic. First, we import a few things:
 
 ```js
 import {
@@ -249,7 +252,7 @@ async _load (web3Ethereum) {
 
 Now, let's get back to our function from the `BinanceExtdevRinkeby` class. Next, it initializes the contracts with `_getContracts`, and calls a function that we'll listen for events- `_filterEvents`. This way, every time our balance changes, the UI will get updated. Lastly, the function reads the initial balance by running `_refreshBalance`.
 
-### Moving tokens from Loom to Ethereum
+## Moving tokens from Loom to Ethereum
 
 To move tokens from Loom to Ethereum, we follow a two-step process:
 
@@ -360,7 +363,7 @@ async _withdrawCoinsFromRinkebyGateway (data) {
 //TODO: add video
 
 
-### Moving tokens from Ethereum to Loom
+## Moving tokens from Ethereum to Loom
 
 To move move tokes from Ethereum to Loom, we run the `depositToLoom` function on the `bep2Coin` object:
 
@@ -437,4 +440,3 @@ async withdrawToBinance (binanceAddress, amountToWithdraw) {
 If you've made through here, congrats! You should have a good understanding of how to transfer tokens between Binance, Loom, and Ethereum. The best way to move forward is to get your hands dirty and try to create some great stuff based on this demo.
 
 In the meantime, please feel free to reach out to us on [Telegram](https://t.me/loomnetworkdev) if you have any questions about this tutorial or just want to leave us feedback.
-
