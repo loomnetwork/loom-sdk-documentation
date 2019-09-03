@@ -44,9 +44,9 @@ Now, to move tokens to Ethereum, we are required to deploy a new contract to the
    cat rinkeby_account
    ```
 
-3. Give the `Rinkeby` account some ETH so it can be used to deploy contracts to `Rinkeby`. You can either use https://faucet.rinkeby.io or transfer some ETH from another account.
+3. Give the `Rinkeby` account some ETH so it can be used to deploy contracts to `Rinkeby`. You can either use the [Rinkeby authenticated faucet](https://faucet.rinkeby.io) or transfer some ETH from another account.
 
-4. Set your Infura API key (get it from https://infura.io):
+4. Set your Infura API key (get it from [Infura website](https://infura.io)):
 
    ```bash
    export INFURA_API_KEY=XXXXXXXXXXXXXXXX
@@ -174,7 +174,8 @@ We splitted the code roughly into two files:
 
 ### The User Interface
 
-The `/src/binance-loom-ethereum.js` file mainly deals with the user interface. Also, since transferring tokens to Binance and Ethereum will require us to pay fees, we import and initialize the [BNBCoin](https://github.com/loomnetwork/loom-examples/blob/master/src/bnb/BNBCoin.js) and [LoomEthCoin](https://github.com/loomnetwork/loom-examples/blob/master/src/LoomEthCoin/LoomEthCoin.js) classes:
+The `/src/binance-loom-ethereum.js` file mainly deals with the user interface. 
+Because transferring tokens to Binance and Ethereum requires us to pay fees, we start by initializing the [BNBCoin](https://github.com/loomnetwork/loom-examples/blob/master/src/bnb/BNBCoin.js) and [LoomEthCoin](https://github.com/loomnetwork/loom-examples/blob/master/src/LoomEthCoin/LoomEthCoin.js) classes:
 
 ```js
 this.bep2Coin = new BinanceExtdevRinkeby()
@@ -213,6 +214,35 @@ async approveFee () {
   const gatewayAddress = Address.fromString(this.loomGatewayContract.address.toString())
   await this.ethCoin.approveAsync(gatewayAddress, new BN(this._gas()))
 }
+```
+
+Next, we implement a couple of functions that call simpy call the corresponding methods on the `bnbCoin`, `bep2Coin`, and `ethCoin` objects:
+
+```
+async withdrawToBinance () {
+  if ((this.binanceAddress === null) || (this.binanceAddress.length === 0)) {
+    console.log('Binance Address should not be empty.')
+    return
+  }
+  const amountToWithdraw = 5
+  console.log('Withdrawing ' + amountToWithdraw + ' tokens to ' + this.binanceAddress)
+  await this.bnbCoin.approveFee()
+  console.log('Approved the transfer gateway to take the fee.')
+  await this.bep2Coin.withdrawToBinance(this.binanceAddress, amountToWithdraw)
+  console.log('Tokens withdrawn.')
+},
+async withdrawToEthereum () {
+  const amount = 5
+  await this.ethCoin.approveFee()
+  this.bep2Coin.withdrawToEthereum(amount)
+},
+async depositToLoom () {
+  const amount = 5
+  this.bep2Coin.depositToLoom(amount)
+},
+async resumeLoomToEthereum () {
+  this.bep2Coin.resumeWithdrawal()
+},
 ```
 
 ### The BinanceExtdevRinkeby class
