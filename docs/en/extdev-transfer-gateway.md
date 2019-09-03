@@ -8,6 +8,14 @@ sidebar_label: Transfer Gateway Testnet
 
 In this doc, we'll walk you through the setup required to transfer tokens between token contracts you've deployed to `extdev` and `Rinkeby`. If you haven't done so already you should first read through the high-level overview of the [Transfer Gateway][].
 
+## Requirements
+
+Make sure the following requirements are met and then follow the steps in the next section:
+
+- Operating system: Linux or macOS. If you're running Windows, please install the Windows Subsystem for Linux. See the [Install the Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10) page for details on installing WSL.
+- Node >= 8
+- yarn
+
 
 ## 1. Deploy token contracts to `extdev`
 
@@ -77,9 +85,7 @@ Full source for all contracts can be found in the [Truffle DAppChain Example][] 
    export LOOM_BIN=`pwd`/loom
    ```
 
-2. Make sure you have `node` (v8 or later) and `yarn` installed.
-
-3. Clone the [Truffle DAppChain Example][] repo.
+2. Clone the [Truffle DAppChain Example][] repo.
 
    ```bash
    # clone the tutorial repo to the gateway-tutorial directory
@@ -89,7 +95,7 @@ Full source for all contracts can be found in the [Truffle DAppChain Example][] 
    yarn
    ```
 
-4. Generate your own private key for deploying and calling contracts on the `extdev` PlasmaChain.
+3. Generate your own private key for deploying and calling contracts on the `extdev` PlasmaChain.
 
    ```bash
    $LOOM_BIN genkey -k extdev_private_key -a extdev_public_key
@@ -104,7 +110,7 @@ Full source for all contracts can be found in the [Truffle DAppChain Example][] 
 
    This is the public address that corresponds to your new private key. You'll find the private key in the `extdev_private_key` file, and the corresponding public key in the `extdev_public_key` file.
 
-5. Deploy the `MyToken` and `MyCoin` contracts to the `extdev` PlasmaChain.
+4. Deploy the `MyToken` and `MyCoin` contracts to the `extdev` PlasmaChain.
 
    ```bash
    yarn deploy:extdev

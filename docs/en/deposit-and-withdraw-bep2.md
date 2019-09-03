@@ -21,6 +21,8 @@ Let's get the ball rolling!
 
 ## Prerequisites
 
+- Operating system: Linux or macOS. If you're running Windows, please install the Windows Subsystem for Linux. See the [Install the Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10) page for details on installing WSL.
+
 - Node.js 10 or higher (recommended v10.15.3)
 
 To check out if Node.js is installed on your computer, fire up a terminal and type the following command:

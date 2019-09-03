@@ -8,6 +8,13 @@ sidebar_label: Develop Locally
 
 This document shows you how to develop and test your smart contracts locally against Ganache and Loom.
 
+## Requirements
+
+Make sure the following requirements are met and then follow the steps in the next section:
+
+- Operating system: Linux or macOS. If you're running Windows, please install the Windows Subsystem for Linux. See the [Install the Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10) page for details on installing WSL.
+- Node.js 10 or higher (recommended v10.15.3)
+
 ## Develop Locally Against Ganache
 
 ### Install Truffle
