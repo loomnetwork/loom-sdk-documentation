@@ -51,6 +51,28 @@ npm run start
 
 Next, just point your browser at [localhost:8080](http://localhost:8080) and you're set.
 
+## Trying Out the Demo
+
+The first thing you need to do is to move some BNB tokens from Binance to Extdev:
+
+![Move BNB from Binance to Extdev](/developers/img/binance-loom-ethereum-1-deposit-bnb.gif)
+
+Then, let's move some BEP2 tokens from Binance to Extdev:
+
+![Move BEP2 from Binance to Extdev](/developers/img/binance-loom-ethereum-2-deposit-bep2.gif)
+
+Now, we can move our tokens from Extdev to Rinkeby:
+
+![Move BEP2 from Extdev to Rinkeby](/developers/img/binance-loom-ethereum-3-deposit-bep2-to-rinkeby.gif)
+
+...and from Rinkeby to Extdev:
+
+![Move BEP2 from Rinkeby to Extdev](/developers/img/binance-loom-ethereum-4-withdraw-bep2-to-loom.gif)
+
+
+Lastly, let's move tokens from Extdev to Binance:
+
+![Move BEP2 from Rinkeby to Extdev](/developers/img/binance-loom-ethereum-5-withdraw-bep2-to-binance.gif)
 
 ## Let's See What Makes it Tick
 
@@ -124,13 +146,13 @@ You can check the full source code of this smart contract on GitHub.
  
 ## The Front-End
 
-In this section, we'll take a quick look at what happens under the hood of the user interface.
+In this section, we'll take a quick look at what happens under the hood of our front-end.
 
 We splitted the code roughly into two files:
 
-### ./src/binance-loom-ethereum.js
+### The User Interface
 
-This file mainly deals with the user interface. Also, since transferring tokens to Binance and Ethereum will require us to pay fees, we import and initialize the [BNBCoin](https://github.com/loomnetwork/loom-examples/blob/master/src/bnb/BNBCoin.js) and [LoomEthCoin](https://github.com/loomnetwork/loom-examples/blob/master/src/LoomEthCoin/LoomEthCoin.js) classes:
+The `/src/binance-loom-ethereum.js` file mainly deals with the user interface. Also, since transferring tokens to Binance and Ethereum will require us to pay fees, we import and initialize the [BNBCoin](https://github.com/loomnetwork/loom-examples/blob/master/src/bnb/BNBCoin.js) and [LoomEthCoin](https://github.com/loomnetwork/loom-examples/blob/master/src/LoomEthCoin/LoomEthCoin.js) classes:
 
 ```js
 this.bep2Coin = new BinanceExtdevRinkeby()
@@ -171,7 +193,7 @@ async approveFee () {
 }
 ```
 
-### ./src/bep2/BinanceExtdevRinkeby.js
+### The BinanceExtdevRinkeby class
   
 The `BinanceExtdevRinkeby` class is where we've baked most of the logic. First, we import a few things:
 
@@ -360,8 +382,6 @@ async _withdrawCoinsFromRinkebyGateway (data) {
 
 ```
 
-//TODO: add video
-
 
 ## Moving tokens from Ethereum to Loom
 
@@ -406,7 +426,6 @@ async depositToLoom (amount) {
 
 First, it approves the transfer gateway to take the tokens and then calls the `depositERC20` method on the Rinkeby transfer gateway. The method expects two parameters: the amount to transfer and the address of the contract.
 
-//TODO: add video
 
 ## Moving Tokens from Ethereum to Binance
 
@@ -434,8 +453,6 @@ async withdrawToBinance (binanceAddress, amountToWithdraw) {
   await delay(1000)
 }
 ```
-
-//TODO: add video
 
 If you've made through here, congrats! You should have a good understanding of how to transfer tokens between Binance, Loom, and Ethereum. The best way to move forward is to get your hands dirty and try to create some great stuff based on this demo.
 
