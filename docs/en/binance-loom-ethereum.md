@@ -19,17 +19,17 @@ We assume you've covered the first two parts of our Binance series. If so, let's
 git pull
 ```
 
+Next, let's make sure your dependencies are up-to-date:
+
+```text
+npm install
+```
+
 ## Settings Things Up
 
 If you've followed along with our previous Binance tutorials, a BEP2 token and a corresponding smart contract on the Loom side (that is Extdev) should have been deployed and mapped.
 
-Now, to move tokens to Ethereum, we are required to deploy a new contract to the Ethereum test net (for the scope of this example we're using the Rinkeby network). We've created a new `Truffle` project which means you'll first have to install a few dependencies by running:
-
-```bash
-cd mainnet && npm install && cd ..
-```
-
-Then, use the following commands to deploy the new contract to Rinkeby:
+Now, to move tokens to Ethereum, we are required to deploy a new contract to the Ethereum test net (for the scope of this example we're using the Rinkeby network). Use the following commands to deploy the new contract to Rinkeby:
 
 ```bash
 export INFURA_API_KEY=<YOUR API KEY> && npm run migrate:rinkeby-bep2-token
