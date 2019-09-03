@@ -29,17 +29,39 @@ npm install
 
 If you've followed along with our previous Binance tutorials, a BEP2 token and a corresponding smart contract on the Loom side (that is Extdev) should have been deployed and mapped.
 
-Now, to move tokens to Ethereum, we are required to deploy a new contract to the Ethereum test net (for the scope of this example we're using the Rinkeby network). Use the following commands to deploy the new contract to Rinkeby:
+Now, to move tokens to Ethereum, we are required to deploy a new contract to the Ethereum test net (for the scope of this example we're using the Rinkeby network).
 
-```bash
-export INFURA_API_KEY=<YOUR API KEY> && npm run migrate:rinkeby-bep2-token
-```
+1. Generate an Ethereum private key:
 
-Like we did in our previous tutorial with the BEP2 token and its corresponding smart contract on Loom, we must now map our Loom contract with the newly deployed contract on Rinkeby. You can create the mapping with:
+   ```bash
+   # this will create the rinkeby_account, rinkeby_mnemonic, and rinkeby_private_key files
+   yarn gen:rinkeby-key
+   ```
 
-```bash
-npm run map:bep2-contracts
-```
+2. Get the address of the new `Rinkeby` account from the `rinkeby_account` file:
+
+   ```bash
+   cat rinkeby_account
+   ```
+
+3. Give the `Rinkeby` account some ETH so it can be used to deploy contracts to `Rinkeby`. You can either use https://faucet.rinkeby.io or transfer some ETH from another account.
+
+4. Set your Infura API key (get it from https://infura.io):
+
+   ```bash
+   export INFURA_API_KEY=XXXXXXXXXXXXXXXX
+   ```
+
+5. Deploy the contract by running:
+    ```bash
+    npm run migrate:rinkeby-bep2-token
+    ```
+
+6. Like we did in our previous tutorial with the BEP2 token and its corresponding smart contract on Loom, we must now map our Loom contract with the newly deployed contract on Rinkeby. You can create the mapping with:
+
+    ```bash
+    npm run map:bep2-contracts
+    ```
 
 ## Spinning Up the Demo
 
@@ -49,7 +71,7 @@ Once you completed the previous steps, you are ready to see the demo in action. 
 npm run start
 ```
 
-Next, just point your browser at [localhost:8080](http://localhost:8080) and you're set.
+Next, just point your browser at [localhost:8080](http://localhost:8080) and select the "Binance - Loom - Ethereum" demo.
 
 ## Trying Out the Demo
 
