@@ -29,13 +29,15 @@ npm install
 
 If you've followed along with our previous Binance tutorials, a BEP2 token and a corresponding smart contract on the Loom side (that is Extdev) should have been deployed and mapped.
 
-Now, to move tokens to Ethereum, we are required to deploy a new contract to the Ethereum test net (for the scope of this example we're using the Rinkeby network).
+Now, to move tokens to Ethereum, we are required to deploy a new contract called `SampleERC20MintableToken` to the Ethereum test net (for the scope of this example we're using the Rinkeby network).
+
+Follow these steps to deploy the smart contract to Rinkeby:
 
 1. Generate an Ethereum private key:
 
    ```bash
-   # this will create the rinkeby_account, rinkeby_mnemonic, and rinkeby_private_key files
-   yarn gen:rinkeby-key
+   # this will create 3 new files in the root directory of the project: rinkeby_account, rinkeby_mnemonic, and rinkeby_private_key
+   npm run gen:rinkeby-key
    ```
 
 2. Get the address of the new `Rinkeby` account from the `rinkeby_account` file:
@@ -79,18 +81,17 @@ The first thing you need to do is to move some BNB tokens from Binance to Extdev
 
 ![Move BNB from Binance to Extdev](/developers/img/binance-loom-ethereum-1-deposit-bnb.gif)
 
-Then, let's move some BEP2 tokens from Binance to Extdev:
+Then, let's transfer some BEP2 tokens from Binance to Extdev:
 
 ![Move BEP2 from Binance to Extdev](/developers/img/binance-loom-ethereum-2-deposit-bep2.gif)
 
-Now, we can move our tokens from Extdev to Rinkeby:
+Now, we can send our tokens from Extdev to Rinkeby:
 
 ![Move BEP2 from Extdev to Rinkeby](/developers/img/binance-loom-ethereum-3-deposit-bep2-to-rinkeby.gif)
 
 ...and from Rinkeby to Extdev:
 
 ![Move BEP2 from Rinkeby to Extdev](/developers/img/binance-loom-ethereum-4-withdraw-bep2-to-loom.gif)
-
 
 Lastly, let's move tokens from Extdev to Binance:
 
@@ -102,7 +103,7 @@ At its core, this demo is built around a couple of simple components:
 
  - a BEP2 token. See the [settings things up](deposit-and-withdraw-bep2.html#_1-setting-things-up) page from our previous tutorial for more details.
  - a corresponding ERC20 token deployed to Loom Testnet. We've walked you through the source code in [this section](deposit-and-withdraw-bep2.html#_1-e-deploying-to-loom-testnet).
- - an ERC20 token called `SampleERC20MintableToken` which we just deployed to the Rinkeby network. This smart contract is nothing special. It just starts by inheriting from `ERC20/ERC20Mintable.sol"` and `./IERC20GatewayMintable.sol"`:
+ - an ERC20 token called `SampleERC20MintableToken` which we just deployed to the Rinkeby network. This smart contract is nothing special. It just starts by inheriting from `ERC20/ERC20Mintable.sol` and `./IERC20GatewayMintable.sol`:
 
 ```js
 import "openzeppelin-solidity/contracts/token/ERC20/ERC20Mintable.sol";
@@ -216,9 +217,9 @@ async approveFee () {
 }
 ```
 
-Next, we implement a couple of functions that call simpy call the corresponding methods on the `bnbCoin`, `bep2Coin`, and `ethCoin` objects:
+Next, we implement a couple of functions that simpy call the corresponding methods on the `bnbCoin`, `bep2Coin`, and `ethCoin` objects:
 
-```
+```js
 async withdrawToBinance () {
   if ((this.binanceAddress === null) || (this.binanceAddress.length === 0)) {
     console.log('Binance Address should not be empty.')
