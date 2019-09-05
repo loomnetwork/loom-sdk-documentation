@@ -188,3 +188,8 @@ const trxCoinContract = new loomWeb3.eth.Contract(TRXToken.abi, trxCoinContractA
 ```
 
 The `TRXToken.abi` file can be found [here](https://github.com/loomnetwork/loom-examples/blob/master/truffle/build/contracts/TRXToken.json).
+
+
+## Transfer Gateway Tutorials
+
+For more details on how to transfer tokens between Loom and other chains like Ethereum, Tron, and Binance see our [transfer gateway exampls](transfer-gateway-example.html) page.
