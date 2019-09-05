@@ -74,6 +74,16 @@ You can resolve the address of the Ethereum transfer gateway by name as follows:
 const contractAddr = await client.getContractAddressAsync('gateway')
 ```
 
+- **Transfer Gateway**
+
+You can resolve the address of the Ethereum transfer gateway by name as follows:
+
+```js
+const contractAddr = await client.getContractAddressAsync('loom-gateway')
+```
+
+//TODO: needs to be testet
+
 **EthCoin**
 
 If you transfer Eth to your Extdev account, it'll get deposited into the EthCoin contract:
