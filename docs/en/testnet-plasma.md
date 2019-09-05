@@ -164,7 +164,7 @@ The `bnbToken.abi` file can be found [here](https://github.com/loomnetwork/loom-
 
 **Contract deployed on Shasta**
 
-- **Transfer Gateway**: //Needs address. It got wiped at some point
+- **Transfer Gateway**: //TODO: Needs address. It got wiped at some point
 
 **Contract deployed on Extdev**
 

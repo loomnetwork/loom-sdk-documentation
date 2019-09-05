@@ -166,7 +166,7 @@ The `bnbToken.abi` file can be found [here](https://github.com/loomnetwork/loom-
 
 **Contract deployed on Tron**
 
-- **Transfer Gateway**: //Needs address
+- **Transfer Gateway**: //TODO: Needs address
 
 **Contract deployed on Plasmachain**
 
