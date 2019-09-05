@@ -22,7 +22,11 @@ If you want more details, see our [guide](deploy-loom-testnet.html) on deploying
 - **writeUrl**: wss://extdev-plasma-us1.dappchains.com/websocket
 - **readUrl**: wss://extdev-plasma-us1.dappchains.com/queryws
 
-### Connect to extdev
+### Truffle configuration file
+
+Use this sample Truffle [configuration file](https://github.com/loomnetwork/truffle-dappchain-example/blob/master/truffle-config.js) to deploy your smart contracts to Extdev.
+
+### Connect to Extdev
 
 You can use this snippet to connect to Extdev:
 
@@ -74,15 +78,13 @@ You can resolve the address of the Ethereum transfer gateway by name as follows:
 const contractAddr = await client.getContractAddressAsync('gateway')
 ```
 
-- **Transfer Gateway**
+- **Loom Transfer Gateway**
 
 You can resolve the address of the Ethereum transfer gateway by name as follows:
 
 ```js
-const contractAddr = await client.getContractAddressAsync('loom-gateway')
+const contractAddr = await client.getContractAddressAsync('loomcoin-gateway')
 ```
-
-//TODO: needs to be testet
 
 **EthCoin**
 
@@ -107,9 +109,11 @@ Then, you can check the balance as follows:
 const balance = await ethCoinInstance.getBalanceOfAsync(currentUserAddress.toString())
 ```
 
-- **Loom Transfer Gateway**
+Resolve the address by name with:
 
-//TODO: Don't know
+```js
+const contractAddr = await client.getContractAddressAsync('ethcoin')
+```
 
 ### Binance Integration
 
@@ -125,7 +129,20 @@ You can resolve the address of the Binance transfer gateway by name as follows:
 const contractAddr = await client.getContractAddressAsync('binance-gateway')
 ```
 
-- **BNB Coin:** 
+Instantiate the Binance transfer gateway contract like this:
+
+```js
+import { BinanceTransferGateway } from 'loom-js/dist/contracts'
+
+// .. content omitted for brevity
+
+const binanceTransferGatewayContract = await BinanceTransferGateway.createAsync(
+  client,
+  currentUserAddress
+)
+```
+
+- **BNB Coin:**
 
 The BNB Coin contract is deployed at 0x9ab4e22d56c0c4f7d494442714c82a605d2f28e0.
 
@@ -147,8 +164,7 @@ The `bnbToken.abi` file can be found [here](https://github.com/loomnetwork/loom-
 
 **Contract deployed on Shasta**
 
-- **Transfer Gateway**: //Don't know. It got wiped at some point
-
+- **Transfer Gateway**: //Needs address. It got wiped at some point
 
 **Contract deployed on Extdev**
 
@@ -156,18 +172,17 @@ You can resolve the address of the Tron transfer gateway by name as follows:
 
 ```js
 const contractAddr = await client.getContractAddressAsync('tron-gateway')
-//TODO: check this... dunno if it works
 ```
 
-- **TRX Coin:**
+- **TRX Coin**
 
-If you deposited TRX tokens to the Tron transfer gateway, the assets will get deposited into the TRXCoin smart contract deployed on Extdev.
+If you deposit TRX tokens to the Tron transfer gateway, the assets will get transferred into the `TRXCoin` smart contract deployed on Extdev.
 
 Use something like the following to instantiate the contract:
 
 ```js
-const loomWeb3 = new Web3(new LoomProvider(this.client, privateKey))
-const trxCoinContractAddress = //TODO: need the address
+const loomWeb3 = new Web3(new LoomProvider(client, privateKey))
+const trxCoinContractAddress = //TODO: needs address
 
 const trxCoinContract = new loomWeb3.eth.Contract(TRXToken.abi, trxCoinContractAddress)
 ```
