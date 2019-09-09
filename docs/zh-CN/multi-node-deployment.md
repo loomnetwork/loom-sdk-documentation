@@ -28,7 +28,6 @@ sidebar_label: 多节点部署
 4. 添加 `loom.yml` 到工作目录中
 
     ```yaml
-    RPCBindAddress: "tcp://0.0.0.0:46658"
     DPOSVersion: 3
     ```
 
