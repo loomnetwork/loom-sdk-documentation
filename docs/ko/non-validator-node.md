@@ -19,7 +19,6 @@ chmod +x loom
 
 ```yaml
 ChainID: "extdev-plasma-us1"
-RPCBindAddress: "tcp://0.0.0.0:46657"
 BlockchainLogLevel: "info"
 LoomLogLevel: "info"
 LogLevel: "info"
@@ -245,7 +244,7 @@ CachingStoreConfig:
 ./loom run --persistent-peers tcp://1cba97a0a108cb0de51e5a3ff6ac15d70e0fa076@52.53.145.158:46656,tcp://367a9fa0df0afeed204c3360867e37ef03da5b97@52.53.184.91:46656,tcp://7b537b6ad25b5b13864ec20bed8803489189a274@54.193.119.132:46656,tcp://d7623e990790048db76c5d6a25e12efa818aaef1@52.53.221.33:46656
 ```
 
-The non-validator node will now sync with the validator nodes. Status can be queried at http://localhost:46657/status
+The non-validator node will now sync with the validator nodes. Status can be queried at http://localhost:46658/status
 
 # Joining test-z-asia1.dappchains.com as Non-validator
 
@@ -263,7 +262,6 @@ chmod +x loom
 
 ```yaml
 ChainID: "asia1"
-RPCBindAddress: "tcp://0.0.0.0:46657"
 BlockchainLogLevel: "info"
 LoomLogLevel: "info"
 LogLevel: "info"
@@ -467,4 +465,4 @@ PlasmaCash:
 ./loom run --persistent-peers tcp://c50d327b10308483b8e477b8376de73b80d8b1af@3.0.41.112:46656,tcp://9bc89242b811e8616eb37e50746e25f4b1a86ec7@54.254.138.238:46656,tcp://88ba2d1759195187b47de0567a697a46099a2360@3.0.202.142:46656,tcp://6d77bd5a41289701007780311702dd6647aa39d6@13.229.250.215:46656
 ```
 
-The non-validator node will now sync with the validator nodes. Status can be queried at http://localhost:46657/status
+The non-validator node will now sync with the validator nodes. Status can be queried at http://localhost:46658/status
