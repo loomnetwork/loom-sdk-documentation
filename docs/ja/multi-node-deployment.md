@@ -28,7 +28,6 @@ sidebar_label: マルチノードデプロイメント
 4. ワーキングディレクトリに `loom.yml` を追加しよう。
 
     ```yaml
-    RPCBindAddress: "tcp://0.0.0.0:46658"
     DPOSVersion: 3
     ```
 

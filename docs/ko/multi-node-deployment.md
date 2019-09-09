@@ -28,7 +28,6 @@ sidebar_label: 멀티 노드 배포
 4. 작업 디렉토리에 `loom.yml` 파일을 추가하세요
 
     ```yaml
-    RPCBindAddress: "tcp://0.0.0.0:46658"
     DPOSVersion: 3
     ```
 
