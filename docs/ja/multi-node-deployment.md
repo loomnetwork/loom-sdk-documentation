@@ -28,7 +28,6 @@ The following steps need to be executed on each node:
 4. Add `loom.yml` in the working directory:
 
     ```yaml
-    RPCBindAddress: "tcp://0.0.0.0:46658"
     DPOSVersion: 3
     ```
 
