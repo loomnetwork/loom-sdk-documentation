@@ -17,7 +17,7 @@ This is a maintenance release that fixes several issues and adds some new featur
 - Setting `eth_getBlockByNumber` to `latest` while getting information about a block returns the last committed block rather than the one before it.
 - Improved reliability with regard to how broken YubiHSM sessions are refreshed. Thanks to Certus One for the fix!
 - Account nonces are incremented for all committed transaction, regardless of whether it was successful or not. This reduces the likelihood of clients receiving a `Tx already exists in cache` error after an EVM transaction reverts.
-- The `loom reset` command now deletes `evm.db` in addition `to app.db`.
+- The `loom reset` command now deletes `evm.db` in addition to `app.db`.
 
 **New features:**
 
