@@ -1,34 +1,31 @@
 ---
 id: testnet-plasma
-title: PlasmaChain Extdev
-sidebar_label: PlasmaChain Extdev
+title: Plasmachain
+sidebar_label: Plasmachain
 ---
 
-This page provides information on where and how to access the Extdev network.
-If you want more details, see our [guide](deploy-loom-testnet.html) on deploying to Loom testnet.
+This page provides information on where and how to access the Plasmachain network.
+If you want more details, see our [guide](deploy-loom-mainnet.html) on deploying to PlasmaChain.
 
-## Extdev
+## Plasmachain
 
-> **Devnets typically are wiped often, only use them for experimental features!**
+### General information
 
-### General Information
-
-- **Name**: Dev Plasma Test
-- **Type**: Testnet
-- **Availability**: Stable developer
-- **URL**: extdev-plasma-us1.dappchains.com
-- **chainId**: extdev-plasma-us1
-- **networkId**: 9545242630824
-- **writeUrl**: wss://extdev-plasma-us1.dappchains.com/websocket
-- **readUrl**: wss://extdev-plasma-us1.dappchains.com/queryws
+- **Name**: Plasmachain
+- **Type**: Mainnet
+- **Availability**: End User
+- **URL**: plasma.dappchains.com
+- **chainId**: default
+- **networkId**: *
+- **readUrl**: https://plasma.dappchains.com/query
 
 ### Truffle configuration file
 
-Use this sample Truffle [configuration file](https://github.com/loomnetwork/truffle-dappchain-example/blob/master/truffle-config.js) to deploy your smart contracts to Extdev.
+Use this sample Truffle [configuration file](https://github.com/loomnetwork/truffle-dappchain-example/blob/master/truffle-config.js) to deploy your smart contracts to Plasmachain.
 
-### Connect to Extdev
+### Connect to Plasmachain
 
-You can use this snippet to connect to Extdev:
+You can use this snippet to connect to Plasmachian:
 
 ```js
 import {
@@ -44,7 +41,7 @@ import Web3 from 'web3'
 
 const client = new Client(networkId, writeUrl, readUrl)
 client.on('error', msg => {
-  console.error('Error on connecting to Extdev', msg)
+  console.error('Error on connecting to Plasmachain', msg)
   })
 client.txMiddleware = createDefaultTxMiddleware(client, privateKey)
 
@@ -63,12 +60,12 @@ If you want to use [Universal Signing](https://medium.com/loom-network/universal
 
 ### Ethereum Integration
 
-**Contracts deployed on Rinkeby**
+**Contracts deployed on Ethereum**
 
-- **Transfer Gateway**: 0xb73C9506cb7f4139A4D6Ac81DF1e5b6756Fab7A2 (use this for Eth, ERC721, and ERC20 assets)
-- **Loom Transfer Gateway**: // Don't know
+- **Transfer Gateway**: 0xe080079ac12521d57573f39543e1725ea3e16dcc (use this for Eth, ERC721, and ERC20 assets)
+- **Loom Transfer Gateway**: // TODO: Needs address
 
-**Contracts deployed on Extdev**
+**Contracts deployed on Plasmachain**
 
 - **Transfer Gateway**
 
@@ -86,9 +83,14 @@ You can resolve the address of the Ethereum transfer gateway by name as follows:
 const contractAddr = await client.getContractAddressAsync('loomcoin-gateway')
 ```
 
+**Top 100 ERC20 smart contracts deployed to Loom**
+
+We've already deployed to Loom the top 100 smart contracts. See the full list [here](top-erc20s.html).
+
+
 **EthCoin**
 
-If you transfer Eth to your Extdev account, it'll get deposited into the EthCoin contract:
+If you transfer Eth to your Plasmachain account, it'll get deposited into the EthCoin contract:
 
 Instantiate the contract like this:
 
@@ -117,9 +119,9 @@ const contractAddr = await client.getContractAddressAsync('ethcoin')
 
 ### Binance Integration
 
-- **Binance hotWallet address**: tbnb1gc7azhlup5a34t8us84x6d0fluw57deuf47q9w
+- **Binance hotWallet address**: //TODO: Needs address
 
-**Contracts deployed on Extdev**
+**Contracts deployed on Plasmachain**
 
 - **Transfer Gateway**
 
@@ -144,7 +146,7 @@ const binanceTransferGatewayContract = await BinanceTransferGateway.createAsync(
 
 - **BNB Coin:**
 
-The BNB Coin contract is deployed at 0x9ab4e22d56c0c4f7d494442714c82a605d2f28e0.
+The BNB Coin contract is deployed at //TODO: Needs address
 
 Instantiate the contract like this:
 
@@ -153,8 +155,8 @@ const web3Loom = new Web3(loomProvider)
 
 // ... content omitted for brevity
 
-const bnbCoinAddress = '0x9ab4e22d56c0c4f7d494442714c82a605d2f28e0'
-const extdevBNBContract = new web3Loom.eth.Contract(bnbToken.abi, bnbCoinAddress)
+const bnbCoinAddress = //TODO: Needs address 
+const plasmachainBNBContract = new web3Loom.eth.Contract(bnbToken.abi, bnbCoinAddress)
 ```
 
 The `bnbToken.abi` file can be found [here](https://github.com/loomnetwork/loom-examples/blob/master/truffle/build/contracts/BNBToken.json).
@@ -162,11 +164,11 @@ The `bnbToken.abi` file can be found [here](https://github.com/loomnetwork/loom-
 
 ### Tron Integration
 
-**Contract deployed on Shasta**
+**Contract deployed on Tron**
 
-- **Transfer Gateway**: //TODO: Needs address. It got wiped at some point
+- **Transfer Gateway**: //TODO: Needs address
 
-**Contract deployed on Extdev**
+**Contract deployed on Plasmachain**
 
 You can resolve the address of the Tron transfer gateway by name as follows:
 
@@ -176,7 +178,7 @@ const contractAddr = await client.getContractAddressAsync('tron-gateway')
 
 - **TRX Coin**
 
-If you deposit TRX tokens to the Tron transfer gateway, the assets will get transferred into the `TRXCoin` smart contract deployed on Extdev.
+If you deposit TRX tokens to the Tron transfer gateway, the assets will get transferred into the `TRXCoin` smart contract deployed on Plasmachain.
 
 Use something like the following to instantiate the contract:
 
@@ -188,7 +190,6 @@ const trxCoinContract = new loomWeb3.eth.Contract(TRXToken.abi, trxCoinContractA
 ```
 
 The `TRXToken.abi` file can be found [here](https://github.com/loomnetwork/loom-examples/blob/master/truffle/build/contracts/TRXToken.json).
-
 
 ## Transfer Gateway Tutorials
 

@@ -166,6 +166,7 @@ module.exports = {
         sidebarDepth: 1,
         children: [
           ['/testnet-plasma', 'PlasmaChain Testnets'],
+          ['/mainnet-plasma', 'PlasmaChain MainNet'],
           ['/validator', 'Become Validator'],
           ['/non-validator-node', 'Non Validator Node'],
           ['/jump-start-plasma', 'plasma Jump Start'],
