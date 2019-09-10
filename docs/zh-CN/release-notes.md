@@ -6,7 +6,25 @@ sidebar_label: Release Notes
 
 ## Overview
 
-Reverse chronology order of release notes
+Reverse chronology order of release notes.
+
+## Loom 2.0 Release Build 1263 - 2109/09/10
+
+This is a maintenance release that fixes several issues and adds some new features.
+
+**Bugfixes:**
+
+* Setting `eth_getBlockByNumber` to `latest` while getting information about a block returns the last committed block rather than the one before it.
+* Improved reliability with regard to how broken YubiHSM sessions are refreshed. Thanks to Certus One for the fix!
+* Account nonces are incremented for all committed transaction, regardless of whether it was successful or not. This reduces the likelihood of clients receiving a `Tx already exists in cache` error after an EVM transaction reverts.
+* The `loom reset` command now deletes `evm.db` in addition to `app.db`.
+
+**New features:**
+
+* Additional validation in Transfer Gateway
+* Enables the on-chain config (an extension of the feature flag system)
+* Reduces the amount of data stored on-chain for migration transactions.
+* Improved generation & indexing of EVM events when Go contracts call EVM contracts.
 
 ## Loom 2.0 Release Build 1213 – 2019/08/12
 
