@@ -63,7 +63,7 @@ If you want to use [Universal Signing](https://medium.com/loom-network/universal
 **Contracts deployed on Ethereum**
 
 - **Transfer Gateway**: 0xe080079ac12521d57573f39543e1725ea3e16dcc (use this for Eth, ERC721, and ERC20 assets)
-- **Loom Transfer Gateway**: // TODO: Needs address
+- **Loom Transfer Gateway**: 0x8f8E8b3C4De76A31971Fe6a87297D8f703bE8570
 
 **Contracts deployed on Plasmachain**
 
@@ -119,7 +119,7 @@ const contractAddr = await client.getContractAddressAsync('ethcoin')
 
 ### Binance Integration
 
-- **Binance hotWallet address**: //TODO: Needs address
+- **Binance hotWallet address**: bnb17mxq8p5jmw27dtt6s92fd35yltdml6snw3r98t
 
 **Contracts deployed on Plasmachain**
 
@@ -161,35 +161,6 @@ const plasmachainBNBContract = new web3Loom.eth.Contract(bnbToken.abi, bnbCoinAd
 
 The `bnbToken.abi` file can be found [here](https://github.com/loomnetwork/loom-examples/blob/master/truffle/build/contracts/BNBToken.json).
 
-
-### Tron Integration
-
-**Contract deployed on Tron**
-
-- **Transfer Gateway**: //TODO: Needs address
-
-**Contract deployed on Plasmachain**
-
-You can resolve the address of the Tron transfer gateway by name as follows:
-
-```js
-const contractAddr = await client.getContractAddressAsync('tron-gateway')
-```
-
-- **TRX Coin**
-
-If you deposit TRX tokens to the Tron transfer gateway, the assets will get transferred into the `TRXCoin` smart contract deployed on Plasmachain.
-
-Use something like the following to instantiate the contract:
-
-```js
-const loomWeb3 = new Web3(new LoomProvider(client, privateKey))
-const trxCoinContractAddress = //TODO: needs address
-
-const trxCoinContract = new loomWeb3.eth.Contract(TRXToken.abi, trxCoinContractAddress)
-```
-
-The `TRXToken.abi` file can be found [here](https://github.com/loomnetwork/loom-examples/blob/master/truffle/build/contracts/TRXToken.json).
 
 ## Transfer Gateway Tutorials
 
