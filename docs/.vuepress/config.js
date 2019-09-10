@@ -223,7 +223,10 @@ module.exports = {
         title: 'Others',
         collapsable: true,
         sidebarDepth: 1,
-        children: [['/others', 'Other Wallets']],
+        children: [
+          ['/others', 'Other Wallets'],
+          ['/withdrawing-and-claiming-rewards','Validators - Withdrawing and Claiming Rewards']
+        ],
       },
     ],
   },
