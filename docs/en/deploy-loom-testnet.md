@@ -10,13 +10,13 @@ This doc is for developers, and it aims to show how they can join the Loom Testn
 
 ## Overview
 
-Deploying to Loom PlasmaChain is no different from deploying to the Ethereum main net, or to Rinkeby. If you know how to do one, you also know how to do the other.
+Deploying to Loom Basechain is no different from deploying to the Ethereum main net, or to Rinkeby. If you know how to do one, you also know how to do the other.
 
-We at Loom are using Truffle to build, test, and deploy our smart contracts. To make our life easier, we developed something called a provider that lets Truffle deploy to Loom PlasmaChain just like it deploys to Ethereum.
+We at Loom are using Truffle to build, test, and deploy our smart contracts. To make our life easier, we developed something called a provider that lets Truffle deploy to Loom Basechain just like it deploys to Ethereum.
 
-Without delving too much into details, the provider works like a bridge that makes Web3.js calls compatible with Loom PlasmaChain.
+Without delving too much into details, the provider works like a bridge that makes Web3.js calls compatible with Loom Basechain.
 
-This document shows how you can use `Truffle` and the [Loom Truffle Provider](https://github.com/loomnetwork/loom-truffle-provider) to build a simple Web UI that interacts with Loom PlasmaChain.
+This document shows how you can use `Truffle` and the [Loom Truffle Provider](https://github.com/loomnetwork/loom-truffle-provider) to build a simple Web UI that interacts with Loom Basechain.
 
 ## Requirements
 
@@ -60,9 +60,9 @@ yarn gen:extdev-key
 > The Loom private key will be saved into a file called `extdev_private_key`.
 
 
-### Deploy to extdev_plasma_us1
+### Deploy to the Extdev testnet
 
-As an example, we will deploy and run our application against `extdev_plasma_us1`.
+As an example, we will deploy and run our application against `Extdev`.
 
 Run the following command:
 
@@ -70,12 +70,12 @@ Run the following command:
 yarn deploy:extdev
 ```
 
->The above command will **compile and then deploy** our smart contract to `extdev_plasma_us1`
+>The above command will **compile and then deploy** our smart contract to the Extdev testnet.
 
 
 ## Testing
 
-Run this command below to send transactions to the smart contract deployed to `extdev_plasma_us1`:
+Run this command below to send transactions to the smart contract deployed to `extdev`:
 
 
 ```test

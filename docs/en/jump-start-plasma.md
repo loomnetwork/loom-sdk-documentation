@@ -1,12 +1,12 @@
 ---
-id: jump-start-plasma
-title: plasma Jump Start
-sidebar_label: plasma Jump Start
+id: jump-start-basechain
+title: Basechain Jump Start
+sidebar_label: Basechain Jump Start
 ---
 
-Follow the instructions below to launch a plasma node from the jump start
+Follow the instructions below to launch a Basechain node from the jump start
 
-## Download stable version of plasmachain
+## Download stable version of Basechain
 
 ```bash
 wget https://private.delegatecall.com/loom/linux/stable/plasmachain

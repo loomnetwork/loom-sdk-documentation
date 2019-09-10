@@ -14,26 +14,26 @@ In short, you can think of Loom Network as EOS on top of Ethereum.
 
 Our core product is an SDK that allows developers to quickly build their own blockchains without having to understand blockchain infrastructure. Think of it like a “build your own blockchain” generator.
 
-## What is PlasmaChain?
+## What is Basechain?
 
 So, the Loom SDK allows for developers to spin up an unlimited number of sidechains to scale their dapps as needed — a crucial piece in our long-term vision of blockchain scalability, and one that is now being used by multiple games and dapps in production.
 
-But PlasmaChain will be the central hub that all these chains connect to as their bridge to Ethereum, for interchain communication with other major blockchains (such as Cosmos, EOS, and Tron), and as a shared liquidity pool for tokenized assets.
+But Basechain will be the central hub that all these chains connect to as their bridge to Ethereum, for interchain communication with other major blockchains (such as Cosmos, EOS, and Tron), and as a shared liquidity pool for tokenized assets.
 
-Thus, our company’s primary objectives over the next year are all related to growing PlasmaChain to become the “universal Layer 2” for high performance dapps.
+Thus, our company’s primary objectives over the next year are all related to growing Basechain to become the “universal Layer 2” for high performance dapps.
 
-In the next chapter, you will learn how to deploy your first app to Loom PlasmaChain. Let's get started!
+In the next chapter, you will learn how to deploy your first app to Loom Basechain. Let's get started!
 
 
 ## Deploying to Testnet
 
-Deploying to Loom PlasmaChain is no different from deploying to the Ethereum main net, or to Rinkeby. If you know how to do one, you also know how to do the other.
+Deploying to Loom Basechain is no different from deploying to the Ethereum main net, or to Rinkeby. If you know how to do one, you also know how to do the other.
 
-We at Loom are using Truffle to build, test, and deploy our smart contracts. To make our life easier, we developed something called a provider that lets Truffle deploy to Loom PlasmaChain just like it deploys to Ethereum.
+We at Loom are using Truffle to build, test, and deploy our smart contracts. To make our life easier, we developed something called a provider that lets Truffle deploy to Loom Basechain just like it deploys to Ethereum.
 
-Without delving too much into details, the provider works like a bridge that makes Web3.js calls compatible with Loom PlasmaChain.
+Without delving too much into details, the provider works like a bridge that makes Web3.js calls compatible with Loom Basechain.
 
-This chapter shows how you can use `Truffle` and the [Loom Truffle Provider](https://github.com/loomnetwork/loom-truffle-provider) to build a simple Web UI that interacts with Loom PlasmaChain.
+This chapter shows how you can use `Truffle` and the [Loom Truffle Provider](https://github.com/loomnetwork/loom-truffle-provider) to build a simple Web UI that interacts with Loom Basechain.
 
 ### Requirements
 
@@ -77,9 +77,9 @@ yarn gen:extdev-key
 > The Loom private key will be saved into a file called `extdev_private_key`.
 
 
-#### Deploy to extdev_plasma_us1
+#### Deploy to Extdev
 
-As an example, we will deploy and run our application against `extdev_plasma_us1`.
+As an example, we will deploy and run our application against `extdev`.
 
 Run the following command:
 
@@ -87,12 +87,12 @@ Run the following command:
 yarn deploy:extdev
 ```
 
->The above command will **compile and then deploy** our smart contract to `extdev_plasma_us1`
+>The above command will **compile and then deploy** our smart contract to `extdev`
 
 
 #### Test
 
-Run this command below to send transactions to the smart contract deployed to `extdev_plasma_us1`:
+Run this command below to send transactions to the smart contract deployed to `extdev`:
 
 
 ```test
@@ -215,13 +215,13 @@ Click "Sign" and, under the hood, the dashboard will map your accounts. Next, yo
 ![Map Accounts](/developers/img/deploy-to-loom-dashboard.png)
 
 
-### Deposit Loom to Plasmachain
+### Deposit Loom to Basechain
 
-From the left pane, click on the "Deploy to Plasmachain". You will be redirected to a page similar to the one below:
+From the left pane, click on the "Deploy to Basechain". You will be redirected to a page similar to the one below:
 
 ![New Account Options](/developers/img/deploy-to-loom-deposit-loom.png)
 
-Notice that, in order to deploy to Plasmachain, you need to stake some LOOM. Click on the "Deposit more Loom to Plasmachain" and follow the instructions.
+Notice that, in order to deploy to Basechain, you need to stake some LOOM. Click on the "Deposit more Loom to Basechain" and follow the instructions.
 
 ### Adding the Public Keys
 
@@ -295,8 +295,8 @@ module.exports = {
     loom: {
       provider: function () {
         const chainId = 'default'
-        const writeUrl = 'http://plasma.dappchains.com/rpc'
-        const readUrl = 'http://plasma.dappchains.com/query'
+        const writeUrl = 'http://basechain.dappchains.com/rpc'
+        const readUrl = 'http://basechain.dappchains.com/query'
         const seed = mnemonicToSeedSync(mnemonic)
         const privateKeyUint8ArrayFromSeed = CryptoUtils.generatePrivateKeyFromSeed(new Uint8Array(sha256.array(seed)))
         const privateKeyB64 = CryptoUtils.Uint8ArrayToB64(privateKeyUint8ArrayFromSeed)

@@ -5,7 +5,7 @@ title: Deposit and Withdraw BNB
 
 ## Purpose
 
-Loom’s PlasmaChain has recently integrated with Binance Chain, which means users can now easily deposit and withdraw BNB between Binance Chain and Loom.
+Loom’s Basechain has recently integrated with Binance Chain, which means users can now easily deposit and withdraw BNB between Binance Chain and Basechain.
 
 This guide walks you through the basics of building a simple web app that lets users deposit and withdraw BNB between Binance Testnet and Loom Testnet.
 

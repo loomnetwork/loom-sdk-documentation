@@ -49,11 +49,11 @@ The SDK integrates into the Ethereum Backend with the following pieces:
 * ERC-721 Tokens
 * Ether
 
-### Plasma Cash Contract supports
+### Basechain Contract supports
 
 * ERC-721 Tokens
-* ERC-20 Tokens (July)
-* Ether (July)
+* ERC-20 Tokens
+* Ether
 
 
 ## Blockchain services
@@ -67,7 +67,6 @@ SDK includes a number of high-level blockchain services:
 * Solidity + Ethereum Virtual Machine
 * Support for game engines like Unity
 * Transfer Gateway integration
-* Plasma integration
 * Cron  (coming soon)
 * Rate limiting (early phases)
 * Hard fork Manager (coming July)

@@ -1,10 +1,10 @@
 ---
-id: jump-start-extdev-plasma-us1
-title: extdev-plasma-us1 Jump Start
-sidebar_label: extdev-plasma-us1 Jump Start
+id: jump-start-extdev
+title: extdev Jump Start
+sidebar_label: extdev Jump Start
 ---
 
-Follow the instructions below to launch a extdev-plasma-us1 node from the jump start
+Follow the instructions below to launch an extdev node from the jump start.
 
 ## Download stable version of loom
 

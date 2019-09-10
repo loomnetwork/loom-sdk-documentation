@@ -10,14 +10,14 @@ This guide shows how to get useful information on the DApps running on Loom Main
 
 ## Block Explorers
 
-- [MainNet Block Explorer](http://plasma-blockexplorer.dappchains.com/)
+- [MainNet Block Explorer](http://basechain-blockexplorer.dappchains.com/)
 - [TestNet Block Explorer](http://extdev-blockexplorer.dappchains.com)
 
 ## Web3 Endpoints
 
 You can use the following endpoints to interact with Loom:
 
-- PlasmaChain: http://plasma.dappchains.com/eth
+- Basechain: http://basechain.dappchains.com/eth
 - GameChain: http://gamechain.dappchains.com/eth
 
 ## JSON RPC Interface
@@ -57,7 +57,7 @@ Content-Type: application/json
 **Request**
 
 ```bash
-curl --location --request POST "https://plasma-alpha.dappchains.com/eth" \
+curl --location --request POST "https://basechain-alpha.dappchains.com/eth" \
   --header "Content-Type: application/json" \
   --data "{
 	\"jsonrpc\":\"2.0\",
@@ -127,7 +127,7 @@ QUANTITY - integer of the current block number the client is on.
 **Request**
 
 ```bash
-curl --location --request POST "https://plasma-alpha.dappchains.com/eth" \
+curl --location --request POST "https://basechain-alpha.dappchains.com/eth" \
   --header "Content-Type: application/json" \
   --data "{
 	\"jsonrpc\":\"2.0\",
@@ -190,7 +190,7 @@ Content-Type: application/json
 **Request**
 
 ```bash
-curl --location --request POST "https://plasma-alpha.dappchains.com/eth" \
+curl --location --request POST "https://basechain-alpha.dappchains.com/eth" \
   --header "Content-Type: application/json" \
   --data "{
 	\"jsonrpc\":\"2.0\",
@@ -276,7 +276,7 @@ Content-Type: application/json
 **Request**
 
 ```bash
-curl --location --request POST "https://plasma-alpha.dappchains.com/eth" \
+curl --location --request POST "https://basechain-alpha.dappchains.com/eth" \
   --header "Content-Type: application/json" \
   --data "{
         \"jsonrpc\":\"2.0\",
@@ -355,7 +355,7 @@ DATA - the code from the given address.
 **Request**
 
 ```bash
-curl --location --request POST "https://plasma-alpha.dappchains.com/eth" \
+curl --location --request POST "https://basechain-alpha.dappchains.com/eth" \
   --header "Content-Type: application/json" \
   --data "{
         \"jsonrpc\":\"2.0\",
@@ -380,7 +380,7 @@ curl --location --request POST "https://plasma-alpha.dappchains.com/eth" \
 
 ## Busy Contracts
 
-### Plasma DPoS Staking
+### basechain DPoS Staking
 
 - Smart Contract #1: 0xc72783049049c3d887a85df8061f3141e2c931cc
 

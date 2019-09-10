@@ -25,13 +25,13 @@ Click "Sign" and, under the hood, the dashboard will map your accounts. Next, yo
 ![Map Accounts](/developers/img/deploy-to-loom-dashboard.png)
 
 
-## Deposit Loom to Plasmachain
+## Deposit Loom to Basechain
 
-From the left pane, click on the "Deploy to Plasmachain". You will be redirected to a page similar to the one below:
+From the left pane, click on the "Deploy to Basechain". You will be redirected to a page similar to the one below:
 
-![Deposit Loom to Plasma Chain](/developers/img/deploy-to-loom-deposit-loom.png)
+![Deposit Loom to Basechain](/developers/img/deploy-to-loom-deposit-loom.png)
 
-Notice that, in order to deploy to Plasmachain, you need to stake some LOOM. Click on the "Deposit more Loom to Plasmachain" and follow the instructions.
+Notice that, in order to deploy to Basechain, you need to stake some LOOM. Click on the "Deposit more Loom to Basechain" and follow the instructions.
 
 ## Adding the Public Keys
 
@@ -129,8 +129,8 @@ module.exports = {
     loom_mainnet: {
       provider: function () {
         const chainId = 'default'
-        const writeUrl = 'http://plasma.dappchains.com/rpc'
-        const readUrl = 'http://plasma.dappchains.com/query'
+        const writeUrl = 'http://basechain.dappchains.com/rpc'
+        const readUrl = 'http://basechain.dappchains.com/query'
         const mnemonicPath = path.join(__dirname, 'mainnet_mnemonic')
         const privateKeyPath = path.join(__dirname, 'mainnet_private_key')
         if (fs.existsSync(privateKeyPath)) {

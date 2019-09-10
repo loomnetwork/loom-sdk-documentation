@@ -113,7 +113,7 @@ Note Loom SDK 2.0 is not protocol compatible with 1.0 chains. If you have a prod
 
 **It is recommended that all users move up to this release**
 
-* Plasmachain Testnets available for Devs - [Docs](testnet-plasma.html)
+* Basechain Testnets available for Devs - [Docs](testnet-plasma.html)
 * Karma Faucet for Testnets - [Faucet](http://faucet.dappchains.com)
 * Karma contracts (Sybil resistance) Loom SDK - [Karma](karma.html)
 * Massive performance increasements for high load environments
