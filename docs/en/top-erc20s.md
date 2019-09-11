@@ -6,7 +6,7 @@ sidebar_label: ERC20s Deployed to Loom
 
 Here's the list of the top ERC20 smart contracts already deployed to Loom:
 
-| No | Token Name | Symbol | Basechain Contract Address |
+| No | Token Name | Symbol | Loom Basechain Contract Address |
 | --- | --- | --- |  --- |
 1 | Paxos Standard | PAX | 0xd443c9cee967b5d068dbf7471c33a2e0bd135f97 |
 2 | Dai Stablecoin v1.0 | DAI | 0xc377ce132f561364390974af13d4715f8b744319 |

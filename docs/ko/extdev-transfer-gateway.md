@@ -5,11 +5,11 @@ sidebar_label: Transfer Gateway Testnet
 ---
 ## Overview
 
-In this doc we'll walk you through the setup required to transfer tokens between token contracts you've deployed to `extdev` and `Rinkeby`. If you haven't done so already you should first read through the high level overview of the [Transfer Gateway](transfer-gateway.html).
+In this doc we'll walk you through the setup required to transfer tokens between token contracts you've deployed to Loom Testnet and `Rinkeby`. If you haven't done so already you should first read through the high level overview of the [Transfer Gateway](transfer-gateway.html).
 
-## 1. Deploy token contracts to `extdev`
+## 1. Deploy token contracts to Loom Testnet
 
-If you wish to transfer tokens from a token contract deployed on `Rinkeby` to one that's deployed on `extdev` you'll need to ensure that the token contract you deploy to `extdev` implements the `mintToGateway` function. We've created some sample contracts and a simple CLI to interact with them.
+If you wish to transfer tokens from a token contract deployed on `Rinkeby` to one that's deployed on Loom Testnet you'll need to ensure that the token contract you deploy to Loom Testnet implements the `mintToGateway` function. We've created some sample contracts and a simple CLI to interact with them.
 
 ### MyToken ERC721 contract
 
@@ -66,7 +66,7 @@ contract MyCoin is StandardToken {
 
 Full source for all contracts can be found in the [Truffle DAppChain Example](https://github.com/loomnetwork/truffle-dappchain-example) repo.
 
-1. Download the `loom` binary, while you won't be spinning up your own DAppChain in this tutorial, you will be using some of the CLI commands built into the `loom` binary to interact with the Basechain testnet.
+1. Download the `loom` binary, while you won't be spinning up your own DAppChain in this tutorial, you will be using some of the CLI commands built into the `loom` binary to interact with the Loom testnet.
     
     ```bash
     curl https://raw.githubusercontent.com/loomnetwork/loom-sdk-documentation/master/scripts/get_loom.sh | sh

@@ -1,12 +1,12 @@
 ---
 id: jump-start-basechain
-title: Basechain Jump Start
-sidebar_label: Basechain Jump Start
+title: Loom Basechain Jump Start
+sidebar_label: Loom Basechain Jump Start
 ---
 
-Follow the instructions below to launch a Basechain node from the jump start
+Follow the instructions below to launch a Loom Basechain node from the jump start
 
-## Download stable version of Basechain
+## Download stable version of Loom Basechain
 
 ```bash
 wget https://private.delegatecall.com/loom/linux/stable/plasmachain

@@ -49,7 +49,7 @@ The SDK integrates into the Ethereum Backend with the following pieces:
 * ERC-721 Tokens
 * Ether
 
-### Basechain Contract supports
+### Loom Basechain Contract supports
 
 * ERC-721 Tokens
 * ERC-20 Tokens

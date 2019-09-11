@@ -60,9 +60,9 @@ yarn gen:extdev-key
 > The Loom private key will be saved into a file called `extdev_private_key`.
 
 
-### Deploy to the Extdev testnet
+### Deploy to the Loom Testnet
 
-As an example, we will deploy and run our application against `Extdev`.
+As an example, we will deploy and run our application against Loom Testnet.
 
 Run the following command:
 
@@ -70,12 +70,12 @@ Run the following command:
 yarn deploy:extdev
 ```
 
->The above command will **compile and then deploy** our smart contract to the Extdev testnet.
+>The above command will **compile and then deploy** our smart contract to the Loom Testnet.
 
 
 ## Testing
 
-Run this command below to send transactions to the smart contract deployed to `extdev`:
+Run this command below to send transactions to the smart contract deployed to Loom Testnet:
 
 
 ```test

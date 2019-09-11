@@ -12,10 +12,10 @@ In short, you can think of Loom Network as EOS on top of Ethereum.
 
 For advanced teams that need a custom blockchain, the Loom SDK will also let you [spin up](basic-install-all.html) your own DPoS chain in just a few minutes.
 
-## What is Basechain?
+## What is Loom Basechain?
 
-Basechain will be the central hub that all these chains connect to as their bridge to Ethereum, for interchain communication with other major blockchains (such as Cosmos, EOS, and Tron), and as a shared liquidity pool for tokenized assets.
+Loom Basechain will be the central hub that all these chains connect to as their bridge to Ethereum, for interchain communication with other major blockchains (such as Cosmos, EOS, and Tron), and as a shared liquidity pool for tokenized assets.
 
-Thus, our company’s primary objectives over the next year are all related to growing Basechain to become the “universal Layer 2” for high performance dapps.
+Thus, our company’s primary objectives over the next year are all related to growing Loom Basechain to become the “universal Layer 2” for high performance dapps.
 
 In the next chapter, you will learn how to deploy your first app to Loom Basechain. Let's get started!

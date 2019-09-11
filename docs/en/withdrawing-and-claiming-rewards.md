@@ -11,7 +11,7 @@ This section will show you how to map your HSM to your Ledger, and how to withdr
 In the following commands, if you’re using an HSM, replace the `--key /path/to/dappchainkey` (or -k) with the HSM path with `--hsm /path/to/hsm.json`.
 
 
-In Loom you have your Ethereum mainnet address, which gets parsed as `eth:0xdeadbeef` and your Loomchain address, which gets parsed as `chainId:0xabcdef`, where `chainId` is the Chain ID for each chain, `default` for Basechain.
+In Loom you have your Ethereum mainnet address, which gets parsed as `eth:0xdeadbeef` and your Loomchain address, which gets parsed as `chainId:0xabcdef`, where `chainId` is the Chain ID for each chain, `default` for Loom Basechain.
 
 We hereafter shall refer to the ethereum mainnet as $ETHADDRESS, and the loom address as $LOOMADDRESS. $ETHADDRESS corresponds to your Ethereum private key’s address(or the address of your Ledger/Trezor) and $LOOMADDRESS corresponds to your Loom private key’s address (or the address of your YubiHSM).
 

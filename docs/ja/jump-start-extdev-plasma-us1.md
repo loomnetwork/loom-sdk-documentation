@@ -1,10 +1,10 @@
 ---
 id: jump-start-extdev
-title: extdev Jump Start
-sidebar_label: extdev Jump Start
+title: Loom Testnet Jump Start
+sidebar_label: Loom Testnet Jump Start
 ---
 
-Follow the instructions below to launch an extdev node from the jump start.
+Follow the instructions below to launch a Loom Testnet node from the jump start.
 
 ## Download stable version of loom
 

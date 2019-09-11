@@ -6,19 +6,19 @@ sidebar_label: DApp Metrics Website Info
 
 ## Purpose
 
-This guide shows how to get useful information on the DApps running on Loom Mainnet. Thus, if you are running a DApp metrics website or just want to get more insight on the DApps running on Loom Mainnet, then carry on with this guide.
+This guide shows how to get useful information on the DApps running on Loom Basechain. Thus, if you are running a DApp metrics website or just want to get more insight on the DApps running on Loom Basechain, then carry on with this guide.
 
 ## Block Explorers
 
-- [MainNet Block Explorer](http://plasma-blockexplorer.dappchains.com/)
-- [TestNet Block Explorer](http://extdev-blockexplorer.dappchains.com)
+- [Loom Basechain Block Explorer](http://plasma-blockexplorer.dappchains.com/)
+- [Loom Testnet Block Explorer](http://extdev-blockexplorer.dappchains.com)
 
 ## Web3 Endpoints
 
 You can use the following endpoints to interact with Loom:
 
-- Basechain: http://plasma.dappchains.com/eth
-- GameChain: http://gamechain.dappchains.com/eth
+- Loom Basechain: http://plasma.dappchains.com/eth
+- Loom GameChain: http://gamechain.dappchains.com/eth
 
 ## JSON RPC Interface
 
@@ -380,7 +380,7 @@ curl --location --request POST "https://plasma-alpha.dappchains.com/eth" \
 
 ## Busy Contracts
 
-### Basechain DPoS Staking
+### Loom Basechain DPoS Staking
 
 - Smart Contract #1: 0xc72783049049c3d887a85df8061f3141e2c931cc
 

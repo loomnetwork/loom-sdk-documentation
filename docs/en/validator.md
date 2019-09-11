@@ -36,7 +36,7 @@ First, let's head over to our [validator management](https://dashboard.dappchain
 
 ![Select wallet](/developers/img/validator-management-select-wallet.png)
 
-> Please note that, for the scope of this tutorial, we're using our Testnet. However, the process is similar on Loom Mainnet.
+> Please note that, for the scope of this tutorial, we're using our Testnet. However, the process is similar on Loom Basechain.
 
 Depending on your preference, click "Metamask", "Ledger (Legacy)",  "Ledger (via Metamask)"or "Trezor via Metamask".
 
@@ -44,24 +44,24 @@ We selected MetaMask, but the process is similar if you choose a different walle
 
 ![Select wallet](/developers/img/validator-management-connect-request.png)
 
-Just click "Connect" and, at this point, the dashboard will map your Ehtereum and Loom Mainnet accounts. If it sounds complex, there's no need to worry. Everything happens under the hood and you will only be asked to sign a message:
+Just click "Connect" and, at this point, the dashboard will map your Ehtereum and Loom Basechain accounts. If it sounds complex, there's no need to worry. Everything happens under the hood and you will only be asked to sign a message:
 
 ![Signature request](/developers/img/validator-management-signature-request.png)
 
 Wait a bit until the mapping gets created.
 
-### Adding a Mapping to an Existing Loom Mainnet Account
+### Adding a Mapping to an Existing Loom Basechain Account
 
 Next, you'll have two options to choose from:
 
- - Add a mapping to an existing Loom Mainnet Account, or
+ - Add a mapping to an existing Loom Basechain Account, or
  - Create a new account
 
  ![Map to an existing account](/developers/img/validator-management-map-to-an-existing-account.png)
 
-Go ahead and select "Add a mapping to an existing Loom Mainnet Account".
+Go ahead and select "Add a mapping to an existing Loom Basechain Account".
 
-The dashboard will ask you to input your Loom Mainnet private key:
+The dashboard will ask you to input your Loom Basechain private key:
 
 ![Input your private key](/developers/img/validator-management-input-your-private-key.png)
 
@@ -77,7 +77,7 @@ Once the mapping is created and verified you will be redirected to your account 
 
 ### Depositing Loom
 
-In the previous section you learned how to map your accounts. Next, we will show you how to deposit tokens to Loom Mainnet.
+In the previous section you learned how to map your accounts. Next, we will show you how to deposit tokens to Loom Basechain.
 
 From the left pane, click on the "Deposit and Withdraw" and then select "Deposit" from the "LOOM" tab:
 
@@ -99,11 +99,11 @@ Then, Metamask will ask you once again to confim the transaction:
 
 ![Final confirmation](/developers/img/validator-management-final-confirmation.png)
 
-Note that your Loom Mainnet balance will get updated after 10 block confirmations:
+Note that your Loom Basechain balance will get updated after 10 block confirmations:
 
 ![10 blocks confirmation](/developers/img/validator-management-10-block-confirmations.png)
 
-Once 10 blocks are confirmed, your balace on Loom Mainnet will get updated
+Once 10 blocks are confirmed, your balace on Loom Basechain will get updated
 
 ![Updated balance](/developers/img/validator-management-updated-balance.png)
 

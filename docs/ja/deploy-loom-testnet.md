@@ -30,7 +30,7 @@ local address base64: OzNL7R59Pn2SFElRIBYNkjasvDE=
 # Truffleサンプルをテストネットへデプロイ
 
 1. node 及び yarn/npm がインストールされていることを確認
-2. テストネットのURLを以下ページから取得する[Basechain Testnets](testnet-plasma.html)
+2. テストネットのURLを以下ページから取得する[Loom Testnet](testnet-plasma.html)
 3. ソースを取得: 
         bash
         git clone https://github.com/loomnetwork/truffle-dappchain-example

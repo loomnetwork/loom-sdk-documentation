@@ -74,7 +74,7 @@ module.exports = {
           ['/intro-to-loom', 'Intro to Loom'],
           ['/deploy-loom-testnet', 'Deploy to Loom Testnet'],
           ['/extdev-transfer-gateway', 'extdev-transfer-gateway'],
-          ['/deploy-loom-mainnet', 'Deploy to Loom Mainnet'],
+          ['/deploy-loom-mainnet', 'Deploy to Loom Basechain'],
           ['/basic-install-all', 'Setup Local Loom Chain'],
           ['/how-to-develop-locally', 'How to Develop Locally']
         ],
@@ -165,12 +165,12 @@ module.exports = {
         collapsable: true,
         sidebarDepth: 1,
         children: [
-          ['/testnet-plasma', 'Basechain Testnets'],
-          ['/mainnet-plasma', 'Basechain MainNet'],
+          ['/testnet-plasma', 'Loom Testnet'],
+          ['/mainnet-plasma', 'Loom Basechain'],
           ['/validator', 'Become Validator'],
           ['/non-validator-node', 'Non Validator Node'],
-          ['/jump-start-plasma', 'Basechain Jump Start'],
-          ['/jump-start-extdev-plasma-us1', 'Extdev Jump Start'],
+          ['/jump-start-plasma', 'Loom Basechain Jump Start'],
+          ['/jump-start-extdev-plasma-us1', 'Loom Testnet Jump Start'],
         ],
       },
       {

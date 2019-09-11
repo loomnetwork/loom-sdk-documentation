@@ -27,10 +27,10 @@ local address base64: OzNL7R59Pn2SFElRIBYNkjasvDE=
 
 这将创建名为 `priv_key` 和 `pub_key` 的文件， `priv_key` 文件里包含你将用来把合同部署到DApp链的私钥。
 
-# Deploy Truffle Example to a Testnet
+# Deploy Truffle Example to a Loom Testnet
 
 1. Make sure you have node and yarn/npm installed
-2. Obtain the testnet URL from [Basechain Testnets](testnet-plasma.html) page
+2. Obtain the testnet URL from [Loom Testnets](testnet-plasma.html) page
 3. Get the source: 
         bash
         git clone https://github.com/loomnetwork/truffle-dappchain-example

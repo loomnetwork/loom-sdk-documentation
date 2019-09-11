@@ -54,9 +54,9 @@ yarn gen:extdev-key
 > The Loom private key will be saved into a file called `extdev_private_key`.
 
 
-### Deploy to Extdev
+### Deploy to Loom Testnet
 
-As an example, we will deploy and run our application against Basechain testnet (`extdev`).
+As an example, we will deploy and run our application against Loom Testnet (`extdev`).
 
 Run the following command:
 
