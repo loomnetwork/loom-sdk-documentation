@@ -145,23 +145,6 @@ const binanceTransferGatewayContract = await BinanceTransferGateway.createAsync(
 )
 ```
 
-- **BNB Coin:**
-
-The BNB Coin contract is deployed at //TODO: Needs address
-
-Instantiate the contract like this:
-
-```js
-const web3Loom = new Web3(loomProvider)
-
-// ... content omitted for brevity
-
-const bnbCoinAddress = //TODO: Needs address 
-const basechainBNBContract = new web3Loom.eth.Contract(bnbToken.abi, bnbCoinAddress)
-```
-
-The `bnbToken.abi` file can be found [here](https://github.com/loomnetwork/loom-examples/blob/master/truffle/build/contracts/BNBToken.json).
-
 ## Transfer Gateway Tutorials
 
 For more details on how to transfer tokens between Loom and other chains like Ethereum, Tron, and Binance see our [transfer gateway exampls](transfer-gateway-example.html) page.
