@@ -165,8 +165,8 @@ module.exports = {
         collapsable: true,
         sidebarDepth: 1,
         children: [
-          ['/testnet-basechain', 'Basechain Testnets'],
-          ['/mainnet-basechain', 'Basechain MainNet'],
+          ['/testnet-plasma', 'Basechain Testnets'],
+          ['/mainnet-plasma', 'Basechain MainNet'],
           ['/validator', 'Become Validator'],
           ['/non-validator-node', 'Non Validator Node'],
           ['/jump-start-plasma', 'Basechain Jump Start'],
