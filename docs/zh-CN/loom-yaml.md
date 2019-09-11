@@ -52,7 +52,7 @@ BFT 层区块链的常规日志记录。这可能会根据你使用的 BFT 引�
 
 Options: "ws://127.0.0.1:8545"
 
-This is the url of the Ethereum Blockchain to read data for plasma and transfer gateway. In future we will have support for infura also.
+This is the url of the Ethereum Blockchain to read data for Basechain and transfer gateway. In future we will have support for infura also.
 
 ## ChainID
 

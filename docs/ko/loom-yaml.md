@@ -52,7 +52,7 @@ BFT 레이어 블록체인을 위한 일반적인 로깅. 여러분이 사용하
 
 Options: "ws://127.0.0.1:8545"
 
-This is the url of the Ethereum Blockchain to read data for plasma and transfer gateway. In future we will have support for infura also.
+This is the url of the Ethereum Blockchain to read data for Basechain and transfer gateway. In future we will have support for infura also.
 
 ## ChainID
 

@@ -3,7 +3,7 @@ id: join-testnet
 title: 加入测试网
 sidebar_label: 加入测试网
 ---
-这篇文档帮助开发人员了解如何加入PlasmaChain测试网进行部署。 如果你要找如何运行节点的信息，或者如何成为验证者，请查看[验证者指南](validator.html)。
+这篇文档帮助开发人员了解如何加入Basechain测试网进行部署。 如果你要找如何运行节点的信息，或者如何成为验证者，请查看[验证者指南](validator.html)。
 
 **环境依赖**
 
@@ -30,7 +30,7 @@ local address base64: OzNL7R59Pn2SFElRIBYNkjasvDE=
 # Deploy Truffle Example to a Testnet
 
 1. Make sure you have node and yarn/npm installed
-2. Obtain the testnet URL from [PlasmaChain Testnets](testnet-plasma.html) page
+2. Obtain the testnet URL from [Basechain Testnets](testnet-plasma.html) page
 3. Get the source: 
         bash
         git clone https://github.com/loomnetwork/truffle-dappchain-example
@@ -38,7 +38,7 @@ local address base64: OzNL7R59Pn2SFElRIBYNkjasvDE=
         # copy the private key generated earlier to the root directory of the example repo
         cp ../priv_key extdev_private_key
 
-4. If you wish to deploy the example contracts to `extdev-plasma-us1` skip this step. Otherwise, add the network you wish to deploy to in `truffle-config.js`.
+4. If you wish to deploy the example contracts to `extdev` skip this step. Otherwise, add the network you wish to deploy to in `truffle-config.js`.
 5. Install node modules: 
         bash
         yarn

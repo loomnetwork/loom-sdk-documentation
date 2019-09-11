@@ -1,16 +1,16 @@
 ---
-id: testnet-plasma
-title: PlasmaChainテストネット
-sidebar_label: PlasmaChainテストネット
+id: testnet-basechain
+title: Basechainテストネット
+sidebar_label: Basechainテストネット
 ---
 このページは、どこでどのようにチェーンにアクセスできるかという情報を掲載している。 もしより詳細な開発者ガイドが必要であれば、[テストネットへの参加ガイド](join-testnet.html)をチェックすること。
 
 | 名称                  | Url                                                   | タイプ    | 可用性                                      |
 | ------------------- | ----------------------------------------------------- | ------ | ---------------------------------------- |
-| Dev Plasma Test     | test-z-asia1.dappchains.com                           | テストネット | 実験的ベータ                                   |
-| External Dev Plasma | extdev-plasma-us1.dappchains.com                      | テストネット | 安定的開発者ベータ                                |
+| Dev Basechain Test     | test-z-asia1.dappchains.com                           | テストネット | 実験的ベータ                                   |
+| External Dev Basechain | extdev-plasma-us1.dappchains.com                      | テストネット | 安定的開発者ベータ                                |
 | Validator Test      | test-z-validator1.dappchains.com                      | テストネット | バリデーターベータ                                |
-| Plasma Chain        | plasma.dappchains.com                                 | メインネット | エンドユーザーベータ (Loom MarketPlace)            |
+| Basechain Chain        | basechain.dappchains.com                                 | メインネット | エンドユーザーベータ (Loom MarketPlace)            |
 | Mainnet             | ユーザーベータ                                               |        |                                          |
 | Social Chain        | [Block Explorer](https://blockchain.delegatecall.com) | メインネット | [DelegateCall](https://delegatecall.com) |
 

@@ -3,7 +3,7 @@ id: validator
 title: Become Validator
 sidebar_label: Become Validator
 ---
-This page tells you how to become a validator, or to just run a node for Plasmachain. Currently this is only available on our Testnets. Please fill out this [form](http://bit.ly/Loom_Validator_Form) to be come a validator
+This page tells you how to become a validator, or to just run a node for Basechain. Currently this is only available on our Testnets. Please fill out this [form](http://bit.ly/Loom_Validator_Form) to be come a validator
 
 ## How to join as a Validator
 

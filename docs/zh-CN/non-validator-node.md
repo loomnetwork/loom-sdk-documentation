@@ -3,9 +3,9 @@ id: non-validator-node
 title: 非验证者节点
 sidebar_label: 非验证者节点
 ---
-# Joining extdev-plasma-us1.dappchains.com as Non-validator
+# Joining Extdev as Non-validator
 
-Follow the instructions below to join the cluster extdev-plasma-us1.dappchains.com as a non-validator node.
+Follow the instructions below to join Extdev as a non-validator node.
 
 ## 下载 loom 稳定版
 
