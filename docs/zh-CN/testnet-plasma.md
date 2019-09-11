@@ -1,5 +1,5 @@
 ---
-id: testnet-basechain
+id: loom-testnet
 title: Loom Testnet
 sidebar_label: Loom Testnet
 ---
