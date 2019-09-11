@@ -65,7 +65,9 @@ If you want to use [Universal Signing](https://medium.com/loom-network/universal
 
 **Contracts deployed on Rinkeby**
 
-- **Transfer Gateway**: 0xb73C9506cb7f4139A4D6Ac81DF1e5b6756Fab7A2 (use this for Eth, ERC721, and ERC20 assets)
+- **Transfer Gateway**: `0xb73C9506cb7f4139A4D6Ac81DF1e5b6756Fab7A2` (use this for Eth, ERC721, and ERC20 assets)
+
+- **Loom Transfer Gateway:** `0x5558ba31CB91b2a45B3DCe9c720A0e0b59785711`
 
 **Contracts deployed on Extdev**
 
@@ -116,7 +118,7 @@ const contractAddr = await client.getContractAddressAsync('ethcoin')
 
 ### Binance Integration
 
-- **Binance hotWallet address**: tbnb1gc7azhlup5a34t8us84x6d0fluw57deuf47q9w
+- **Binance hotWallet address**: `tbnb1gc7azhlup5a34t8us84x6d0fluw57deuf47q9w`
 
 **Contracts deployed on Extdev**
 
@@ -143,7 +145,7 @@ const binanceTransferGatewayContract = await BinanceTransferGateway.createAsync(
 
 - **BNB Coin:**
 
-The BNB Coin contract is deployed at 0x9ab4e22d56c0c4f7d494442714c82a605d2f28e0.
+The BNB Coin contract is deployed at `0x9ab4e22d56c0c4f7d494442714c82a605d2f28e0`.
 
 Instantiate the contract like this:
 
