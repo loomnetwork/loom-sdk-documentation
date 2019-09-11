@@ -295,8 +295,8 @@ module.exports = {
     loom: {
       provider: function () {
         const chainId = 'default'
-        const writeUrl = 'http://basechain.dappchains.com/rpc'
-        const readUrl = 'http://basechain.dappchains.com/query'
+        const writeUrl = 'http://plasma.dappchains.com/rpc'
+        const readUrl = 'http://plasma.dappchains.com/query'
         const seed = mnemonicToSeedSync(mnemonic)
         const privateKeyUint8ArrayFromSeed = CryptoUtils.generatePrivateKeyFromSeed(new Uint8Array(sha256.array(seed)))
         const privateKeyB64 = CryptoUtils.Uint8ArrayToB64(privateKeyUint8ArrayFromSeed)

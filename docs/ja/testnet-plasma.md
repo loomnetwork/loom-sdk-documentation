@@ -10,7 +10,7 @@ sidebar_label: Basechainテストネット
 | Dev Basechain Test     | test-z-asia1.dappchains.com                           | テストネット | 実験的ベータ                                   |
 | External Dev Basechain | extdev-plasma-us1.dappchains.com                      | テストネット | 安定的開発者ベータ                                |
 | Validator Test      | test-z-validator1.dappchains.com                      | テストネット | バリデーターベータ                                |
-| Basechain Chain        | basechain.dappchains.com                                 | メインネット | エンドユーザーベータ (Loom MarketPlace)            |
+| Basechain Chain        | plasma.dappchains.com                                 | メインネット | エンドユーザーベータ (Loom MarketPlace)            |
 | Mainnet             | ユーザーベータ                                               |        |                                          |
 | Social Chain        | [Block Explorer](https://blockchain.delegatecall.com) | メインネット | [DelegateCall](https://delegatecall.com) |
 

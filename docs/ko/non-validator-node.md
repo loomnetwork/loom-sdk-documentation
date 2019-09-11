@@ -5,7 +5,7 @@ sidebar_label: Non Validator Node
 ---
 # Joining Extdev as Non-validator
 
-Follow the instructions below to join the cluster Extdev as a non-validator node.
+Follow the instructions below to join the Extdev cluster as a non-validator node.
 
 ## Download Stable Version of loom
 

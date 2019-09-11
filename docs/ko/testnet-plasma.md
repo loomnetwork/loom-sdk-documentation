@@ -8,9 +8,9 @@ This page is purely information on where and how to access the chain. If you wan
 | Name                | Url                                                   | Type    | Availability                             |
 | ------------------- | ----------------------------------------------------- | ------- | ---------------------------------------- |
 | Dev Basechain Test     | test-z-asia1.dappchains.com                           | Testnet | Experimental Beta                        |
-| External Dev | basechain.dappchains.com                      | Testnet | Stable Developer Beta                    |
+| External Dev | extdev-plasma-us1.dappchains.com                      | Testnet | Stable Developer Beta                    |
 | Validator Test      | test-z-validator1.dappchains.com                      | Testnet | Validator Beta                           |
-| Basechain        | basechain.dappchains.com                                 | Mainnet | End User Beta (Loom MarketPlace)         |
+| Basechain        | plasma.dappchains.com                                 | Mainnet | End User Beta (Loom MarketPlace)         |
 | Mainnet             | User Beta                                             |         |                                          |
 | Social Chain        | [Block Explorer](https://blockchain.delegatecall.com) | Mainnet | [DelegateCall](https://delegatecall.com) |
 

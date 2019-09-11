@@ -14,10 +14,11 @@ If you want more details, see our [guide](deploy-loom-mainnet.html) on deploying
 - **Name**: Basechain
 - **Type**: Mainnet
 - **Availability**: End User
-- **URL**: basechain.dappchains.com
+- **URL**: plasma.dappchains.com
 - **chainId**: default
 - **networkId**: *
-- **readUrl**: https://basechain.dappchains.com/query
+- **readUrl**: https://plasma.dappchains.com/query
+- **writeURl**: https://plasma.dappchains.com/rpc
 
 ### Truffle configuration file
 

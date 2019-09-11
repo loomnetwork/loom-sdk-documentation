@@ -10,7 +10,7 @@ sidebar_label: Basechain 测试网
 | 开发者Basechain测试  | test-z-asia1.dappchains.com                  | 测试网 | 实验测试版                                    |
 | 外部开发者Basechain  | extdev-plasma-us1.dappchains.com             | 测试网 | 稳定的开发者测试版                                |
 | 验证者测试        | test-z-validator1.dappchains.com             | 测试网 | 验证者测试版                                   |
-| Basechain | basechain.dappchains.com                        | 主网  | 最终用户测试版 (Loom 交易市场)                      |
+| Basechain | plasma.dappchains.com                        | 主网  | 最终用户测试版 (Loom 交易市场)                      |
 | 主网           | 用户测试版                                        |     |                                          |
 | Social Chain | [区块浏览器](https://blockchain.delegatecall.com) | 主网  | [DelegateCall](https://delegatecall.com) |
 
