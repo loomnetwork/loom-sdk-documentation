@@ -8,7 +8,7 @@ sidebar_label: Release Notes
 
 Reverse chronology order of release notes.
 
-## Loom 2.0 Release Build 1263 - 2109/09/10
+## Loom 2.0 Release Build 1263 - 2019/09/10
 
 This is a maintenance release that fixes several issues and adds some new features.
 
@@ -113,7 +113,7 @@ Note Loom SDK 2.0 is not protocol compatible with 1.0 chains. If you have a prod
 
 **It is recommended that all users move up to this release**
 
-* Basechain Testnets available for Devs - [Docs](testnet-plasma.html)
+* Plasmachain Testnets available for Devs - [Docs](testnet-plasma.html)
 * Karma Faucet for Testnets - [Faucet](http://faucet.dappchains.com)
 * Karma contracts (Sybil resistance) Loom SDK - [Karma](karma.html)
 * Massive performance increasements for high load environments

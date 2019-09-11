@@ -229,7 +229,7 @@ Great, everything should now be ready for flawless token transfer between `extde
 
 Now that all contracts and accounts have been mapped you can transfer tokens and ETH to the `Rinkeby` Gateway contract.
 
-Let's start by minting some of the `MyRinkebyToken` ERC721 tokens, and transferring one of them to the `Basechain`:
+Let's start by minting some of the `MyRinkebyToken` ERC721 tokens, and transferring one of them to Basechain:
 
 ```bash
 # mint some tokens on Rinkeby
