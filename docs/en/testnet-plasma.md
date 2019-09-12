@@ -118,7 +118,7 @@ const contractAddr = await client.getContractAddressAsync('ethcoin')
 
 ### Binance Integration
 
-- **Binance hotWallet address**: `tbnb1gc7azhlup5a34t8us84x6d0fluw57deuf47q9w`
+- **Binance Hot Wallet address**: `tbnb1gc7azhlup5a34t8us84x6d0fluw57deuf47q9w`
 
 **Contracts deployed on Extdev**
 
