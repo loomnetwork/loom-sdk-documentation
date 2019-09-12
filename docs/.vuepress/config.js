@@ -226,7 +226,8 @@ module.exports = {
         sidebarDepth: 1,
         children: [
           ['/others', 'Other Wallets'],
-          ['/withdrawing-and-claiming-rewards','Validators - Withdrawing and Claiming Rewards']
+          ['/withdrawing-and-claiming-rewards','Validators - Withdrawing and Claiming Rewards'],
+          ['/use-remix-with-loom', 'How to Use Remix with Loom']
         ],
       },
     ],
