@@ -1,28 +1,165 @@
 ---
 id: testnet-plasma
-title: PlasmaChain 测试网
-sidebar_label: PlasmaChain 测试网
+title: PlasmaChain Extdev
+sidebar_label: PlasmaChain Extdev
 ---
-本页纯粹是关于如何访问链的信息。 如果需要更详细的开发人员指南, 请查看 [加入测试网指南](join-testnet.html)。
 
-| 名字           | 网址                                           | 类型  | 可用性                                      |
-| ------------ | -------------------------------------------- | --- | ---------------------------------------- |
-| 开发者Plasma测试  | test-z-asia1.dappchains.com                  | 测试网 | 实验测试版                                    |
-| 外部开发者Plasma  | extdev-plasma-us1.dappchains.com             | 测试网 | 稳定的开发者测试版                                |
-| 验证者测试        | test-z-validator1.dappchains.com             | 测试网 | 验证者测试版                                   |
-| Plasma Chain | plasma.dappchains.com                        | 主网  | 最终用户测试版 (Loom 交易市场)                      |
-| 主网           | 用户测试版                                        |     |                                          |
-| Social Chain | [区块浏览器](https://blockchain.delegatecall.com) | 主网  | [DelegateCall](https://delegatecall.com) |
+This page provides information on where and how to access the Extdev network.
+If you want more details, see our [guide](deploy-loom-testnet.html) on deploying to Loom testnet.
 
-**通常每天都会清理Devnet，仅用于实验性功能。**
+## Extdev
 
-# 合约地址转移网关
+> **Devnets typically are wiped often, only use them for experimental features!**
 
-与部署的网络相关的以太坊合约在哪里
+### General Information
 
-| 名字                                | 以太坊链接   | 转移网关地址                                     |
-| --------------------------------- | ------- | ------------------------------------------ |
-| Devnet Plasma (extdev-plasma-us1) | Rinkeby | 0xb73C9506cb7f4139A4D6Ac81DF1e5b6756Fab7A2 |
-| Devnet Plasma (test-z-asia1)      | Rinkeby | 0x3c826a09DF9ad39B9acF550b1bf35C9b6AfCd943 |
-| Plasma Chain                      | Mainnet | 0x223CA78df868367D214b444d561B9123c018963A |
-| Validator Test                    | Rinkeby | n/a                                        |
+- **Name**: Dev Plasma Test
+- **Type**: Testnet
+- **Availability**: Stable developer
+- **URL**: extdev-plasma-us1.dappchains.com
+- **chainId**: extdev-plasma-us1
+- **networkId**: 9545242630824
+- **writeUrl**: wss://extdev-plasma-us1.dappchains.com/websocket
+- **readUrl**: wss://extdev-plasma-us1.dappchains.com/queryws
+
+### Truffle configuration file
+
+Use this sample Truffle [configuration file](https://github.com/loomnetwork/truffle-dappchain-example/blob/master/truffle-config.js) to deploy your smart contracts to Extdev.
+
+### Connect to Extdev
+
+You can use this snippet to connect to Extdev:
+
+```js
+import {
+  Client,
+  LocalAddress,
+  CryptoUtils,
+  LoomProvider,
+  createDefaultTxMiddleware
+} from 'loom-js'
+import Web3 from 'web3'
+
+// ... content omitted for brevity
+
+const client = new Client(networkId, writeUrl, readUrl)
+client.on('error', msg => {
+  console.error('Error on connecting to Extdev', msg)
+  })
+client.txMiddleware = createDefaultTxMiddleware(client, privateKey)
+
+// ... content omitted for brevity
+
+const privateKey = CryptoUtils.generatePrivateKey()
+const publicKey = CryptoUtils.publicKeyFromPrivateKey(privateKey)
+const currentUserAddress = LocalAddress.fromPublicKey(publicKey)
+
+// ... content omitted for brevity
+
+const web3 = new Web3(new LoomProvider(client, privateKey))
+```
+
+If you want to use [Universal Signing](https://medium.com/loom-network/universal-transaction-signing-seamless-layer-2-dapp-scaling-for-ethereum-b63a733fc65c) instead, see [our guide](how-to-get-started.html#to-get-started-with-universal-transaction-signing) on universal signing.
+
+### Ethereum Integration
+
+**Contracts deployed on Rinkeby**
+
+- **Transfer Gateway**: `0xb73C9506cb7f4139A4D6Ac81DF1e5b6756Fab7A2` (use this for Eth, ERC721, and ERC20 assets)
+
+- **Loom Transfer Gateway:** `0x5558ba31CB91b2a45B3DCe9c720A0e0b59785711`
+
+**Contracts deployed on Extdev**
+
+- **Transfer Gateway**
+
+You can resolve the address of the Ethereum transfer gateway by name as follows:
+
+```js
+const contractAddr = await client.getContractAddressAsync('gateway')
+```
+
+- **Loom Transfer Gateway**
+
+You can resolve the address of the Ethereum transfer gateway by name as follows:
+
+```js
+const contractAddr = await client.getContractAddressAsync('loomcoin-gateway')
+```
+
+**EthCoin**
+
+If you transfer Eth to your Extdev account, it'll get deposited into the EthCoin contract:
+
+Instantiate the contract like this:
+
+```js
+import {
+  Contracts
+} from 'loom-js'
+
+// ... content omitted for brevity
+
+const EthCoin = Contracts.EthCoin
+const ethCoinInstance = await EthCoin.createAsync(client, currentUserAddress)
+```
+
+Then, you can check the balance as follows:
+
+```js
+const balance = await ethCoinInstance.getBalanceOfAsync(currentUserAddress.toString())
+```
+
+Resolve the address by name with:
+
+```js
+const contractAddr = await client.getContractAddressAsync('ethcoin')
+```
+
+### Binance Integration
+
+- **Binance Hot Wallet address**: `tbnb1gc7azhlup5a34t8us84x6d0fluw57deuf47q9w`
+
+**Contracts deployed on Extdev**
+
+- **Transfer Gateway**
+
+You can resolve the address of the Binance transfer gateway by name as follows:
+
+```js
+const contractAddr = await client.getContractAddressAsync('binance-gateway')
+```
+
+Instantiate the Binance transfer gateway contract like this:
+
+```js
+import { BinanceTransferGateway } from 'loom-js/dist/contracts'
+
+// .. content omitted for brevity
+
+const binanceTransferGatewayContract = await BinanceTransferGateway.createAsync(
+  client,
+  currentUserAddress
+)
+```
+
+- **BNB Coin:**
+
+The BNB Coin contract is deployed at `0x9ab4e22d56c0c4f7d494442714c82a605d2f28e0`.
+
+Instantiate the contract like this:
+
+```js
+const web3Loom = new Web3(loomProvider)
+
+// ... content omitted for brevity
+
+const bnbCoinAddress = '0x9ab4e22d56c0c4f7d494442714c82a605d2f28e0'
+const extdevBNBContract = new web3Loom.eth.Contract(bnbToken.abi, bnbCoinAddress)
+```
+
+The `bnbToken.abi` file can be found [here](https://github.com/loomnetwork/loom-examples/blob/master/truffle/build/contracts/BNBToken.json).
+
+## Transfer Gateway Tutorials
+
+For more details on how to transfer tokens between Loom and other chains like Ethereum, Tron, and Binance see our [transfer gateway exampls](transfer-gateway-example.html) page.
