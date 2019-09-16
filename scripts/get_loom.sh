@@ -17,7 +17,7 @@ if \which curl >/dev/null 2>&1; then
 elif \which wget >/dev/null 2>&1; then
   download_command="wget -q -O"
 fi
-$download_command loom https://private.delegatecall.com/loom/${platform}/stable/loom
+$download_command loom https://downloads.loomx.io/loom/${platform}/stable/loom
 chmod +x loom
 
 ./loom version

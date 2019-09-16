@@ -8,7 +8,7 @@ OSX에서 Loom 설치 및 설정하기
 ## 설치하기
 
 ```bash
-wget https://private.delegatecall.com/loom/osx/stable/loom
+wget https://downloads.loomx.io/loom/osx/stable/loom
 chmod +x loom
 
 ./loom init

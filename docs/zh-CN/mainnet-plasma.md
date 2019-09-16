@@ -161,7 +161,7 @@ const contractAddr = await client.getContractAddressAsync('tron-gateway')
 
 - **TRX Coin**
 
-If you deposit TRX tokens to the Tron transfer gateway, the assets will get transferred into the `TRXCoin` smart contract deployed on Plasmachain.
+If you deposit TRX tokens to the Tron transfer gateway, the assets will get transferred into the `TRXCoin` smart contract deployed on Basechain.
 
 Use something like the following to instantiate the contract:
 

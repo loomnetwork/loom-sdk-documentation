@@ -8,7 +8,7 @@ sidebar_label: 安装 (Linux)
 ## 安装
 
 ```bash
-wget https://private.delegatecall.com/loom/linux/stable/loom
+wget https://downloads.loomx.io/loom/linux/stable/loom
 chmod +x loom
 
 ./loom init

@@ -4,12 +4,14 @@ title: Loom Testnet Jump Start
 sidebar_label: Loom Testnet Jump Start
 ---
 
-Follow the instructions below to launch a Loom Testnet node from the jump start.
+## Purpose
+
+This page shows you how to launch an Loom Testnet node from the jump start.
 
 ## Download stable version of loom
 
 ```bash
-wget https://private.delegatecall.com/loom/linux/extdev-stable/loom
+wget https://downloads.loomx.io/loom/linux/extdev-stable/loom
 chmod +x loom
 ```
 
@@ -45,6 +47,11 @@ cd ../loom-jump-start
 ```
 
 ## Start the node
+
+> NOTE: Check the open files limit on your system before starting the node! See [Open Files Limit](#open-files-limit).
+
+Now, let's start the node by running:
+
 
 ```bash
 ../loom run --persistent-peers tcp://1cba97a0a108cb0de51e5a3ff6ac15d70e0fa076@52.53.145.158:46656,tcp://367a9fa0df0afeed204c3360867e37ef03da5b97@52.53.184.91:46656,tcp://7b537b6ad25b5b13864ec20bed8803489189a274@54.193.119.132:46656,tcp://d7623e990790048db76c5d6a25e12efa818aaef1@52.53.221.33:46656
