@@ -18,8 +18,8 @@ This page provides information on where and how to access the Loom Testnet netwo
 - **URL**: extdev-plasma-us1.dappchains.com
 - **chainId**: extdev-plasma-us1
 - **networkId**: 9545242630824
-- **writeUrl**: wss://extdev-plasma-us1.dappchains.com/websocket
-- **readUrl**: wss://extdev-plasma-us1.dappchains.com/queryws
+- **writeUrl**: wss://extdev-basechain-us1.dappchains.com/websocket
+- **readUrl**: wss://extdev-basechain-us1.dappchains.com/queryws
 
 ### Truffle configuration file
 

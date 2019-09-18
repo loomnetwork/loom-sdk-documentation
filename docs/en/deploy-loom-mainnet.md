@@ -135,8 +135,8 @@ module.exports = {
     loom_mainnet: {
       provider: function () {
         const chainId = 'default'
-        const writeUrl = 'http://plasma.dappchains.com/rpc'
-        const readUrl = 'http://plasma.dappchains.com/query'
+        const writeUrl = 'http://basechain.dappchains.com/rpc'
+        const readUrl = 'http://basechain.dappchains.com/query'
         const mnemonicPath = path.join(__dirname, 'mainnet_mnemonic')
         const privateKeyPath = path.join(__dirname, 'mainnet_private_key')
         if (fs.existsSync(privateKeyPath)) {

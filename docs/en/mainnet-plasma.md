@@ -17,8 +17,8 @@ If you want more details, see our [guide](deploy-loom-mainnet.html) on deploying
 - **URL**: plasma.dappchains.com
 - **chainId**: default
 - **networkId**: *
-- **readUrl**: https://plasma.dappchains.com/query
-- **writeURl**: https://plasma.dappchains.com/rpc
+- **readUrl**: https://basechain.dappchains.com/query
+- **writeURl**: https://basechain.dappchains.com/rpc
 
 ### Truffle configuration file
 

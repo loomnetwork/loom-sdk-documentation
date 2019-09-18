@@ -17,7 +17,7 @@ This guide shows how to get useful information on the DApps running on Loom Base
 
 You can use the following endpoints to interact with Loom:
 
-- Loom Basechain: http://plasma.dappchains.com/eth
+- Loom Basechain: http://basechain.dappchains.com/eth
 - Loom GameChain: http://gamechain.dappchains.com/eth
 
 ## JSON RPC Interface

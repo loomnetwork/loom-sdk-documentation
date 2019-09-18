@@ -30,8 +30,8 @@ Next, we instantiate the client and configure the default middleware:
 _createClient () {
     this.privateKey = this._getPrivateKey()
     this.publicKey = CryptoUtils.publicKeyFromPrivateKey(this.privateKey)
-    const writeUrl = 'wss://extdev-plasma-us1.dappchains.com/websocket'
-    const readUrl = 'wss://extdev-plasma-us1.dappchains.com/queryws'
+    const writeUrl = 'wss://extdev-basechain-us1.dappchains.com/websocket'
+    const readUrl = 'wss://extdev-basechain-us1.dappchains.com/queryws'
     const networkId = 'extdev-plasma-us1'
     this.client = new Client(networkId, writeUrl, readUrl)
     this.client.on('error', msg => {
