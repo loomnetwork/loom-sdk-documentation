@@ -9,7 +9,7 @@ Follow the instructions below to launch a Loom Basechain node from the jump star
 ## Download stable version of Loom Basechain
 
 ```bash
-wget https://downloads.loomx.io/loom/linux/latest/basechain
+wget https://downloads.loomx.io/loom/linux/stable/basechain
 chmod +x basechain
 ```
 
