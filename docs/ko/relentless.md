@@ -40,7 +40,7 @@ source ~/.bash_profile
 
 7. Extract the zip and then:
  - copy the `bin/protoc` file into `/usr/local/bin/` and 
- - `include/google` into `/usr/local/include/`.
+ - copy `include/google` into `/usr/local/include/`.
 
 8. Now, cd into `~/go/bin` and download the `loom` binary by entering the following command:
 
