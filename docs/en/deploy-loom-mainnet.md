@@ -37,7 +37,7 @@ From the left pane, click on the "Deploy to Basechain". You will be redirected t
 
 ![Deposit Loom to Basechain](/developers/img/deploy-to-loom-deposit-loom.png)
 
-Notice that, in order to deploy to Basechain, you need to stake some LOOM. Click on the "Deposit more Loom to Basechain" and follow the instructions.
+Notice that, in order to deploy to Basechain, you need to pay some LOOM. Click on the "Deposit more Loom to Basechain" and follow the instructions.
 
 ## Adding the Public Keys
 
