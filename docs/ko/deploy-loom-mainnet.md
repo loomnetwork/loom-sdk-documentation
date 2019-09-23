@@ -1,6 +1,6 @@
 ## First Steps with the Developer Dashboard
 
-This page shows you how to deploy your first smart contract to Loom Basechain. Note that you only need to do this once you go live, and it costs $99 a year to deploy to Loom Basechain.
+This page shows you how to deploy your first smart contract to Loom Basechain. Note that you only need to do this once you go live, and it costs 1400 Loom a year to deploy to Loom Basechain.
 
 First, head over to our [Developer Dashboard](https://dashboard.dappchains.com/login). We offer 3 different ways in which you can connect and sign transactions:
 
@@ -31,7 +31,7 @@ From the left pane, click on the "Deploy to Basechain". You will be redirected t
 
 ![Deposit Loom to Basehcain](/developers/img/deploy-to-loom-deposit-loom.png)
 
-Notice that, in order to deploy to Basechain, you need to pay some LOOM. Click on the "Deposit more Loom to Basechain" and follow the instructions.
+Notice that, in order to deploy to Basechain, you need to pay 1400 LOOM. Click on the "Deposit more Loom to Basechain" and follow the instructions.
 
 ## Adding the Public Keys
 
