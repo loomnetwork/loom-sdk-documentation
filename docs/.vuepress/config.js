@@ -227,7 +227,8 @@ module.exports = {
         children: [
           ['/others', 'Other Wallets'],
           ['/withdrawing-and-claiming-rewards','Validators - Withdrawing and Claiming Rewards'],
-          ['/use-remix-with-loom', 'How to Use Remix with Loom']
+          ['/use-remix-with-loom', 'How to Use Remix with Loom'],
+          ['/relentless','How to Set-up Relentless']
         ],
       },
     ],
