@@ -89,22 +89,24 @@ cp zb.genesis.json genesis.json
 loom run
 ```
 
-## Create an Account and run Transactions
-
+## Setup the Oracle, Create an Account and Run Transactions
 
 Follow the instructions from the [GameChain GitHub page](https://github.com/loomnetwork/gamechain#creating-account-and-running-transactions) to create an account and run transactions.
 
 
-## Fill in the Card Data
+## Update the Card Data
 
-Fill in the card data by entering the following commands:
+If you update the cards, you will be required to update the `genesis.json` file by entering the following commands:
 
 ```
 git clone https://github.com/loomnetwork/zb_card_meta_data
 cd zb_card_meta_data/
 chmod +x update_localhost.sh base_update.sh
-cp ../priv ./priv_key
+cp ../oracle-priv.key ./priv_key
+./update_localhost.sh
 ```
+
+Refer to the [Card Meta Data repo ](https://github.com/loomnetwork/zb_card_meta_data) for more details.
 
 ## The Front-end
 
