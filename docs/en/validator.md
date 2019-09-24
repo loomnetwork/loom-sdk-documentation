@@ -12,7 +12,7 @@ This page walks you through the steps necessary to become a validator.
 
 First things first. To become a validator, you need a pair of private and public keys. Basically, there are two scenarios:
 
-**1. You already have a key pair and want to use it**
+### 1. You already set up your node and have a key pair
 
 
 Get your key pair from the `chaindata/config/priv_validator.json` file. You can open the file in your favorite editor or run `cat chaindata/config/priv_validator.json`:
@@ -38,7 +38,7 @@ Get your key pair from the `chaindata/config/priv_validator.json` file. You can 
 
 Note that your public key is stored under `pub_key` -> `value` and your private key under `priv_key` -> `value`.
 
-**2. You don't have a key pair**
+### 2. You didn't set up a node and you don't have a key pair
 
 1. Download the latest stable version of Loom. Fire up a terminal and run the following command:
 
@@ -57,7 +57,7 @@ curl https://raw.githubusercontent.com/loomnetwork/loom-sdk-documentation/master
 ![Generate Keys](/developers/img/validator-management-generate-keys.png)
 
 
->Note: To use this key pair with your validator node, replace the `pub_key` -> `value`  and `priv_key` -> `value` fields in your `chaindata/config/priv_validator.json` with the new values.
+>Note: To use this key pair with your validator node, update the `chaindata/config/priv_validator.json` file with the new values.
 
 >Note: To whitelist your address, you need 1.25M Loom.
 
