@@ -132,8 +132,7 @@ To complete the withdrawal process Alice must provide the withdrawal signature (
 
 ## Summary
 
-You should now have a basic understanding of how the Transfer Gateway works, though we haven't presented nor explained any of the actual API yet. If you haven't already, take a look at the [Transfer Gateway Example][] project, which was built using the Transfer Gateway API provided by [loom-js][].
+You should now have a basic understanding of how the Transfer Gateway works, though we haven't presented nor explained any of the actual API yet. If you haven't already, take a look at the following pages:
 
-[Transfer Gateway Example]: https://github.com/loomnetwork/transfer-gateway-example
-[loom-js]: https://github.com/loomnetwork/loom-js
-[loom-truffle-doc]: web3js-loom-provider-truffle.html
+ - [Transfer Gateway Testnet Tutorial](extdev-transfer-gateway.html).
+ - [Transfer Gateway Example Projects](transfer-gateway-example).
