@@ -22,10 +22,10 @@ This document shows how you can use `Truffle` and the [Loom Truffle Provider](ht
 
 Make sure the following requirements are met and then follow the steps in the next section:
 
-```text
-Node >= 8
-yarn or npm
-```
+- Operating system: Linux or macOS. If you're running Windows, please install the Windows Subsystem for Linux. See the [Install the Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10) page for details on installing WSL.
+- Node >= 8
+- yarn
+
 
 ## Setting Things Up
 

@@ -7,6 +7,13 @@ Loom’s PlasmaChain is integrated with TRON, which means TRON developers can di
 
 This guide walks you through the basics of building a simple web app that lets users deposit and withdraw TRX between Shasta and Loom Testnet.
 
+## Requirements
+
+Make sure the following requirements are met and then follow the steps in the next section:
+
+- Operating system: Linux or macOS. If you're running Windows, please install the Windows Subsystem for Linux. See the [Install the Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10) page for details on installing WSL.
+- Node.js 10 or higher (recommended v10.15.3)
+
 ## Getting Started
 
 [TronWeb](https://developers.tron.network/docs/tron-web-intro) is a Javascript library that enables web apps to "talk" with the TRON blockchain. So, the first thing we would want to do is to install `Tron-Web`:
