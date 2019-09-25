@@ -93,21 +93,6 @@ loom run
 
 Follow the instructions from the [GameChain GitHub page](https://github.com/loomnetwork/gamechain#creating-account-and-running-transactions) to create an account and run transactions.
 
-
-## Update the Card Data
-
-If you update the cards, you will be required to update the `genesis.json` file by entering the following commands:
-
-```
-git clone https://github.com/loomnetwork/zb_card_meta_data
-cd zb_card_meta_data/
-chmod +x update_localhost.sh base_update.sh
-cp ../oracle-priv.key ./priv_key
-./update_localhost.sh
-```
-
-Refer to the [Card Meta Data repo ](https://github.com/loomnetwork/zb_card_meta_data) for more details.
-
 ## The Front-end
 
 1. Download Unity 2018.4.1 from [this page](https://unity3d.com/get-unity/download/archive) and install it
@@ -116,7 +101,7 @@ Refer to the [Card Meta Data repo ](https://github.com/loomnetwork/zb_card_meta_
 2. Fire up a terminal, `cd` into your projects directory, and clone the Relentless repo:
 
 ```bash
-git clone https://github.com/loomnetwork/CryptoZombies-Battleground
+git clone https://github.com/loomnetwork/Relentless/
 ```
 
 
