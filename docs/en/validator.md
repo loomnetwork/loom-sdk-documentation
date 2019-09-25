@@ -52,12 +52,17 @@ curl https://raw.githubusercontent.com/loomnetwork/loom-sdk-documentation/master
 ./loom genkey -a pubkey -k privkey
 ```
 
-3. This will save your private key into a file called `privkey` and your public key into a file called `pubkey`:
+This will save your private key into a file called `privkey` and your public key into a file called `pubkey`:
 
 ![Generate Keys](/developers/img/validator-management-generate-keys.png)
 
+3. Next, let's compute your address by deriving it from the public key:
 
->Note: To use this key pair with your validator node, update the `chaindata/config/priv_validator.json` file with the new values.
+```bash
+./loom resolve pubkey <YOUR_PUBLIC_KEY>
+```
+
+4. Update the `chaindata/config/priv_validator.json` with the new key pair and the address. Remove the `0x` that prepends the address.
 
 >Note: To whitelist your address, you need 1.25M Loom.
 
