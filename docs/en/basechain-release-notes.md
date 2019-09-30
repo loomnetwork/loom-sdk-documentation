@@ -21,3 +21,16 @@ Reverse chronology order of release notes.
 
 * `eth_getStorageAt` Web3 JSON-RPC method is now supported. If the block parameter is specified it must be set to `latest`.
 * Allow ETH to be minted on chain genesis to make it easier to test & develop `payable` Solidity contracts on a local node.
+
+**Upgrade instructions:**
+
+> The download location and binary name have changed from the previous build, but the configuration should remain unchanged.
+
+1) Download Basechain build 1286
+
+```bash
+wget https://downloads.loomx.io/loom/linux/build-1286/basechain
+chmod 755 basechain
+```
+
+2) Restart the node on the new build.
