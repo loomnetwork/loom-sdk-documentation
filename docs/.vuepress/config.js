@@ -235,9 +235,9 @@ module.exports = {
         collapsable: true,
         sidebarDepth: 1,
         children: [
-          ['/basechain-release-notes', 'Basechain Release Notes'],
-          ['/extdev-release-notes', 'Extdev Release Notes'],
-          ['/release-notes', 'Generic Release Notes']
+          ['/basechain-release-notes', 'Basechain'],
+          ['/extdev-release-notes', 'Extdev'],
+          ['/release-notes', 'Generic']
         ],
       },
     ],

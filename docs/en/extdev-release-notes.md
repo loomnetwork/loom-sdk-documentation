@@ -1,7 +1,7 @@
 ---
 id: extdev-release-notes
 title: Extdev Release Notes
-sidebar_label: Extdev Release Notes
+sidebar_label: Extdev
 ---
 
 ## Overview

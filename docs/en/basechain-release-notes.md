@@ -1,7 +1,7 @@
 ---
 id: basechain-release-notes
 title: Basechain Release Notes
-sidebar_label: Basechain Release Notes
+sidebar_label: Basechain
 ---
 
 ## Overview
