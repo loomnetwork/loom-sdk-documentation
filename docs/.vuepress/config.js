@@ -198,7 +198,6 @@ module.exports = {
           ['/arch', 'arch'],
           ['/how-to-get-started', 'How to Get Started '],
           ['/top-erc20s', 'Top ERC20s Deployed to Loom'],
-          ['/release-notes', 'Release Notes'],
           ['/common-issues', 'Common Issues'],
         ],
       },
@@ -229,6 +228,16 @@ module.exports = {
           ['/withdrawing-and-claiming-rewards','Validators - Withdrawing and Claiming Rewards'],
           ['/use-remix-with-loom', 'How to Use Remix with Loom'],
           ['/relentless','How to Set-up Relentless']
+        ],
+      },
+      {
+        title: 'Release Notes',
+        collapsable: true,
+        sidebarDepth: 1,
+        children: [
+          ['/basechain-release-notes', 'Basechain'],
+          ['/extdev-release-notes', 'Extdev'],
+          ['/release-notes', 'Generic']
         ],
       },
     ],
