@@ -4,11 +4,13 @@ title: 릴리즈 노트
 sidebar_label: 릴리즈 노트
 ---
 
+> Note that this page is no longer updated. Refer to these pages for the latest release notes: - [Basechain Release notes](basechain-release-notes.html) - [Extdev Release notes](extdev-release-notes.html)
+
 ## 개요
 
 Reverse chronology order of release notes.
 
-## Loom 2.0 Release Build 1263 - 2109/09/10
+## Loom 2.0 Release Build 1263 - 2019/09/10
 
 This is a maintenance release that fixes several issues and adds some new features.
 
