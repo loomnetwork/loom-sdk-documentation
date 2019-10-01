@@ -8,7 +8,7 @@ sidebar_label: Basechain
 
 Reverse chronology order of release notes.
 
-## Pre-Basechain Build 1286 Hard Fork- 2019/10/01
+## Pre-Basechain Build 1286 Hard Fork - 2019/10/01
 
 **Bugfixes:**
 
