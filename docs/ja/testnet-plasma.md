@@ -64,9 +64,9 @@ If you want to use [Universal Signing](https://medium.com/loom-network/universal
 
 **Contracts deployed on Rinkeby**
 
-- **Transfer Gateway**: `0xb73C9506cb7f4139A4D6Ac81DF1e5b6756Fab7A2` (use this for Eth, ERC721, and ERC20 assets)
+- **Transfer Gateway**: `0x9c67fD4eAF0497f9820A3FBf782f81D6b6dC4Baa` (use this for Eth, ERC721, and ERC20 assets)
 
-- **Loom Transfer Gateway:** `0x5558ba31CB91b2a45B3DCe9c720A0e0b59785711`
+- **Loom Transfer Gateway:** `0xC6e1421720C7F62455C053BC8326633D68c01C00`
 
 **Contracts deployed on Extdev**
 
