@@ -18,6 +18,8 @@ This page provides information on where and how to access the Plasmachain networ
 - **networkId**: *
 - **readUrl**: https://plasma.dappchains.com/query
 - **writeUrl**: https://plasma.dappchains.com/rpc
+- Max Contract Size: **24,576 bytes**
+- Max Gas Limit per transaction: **4,915,200**
 
 ### Truffle configuration file
 
