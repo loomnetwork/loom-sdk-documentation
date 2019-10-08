@@ -20,6 +20,8 @@ This page provides information on where and how to access the Extdev network. If
 - **networkId**: 9545242630824
 - **writeUrl**: wss://extdev-plasma-us1.dappchains.com/websocket
 - **readUrl**: wss://extdev-plasma-us1.dappchains.com/queryws
+- Max Contract Size: **24,576 bytes**
+- Max Gas Limit per transaction: **4,915,200**
 
 ### Truffle configuration file
 
