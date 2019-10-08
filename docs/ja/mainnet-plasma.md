@@ -19,7 +19,8 @@ If you want more details, see our [guide](deploy-loom-mainnet.html) on deploying
 - **networkId**: *
 - **readUrl**: https://plasma.dappchains.com/query
 - **writeUrl**: https://plasma.dappchains.com/rpc
-- the maximum EVM contract size is **24KB**, and the maximum gas limit per transaction is **4915200**.
+- Max Contract Size: **24,576 bytes**
+- Max Gas Limit per transaction: **4,915,200**
 
 ### Truffle configuration file
 
