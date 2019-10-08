@@ -21,6 +21,8 @@ If you want more details, see our [guide](deploy-loom-testnet.html) on deploying
 - **networkId**: 9545242630824
 - **writeUrl**: wss://extdev-plasma-us1.dappchains.com/websocket
 - **readUrl**: wss://extdev-plasma-us1.dappchains.com/queryws
+- Max Contract Size: **24,576 bytes**
+- Max Gas Limit per transaction: **4,915,200**
 
 ### Truffle configuration file
 

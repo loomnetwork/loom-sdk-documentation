@@ -19,6 +19,8 @@ If you want more details, see our [guide](deploy-loom-mainnet.html) on deploying
 - **networkId**: *
 - **readUrl**: https://plasma.dappchains.com/query
 - **writeUrl**: https://plasma.dappchains.com/rpc
+- Max Contract Size: **24,576 bytes**
+- Max Gas Limit per transaction: **4,915,200**
 
 ### Truffle configuration file
 
