@@ -19,38 +19,83 @@ We assume you've covered the first two parts of our Binance series. If so, let's
 git pull
 ```
 
+Next, let's make sure your dependencies are up-to-date:
+
+```text
+npm install
+```
+
 ## Settings Things Up
 
 If you've followed along with our previous Binance tutorials, a BEP2 token and a corresponding smart contract on the Loom side (that is Extdev) should have been deployed and mapped.
 
-Now, to move tokens to Ethereum, we are required to deploy a new contract to the Ethereum test net (for the scope of this example we're using the Rinkeby network). We've created a new `Truffle` project which means you'll first have to install a few dependencies by running:
+Now, to move tokens to Ethereum, we are required to deploy a new contract called `SampleERC20MintableToken` to the Ethereum test net (for the scope of this example we're using the Rinkeby network).
 
-```bash
-cd mainnet && npm install && cd ..
-```
+Follow these steps to deploy the smart contract to Rinkeby:
 
-Then, use the following commands to deploy to Rinkeby:
+1. Generate an Ethereum private key:
 
-```bash
-export INFURA_API_KEY=<YOUR API KEY> && npm run migrate:rinkeby-bep2-token
-```
+   ```bash
+   # this will create 3 new files in the root directory of the project: rinkeby_account, rinkeby_mnemonic, and rinkeby_private_key
+   npm run gen:rinkeby-key
+   ```
 
-Like we did in our previous tutorial with the BEP2 token and its corresponding smart contract on Loom, we must now map our Loom contract with the newly deployed contract on Rinkeby. You can create the mapping with:
+2. Get the address of the new `Rinkeby` account from the `rinkeby_account` file:
 
-```bash
-npm run map:bep2-contracts
-```
+   ```bash
+   cat rinkeby_account
+   ```
+
+3. Give the `Rinkeby` account some ETH so it can be used to deploy contracts to `Rinkeby`. You can either use the [Rinkeby authenticated faucet](https://faucet.rinkeby.io) or transfer some ETH from another account.
+
+4. Set your Infura API key (get it from [Infura website](https://infura.io)):
+
+   ```bash
+   export INFURA_API_KEY=XXXXXXXXXXXXXXXX
+   ```
+
+5. Deploy the contract by running:
+    ```bash
+    npm run migrate:rinkeby-bep2-token
+    ```
+
+6. Like we did in our previous tutorial with the BEP2 token and its corresponding smart contract on Loom, we must now map our Loom contract with the newly deployed contract on Rinkeby. You can create the mapping with:
+
+    ```bash
+    npm run map:bep2-contracts
+    ```
 
 ## Spinning Up the Demo
 
-Once you completed the previous steps, you are ready to see it in action. Run the following command:
+Once you completed the previous steps, you are ready to see the demo in action. Run the following command:
 
 ```bash
 npm run start
 ```
 
-Next, just point your browser at [localhost:8080](http://localhost:8080) and you're set.
+Next, just point your browser at [localhost:8080](http://localhost:8080) and select the "Binance - Loom - Ethereum" demo.
 
+## Trying Out the Demo
+
+The first thing you need to do is to move some BNB tokens from Binance to Extdev:
+
+![Move BNB from Binance to Extdev](/developers/img/binance-loom-ethereum-1-deposit-bnb.gif)
+
+Then, let's transfer some BEP2 tokens from Binance to Extdev:
+
+![Move BEP2 from Binance to Extdev](/developers/img/binance-loom-ethereum-2-deposit-bep2.gif)
+
+Now, we can send our tokens from Extdev to Rinkeby:
+
+![Move BEP2 from Extdev to Rinkeby](/developers/img/binance-loom-ethereum-3-deposit-bep2-to-rinkeby.gif)
+
+...and from Rinkeby to Extdev:
+
+![Move BEP2 from Rinkeby to Extdev](/developers/img/binance-loom-ethereum-4-withdraw-bep2-to-loom.gif)
+
+Lastly, let's move tokens from Extdev to Binance:
+
+![Move BEP2 from Rinkeby to Extdev](/developers/img/binance-loom-ethereum-5-withdraw-bep2-to-binance.gif)
 
 ## Let's See What Makes it Tick
 
@@ -58,7 +103,7 @@ At its core, this demo is built around a couple of simple components:
 
  - a BEP2 token. See the [settings things up](deposit-and-withdraw-bep2.html#_1-setting-things-up) page from our previous tutorial for more details.
  - a corresponding ERC20 token deployed to Loom Testnet. We've walked you through the source code in [this section](deposit-and-withdraw-bep2.html#_1-e-deploying-to-loom-testnet).
- - an ERC20 token called `SampleERC20MintableToken` which we just deployed to the Rinkeby network. This smart contract is nothing special. It just starts by inheriting from `ERC20/ERC20Mintable.sol"` and `./IERC20GatewayMintable.sol"`:
+ - an ERC20 token called `SampleERC20MintableToken` which we just deployed to the Rinkeby network. This smart contract is nothing special. It just starts by inheriting from `ERC20/ERC20Mintable.sol` and `./IERC20GatewayMintable.sol`:
 
 ```js
 import "openzeppelin-solidity/contracts/token/ERC20/ERC20Mintable.sol";
@@ -115,20 +160,20 @@ modifier onlyGateway(){
 }
 ```
 
-You can check the full source code of this smart contract on GitHub.
-//TODO: add link
+You can check the full [source code](https://github.com/loomnetwork/loom-examples/blob/master/mainnet/contracts/SampleERC20MintableToken.sol) of this smart contract on GitHub.
 
- - Lastly, to tie everything together, we created two mappings. The first one links the Binance and Loom tokens and the second one links the Loom and Ethereum tokens.
+ - Lastly, to tie everything together, we created two mappings. The first one [links the Binance and Loom(https://github.com/loomnetwork/loom-examples/blob/master/scripts/map-binance-contracts.js)] token contracts and the second one [links the Loom and Ethereum](https://github.com/loomnetwork/loom-examples/blob/master/scripts/map-contracts.js) token contracts.
 
-//TODO: add links to the scripts we use to create the mappings
- 
-## The User Interface
+## The Front-End
 
-In this section, we'll take a quick look at what happens under the hood of the user interface.
+In this section, we'll take a quick look at what happens under the hood of our front-end.
 
-We splitted the code roughly into two files:
+We split the code roughly into two files.
 
-- `./src/binance-loom-ethereum.js` mainly deals with the user interface. Also, since transferring tokens to Binance and Ethereum will require us to pay fees, we import and initialize the [BNBCoin](https://github.com/loomnetwork/loom-examples/blob/master/src/bnb/BNBCoin.js) and [LoomEthCoin](https://github.com/loomnetwork/loom-examples/blob/master/src/LoomEthCoin/LoomEthCoin.js) classes:
+### The User Interface
+
+The `/src/binance-loom-ethereum.js` file mainly deals with the user interface. 
+Because transferring tokens to Binance and Ethereum requires us to pay fees, we start by initializing the [BNBCoin](https://github.com/loomnetwork/loom-examples/blob/master/src/bnb/BNBCoin.js) and [LoomEthCoin](https://github.com/loomnetwork/loom-examples/blob/master/src/LoomEthCoin/LoomEthCoin.js) classes:
 
 ```js
 this.bep2Coin = new BinanceExtdevRinkeby()
@@ -140,18 +185,8 @@ await this.ethCoin.load(this.web3js)
 
 ```
 
-For convenience, we've added a new function to each class that approves the gateway to take the fees:
+For convenience, we've added a new function to the `BNBCoin` that approves the gateway to take the fee:
 
-**LoomEthCoin.js**
-
-```js
-async approveFee () {
-  const gatewayAddress = Address.fromString(this.loomGatewayContract.address.toString())
-  await this.ethCoin.approveAsync(gatewayAddress, new BN(this._gas()))
-}
-```
-
-**BNBCoin.js**
 
 ```js
 async approveFee () {
@@ -169,8 +204,48 @@ async approveFee () {
 }
 
 ```
+
+Then, we did the same for the `LoomEthCoin.js` class:
+
+```js
+async approveFee () {
+  const gatewayAddress = Address.fromString(this.loomGatewayContract.address.toString())
+  await this.ethCoin.approveAsync(gatewayAddress, new BN(this._gas()))
+}
+```
+
+Next, we implement a couple of functions that simpy call the corresponding methods on the `bnbCoin`, `bep2Coin`, and `ethCoin` objects:
+
+```js
+async withdrawToBinance () {
+  if ((this.binanceAddress === null) || (this.binanceAddress.length === 0)) {
+    console.log('Binance Address should not be empty.')
+    return
+  }
+  const amountToWithdraw = 5
+  console.log('Withdrawing ' + amountToWithdraw + ' tokens to ' + this.binanceAddress)
+  await this.bnbCoin.approveFee()
+  console.log('Approved the transfer gateway to take the fee.')
+  await this.bep2Coin.withdrawToBinance(this.binanceAddress, amountToWithdraw)
+  console.log('Tokens withdrawn.')
+},
+async withdrawToEthereum () {
+  const amount = 5
+  await this.ethCoin.approveFee()
+  this.bep2Coin.withdrawToEthereum(amount)
+},
+async depositToLoom () {
+  const amount = 5
+  this.bep2Coin.depositToLoom(amount)
+},
+async resumeLoomToEthereum () {
+  this.bep2Coin.resumeWithdrawal()
+},
+```
+
+### The BinanceExtdevRinkeby class
   
-- The `BinanceExtdevRinkeby` class is where we've baked most of the logic. First, we import a few things:
+The `BinanceExtdevRinkeby` class is where we've baked most of the logic. First, we import a few things:
 
 ```js
 import {
@@ -198,7 +273,7 @@ export default class BinanceExtdevRinkeby extends UniversalSigning {
 }
 ```
 
-The thing to note about this code is that the class inherits from `UniversalSiging`. This lets us separate the logic so that we can easily initialize the class like this:
+The thing to note about this code is that the class inherits from the `UniversalSigning` class. This lets us separate the logic so that we can easily initialize the class like this:
 
 ```js
 async load (web3Ethereum) {
@@ -249,7 +324,7 @@ async _load (web3Ethereum) {
 
 Now, let's get back to our function from the `BinanceExtdevRinkeby` class. Next, it initializes the contracts with `_getContracts`, and calls a function that we'll listen for events- `_filterEvents`. This way, every time our balance changes, the UI will get updated. Lastly, the function reads the initial balance by running `_refreshBalance`.
 
-### Moving tokens from Loom to Ethereum
+## Moving tokens from Loom to Ethereum
 
 To move tokens from Loom to Ethereum, we follow a two-step process:
 
@@ -276,51 +351,52 @@ Again, this function is pretty straightforward. First, it transfers the tokens t
 
 ```js
 async _transferCoinsToExtdevGateway (amount) {
-    const amountInt = amount * 100000000
-    const dAppChainGatewayAddr = this.extdevNetworkConfig['extdev2RinkebyGatewayAddress']
-    const ethAddress = this.accountMapping.ethereum.local.toString()
-    await this.extdevBEP2Contract.methods
-      .approve(dAppChainGatewayAddr, amountInt)
-      .send({ from: ethAddress })
+  const multiplier = new BN(100000000, 10)
+  const amountInt = (new BN(parseInt(amount), 10)).mul(multiplier)
+  const dAppChainGatewayAddr = this.extdevNetworkConfig['extdev2RinkebyGatewayAddress']
+  const ethAddress = this.accountMapping.ethereum.local.toString()
+  await this.extdevBEP2Contract.methods
+    .approve(dAppChainGatewayAddr, amountInt.toString())
+    .send({ from: ethAddress })
 
-    const timeout = 60 * 1000
-    const ownerMainnetAddr = Address.fromString('eth:' + ethAddress)
-    const loomCoinContractAddress = extdevBEP2Token.networks[this.extdevNetworkConfig['networkId']].address
-    const tokenAddress = Address.fromString(this.extdevNetworkConfig['chainId'] + ':' + loomCoinContractAddress)
-    const mainNetContractAddress = rinkebyBEP2Token.networks[this.rinkebyNetworkConfig['networkId']].address
-    const gatewayContract = this.extdev2RinkebyGatewayContract
+  const timeout = 60 * 1000
+  const ownerMainnetAddr = Address.fromString('eth:' + ethAddress)
+  const loomCoinContractAddress = extdevBEP2Token.networks[this.extdevNetworkConfig['networkId']].address
+  const tokenAddress = Address.fromString(this.extdevNetworkConfig['chainId'] + ':' + loomCoinContractAddress)
+  const mainNetContractAddress = rinkebyBEP2Token.networks[this.rinkebyNetworkConfig['networkId']].address
+  const gatewayContract = this.extdev2RinkebyGatewayContract
 
-    const receiveSignedWithdrawalEvent = new Promise((resolve, reject) => {
-      let timer = setTimeout(
-        () => reject(new Error('Timeout while waiting for withdrawal to be signed')),
-        timeout
-      )
-      const listener = event => {
-        const tokenEthAddress = Address.fromString('eth:' + mainNetContractAddress)
-        if (
-          event.tokenContract.toString() === tokenEthAddress.toString() &&
-          event.tokenOwner.toString() === ownerMainnetAddr.toString()
-        ) {
-          clearTimeout(timer)
-          timer = null
-          gatewayContract.removeAllListeners(Contracts.TransferGateway.EVENT_TOKEN_WITHDRAWAL)
-          console.log('Oracle signed tx ', CryptoUtils.bytesToHexAddr(event.sig))
-          resolve(event)
-        }
-      }
-      gatewayContract.on(Contracts.TransferGateway.EVENT_TOKEN_WITHDRAWAL, listener)
-    })
-    await gatewayContract.withdrawERC20Async(
-      new BN(amountInt, 10),
-      tokenAddress,
-      ownerMainnetAddr
+  const receiveSignedWithdrawalEvent = new Promise((resolve, reject) => {
+    let timer = setTimeout(
+      () => reject(new Error('Timeout while waiting for withdrawal to be signed')),
+      timeout
     )
-    console.log('before receiveSignedWithdrawalEvent')
-    await receiveSignedWithdrawalEvent
-  }
+    const listener = event => {
+      const tokenEthAddress = Address.fromString('eth:' + mainNetContractAddress)
+      if (
+        event.tokenContract.toString() === tokenEthAddress.toString() &&
+        event.tokenOwner.toString() === ownerMainnetAddr.toString()
+      ) {
+        clearTimeout(timer)
+        timer = null
+        gatewayContract.removeAllListeners(Contracts.TransferGateway.EVENT_TOKEN_WITHDRAWAL)
+        console.log('Oracle signed tx ', CryptoUtils.bytesToHexAddr(event.sig))
+        resolve(event)
+      }
+    }
+    gatewayContract.on(Contracts.TransferGateway.EVENT_TOKEN_WITHDRAWAL, listener)
+  })
+  await gatewayContract.withdrawERC20Async(
+    amountInt,
+    tokenAddress,
+    ownerMainnetAddr
+  )
+  console.log('before receiveSignedWithdrawalEvent')
+  await receiveSignedWithdrawalEvent
+}
 ```
 
-One thing to note. As seen above, calling `await gatewayContract.withdrawERC20Async` creates a pending withdrawal. The pending withdrawal is picked up by the Gateway Oracle, which signs the withdrawal, and notifies the  Gateway. The Gateway emits an event to let the user know they can withdraw their token from the Ethereum Gateway to their Ethereum account by providing the signed withdrawal record.
+One thing to note. As seen above, calling `await gatewayContract.withdrawERC20Async` creates a pending withdrawal. The pending withdrawal is signed by the Gateway validators, and an event is emitted by the Gateway to notify users that a withdrawal has been signed. At that point, the user can fetch the signed withdrawal receipt from the Gateway and submit it to the Ethereum Gateway in order to withdraw the token to their Ethereum account.
 
 - Next, we fetch the signed withdrawal record with:
 
@@ -328,16 +404,8 @@ One thing to note. As seen above, calling `await gatewayContract.withdrawERC20As
 async _getWithdrawalReceipt () {
   const userLocalAddr = Address.fromString(this.accountMapping.plasma.toString())
   const gatewayContract = this.extdev2RinkebyGatewayContract
-  const data = await gatewayContract.withdrawalReceiptAsync(userLocalAddr)
-  if (!data) {
-    return null
-  }
-  const signature = CryptoUtils.bytesToHexAddr(data.oracleSignature)
-  return {
-    signature: signature,
-    amount: data.value.toString(10),
-    tokenContract: data.tokenContract.local.toString()
-  }
+  const receipt = await gatewayContract.withdrawalReceiptAsync(userLocalAddr)
+  return receipt
 }
 ```
 
@@ -345,28 +413,25 @@ async _getWithdrawalReceipt () {
 
 
 ```js
-async _withdrawCoinsFromRinkebyGateway (data) {
-  const rinkebyContractAddress = rinkebyBEP2Token.networks[this.rinkebyNetworkConfig['networkId']].address
-  const userRinkebyAddress = this.accountMapping.ethereum.local.toString()
-  const tx = await this.rinkeby2ExtdevGatewayContract.methods
-    .withdrawERC20(data.amount.toString(), data.signature, rinkebyContractAddress)
-    .send({ from: userRinkebyAddress })
-  console.log(`${data.amount} tokens withdrawn from MainNet Gateway.`)
-  console.log(`Rinkeby tx hash: ${tx.transactionHash}`)
+async _withdrawCoinsFromRinkebyGateway (receipt) {
+  const gatewayContract = this.ethereumGatewayContract
+  const gas = this._gas()
+  const tx = await gatewayContract.withdrawAsync(receipt, { gasLimit: gas })
+  console.log(`Tokens withdrawn from MainNet Gateway.`)
+  console.log(`Rinkeby tx hash: ${tx.hash}`)
 }
 
 ```
 
-//TODO: add video
 
-
-### Moving tokens from Ethereum to Loom
+## Moving tokens from Ethereum to Loom
 
 To move move tokes from Ethereum to Loom, we run the `depositToLoom` function on the `bep2Coin` object:
 
 ```js
 async depositToLoom (amount) {
-  const amountInt = amount * 100000000
+  const multiplier = new BN(100000000, 10)
+  const amountInt = (new BN(parseInt(amount), 10)).mul(multiplier)
   const rinkebyGatewayAddress = this.extdevNetworkConfig['rinkeby2ExtdevGatewayAddress']
   const rinkebyContractAddress = rinkebyBEP2Token.networks[this.rinkebyNetworkConfig['networkId']].address
   const userRinkebyAddress = this.accountMapping.ethereum.local.toString()
@@ -376,7 +441,7 @@ async depositToLoom (amount) {
       .methods
       .approve(
         rinkebyGatewayAddress,
-        amountInt
+        amountInt.toString()
       )
       .send({ from: userRinkebyAddress })
   } catch (error) {
@@ -389,7 +454,7 @@ async depositToLoom (amount) {
     await this.rinkeby2ExtdevGatewayContract
       .methods
       .depositERC20(
-        amountInt,
+        amountInt.toString(),
         rinkebyContractAddress
       )
       .send({ from: userRinkebyAddress, gas: '489362' })
@@ -401,9 +466,8 @@ async depositToLoom (amount) {
 }
 ```
 
-First, it approves the transfer gateway to take the tokens and then calls the `depositERC20` method on the Rinkeby transfer gateway. The method expects two parameters: the amount to transfer and the address of the contract.
+First, it approves the transfer gateway to take the tokens and then calls the `depositERC20` method on the Rinkeby transfer gateway. The method expects two parameters: the amount to transfer and the address of the token contract.
 
-//TODO: add video
 
 ## Moving Tokens from Ethereum to Binance
 
@@ -411,10 +475,11 @@ To move tokens from Ethereum to Binance, we first approve the gateway to take th
 
 ```js
 async withdrawToBinance (binanceAddress, amountToWithdraw) {
-  const amountInt = amountToWithdraw * 100000000
+  const multiplier = new BN(100000000, 10)
+  const amountInt = (new BN(parseInt(amountToWithdraw), 10)).mul(multiplier)
   EventBus.$emit('updateStatus', { currentStatus: 'Approving the gateway to take the tokens.' })
   const binanceTransferGatewayAddress = await this._getBinanceTransferGatewayAddress()
-  await this.extdevBEP2Contract.methods.approve(binanceTransferGatewayAddress, amountInt).send({ from: this.accountMapping.ethereum.local.toString() })
+  await this.extdevBEP2Contract.methods.approve(binanceTransferGatewayAddress, amountInt.toString()).send({ from: this.accountMapping.ethereum.local.toString() })
   const delay = ms => new Promise(resolve => setTimeout(resolve, ms))
   let approvedBalance = 0
   EventBus.$emit('updateStatus', { currentStatus: 'Approved. Next -> Checking the allowance.' })
@@ -426,15 +491,12 @@ async withdrawToBinance (binanceAddress, amountToWithdraw) {
   const bep2TokenAddress = Address.fromString('extdev-plasma-us1:' + this.extdevBEP2Contract._address.toLowerCase())
   const tmp = this._decodeAddress(binanceAddress)
   const recipient = new Address('binance', new LocalAddress(tmp))
-  await this.extdev2BinanceGatewayContract.withdrawTokenAsync(new BN(amountInt, 10), bep2TokenAddress, recipient)
+  await this.extdev2BinanceGatewayContract.withdrawTokenAsync(amountInt, bep2TokenAddress, recipient)
   EventBus.$emit('updateStatus', { currentStatus: 'Succesfully withdrawn!' })
   await delay(1000)
 }
 ```
 
-//TODO: add video
-
 If you've made through here, congrats! You should have a good understanding of how to transfer tokens between Binance, Loom, and Ethereum. The best way to move forward is to get your hands dirty and try to create some great stuff based on this demo.
 
 In the meantime, please feel free to reach out to us on [Telegram](https://t.me/loomnetworkdev) if you have any questions about this tutorial or just want to leave us feedback.
-

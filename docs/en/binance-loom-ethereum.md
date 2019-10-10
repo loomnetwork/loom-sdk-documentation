@@ -160,18 +160,15 @@ modifier onlyGateway(){
 }
 ```
 
-You can check the full source code of this smart contract on GitHub.
-//TODO: add link
+You can check the full [source code](https://github.com/loomnetwork/loom-examples/blob/master/mainnet/contracts/SampleERC20MintableToken.sol) of this smart contract on GitHub.
 
- - Lastly, to tie everything together, we created two mappings. The first one links the Binance and Loom tokens and the second one links the Loom and Ethereum tokens.
+ - Lastly, to tie everything together, we created two mappings. The first one [links the Binance and Loom(https://github.com/loomnetwork/loom-examples/blob/master/scripts/map-binance-contracts.js)] token contracts and the second one [links the Loom and Ethereum](https://github.com/loomnetwork/loom-examples/blob/master/scripts/map-contracts.js) token contracts.
 
-//TODO: add links to the scripts we use to create the mappings
- 
 ## The Front-End
 
 In this section, we'll take a quick look at what happens under the hood of our front-end.
 
-We splitted the code roughly into two files:
+We split the code roughly into two files.
 
 ### The User Interface
 
@@ -276,7 +273,7 @@ export default class BinanceExtdevRinkeby extends UniversalSigning {
 }
 ```
 
-The thing to note about this code is that the class inherits from `UniversalSiging`. This lets us separate the logic so that we can easily initialize the class like this:
+The thing to note about this code is that the class inherits from the `UniversalSigning` class. This lets us separate the logic so that we can easily initialize the class like this:
 
 ```js
 async load (web3Ethereum) {
@@ -354,51 +351,52 @@ Again, this function is pretty straightforward. First, it transfers the tokens t
 
 ```js
 async _transferCoinsToExtdevGateway (amount) {
-    const amountInt = amount * 100000000
-    const dAppChainGatewayAddr = this.extdevNetworkConfig['extdev2RinkebyGatewayAddress']
-    const ethAddress = this.accountMapping.ethereum.local.toString()
-    await this.extdevBEP2Contract.methods
-      .approve(dAppChainGatewayAddr, amountInt)
-      .send({ from: ethAddress })
+  const multiplier = new BN(100000000, 10)
+  const amountInt = (new BN(parseInt(amount), 10)).mul(multiplier)
+  const dAppChainGatewayAddr = this.extdevNetworkConfig['extdev2RinkebyGatewayAddress']
+  const ethAddress = this.accountMapping.ethereum.local.toString()
+  await this.extdevBEP2Contract.methods
+    .approve(dAppChainGatewayAddr, amountInt.toString())
+    .send({ from: ethAddress })
 
-    const timeout = 60 * 1000
-    const ownerMainnetAddr = Address.fromString('eth:' + ethAddress)
-    const loomCoinContractAddress = extdevBEP2Token.networks[this.extdevNetworkConfig['networkId']].address
-    const tokenAddress = Address.fromString(this.extdevNetworkConfig['chainId'] + ':' + loomCoinContractAddress)
-    const mainNetContractAddress = rinkebyBEP2Token.networks[this.rinkebyNetworkConfig['networkId']].address
-    const gatewayContract = this.extdev2RinkebyGatewayContract
+  const timeout = 60 * 1000
+  const ownerMainnetAddr = Address.fromString('eth:' + ethAddress)
+  const loomCoinContractAddress = extdevBEP2Token.networks[this.extdevNetworkConfig['networkId']].address
+  const tokenAddress = Address.fromString(this.extdevNetworkConfig['chainId'] + ':' + loomCoinContractAddress)
+  const mainNetContractAddress = rinkebyBEP2Token.networks[this.rinkebyNetworkConfig['networkId']].address
+  const gatewayContract = this.extdev2RinkebyGatewayContract
 
-    const receiveSignedWithdrawalEvent = new Promise((resolve, reject) => {
-      let timer = setTimeout(
-        () => reject(new Error('Timeout while waiting for withdrawal to be signed')),
-        timeout
-      )
-      const listener = event => {
-        const tokenEthAddress = Address.fromString('eth:' + mainNetContractAddress)
-        if (
-          event.tokenContract.toString() === tokenEthAddress.toString() &&
-          event.tokenOwner.toString() === ownerMainnetAddr.toString()
-        ) {
-          clearTimeout(timer)
-          timer = null
-          gatewayContract.removeAllListeners(Contracts.TransferGateway.EVENT_TOKEN_WITHDRAWAL)
-          console.log('Oracle signed tx ', CryptoUtils.bytesToHexAddr(event.sig))
-          resolve(event)
-        }
-      }
-      gatewayContract.on(Contracts.TransferGateway.EVENT_TOKEN_WITHDRAWAL, listener)
-    })
-    await gatewayContract.withdrawERC20Async(
-      new BN(amountInt, 10),
-      tokenAddress,
-      ownerMainnetAddr
+  const receiveSignedWithdrawalEvent = new Promise((resolve, reject) => {
+    let timer = setTimeout(
+      () => reject(new Error('Timeout while waiting for withdrawal to be signed')),
+      timeout
     )
-    console.log('before receiveSignedWithdrawalEvent')
-    await receiveSignedWithdrawalEvent
-  }
+    const listener = event => {
+      const tokenEthAddress = Address.fromString('eth:' + mainNetContractAddress)
+      if (
+        event.tokenContract.toString() === tokenEthAddress.toString() &&
+        event.tokenOwner.toString() === ownerMainnetAddr.toString()
+      ) {
+        clearTimeout(timer)
+        timer = null
+        gatewayContract.removeAllListeners(Contracts.TransferGateway.EVENT_TOKEN_WITHDRAWAL)
+        console.log('Oracle signed tx ', CryptoUtils.bytesToHexAddr(event.sig))
+        resolve(event)
+      }
+    }
+    gatewayContract.on(Contracts.TransferGateway.EVENT_TOKEN_WITHDRAWAL, listener)
+  })
+  await gatewayContract.withdrawERC20Async(
+    amountInt,
+    tokenAddress,
+    ownerMainnetAddr
+  )
+  console.log('before receiveSignedWithdrawalEvent')
+  await receiveSignedWithdrawalEvent
+}
 ```
 
-One thing to note. As seen above, calling `await gatewayContract.withdrawERC20Async` creates a pending withdrawal. The pending withdrawal is picked up by the Gateway Oracle, which signs the withdrawal, and notifies the  Gateway. The Gateway emits an event to let the user know they can withdraw their token from the Ethereum Gateway to their Ethereum account by providing the signed withdrawal record.
+One thing to note. As seen above, calling `await gatewayContract.withdrawERC20Async` creates a pending withdrawal. The pending withdrawal is signed by the Gateway validators, and an event is emitted by the Gateway to notify users that a withdrawal has been signed. At that point, the user can fetch the signed withdrawal receipt from the Gateway and submit it to the Ethereum Gateway in order to withdraw the token to their Ethereum account.
 
 - Next, we fetch the signed withdrawal record with:
 
@@ -406,16 +404,8 @@ One thing to note. As seen above, calling `await gatewayContract.withdrawERC20As
 async _getWithdrawalReceipt () {
   const userLocalAddr = Address.fromString(this.accountMapping.plasma.toString())
   const gatewayContract = this.extdev2RinkebyGatewayContract
-  const data = await gatewayContract.withdrawalReceiptAsync(userLocalAddr)
-  if (!data) {
-    return null
-  }
-  const signature = CryptoUtils.bytesToHexAddr(data.oracleSignature)
-  return {
-    signature: signature,
-    amount: data.value.toString(10),
-    tokenContract: data.tokenContract.local.toString()
-  }
+  const receipt = await gatewayContract.withdrawalReceiptAsync(userLocalAddr)
+  return receipt
 }
 ```
 
@@ -423,14 +413,12 @@ async _getWithdrawalReceipt () {
 
 
 ```js
-async _withdrawCoinsFromRinkebyGateway (data) {
-  const rinkebyContractAddress = rinkebyBEP2Token.networks[this.rinkebyNetworkConfig['networkId']].address
-  const userRinkebyAddress = this.accountMapping.ethereum.local.toString()
-  const tx = await this.rinkeby2ExtdevGatewayContract.methods
-    .withdrawERC20(data.amount.toString(), data.signature, rinkebyContractAddress)
-    .send({ from: userRinkebyAddress })
-  console.log(`${data.amount} tokens withdrawn from MainNet Gateway.`)
-  console.log(`Rinkeby tx hash: ${tx.transactionHash}`)
+async _withdrawCoinsFromRinkebyGateway (receipt) {
+  const gatewayContract = this.ethereumGatewayContract
+  const gas = this._gas()
+  const tx = await gatewayContract.withdrawAsync(receipt, { gasLimit: gas })
+  console.log(`Tokens withdrawn from MainNet Gateway.`)
+  console.log(`Rinkeby tx hash: ${tx.hash}`)
 }
 
 ```
@@ -442,7 +430,8 @@ To move move tokes from Ethereum to Loom, we run the `depositToLoom` function on
 
 ```js
 async depositToLoom (amount) {
-  const amountInt = amount * 100000000
+  const multiplier = new BN(100000000, 10)
+  const amountInt = (new BN(parseInt(amount), 10)).mul(multiplier)
   const rinkebyGatewayAddress = this.extdevNetworkConfig['rinkeby2ExtdevGatewayAddress']
   const rinkebyContractAddress = rinkebyBEP2Token.networks[this.rinkebyNetworkConfig['networkId']].address
   const userRinkebyAddress = this.accountMapping.ethereum.local.toString()
@@ -452,7 +441,7 @@ async depositToLoom (amount) {
       .methods
       .approve(
         rinkebyGatewayAddress,
-        amountInt
+        amountInt.toString()
       )
       .send({ from: userRinkebyAddress })
   } catch (error) {
@@ -465,7 +454,7 @@ async depositToLoom (amount) {
     await this.rinkeby2ExtdevGatewayContract
       .methods
       .depositERC20(
-        amountInt,
+        amountInt.toString(),
         rinkebyContractAddress
       )
       .send({ from: userRinkebyAddress, gas: '489362' })
@@ -477,7 +466,7 @@ async depositToLoom (amount) {
 }
 ```
 
-First, it approves the transfer gateway to take the tokens and then calls the `depositERC20` method on the Rinkeby transfer gateway. The method expects two parameters: the amount to transfer and the address of the contract.
+First, it approves the transfer gateway to take the tokens and then calls the `depositERC20` method on the Rinkeby transfer gateway. The method expects two parameters: the amount to transfer and the address of the token contract.
 
 
 ## Moving Tokens from Ethereum to Binance
@@ -486,10 +475,11 @@ To move tokens from Ethereum to Binance, we first approve the gateway to take th
 
 ```js
 async withdrawToBinance (binanceAddress, amountToWithdraw) {
-  const amountInt = amountToWithdraw * 100000000
+  const multiplier = new BN(100000000, 10)
+  const amountInt = (new BN(parseInt(amountToWithdraw), 10)).mul(multiplier)
   EventBus.$emit('updateStatus', { currentStatus: 'Approving the gateway to take the tokens.' })
   const binanceTransferGatewayAddress = await this._getBinanceTransferGatewayAddress()
-  await this.extdevBEP2Contract.methods.approve(binanceTransferGatewayAddress, amountInt).send({ from: this.accountMapping.ethereum.local.toString() })
+  await this.extdevBEP2Contract.methods.approve(binanceTransferGatewayAddress, amountInt.toString()).send({ from: this.accountMapping.ethereum.local.toString() })
   const delay = ms => new Promise(resolve => setTimeout(resolve, ms))
   let approvedBalance = 0
   EventBus.$emit('updateStatus', { currentStatus: 'Approved. Next -> Checking the allowance.' })
@@ -501,7 +491,7 @@ async withdrawToBinance (binanceAddress, amountToWithdraw) {
   const bep2TokenAddress = Address.fromString('extdev-plasma-us1:' + this.extdevBEP2Contract._address.toLowerCase())
   const tmp = this._decodeAddress(binanceAddress)
   const recipient = new Address('binance', new LocalAddress(tmp))
-  await this.extdev2BinanceGatewayContract.withdrawTokenAsync(new BN(amountInt, 10), bep2TokenAddress, recipient)
+  await this.extdev2BinanceGatewayContract.withdrawTokenAsync(amountInt, bep2TokenAddress, recipient)
   EventBus.$emit('updateStatus', { currentStatus: 'Succesfully withdrawn!' })
   await delay(1000)
 }
