@@ -50,7 +50,7 @@ Issuing a new token on Binance TestNet will require you to pay a fee of 500 Test
 ![Select Wallet](/developers/img/bep2-loom-grab-your-address.png)
 
 - Repeat the step from above for wallet B and then for C.
-- At this point, you are ready to get yourself some BNB TestNet tokens. Go to the [Binance TestNet Faucet] https://www.binance.com/en/dex/testnet/address and paste your addresses:
+- At this point, you are ready to get yourself some BNB TestNet tokens. Go to the [Binance TestNet Faucet](https://www.binance.com/en/dex/testnet/address) and paste your addresses:
 
 ![Select Wallet](/developers/img/bep2-loom-binance-faucet.png)
 
@@ -91,7 +91,7 @@ Repeat the passphrase:
 You can check if your key was successfully imported with the following:
 
 ```bash
-./bnbcli keys list
+./tbnbcli keys list
 ```
 
 The output should look similar to this:
@@ -145,7 +145,7 @@ Password to sign with 'testkey':
 Committed at block 31828719 (tx hash: 63DD7C2EEA2BA24EB78159B0BBBA6DFCEF7471EAD09E396F125BFCFCFA206893, response: {Code:0 Data:[50 48 48 48 48 48 48 48 48 48 48 48 48 48 48 48 48 48] Log:Msg 0: Info: GasWanted:0 GasUsed:0 Tags:[{Key:[97 99 116 105 111 110] Value:[109 105 110 116 77 115 103] XXX_NoUnkeyedLiteral:{} XXX_unrecognized:[] XXX_sizecache:0}] Codespace: XXX_NoUnkeyedLiteral:{} XXX_unrecognized:[] XXX_sizecache:0})
 ```
 
-Now, you can check your balance on the Binance website by opening [this link](https://testnet.binance.org/en/balances).
+Now, you can check your balance on the Binance website by opening [the balances page](https://testnet.binance.org/en/balances).
 
 ### 1.d Cloning the `loom-examples` Repository
 
@@ -257,7 +257,7 @@ The above command will create a new private key and save it to the `./truffle/lo
 At this point, you're ready to deploy the smart contract to Loom TestNet. This is as simple as:
 
 ```bash
-npm run migrate:sample-bep2-token
+npm run migrate:dappchain-bep2-token
 ```
 
 ## 1.f Mapping Contracts
