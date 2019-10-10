@@ -341,9 +341,9 @@ async withdrawToEthereum (amount) {
   EventBus.$emit('updateStatus', { currentStatus: 'Transferring to Extdev Gateway.' })
   await this._transferCoinsToExtdevGateway(amount)
   EventBus.$emit('updateStatus', { currentStatus: 'Getting withdrawal receipt.' })
-  const data = await this._getWithdrawalReceipt()
+  const receipt = await this._getWithdrawalReceipt()
   EventBus.$emit('updateStatus', { currentStatus: 'Withdrawing from Rinkeby Gateway.' })
-  await this._withdrawCoinsFromRinkebyGateway(data)
+  await this._withdrawCoinsFromRinkebyGateway(receipt)
 }
 ```
 
@@ -391,7 +391,6 @@ async _transferCoinsToExtdevGateway (amount) {
     tokenAddress,
     ownerMainnetAddr
   )
-  console.log('before receiveSignedWithdrawalEvent')
   await receiveSignedWithdrawalEvent
 }
 ```
