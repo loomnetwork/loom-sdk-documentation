@@ -162,7 +162,7 @@ modifier onlyGateway(){
 
 You can check the full [source code](https://github.com/loomnetwork/loom-examples/blob/master/mainnet/contracts/SampleERC20MintableToken.sol) of this smart contract on GitHub.
 
- - Lastly, to tie everything together, we created two mappings. The first one [links the Binance and Loom(https://github.com/loomnetwork/loom-examples/blob/master/scripts/map-binance-contracts.js)] token contracts and the second one [links the Loom and Ethereum](https://github.com/loomnetwork/loom-examples/blob/master/scripts/map-contracts.js) token contracts.
+ - Lastly, to tie everything together, we created two mappings. The first one [links the Binance and Loom](https://github.com/loomnetwork/loom-examples/blob/master/scripts/map-binance-contracts.js)] token contracts and the second one [links the Loom and Ethereum](https://github.com/loomnetwork/loom-examples/blob/master/scripts/map-contracts.js) token contracts.
 
 ## The Front-End
 
