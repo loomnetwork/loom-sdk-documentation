@@ -58,7 +58,6 @@ npm run gen:loom-key
 
 This will create a new private key and save it into `truffle/loom_private_key`.
 
-
 ## truffle-flattener
 
 Usually, when you write a smart contract, you would want to include some dependencies. Let's take the [MyLoomCoin](https://github.com/loomnetwork/loom-examples/blob/master/truffle/contracts/MyLoomCoin.sol) contract as an example. As you can see, it uses the OpenZeppelin implementation of the ERC20 standard:
@@ -82,7 +81,7 @@ contract MyLoomCoin is StandardToken {
 // listing truncated for brevity
 ```
 
-You can successfully compile this contract on your machine because `npm install` saved the OpenZeppelin contracts locally and Truffle "knows" where to find them. But, if you try to get this verified on the block explorer, it'll just fail.
+You can successfully compile this contract on your machine because `npm install` saved the OpenZeppelin contracts locally and Truffle "knows" where to find them. But, if you try to get this compiled on the block explorer, it'll just fail.
 
 To make it work, we need to use a tool that merges all the dependencies, puts them in the right order, and saves everything in a single file - [truffle-flattener](https://www.npmjs.com/package/truffle-flattener).
 
@@ -105,7 +104,7 @@ This will save the flattened contract into a file called `MyLoomCoinFlattened.so
 
 Let's take a look at what's inside:
 
-```
+```js
 cat contracts/MyLoomCoinFlattened.sol
 // File: openzeppelin-solidity/contracts/token/ERC20/ERC20Basic.sol
 
@@ -174,11 +173,11 @@ The above command replaces the "contract MyLoomCoin" string with "contract MyLoo
 
 ## Deploying Our Smart Contract
 
-To deploy, we must first create a migration. Create a file called`migrations/5_my_loom_coin_flattened.js` with the following content:
+To deploy, we must first create a migration. Create a file called `migrations/5_my_loom_coin_flattened.js` with the following content:
 
 
 ```js
-const MyLoomCoin = artifacts.require('./MyLoomCoinFlattened.sol')
+const MyLoomCoinFlattened = artifacts.require('./MyLoomCoinFlattened.sol')
 
 let gatewayAddress = '0xE754d9518bF4a9C63476891eF9Aa7D91c8236a5d'.toLowerCase()
 
@@ -188,11 +187,11 @@ module.exports = function (deployer, network, accounts) {
   }
 
   deployer.then(async () => {
-    await deployer.deploy(MyLoomCoin, gatewayAddress)
-    const myLoomCoinInstance = await MyLoomCoin.deployed()
+    await deployer.deploy(MyLoomCoinFlattened, gatewayAddress)
+    const myLoomCoinFlattenedInstance = await MyLoomCoinFlattened.deployed()
 
     console.log('\n*************************************************************************\n')
-    console.log(`MyLoomCoin Contract Address: ${myLoomCoinInstance.address}`)
+    console.log(`MyLoomCoinFlattened Contract Address: ${myLoomCoinFlattenedInstance.address}`)
     console.log('\n*************************************************************************\n')
   })
 }
@@ -216,9 +215,9 @@ Just click "Code and you'll be redirected to a page containing details about the
 
 ![Verify and Publish](/developers/img/get-contracts-verified-verify-and-publish.png)
 
-From here, click "Verify and Publish" and you'll be asked to fill a bunch of fields:
+From here, click "Verify and Publish" and you'll be asked to fill in a bunch of fields:
 
- - contract address: the address of your contract (in our case that's `0x28C4695E2168c86D5B928F1cf4Da5eb67D36f75F` but yours will be different)
+ - contract address: the address of the smart contract (in our case that's `0x28C4695E2168c86D5B928F1cf4Da5eb67D36f75F` but yours will be different)
  - contract name: MyLoomCoinFlattened
  - compiler: 0.4.24+commit.e67f0147
  - EVM version: default
@@ -230,7 +229,7 @@ From here, click "Verify and Publish" and you'll be asked to fill a bunch of fie
 
 ![Hashex](/developers/img/get-contracts-verified-hashex.png)
 
-Now let's copy this value and paste it into the "ABI Encoded Constructor Arguments" field. Once you're done, the page should look similar to the following:
+Now let's copy the value Hashex generated for us and paste it into the "ABI Encoded Constructor Arguments" field. Once you're done, the page should look similar to the following:
 
 ![New Smart Contract Verification](/developers/img/get-contracts-verified-new-smart-contract-verification.png)
 
