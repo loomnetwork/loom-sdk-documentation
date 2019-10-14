@@ -1,16 +1,16 @@
 ---
 id: jump-start-plasma
-title: plasma Jump Start
-sidebar_label: plasma Jump Start
+title: Basechain
+sidebar_label: Basechain
 ---
 
-Follow the instructions below to launch a plasma node from the jump start
+Follow the instructions below to launch a Basechain node from the jump start
 
-## Download stable version of plasmachain
+## Download stable version of Basechain
 
 ```bash
-wget https://private.delegatecall.com/loom/linux/stable/plasmachain
-chmod +x plasmachain
+wget https://downloads.loomx.io/loom/linux/stable/basechain
+chmod +x basechain
 ```
 
 ## Download jump start archive
@@ -49,7 +49,7 @@ tar xfvz plasma-jump-start.tar.gz
 mkdir blank
 cd blank
 cp ../loom-jump-start/loom.yml .
-../plasmachain init
+../basechain init
 cp chaindata/config/{priv_validator.json,node_key.json} ../loom-jump-start/chaindata/config/
 cd ../loom-jump-start
 ```
@@ -57,7 +57,7 @@ cd ../loom-jump-start
 ## Start the node
 
 ```bash
-../plasmachain run --persistent-peers tcp://1739225062b349fa0805ba823dd0155165f40be3@18.216.200.134:46656,tcp://5dcfe8f23c2eeefad39247f9f7c6c33bf112f6c0@52.15.45.21:46656,tcp://29f2d48d3d61687324eeeed0a43b736c4506dd64@18.225.14.100:46656
+../basechain run --persistent-peers tcp://1739225062b349fa0805ba823dd0155165f40be3@18.216.200.134:46656,tcp://5dcfe8f23c2eeefad39247f9f7c6c33bf112f6c0@52.15.45.21:46656,tcp://29f2d48d3d61687324eeeed0a43b736c4506dd64@18.225.14.100:46656
 ```
 
 ## Finally
@@ -77,7 +77,7 @@ After=network.target
 Type=simple
 User=<user that runs loom>
 WorkingDirectory=<working directory of loom>
-ExecStart=<path to loom>/plasmachain run --persistent-peers tcp://580a760af842657125f012c35fc486206b06de1e@18.223.135.245:46656,tcp://0b4989d8349a4a8eb0a901bfdad42336818e1687@18.223.124.100:46656
+ExecStart=<path to loom>/basechain run --persistent-peers tcp://580a760af842657125f012c35fc486206b06de1e@18.223.135.245:46656,tcp://0b4989d8349a4a8eb0a901bfdad42336818e1687@18.223.124.100:46656
 Restart=always
 RestartSec=2
 StartLimitInterval=0
