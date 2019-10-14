@@ -11,7 +11,7 @@ This page shows you how to launch an extdev-plasma-us1 node from the jump start.
 ## Download stable version of loom
 
 ```bash
-wget https://private.delegatecall.com/loom/linux/extdev-stable/loom
+wget https://downloads.loomx.io/loom/linux/extdev-stable/loom
 chmod +x loom
 ```
 
