@@ -133,5 +133,7 @@
   "What should we be building?|no description given": "우리가 무엇을 만들어야 하나요?",
   "Help Translate|recruit community translators for your project": "번역 도움",
   "Edit this Doc|recruitment message asking to edit the doc source": "편집",
-  "Translate this Doc|recruitment message asking to translate the docs": "번역"
+  "Translate this Doc|recruitment message asking to translate the docs": "번역",
+  "search": "검색",
+  "ask_on_tg": "궁금한 점이 있으신가요? 우리의 <a href='https://t.me/loomnetworkdev'>텔레그램</a> 에 참여해서 질문하시고 즉시 답을 얻어가세요"
 }
