@@ -36,7 +36,7 @@ To get that same token back into their Ethereum account the user must:
 
 ![Diagram of ERC721 Transfer to Ethereum](/developers/img/transfer-gateway-erc721-to-ethereum.png)
 
-If you're a hands-on learner you might want to jump straight into the [Transfer Gateway Example](https://github.com/loomnetwork/transfer-gateway-example) example project before reading any further.
+If you're a hands-on learner you might want to jump straight into the \[Transfer Gateway Example\]\[\] example project before reading any further.
 
 ## Setting up ERC721 contracts
 
@@ -95,7 +95,7 @@ contract MyAwesomeToken is ERC721Token {
 
 > The DAppChain Gateway will only attempt to mint tokens it doesn't already own, so if you'd rather manage the token supply yourself you can pre-mint them to the DAppChain Gateway instead of implementing the `mintToGateway` function.
 
-When you're happy with your contracts, you can deploy them with Truffle to Ethereum and the DAppChain. Before doing so, you may want to take a look at [loom-truffle-doc](web3js-loom-provider-truffle.html).
+When you're happy with your contracts, you can deploy them with Truffle to Ethereum and the DAppChain. Before doing so, you may want to take a look at [loom-truffle-doc].
 
 ## Mapping Mainnet contracts to DAppChain contracts
 
@@ -121,4 +121,7 @@ To complete the withdrawal process Alice must provide the withdrawal signature (
 
 ## Summary
 
-You should now have a basic understanding of how the Transfer Gateway works, though we haven't presented nor explained any of the actual API yet. If you haven't already, take a look at the [Transfer Gateway Example](https://github.com/loomnetwork/transfer-gateway-example) project, which was built using the Transfer Gateway API provided by [loom-js](https://github.com/loomnetwork/loom-js).
+You should now have a basic understanding of how the Transfer Gateway works, though we haven't presented nor explained any of the actual API yet. If you haven't already, take a look at the following pages:
+
+- [Transfer Gateway Testnet Tutorial](extdev-transfer-gateway.html).
+- [Transfer Gateway Example Projects](transfer-gateway-example).
