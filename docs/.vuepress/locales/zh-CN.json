@@ -135,5 +135,6 @@
   "Help Translate|recruit community translators for your project": "帮助翻译",
   "Edit this Doc|recruitment message asking to edit the doc source": "编辑",
   "Translate this Doc|recruitment message asking to translate the docs": "翻译",
-  "search": "搜索"
+  "search": "搜索",
+  "ask_on_tg": "遇到问题了？ 来我们的<a href='https://t.me/loomnetworkdev'>电报群</a>寻求帮助吧。"
 }

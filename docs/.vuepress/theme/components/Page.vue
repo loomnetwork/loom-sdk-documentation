@@ -28,6 +28,7 @@
           <span class="pv leancloud-visitors-count" />
         </div>
       </div>
+      <div class="ask-question" v-html="$t('ask_on_tg')"></div>
     </footer>
 
     <div v-if="prev || next" class="page-nav">
@@ -285,7 +286,7 @@ function find(page, items, offset) {
         a
           text-align right
     .dark-mode &
-      border-top 1px solid $borderColorDark  
+      border-top 1px solid $borderColorDark
 
 @media (max-width: $MQMobile)
   .page-edit
