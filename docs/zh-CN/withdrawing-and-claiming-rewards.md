@@ -1,10 +1,10 @@
 ---
 id: withdrawing-and-claiming rewards
-title: Withdrawing Rewards to Mainnet (w/ Ledger + HSM Support) & Claiming Rewards and Re-staking
-sidebar_label: Validators - Withdrawing and Claiming Rewards
+title: "提取奖励到主网 (w/ Ledger + HSM 支持) & \n领取奖励和再次锁定"
+sidebar_label: 验证者 —— 提取和领取奖励
 ---
 
-## Withdrawing Rewards to Mainnet (w/ Ledger + HSM Support) & Claiming Rewards and Re-staking
+## 提取奖励到主网 (w/ Ledger + HSM 支持) & 领取奖励和再次锁定
 
 This section will show you how to map your HSM to your Ledger, and how to withdraw your validator rewards to mainnet.
 
