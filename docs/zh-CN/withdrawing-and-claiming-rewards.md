@@ -6,7 +6,7 @@ sidebar_label: 验证者 —— 提取和领取奖励
 
 ## 提取奖励到主网 (w/ Ledger + HSM 支持) & 领取奖励和再次锁定
 
-This section will show you how to map your HSM to your Ledger, and how to withdraw your validator rewards to mainnet.
+本节将向你展示如何将 HSM 映射到你的 Ledger，以及如何将你的验证者奖励提取到主网。
 
 In the following commands, if you’re using an HSM, replace the `--key /path/to/dappchainkey` (or -k) with the HSM path with `--hsm /path/to/hsm.json`.
 
