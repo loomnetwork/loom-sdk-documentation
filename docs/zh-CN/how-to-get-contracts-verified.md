@@ -6,7 +6,8 @@ sidebar_label: How to Get Contracts Verified
 
 ## Purpose
 
-This guide walks you through the process of getting your smart contracts verified on the Loom block explorer.
+If your contract inherits from other contracts and uses `import` statements, you must flatten the source code into a single file before deploying and verifying it. This guide walks you through the process of flattening and getting your smart contract verified on the Loom block explorer.
+
 
 ## Prerequisites
 
