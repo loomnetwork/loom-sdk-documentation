@@ -8,7 +8,7 @@ This page provides information on where and how to access the Extdev network. If
 
 ## Extdev
 
-> **Devnets typically are wiped often, only use them for experimental features!**
+> On rare occasions, Extdev may get wiped. Use it only for development and testing.
 
 ### General Information
 
