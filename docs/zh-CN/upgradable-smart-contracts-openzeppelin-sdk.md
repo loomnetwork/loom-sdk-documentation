@@ -43,29 +43,27 @@ Now, let's configure OpenZeppelin to use `loom-truffle-provider` and deploy to L
 const LoomTruffleProvider = require('loom-truffle-provider')
 const { sha256 } = require('js-sha256')
 const { CryptoUtils } = require('loom-js')
-function getLoomProviderWithMnemonic (seed, chainId, writeUrl, readUrl) {
- const privateKeyUint8ArrayFromSeed = CryptoUtils.generatePrivateKeyFromSeed(new Uint8Array(sha256.array(seed)))
- const privateKeyB64 = CryptoUtils.Uint8ArrayToB64(privateKeyUint8ArrayFromSeed)
- return new LoomTruffleProvider(chainId, writeUrl, readUrl, privateKeyB64)
+function getLoomProviderWithMnemonic(seed, chainId, writeUrl, readUrl) {
+  const privateKeyUint8ArrayFromSeed = CryptoUtils.generatePrivateKeyFromSeed(new Uint8Array(sha256.array(seed)))
+  const privateKeyB64 = CryptoUtils.Uint8ArrayToB64(privateKeyUint8ArrayFromSeed)
+  return new LoomTruffleProvider(chainId, writeUrl, readUrl, privateKeyB64)
 }
 module.exports = {
- networks: {
- extdev: {
- provider: function() {
- const chainId = 'extdev-plasma-us1'
- const writeUrl = 'http://extdev-plasma-us1.dappchains.com:80/rpc'
- const readUrl = 'http://extdev-plasma-us1.dappchains.com:80/eth'
- const seed = 'gravity top burden flip student usage spell purchase hundred improve check genre'
- const loomTruffleProvider = getLoomProviderWithMnemonic(seed, chainId, writeUrl, readUrl)
- // Quick implementation for web3_clientVersion
- loomTruffleProvider.getProviderEngine().addCustomMethod('web3_clientVersion', () => {
- return 'loom-js'
- })
- return loomTruffleProvider
- },
- networkId: '*',
- },
- },
+  networks: {
+    extdev: {
+      provider: function () {
+        const chainId = 'extdev-plasma-us1'
+        const writeUrl = 'http://extdev-plasma-us1.dappchains.com:80/rpc'
+        const readUrl = 'http://extdev-plasma-us1.dappchains.com:80/eth'
+        const seed = 'gravity top burden flip student usage spell purchase hundred improve check genre'
+        const loomTruffleProvider = getLoomProviderWithMnemonic(seed, chainId, writeUrl, readUrl)
+        // Quick implementation for web3_clientVersion
+        loomTruffleProvider.getProviderEngine().addCustomMethod('web3_clientVersion', () => 'loom-js')
+        return loomTruffleProvider
+      },
+      networkId: '*',
+    },
+  },
 }
 ```
 
@@ -82,7 +80,7 @@ contract Counter {
  uint256 public value;
 
  function increase() public {
- value++;
+  value++;
  }
 }
 ```
@@ -105,12 +103,12 @@ yarn openzeppelin create Counter --network extdev --init increase
 ✨ Done in 360.73s.
 ```
 
-> The `--init` flag is very useful because you can't use constructors with the OpenZeppelin SDK. For more details, please refer to the [OpenZeppelin SDK Upgrades Pattern]https://docs.openzeppelin.com/sdk/2.5/pattern#the-constructor-caveat) page.
+> The `--init` flag is very useful because you can't use constructors with the OpenZeppelin SDK. For more details, please refer to the [OpenZeppelin SDK Upgrades Pattern](https://docs.openzeppelin.com/sdk/2.5/pattern#the-constructor-caveat) page.
 
 
-### Send-TX and Call
+### The Send-TX Method
 
-Now that our contract is deployed, let's send a transaction by running the `yarn openzeppelin send-tx` and passing it the following flags:
+Now that your contract is deployed, let's send a transaction by running the `yarn openzeppelin send-tx` and passing it the following flags:
 
 * `--network` with the name of the network we deployed our smart contract to (`extdev`).
 * `--to` with the address of the `Counter` smart contract. In our example the address is `0x879d15B21DE431E9520D6880E46Df374F7abB2a3` but yours will be different.
@@ -131,7 +129,9 @@ $ /Users/andrei/upgradable-contracts/node_modules/.bin/openzeppelin send-tx --ne
 ✨ Done in 9.11s.
 ```
 
-Now, let's call the `value` method:
+### The `call` Method
+
+Next, let's use OpenZeppelin's `call` method to read the value stored on the blockchain:
 
 ```
 yarn openzeppelin call --network extdev --to 0x879d15B21DE431E9520D6880E46Df374F7abB2a3 --method value
@@ -155,14 +155,14 @@ Next, let's upgrade the `Counter` smart contract. The `increase` function will n
 Replace the content of the `contracts/Counter.sol` file with the following code:
 
 ```solidity
-pragma solidity ^0.5.0;
+pragma solidity ^ 0.5.0;
 
 contract Counter {
- uint256 public value;
+  uint256 public value;
 
- function increase(uint256 amount) public {
- value += amount;
- }
+  function increase(uint256 amount) public {
+    value += amount;
+  }
 }
 ```
 
