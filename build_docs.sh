@@ -11,6 +11,8 @@ cp -R ./docs/.vuepress/public/json/topTokensList.json ./docs/.vuepress/dist/topT
 if [ "$GIT_BRANCH" = "origin/master" ]
 then
 aws s3 cp ./docs/.vuepress/dist s3://loomx.io/developers  --recursive --cache-control 'max-age=86400'
+#remove old document
+rm -rf s3://loomx.io/developers/docs
 else
 #aws s3 rm s3://stage.loomx.io/developers --recursive #remove old files first
 aws s3 cp ./docs/.vuepress/dist s3://stage.loomx.io/developers  --recursive --cache-control 'max-age=86400'
