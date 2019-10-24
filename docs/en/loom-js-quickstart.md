@@ -6,9 +6,9 @@ sidebar_label: NodeJS & Browser Quick Start
 
 ## Overview
 
-[Loom-js](https://github.com/loomnetwork/loom-js) contains everything you need to build web apps and NodeJS services that interact with smart contracts running on Loom DAppChains.
+The [Loom-js](https://github.com/loomnetwork/loom-js) library contains everything you need to build web apps and NodeJS services that interact with your smart contracts running on Loom.
 
-To get started install `loom-js`, run the following command:
+You can install `loom-js` by running the following command:
 
 ```bash
 yarn add loom-js
@@ -18,103 +18,120 @@ npm install loom-js
 
 ## Sample Code
 
-Check out the [Truffle DAppChain Example](https://github.com/loomnetwork/truffle-dappchain-example) repo.
+In this tutorial, we're reproducing a few snippets from the [Truffle DAppChain Example](https://github.com/loomnetwork/truffle-dappchain-example) repository. Make sure to check out the full source code once you finish this tutorial.
 
-## Connecting to a DAppChain
+## Initializing the Application
 
-The `Contract` class provides a convenient way to interact with a smart contract running on a Loom DAppChain. Let's write a function that creates a `Contract` instance to interact with the sample [BluePrint][] smart contract from the Loom SDK:
+To interact with the smart contract deployed to Loom, we define a class called [Contract](https://github.com/loomnetwork/truffle-dappchain-example/blob/14d8d8bfd955512d80cce4cbe7714738a81dedb2/src/contract.js#L8). Let's look at what's inside.
+
+
+First, we create a `client` that will help our application "talk" to Loom:
 
 ```js
-const {
-  NonceTxMiddleware, SignedTxMiddleware, Client,
-  Contract, Address, LocalAddress, CryptoUtils
-} = require('loom-js')
+_createClient() {
+  this.privateKey = CryptoUtils.generatePrivateKey()
+  this.publicKey = CryptoUtils.publicKeyFromPrivateKey(this.privateKey)
+  let writeUrl = 'ws://127.0.0.1:46658/websocket'
+  let readUrl = 'ws://127.0.0.1:46658/queryws'
+  let networkId = 'default'
+  if (process.env.NETWORK == 'extdev') {
+    writeUrl = 'ws://extdev-plasma-us1.dappchains.com:80/websocket'
+    readUrl = 'ws://extdev-plasma-us1.dappchains.com:80/queryws'
+    networkId = 'extdev-plasma-us1'
+  }
 
-const { MapEntry } = require('./helloworld_pb')
+  this.client = new Client(networkId, writeUrl, readUrl)
 
-/**
- * Creates a new `Contract` instance that can be used to interact with a smart contract.
- * @param privateKey Private key that will be used to sign transactions sent to the contract.
- * @param publicKey Public key that corresponds to the private key.
- * @returns `Contract` instance.
- */
-async function getContract(privateKey, publicKey) {
-  const client = new Client(
-    'default',
-    'ws://127.0.0.1:46658/websocket',
-    'ws://127.0.0.1:46658/queryws'
-  )
-  // required middleware
-  client.txMiddleware = [
-    new NonceTxMiddleware(publicKey, client),
-    new SignedTxMiddleware(privateKey)
-  ]
-  const contractAddr = await client.getContractAddressAsync('BluePrint')
-  const callerAddr = new Address(client.chainId, LocalAddress.fromPublicKey(publicKey))
-  return new Contract({
-    contractAddr,
-    callerAddr,
-    client
+  this.client.on('error', msg => {
+    console.error('Error on connect to client', msg)
+    console.warn('Please verify if loom command is running')
   })
 }
 ```
 
-## Writing data to a DAppChain
-
-To mutate the state of a smart contract you need to call one of its public methods. To do so a signed transaction must be sent to and validated by the DAppChain. Fortunately, the `Contract` class takes care of most of this when you use the `Contract.callAsync()` method.
-
-The [BluePrint][] smart contract has a public `SetMsg` method that can be called to store an association between a key and a value. Let's write a function that calls this method:
+Next, we want to retrieve the user's address:
 
 ```js
-/**
- * Stores an association between a key and a value in a smart contract.
- * @param contract Contract instance returned from `getContract()`.
- */
-async function store(contract, key, value) {
-  const params = new MapEntry()
-  params.setKey(key)
-  params.setValue(value)
-  await contract.callAsync('SetMsg', params)
-}
-
-```
-
-## Reading data from a DAppChain
-
-To read the state of a smart contract you need to call one of its public read-only methods. You can do so by using the `Contract.staticCallAsync()` method.
-
-The [BluePrint][] smart contract has a public `GetMsg` method that can be called to look up an association between a key and a value. Let's write a function that calls this method:
-
-```js
-/**
- * Loads the value associated with a key in a smart contract.
- * @param contract Contract instance returned from `getContract()`.
- */
-async function load(contract, key) {
-  const params = new MapEntry()
-  // The smart contract will look up the value stored under this key.
-  params.setKey(key)
-  const result = await contract.staticCallAsync('GetMsg', params, new MapEntry())
-  return result.getValue()
+_createCurrentUserAddress() {
+  this.currentUserAddress = LocalAddress.fromPublicKey(this.publicKey).toString()
 }
 ```
 
-## Putting it all together
-
-Now that we have all the pieces in place, make sure the DAppChain is running and then run the following code.
+And instantiate `LoomProvider`:
 
 ```js
-(async function () {
-  const privateKey = CryptoUtils.generatePrivateKey()
-  const publicKey = CryptoUtils.publicKeyFromPrivateKey(privateKey)
-
-  const contract = await getContract(privateKey, publicKey)
-  await store(contract, '123', 'hello!')
-  const value = await load(contract, '123')
-  console.log('Value: ' + value)
-})()
+_createWebInstance() {
+  this.web3 = new Web3(new LoomProvider(this.client, this.privateKey))
+}
 ```
 
-You should see `Value: hello!` printed out to the console.
+At this point, we are ready to create an instance of the smart contract and start listening to events:
 
-[BluePrint]: https://github.com/loomnetwork/weave-blueprint/blob/master/src/blueprint.go
+```js
+async _createContractInstance() {
+  const networkId = await this._getCurrentNetwork()
+  this.currentNetwork = SimpleStore.networks[networkId]
+  if (!this.currentNetwork) {
+    throw Error('Contract not deployed on DAppChain')
+  }
+
+  const ABI = SimpleStore.abi
+  this.simpleStoreInstance = new this.web3.eth.Contract(ABI, this.currentNetwork.address, {
+    from: this.currentUserAddress
+  })
+
+  this.simpleStoreInstance.events.NewValueSet({ filter: { _value: 10 }}, (err, event) => {
+    if (err) console.error('Error on event', err)
+    else {
+      if (this.onEvent) {
+        this.onEvent(event.returnValues)
+      }
+    }
+  })
+
+  this.simpleStoreInstance.events.NewValueSetAgain({ filter: { _value: 47 }}, (err, event) => {
+    if (err) console.error('Error on event', err)
+    else {
+      setTimeout(() => alert("Loooomy help me :)"))
+      if (this.onEvent) {
+        this.onEvent(event.returnValues)
+      }
+    }
+  })
+}
+
+addEventListener(fn) {
+  this.onEvent = fn
+}
+```
+
+## Writing data to Loom
+
+Here's how you can write data to Loom and mutate the state of your smart contract:
+
+```js
+async setValue(value) {
+  // Just a small test with Loomy
+  if (value == 47) {
+    return await this.simpleStoreInstance.methods.setAgain(value).send({
+      from: this.currentUserAddress
+    })
+  }
+
+  return await this.simpleStoreInstance.methods.set(value).send({
+    from: this.currentUserAddress
+  })
+}
+```
+
+## Reading data from Loom
+
+Reading data from Loom is as simple as:
+
+```js
+async getValue() {
+  return await this.simpleStoreInstance.methods.get().call({
+    from: this.currentUserAddress
+  })
+}
+```
