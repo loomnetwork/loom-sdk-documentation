@@ -8,6 +8,25 @@ sidebar_label: Extdev
 
 Reverse chronology order of release notes.
 
+## Extdev build 1328 Hard Fork - 2019/10/27
+
+**Breaking changes:**
+
+- The `eth_getTransactionCount` and eth_call Web3 JSON-RPC methods on the `/eth` endpoint now expect the input address to be an Ethereum account, not a Loom account.
+- `eth_getLogs` and any other Web3 JSON-RPC methods that query a range of blocks will now only allow querying up to 20 blocks per request on public Extdev nodes.
+
+**Bug fixes:**
+
+- Fix broadcasting of EVM contract events to subscribers, previously if a contract method emitted multiple events subscribers would only receive the first event.
+- Ensure `eth_getBlockByNumber` and `eth_getBlockByHash` return the same tx hashes regardless of whether or not the full parameter is true or not.
+- Ensure `eth_getLogs` returns tx hashes that are consistent with `eth_getBlockByNumber`.
+
+**New features:**
+
+- A node will now panic when it’s started using a jump-start that requires a newer build than the node is currently running, once the build is upgraded the node can simply be restarted without restoring the working directory from the jump-start. This requires a jump-start that’s created after the `chaincfg:v1.4` feature flag is enabled, which means it will only work with future jump-starts (the first of which will be available a few days after this release).
+- The `eth_sendRawTransaction` JSON-RPC method on the `/eth` endpoint now works similarly to the way one would expect it to work on an Ethereum node. Note that an account mapping between the Ethereum account that’s used to sign the Ethereum tx and an Extdev account must exist before `eth_sendRawTransaction` will accept the Ethereum tx. This feature will be enabled via the tx:eth feature flag, and should unlock the ability to use any Web3 JSON-RPC compatible library to call & deploy EVM contracts via the `/eth` endpoint.
+- Logs returned by `eth_getLogs`, `eth_getTransactionReceipt`, and Web3 subscriptions now contain a `BlockTime` field. This is a Loom-specific extension of the Web3 JSON-RPC interface.
+
 ## Extdev Build 1286 Hard Fork - 2019/09/26
 
 This is a maintenance release that reverts the new EVM tx hash generation algo introduced in build 1283. The hard fork will activate when the `receipts:v3.4` feature flag is enabled.
