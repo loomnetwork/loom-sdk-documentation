@@ -1,30 +1,24 @@
 ---
-id: how-to-migrate-from-plasmachain-to-basechain
-title: How to Migrate your DApp from Plasmachain to Basechain
+id: basechain-upgrade-new-api-for-interacting-with-transfer-gateway
+title: Basechain Upgrade- The New API for Interacting with the Transfer Gateway
 ---
 
 ## Purpose
 
-This tutorial walks you through the process of migrating your DApp from Plasmachain to Basechain.
-
-Please note that that we are set to roll out Basechain towards the end of November 2019. This upgrade introduces a few **breaking changes** to how assets are transferred from Loom to Ethereum.
-
-Follow the next steps to make sure your DApp works once Basechain gets rolled out.
-
-> Once you've updated your code, we encourage you to test it against `extdev` to rule out any potential issues.
+As part of the Basechain upgrade, we'll be updating the Transfer Gateway. To make the transition as smooth as possible, we've added a new API to `loom-js` for interacting with the Transfer Gateway. This page outlines the changes you'll need to make in order to ensure your DApp continues to work after the Transfer Gateway update goes live.
 
 ## 1. Update the Ethereum Transfer Gateway address
 
-As part of the upgrade, we're updating the transfer gateway smart contracts deployed on the Rinkeby testnet and Ethereum main net. If these are hardcoded in your codebase, make sure you use the addresses listed here:
+We're updating the transfer gateway smart contracts deployed on the Rinkeby testnet and Ethereum main net. If these are hardcoded in your codebase, make sure you use the addresses listed here:
 
 * [Extdev](https://loomx.io/developers/en/testnet-plasma.html)
 * [Basechain](https://loomx.io/developers/en/mainnet-plasma.html)
 
 > At the time of this writing (end of October 2019), we've already deployed the updated smart contract to Rinkeby. We'll be deploying the updated smart contract to the main net as part of the Basechain upgrade.
 
-## 2. Update loom-js to 1.70.0
+## 2. Update loom-js to 1.70.1
 
-As part of the upgrade, we've streamlined the API exposed by `loom-js`. To use the new API, you have to make sure that you're running `loom-js` version `1.70.0` or later.
+To use the new API, you have to make sure that you're running `loom-js` version `1.70.1` or later.
 
 In a terminal window, type the following command to see your `loom-js` version:
 
@@ -32,10 +26,10 @@ In a terminal window, type the following command to see your `loom-js` version:
 npm ls --depth=0 loom-js
 ```
 
-If you're running a version earlier than `1.70.0`, you can update it by entering the following command:
+If you're running a version earlier than `1.70.1`, you can update it by entering the following command:
 
 ```bash
-npm install loom-js@1.70.0
+npm install loom-js@1.70.1
 ```
 
 ## 3. Changes to the loom-js API
@@ -89,7 +83,7 @@ async _getEthereumTransferGatewayContract(web3Ethereum) {
 
 ### 3.2 Use the withdrawalReceiptAsync Function to Get the Withdrawal Receipt
 
-Prior to `loom-js` 1.70.0, you've probably used something similar to the following to get the withdrawal receipt:
+Prior to `loom-js` 1.70.1, you've probably used something similar to the following to get the withdrawal receipt:
 
 ```js
 const data = await gatewayContract.withdrawalReceiptAsync(userLocalAddr)
@@ -104,7 +98,7 @@ return {
 }
 ```
 
-With `loom-js` 1.70, you can replace this snippet with an one-liner:
+With `loom-js` 1.70.1, you can replace this snippet with an one-liner:
 
 ```js
 const receipt = await gatewayContract.withdrawalReceiptAsync(userLocalAddr)
@@ -112,7 +106,7 @@ const receipt = await gatewayContract.withdrawalReceiptAsync(userLocalAddr)
 
 ### 3.3 Call the withdrawAsync Function to Withdraw Your Assets from the Ethereum Gateway
 
-We've also streamlined the way in which assets get withdrawn from the transfer gateway. Instead of calling different methods depending on what asset you want to withdraw, with 1.70.0, you can use the following snippet:
+We've also streamlined the way in which assets get withdrawn from the transfer gateway. Instead of calling different methods depending on what asset you want to withdraw, with 1.70.1, you can use the following snippet:
 
 ```js
 const tx = await gatewayContract.withdrawAsync(receipt, { gasLimit: gas })
