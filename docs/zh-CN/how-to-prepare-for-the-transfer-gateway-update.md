@@ -7,7 +7,7 @@ title: How to Prepare for the Transfer Gateway Update
 
 As part of the Basechain upgrade, we'll be updating the Transfer Gateway. To make the transition as smooth as possible, we've added a new API to `loom-js` for interacting with the Transfer Gateway. This page outlines the changes you'll need to make in order to ensure your DApp continues to work after the Transfer Gateway update goes live.
 
-## 2. Update loom-js to 1.70.1
+## 1. Update loom-js to 1.70.1
 
 To use the new API, you have to make sure that you're running `loom-js` version `1.70.1` or later.
 
@@ -23,11 +23,11 @@ If you're running a version earlier than `1.70.1`, you can update it by entering
 npm install loom-js@1.70.1
 ```
 
-## 3. Changes to the loom-js API
+## 2. Changes to the loom-js API
 
 You must make the following changes so that your codebase correctly uses the new loom-js API. **Otherwise, you won't be able to transfer assets from Loom to Ethereum.**
 
-### 3.1 Use the createEthereumGatewayAsync function to Instantiate the Ethereum Transfer Gateway Used for Withdrawals
+### 2.1 Use the createEthereumGatewayAsync function to Instantiate the Ethereum Transfer Gateway Used for Withdrawals
 
 The way in which you must instantiate the Ethereum Transfer Gateway used for withdrawals has changed. That said, you need to import the `createEthereumGatewayAsync` function from `loom-js` using something like this:
 
@@ -62,7 +62,12 @@ async _getEthereumTransferGatewayContract(web3Ethereum) {
       throw new Error('Ethereum Gateway is not deployed on network ' + networkId)
   }
 
-  const signer = getMetamaskSigner(web3Ethereum.currentProvider) // If you're running `loom-js` in Node.js, change this line to something like `const signer = new OfflineWeb3Signer(rinkeby.web3js, rinkeby.account)
+  /*
+  * If you're running `loom-js` in Node.js, change the following 
+  * line to something like:
+  * const signer = new OfflineWeb3Signer(rinkeby.web3js,rinkeby.account)
+  */
+  const signer = getMetamaskSigner(web3Ethereum.currentProvider)
 
   this.ethereumGatewayContract = await createEthereumGatewayAsync(
     version,
@@ -72,7 +77,7 @@ async _getEthereumTransferGatewayContract(web3Ethereum) {
 }
 ```
 
-### 3.2 Use the withdrawalReceiptAsync Function to Get the Withdrawal Receipt
+### 2.2 Use the withdrawalReceiptAsync Function to Get the Withdrawal Receipt
 
 Prior to `loom-js` 1.70.1, you've probably used something similar to the following to get the withdrawal receipt:
 
@@ -95,7 +100,7 @@ With `loom-js` 1.70.1, you can replace this snippet with an one-liner:
 const receipt = await gatewayContract.withdrawalReceiptAsync(userLocalAddr)
 ```
 
-### 3.3 Call the withdrawAsync Function to Withdraw Your Assets from the Ethereum Gateway
+### 2.3 Call the withdrawAsync Function to Withdraw Your Assets from the Ethereum Gateway
 
 We've also streamlined the way in which assets get withdrawn from the transfer gateway. Instead of calling different methods depending on what asset you want to withdraw, with 1.70.1, you can use the following snippet:
 
@@ -108,6 +113,6 @@ Please note that you must also call the `withdrawAsync` function to resume a wit
 
 ## Sample Code
 
-We've updated our examples to reflect the changes to the API. If you're running `loom-js` in Node.js, please refer to the [truffle-dappchain-example](https://github.com/loomnetwork/truffle-dappchain-example/) repository for more details. If you're running `loom-js` in the browser, please see the [loom-examples](https://github.com/loomnetwork/loom-examples) repository.
+We've updated our examples to reflect the changes to the API. If you're running `loom-js` in Node.js, please refer to the [truffle-dappchain-example](https://github.com/loomnetwork/truffle-dappchain-example/blob/master/gateway-cli.js) repository for more details. If you're running `loom-js` in the browser, please see the [loom-examples](https://github.com/loomnetwork/loom-examples) repository.
 
 If you get stuck at some point, feel free to contact us and we'll help you out!
