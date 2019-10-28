@@ -7,12 +7,6 @@ title: How to Prepare for the Transfer Gateway Update
 
 As part of the Basechain upgrade, we'll be updating the Transfer Gateway. To make the transition as smooth as possible, we've added a new API to `loom-js` for interacting with the Transfer Gateway. This page outlines the changes you'll need to make in order to ensure your DApp continues to work after the Transfer Gateway update goes live.
 
-## 1. Update the Ethereum Transfer Gateway address
-
-We're updating the transfer gateway smart contract deployed on  Ethereum main net. If this is hardcoded in your codebase, make sure you use the address listed on [this page](https://loomx.io/developers/en/mainnet-plasma.html).
-
-> The Transfer Gateway smart contracts have already been deployed on Rinkeby, so we recommend testing your DApp with the Extdev/Rinkeby Transfer Gateway.
-
 ## 2. Update loom-js to 1.70.1
 
 To use the new API, you have to make sure that you're running `loom-js` version `1.70.1` or later.
