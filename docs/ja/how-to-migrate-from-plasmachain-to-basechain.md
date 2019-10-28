@@ -1,0 +1,128 @@
+---
+id: how-to-migrate-from-plasmachain-to-basechain
+title: How to Migrate your DApp from Plasmachain to Basechain
+---
+
+## Purpose
+
+This tutorial walks you through the process of migrating your DApp from Plasmachain to Basechain.
+
+Please note that that we are set to roll out Basechain towards the end of November 2019. This upgrade introduces a few **breaking changes** to how assets are transferred from Loom to Ethereum.
+
+Follow the next steps to make sure your DApp works once Basechain gets rolled out.
+
+> Once you've updated your code, we encourage you to test it against `extdev` to rule out any potential issues.
+
+## 1. Update the Ethereum Transfer Gateway address
+
+As part of the upgrade, we're updating the transfer gateway smart contracts deployed on the Rinkeby testnet and Ethereum main net. If these are hardcoded in your codebase, make sure you use the addresses listed here:
+
+* [Extdev](https://loomx.io/developers/en/testnet-plasma.html)
+* [Basechain](https://loomx.io/developers/en/mainnet-plasma.html)
+
+> At the time of this writing (end of October 2019), we've already deployed the updated smart contract to Rinkeby. We'll be deploying the updated smart contract to the main net as part of the Basechain upgrade.
+
+## 2. Update loom-js to 1.70.0
+
+As part of the upgrade, we've streamlined the API exposed by `loom-js`. To use the new API, you have to make sure that you're running `loom-js` version `1.70.0` or later.
+
+In a terminal window, type the following command to see your `loom-js` version:
+
+```bash
+npm ls --depth=0 loom-js
+```
+
+If you're running a version earlier than `1.70.0`, you can update it by entering the following command:
+
+```bash
+npm install loom-js@1.70.0
+```
+
+## 3. Changes to the loom-js API
+
+You must make the following changes so that your codebase correctly uses the new loom-js API. **Otherwise, you won't be able to transfer assets from Loom to Ethereum.**
+
+### 3.1 Use the createEthereumGatewayAsync function to Instantiate the Ethereum Transfer Gateway Used for Withdrawals
+
+The way in which you must instantiate the Ethereum Transfer Gateway used for withdrawals has changed. That said, you need to import the `createEthereumGatewayAsync` function from `loom-js` using something like this:
+
+```js
+import {
+  LocalAddress,
+  CryptoUtils,
+  Address,
+  Contracts,
+  createEthereumGatewayAsync, //Include this line!
+  getMetamaskSigner
+} from 'loom-js'
+```
+
+Then, you can instantiate the gateway as follows:
+
+```js
+async _getEthereumTransferGatewayContract(web3Ethereum) {
+  const networkId = await web3Ethereum.eth.net.getId()
+  console.log("networkId", networkId);
+
+  let version
+  switch (networkId) {
+    case 1: // Ethereum Mainnet
+      version = 1
+      break
+
+    case 4: // Rinkeby
+      version = 2
+      break
+    default:
+      throw new Error('Ethereum Gateway is not deployed on network ' + networkId)
+  }
+
+  const signer = getMetamaskSigner(web3Ethereum.currentProvider) // If you're running `loom-js` in Node.js, change this line to something like `const signer = new OfflineWeb3Signer(rinkeby.web3js, rinkeby.account)
+
+  this.ethereumGatewayContract = await createEthereumGatewayAsync(
+    version,
+    this._RinkebyGatewayAddress(), // In this example, we're instantiating the Rinkeby transfer gateway
+    signer
+  )
+}
+```
+
+### 3.2 Use the withdrawalReceiptAsync Function to Get the Withdrawal Receipt
+
+Prior to `loom-js` 1.70.0, you've probably used something similar to the following to get the withdrawal receipt:
+
+```js
+const data = await gatewayContract.withdrawalReceiptAsync(userLocalAddr)
+if (!data) {
+  return null
+}
+const signature = CryptoUtils.bytesToHexAddr(data.oracleSignature)
+return {
+  signature: signature,
+  amount: data.value.toString(10),
+  tokenContract: data.tokenContract.local.toString()
+}
+```
+
+With `loom-js` 1.70, you can replace this snippet with an one-liner:
+
+```js
+const receipt = await gatewayContract.withdrawalReceiptAsync(userLocalAddr)
+```
+
+### 3.3 Call the withdrawAsync Function to Withdraw Your Assets from the Ethereum Gateway
+
+We've also streamlined the way in which assets get withdrawn from the transfer gateway. Instead of calling different methods depending on what asset you want to withdraw, with 1.70.0, you can use the following snippet:
+
+```js
+const tx = await gatewayContract.withdrawAsync(receipt, { gasLimit: gas })
+return tx.hash
+```
+
+Please note that you must also call the `withdrawAsync` function to resume a withdrawal.
+
+## Sample Code
+
+We've updated our examples to reflect the changes to the API. If you're running `loom-js` in Node.js, please refer to the [truffle-dappchain-example](https://github.com/loomnetwork/truffle-dappchain-example/) repository for more details. If you're running `loom-js` in the browser, please see the [loom-examples](https://github.com/loomnetwork/loom-examples) repository.
+
+If you get stuck at some point, feel free to contact us and we'll help you out!
