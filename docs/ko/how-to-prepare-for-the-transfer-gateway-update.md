@@ -1,6 +1,6 @@
 ---
-id: basechain-upgrade-new-api-for-interacting-with-transfer-gateway
-title: Basechain Upgrade- The New API for Interacting with the Transfer Gateway
+id: how-to-prepare-for-the-transfer-gateway-update
+title: How to Prepare for the Transfer Gateway Update
 ---
 
 ## Purpose
@@ -9,12 +9,9 @@ As part of the Basechain upgrade, we'll be updating the Transfer Gateway. To mak
 
 ## 1. Update the Ethereum Transfer Gateway address
 
-We're updating the transfer gateway smart contracts deployed on the Rinkeby testnet and Ethereum main net. If these are hardcoded in your codebase, make sure you use the addresses listed here:
+We're updating the transfer gateway smart contract deployed on  Ethereum main net. If this is hardcoded in your codebase, make sure you use the address listed on [this page](https://loomx.io/developers/en/mainnet-plasma.html).
 
-* [Extdev](https://loomx.io/developers/en/testnet-plasma.html)
-* [Basechain](https://loomx.io/developers/en/mainnet-plasma.html)
-
-> At the time of this writing (end of October 2019), we've already deployed the updated smart contract to Rinkeby. We'll be deploying the updated smart contract to the main net as part of the Basechain upgrade.
+> The Transfer Gateway smart contracts have already been deployed on Rinkeby, so we recommend testing your DApp with the Extdev/Rinkeby Transfer Gateway.
 
 ## 2. Update loom-js to 1.70.1
 

@@ -199,7 +199,7 @@ module.exports = {
           ['/arch', 'arch'],
           ['/how-to-get-started', 'How to Get Started '],
           ['/how-to-get-contracts-verified', 'How to Get Contracts Verified'],
-          ['basechain-upgrade-new-api-for-interacting-with-transfer-gateway', 'Basechain Upgrade- The New API for Interacting with the Transfer Gateway'],
+          ['/how-to-prepare-for-the-transfer-gateway-update', 'How to Prepare for the Transfer Gateway Update'],
           ['/top-erc20s', 'Top ERC20s Deployed to Loom'],
           ['/common-issues', 'Common Issues'],
         ],
