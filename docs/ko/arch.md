@@ -5,11 +5,11 @@ title: Architecture of a DAppChain
 
 Loom SDK is a pluggable Blockchain Development Kit. Pluggable both at the consensus and contract layer.
 
-## Consensus
+## 컨센서스
 
 Loom SDK has 2 layers of consensus- P2P layer (a BFT system) and Loom Consensus (DPoS).
 
-### P2P Layer
+### P2P 레이어
 
 Loom Backend supports different BPFT engines, like Tendermint. In the future, we will support Raft for PoA chains.
 
