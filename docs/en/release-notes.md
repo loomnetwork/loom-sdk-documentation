@@ -4,6 +4,11 @@ title: Release Notes
 sidebar_label: Release Notes
 ---
 
+> Note that this page is no longer updated. Refer to these pages for the latest release notes:
+> - [Basechain Release notes](basechain-release-notes.html)
+> - [Extdev Release notes](extdev-release-notes.html)
+
+
 ## Overview
 
 Reverse chronology order of release notes.

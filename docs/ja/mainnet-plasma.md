@@ -19,6 +19,8 @@ If you want more details, see our [guide](deploy-loom-mainnet.html) on deploying
 - **networkId**: *
 - **readUrl**: https://basechain.dappchains.com/query
 - **writeURl**: https://basechain.dappchains.com/rpc
+- Max Contract Size: **24,576 bytes**
+- Max Gas Limit per transaction: **4,915,200**
 
 ### Truffle configuration file
 
@@ -63,10 +65,10 @@ If you want to use [Universal Signing](https://medium.com/loom-network/universal
 
 **Contracts deployed on Ethereum**
 
-- **Transfer Gateway**: 0xe080079ac12521d57573f39543e1725ea3e16dcc (use this for Eth, ERC721, and ERC20 assets)
-- **Loom Transfer Gateway**: 0x8f8E8b3C4De76A31971Fe6a87297D8f703bE8570
+- **Transfer Gateway**: `0xe080079ac12521d57573f39543e1725ea3e16dcc` (use this for Eth, ERC721, and ERC20 assets)
+- **Loom Transfer Gateway**: `0x8f8E8b3C4De76A31971Fe6a87297D8f703bE8570`
 
-**Contracts deployed on Loom Basechain**
+**Contracts deployed on Plasmachain**
 
 - **Transfer Gateway**
 
@@ -120,9 +122,9 @@ const contractAddr = await client.getContractAddressAsync('ethcoin')
 
 ### Binance Integration
 
-- **Binance hotWallet address**: bnb17mxq8p5jmw27dtt6s92fd35yltdml6snw3r98t
+- **Binance Hot Wallet address**: `bnb17mxq8p5jmw27dtt6s92fd35yltdml6snw3r98t`
 
-**Contracts deployed on Loom Basechain**
+**Contracts deployed on Plasmachain**
 
 - **Transfer Gateway**
 
@@ -172,7 +174,6 @@ const trxCoinContract = new loomWeb3.eth.Contract(TRXToken.abi, trxCoinContractA
 ```
 
 The `TRXToken.abi` file can be found [here](https://github.com/loomnetwork/loom-examples/blob/master/truffle/build/contracts/TRXToken.json).
-
 
 ## Transfer Gateway Tutorials
 

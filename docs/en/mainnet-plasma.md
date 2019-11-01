@@ -19,7 +19,9 @@ If you want more details, see our [guide](deploy-loom-mainnet.html) on deploying
 - **networkId**: *
 - **readUrl**: https://basechain.dappchains.com/query
 - **writeURl**: https://basechain.dappchains.com/rpc
-
+- Max Contract Size: **24,576 bytes**
+- Max Gas Limit per transaction: **4,915,200**
+- 
 ### Truffle configuration file
 
 Use this sample Truffle [configuration file](https://github.com/loomnetwork/truffle-dappchain-example/blob/master/truffle-config.js) to deploy your smart contracts to Loom Basechain.

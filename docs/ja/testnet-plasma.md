@@ -8,7 +8,7 @@ This page provides information on where and how to access the Loom Testnet netwo
 
 ## Loom Testnet
 
-> **Devnets typically are wiped often, only use them for experimental features!**
+> On rare occasions, Extdev may get wiped. Use it only for development and testing.
 
 ### General Information
 
@@ -20,7 +20,9 @@ This page provides information on where and how to access the Loom Testnet netwo
 - **networkId**: 9545242630824
 - **writeUrl**: wss://extdev-basechain-us1.dappchains.com/websocket
 - **readUrl**: wss://extdev-basechain-us1.dappchains.com/queryws
-
+- Max Contract Size: **24,576 bytes**
+- Max Gas Limit per transaction: **4,915,200**
+- 
 ### Truffle configuration file
 
 Use this sample Truffle [configuration file](https://github.com/loomnetwork/truffle-dappchain-example/blob/master/truffle-config.js) to deploy your smart contracts to Loom Testnet.
@@ -64,10 +66,11 @@ If you want to use [Universal Signing](https://medium.com/loom-network/universal
 
 **Contracts deployed on Rinkeby**
 
-- **Transfer Gateway**: 0xb73C9506cb7f4139A4D6Ac81DF1e5b6756Fab7A2 (use this for Eth, ERC721, and ERC20 assets)
-- **Loom Transfer Gateway:** `0x5558ba31CB91b2a45B3DCe9c720A0e0b59785711`
+- **Transfer Gateway**: `0x9c67fD4eAF0497f9820A3FBf782f81D6b6dC4Baa` (use this for Eth, ERC721, and ERC20 assets)
 
-**Contracts deployed on Loom Testnet**
+- **Loom Transfer Gateway:** `0xC6e1421720C7F62455C053BC8326633D68c01C00`
+
+**Contracts deployed on Extdev**
 
 - **Transfer Gateway**
 
@@ -116,9 +119,9 @@ const contractAddr = await client.getContractAddressAsync('ethcoin')
 
 ### Binance Integration
 
-- **Binance hotWallet address**: tbnb1gc7azhlup5a34t8us84x6d0fluw57deuf47q9w
+- **Binance Hot Wallet address**: `tbnb1gc7azhlup5a34t8us84x6d0fluw57deuf47q9w`
 
-**Contracts deployed on Loom Testnet**
+**Contracts deployed on Extdev**
 
 - **Transfer Gateway**
 
@@ -143,7 +146,7 @@ const binanceTransferGatewayContract = await BinanceTransferGateway.createAsync(
 
 - **BNB Coin:**
 
-The BNB Coin contract is deployed at 0x9ab4e22d56c0c4f7d494442714c82a605d2f28e0.
+The BNB Coin contract is deployed at `0x9ab4e22d56c0c4f7d494442714c82a605d2f28e0`.
 
 Instantiate the contract like this:
 
@@ -157,7 +160,6 @@ const extdevBNBContract = new web3Loom.eth.Contract(bnbToken.abi, bnbCoinAddress
 ```
 
 The `bnbToken.abi` file can be found [here](https://github.com/loomnetwork/loom-examples/blob/master/truffle/build/contracts/BNBToken.json).
-
 
 ## Transfer Gateway Tutorials
 

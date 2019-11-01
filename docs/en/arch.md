@@ -18,8 +18,6 @@ Loom Consensus layer support Loom DPoS or a configurable PoS/DPoS contract per C
 
 ![](/developers/img/loom-sdk-arch-overview.jpg)
 
-
-
 ## Smart contracts
 
 It allows smart contracts written in Go, Solidity or any language supporting GRPC.

@@ -188,6 +188,7 @@ module.exports = {
         children: [
           ['/deposit-and-withdraw-bnb', 'Deposit and Withdraw BNB'],
           ['/deposit-and-withdraw-bep2', 'Deposit and Withdraw BEP2'],
+          ['/binance-loom-ethereum', 'Move tokens between Binance, Loom, and Ethereum'],
         ],
       },
       {
@@ -197,8 +198,9 @@ module.exports = {
         children: [
           ['/arch', 'arch'],
           ['/how-to-get-started', 'How to Get Started '],
+          ['/how-to-get-contracts-verified', 'How to Get Contracts Verified'],
+          ['/how-to-prepare-for-the-transfer-gateway-update', 'How to Prepare for the Transfer Gateway Update'],
           ['/top-erc20s', 'Top ERC20s Deployed to Loom'],
-          ['/release-notes', 'Release Notes'],
           ['/common-issues', 'Common Issues'],
         ],
       },
@@ -226,7 +228,19 @@ module.exports = {
         sidebarDepth: 1,
         children: [
           ['/others', 'Other Wallets'],
-          ['/withdrawing-and-claiming-rewards','Validators - Withdrawing and Claiming Rewards']
+          ['/withdrawing-and-claiming-rewards','Validators - Withdrawing and Claiming Rewards'],
+          ['/use-remix-with-loom', 'How to Use Remix with Loom'],
+          ['/relentless','How to Set-up Relentless']
+        ],
+      },
+      {
+        title: 'Release Notes',
+        collapsable: true,
+        sidebarDepth: 1,
+        children: [
+          ['/basechain-release-notes', 'Basechain'],
+          ['/extdev-release-notes', 'Extdev'],
+          ['/release-notes', 'Generic']
         ],
       },
     ],

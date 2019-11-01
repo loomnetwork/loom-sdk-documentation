@@ -1,3 +1,9 @@
+---
+id: deploy-loom-mainnet
+title: Deploy to Loom Mainnet
+sidebar_label: Deploy to Loom Mainnet
+---
+
 ## First Steps with the Developer Dashboard
 
 This page shows you how to deploy your first smart contract to Loom Basechain. Note that you only need to do this once you go live, and it costs 1400 Loom a year to deploy to Basechain.

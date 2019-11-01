@@ -148,7 +148,7 @@ Password to sign with 'testkey':
 Committed at block 31828719 (tx hash: 63DD7C2EEA2BA24EB78159B0BBBA6DFCEF7471EAD09E396F125BFCFCFA206893, response: {Code:0 Data:[50 48 48 48 48 48 48 48 48 48 48 48 48 48 48 48 48 48] Log:Msg 0: Info: GasWanted:0 GasUsed:0 Tags:[{Key:[97 99 116 105 111 110] Value:[109 105 110 116 77 115 103] XXX_NoUnkeyedLiteral:{} XXX_unrecognized:[] XXX_sizecache:0}] Codespace: XXX_NoUnkeyedLiteral:{} XXX_unrecognized:[] XXX_sizecache:0})
 ```
 
-Now, you can check your balance on the Binance website by opening [this link](https://testnet.binance.org/en/balances).
+Now, you can check your balance on the Binance website by opening [the balances page](https://testnet.binance.org/en/balances).
 
 ### 1.d Cloning the `loom-examples` Repository
 
@@ -263,7 +263,7 @@ At this point, you're ready to deploy the smart contract to Loom TestNet. This i
 
 
 ```bash
-npm run migrate:sample-bep2-token
+npm run migrate:dappchain-bep2-token
 ```
 
 ## 1.f Mapping Contracts

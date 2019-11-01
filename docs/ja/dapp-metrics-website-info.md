@@ -420,3 +420,4 @@ curl --location --request POST "https://plasma-alpha.dappchains.com/eth" \
 ### Alice Finance
 
 - Smart Contract #1: 0x1Fe7A4F1F8b8528c4cf55990f78cB38d203ADE73
+- AliceIFO - Initial Free Offering: 0xc7bb19a92c1a050087b0633c6e4cb4bf363053d9
