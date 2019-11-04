@@ -8,6 +8,11 @@ sidebar_label: Extdev
 
 Reverse chronology order of release notes.
 
+## Extdev build 1330 Hard Fork - 2019/11/04
+
+This is a maintenance release that adds a new `AppStore.PruneEvmKeysInterval` setting to the on-chain
+config, this is used to tweak the pruning of ancient data from Extdev and Plasmachain.
+
 ## Extdev build 1328 Hard Fork - 2019/10/27
 
 **Breaking changes:**
