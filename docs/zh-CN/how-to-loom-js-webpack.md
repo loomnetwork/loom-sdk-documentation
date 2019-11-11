@@ -6,7 +6,7 @@ sidebar_label: Set up loom-js with Webpack
 
 ## Purpose
 
-This document shows how to set up `loom-js` with a bundler. For the scope of this tutorial, we'll be using [Webpack](https://webpack.js.org/) but the steps are fairly similar for other bundlers.
+This document shows how to set up `loom-js` with a bundler. For the scope of this tutorial, we'll be using [Webpack](https://webpack.js.org/) but it should work with any other bundler.
 
 Note that this tutorial is based on the [Getting Started with Webpack](https://webpack.js.org/guides/getting-started/) example. However, we tweaked it a bit and added a couple of things to fit our purpose.
 
@@ -37,7 +37,7 @@ If Node.js is not installed, or you're running an older version, you can downloa
 mkdir loom-js-webpack-demo && cd loom-js-webpack-demo 
 ```
 
-2. Initialize the project and install `webpack` and `webpack-cli` as development dependencies: with:
+2. Initialize the project and install `webpack` and `webpack-cli` as development dependencies with:
 
 ```bash
 npm init -y && npm install webpack webpack-cli --save-dev
@@ -112,7 +112,7 @@ Notice the warning. In the next section, we'll properly set up the development e
 Edit the `webpack.config.js` file and make the following changes:
 
 
-1. At the top of the file, add a line that imports `path`:
+1. At the top of the file, add a line that imports the `path` module:
 
 ```js
 const path = require('path');
@@ -134,13 +134,13 @@ module.exports = {
 
 ## The Webpack development server
 
-1. Install the Webpack development server with:
+1. Firt, we must install the Webpack development server with:
 
 ```js
 npm install --save-dev webpack-dev-server
 ```
 
-2. Enable the Webpack development server by adding the following lines to the `module,exports` section in the `webpack.config.js` file:
+2. Now that the required package is installed, let's enable the Webpack development server by adding the following lines to the `module,exports` section of the `webpack.config.js` file:
 
 ```js
 devServer: {
@@ -149,7 +149,7 @@ devServer: {
 
 ```
 
-3. For convenience, we would want to start the web server using `npm run start`. To do so, add the following line to the `scripts` section in the `package.json` file:
+3. For convenience, we would want to start the web server using `npm run start`. To do so, add the following line to the `scripts` section of the `package.json` file:
 
 ```js
 "start": "webpack-dev-server --open"
@@ -172,7 +172,7 @@ This way, we'll get rid of the compilation errors.
 
 [Babel](https://babeljs.io/docs/en/index.html) is a tool that converts ECMAScript 2015+ code into JavaScript code that older browsers can run. With Babel, you can use the latest syntax without having to worry that a particular browser can't run it yet.
 
-1. Let's install Babel by running the following command:
+1. Enter the following command to install Babel as a development dependency:
 
 ```bash
 npm install --save-dev @babel/core @babel/cli @babel/preset-env babel-loader
@@ -349,7 +349,7 @@ function component() {
 document.body.appendChild(component());
 ```
 
-Now, this is a mouthful. Basically, the snippets does the following:
+Now, this is a mouthful. Basically, the snippet does the following:
 
  * instantiates a `Client`
  * creates a web3 instance
@@ -358,7 +358,7 @@ Now, this is a mouthful. Basically, the snippets does the following:
  * calls the `get` method to read the value we just stored
  * compares the retrieved value with the one we saved and prints out a message to the console.
 
-For brevity, we won't get too much into details here.
+Too keep things simple, we won't go deeper into details here about how this code works.
 
 This concludes our tutorial. Even if the example was pretty basic, the knowledge you acquired should be enough to help you build your own DApp with Loom and Webpack
 
