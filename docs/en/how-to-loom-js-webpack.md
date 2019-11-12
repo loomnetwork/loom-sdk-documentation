@@ -251,7 +251,7 @@ npm install loom-js web3 solcjs-core
 ```
 
 
-2. Next, edit your `src/index.js` to this:
+1. Next, replace the content of the `src/index.js` file with the following snippet:
 
 ```js
 import {
@@ -340,7 +340,7 @@ async function connectToLoom() {
 function component() {
   const element = document.createElement('div');
   const btn = document.createElement('button');
-  btn.innerHTML = 'Click me and check the console!';
+  btn.innerHTML = 'Click here. The output will be printed in the console.';
   btn.onclick = connectToLoom;
   element.appendChild(btn);
   return element;
