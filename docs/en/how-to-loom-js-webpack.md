@@ -1,7 +1,7 @@
 ---
 id: loom-js-webpack
-title: Set up loom-js with Webpack
-sidebar_label: Set up loom-js with Webpack
+title: How to Set up loom-js with Webpack
+sidebar_label: How to Set up loom-js with Webpack
 ---
 
 ## Purpose
@@ -140,7 +140,7 @@ module.exports = {
 npm install --save-dev webpack-dev-server
 ```
 
-2. Now that the required package is installed, let's enable the Webpack development server by adding the following lines to the `module,exports` section of the `webpack.config.js` file:
+2. Now that the required package is installed, let's enable the Webpack development server by adding the following lines to the `module.exports` section of the `webpack.config.js` file:
 
 ```js
 devServer: {
@@ -178,7 +178,7 @@ This way, we'll get rid of the compilation errors.
 npm install --save-dev @babel/core @babel/cli @babel/preset-env babel-loader
 ```
 
-2. To use Babel with Webpack, all what's lest to do is to add the following snippet to your `webpack.config.js`:
+2. To use Babel with Webpack, all what's left to do is to add the following snippet to your `webpack.config.js`:
 
 
 ```js

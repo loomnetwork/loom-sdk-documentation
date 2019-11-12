@@ -198,7 +198,7 @@ module.exports = {
         children: [
           ['/arch', 'arch'],
           ['/how-to-get-started', 'How to Get Started '],
-          ['how-to-loom-js-webpack','How to Set up loom-js with Webpack'],
+          ['/how-to-loom-js-webpack', 'How to Set up loom-js with Webpack'],
           ['/how-to-get-contracts-verified', 'How to Get Contracts Verified'],
           ['/how-to-prepare-for-the-transfer-gateway-update', 'How to Prepare for the Transfer Gateway Update'],
           ['/top-erc20s', 'Top ERC20s Deployed to Loom'],
