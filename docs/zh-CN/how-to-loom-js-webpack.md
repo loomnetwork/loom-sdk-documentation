@@ -166,7 +166,7 @@ node: {
 }
 ```
 
-This way, we'll get rid of the compilation errors.
+`fs` and `child_process` are node modules, so we need to ignore them while building for the browser. This way, we'll get rid of the compilation errors.
 
 ## Babel
 
@@ -359,6 +359,14 @@ Now, this is a mouthful. Basically, the snippet does the following:
  * compares the retrieved value with the one we saved and prints out a message to the console.
 
 Too keep things simple, we won't go deeper into details here about how this code works.
+
+## Spin up the web server
+
+At this point you are ready to spin up the web server by entering the following command:
+
+```bash
+npm run start
+```
 
 This concludes our tutorial. Even if the example was pretty basic, the knowledge you acquired should be enough to help you build your own DApp with Loom and Webpack
 
