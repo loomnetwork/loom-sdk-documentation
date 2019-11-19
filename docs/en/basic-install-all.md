@@ -6,7 +6,7 @@ sidebar_label: Setup Local Loom Chain
 
 ## Purpose
 
-The purpose of this document is to walk you through the process of setting up a local Loom Chain. This step is _**not required for deploying to Loom Testnet or Loom Basechain**_, but we've included it because some people might find it useful. Say, for example, you're offline for large amounts of time. Why wouldn't you want to use that time do some dev work? So, for those of you considering working offline, this document will provide the necessary details.
+The purpose of this document is to walk you through the process of setting up a local Loom Chain. This step is _**not required for deploying to Loom Testnet or Basechain**_, but we've included it because some people might find it useful. Say, for example, you're offline for large amounts of time. Why wouldn't you want to use that time do some dev work? So, for those of you considering working offline, this document will provide the necessary details.
 
 # Installing and setting up Loom
 

@@ -10,13 +10,13 @@ This doc is for developers, and it aims to show how they can join the Loom Testn
 
 ## Overview
 
-Deploying to Loom Basechain is no different from deploying to the Ethereum main net, or to Rinkeby. If you know how to do one, you also know how to do the other.
+Deploying to Basechain is no different from deploying to Ethereum mainnet, or to Rinkeby. If you know how to do one, you also know how to do the other.
 
-We at Loom are using Truffle to build, test, and deploy our smart contracts. To make our life easier, we developed something called a provider that lets Truffle deploy to Loom Basechain just like it deploys to Ethereum.
+Loom Network uses Truffle to build, test, and deploy our smart contracts. To make our life easier, we developed something called a provider that lets Truffle deploy to Basechain just like it deploys to Ethereum.
 
-Without delving too much into details, the provider works like a bridge that makes Web3.js calls compatible with Loom Basechain.
+Without delving too much into details, the provider works like a bridge that makes Web3.js calls compatible with Basechain.
 
-This document shows how you can use `Truffle` and the [Loom Truffle Provider](https://github.com/loomnetwork/loom-truffle-provider) to build a simple Web UI that interacts with Loom Basechain.
+This document shows how you can use `Truffle` and the [Loom Truffle Provider](https://github.com/loomnetwork/loom-truffle-provider) to build a simple Web UI that interacts with Basechain.
 
 ## Requirements
 

@@ -15,7 +15,7 @@ See our [Golang Contracts](prereqs-all.html)
 
 ## To get started with universal transaction signing
 
-Loom Basechain has the ability to verify and accept transactions signed by native Ethereum wallets. In a nutshell, users can simply use their MetaMask account or any other native Ethereum wallet — further blending the line between Layer 1 and Layer 2.
+Basechain has the ability to verify and accept transactions signed by native Ethereum wallets. In a nutshell, users can simply use their MetaMask account or any other native Ethereum wallet — further blending the line between Layer 1 and Layer 2.
 
 
 In the next sections, we'll briefly walk you through the setup required to enable universal transaction signing in your app.

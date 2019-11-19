@@ -18,13 +18,13 @@ module.exports = {
       lang: 'en',
       title: 'Loom SDK',
       description:
-        'Loom Developer Documentation. Learn all you need to know about building your own DApps on top of Loom Basechain.',
+        'Loom Developer Documentation. Learn all you need to know about building your own DApps on top of Basechain.',
     },
     '/zh-CN/': {
       lang: 'zh-CN',
       title: 'Loom SDK',
       description:
-        'Loom开发文档：学习关于在Loom Basechain上构建DApp所需的全部知识。',
+        'Loom开发文档：学习关于在Basechain上构建dapp所需的全部知识。',
     },
     '/ko/': {
       lang: 'ko',
@@ -36,7 +36,7 @@ module.exports = {
       lang: 'ja',
       title: 'Loom SDK',
       description:
-        'Loom 開発者ドキュメント。LoomのBasechain上でのDApp開発に必要な全てを学びましょう。',
+        'Loom 開発者ドキュメント。LoomのBasechain上でのdapp開発に必要な全てを学びましょう。',
     },
   },
   themeConfig: {
@@ -74,7 +74,7 @@ module.exports = {
           ['/intro-to-loom', 'Intro to Loom'],
           ['/deploy-loom-testnet', 'Deploy to Loom Testnet'],
           ['/extdev-transfer-gateway', 'extdev-transfer-gateway'],
-          ['/deploy-loom-mainnet', 'Deploy to Loom Basechain'],
+          ['/deploy-loom-mainnet', 'Deploy to Basechain'],
           ['/basic-install-all', 'Setup Local Loom Chain'],
           ['/how-to-develop-locally', 'How to Develop Locally']
         ],
@@ -166,10 +166,10 @@ module.exports = {
         sidebarDepth: 1,
         children: [
           ['/testnet-plasma', 'Loom Testnet'],
-          ['/mainnet-plasma', 'Loom Basechain'],
+          ['/mainnet-plasma', 'Basechain'],
           ['/validator', 'Become Validator'],
           ['/non-validator-node', 'Non Validator Node'],
-          ['/jump-start-plasma', 'Loom Basechain Jump Start'],
+          ['/jump-start-plasma', 'Basechain Jump Start'],
           ['/jump-start-extdev-plasma-us1', 'Loom Testnet Jump Start'],
         ],
       },

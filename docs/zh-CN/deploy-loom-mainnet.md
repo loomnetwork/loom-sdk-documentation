@@ -6,7 +6,7 @@ sidebar_label: Deploy to Loom Mainnet
 
 ## First Steps with the Developer Dashboard
 
-This page shows you how to deploy your first smart contract to Loom Basechain. Note that you only need to do this once you go live, and it costs 1400 Loom a year to deploy to Basechain.
+This page shows you how to deploy your first smart contract to Basechain. Note that you only need to do this once you go live, and it costs 1400 Loom a year to deploy to Basechain.
 
 First, head over to our [Developer Dashboard](https://dashboard.dappchains.com/login). We offer 3 different ways in which you can connect and sign transactions:
 
@@ -31,13 +31,13 @@ Click "Sign" and, under the hood, the dashboard will map your accounts. Next, yo
 ![Map Accounts](/developers/img/deploy-to-loom-dashboard.png)
 
 
-## Deposit Loom to Basechain
+## Deposit LOOM to Basechain
 
 From the left pane, click on the "Deploy to Basechain". You will be redirected to a page similar to the one below:
 
 ![Deposit Loom to Basechain](/developers/img/deploy-to-loom-deposit-loom.png)
 
-Notice that, in order to deploy to Basechain, you need to pay 1400 LOOM. Click on the "Deposit more Loom to Basechain" and follow the instructions.
+Notice that, in order to deploy to Basechain, you need to pay 1400 LOOM. Click on the "Deposit more LOOM to Basechain" and follow the instructions.
 
 ## Adding the Public Keys
 
@@ -63,9 +63,9 @@ Lastly, click "Add Key" and you're set.
 
 Now, as an example, let's suppose you already have a Loom address. If so, all you have to do is to paste it into the "Your Loom Public Address".
 
-Next, click "Add Key" and you're ready to deploy to Loom Basechain.
+Next, click "Add Key" and you're ready to deploy to Basechain.
 
-## Deploying to Loom Basechain
+## Deploying to Basechain
 
 If in the previous step, you chose to use an existing address, save your private key to a file called `mainnet_private_key`. If you chose to generate a new address, paste your mnemonic into a file called `mainnet_mnemonic`.
 
@@ -155,6 +155,6 @@ module.exports = {
 
 Well done!👏🏻👏🏻👏🏻
 
-You are now ready to deploy your first smart contract to Loom Basechain!
+You are now ready to deploy your first smart contract to Basechain!
 
 In order to get a better feel for it, check out our [truffle-dappchain-example](https://github.com/loomnetwork/truffle-dappchain-example).

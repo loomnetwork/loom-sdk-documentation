@@ -1,19 +1,19 @@
 ---
 id: jump-start-basechain
-title: Loom Basechain Jump Start
-sidebar_label: Loom Basechain Jump Start
+title: Basechain Jump Start
+sidebar_label: Basechain Jump Start
 ---
 
-Follow the instructions below to launch a Loom Basechain node from the jump start
+Follow the instructions below to launch a Basechain node from the jump start
 
-## Download stable version of Loom Basechain
+## Download Stable Version of Basechain
 
 ```bash
 wget https://downloads.loomx.io/loom/linux/stable/basechain
 chmod +x basechain
 ```
 
-## Download jump start archive
+## Download Jump Start Archive
 
 There are two available locations where you can download it from, USA or Singapore. Choose the location closest to you. The Singapore location is automatically replicated from the USA location so it might be a while before it becomes available when we update the archive.
 

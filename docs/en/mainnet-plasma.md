@@ -1,17 +1,17 @@
 ---
 id: mainnet-basechain
-title: Loom Basechain
-sidebar_label: Loom Basechain
+title: Basechain
+sidebar_label: Basechain
 ---
 
-This page provides information on where and how to access the Loom Basechain network.
-If you want more details, see our [guide](deploy-loom-mainnet.html) on deploying to Loom Basechain.
+This page provides information on where and how to access the Basechain network.
+If you want more details, see our [guide](deploy-loom-mainnet.html) on deploying to Basechain.
 
-## Loom Basechain
+## Basechain
 
-### General information
+### General Information
 
-- **Name**: Loom Basechain
+- **Name**: Basechain
 - **Type**: Mainnet
 - **Availability**: End User
 - **URL**: plasma.dappchains.com
@@ -22,13 +22,13 @@ If you want more details, see our [guide](deploy-loom-mainnet.html) on deploying
 - Max Contract Size: **24,576 bytes**
 - Max Gas Limit per transaction: **4,915,200**
 - 
-### Truffle configuration file
+### Truffle Configuration File
 
-Use this sample Truffle [configuration file](https://github.com/loomnetwork/truffle-dappchain-example/blob/master/truffle-config.js) to deploy your smart contracts to Loom Basechain.
+Use this sample Truffle [configuration file](https://github.com/loomnetwork/truffle-dappchain-example/blob/master/truffle-config.js) to deploy your smart contracts to Basechain.
 
-### Connect to Loom Basechain
+### Connect to Basechain
 
-You can use this snippet to connect to Loom Basechain:
+You can use this snippet to connect to Basechain:
 
 ```js
 import {
@@ -44,7 +44,7 @@ import Web3 from 'web3'
 
 const client = new Client(networkId, writeUrl, readUrl)
 client.on('error', msg => {
-  console.error('Error on connecting to Loom Basechain', msg)
+  console.error('Error on connecting to Basechain', msg)
   })
 client.txMiddleware = createDefaultTxMiddleware(client, privateKey)
 
@@ -68,7 +68,7 @@ If you want to use [Universal Signing](https://medium.com/loom-network/universal
 - **Transfer Gateway**: 0xe080079ac12521d57573f39543e1725ea3e16dcc (use this for Eth, ERC721, and ERC20 assets)
 - **Loom Transfer Gateway**: 0x8f8E8b3C4De76A31971Fe6a87297D8f703bE8570
 
-**Contracts deployed on Loom Basechain**
+**Contracts deployed on Basechain**
 
 - **Transfer Gateway**
 
@@ -93,7 +93,7 @@ We've already deployed to Loom the top 100 smart contracts. See the full list [h
 
 **EthCoin**
 
-If you transfer Eth to your Loom Basechain account, it'll get deposited into the EthCoin contract:
+If you transfer Eth to your Basechain account, it'll get deposited into the EthCoin contract:
 
 Instantiate the contract like this:
 
@@ -124,7 +124,7 @@ const contractAddr = await client.getContractAddressAsync('ethcoin')
 
 - **Binance hotWallet address**: bnb17mxq8p5jmw27dtt6s92fd35yltdml6snw3r98t
 
-**Contracts deployed on Loom Basechain**
+**Contracts deployed on Basechain**
 
 - **Transfer Gateway**
 
@@ -153,7 +153,7 @@ const binanceTransferGatewayContract = await BinanceTransferGateway.createAsync(
 
 - **Transfer Gateway**: `TYmF4Cbz7encD8HnBHHzWHW2B6Q6Y6qgZB`
 
-**Contract deployed on Loom Basechain**
+**Contract deployed on Basechain**
 
 You can resolve the address of the Tron transfer gateway by name as follows:
 

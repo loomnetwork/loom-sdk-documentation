@@ -6,10 +6,10 @@ sidebar_label: Hardware Security Modules
 
 ## Overview
 
-Hardware security modules ensure that the private keys of the validator are not compromised even if a machine is hacked. We are highly encouraging all validators on the Loom Basechain to have one for starters. In the future, the chain may make it a requirement to have an HSM to participate as a validator.
+Hardware security modules ensure that the private keys of the validator are not compromised even if a machine is hacked. We are highly encouraging all validators on Basechain to have one for starters. In the future, we may we may require the use of an HSM to participate as a validator.
 
 
-## Supported devices
+## Supported Devices
 
 Right now, we will only support devices that can do EDDSA encryption with the ED25519 algorithm. Currently, we support the [Yubico HSM2](https://www.yubico.com/products/yubihsm/), an economically cheap device at around $500. It supports a wide array of encryption algorithms, including those used for bitcoin/ethereum signing. Also, we'll soon support other PKCS11 enabled devices that can do EDDSA encryption.
 
