@@ -92,8 +92,7 @@ The web interface is built with React and Webpack. Open a new terminal and run t
 yarn serve:extdev
 ```
 
-> The web interface is available on http://localhost:8080.
-
+The web interface is available on http://localhost:8080.
 
 ## Useful information
 
@@ -102,3 +101,4 @@ yarn serve:extdev
 2. Also, is possible to call truffle directly with `yarn truffle`.
 
 3. We're not versioning the build directory for this particular example, although is recommended to do so. The limitation can be removed by editing the `.gitignore` file.
+
