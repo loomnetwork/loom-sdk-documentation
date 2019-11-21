@@ -8,6 +8,28 @@ sidebar_label: Extdev
 
 Reverse chronology order of release notes.
 
+## Extdev build 1344 Hard Fork - 2019/11/21
+
+**New features:**
+- Withdrawing LOOM to Binance will now incur a fee (charged in BNB). This feature will be activated
+  by the `tg:v1.4` feature flag.
+- The Binance Gateway contract will now mint & burn coin when necessary. This feature will be
+  activated by the `coin:v1.3` feature flag.
+- Nodes now support a new `dpos_total_staked` RPC method that returns a simple JSON-RPC response
+  containing the total amount staked via the DPOS contract.
+- Nodes will no longer write to `mempool.wal` by default, this can be re-enabled in `loom.yml`:
+  ```yaml
+  MempoolWalEnabled: true
+  ```
+
+**Bug fixes:**
+- Transaction events will now be emitted to subscribers after the block in which the transactions
+  are included has been committed.
+- The Binance Gateway will now adjust the decimal precision for LOOM deposits & withdrawals.
+  This fix will be activated by the `tg:v1.3` feature flag.
+- Remove redundant `TokenWithdrawer` field from withdrawal receipts. This fix will be activated by
+  the `tg:v1.5` feature flag.
+
 ## Extdev build 1330 Hard Fork - 2019/11/04
 
 This is a maintenance release that adds a new `AppStore.PruneEvmKeysInterval` setting to the on-chain
