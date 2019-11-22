@@ -10,7 +10,7 @@ Loom Network is a production-ready, multichain platform interoperable with Ether
 
 Deploy once to Loom Network’s mainnet — Basechain — and reach the largest user base possible, so you can simply focus on your dapp development and business growth.
 
-Enjoy having no gas fees for users, 1–3 second confirmation times, and automatically get connected to every major blockchain using any kind of wallet.
+Enjoy having no gas fees for users, 5 second confirmation times, and automatically get connected to every major blockchain using any kind of wallet.
 
 ## What is Basechain?
 
