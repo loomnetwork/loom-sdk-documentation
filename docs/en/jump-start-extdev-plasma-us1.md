@@ -10,7 +10,7 @@ This page shows you how to launch an extdev-plasma-us1 node from the jump start.
 
 ## Hardware Requirements
 
-The minimum hardware requirements are as follows: 2 CPU, 16 GB RAM, NVMe SSD. Example: `i3.large`.
+The minimum hardware requirements are as follows: 2 CPU, 16 GB RAM, NVMe SSD. Example: `AWS i3.large`.
 
 ## Download the Latest Extdev Stable Build
 

@@ -10,7 +10,7 @@ This page shows you how to launch a Basechain node from the jump start.
 
 ## Hardware Requirements
 
-The minimum hardware requirements are as follows: 4 CPU, 32 GB RAM, NVMe SSD. Example: `i3.xlarge`.
+The minimum hardware requirements are as follows: 4 CPU, 32 GB RAM, NVMe SSD. Example: `AWS i3.xlarge`.
 
 ## Download the Latest Basechain Stable Build
 
