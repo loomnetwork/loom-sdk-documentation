@@ -12,8 +12,8 @@ This guide shows how to get useful information on the DApps running on Loom Main
 
 ## Block Explorers
 
-- [MainNet Block Explorer](http://plasma-blockexplorer.dappchains.com/)
-- [TestNet Block Explorer](http://extdev-blockexplorer.dappchains.com)
+- [MainNet Block Explorer](https://basechain-blockexplorer.dappchains.com/)
+- [TestNet Block Explorer](https://extdev-blockexplorer.dappchains.com)
 
 ## Web3 Endpoints
 

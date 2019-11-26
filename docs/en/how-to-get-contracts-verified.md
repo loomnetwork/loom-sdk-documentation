@@ -206,7 +206,7 @@ truffle migrate -f 5 --to 5 --network extdev
 
 ## Verifying the Smart Contract on the Block Explorer
 
-To verify the smart contract, point your web browser to the [Extdev Block Explorer](http://extdev-blockexplorer.dappchains.com/) and type the address of the newly deployed smart contract in the search box.
+To verify the smart contract, point your web browser to the [Extdev Block Explorer](https://extdev-blockexplorer.dappchains.com/) and type the address of the newly deployed smart contract in the search box.
 
 Next, you should see a page similar to the one below:
 
