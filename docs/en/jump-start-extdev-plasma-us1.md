@@ -1,21 +1,25 @@
 ---
 id: jump-start-extdev-plasma-us1
-title: extdev-plasma-us1 Jump Start
-sidebar_label: extdev-plasma-us1 Jump Start
+title: Extdev Jump Start
+sidebar_label: Extdev Jump Start
 ---
 
 ## Purpose
 
 This page shows you how to launch an extdev-plasma-us1 node from the jump start.
 
-## Download stable version of loom
+## Hardware Requirements
+
+The minimum hardware requirements are as follows: 2 CPU, 16 GB RAM, NVMe SSD. Example: `AWS i3.large`.
+
+## Download the Latest Extdev Stable Build
 
 ```bash
 wget https://downloads.loomx.io/loom/linux/extdev-stable/loom
 chmod +x loom
 ```
 
-## Download jump start archive
+## Download the Jump Start Archive
 
 There are two available locations where you can download it from, USA or Singapore. Choose the location closest to you. The Singapore location is automatically replicated from the USA location so it might be a while before it becomes available when we update the archive.
 
@@ -29,13 +33,13 @@ There are two available locations where you can download it from, USA or Singapo
 * Archive: <http://loom-share-sg.s3-website.ap-southeast-1.amazonaws.com/extdev-plasma-us1-jump-start-min.tar.gz>
 * MD5: <http://loom-share-sg.s3-website.ap-southeast-1.amazonaws.com/extdev-plasma-us1-jump-start-min.tar.gz.md5sum>
 
-## Extract archive
+## Extract the Archive
 
 ```bash
 tar xfvz extdev-plasma-us1-jump-start.tar.gz
 ```
 
-## Generate unique config
+## Generate the Unique Config
 
 ```bash
 mkdir blank
@@ -46,7 +50,7 @@ cp chaindata/config/{priv_validator.json,node_key.json} ../loom-jump-start/chain
 cd ../loom-jump-start
 ```
 
-## Start the node
+## Start the Node
 
 > NOTE: Check the open files limit on your system before starting the node! See [Open Files Limit](#open-files-limit).
 
@@ -61,7 +65,7 @@ Now, let's start the node by running:
 
 The non-validator node will now sync with the validator nodes. Status can be queried at http://localhost:46658/rpc/status
 
-## Make loom run as a service on Ubuntu 16.04 (Optional)
+## Run Loom as a Service on Ubuntu 16.04 (Optional)
 
 Create `/etc/systemd/system/loom.service`
 
@@ -86,41 +90,41 @@ StandardError=syslog
 WantedBy=multi-user.target
 ```
 
-### Reload the config
+### Reload the Config
 
 ```bash
 systemctl daemon-reload
 ```
 
-### To make it run on boot
+### Run Loom on Boot
 
 ```bash
 systemctl enable loom.service
 ```
 
-### To start/stop/restart
+### To start/stop/restart the Service
 
 ```bash
 systemctl (start/stop/restart) loom.service
 ```
 
-### To look at logs (method 1)
+### Inspect the Logs (Method 1)
 
 ```bash
 tail -f /var/log/syslog
 ```
 
-### To look at logs (method 2)
+### Inspect the Logs (Method 2)
 
 ```bash
 sudo journalctl -u loom.service -f
 ```
 
-## Open Files Limit
+## The Open Files Limit
 
 When using systemd, the open files limit is taken care of by the LimitNOFILE directive. It will not, however, be applied when running loom manually.
 
-### For system-wide limit
+### The system-wide Limit
 
 Add the following lines to `/etc/sysctl.conf`
 
@@ -140,9 +144,9 @@ To check whether it is active:
 cat /proc/sys/fs/file-max
 ```
 
-### For specific user
+### For a Specific User
 
-Add lines to `/etc/security/limits.conf`
+Add the following lines to the `/etc/security/limits.conf` file:
 
 ```bash
 username        hard nofile 500000

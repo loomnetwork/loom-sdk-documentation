@@ -169,8 +169,8 @@ module.exports = {
           ['/mainnet-plasma', 'PlasmaChain MainNet'],
           ['/validator', 'Become Validator'],
           ['/non-validator-node', 'Non Validator Node'],
-          ['/jump-start-plasma', 'plasma Jump Start'],
-          ['/jump-start-extdev-plasma-us1', 'extdev-plasma-us1 Jump Start'],
+          ['/jump-start-plasma', 'Basechain Jump Start'],
+          ['/jump-start-extdev-plasma-us1', 'Extdev Jump Start'],
         ],
       },
       {
