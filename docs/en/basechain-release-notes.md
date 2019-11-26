@@ -19,7 +19,7 @@ Reverse chronology order of release notes.
 **New features:**
 - A node will now panic when it’s started using a jump-start that requires a newer build than the
  node is currently running. Once you upgrade the binary, you can simply restart the node without
-  restoring the working directory from the jump-start. This requires a jump-start that’s created
+restoring the working directory from the jump-start. This requires a jump-start that’s created
 after the `chaincfg:v1.4` feature flag is enabled, which means it will only work with future
 jump-starts (the first of which will be available a few days after this release).
 - The `eth_sendRawTransaction` JSON-RPC method on the `/eth` endpoint now works similarly to the way
