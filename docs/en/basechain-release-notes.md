@@ -38,7 +38,7 @@ jump-starts (the first of which will be available a few days after this release)
   activated by the `coin:v1.3` feature flag.
 - Nodes now support a new `dpos_total_staked` RPC method that returns a simple JSON-RPC response
   containing the total amount staked via the DPOS contract.
-- Nodes will no longer write to `mempool.wal` by default, this can be re-enabled in `loom.yml`:
+- Nodes will no longer write to `mempool.wal` by default. This can be re-enabled in `loom.yml`:
   ```yaml
   MempoolWalEnabled: true
   ```
