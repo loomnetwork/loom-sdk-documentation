@@ -30,7 +30,7 @@ jump-starts (the first of which will be available a few days after this release)
   the `/eth` endpoint.
 - The logs returned by `eth_getLogs`, `eth_getTransactionReceipt`, and Web3 subscriptions now contain
   a `BlockTime` field. This is a Loom-specific extension of the Web3 JSON-RPC interface.
-- A new `AppStore.PruneEvmKeysInterval` setting has been added to the on-chain config, this will be
+- A new `AppStore.PruneEvmKeysInterval` setting has been added to the on-chain config. This will be
   used to tweak the pruning of ancient data.
 - Withdrawing LOOM to Binance will now incur a fee (charged in BNB). This feature will be activated
   by the `tg:v1.4` feature flag.
