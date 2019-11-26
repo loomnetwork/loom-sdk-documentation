@@ -28,7 +28,7 @@ jump-starts (the first of which will be available a few days after this release)
   will accept the Ethereum tx. This feature will be enabled via the `tx:eth` feature flag, and should
   unlock the ability to use any Web3 JSON-RPC compatible library to call & deploy EVM contracts via
   the `/eth` endpoint.
-- Logs returned by `eth_getLogs`, `eth_getTransactionReceipt`, and Web3 subscriptions now contain
+- The logs returned by `eth_getLogs`, `eth_getTransactionReceipt`, and Web3 subscriptions now contain
   a `BlockTime` field. This is a Loom-specific extension of the Web3 JSON-RPC interface.
 - A new `AppStore.PruneEvmKeysInterval` setting has been added to the on-chain config, this will be
   used to tweak the pruning of ancient data.
