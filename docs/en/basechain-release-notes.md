@@ -11,7 +11,7 @@ Reverse chronology order of release notes.
 ## Pre-Basechain Build 1346 Hard Fork - 2019/11/26
 
 **Breaking changes:**
-- The `eth_getTransactionCount` and eth_call Web3 JSON-RPC methods on the `/eth` endpoint now expect
+- The `eth_getTransactionCount` and `eth_call` Web3 JSON-RPC methods on the `/eth` endpoint now expect
   the input address to be an Ethereum account, not a Loom account.
 - The `eth_getLogs` method and any other Web3 JSON-RPC methods that query a range of blocks will now only allow
   querying up to 20 blocks per request on public Extdev nodes.
