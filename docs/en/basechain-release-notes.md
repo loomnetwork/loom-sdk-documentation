@@ -25,7 +25,7 @@ Reverse chronology order of release notes.
 - The `eth_sendRawTransaction` JSON-RPC method on the `/eth` endpoint now works similarly to the way
   one would expect it to work on an Ethereum node. Note that an account mapping between the Ethereum
   account that’s used to sign the Ethereum tx and an Extdev account must exist before `eth_sendRawTransaction`
-  will accept the Ethereum tx. This feature will be enabled via the tx:eth feature flag, and should
+  will accept the Ethereum tx. This feature will be enabled via the `tx:eth` feature flag, and should
   unlock the ability to use any Web3 JSON-RPC compatible library to call & deploy EVM contracts via
   the `/eth` endpoint.
 - Logs returned by `eth_getLogs`, `eth_getTransactionReceipt`, and Web3 subscriptions now contain
