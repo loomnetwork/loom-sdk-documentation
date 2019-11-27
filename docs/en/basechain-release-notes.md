@@ -44,7 +44,7 @@ jump-starts (the first of which will be available a few days after this release)
   ```
 
 **Bug fixes:**
-- Fix broadcasting of EVM contract events to subscribers, previously if a contract method emitted
+- Fix broadcasting of EVM contract events to subscribers. Previously, if a contract method emitted
   multiple events subscribers would only receive the first event.
 - Ensure `eth_getBlockByNumber` and `eth_getBlockByHash` return the same tx hashes regardless of
   whether or not the full parameter is true or not.
