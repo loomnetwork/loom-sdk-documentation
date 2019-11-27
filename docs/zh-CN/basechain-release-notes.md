@@ -8,7 +8,13 @@ sidebar_label: Basechain
 
 Reverse chronology order of release notes.
 
-## Pre-Basechain Build 1346 Hard Fork - 2019/11/26
+## Basechain Upgrade Part 1 of 3 - Build 1346 Hard Fork - 2019/11/27
+
+The Basechain upgrade is the largest upgrade ever, it consists of three parts. This build is the
+first part, it contains improved Web3 JSON-RPC compatibility and an upgraded Binance Transfer Gateway.
+The second part will consist of an upgrade to the Transfer Gateway on Ethereum Mainnet, and the third
+and final part will address the recent rewards shortfall due to the annual 60m LOOM cap being reached
+sooner than expected.
 
 **Breaking changes:**
 - The `eth_getTransactionCount` and `eth_call` Web3 JSON-RPC methods on the `/eth` endpoint now expect
