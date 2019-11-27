@@ -13,18 +13,18 @@ Reverse chronology order of release notes.
 **Breaking changes:**
 - The `eth_getTransactionCount` and `eth_call` Web3 JSON-RPC methods on the `/eth` endpoint now expect
   the input address to be an Ethereum account, not a Loom account.
-- The `eth_getLogs` method and any other Web3 JSON-RPC methods that query a range of blocks will now only allow
-  querying up to 20 blocks per request on public Extdev nodes.
+- The `eth_getLogs` method and any other Web3 JSON-RPC methods that query a range of blocks will now
+  only allow querying up to 20 blocks per request on public Basechain nodes.
 
 **New features:**
 - A node will now panic when it’s started using a jump-start that requires a newer build than the
- node is currently running. Once you upgrade the binary, you can simply restart the node without
-restoring the working directory from the jump-start. This requires a jump-start that’s created
-after the `chaincfg:v1.4` feature flag is enabled, which means it will only work with future
-jump-starts (the first of which will be available a few days after this release).
+  node is currently running. Once you upgrade the binary, you can simply restart the node without
+  restoring the working directory from the jump-start. This requires a jump-start that’s created
+  after the `chaincfg:v1.4` feature flag is enabled, which means it will only work with future
+  jump-starts (the first of which will be available a few days after this release).
 - The `eth_sendRawTransaction` JSON-RPC method on the `/eth` endpoint now works similarly to the way
   one would expect it to work on an Ethereum node. Note that an account mapping between the Ethereum
-  account that’s used to sign the Ethereum tx and an Extdev account must exist before `eth_sendRawTransaction`
+  account that’s used to sign the Ethereum tx and an Basechain account must exist before `eth_sendRawTransaction`
   will accept the Ethereum tx. This feature will be enabled via the `tx:eth` feature flag, and should
   unlock the ability to use any Web3 JSON-RPC compatible library to call & deploy EVM contracts via
   the `/eth` endpoint.
@@ -46,8 +46,8 @@ jump-starts (the first of which will be available a few days after this release)
 **Bug fixes:**
 - Fix broadcasting of EVM contract events to subscribers. Previously, if a contract method emitted
   multiple events, subscribers would only receive the first event.
-- Ensure that the`eth_getBlockByNumber` and `eth_getBlockByHash` methods return the same tx hashes regardless of
-  whether or not the full parameter is true or not.
+- Ensure that the`eth_getBlockByNumber` and `eth_getBlockByHash` methods return the same tx hashes
+  regardless of whether or not the full parameter is true or not.
 - Ensure `eth_getLogs` returns tx hashes that are consistent with `eth_getBlockByNumber`.
 - Transaction events will now be emitted to subscribers after the block in which the transactions
   are included has been committed.
