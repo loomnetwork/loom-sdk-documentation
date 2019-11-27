@@ -62,6 +62,17 @@ sooner than expected.
 - Remove redundant `TokenWithdrawer` field from withdrawal receipts. This fix will be activated by
   the `tg:v1.5` feature flag.
 
+**Upgrade instructions:**
+
+1) Download Basechain build 1346
+
+```bash
+wget https://downloads.loomx.io/loom/linux/stable/basechain
+chmod 755 basechain
+```
+
+2) Restart the node on the new build.
+
 ## Pre-Basechain Build 1286 Hard Fork - 2019/10/01
 
 **Bugfixes:**
