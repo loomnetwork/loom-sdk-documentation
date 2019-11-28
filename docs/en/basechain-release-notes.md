@@ -10,11 +10,7 @@ Reverse chronology order of release notes.
 
 ## Basechain Upgrade Part 1 of 3 - Build 1346 Hard Fork - 2019/11/27
 
-The Basechain upgrade is the largest upgrade ever, it consists of three parts. This build is the
-first part, it contains improved Web3 JSON-RPC compatibility and an upgraded Binance Transfer Gateway.
-The second part will consist of an upgrade to the Transfer Gateway on Ethereum Mainnet, and the third
-and final part will address the recent rewards shortfall due to the annual 60m LOOM cap being reached
-sooner than expected.
+The Basechain upgrade is the largest upgrade to the chain yet, and consists of three parts. This build is the first part, and contains improved Web3 JSON-RPC compatibility and an upgraded Binance Transfer Gateway. The second part will consist of an upgrade to the Transfer Gateway on Ethereum mainnet. The third part will address the recent rewards shortfall due to the annual 60M LOOM cap being reached sooner than expected.
 
 **Breaking changes:**
 - The `eth_getTransactionCount` and `eth_call` Web3 JSON-RPC methods on the `/eth` endpoint now expect
@@ -75,7 +71,7 @@ chmod 755 basechain
 
 ## Pre-Basechain Build 1286 Hard Fork - 2019/10/01
 
-**Bugfixes:**
+**Bug fixes:**
 
 * Fix memory leak in the contract event subscription system.
 * Fix events being erroneously emitted by failed calls to Go contracts.
