@@ -41,13 +41,13 @@ Your $ETHADDRESS is now mapped to your $LOOMADDRESS.
 Withdrawing your funds to mainnet can be done with one simple command:
 
 ```bash
-./loom gateway withdraw-rewards -u http://plasma.dappchains.com:80 --chain default --key /path/to/dappchainkey
+./loom gateway withdraw-funds -u http://plasma.dappchains.com:80 --chain default --key /path/to/dappchainkey
 ````
 
 > WARNING: This will withdraw all your unstaked DAppChain funds (the result of `./loom call balance $LOOMADDRESS`) to mainnet if you do not use the flags provided by the CLI. If you want to withdraw ONLY THE UNCLAIMED REWARDS use the following command:
 
 ```bash
-./loom gateway withdraw-rewards -u http://plasma.dappchains.com:80 --chain default --key /path/to/dappchainkey --only-rewards
+./loom gateway withdraw-funds -u http://plasma.dappchains.com:80 --chain default --key /path/to/dappchainkey --only-rewards
 ```
 
 Please wait as the chain is signing your withdrawal receipt:
