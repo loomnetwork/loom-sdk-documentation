@@ -8,7 +8,7 @@ OSX에서 Loom 설치 및 설정하기
 ## 설치하기
 
 ```bash
-wget https://private.delegatecall.com/loom/osx/stable/loom
+curl https://raw.githubusercontent.com/loomnetwork/loom-sdk-documentation/master/scripts/get_loom.sh | bash
 chmod +x loom
 
 ./loom init
@@ -17,7 +17,7 @@ chmod +x loom
 ## 블록체인 실행하기
 
     ./loom run
-    
+
 
 ## Solidity + Truffle 시작하기
 
