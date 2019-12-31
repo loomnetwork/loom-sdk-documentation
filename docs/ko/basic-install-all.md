@@ -14,7 +14,7 @@ sidebar_label: Loom SDK 설치하기
 다음 스크립트는 현재 디렉토리에 loom의 스테이블 버전을 자동으로 다운로드 하는데 사용될 수 있습니다:
 
 ```bash
-curl https://raw.githubusercontent.com/loomnetwork/loom-sdk-documentation/master/scripts/get_loom.sh | sh
+curl https://raw.githubusercontent.com/loomnetwork/loom-sdk-documentation/master/scripts/get_loom.sh | bash
 ```
 
 ## 설치하기

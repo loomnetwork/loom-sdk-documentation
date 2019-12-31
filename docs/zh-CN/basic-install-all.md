@@ -14,7 +14,7 @@ sidebar_label: 安装 Loom SDK
 以下脚本可用于自动将稳定版的loom下载到当前目录：
 
 ```bash
-curl https://raw.githubusercontent.com/loomnetwork/loom-sdk-documentation/master/scripts/get_loom.sh | sh
+curl https://raw.githubusercontent.com/loomnetwork/loom-sdk-documentation/master/scripts/get_loom.sh | bash
 ```
 
 ## 安装
