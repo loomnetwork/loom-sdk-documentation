@@ -19,7 +19,7 @@ sidebar_label: 로컬 Loom 체인 셋업
 다음 스크립트는 현재 디렉토리에 스테이블 버전의 loom을 자동으로 다운로드합니다:
 
 ```bash
-curl https://raw.githubusercontent.com/loomnetwork/loom-sdk-documentation/master/scripts/get_loom.sh | sh
+curl https://raw.githubusercontent.com/loomnetwork/loom-sdk-documentation/master/scripts/get_loom.sh | bash
 ```
 
 ## 초기화
