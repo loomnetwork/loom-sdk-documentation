@@ -11,7 +11,7 @@ Installing and setting up Loom on OSX
 The following script automatically downloads the latest stable version of loom to the current directory:
 
 ```bash
-curl https://raw.githubusercontent.com/loomnetwork/loom-sdk-documentation/master/scripts/get_loom.sh | sh
+curl https://raw.githubusercontent.com/loomnetwork/loom-sdk-documentation/master/scripts/get_loom.sh | bash
 ```
 
 ## Initialize
