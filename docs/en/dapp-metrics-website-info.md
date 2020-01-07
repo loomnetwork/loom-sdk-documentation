@@ -10,9 +10,8 @@ This guide shows how to get useful information on the DApps running on Basechain
 
 ## Block Explorers
 
-- [Basechain Block Explorer](http://plasma-blockexplorer.dappchains.com/)
-- [Loom Testnet Block Explorer](http://extdev-blockexplorer.dappchains.com)
-
+- [Basechain Block Explorer](https://basechain-blockexplorer.dappchains.com/)
+- [Loom Testnet Block Explorer](https://extdev-blockexplorer.dappchains.com)
 
 ## Overview
 
