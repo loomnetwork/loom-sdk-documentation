@@ -8,21 +8,11 @@ id: deploy-loom-mainnet title: Deploy to Loom Mainnet sidebar_label: Deploy to L
 
 This page shows you how to deploy your first smart contract to Loom mainnet. Note that you only need to do this once you go live, and it costs 1400 LOOM a year to deploy to mainnet.
 
-First, head over to our [Developer Dashboard](https://dashboard.dappchains.com/login). We offer 3 different ways in which you can connect and sign transactions:
+First, head over to our [Developer Dashboard](https://dashboard.dappchains.com/login). We offer several different ways in which you can connect and sign transactions:
 
 ![Select Wallet](/developers/img/deploy-to-loom-select-wallet.png)
 
-Depending on your preference click "Ledger", "Metamask" or "Trezor via Metamask".
-
-Next, if you already have a Relentless Marketplace account, you will be asked if you want to link it:
-
-![Link Marketplace Account](/developers/img/deploy-to-loom-link-marketplace-account.png)
-
-If so, click on the "Link my account" button and follow the instructions.
-
-If you want to use a different account, just click on the "Nope, I'm not from Relentless Marketplace" button.
-
-Say you choose to create a new account. Once you've selected this option, you'll see a Metamask popup like this:
+Say you choose to use Matamask. Once you've selected this option, you'll see a Metamask popup like this:
 
 <img src="/developers/img/deploy-to-loom-map-accounts.png" alt="Map Accounts" width="400" />
 
