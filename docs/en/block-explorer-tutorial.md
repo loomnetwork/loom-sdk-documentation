@@ -12,7 +12,7 @@ This Block Explorer helps you to check the block data on your DAppChain.
 
 ## Online explorer
 
-You can find it at [Loom Block Explorer](https://blockexplorer.loomx.io).
+You can find it at [Loom Block Explorer](https://basechain-blockexplorer.dappchains.com).
 
 Input your Loom DAppChain RPC server URL into the bottom left corner of the list.
 Normally, the URL should look something like this-`http://YOUR_DAPP_CHAIN_SERVER_IP:46657`.
@@ -36,7 +36,7 @@ yarn install
 yarn run serve
 ```
 
-The dev server should run at `http://127.0.0.1:8080`.  If the `8080` port is used by other programs, it will pick another one.
+The dev server should run at `http://127.0.0.1:8080`. If the `8080` port is used by other programs, it will pick another one.
 
 By default, it will read block data from `http://127.0.0.1:46658`. So, if you are running the server on another IP, you can change it in the server list as in the online version.
 
@@ -64,44 +64,28 @@ Roughly, you should follow these steps:
 1. Run `yarn install`.
 2. Find your own `.proto` file for your DApp. This file defines your DApp data structure. Put it in the `src/pbs` directory of the `vue-block-explorer`. Then, run the following command `yarn proto`.
 3. You will get 2 new files- `YOUR_PROTO_FILE_NAME_pb.d.ts` and `YOUR_PROTO_FILE_NAME_pb.js`
-3. In `transaction-reader.ts`, import the classes in your `.proto` file:
+4. In `transaction-reader.ts`, import the classes in your `.proto` file:
+
 ```
 import * as DC from '@/pbs/YOUR_PROTO_FILE_NAME_pb'
 ```
-4. Now, you can use your own protobuf decoders to decode the block data.
-You might want to write different decoding function for different data. Let's take *DelegateCall* as an example:
-    ```
-    function readDCProtoData(cmc: ContractMethodCall): DelegateCallTx {
-      const methodName = cmc.toObject().method
-      const dataArr = cmc.toArray()[1]
-      switch (methodName) {
-        case 'CreateAccount':
-          return readCreateAccountTxPayload(dataArr)
-        case 'Vote':
-          return readVoteTxPayload(dataArr)
-        case 'CreateQuestion':
-        case 'CreateAnswer':
-        case 'CreateComment':
-          return readPostCommentTxPayload(dataArr)
-        case 'AcceptAnswer':
-          return readAcceptAnswerTxPayload(dataArr)
-      }
-      throw new UnsupportedTxTypeError()
-    }
-    ```
+
+4.  Now, you can use your own protobuf decoders to decode the block data.
+    You might want to write different decoding function for different data. Let's take _DelegateCall_ as an example:
+    `function readDCProtoData(cmc: ContractMethodCall): DelegateCallTx { const methodName = cmc.toObject().method const dataArr = cmc.toArray()[1] switch (methodName) { case 'CreateAccount': return readCreateAccountTxPayload(dataArr) case 'Vote': return readVoteTxPayload(dataArr) case 'CreateQuestion': case 'CreateAnswer': case 'CreateComment': return readPostCommentTxPayload(dataArr) case 'AcceptAnswer': return readAcceptAnswerTxPayload(dataArr) } throw new UnsupportedTxTypeError() }`
     For each of these decoding functions, use relative protobuf function to decode:
 
-    ```
-    function readVoteTxPayload(r: Uint8Array): IVoteTx {
-      const DCVoteTX = DC.DelegatecallVoteTx.deserializeBinary(r).toObject()
-      const voteTX = DCVoteTX.voteTx!
-      return {
-        txKind: TxKind.Vote,
-        comment_permalink: voteTX.commentPermalink.trim(),
-        voter: voteTX.voter,
-        up: voteTX.up
-      }
-    }
-    ```
+        ```
+        function readVoteTxPayload(r: Uint8Array): IVoteTx {
+          const DCVoteTX = DC.DelegatecallVoteTx.deserializeBinary(r).toObject()
+          const voteTX = DCVoteTX.voteTx!
+          return {
+            txKind: TxKind.Vote,
+            comment_permalink: voteTX.commentPermalink.trim(),
+            voter: voteTX.voter,
+            up: voteTX.up
+          }
+        }
+        ```
 
 The repository provides you with a bunch of useful scripts such as `run`, `build` or `format`. Check out the `README.MD` file to find out more.

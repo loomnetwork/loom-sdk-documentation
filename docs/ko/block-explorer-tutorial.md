@@ -3,6 +3,7 @@ id: block-explorer-tutorial
 title: 블록 탐색기 튜토리얼
 sidebar_label: 블록 탐색기 튜토리얼
 ---
+
 ## 개요:
 
 이번에는 블록 탐색기를 활용해, DAppChain에서 생성되는 블록들을 탐색하는 방법을 알아볼 예정입니다.
@@ -11,26 +12,24 @@ sidebar_label: 블록 탐색기 튜토리얼
 
 ## 온라인 탐색기
 
-로컬 환경에서 DAppChain을 돌린 후에 [온라인 탐색기](https://blockexplorer.loomx.io)에 접속하시면 바로 로컬에서 생성되는 블록들을 확인하실 수 있습니다.
+로컬 환경에서 DAppChain을 돌린 후에 [온라인 탐색기](https://basechain-blockexplorer.dappchains.com)에 접속하시면 바로 로컬에서 생성되는 블록들을 확인하실 수 있습니다.
 
 만약 다른 머신에서 Loom DAppChain을 실행한 경우, 해당 Loom DAppChain RPC 서버 URL을 탐색기 하단에 위치한 접속 네트워크 칸에 복사해서 붙여넣으시면 됩니다. `http://YOUR_DAPP_CHAIN_SERVER_IP:46657` (포트를 변경하지 않았을 경우의 RPC URL 예제)
 
-+ 해당 서버는 외부에서 접속이 가능해야 합니다.
+- 해당 서버는 외부에서 접속이 가능해야 합니다.
 
 ## 로컬 탐색기
 
 로컬에서 탐색기를 직접 실행할 수도 있습니다.
 
-Github에서 블록 탐색기 저장소를 클론하세요. 
+Github에서 블록 탐색기 저장소를 클론하세요.
 
     git clone https://github.com/loomnetwork/vue-block-explorer.git
-    
 
 이후 yarn을 통해서 필요한 모듈들을 설치한 후 dev 서버를 실행합니다:
 
     yarn install
     yarn run serve
-    
 
 Dev 서버는 `http://127.0.0.1:8080`에서 실행되고 있을 것입니다. 8080번 포트를 다른 프로그램이 사용하고 있다면 다른 포트를 사용하고 있을 것입니다.
 
@@ -62,11 +61,10 @@ Dev 서버는 `http://127.0.0.1:8080`에서 실행되고 있을 것입니다. 80
 2. `YOUR_PROTO_FILE_NAME_pb.d.ts`와 `YOUR_PROTO_FILE_NAME_pb.js`라는 이름으로 2개의 새로운 파일이 생성됩니다.
 3. `transaction-reader.ts`에서 `.proto` 파일의 클래스들을 import 합니다.
 
-    import * as DC from '@/pbs/YOUR_PROTO_FILE_NAME_pb'
-    
+   import \* as DC from '@/pbs/YOUR_PROTO_FILE_NAME_pb'
 
-1. 여러분은 블록 데이터를 디코드 하기위한 자신만의 protobuf 디코더를 당장 만들수도 있습니다. 서로다른 데이터에 대한 각각 다른 디코딩 함수를 작성하길 원할 수도 있습니다(*delegatecall*을 예로 들면):
-    
+1)  여러분은 블록 데이터를 디코드 하기위한 자신만의 protobuf 디코더를 당장 만들수도 있습니다. 서로다른 데이터에 대한 각각 다른 디코딩 함수를 작성하길 원할 수도 있습니다(*delegatecall*을 예로 들면):
+
         function readDCProtoData(cmc: ContractMethodCall): DelegateCallTx {
           const methodName = cmc.toObject().method
           const dataArr = cmc.toArray()[1]
@@ -84,10 +82,9 @@ Dev 서버는 `http://127.0.0.1:8080`에서 실행되고 있을 것입니다. 80
           }
           throw new UnsupportedTxTypeError()
         }
-        
-    
+
     이런 각각의 디코딩 함수는 디코딩을 위한 상대적인 protobuf 함수를 사용합니다.
-    
+
         function readVoteTxPayload(r: Uint8Array): IVoteTx {
           const DCVoteTX = DC.DelegatecallVoteTx.deserializeBinary(r).toObject()
           const voteTX = DCVoteTX.voteTx!
@@ -98,6 +95,5 @@ Dev 서버는 `http://127.0.0.1:8080`에서 실행되고 있을 것입니다. 80
             up: voteTX.up
           }
         }
-        
 
 `run`, `build` 혹은 `format` 코드와 같은 더 많은 스크립트는, 블록 탐색기의 `README.MD` 파일에서 볼 수 있습니다.
