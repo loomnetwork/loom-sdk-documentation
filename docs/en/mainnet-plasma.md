@@ -21,7 +21,7 @@ If you want more details, see our [guide](deploy-loom-mainnet.html) on deploying
 - **writeURl**: https://basechain.dappchains.com/rpc
 - Max Contract Size: **24,576 bytes**
 - Max Gas Limit per transaction: **4,915,200**
-- 
+
 ### Truffle Configuration File
 
 Use this sample Truffle [configuration file](https://github.com/loomnetwork/truffle-dappchain-example/blob/master/truffle-config.js) to deploy your smart contracts to Basechain.
@@ -122,7 +122,7 @@ const contractAddr = await client.getContractAddressAsync('ethcoin')
 
 ### Binance Integration
 
-- **Binance hotWallet address**: bnb17mxq8p5jmw27dtt6s92fd35yltdml6snw3r98t
+- **Binance Hot Wallet address**: bnb17mxq8p5jmw27dtt6s92fd35yltdml6snw3r98t
 
 **Contracts deployed on Basechain**
 

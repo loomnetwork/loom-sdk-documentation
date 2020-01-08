@@ -1,12 +1,12 @@
 ---
 id: jump-start-extdev
-title: Loom Testnet Jump Start
-sidebar_label: Loom Testnet Jump Start
+title: Extdev Jump Start
+sidebar_label: Extdev Jump Start
 ---
 
 ## Purpose
 
-This page shows you how to launch an Loom Testnet node from the jump start.
+This page shows you how to launch an Extdev Testnet node from the jump start.
 
 ## Hardware Requirements
 

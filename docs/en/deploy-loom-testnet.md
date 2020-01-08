@@ -1,12 +1,12 @@
 ---
 id: deploy-loom-testnet
-title: Deploy to Loom Testnet
-sidebar_label: Deploy to Loom Testnet
+title: Deploy to Extdev Testnet
+sidebar_label: Deploy to Extdev Testnet
 ---
 
 ## Who Should Read This Document
 
-This doc is for developers, and it aims to show how they can join the Loom Testnet and deploy their smart contracts. If you are looking for information on how to run nodes or to become a validator, please checkout our [Validator Guide](validator.html).
+This doc is for developers, and it aims to show how they can join the Extdev Testnet and deploy their smart contracts. If you are looking for information on how to run nodes or to become a validator, please checkout our [Validator Guide](validator.html).
 
 ## Overview
 
@@ -47,7 +47,7 @@ and run:
 yarn install
 ```
 
-## Run against Loom Testnet
+## Run against Extdev Testnet
 
 ### Generate the Loom private key
 
@@ -60,9 +60,9 @@ yarn gen:extdev-key
 > The Loom private key will be saved into a file called `extdev_private_key`.
 
 
-### Deploy to the Loom Testnet
+### Deploy to Extdev Testnet
 
-As an example, we will deploy and run our application against Loom Testnet.
+As an example, we will deploy and run our application against Extdev Testnet.
 
 Run the following command:
 
@@ -70,12 +70,12 @@ Run the following command:
 yarn deploy:extdev
 ```
 
->The above command will **compile and then deploy** our smart contract to the Loom Testnet.
+>The above command will **compile and then deploy** our smart contract to the Extdev Testnet.
 
 
 ## Testing
 
-Run this command below to send transactions to the smart contract deployed to Loom Testnet:
+Run this command below to send transactions to the smart contract deployed to Extdev Testnet:
 
 
 ```test

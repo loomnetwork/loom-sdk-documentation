@@ -1,18 +1,18 @@
 ---
 id: loom-testnet
-title: Loom Testnet
-sidebar_label: Loom Testnet
+title: Extdev Testnet
+sidebar_label: Extdev Testnet
 ---
 
-This page provides information on where and how to access the Loom Testnet network. If you want more details, see our [guide](deploy-loom-testnet.html) on deploying to Loom Testnet.
+This page provides information on where and how to access the Extdev Testnet network. If you want more details, see our [guide](deploy-loom-testnet.html) on deploying to Extdev Testnet.
 
-## Loom Testnet
+## Extdev Testnet
 
 > On rare occasions, Extdev may get wiped. Use it only for development and testing.
 
 ### General Information
 
-- **Name**: Loom Testnet
+- **Name**: Extdev Testnet
 - **Type**: Testnet
 - **Availability**: Stable developer
 - **URL**: extdev-plasma-us1.dappchains.com
@@ -25,11 +25,11 @@ This page provides information on where and how to access the Loom Testnet netwo
 
 ### Truffle configuration file
 
-Use this sample Truffle [configuration file](https://github.com/loomnetwork/truffle-dappchain-example/blob/master/truffle-config.js) to deploy your smart contracts to Loom Testnet.
+Use this sample Truffle [configuration file](https://github.com/loomnetwork/truffle-dappchain-example/blob/master/truffle-config.js) to deploy your smart contracts to Extdev Testnet.
 
-### Connect to Loom Testnet
+### Connect to Extdev Testnet
 
-You can use this snippet to connect to Loom Testnet:
+You can use this snippet to connect to Extdev Testnet:
 
 ```js
 import {
@@ -45,7 +45,7 @@ import Web3 from 'web3'
 
 const client = new Client(networkId, writeUrl, readUrl)
 client.on('error', msg => {
-  console.error('Error on connecting to Loom Testnet', msg)
+  console.error('Error on connecting to Extdev Testnet', msg)
   })
 client.txMiddleware = createDefaultTxMiddleware(client, privateKey)
 
@@ -69,7 +69,7 @@ If you want to use [Universal Signing](https://medium.com/loom-network/universal
 - **Transfer Gateway**: `0x9c67fD4eAF0497f9820A3FBf782f81D6b6dC4Baa` (use this for Eth, ERC721, and ERC20 assets)
 - **Loom Transfer Gateway:** `0xC6e1421720C7F62455C053BC8326633D68c01C00`
 
-**Contracts deployed on Loom Testnet**
+**Contracts deployed on Extdev Testnet**
 
 - **Transfer Gateway**
 
@@ -89,7 +89,7 @@ const contractAddr = await client.getContractAddressAsync('loomcoin-gateway')
 
 **EthCoin**
 
-If you transfer Eth to your Loom Testnet account, it'll get deposited into the EthCoin contract:
+If you transfer Eth to your Extdev Testnet account, it'll get deposited into the EthCoin contract:
 
 Instantiate the contract like this:
 
@@ -120,7 +120,7 @@ const contractAddr = await client.getContractAddressAsync('ethcoin')
 
 - **Binance Hot Wallet address**: `tbnb1gc7azhlup5a34t8us84x6d0fluw57deuf47q9w`
 
-**Contracts deployed on Loom Testnet**
+**Contracts deployed on Extdev Testnet**
 
 - **Transfer Gateway**
 
