@@ -165,12 +165,12 @@ module.exports = {
         collapsable: true,
         sidebarDepth: 1,
         children: [
-          ['/testnet-plasma', 'Loom Testnet'],
+          ['/testnet-plasma', 'Extdev Testnet'],
           ['/mainnet-plasma', 'Basechain'],
           ['/validator', 'Become Validator'],
           ['/non-validator-node', 'Non Validator Node'],
           ['/jump-start-plasma', 'Basechain Jump Start'],
-          ['/jump-start-extdev-plasma-us1', 'Loom Testnet Jump Start'],
+          ['/jump-start-extdev-plasma-us1', 'Extdev Jump Start'],
         ],
       },
       {
