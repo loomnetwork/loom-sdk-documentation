@@ -48,6 +48,7 @@
   "Logging": "Logging",
   "loom-js-loom-provider-web3": "Loom.js + Web3.js",
   "Loom.js + Web3.js": "Loom.js + Web3.js",
+  "loom-js-openzeppelin-sdk": "Upgradable Smart Contracts with OpenZeppelin SDK",
   "loom-js-quickstart": "NodeJS & Browser Quick Start",
   "NodeJS & Browser Quick Start": "NodeJS & Browser Quick Start",
   "loom-yaml": "Loom Yaml and Configuration options",

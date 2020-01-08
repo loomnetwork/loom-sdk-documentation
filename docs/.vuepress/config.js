@@ -86,6 +86,7 @@ module.exports = {
         children: [
           ['/loom-js-quickstart', 'NodeJS & Browser Quick Start'],
           ['/web3js-loom-provider-truffle', 'Web3, LoomProvider and Truffle'],
+          ['/upgradable-smart-contracts-openzeppelin-sdk', 'Upgradable Smart Contracts with OpenZeppelin SDK']
         ],
       },
       {
