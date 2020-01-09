@@ -1,5 +1,5 @@
 ---
-id: jump-start-extdev
+id: jump-start-extdev-plasma-us1
 title: Extdev Jump Start
 sidebar_label: Extdev Jump Start
 ---

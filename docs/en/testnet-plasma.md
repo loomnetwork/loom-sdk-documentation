@@ -1,10 +1,10 @@
 ---
-id: loom-testnet
+id: testnet-plasma
 title: Extdev Testnet
 sidebar_label: Extdev Testnet
 ---
 
-This page provides information on where and how to access the Extdev Testnet network. If you want more details, see our [guide](deploy-loom-testnet.html) on deploying to Extdev Testnet.
+This page provides information on where and how to access Extdev Testnet. If you want more details, see our [guide](deploy-loom-testnet.html) on deploying to Extdev Testnet.
 
 ## Extdev Testnet
 

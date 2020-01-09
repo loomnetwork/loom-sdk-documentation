@@ -1,5 +1,5 @@
 ---
-id: jump-start-basechain
+id: jump-start-plasma
 title: Basechain Jump Start
 sidebar_label: Basechain Jump Start
 ---

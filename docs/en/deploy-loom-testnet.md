@@ -10,13 +10,13 @@ This doc is for developers, and it aims to show how they can join the Extdev Tes
 
 ## Overview
 
-Deploying to Basechain is no different from deploying to Ethereum mainnet, or to Rinkeby. If you know how to do one, you also know how to do the other.
+Deploying to Extdev is no different from deploying to Ethereum mainnet, or to Rinkeby. If you know how to do one, you also know how to do the other.
 
-Loom Network uses Truffle to build, test, and deploy our smart contracts. To make our life easier, we developed something called a provider that lets Truffle deploy to Basechain just like it deploys to Ethereum.
+Loom Network uses Truffle to build, test, and deploy our smart contracts. To make our life easier, we developed something called a provider that lets Truffle deploy to Extdev just like it deploys to Ethereum.
 
-Without delving too much into details, the provider works like a bridge that makes Web3.js calls compatible with Basechain.
+Without delving too much into details, the provider works like a bridge that makes Web3.js calls compatible with Extdev.
 
-This document shows how you can use `Truffle` and the [Loom Truffle Provider](https://github.com/loomnetwork/loom-truffle-provider) to build a simple Web UI that interacts with Basechain.
+This document shows how you can use `Truffle` and the [Loom Truffle Provider](https://github.com/loomnetwork/loom-truffle-provider) to build a simple Web UI that interacts with Extdev.
 
 ## Requirements
 

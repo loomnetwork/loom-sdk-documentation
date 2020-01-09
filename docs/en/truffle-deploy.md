@@ -41,7 +41,7 @@ and run:
 yarn install
 ```
 
-## Run against Loom Testnet
+## Run against Extdev Testnet
 
 ### Generate the Loom private key
 
@@ -54,9 +54,9 @@ yarn gen:extdev-key
 > The Loom private key will be saved into a file called `extdev_private_key`.
 
 
-### Deploy to Loom Testnet
+### Deploy to Extdev Testnet
 
-As an example, we will deploy and run our application against Loom Testnet (`extdev`).
+As an example, we will deploy and run our application against Extdev.
 
 Run the following command:
 
@@ -87,7 +87,6 @@ yarn serve:extdev
 ```
 
 > The web interface is available on http://localhost:8080.
-
 
 
 ## Run against local Loom chain

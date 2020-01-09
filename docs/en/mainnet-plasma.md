@@ -1,5 +1,5 @@
 ---
-id: mainnet-basechain
+id: mainnet-plasma
 title: Basechain
 sidebar_label: Basechain
 ---
@@ -18,7 +18,7 @@ If you want more details, see our [guide](deploy-loom-mainnet.html) on deploying
 - **chainId**: default
 - **networkId**: *
 - **readUrl**: https://basechain.dappchains.com/query
-- **writeURl**: https://basechain.dappchains.com/rpc
+- **writeUrl**: https://basechain.dappchains.com/rpc
 - Max Contract Size: **24,576 bytes**
 - Max Gas Limit per transaction: **4,915,200**
 
@@ -93,7 +93,7 @@ We've already deployed to Loom the top 100 smart contracts. See the full list [h
 
 **EthCoin**
 
-If you transfer Eth to your Basechain account, it'll get deposited into the EthCoin contract:
+If you transfer ETH to your Basechain account, it'll get deposited into the EthCoin contract:
 
 Instantiate the contract like this:
 

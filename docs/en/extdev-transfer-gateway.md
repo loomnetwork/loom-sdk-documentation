@@ -6,12 +6,12 @@ sidebar_label: Transfer Gateway Testnet
 
 ## Overview
 
-In this doc, we'll walk you through the setup required to transfer tokens between token contracts you've deployed to Extdev Testnet and `Rinkeby`. If you haven't done so already you should first read through the high-level overview of the [Transfer Gateway][].
+In this doc, we'll walk you through the setup required to transfer tokens between token contracts you've deployed to Extdev Testnet and Rinkeby. If you haven't done so already you should first read through the high-level overview of the [Transfer Gateway][].
 
 
-## 1. Deploy token contracts to Extdev Testnet
+## 1. Deploy token contracts to Extdev
 
-If you wish to transfer tokens from a token contract deployed on `Rinkeby` to one that's deployed on Extdev Testnet, you'll need to ensure that the token contract you deploy to Extdev Testnet implements the `mintToGateway` function. We've created some sample contracts and a simple CLI to interact with them.
+If you wish to transfer tokens from a token contract deployed on Rinkeby to one that's deployed on Extdev, you'll need to ensure that the token contract you deploy to Extdev implements the `mintToGateway` function. We've created some sample contracts and a simple CLI to interact with them.
 
 ### MyToken ERC721 contract
 
@@ -68,7 +68,7 @@ contract MyCoin is StandardToken {
 
 Full source for all contracts can be found in the [Truffle DAppChain Example][] repo.
 
-1. Download the `loom` binary, while you won't be spinning up your own DAppChain in this tutorial, you will be using some of the CLI commands built into the `loom` binary to interact with Extdev Testnet.
+1. Download the `loom` binary, while you won't be spinning up your own DAppChain in this tutorial, you will be using some of the CLI commands built into the `loom` binary to interact with Extdev.
 
    ```bash
    curl https://raw.githubusercontent.com/loomnetwork/loom-sdk-documentation/master/scripts/get_loom.sh | sh
@@ -89,7 +89,7 @@ Full source for all contracts can be found in the [Truffle DAppChain Example][] 
    yarn
    ```
 
-4. Generate your own private key for deploying and calling contracts on `extdev`.
+4. Generate your own private key for deploying and calling contracts on Extdev.
 
    ```bash
    $LOOM_BIN genkey -k extdev_private_key -a extdev_public_key
@@ -110,7 +110,7 @@ Full source for all contracts can be found in the [Truffle DAppChain Example][] 
    yarn deploy:extdev
    ```
 
-## 2. Deploy token contracts to `Rinkeby`
+## 2. Deploy token contracts to Rinkeby
 
 There aren't any special requirements for token contracts deployed to Ethereum networks.
 
@@ -161,7 +161,7 @@ contract MyRinkebyCoin is StandardToken {
 
 Full source for all contracts can be found in the [Truffle DAppChain Example][] repo.
 
-Let's deploy these contracts to `Rinkeby`.
+Let's deploy these contracts to Rinkeby.
 
 1. Generate an Ethereum private key:
    ```bash
@@ -169,12 +169,12 @@ Let's deploy these contracts to `Rinkeby`.
    yarn gen:rinkeby-key
    ```
 
-2. Get the address of the new `Rinkeby` account from the `rinkeby_account` file:
+2. Get the address of the new Rinkeby account from the `rinkeby_account` file:
    ```bash
    cat rinkeby_account
    ```
 
-3. Give the `Rinkeby` account some ETH so it can be used to deploy contracts to `Rinkeby`. You can either use https://faucet.rinkeby.io or transfer some ETH from another account.
+3. Give the Rinkeby account some ETH so it can be used to deploy contracts to Rinkeby. You can either use https://faucet.rinkeby.io or transfer some ETH from another account.
 
 4. Set your Infura API key (get it from https://infura.io):
    ```bash
@@ -193,18 +193,18 @@ Let's deploy these contracts to `Rinkeby`.
    ```
    Transfer a bit more ETH to your Rinkeby account.
 
-## 3. Map `extdev` contracts to `Rinkeby` contracts
+## 3. Map Extdev contracts to Rinkeby contracts
 
 Once you've deployed your contracts to both chains you'll need to let the Transfer Gateway know you want it to transfer tokens between the contracts. You can either do so programmatically using the `TransferGateway` class in [loom-js][], or the `loom` CLI. For this tutorial we've built a more streamlined JS CLI with `web3` and [loom-js][], so you don't have to go looking for contract
 addresses, transaction hashes, and sacrificial goats.
 
-Map the `MyToken` contract deployed on `extdev` to the `MyRinkebyToken` contract deployed on `Rinkeby`:
+Map the `MyToken` contract deployed on Extdev to the `MyRinkebyToken` contract deployed on Rinkeby:
 
 ```bash
 node ./gateway-cli.js map-contracts token
 ```
 
-Map the `MyCoin` contract deployed on `extdev` to the `MyRinkebyCoin` contract deployed on `Rinkeby`:
+Map the `MyCoin` contract deployed on Extdev to the `MyRinkebyCoin` contract deployed on Rinkeby:
 
 ```bash
 node ./gateway-cli.js map-contracts coin
@@ -212,24 +212,24 @@ node ./gateway-cli.js map-contracts coin
 
 After you execute these commands the Transfer Gateway will attempt to verify that you are the creator of these contracts. Note that this may take a couple of minutes. In the meantime, you can proceed to the next step.
 
-## 4. Map `extdev` account to `Rinkeby` account
+## 4. Map an Extdev account to a Rinkeby account
 
-Now that the two token contracts are connected via the Transfer Gateway you can start transferring tokens from `extdev` to `Rinkeby`. However, if you want to transfer tokens from `Rinkeby` to `extdev`, you'll need to connect your `extdev` account to your `Rinkeby` account.
+Now that the two token contracts are connected via the Transfer Gateway you can start transferring tokens from Extdev to Rinkeby. However, if you want to transfer tokens from Rinkeby to Extdev, you'll need to connect your Extdev account to your Rinkeby account.
 
 ```bash
 node ./gateway-cli.js map-accounts
 ```
 
-Great, everything should now be ready for flawless token transfer between `extdev` and `Rinkeby`!
+Great, everything should now be ready for flawless token transfer between Extdev and Rinkeby!
 
 
 ## 5. Token transfer
 
-### From `Rinkeby` to `extdev`
+### From Rinkeby to Extdev
 
-Now that all contracts and accounts have been mapped you can transfer tokens and ETH to the `Rinkeby` Gateway contract.
+Now that all contracts and accounts have been mapped you can transfer tokens and ETH to the Rinkeby Gateway contract.
 
-Let's start by minting some of the `MyRinkebyToken` ERC721 tokens, and transferring one of them to Loom:
+Let's start by minting some of the `MyRinkebyToken` ERC721 tokens, and transferring one of them to Extdev:
 
 ```bash
 # mint some tokens on Rinkeby
@@ -266,9 +266,9 @@ node ./gateway-cli.js coin-balance
 node ./gateway-cli.js coin-balance -a gateway -c eth
 ```
 
-### From `extdev` to `Rinkeby`
+### From Extdev to Rinkeby
 
-The ERC721 tokens can be transferred back to `Rinkeby` using the `withdraw-token` command:
+The ERC721 tokens can be transferred back to Rinkeby using the `withdraw-token` command:
 
 ```bash
 # transfer a token to Rinkeby
@@ -284,7 +284,7 @@ node ./gateway-cli.js token-balance
 node ./gateway-cli.js token-balance -a gateway -c eth
 ```
 
-The ERC20 tokens can be transferred back to `Rinkeby` using the `withdraw-coin` command:
+The ERC20 tokens can be transferred back to Rinkeby using the `withdraw-coin` command:
 
 ```bash
 # transfer 60 tokens to Rinkeby

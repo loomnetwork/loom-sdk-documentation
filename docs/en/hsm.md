@@ -6,7 +6,7 @@ sidebar_label: Hardware Security Modules
 
 ## Overview
 
-Hardware security modules ensure that the private keys of the validator are not compromised even if a machine is hacked. We are highly encouraging all validators on Basechain to have one for starters. In the future, we may we may require the use of an HSM to participate as a validator.
+Hardware security modules ensure that the private keys of the validator are not compromised even if a machine is hacked. We are highly encouraging all validators on Basechain to have one for starters. In the future, we may require the use of an HSM to participate as a validator.
 
 
 ## Supported Devices

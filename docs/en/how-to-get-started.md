@@ -20,7 +20,7 @@ Basechain has the ability to verify and accept transactions signed by native Eth
 
 In the next sections, we'll briefly walk you through the setup required to enable universal transaction signing in your app.
 
-### Connecting to Loom
+### Connecting to Extdev Testnet
 
 The first thing we want to do is to instantiate a new `Client`:
 
@@ -48,13 +48,13 @@ Once the client gets instantiated, we must force personal sign by pretending to 
 Next, let's setup a a signer and then get the `callerAddress` (that is your address on Ethereum or Rinkeby):
 
 ```js
-  async _setupSigner (basechainClient, provider) {
+  async _setupSigner (loomClient, provider) {
     const signer = getMetamaskSigner(provider)
     const ethAddress = await signer.getAddress()
     const callerAddress = new Address('eth', LocalAddress.fromHexString(ethAddress))
 
-    basechainClient.txMiddleware = [
-      new NonceTxMiddleware(callerAddress, basechainClient),
+    loomClient.txMiddleware = [
+      new NonceTxMiddleware(callerAddress, loomClient),
       new SignedEthTxMiddleware(signer)
     ]
 
@@ -112,12 +112,12 @@ Here's how the function that check if a mapping exists looks like:
 ```js
   async _loadMapping (ethereumAccount, client) {
     const mapper = await AddressMapper.createAsync(client, ethereumAccount)
-    let accountMapping = { ethereum: null, basechain: null }
+    let accountMapping = { ethereum: null, loom: null }
     try {
       const mapping = await mapper.getMappingAsync(ethereumAccount)
       accountMapping = {
         ethereum: mapping.from,
-        basechain: mapping.to
+        loom: mapping.to
       }
     } catch (error) {
       console.error(error)
@@ -137,7 +137,7 @@ If a mapping doesn't exist we'll add it with:
   async _createNewMapping (signer) {
     const ethereumAccount = await signer.getAddress()
     const ethereumAddress = Address.fromString(`eth:${ethereumAccount}`)
-    const basechainEthSigner = new EthersSigner(signer)
+    const loomEthSigner = new EthersSigner(signer)
     const privateKey = CryptoUtils.generatePrivateKey()
     const publicKey = CryptoUtils.publicKeyFromPrivateKey(privateKey)
     const client = this._createClient()
@@ -149,7 +149,7 @@ If a mapping doesn't exist we'll add it with:
       await mapper.addIdentityMappingAsync(
         ethereumAddress,
         loomAddress,
-        basechainEthSigner
+        loomEthSigner
       )
       client.disconnect()
     } catch (e) {
