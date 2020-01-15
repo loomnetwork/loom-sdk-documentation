@@ -7,7 +7,7 @@ title: Deposit and Withdraw BNB
 
 Loom Network’s Basechain has recently integrated with Binance Chain, which means users can now easily deposit and withdraw BNB and other BEP2 tokens between Binance Chain and Basechain.
 
-This guide walks you through the basics of building a simple web app that lets users deposit and withdraw BNB between Binance Testnet and Loom Testnet.
+This guide walks you through the basics of building a simple web app that lets users deposit and withdraw BNB between Binance Testnet and Extdev Testnet.
 
 ## Getting Started
 

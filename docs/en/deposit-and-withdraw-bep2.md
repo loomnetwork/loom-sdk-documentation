@@ -165,9 +165,9 @@ cd loom-examples
 npm install
 ```
 
-## 1.e Deploying to Loom Testnet
+## 1.e Deploying to Extdev Testnet
 
-To move BEP-2 tokens between Binance TestNet and Loom TestNet we must deploy a corresponding ERC20 smart contract to Loom. For demonstration purposes, we've created a shell of an smart contract - `SampleBEP2Token`. Its source code is listed below:
+To move BEP-2 tokens between Binance TestNet and Extdev TestNet we must deploy a corresponding ERC20 smart contract to Loom. For demonstration purposes, we've created a shell of an smart contract - `SampleBEP2Token`. Its source code is listed below:
 
 
 ```solidity

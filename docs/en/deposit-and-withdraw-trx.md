@@ -5,7 +5,7 @@ title: Deposit and Withdraw TRX
 
 Loom Network’s Basechain is integrated with TRON, which means TRON developers can directly interact with all dapps built on Basechain.
 
-This guide walks you through the basics of building a simple web app that lets users deposit and withdraw TRX between Shasta and Loom Testnet.
+This guide walks you through the basics of building a simple web app that lets users deposit and withdraw TRX between Shasta and Extdev Testnet.
 
 ## Getting Started
 

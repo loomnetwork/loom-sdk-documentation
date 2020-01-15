@@ -72,7 +72,7 @@ module.exports = {
         sidebarDepth: 1,
         children: [
           ['/intro-to-loom', 'Intro to Loom'],
-          ['/deploy-loom-testnet', 'Deploy to Loom Testnet'],
+          ['/deploy-loom-testnet', 'Deploy to Extdev Testnet'],
           ['/extdev-transfer-gateway', 'extdev-transfer-gateway'],
           ['/deploy-loom-mainnet', 'Deploy to Basechain'],
           ['/basic-install-all', 'Setup Local Loom Chain'],

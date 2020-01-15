@@ -131,7 +131,7 @@ Note that your Basechain balance will get updated after 10 block confirmations:
 
 ![10 blocks confirmation](/developers/img/validator-management-10-block-confirmations.png)
 
-Once 10 blocks are confirmed, your balace on Basechain will get updated
+Once 10 blocks are confirmed, your balance on Basechain will get updated
 
 ![Updated balance](/developers/img/validator-management-updated-balance.png)
 

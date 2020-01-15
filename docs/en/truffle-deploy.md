@@ -64,12 +64,12 @@ Run the following command:
 yarn deploy:extdev
 ```
 
->The above command will **compile and then deploy** our smart contract to `extdev`
+>The above command will **compile and then deploy** our smart contract to Extdev
 
 
 ### Test
 
-Run this command below to send transactions to the smart contract deployed to `extdev`:
+Run this command below to send transactions to the smart contract deployed to Extdev:
 
 
 ```test
