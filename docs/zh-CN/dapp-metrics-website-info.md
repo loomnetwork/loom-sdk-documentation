@@ -6,12 +6,12 @@ sidebar_label: DApp Metrics Website Info
 
 ## Purpose
 
-This guide shows how to get useful information on the DApps running on Loom Mainnet. Thus, if you are running a DApp metrics website or just want to get more insight on the DApps running on Loom Mainnet, then carry on with this guide.
+This guide shows how to get useful information on the DApps running on Basechain. Thus, if you are running a DApp metrics website or just want to get more insight on the DApps running on Basechain, then carry on with this guide.
 
 ## Block Explorers
 
-- [MainNet Block Explorer](https://basechain-blockexplorer.dappchains.com/)
-- [TestNet Block Explorer](https://extdev-blockexplorer.dappchains.com)
+- [Basechain Block Explorer](https://basechain-blockexplorer.dappchains.com/)
+- [Extdev Testnet Block Explorer](https://extdev-blockexplorer.dappchains.com)
 
 ## Overview
 
@@ -23,8 +23,8 @@ Compared to `HTTP`, `WebSocket` is a bi-directional, full-duplex protocol which 
 
 You can use the following endpoints to interact with Loom:
 
-- PlasmaChain: http://plasma.dappchains.com/eth
-- GameChain: http://gamechain.dappchains.com/eth
+- Basechain: http://basechain.dappchains.com/eth
+- Loom GameChain: http://gamechain.dappchains.com/eth
 
 ## JSON RPC Interface
 
@@ -81,7 +81,7 @@ curl --location --request POST "https://plasma-alpha.dappchains.com/eth" \
 echo "{ \"jsonrpc\":\"2.0\",
   \"method\":\"eth_getTransactionReceipt\",
    \"params\":[ \"0x34a641c643aab0028a94c4a3d4a4e057c08f742ef86b262d93ca7ab55c8b2d7f\" ],
-   \"id\":1 }" | wscat wss://plasma.dappchains.com/eth
+   \"id\":1 }" | wscat wss://basechain.dappchains.com/eth
 ```
 
 **Result**
@@ -158,7 +158,7 @@ curl --location --request POST "https://plasma-alpha.dappchains.com/eth" \
 echo "{ \"jsonrpc\":\"2.0\",
   \"method\":\"eth_blockNumber\",
   \"params\":[],
-  \"id\":83 }" | wscat wss://plasma.dappchains.com/eth
+  \"id\":83 }" | wscat wss://basechain.dappchains.com/eth
 ```
 
 **Result**
@@ -206,7 +206,7 @@ curl --location --request POST "https://plasma-alpha.dappchains.com/eth" \
 echo '{"jsonrpc":"2.0",
 "method":"eth_call",
 "params":[{see above}],
-"id":1}' | wscat wss://plasma.dappchains.com/eth
+"id":1}' | wscat wss://basechain.dappchains.com/eth
 ```
 
 **Result**
@@ -286,7 +286,7 @@ echo "{
   true
   ],
   \"id\":1
-}" | wscat wss://plasma.dappchains.com/eth
+}" | wscat wss://basechain.dappchains.com/eth
 ```
 
 **Result**
@@ -386,7 +386,7 @@ echo "{
                 true
         ],
         \"id\":1
-}" | wscat wss://plasma.dappchains.com/eth
+}" | wscat wss://basechain.dappchains.com/eth
 ```
 
 **Result**
@@ -479,7 +479,7 @@ echo "{
                 \"0x2\"
         ],
         \"id\":1
-}" | wscat wss://plasma.dappchains.com/eth
+}" | wscat wss://basechain.dappchains.com/eth
 ```
 
 **Result**
@@ -532,7 +532,7 @@ echo '{"id": 0,
     "method": "eth_getBalance",
     "params": ["0xc85972bC975a52b62bC16388FFB590E04d5C6beF",
     "latest"
-    ]}' | wscat wss://plasma.dappchains.com/eth
+    ]}' | wscat wss://basechain.dappchains.com/eth
 ```
 
 **Result**
@@ -580,7 +580,7 @@ curl --location --request POST "https://plasma-alpha.dappchains.com/eth" \
 echo '{"jsonrpc":"2.0",
     "method":"eth_getBlockTransactionCountByNumber",
     "params":["0xe8"],
-    "id":1}' | wscat wss://plasma.dappchains.com/eth
+    "id":1}' | wscat wss://basechain.dappchains.com/eth
 ```
 
 **Result**
@@ -629,7 +629,7 @@ curl --location --request POST "https://plasma-alpha.dappchains.com/eth" \
 echo '{"jsonrpc":"2.0",
     "method":"eth_getBlockTransactionCountByHash",
     "params":["0xa5fbf0b8f384d1ab67708e73c50777f6cb958d916a3c83e052752abbbea8571d"],
-    "id":1}' | wscat wss://plasma.dappchains.com/eth
+    "id":1}' | wscat wss://basechain.dappchains.com/eth
 ```
 
 **Result**
@@ -691,7 +691,7 @@ curl --location --request POST "https://plasma-alpha.dappchains.com/eth" \
 echo '{"jsonrpc":"2.0",
   "method":"eth_getFilterChanges",
   "params":["0x16"],
-  "id":73}'  | wscat wss://plasma.dappchains.com/eth
+  "id":73}'  | wscat wss://basechain.dappchains.com/eth
 ```
 
 **Result**
@@ -750,7 +750,7 @@ curl --location --request POST "https://plasma-alpha.dappchains.com/eth" \
 echo '{"jsonrpc":"2.0",
   "method":"eth_getFilterLogs",
   "params":["0x16"],
-  "id":74}' | wscat wss://plasma.dappchains.com/eth
+  "id":74}' | wscat wss://basechain.dappchains.com/eth
 ```
 
 **Result**
@@ -798,7 +798,7 @@ curl --location --request POST "https://plasma-alpha.dappchains.com/eth" \
 echo '{"jsonrpc":"2.0",
   "method":"eth_getLogs",
   "params":[{"topics":["0x000000000000000000000000a94f5374fce5edbc8e2a8697c15331677e6ebf0b"]}],
-  "id":74}' | wscat wss://plasma.dappchains.com/eth
+  "id":74}' | wscat wss://basechain.dappchains.com/eth
 ```
 
 **Result**
@@ -841,7 +841,7 @@ curl --location --request POST "https://plasma-alpha.dappchains.com/eth" \
 echo '{"jsonrpc":"2.0",
   "method":"eth_getTransactionByBlockNumberAndIndex",
   "params":["0x918b89", "0x0"],
-  "id":1}' | wscat wss://plasma.dappchains.com/eth
+  "id":1}' | wscat wss://basechain.dappchains.com/eth
 ```
 
 **Result**
@@ -899,7 +899,7 @@ curl --location --request POST "https://plasma-alpha.dappchains.com/eth" \
 ```bash
 echo '{"id": 0, "jsonrpc":"2.0",
   "method": "eth_getTransactionCount",
-  "params": ["0x90F8bf6A479f320ead074411a4B0e7944Ea8c9C1"]}' | wscat wss://plasma.dappchains.com/eth
+  "params": ["0x90F8bf6A479f320ead074411a4B0e7944Ea8c9C1"]}' | wscat wss://basechain.dappchains.com/eth
 ```
 
 **Result**
@@ -944,7 +944,7 @@ curl --location --request POST "https://plasma-alpha.dappchains.com/eth" \
 ```bash
 echo '{"id": 0, "jsonrpc":"2.0",
   "method": "eth_newBlockFilter",
-  "params": []}' | wscat wss://plasma.dappchains.com/eth
+  "params": []}' | wscat wss://basechain.dappchains.com/eth
 ```
 
 **Result**
@@ -1006,7 +1006,7 @@ curl --location --request POST "https://plasma-alpha.dappchains.com/eth" \
 echo '{"id": 0,
   "jsonrpc":"2.0",
   "method": "eth_newFilter",
-  "params": [{"topics":["0xb922f092a64f1a076de6f21e4d7c6400b6e55791cc935e7bb8e7e90f7652f15b"]}]}' | wscat wss://plasma.dappchains.com/eth
+  "params": [{"topics":["0xb922f092a64f1a076de6f21e4d7c6400b6e55791cc935e7bb8e7e90f7652f15b"]}]}' | wscat wss://basechain.dappchains.com/eth
 ```
 
 **Result**
@@ -1052,7 +1052,7 @@ curl --location --request POST "https://plasma-alpha.dappchains.com/eth" \
 ```bash
 echo '{"jsonrpc":"2.0",
   "method":"eth_sendRawTransaction",
-  "params": ["0xf901420485174876e8008347e7c48080b8f06060604052341561000f57600..."]}' | wscat wss://plasma.dappchains.com/eth
+  "params": ["0xf901420485174876e8008347e7c48080b8f06060604052341561000f57600..."]}' | wscat wss://basechain.dappchains.com/eth
 
 ```
 
@@ -1102,7 +1102,7 @@ curl --location --request POST "https://plasma-alpha.dappchains.com/eth" \
 ```bash
 echo '{"jsonrpc":"2.0",
   "method":"eth_sendRawTransaction",
-  "params": ["logs", {"address": "0x8320fe7702b96808f7bbc0d4a888ed1468216cfd","topics": ["0xd78a0cb8bb633d06981248b816e7bd33c2a35a6089241d099fa519e361cab902"]}]}' | wscat wss://plasma.dappchains.com/eth
+  "params": ["logs", {"address": "0x8320fe7702b96808f7bbc0d4a888ed1468216cfd","topics": ["0xd78a0cb8bb633d06981248b816e7bd33c2a35a6089241d099fa519e361cab902"]}]}' | wscat wss://basechain.dappchains.com/eth
 ```
 
 **Result**
@@ -1148,7 +1148,7 @@ curl --location --request POST "https://plasma-alpha.dappchains.com/eth" \
 ```bash
 echo '{"id": 1,
   "method": "eth_unsubscribe",
-  "params": ["0x9cef478923ff08bf67fde6c64013158d"]}' | wscat wss://plasma.dappchains.com/eth
+  "params": ["0x9cef478923ff08bf67fde6c64013158d"]}' | wscat wss://basechain.dappchains.com/eth
 ```
 
 **Result**
@@ -1194,7 +1194,7 @@ curl --location --request POST "https://plasma-alpha.dappchains.com/eth" \
 ```bash
 echo '{"jsonrpc":"2.0",
   "method":"eth_sendRawTransaction",
-  "params": ["0xb"]}' | wscat wss://plasma.dappchains.com/eth
+  "params": ["0xb"]}' | wscat wss://basechain.dappchains.com/eth
 ```
 
 **Result**
@@ -1209,7 +1209,7 @@ echo '{"jsonrpc":"2.0",
 
 ## Busy Contracts
 
-### Plasma DPoS Staking
+### Basechain DPoS Staking
 
 - Smart Contract #1: 0xc72783049049c3d887a85df8061f3141e2c931cc
 
