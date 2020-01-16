@@ -5,7 +5,7 @@ title: Deposit and Withdraw BNB
 
 ## Purpose
 
-Loom’s PlasmaChain has recently integrated with Binance Chain, which means users can now easily deposit and withdraw BNB between Binance Chain and Loom.
+Loom Network’s Basechain has recently integrated with Binance Chain, which means users can now easily deposit and withdraw BNB between Binance Chain and Basechain.
 
 This guide walks you through the basics of building a simple web app that lets users deposit and withdraw BNB between Binance Testnet and Loom Testnet.
 
@@ -30,8 +30,8 @@ Next, we instantiate the client and configure the default middleware:
 _createClient () {
     this.privateKey = this._getPrivateKey()
     this.publicKey = CryptoUtils.publicKeyFromPrivateKey(this.privateKey)
-    const writeUrl = 'wss://extdev-plasma-us1.dappchains.com/websocket'
-    const readUrl = 'wss://extdev-plasma-us1.dappchains.com/queryws'
+    const writeUrl = 'wss://extdev-basechain-us1.dappchains.com/websocket'
+    const readUrl = 'wss://extdev-basechain-us1.dappchains.com/queryws'
     const networkId = 'extdev-plasma-us1'
     this.client = new Client(networkId, writeUrl, readUrl)
     this.client.on('error', msg => {

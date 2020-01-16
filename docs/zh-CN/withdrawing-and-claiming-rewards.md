@@ -11,7 +11,7 @@ This section will show you how to map your HSM to your Ledger, and how to withdr
 In the following commands, if you’re using an HSM, replace the `--key /path/to/dappchainkey` (or -k) with the HSM path with `--hsm /path/to/hsm.json`.
 
 
-In Loom you have your Ethereum mainnet address, which gets parsed as `eth:0xdeadbeef` and your Loomchain address, which gets parsed as `chainId:0xabcdef`, where `chainId` is the Chain ID for each chain, `default` for PlasmaChain.
+In Loom you have your Ethereum mainnet address, which gets parsed as `eth:0xdeadbeef` and your Loomchain address, which gets parsed as `chainId:0xabcdef`, where `chainId` is the Chain ID for each chain, `default` for Basechain.
 
 We hereafter shall refer to the ethereum mainnet as $ETHADDRESS, and the loom address as $LOOMADDRESS. $ETHADDRESS corresponds to your Ethereum private key’s address(or the address of your Ledger/Trezor) and $LOOMADDRESS corresponds to your Loom private key’s address (or the address of your YubiHSM).
 
@@ -20,7 +20,7 @@ We hereafter shall refer to the ethereum mainnet as $ETHADDRESS, and the loom ad
 First, your $LOOMADDRESS should be connected to your $ETHADDRESS. This is done via the address mapper. We use the following command:
 
 ```bash
-./loom gateway map-accounts --interactive --eth-address $ETHADDRESS --key /path/to/dappchainkey -u http://plasma.dappchains.com:80
+./loom gateway map-accounts --interactive --eth-address $ETHADDRESS --key /path/to/dappchainkey -u http://basechain.dappchains.com:80
 ```
 
 ![Mapping your ledger to your HSM](/developers/img/mapping-your-ledger-to-your-hsm.png)
@@ -35,7 +35,7 @@ After the message is signed, paste the “sig” field to the CLI.
 
 Your $ETHADDRESS is now mapped to your $LOOMADDRESS. 
 
-> (NOT RECOMMENDED: If you do not want to use Ledger and are confident with giving the raw private key, you can directly run  `./loom gateway map-accounts --eth-key /path/to/ethkey --key /path/to/dappchainkey -u http://plasma.dappchains.com:80`)
+> (NOT RECOMMENDED: If you do not want to use Ledger and are confident with giving the raw private key, you can directly run  `./loom gateway map-accounts --eth-key /path/to/ethkey --key /path/to/dappchainkey -u http://basechain.dappchains.com:80`)
 
 ### Withdrawing to Mainnet
 
@@ -74,19 +74,19 @@ Success! You withdrew your Validator Rewards to mainnet!
 If you do not want to claim, and just want to check how many unclaimed LOOM tokens you have due to staking:
 
 ```bash
-./loom dpos3 check-delegator-rewards $LOOMADDRESS -u http://plasma.dappchains.com:80 --key /path/to/dappchainkey --chain default
+./loom dpos3 check-delegator-rewards $LOOMADDRESS -u http://basechain.dappchains.com:80 --key /path/to/dappchainkey --chain default
 ```
 
 In order to claim your rewards to your wallet can run the following command:
 
 ```bash
-./loom dpos3 claim-delegator-rewards -u http://plasma.dappchains.com:80 --key /path/to/dappchainkey --chain default
+./loom dpos3 claim-delegator-rewards -u http://basechain.dappchains.com:80 --key /path/to/dappchainkey --chain default
 ```
 
 In case you want to claim a part of the rewards and let the rest compound, you can unbond an amount of your rewards delegation :
 
 ```bash
-./loom dpos3 unbond $LOOMADDRESS <amount> 0 -u http://plasma.dappchains.com:80 --key /path/to/dappchainkey --chain default
+./loom dpos3 unbond $LOOMADDRESS <amount> 0 -u http://basechain.dappchains.com:80 --key /path/to/dappchainkey --chain default
 ```
 
 _The rewards delegation will be set to UNBONDING, and the funds will be available in your balance for withdrawal to mainnet after elections._
@@ -94,7 +94,7 @@ _The rewards delegation will be set to UNBONDING, and the funds will be availabl
 You can retrieve all delegations you have made to yourself, by calling:
 
 ```bash
-./loom dpos3 check-delegation $LOOMADDRESS $LOOMADDRESS -u http://plasma.dappchains.com:80 --key /path/to/dappchainkey --chain default
+./loom dpos3 check-delegation $LOOMADDRESS $LOOMADDRESS -u http://basechain.dappchains.com:80 --key /path/to/dappchainkey --chain default
 ```
 
 (yes, $LOOMADDRESS is provided twice, once for the delegator argument and once for the validator argument)
@@ -102,6 +102,6 @@ You can retrieve all delegations you have made to yourself, by calling:
 For sanity, you can run the following command before and after claiming rewards, to check that your balance did indeed increase:
 
 ```bash
-./loom coin balance $LOOMADDRESS -u http://plasma.dappchains.com:80 --key /path/to/dappchainkey --chain default
+./loom coin balance $LOOMADDRESS -u http://basechain.dappchains.com:80 --key /path/to/dappchainkey --chain default
 ```
 

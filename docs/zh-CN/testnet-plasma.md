@@ -1,36 +1,35 @@
 ---
-id: testnet-plasma
-title: PlasmaChain Extdev
-sidebar_label: PlasmaChain Extdev
+id: loom-testnet
+title: Loom Testnet
+sidebar_label: Loom Testnet
 ---
 
-This page provides information on where and how to access the Extdev network.
-If you want more details, see our [guide](deploy-loom-testnet.html) on deploying to Loom testnet.
+This page provides information on where and how to access the Loom Testnet network. If you want more details, see our [guide](deploy-loom-testnet.html) on deploying to Loom Testnet.
 
-## Extdev
+## Loom Testnet
 
 > On rare occasions, Extdev may get wiped. Use it only for development and testing.
 
 ### General Information
 
-- **Name**: Dev Plasma Test
+- **Name**: Loom Testnet
 - **Type**: Testnet
 - **Availability**: Stable developer
 - **URL**: extdev-plasma-us1.dappchains.com
 - **chainId**: extdev-plasma-us1
 - **networkId**: 9545242630824
-- **writeUrl**: wss://extdev-plasma-us1.dappchains.com/websocket
-- **readUrl**: wss://extdev-plasma-us1.dappchains.com/queryws
+- **writeUrl**: wss://extdev-basechain-us1.dappchains.com/websocket
+- **readUrl**: wss://extdev-basechain-us1.dappchains.com/queryws
 - Max Contract Size: **24,576 bytes**
 - Max Gas Limit per transaction: **4,915,200**
 
 ### Truffle configuration file
 
-Use this sample Truffle [configuration file](https://github.com/loomnetwork/truffle-dappchain-example/blob/master/truffle-config.js) to deploy your smart contracts to Extdev.
+Use this sample Truffle [configuration file](https://github.com/loomnetwork/truffle-dappchain-example/blob/master/truffle-config.js) to deploy your smart contracts to Loom Testnet.
 
-### Connect to Extdev
+### Connect to Loom Testnet
 
-You can use this snippet to connect to Extdev:
+You can use this snippet to connect to Loom Testnet:
 
 ```js
 import {
@@ -46,7 +45,7 @@ import Web3 from 'web3'
 
 const client = new Client(networkId, writeUrl, readUrl)
 client.on('error', msg => {
-  console.error('Error on connecting to Extdev', msg)
+  console.error('Error on connecting to Loom Testnet', msg)
   })
 client.txMiddleware = createDefaultTxMiddleware(client, privateKey)
 
@@ -91,7 +90,7 @@ const contractAddr = await client.getContractAddressAsync('loomcoin-gateway')
 
 **EthCoin**
 
-If you transfer Eth to your Extdev account, it'll get deposited into the EthCoin contract:
+If you transfer Eth to your Loom Testnet account, it'll get deposited into the EthCoin contract:
 
 Instantiate the contract like this:
 

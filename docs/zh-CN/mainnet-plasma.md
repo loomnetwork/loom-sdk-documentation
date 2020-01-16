@@ -1,34 +1,34 @@
 ---
-id: mainnet-plasma
-title: Plasmachain
-sidebar_label: Plasmachain
+id: mainnet-basechain
+title: Basechain
+sidebar_label: Basechain
 ---
 
-This page provides information on where and how to access the Plasmachain network.
-If you want more details, see our [guide](deploy-loom-mainnet.html) on deploying to PlasmaChain.
+This page provides information on where and how to access the Basechain network.
+If you want more details, see our [guide](deploy-loom-mainnet.html) on deploying to Basechain.
 
-## Plasmachain
+## Basechain
 
-### General information
+### General Information
 
-- **Name**: Plasmachain
+- **Name**: Basechain
 - **Type**: Mainnet
 - **Availability**: End User
 - **URL**: plasma.dappchains.com
 - **chainId**: default
 - **networkId**: *
-- **readUrl**: https://plasma.dappchains.com/query
-- **writeUrl**: https://plasma.dappchains.com/rpc
+- **readUrl**: https://basechain.dappchains.com/query
+- **writeURl**: https://basechain.dappchains.com/rpc
 - Max Contract Size: **24,576 bytes**
 - Max Gas Limit per transaction: **4,915,200**
 
-### Truffle configuration file
+### Truffle Configuration File
 
-Use this sample Truffle [configuration file](https://github.com/loomnetwork/truffle-dappchain-example/blob/master/truffle-config.js) to deploy your smart contracts to Plasmachain.
+Use this sample Truffle [configuration file](https://github.com/loomnetwork/truffle-dappchain-example/blob/master/truffle-config.js) to deploy your smart contracts to Basechain.
 
-### Connect to Plasmachain
+### Connect to Basechain
 
-You can use this snippet to connect to Plasmachian:
+You can use this snippet to connect to Basechain:
 
 ```js
 import {
@@ -44,7 +44,7 @@ import Web3 from 'web3'
 
 const client = new Client(networkId, writeUrl, readUrl)
 client.on('error', msg => {
-  console.error('Error on connecting to Plasmachain', msg)
+  console.error('Error on connecting to Basechain', msg)
   })
 client.txMiddleware = createDefaultTxMiddleware(client, privateKey)
 
@@ -93,7 +93,7 @@ We've already deployed to Loom the top 100 smart contracts. See the full list [h
 
 **EthCoin**
 
-If you transfer Eth to your Plasmachain account, it'll get deposited into the EthCoin contract:
+If you transfer Eth to your Basechain account, it'll get deposited into the EthCoin contract:
 
 Instantiate the contract like this:
 
@@ -153,7 +153,7 @@ const binanceTransferGatewayContract = await BinanceTransferGateway.createAsync(
 
 - **Transfer Gateway**: `TYmF4Cbz7encD8HnBHHzWHW2B6Q6Y6qgZB`
 
-**Contract deployed on Plasmachain**
+**Contract deployed on Basechain**
 
 You can resolve the address of the Tron transfer gateway by name as follows:
 
@@ -163,7 +163,7 @@ const contractAddr = await client.getContractAddressAsync('tron-gateway')
 
 - **TRX Coin**
 
-If you deposit TRX tokens to the Tron transfer gateway, the assets will get transferred into the `TRXCoin` smart contract deployed on Plasmachain.
+If you deposit TRX tokens to the Tron transfer gateway, the assets will get transferred into the `TRXCoin` smart contract deployed on Basechain.
 
 Use something like the following to instantiate the contract:
 

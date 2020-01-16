@@ -4,6 +4,8 @@ title: Become Validator
 sidebar_label: Become Validator
 ---
 
+This page tells you how to become a validator, or to just run a node for Basechain. Currently this is only available on our Testnets. Please fill out this [form](http://bit.ly/Loom_Validator_Form) to be come a validator
+
 ## Purpose
 
 This page walks you through the steps necessary to become a validator.

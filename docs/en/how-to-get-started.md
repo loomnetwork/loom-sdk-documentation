@@ -15,12 +15,12 @@ See our [Golang Contracts](prereqs-all.html)
 
 ## To get started with universal transaction signing
 
-Loom Mainnet has the ability to verify and accept transactions signed by native Ethereum wallets. In a nutshell, users can simply use their MetaMask account or any other native Ethereum wallet — further blending the line between Layer 1 and Layer 2.
+Basechain has the ability to verify and accept transactions signed by native Ethereum wallets. In a nutshell, users can simply use their MetaMask account or any other native Ethereum wallet — further blending the line between Layer 1 and Layer 2.
 
 
 In the next sections, we'll briefly walk you through the setup required to enable universal transaction signing in your app.
 
-### Connecting to Loom
+### Connecting to Extdev Testnet
 
 The first thing we want to do is to instantiate a new `Client`:
 
@@ -48,13 +48,13 @@ Once the client gets instantiated, we must force personal sign by pretending to 
 Next, let's setup a a signer and then get the `callerAddress` (that is your address on Ethereum or Rinkeby):
 
 ```js
-  async _setupSigner (plasmaClient, provider) {
+  async _setupSigner (loomClient, provider) {
     const signer = getMetamaskSigner(provider)
     const ethAddress = await signer.getAddress()
     const callerAddress = new Address('eth', LocalAddress.fromHexString(ethAddress))
 
-    plasmaClient.txMiddleware = [
-      new NonceTxMiddleware(callerAddress, plasmaClient),
+    loomClient.txMiddleware = [
+      new NonceTxMiddleware(callerAddress, loomClient),
       new SignedEthTxMiddleware(signer)
     ]
 
@@ -112,12 +112,12 @@ Here's how the function that check if a mapping exists looks like:
 ```js
   async _loadMapping (ethereumAccount, client) {
     const mapper = await AddressMapper.createAsync(client, ethereumAccount)
-    let accountMapping = { ethereum: null, plasma: null }
+    let accountMapping = { ethereum: null, loom: null }
     try {
       const mapping = await mapper.getMappingAsync(ethereumAccount)
       accountMapping = {
         ethereum: mapping.from,
-        plasma: mapping.to
+        loom: mapping.to
       }
     } catch (error) {
       console.error(error)
@@ -137,7 +137,7 @@ If a mapping doesn't exist we'll add it with:
   async _createNewMapping (signer) {
     const ethereumAccount = await signer.getAddress()
     const ethereumAddress = Address.fromString(`eth:${ethereumAccount}`)
-    const plasmaEthSigner = new EthersSigner(signer)
+    const loomEthSigner = new EthersSigner(signer)
     const privateKey = CryptoUtils.generatePrivateKey()
     const publicKey = CryptoUtils.publicKeyFromPrivateKey(privateKey)
     const client = this._createClient()
@@ -149,7 +149,7 @@ If a mapping doesn't exist we'll add it with:
       await mapper.addIdentityMappingAsync(
         ethereumAddress,
         loomAddress,
-        plasmaEthSigner
+        loomEthSigner
       )
       client.disconnect()
     } catch (e) {

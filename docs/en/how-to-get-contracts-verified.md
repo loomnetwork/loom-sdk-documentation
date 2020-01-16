@@ -51,7 +51,7 @@ Now that you've cloned the Loom Examples repo, let's install the dependencies:
 npm install
 ```
 
-To deploy to Loom Testnet we'll be needing a private key. You can generate it with:
+To deploy to Extdev Testnet we'll be needing a private key. You can generate it with:
 
 ```bash
 npm run gen:loom-key

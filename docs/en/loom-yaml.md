@@ -56,7 +56,7 @@ General logging for the BFT Layer Blockchain. This may change based on which BFT
 
 Options: "ws://127.0.0.1:8545"
 
-This is the URL of the Ethereum Blockchain to read data for Plasma and Transfer Gateway. In future, we will have support for Infura also.
+This is the URL of the Ethereum Blockchain to read data for Basechain and Transfer Gateway. In future, we will have support for Infura also.
 
 
 ## ChainID

@@ -6,7 +6,7 @@ sidebar_label: Extdev Jump Start
 
 ## Purpose
 
-This page shows you how to launch an extdev-plasma-us1 node from the jump start.
+This page shows you how to launch an Extdev Testnet node from the jump start.
 
 ## Hardware Requirements
 

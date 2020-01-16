@@ -8,6 +8,7 @@ sidebar_label: 安装 (OSX)
 ## 安装
 
 ```bash
+
 curl https://raw.githubusercontent.com/loomnetwork/loom-sdk-documentation/master/scripts/get_loom.sh | bash
 chmod +x loom
 

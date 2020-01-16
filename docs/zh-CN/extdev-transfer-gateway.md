@@ -66,7 +66,7 @@ contract MyCoin is StandardToken {
 
 所有合约的完整源码可以在 [Truffle DApp链示例](https://github.com/loomnetwork/truffle-dappchain-example) 代码库中找到。
 
-1. 下载 `loom` 二进制文件，在本教程中你将不会使用自己的DApp链，而是使用内置于 `loom` 二进制文件中的一些CLI命令来与 `extdev` PlasmaChain进行交互。
+1. 下载 `loom` 二进制文件，在本教程中你将不会使用自己的DApp链，而是使用内置于 `loom` 二进制文件中的一些CLI命令来与 `extdev` Basechain进行交互。
     
     ```bash
     curl https://raw.githubusercontent.com/loomnetwork/loom-sdk-documentation/master/scripts/get_loom.sh | sh
@@ -87,7 +87,7 @@ contract MyCoin is StandardToken {
     yarn
     ```
 
-4. 生成你自己的私钥，用于在 `extdev` PlasmaChain上部署和调用合同。
+4. 生成你自己的私钥，用于在 `extdev` Basechain上部署和调用合同。
     
     ```bash
     $LOOM_BIN genkey -k extdev_private_key -a extdev_public_key
@@ -101,7 +101,7 @@ contract MyCoin is StandardToken {
     
     这是你的新私钥对应的公共地址。 你将在 `extdev_private_key` 文件里找到私钥，在 `extdev_public_key` 文件里找到对应的公钥。
 
-5. Deploy the `MyToken` and `MyCoin` contracts to the `extdev` PlasmaChain.
+5. Deploy the `MyToken` and `MyCoin` contracts to the `extdev` Basechain.
     
     ```bash
     yarn deploy:extdev
@@ -228,7 +228,7 @@ node ./gateway-cli.js map-accounts
 
 现在所有的合约和账户都已经映射，你可以将代币和ETH转移到 `Rinkeby` 网关合约了。
 
-我们先来铸造一些 `MyRinkebyToken` ERC721 代币，并将其中一个转移到 `PlasmaChain`。
+我们先来铸造一些 `MyRinkebyToken` ERC721 代币，并将其中一个转移到 `Basechain`。
 
 ```bash
 # mint some tokens on Rinkeby
@@ -236,7 +236,7 @@ node ./gateway-cli.js mint-token 1
 node ./gateway-cli.js mint-token 2
 node ./gateway-cli.js mint-token 3
 
-# transfer a token to extdev PlasmaChain
+# transfer a token to extdev
 node ./gateway-cli.js deposit-token 1
 
 # check how many tokens you have on Rinkeby
@@ -252,7 +252,7 @@ node ./gateway-cli.js token-balance -a gateway -c eth
 现在，我们转移一些 `MyRinkebyCoin` ERC20 代币，十亿这样的代币已经被铸造到你的账户，你可以马上转移它们了。
 
 ```bash
-# transfer 120 tokens to extdev PlasmaChain
+# transfer 120 tokens to extdev
 node ./gateway-cli.js deposit-coin 120
 
 # check how many tokens you have on Rinkeby

@@ -12,7 +12,7 @@ WindowsでのLoomのインストールとセットアップ
 ## インストール
 
 ```bash
-wget https://private.delegatecall.com/loom/linux/stable/loom
+wget https://downloads.loomx.io/loom/linux/stable/loom
 chmod +x loom
 
 ./loom init
