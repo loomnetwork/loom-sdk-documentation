@@ -71,7 +71,7 @@ Let's head over to our [validator management](https://dashboard.dappchains.com/v
 
 ![Select wallet](/developers/img/validator-management-select-wallet.png)
 
-> Please note that, for the scope of this tutorial, we're using our Testnet. However, the process is similar on Loom Mainnet.
+> Please note that, for the scope of this tutorial, we're using our Testnet. However, the process is similar on Basechain.
 
 Depending on your preference, click "Metamask", "Ledger (Legacy)", "Ledger (via Metamask)"or "Trezor via Metamask".
 
@@ -79,7 +79,7 @@ We selected MetaMask, but the process is similar if you choose a different walle
 
 ![Select wallet](/developers/img/validator-management-connect-request.png)
 
-### Adding a Mapping to an Existing Loom Mainnet Account
+### Adding a Mapping to an Existing Basechain Account
 
 Next, you'll have two options to choose from:
 
@@ -88,7 +88,7 @@ Next, you'll have two options to choose from:
     
     ![Map to an existing account](/developers/img/validator-management-map-to-an-existing-account.png)
 
-Go ahead and select "Map to an existing loom account (for validators)". At this point, the dashboard will ask you to input your Loom Mainnet private key:
+Go ahead and select "Map to an existing loom account (for validators)". At this point, the dashboard will ask you to input your Basechain private key:
 
 ![Input your private key](/developers/img/validator-management-input-your-private-key.png)
 
@@ -104,7 +104,7 @@ Once the mapping is created and verified you will be redirected to your account 
 
 ### Depositing Loom
 
-In the previous section, you learned how to map your accounts. Next, we will show you how to deposit tokens to Loom Mainnet.
+In the previous section you learned how to map your accounts. Next, we will show you how to deposit tokens to Basechain.
 
 From the left pane, click on the "Deposit and Withdraw" and then select "Deposit" from the "LOOM" tab:
 
@@ -126,11 +126,11 @@ Then, Metamask will ask you once again to confirm the transaction:
 
 ![Final confirmation](/developers/img/validator-management-final-confirmation.png)
 
-Note that your Loom Mainnet balance will get updated after 10 block confirmations:
+Note that your Basechain balance will get updated after 10 block confirmations:
 
 ![10 blocks confirmation](/developers/img/validator-management-10-block-confirmations.png)
 
-Once 10 blocks are confirmed, your balance on Loom Mainnet will get updated
+Once 10 blocks are confirmed, your balance on Basechain will get updated
 
 ![Updated balance](/developers/img/validator-management-updated-balance.png)
 
