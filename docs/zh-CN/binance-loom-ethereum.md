@@ -102,7 +102,7 @@ Lastly, let's move tokens from Extdev to Binance:
 At its core, this demo is built around a couple of simple components:
 
  - a BEP2 token. See the [settings things up](deposit-and-withdraw-bep2.html#_1-setting-things-up) page from our previous tutorial for more details.
- - a corresponding ERC20 token deployed to Loom Testnet. We've walked you through the source code in [this section](deposit-and-withdraw-bep2.html#_1-e-deploying-to-loom-testnet).
+ - a corresponding ERC20 token deployed to Extdev Testnet. We've walked you through the source code in [this section](deposit-and-withdraw-bep2.html#_1-e-deploying-to-loom-testnet).
  - an ERC20 token called `SampleERC20MintableToken` which we just deployed to the Rinkeby network. This smart contract is nothing special. It just starts by inheriting from `ERC20/ERC20Mintable.sol` and `./IERC20GatewayMintable.sol`:
 
 ```js
