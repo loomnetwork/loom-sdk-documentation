@@ -1,22 +1,22 @@
 ---
 id: deploy-loom-testnet
-title: Deploy to Loom Testnet
-sidebar_label: Deploy to Loom Testnet
+title: Deploy to Extdev Testnet
+sidebar_label: Deploy to Extdev Testnet
 ---
 
 ## Who Should Read This Document
 
-This doc is for developers, and it aims to show how they can join the Loom Testnet and deploy their smart contracts. If you are looking for information on how to run nodes or to become a validator, please checkout our [Validator Guide](validator.html).
+This doc is for developers, and it aims to show how they can join the Extdev Testnet and deploy their smart contracts. If you are looking for information on how to run nodes or to become a validator, please checkout our [Validator Guide](validator.html).
 
 ## Overview
 
-Deploying to Loom PlasmaChain is no different from deploying to the Ethereum main net, or to Rinkeby. If you know how to do one, you also know how to do the other.
+Deploying to Extdev is no different from deploying to Ethereum mainnet, or to Rinkeby. If you know how to do one, you also know how to do the other.
 
-We at Loom are using Truffle to build, test, and deploy our smart contracts. To make our life easier, we developed something called a provider that lets Truffle deploy to Loom PlasmaChain just like it deploys to Ethereum.
+Loom Network uses Truffle to build, test, and deploy our smart contracts. To make our life easier, we developed something called a provider that lets Truffle deploy to Extdev just like it deploys to Ethereum.
 
-Without delving too much into details, the provider works like a bridge that makes Web3.js calls compatible with Loom PlasmaChain.
+Without delving too much into details, the provider works like a bridge that makes Web3.js calls compatible with Extdev.
 
-This document shows how you can use `Truffle` and the [Loom Truffle Provider](https://github.com/loomnetwork/loom-truffle-provider) to build a simple Web UI that interacts with Loom PlasmaChain.
+This document shows how you can use `Truffle` and the [Loom Truffle Provider](https://github.com/loomnetwork/loom-truffle-provider) to build a simple Web UI that interacts with Extdev.
 
 ## Requirements
 
@@ -47,7 +47,7 @@ and run:
 yarn install
 ```
 
-## Run against Loom Testnet
+## Run against Extdev Testnet
 
 ### Generate the Loom private key
 
@@ -59,9 +59,9 @@ yarn gen:extdev-key
 
 > The Loom private key will be saved into a file called `extdev_private_key`.
 
-### Deploy to extdev_plasma_us1
+### Deploy to Extdev Testnet
 
-As an example, we will deploy and run our application against `extdev_plasma_us1`.
+As an example, we will deploy and run our application against Extdev Testnet.
 
 Run the following command:
 
@@ -69,11 +69,11 @@ Run the following command:
 yarn deploy:extdev
 ```
 
-> The above command will **compile and then deploy** our smart contract to `extdev_plasma_us1`
+> The above command will **compile and then deploy** our smart contract to the Extdev Testnet.
 
 ## Testing
 
-Run this command below to send transactions to the smart contract deployed to `extdev_plasma_us1`:
+Run this command below to send transactions to the smart contract deployed to Extdev Testnet:
 
 ```test
 yarn test:extdev
@@ -89,4 +89,12 @@ The web interface is built with React and Webpack. Open a new terminal and run t
 yarn serve:extdev
 ```
 
-> The web interface is available on http://localhost:8080.
+The web interface is available on http://localhost:8080.
+
+## Useful information
+
+1. In order to correctly redeploy the contracts, there's a command `yarn deploy:reset`.
+
+2. Also, is possible to call truffle directly with `yarn truffle`.
+
+3. We're not versioning the build directory for this particular example, although is recommended to do so. The limitation can be removed by editing the `.gitignore` file.
