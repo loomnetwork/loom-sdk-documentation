@@ -42,15 +42,15 @@ SDK는 다음 부분들과 함께 이더리움 백엔드에 통합됩니다:
 * DappChain으로 자산 전송
 * 이더리움으로 자산 전송
 * DappChain상의 자산 미러링(페깅)
-* ERC-20 토큰
-* ERC-721 토큰
+* ERC20 Tokens
+* ERC721 Tokens
 * 이더(Ether)
 
-### 플라즈마 캐시 컨트랙트는 다음을 지원합니다:
+### Basechain Contract supports
 
-* ERC-721 토큰
-* ERC-20 토큰(7월)
-* 이더 (Ether, 7월)
+* ERC721 Tokens
+* ERC20 Tokens
+* Ether
 
 ## 블록체인 서비스
 
@@ -63,7 +63,6 @@ SDK에는 다수의 고수준 블록체인 서비스들이 포함되어 있습�
 * 솔리디티 + 이더리움 가상머신
 * Unity와 같은 게임 엔진 지원
 * 전송 게이트웨이 통합
-* 플라즈마 통합
-* Cron (예정)
-* 비율 제한 (초기 단계)
-* 하드 포크 매니저 (7월 예정)
+* Cron (coming soon)
+* Rate limiting (early phases)
+* Hard fork Manager (coming July)
