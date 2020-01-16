@@ -217,12 +217,6 @@ module.exports = {
         ],
       },
       {
-        title: 'Block Explorer',
-        collapsable: true,
-        sidebarDepth: 1,
-        children: [['/block-explorer-tutorial', 'Block Explorer Tutorial']],
-      },
-      {
         title: 'Others',
         collapsable: true,
         sidebarDepth: 1,
