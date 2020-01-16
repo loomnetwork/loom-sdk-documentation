@@ -7,7 +7,7 @@ sidebar_label: Truffle Deploy
 
 # Truffle DappChain Example
 
-This simple example shows how you can use `Truffle` and the [Loom Truffle Provider](https://github.com/loomnetwork/loom-truffle-provider) to build a simple Web UI that interacts with the Loom PlasmaChain.
+This simple example shows how you can use `Truffle` and the [Loom Truffle Provider](https://github.com/loomnetwork/loom-truffle-provider) to build a simple Web UI that interacts with the Basechain.
 
 ![](https://dzwonsemrish7.cloudfront.net/items/0a1N05043p1Y1G3K1Y2L/Screen%20Recording%202018-07-17%20at%2011.26%20AM.gif?v=df873ac3)
 
@@ -40,7 +40,7 @@ and run:
 yarn install
 ```
 
-## Run against Loom Testnet
+## Run against Extdev Testnet
 
 ### Generate the Loom private key
 
@@ -52,9 +52,9 @@ yarn gen:extdev-key
 
 > The Loom private key will be saved into a file called `extdev_private_key`.
 
-### Deploy to extdev_plasma_us1
+### Deploy to Extdev Testnet
 
-As an example, we will deploy and run our application against `extdev_plasma_us1`.
+As an example, we will deploy and run our application against Extdev.
 
 Run the following command:
 
@@ -62,11 +62,11 @@ Run the following command:
 yarn deploy:extdev
 ```
 
-> The above command will **compile and then deploy** our smart contract to `extdev_plasma_us1`
+> The above command will **compile and then deploy** our smart contract to Extdev
 
 ### Test
 
-Run this command below to send transactions to the smart contract deployed to `extdev_plasma_us1`:
+Run this command below to send transactions to the smart contract deployed to Extdev:
 
 ```test
 yarn test:extdev
