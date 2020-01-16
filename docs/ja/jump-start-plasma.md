@@ -4,9 +4,7 @@ title: Basechain Jump Start
 sidebar_label: Basechain Jump Start
 ---
 
-## Purpose
-
-This page shows you how to launch a Basechain node from the jump start.
+Follow the instructions below to launch a Basechain node from the jump start
 
 ## Hardware Requirements
 
