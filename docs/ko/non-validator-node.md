@@ -16,4 +16,4 @@ However, none of this is necessary to run a non-validator node. Simply put, non-
 
 ## How to Run a Non-Validator Node
 
-Follow the instructions at [extdev-plasma-us1 jump start](jump-start-extdev-plasma-us1.html) to spin up your own non-validator node.
+Follow the instructions at [Extdev jump start](jump-start-extdev-plasma-us1.html) to spin up your own non-validator node.
