@@ -43,7 +43,7 @@ If Git is not installed, you can refer to the [Getting Started - Installing Git]
 
 ## 1. Setting Things Up
 
-To showcase how `payable` functions, we've written a simple Solidity contract called `PayableDemo`, and added a user interface on top of it.
+To showcase how `payable` functions work, we've written a simple Solidity contract called `PayableDemo`, and added a user interface on top of it.
 
 In this section, we'll walk you the steps required to clone the `loom-examples` repo and deploy the `PayableDemo` contract.
 
