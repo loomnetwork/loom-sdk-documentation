@@ -382,7 +382,7 @@ When the user sends ETH to the `PayableDemo` contracts, it gets stored in the co
     console.log('Something went wrong.')
   }
   const ownerBalanceInWei = await ethCoin.getBalanceOfAsync(Address.fromString(`${client.chainId}:${account}`))
-  console.log('Owner\'s balance: ' + web3js.utils.fromWei(ownerBalanceInWei.toString(), 'ether'))
+  console.log(`Owner's balance: ${web3js.utils.fromWei(ownerBalanceInWei.toString(), 'ether')}`)
   client.disconnect()
 })()
 ```
