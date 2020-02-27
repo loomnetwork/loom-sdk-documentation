@@ -43,7 +43,7 @@ If Git is not installed, you can refer to the [Getting Started - Installing Git]
 
 ## 1. Setting Things Up
 
-To showcase how `payable` functions, we've written a simple Solidity contract called `PayableDemo`, and added a user interface on top of it.
+To showcase how `payable` functions work, we've written a simple Solidity contract called `PayableDemo`, and added a user interface on top of it.
 
 In this section, we'll walk you the steps required to clone the `loom-examples` repo and deploy the `PayableDemo` contract.
 
@@ -218,7 +218,7 @@ Let's take a look at the `buySomething` function:
 
 ```JavaScript
 function buySomething() external payable {
-  require(msg.value == 0.001 ether, "You must send at least 0.001 ETH");
+  require(msg.value >= 0.001 ether, "You must send at least 0.001 ETH");
   // Implement your logic here
   emit BuySomething(msg.sender);
 }
@@ -236,17 +236,12 @@ The purpose of the `withdrawFunds` function is to let the owner withdraw funds f
 function withdrawFunds() public onlyOwner {
   uint balance = address(this).balance;
   require(balance > 0, "Balance should be > 0.");
-  address payable ownerPayable = address(uint160(owner()));
-  ownerPayable.transfer(balance);
+  msg.sender.transfer(balance);
   emit WithdrawFunds(msg.sender, balance);
 }
 ```
 
-Things to note:
-
-* The `onlyOwner` modifier makes it so that only the owner can call this function.
-* The `owner()` function returns a value of type `address`. You must explicitly cast it to `address payable`.
-
+In the above listing, note that the `onlyOwner` modifier makes it so that only the owner can call this function.
 
 ### 5.2 The Front-End
 
@@ -379,10 +374,10 @@ When the user sends ETH to the `PayableDemo` contracts, it gets stored in the co
   try {
     await payableDemoContract.methods.withdrawFunds().send({ from: account })
   } catch (error) {
-    console.log('Something went wrong.')
+    console.log(`Something went wrong: ${error.message}`)
   }
   const ownerBalanceInWei = await ethCoin.getBalanceOfAsync(Address.fromString(`${client.chainId}:${account}`))
-  console.log('Owner\'s balance: ' + web3js.utils.fromWei(ownerBalanceInWei.toString(), 'ether'))
+  console.log(`Owner's balance: ${web3js.utils.fromWei(ownerBalanceInWei.toString(), 'ether')}`)
   client.disconnect()
 })()
 ```
