@@ -21,8 +21,8 @@ This page provides information on where and how to access the Loom Testnet netwo
 - **writeUrl**: wss://extdev-basechain-us1.dappchains.com/websocket
 - **readUrl**: wss://extdev-basechain-us1.dappchains.com/queryws
 - Max Contract Size: **24,576 bytes**
-- Max Gas Limit per transaction: **4,915,200**
-- 
+- Max Gas Limit per transaction: **8,000,000**
+
 ### Truffle configuration file
 
 Use this sample Truffle [configuration file](https://github.com/loomnetwork/truffle-dappchain-example/blob/master/truffle-config.js) to deploy your smart contracts to Loom Testnet.
