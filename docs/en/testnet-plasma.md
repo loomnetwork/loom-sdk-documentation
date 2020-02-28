@@ -21,7 +21,7 @@ This page provides information on where and how to access Extdev Testnet. If you
 - **writeUrl**: wss://extdev-basechain-us1.dappchains.com/websocket
 - **readUrl**: wss://extdev-basechain-us1.dappchains.com/queryws
 - Max Contract Size: **24,576 bytes**
-- Max Gas Limit per transaction: **4,915,200**
+- Max Gas Limit per transaction: **8,000,000**
 
 ### Truffle configuration file
 
