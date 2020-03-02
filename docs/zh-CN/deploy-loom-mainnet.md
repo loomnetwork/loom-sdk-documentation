@@ -1,6 +1,6 @@
 * * *
 
-id: deploy-loom-mainnet title: Deploy to Basechain sidebar_label: Deploy to Basechain
+id: deploy-loom-mainnet title: Deploying to Basechain sidebar_label: Deploy to Basechain
 
 * * *
 
