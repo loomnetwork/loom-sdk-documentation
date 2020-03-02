@@ -1,22 +1,22 @@
 ---
 id: deploy-loom-testnet
-title: Deploy to Extdev Testnet
+title: Deploying to Extdev Testnet
 sidebar_label: Deploy to Extdev Testnet
 ---
 
-## Who Should Read This Document
+## Purpose
 
-This doc is for developers, and it aims to show how they can join the Extdev Testnet and deploy their smart contracts. If you are looking for information on how to run nodes or to become a validator, please checkout our [Validator Guide](validator.html).
+This document shows you how to join Extdev Testnet and deploy and test your smart contracts. If you are looking for information on how to run nodes or to become a validator, please see our [Validator Guide](validator.html).
 
 ## Overview
 
-Deploying to Extdev is no different from deploying to Ethereum mainnet, or to Rinkeby. If you know how to do one, you also know how to do the other.
+Deploying to Loom Network’s Basechain is no different from deploying to Ethereum mainnet or Rinkeby testnet. If you know how to do one, then you also know how to do the other.
 
-Loom Network uses Truffle to build, test, and deploy our smart contracts. To make our life easier, we developed something called a provider that lets Truffle deploy to Extdev just like it deploys to Ethereum.
+We use Truffle to build, test, and deploy our smart contracts. And to make our lives easier, we developed the “[Loom Truffle Provider](https://github.com/loomnetwork/loom-truffle-provider)” that lets Truffle deploy to Basechain just like it deploys to Ethereum.
 
-Without delving too much into details, the provider works like a bridge that makes Web3.js calls compatible with Extdev.
+Without delving too much into details, the Provider works like a bridge that makes Web3.js calls compatible with Basechain.
 
-This document shows how you can use `Truffle` and the [Loom Truffle Provider](https://github.com/loomnetwork/loom-truffle-provider) to build a simple Web UI that interacts with Extdev.
+Let’s walk through using `Truffle` and the Loom Truffle Provider to build a simple Web UI that interacts with Basechain.
 
 ## Requirements
 
@@ -27,7 +27,7 @@ Node >= 8
 yarn or npm
 ```
 
-## Setting Things Up
+## Set Things Up
 
 First, let's clone the [Truffle DAppChainExample](https://github.com/loomnetwork/truffle-dappchain-example/) repository. Open a terminal, `cd` into the directory where you store your projects, and run the following command:
 
@@ -47,9 +47,9 @@ and run:
 yarn install
 ```
 
-## Run against Extdev Testnet
+## Run Against Loom Testnet
 
-### Generate the Loom private key
+### Generate the Loom Private Key
 
 The following command will download the `loom` binary and generate the private key for you:
 
@@ -71,7 +71,7 @@ yarn deploy:extdev
 
 > The above command will **compile and then deploy** our smart contract to the Extdev Testnet.
 
-## Testing
+## Test the Smart Contract
 
 Run this command below to send transactions to the smart contract deployed to Extdev Testnet:
 
