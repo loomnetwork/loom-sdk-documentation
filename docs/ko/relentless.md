@@ -33,7 +33,7 @@ source ~/.bash_profile
 
 5. Install the Protocol Buffers for Go by following the instructions from [this page](https://github.com/gogo/protobuf).
 
-6. Download the `protoc` binary v3.9.1 for your operating system from [this page](https://github.com/protocolbuffers/protobuf/releases`).
+6. Download the `protoc` binary v3.9.1 for your operating system from [this page](https://github.com/protocolbuffers/protobuf/releases/tag/v3.9.1).
 
 7. Extract the zip and then:
     
