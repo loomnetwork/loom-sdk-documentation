@@ -49,7 +49,7 @@ curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
 ## Installation
 
 ```bash
-curl -OL https://private.delegatecall.com/loom/linux/stable/loom
+curl -OL https://downloads.loomx.io/loom/linux/stable/loom
 chmod +x loom
 
 export GOPATH=~/gopath

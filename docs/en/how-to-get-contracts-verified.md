@@ -51,7 +51,7 @@ Now that you've cloned the Loom Examples repo, let's install the dependencies:
 npm install
 ```
 
-To deploy to Loom Testnet we'll be needing a private key. You can generate it with:
+To deploy to Extdev Testnet we'll be needing a private key. You can generate it with:
 
 ```bash
 npm run gen:loom-key
@@ -206,7 +206,7 @@ truffle migrate -f 5 --to 5 --network extdev
 
 ## Verifying the Smart Contract on the Block Explorer
 
-To verify the smart contract, point your web browser to the [Extdev Block Explorer](http://extdev-blockexplorer.dappchains.com/) and type the address of the newly deployed smart contract in the search box.
+To verify the smart contract, point your web browser to the [Extdev Block Explorer](https://extdev-blockexplorer.dappchains.com/) and type the address of the newly deployed smart contract in the search box.
 
 Next, you should see a page similar to the one below:
 

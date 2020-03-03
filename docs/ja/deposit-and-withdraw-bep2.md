@@ -52,7 +52,7 @@ Issuing a new token on Binance TestNet will require you to pay a fee of 500 Test
 ![Select Wallet](/developers/img/bep2-loom-grab-your-address.png)
 
 - Repeat the step from above for wallet B and then for C.
-- At this point, you are ready to get yourself some BNB TestNet tokens. Go to the [Binance TestNet Faucet] https://www.binance.com/en/dex/testnet/address and paste your addresses:
+- At this point, you are ready to get yourself some BNB TestNet tokens. Go to the [Binance TestNet Faucet](https://www.binance.com/en/dex/testnet/address) and paste your addresses:
 
 ![Select Wallet](/developers/img/bep2-loom-binance-faucet.png)
 
@@ -94,13 +94,13 @@ Repeat the passphrase:
 You can check if your key was successfully imported with the following:
 
 ```bash
-./bnbcli keys list
+./tbnbcli keys list
 ```
 
 The output should look similar to this:
 
 ```bash
-tbnbcli keys list
+./tbnbcli keys list
 NAME:   TYPE:   ADDRESS:                        PUBKEY:
 testkey local   tbnb178zcz9nhuufdtk7esy22rel5k8zpsvqelr596w bnbp1addwnpepqt53muv8mf3j8r8sdkds7wsuvj0hamnq8argu4je4usjrzntewekxhuqw4y
 ```

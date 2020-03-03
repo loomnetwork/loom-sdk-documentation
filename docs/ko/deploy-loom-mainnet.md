@@ -6,23 +6,13 @@ sidebar_label: Deploy to Loom Mainnet
 
 ## First Steps with the Developer Dashboard
 
-This page shows you how to deploy your first smart contract to Loom mainnet. Note that you only need to do this once you go live, and it costs 1400 LOOM a year to deploy to mainnet.
+This page shows you how to deploy your first smart contract to Basechain. Note that you only need to do this once you go live, and it costs 1400 Loom a year to deploy to Basechain.
 
-First, head over to our [Developer Dashboard](https://dashboard.dappchains.com/login). We offer 3 different ways in which you can connect and sign transactions:
+First, head over to our [Developer Dashboard](https://dashboard.dappchains.com/login). We offer several different ways in which you can connect and sign transactions:
 
 ![Select Wallet](/developers/img/deploy-to-loom-select-wallet.png)
 
-Depending on your preference click "Ledger", "Metamask" or "Trezor via Metamask".
-
-Next, if you already have a Relentless Marketplace account, you will be asked if you want to link it:
-
-![Link Marketplace Account](/developers/img/deploy-to-loom-link-marketplace-account.png)
-
-If so, click on the "Link my account" button and follow the instructions.
-
-If you want to use a different account, just click on the "Nope, I'm not from Relentless Marketplace" button.
-
-Say you choose to create a new account. Once you've selected this option, you'll see a Metamask popup like this:
+Say you choose to use Matamask. Once you've selected this option, you'll see a Metamask popup like this:
 
 <img src="/developers/img/deploy-to-loom-map-accounts.png" alt="Map Accounts" width="400"/>
 
@@ -31,13 +21,13 @@ Click "Sign" and, under the hood, the dashboard will map your accounts. Next, yo
 ![Map Accounts](/developers/img/deploy-to-loom-dashboard.png)
 
 
-## Deposit Loom to Plasmachain
+## Deposit LOOM to Basechain
 
-From the left pane, click on the "Deploy to Plasmachain". You will be redirected to a page similar to the one below:
+From the left pane, click on the "Deploy to Basechain". You will be redirected to a page similar to the one below:
 
-![Deposit Loom to Plasma Chain](/developers/img/deploy-to-loom-deposit-loom.png)
+![Deposit Loom to Basehcain](/developers/img/deploy-to-loom-deposit-loom.png)
 
-Notice that, in order to deploy to Plasmachain, you need to pay 1400 LOOM. Click on the "Deposit more Loom to Plasmachain" and follow the instructions.
+Notice that, in order to deploy to Basechain, you need to pay 1400 LOOM. Click on the "Deposit more LOOM to Basechain" and follow the instructions.
 
 ## Adding the Public Keys
 
@@ -63,9 +53,9 @@ Lastly, click "Add Key" and you're set.
 
 Now, as an example, let's suppose you already have a Loom address. If so, all you have to do is to paste it into the "Your Loom Public Address".
 
-Next, click "Add Key" and you're ready to deploy to Loom mainnet.
+Next, click "Add Key" and you're ready to deploy to Basechain.
 
-## Deploying to Loom mainnet
+## Deploying to Basechain
 
 If in the previous step, you chose to use an existing address, save your private key to a file called `mainnet_private_key`. If you chose to generate a new address, paste your mnemonic into a file called `mainnet_mnemonic`.
 
@@ -135,8 +125,8 @@ module.exports = {
     loom_mainnet: {
       provider: function () {
         const chainId = 'default'
-        const writeUrl = 'http://plasma.dappchains.com/rpc'
-        const readUrl = 'http://plasma.dappchains.com/query'
+        const writeUrl = 'http://basechain.dappchains.com/rpc'
+        const readUrl = 'http://basechain.dappchains.com/query'
         const mnemonicPath = path.join(__dirname, 'mainnet_mnemonic')
         const privateKeyPath = path.join(__dirname, 'mainnet_private_key')
         if (fs.existsSync(privateKeyPath)) {
@@ -155,6 +145,6 @@ module.exports = {
 
 Well done!👏🏻👏🏻👏🏻
 
-You are now ready to deploy your first smart contract to Loom mainnet!
+You are now ready to deploy your first smart contract to Basechain!
 
 In order to get a better feel for it, check out our [truffle-dappchain-example](https://github.com/loomnetwork/truffle-dappchain-example).

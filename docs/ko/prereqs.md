@@ -51,7 +51,7 @@ $ brew upgrade dep
 ## 설치하기
 
 ```bash
-wget https://private.delegatecall.com/loom/osx/stable/loom
+wget https://downloads.loomx.io/loom/osx/stable/loom
 chmod +x loom
 
 mkdir tmpgopath

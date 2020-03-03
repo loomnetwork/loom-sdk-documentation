@@ -4,16 +4,20 @@ title: Basechain Jump Start
 sidebar_label: Basechain Jump Start
 ---
 
-Follow the instructions below to launch a Basechain node from the jump start.
+Follow the instructions below to launch a Basechain node from the jump start
 
-## Download stable version of Basechain
+## Hardware Requirements
+
+The minimum hardware requirements are as follows: 4 CPU, 32 GB RAM, NVMe SSD. Example: `AWS i3.xlarge`.
+
+## Download the Latest Basechain Stable Build
 
 ```bash
 wget https://downloads.loomx.io/loom/linux/stable/basechain
 chmod +x basechain
 ```
 
-## Download jump start archive
+## Download the Jump Start Archive
 
 There are two available locations where you can download it from, USA or Singapore. Choose the location closest to you. The Singapore location is automatically replicated from the USA location so it might be a while before it becomes available when we update the archive.
 
@@ -37,13 +41,13 @@ In each location, there are two different archives. One is full and another is t
   * Archive: <http://loom-share-sg.s3-website.ap-southeast-1.amazonaws.com/plasma-jump-start-min.tar.gz>
   * MD5: <http://loom-share-sg.s3-website.ap-southeast-1.amazonaws.com/plasma-jump-start-min.tar.gz.md5sum>
 
-## Extract archive
+## Extract the Archive
 
 ```bash
 tar xfvz plasma-jump-start.tar.gz
 ```
 
-## Generate unique config
+## Generate the Unique Config
 
 ```bash
 mkdir blank
@@ -54,7 +58,7 @@ cp chaindata/config/{priv_validator.json,node_key.json} ../loom-jump-start/chain
 cd ../loom-jump-start
 ```
 
-## Start the node
+## Start the Node
 
 ```bash
 ../basechain run --persistent-peers tcp://580a760af842657125f012c35fc486206b06de1e@18.223.135.245:46656,tcp://0b4989d8349a4a8eb0a901bfdad42336818e1687@18.223.124.100:46656,tcp://527692dde372f2e04870d5b24f9f7e80a573556c@3.16.45.215:46656
@@ -64,7 +68,7 @@ cd ../loom-jump-start
 
 The non-validator node will now sync with the validator nodes. Status can be queried at http://localhost:46658/rpc/status
 
-## Make loom run as a service on Ubuntu 16.04 (Optional)
+## Run Loom as a service on Ubuntu 16.04 (Optional)
 
 Create `/etc/systemd/system/loom.service`
 
@@ -89,43 +93,43 @@ StandardError=syslog
 WantedBy=multi-user.target
 ```
 
-### Reload the config
+### Reload the Config
 
 ```bash
 systemctl daemon-reload
 ```
 
-### To make it run on boot
+### Run Loom on Boot
 
 ```bash
 systemctl enable loom.service
 ```
 
-### To start/stop/restart
+### To start/stop/restart the Service
 
 ```bash
 systemctl (start/stop/restart) loom.service
 ```
 
-### To look at logs (method 1)
+### Inspect the Logs (Method 1)
 
 ```bash
 tail -f /var/log/syslog
 ```
 
-### To look at logs (method 2)
+### Inspect the Logs (method 2)
 
 ```bash
 sudo journalctl -u loom.service -f
 ```
 
-## Open Files Limit
+## The Open Files Limit
 
 When using systemd, the open files limit is taken care of by the LimitNOFILE directive. It will not, however, be applied when running loom manually.
 
-### For system-wide limit
+### The system-wide Limit
 
-Add the following lines to `/etc/sysctl.conf`
+Add the following lines to the `/etc/sysctl.conf` file:
 
 ```ini
 fs.file-max=500000
@@ -143,9 +147,9 @@ To check whether it is active:
 cat /proc/sys/fs/file-max
 ```
 
-### For specific user
+### For a Specific User
 
-Add lines to `/etc/security/limits.conf`
+Add the following lines to the `/etc/security/limits.conf` file:
 
 ```bash
 username        hard nofile 500000

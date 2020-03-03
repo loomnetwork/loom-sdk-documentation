@@ -3,7 +3,7 @@ id: join-testnet
 title: テストネットへの参加
 sidebar_label: テストネットへの参加
 ---
-この開発者向けドキュメーンテーションは、PlasmaChainテストネットに参加しデプロイを行う方法についてのものである。 ノードの運営方法やバリデータになる方法についての情報をお探しであれば、 [バリデーターガイド](validator.html)をチェックすること。
+この開発者向けドキュメーンテーションは、Basechainテストネットに参加しデプロイを行う方法についてのものである。 ノードの運営方法やバリデータになる方法についての情報をお探しであれば、 [バリデーターガイド](validator.html)をチェックすること。
 
 **前提条件**
 
@@ -30,7 +30,7 @@ local address base64: OzNL7R59Pn2SFElRIBYNkjasvDE=
 # Truffleサンプルをテストネットへデプロイ
 
 1. node 及び yarn/npm がインストールされていることを確認
-2. テストネットのURLを以下ページから取得する[PlasmaChain Testnets](testnet-plasma.html)
+2. テストネットのURLを以下ページから取得する[Loom Testnet](testnet-plasma.html)
 3. ソースを取得: 
         bash
         git clone https://github.com/loomnetwork/truffle-dappchain-example
@@ -38,7 +38,7 @@ local address base64: OzNL7R59Pn2SFElRIBYNkjasvDE=
         # copy the private key generated earlier to the root directory of the example repo
         cp ../priv_key extdev_private_key
 
-4. もし例示したコントラクトを`extdev-plasma-us1`にデプロイしたい場合このステップをスキップする。そうでなければあなたがデプロイしたいネットワークを`truffle-config.js`に追加する。
+4. もし例示したコントラクトを`extdev`にデプロイしたい場合このステップをスキップする。そうでなければあなたがデプロイしたいネットワークを`truffle-config.js`に追加する。
 5. Nodeモジュールをインストール: 
         bash
         yarn

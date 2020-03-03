@@ -1,21 +1,53 @@
 ---
 id: intro-loom-sdk
-title: What is Loom Network?
+title: Intro to Loom Network
 sidebar_label: Intro Loom SDK
 ---
 
 ![What is Loom Network?](/developers/img/what-is-loom.png)
 
-Loom Network is building a fundamental infrastructure platform to help Ethereum scale. It allows developers to run large-scale applications and is the first Ethereum scaling solution to be live in production.
+Hello Developer, 
 
-In short, you can think of Loom Network as EOS on top of Ethereum.
+This documentation will show you how to easily deploy your dapp to Loom Network and enjoy the benefits of practical blockchain interoperability.
 
-For advanced teams that need a custom blockchain, the Loom SDK will also let you [spin up](basic-install-all.html) your own DPoS chain in just a few minutes.
+## What is Loom Network?
 
-## What is PlasmaChain?
+Loom Network is a multichain interoperability platform — live in production — that's connected to other major blockchains such as Ethereum, Binance Chain, and Tron.
 
-PlasmaChain will be the central hub that all these chains connect to as their bridge to Ethereum, for interchain communication with other major blockchains (such as Cosmos, EOS, and Tron), and as a shared liquidity pool for tokenized assets.
+Deploy your dapp just once to Loom Network's Basechain and reach the largest user base possible, so you can simply focus on your dapp development and business growth.
 
-Thus, our company’s primary objectives over the next year are all related to growing PlasmaChain to become the “universal Layer 2” for high performance dapps.
+Enjoy having no gas fees for users, 1 – 3 second confirmation times, and automatically get connected to every major blockchain using any kind of wallet.
 
-In the next chapter, you will learn how to deploy your first app to Loom PlasmaChain. Let's get started!
+## What is Basechain?
+
+Basechain is an interoperable DPoS blockchain that is live in production, EVM-compatible, audited, battle-tested, and secured by [21+ validators](https://wallet.loomx.io/validators) as well as thousands of individual token delegators.
+
+If you've ever deployed to Ethereum, the process is very similar. And if you already have a dapp on Ethereum, you can port it to Basechain in no time — for much greater scalability and reach.
+
+Not only are we interoperable with the major blockchains of today, but we will actively support new networks and protocols as they emerge.
+
+Don't get locked in or build in a silo. Future-proof your dapp with Loom Network — deploy once and get multichain usability.
+
+## Jump to the Essentials
+
+[Deploy to Loom Testnet](deploy-loom-testnet.html)
+
+[Use the Transfer Gateway Testnet](extdev-transfer-gateway.html)
+
+[Deploy to Loom Mainnet](deploy-loom-mainnet.html)
+
+[Get started with Solidity + Truffle](deploy-loom-testnet.html)
+
+[Get started with Golang Contracts](prereqs-all.html)
+
+[Get Started with Universal Transaction Signing](how-to-get-started.html#to-get-started-with-universal-transaction-signing)
+
+## Got a Question?
+
+If you have any questions, you can ask in our [Telegram Dev Chat](https://t.me/LoomNetworkDev) where Loom Network team members and other developers are ready to answer you — or send us an email at [support@loomx.io](mailto:support@loomx.io).
+
+## Get the Latest News
+
+There are a few ways you can stay up to date on what’s happening at Loom Network. Go ahead and join our [Telegram Announcements channel](https://t.me/loomannouncements), join [r/loomnetwork](https://www.reddit.com/r/loomnetwork) on Reddit, or follow us on Twitter.
+
+Stay awesome!

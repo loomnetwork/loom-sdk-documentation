@@ -66,7 +66,7 @@ contract MyCoin is StandardToken {
 
 全てのコントラクトのソースはここで見つかる [Truffle DAppChain Example](https://github.com/loomnetwork/truffle-dappchain-example) 。
 
-1. このチュートリアルではあなた自身のDAppChainを実行することはしないが、`loom` バイナリをダウンロードしよう。 `loom`バイナリにビルドインされたCLIコマンドを使って、`extdev` PlasmaChainとやりとりできる。
+1. このチュートリアルではあなた自身のDAppChainを実行することはしないが、`loom` バイナリをダウンロードしよう。 `loom`バイナリにビルドインされたCLIコマンドを使って、`extdev` Basechainとやりとりできる。
     
     ```bash
     curl https://raw.githubusercontent.com/loomnetwork/loom-sdk-documentation/master/scripts/get_loom.sh | sh
@@ -101,7 +101,7 @@ contract MyCoin is StandardToken {
     
     これはあなたの新しい秘密鍵と対応した公開アドレスである。 `extdev_private_key`ファイルのなかに秘密鍵が見つかり、そして対応した公開鍵は`extdev_public_key`ファイルの中に見つかる。
 
-5. `MyToken`コントラクトおよび`MyCoin`コントラクトを`extdev` PlasmaChainへとデプロイする。
+5. `MyToken`コントラクトおよび`MyCoin`コントラクトを`extdev` Basechainへとデプロイする。
     
     ```bash
     yarn deploy:extdev
@@ -228,7 +228,7 @@ node ./gateway-cli.js map-accounts
 
 今、全てのマップしてきたコントラクトとアカウントはトークンとETHを`Rinkeby`のゲートウェイコントラクトに転送できる。
 
-それではERC721トークンの`MyRinkebyToken`をいくつか生成する事から始めてみよう、そしてそのうち一つを`PlasmaChain`に転送してみよう。
+それではERC721トークンの`MyRinkebyToken`をいくつか生成する事から始めてみよう、そしてそのうち一つを`Basechain`に転送してみよう。
 
 ```bash
 # Rinkebyでトークンを生成
@@ -236,7 +236,7 @@ node ./gateway-cli.js mint-token 1
 node ./gateway-cli.js mint-token 2
 node ./gateway-cli.js mint-token 3
 
-# トークンをextdevのPlasmaChainへ転送
+# トークンをextdevのBasechainへ転送
 node ./gateway-cli.js deposit-token 1
 
 # あなたがRinkebyにトークンをいくつ持っているかをチェックする
@@ -252,7 +252,7 @@ node ./gateway-cli.js token-balance -a gateway -c eth
 ではERC20トークンの`MyRinkebyCoin`のいくつかを転送してみよう、それらのうち10億はすでに生成されあなたのアカウントにあるのですぐに転送する事ができる。
 
 ```bash
-# 120トークンをextdevのPlasmaChainに転送する
+# 120トークンをextdevのBasechainに転送する
 node ./gateway-cli.js deposit-coin 120
 
 # Rinkebyにいくつトークンを持っているかチェックする

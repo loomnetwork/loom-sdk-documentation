@@ -8,7 +8,8 @@ sidebar_label: 安装 (OSX)
 ## 安装
 
 ```bash
-wget https://private.delegatecall.com/loom/osx/stable/loom
+
+curl https://raw.githubusercontent.com/loomnetwork/loom-sdk-documentation/master/scripts/get_loom.sh | bash
 chmod +x loom
 
 ./loom init
@@ -17,7 +18,7 @@ chmod +x loom
 ## 运行区块链
 
     ./loom run
-    
+
 
 ## 开始使用 Solidity + Truffle
 

@@ -3,6 +3,7 @@ id: validator
 title: Become Validator
 sidebar_label: Become Validator
 ---
+このページではバリデータになる方法、もしくはBasechainのノードのみを運営する方法について説明している。 現在この機能はテストネットでのみ利用できる。 バリデーターとなるには、この[フォーム](http://bit.ly/Loom_Validator_Form)を記入すること。
 
 ## Purpose
 

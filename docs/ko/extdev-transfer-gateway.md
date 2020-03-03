@@ -5,11 +5,11 @@ sidebar_label: Transfer Gateway Testnet
 ---
 ## Overview
 
-In this doc we'll walk you through the setup required to transfer tokens between token contracts you've deployed to `extdev` and `Rinkeby`. If you haven't done so already you should first read through the high level overview of the [Transfer Gateway](transfer-gateway.html).
+In this doc we'll walk you through the setup required to transfer tokens between token contracts you've deployed to Loom Testnet and `Rinkeby`. If you haven't done so already you should first read through the high level overview of the [Transfer Gateway](transfer-gateway.html).
 
-## 1. Deploy token contracts to `extdev`
+## 1. Deploy token contracts to Loom Testnet
 
-If you wish to transfer tokens from a token contract deployed on `Rinkeby` to one that's deployed on `extdev` you'll need to ensure that the token contract you deploy to `extdev` implements the `mintToGateway` function. We've created some sample contracts and a simple CLI to interact with them.
+If you wish to transfer tokens from a token contract deployed on `Rinkeby` to one that's deployed on Loom Testnet you'll need to ensure that the token contract you deploy to Loom Testnet implements the `mintToGateway` function. We've created some sample contracts and a simple CLI to interact with them.
 
 ### MyToken ERC721 contract
 
@@ -66,7 +66,7 @@ contract MyCoin is StandardToken {
 
 Full source for all contracts can be found in the [Truffle DAppChain Example](https://github.com/loomnetwork/truffle-dappchain-example) repo.
 
-1. Download the `loom` binary, while you won't be spinning up your own DAppChain in this tutorial, you will be using some of the CLI commands built into the `loom` binary to interact with the `extdev` PlasmaChain.
+1. Download the `loom` binary, while you won't be spinning up your own DAppChain in this tutorial, you will be using some of the CLI commands built into the `loom` binary to interact with the Loom testnet.
     
     ```bash
     curl https://raw.githubusercontent.com/loomnetwork/loom-sdk-documentation/master/scripts/get_loom.sh | sh
@@ -87,7 +87,7 @@ Full source for all contracts can be found in the [Truffle DAppChain Example](ht
     yarn
     ```
 
-4. Generate your own private key for deploying and calling contracts on the `extdev` PlasmaChain.
+4. Generate your own private key for deploying and calling contracts on `extdev`.
     
     ```bash
     $LOOM_BIN genkey -k extdev_private_key -a extdev_public_key
@@ -101,7 +101,7 @@ Full source for all contracts can be found in the [Truffle DAppChain Example](ht
     
     This is the public address that corresponds to your new private key. You'll find the private key in the `extdev_private_key` file, and the corresponding public key in the `extdev_public_key` file.
 
-5. Deploy the `MyToken` and `MyCoin` contracts to the `extdev` PlasmaChain.
+5. Deploy the `MyToken` and `MyCoin` contracts to `extdev`.
     
     ```bash
     yarn deploy:extdev
@@ -228,7 +228,7 @@ Great, everything should now be ready for flawless token transfer between `extde
 
 Now that all contracts and accounts have been mapped you can transfer tokens and ETH to the `Rinkeby` Gateway contract.
 
-Lets start by minting some of the `MyRinkebyToken` ERC721 tokens, and transferring one of them to the `PlasmaChain`.
+Lets start by minting some of the `MyRinkebyToken` ERC721 tokens, and transferring one of them to `Basechain`.
 
 ```bash
 # mint some tokens on Rinkeby
@@ -236,7 +236,7 @@ node ./gateway-cli.js mint-token 1
 node ./gateway-cli.js mint-token 2
 node ./gateway-cli.js mint-token 3
 
-# transfer a token to extdev PlasmaChain
+# transfer a token to extdev
 node ./gateway-cli.js deposit-token 1
 
 # check how many tokens you have on Rinkeby
@@ -252,7 +252,7 @@ node ./gateway-cli.js token-balance -a gateway -c eth
 And now lets transfer some of the `MyRinkebyCoin` ERC20 tokens, a billion of them have already been minted to your account so you can transfer them right away.
 
 ```bash
-# transfer 120 tokens to extdev PlasmaChain
+# transfer 120 tokens to extdev
 node ./gateway-cli.js deposit-coin 120
 
 # check how many tokens you have on Rinkeby
