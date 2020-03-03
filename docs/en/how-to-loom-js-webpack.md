@@ -34,7 +34,7 @@ If Node.js is not installed, or you're running an older version, you can downloa
 
 
 ```bash
-mkdir loom-js-webpack-demo && cd loom-js-webpack-demo 
+mkdir loom-js-webpack-demo && cd loom-js-webpack-demo
 ```
 
 2. Initialize the project and install `webpack` and `webpack-cli` as development dependencies with:
@@ -251,7 +251,7 @@ npm install loom-js web3 solcjs-core
 ```
 
 
-1. Next, replace the content of the `src/index.js` file with the following snippet:
+2. Next, replace the content of the `src/index.js` file with the following snippet:
 
 ```js
 import {
@@ -291,17 +291,17 @@ async function deployContract(web3js, userAddress) {
   const compiler = await solcjsCore.solc()
   const sourceCode = `
   pragma solidity >0.4.99 <0.6.0;
- 
+
   contract SimpleStore {
   uint value;
-  
+
   event NewValueSet(uint _value);
-  
+
   function set(uint _value) public {
   value = _value;
   emit NewValueSet(value);
   }
-  
+
   function get() public view returns (uint) {
   return value;
   }
