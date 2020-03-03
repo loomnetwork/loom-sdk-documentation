@@ -134,7 +134,7 @@ module.exports = {
 
 ## The Webpack development server
 
-1. Firt, we must install the Webpack development server with:
+1. First, we must install the Webpack development server with:
 
 ```js
 npm install --save-dev webpack-dev-server
