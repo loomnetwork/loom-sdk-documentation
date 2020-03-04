@@ -58,56 +58,55 @@ Here's the list of the top ERC20 smart contracts already deployed to Loom:
 48 | Aurora | AOA | 0x6c621e82e658bbf1353e1ae4d24977335cf36368 |
 49 | MakerDAO | MKR | 0x723dd89911fd0fba80d4c9c1a0b748ede4a2cb99 |
 50 | Pundi X Token | NPXS | 0x723625199415e281ca60dd12e2844c904eae4666 |
-51 | Loom Network | LOOM | 0xcff6aba6d90012ad6e673dd8536a5126432aa9ce |
-52 | STORJ | STORJ | 0x3c43e43ce64b0403d64f28adfffdc63aab50a807 |
-53 | NULS | NULS | 0x5f43c8ea0c371d9e333da421aaf242b890e99ccd |
-54 | TenX | PAY | 0x002eeb223d56c192915fe378c4ee0936effad41b |
-55 | Nexo | NEXO | 0xb1c6241de6c574aa2296d7560b1907c69b597c30 |
-56 | Crypto.com | MCO | 0xb3d6bba49d2bae5b4af826a956a5fd8751ffab0c |
-57 | Qubitica | QBIT | 0xca33b6820ba02f1fd276081a4b1174fe4c4ee81e |
-58 | Ethfinex Nectar Token | NEC | 0x2fd53606fcb702b384565850896f10604b6d4fa2 |
-59 | Eidoo | EDO | 0x02e844dafea6b20f54f9917a3e24a470d59c8e6e |
-60 | Fusion | FSN | 0x1713139c9ba52e253a67f57748a949568ca6be4c |
-61 | VeChain | VEN | 0x76b20b7a58d8ef389f3a6da674659d9a992a9bb9 |
-62 | Mainframe Token | MFT | 0xc5e5ac836cb203e40f5542173c4ac5d95ee50303 |
-63 | Digix DAO | DGD | 0xa0493d7827632424d31fbc82f725a52bf65027a6 |
-64 | 0x Project | ZRX | 0x51c7d6766643f451471487674d926863da5647f3 |
-65 | LATOKEN | LA | 0xc02a6c1bd48d1563921b96e054fd00207ddda19d |
-66 | QuarkChain | QKC | 0xcdc7d036b0d647215d1bb0520696e04fb901725e |
-67 | BHPCash | BHPC | 0x236c80222bf244a17d0df722e6330a2df200b86d |
-68 | Loopring | LRC | 0x7c781878ddb2f401b6e2a7eca50f625e8dfbe962 |
-69 | Cortex | CTXC | 0x22a800e7e6de53df5fe794fe91b300e844c0a6d4 |
-70 | ENJIN | ENJ | 0x80043dc153d01a088018013e426a7314cc031aa9 |
-71 | IOSToken | IOST | 0x393740ccde8a254c19cc9f0402cea50d777201a4 |
-72 | OneRoot Network | RNT | 0x8376b670e664c6e9876adbaacd0773098f65d44f |
-73 | Golem | GNT | 0xf4de19921d94d336a36818a408eaafc6aaba2ee8 |
-74 | TokenCard | TKN | 0xec2007716a382bde7e21034cdf788292eddd22d1 |
-75 | Bibox Token | BIX | 0xf108af7fed07155da7428282447f362cbe44d388 |
-76 | ICON | ICX | 0x22c7399dbaaf61447a0c403e66e8ef450098fbec |
-77 | Waltonchain | WTC | 0xf396bdbe1c4916eb6d3ebb5f4c60e86565ff9257 |
-78 | ELF Token | ELF | 0xd256eff515a24996e5968821a34d41662a32ff26 |
-79 | Endor Protocol Token | EDR | 0x38e46fc7921e03deb42eb7fd41efce38d87cb562 |
-80 | Bytom | BTM | 0x74e3e862ea35f0f3ecfce130ce8f61b12cac950b |
-81 | OmiseGO | OMG | 0x5dbc4e2ba686c5c46cc1653b8bd59fe3d8eb105b |
-82 | Populous | PPT | 0xede70472f54b12609fb70ed885900d5f2f4df7db |
-83 | Cindicator | CND | 0xaab868b9aaab8ba564751193a985fd07f2a9dad3 |
-84 | Kyber Network | KNC | 0x8de3a76fdbe03924a5b4a503cfe72aaa524726aa |
-85 | Enigma | ENG | 0x1c30864a8935680ad84d5382277eeecce73b93ac |
-86 | STASIS EURS | EURS | 0xa23ef9547485d3902963e11b03f5ec3453b5622a |
-87 | CyberMiles Token | CMT | 0xf570d537c0c7425a087273ebce346210de6d5fbf |
-88 | HOT | HOT | 0x427656bb95a20f1112e0c18ed8e548fa16a24b28 |
-89 | LINK | LINK | 0xa91135b56a2e6531e97d8ed9654a985ae431dc19 |
-90 | XIN | XIN | 0xdca0f8346958f6c3c67845279ffd84ccffec6913 |
-91 | HPT | HPT | 0x679697d9ff1ce5a3eec5edd8e2628861b9f0a6e4 |
-92 | INB | INB | 0xf5ed880319faf96da801fcbd4d4c97f4046c36ca |
-93 | ODEM | ODEM | 0x02498d5a45ea50e9ace1da35d8c0a2aaf71c0ad8 |
-94 | Crypto.com Chain | CRO | 0x876d7ee0f869e22103881404d730de78c06a829b |
-95 | Dentacoin | DCN | 0x5cccaa9165bf67101a92b1e31a8beabfb8dabcd0 |
-96 | MXM | MXM | 0xcb2dca3750bb65f8fbc29206453d3d2ccb9b41bd |
-97 | TCT | TCT | 0xf9c8fb263683734a64ae0f48de186968016c402b |
-98 | INO | INO | 0x2694de3c02ac90c123ae646181de18e0a4bbeeb8 |
-99 | HEDG | HEDG | 0x5fdb06b8c3db44c850e152503cec55cd7bd5ac8b |
-100 | BNB | BNB | 0xcf2851b1ad63d093238ea296524be8d7cd920e0b |
+51 | STORJ | STORJ | 0x3c43e43ce64b0403d64f28adfffdc63aab50a807 |
+52 | NULS | NULS | 0x5f43c8ea0c371d9e333da421aaf242b890e99ccd |
+53 | TenX | PAY | 0x002eeb223d56c192915fe378c4ee0936effad41b |
+54 | Nexo | NEXO | 0xb1c6241de6c574aa2296d7560b1907c69b597c30 |
+55 | Crypto.com | MCO | 0xb3d6bba49d2bae5b4af826a956a5fd8751ffab0c |
+56 | Qubitica | QBIT | 0xca33b6820ba02f1fd276081a4b1174fe4c4ee81e |
+57 | Ethfinex Nectar Token | NEC | 0x2fd53606fcb702b384565850896f10604b6d4fa2 |
+58 | Eidoo | EDO | 0x02e844dafea6b20f54f9917a3e24a470d59c8e6e |
+59 | Fusion | FSN | 0x1713139c9ba52e253a67f57748a949568ca6be4c |
+60 | VeChain | VEN | 0x76b20b7a58d8ef389f3a6da674659d9a992a9bb9 |
+61 | Mainframe Token | MFT | 0xc5e5ac836cb203e40f5542173c4ac5d95ee50303 |
+62 | Digix DAO | DGD | 0xa0493d7827632424d31fbc82f725a52bf65027a6 |
+63 | 0x Project | ZRX | 0x51c7d6766643f451471487674d926863da5647f3 |
+64 | LATOKEN | LA | 0xc02a6c1bd48d1563921b96e054fd00207ddda19d |
+65 | QuarkChain | QKC | 0xcdc7d036b0d647215d1bb0520696e04fb901725e |
+66 | BHPCash | BHPC | 0x236c80222bf244a17d0df722e6330a2df200b86d |
+67 | Loopring | LRC | 0x7c781878ddb2f401b6e2a7eca50f625e8dfbe962 |
+68 | Cortex | CTXC | 0x22a800e7e6de53df5fe794fe91b300e844c0a6d4 |
+69 | ENJIN | ENJ | 0x80043dc153d01a088018013e426a7314cc031aa9 |
+70 | IOSToken | IOST | 0x393740ccde8a254c19cc9f0402cea50d777201a4 |
+71 | OneRoot Network | RNT | 0x8376b670e664c6e9876adbaacd0773098f65d44f |
+72 | Golem | GNT | 0xf4de19921d94d336a36818a408eaafc6aaba2ee8 |
+73 | TokenCard | TKN | 0xec2007716a382bde7e21034cdf788292eddd22d1 |
+74 | Bibox Token | BIX | 0xf108af7fed07155da7428282447f362cbe44d388 |
+75 | ICON | ICX | 0x22c7399dbaaf61447a0c403e66e8ef450098fbec |
+76 | Waltonchain | WTC | 0xf396bdbe1c4916eb6d3ebb5f4c60e86565ff9257 |
+77 | ELF Token | ELF | 0xd256eff515a24996e5968821a34d41662a32ff26 |
+78 | Endor Protocol Token | EDR | 0x38e46fc7921e03deb42eb7fd41efce38d87cb562 |
+79 | Bytom | BTM | 0x74e3e862ea35f0f3ecfce130ce8f61b12cac950b |
+80 | OmiseGO | OMG | 0x5dbc4e2ba686c5c46cc1653b8bd59fe3d8eb105b |
+81 | Populous | PPT | 0xede70472f54b12609fb70ed885900d5f2f4df7db |
+82 | Cindicator | CND | 0xaab868b9aaab8ba564751193a985fd07f2a9dad3 |
+83 | Kyber Network | KNC | 0x8de3a76fdbe03924a5b4a503cfe72aaa524726aa |
+84 | Enigma | ENG | 0x1c30864a8935680ad84d5382277eeecce73b93ac |
+85 | STASIS EURS | EURS | 0xa23ef9547485d3902963e11b03f5ec3453b5622a |
+86 | CyberMiles Token | CMT | 0xf570d537c0c7425a087273ebce346210de6d5fbf |
+87 | HOT | HOT | 0x427656bb95a20f1112e0c18ed8e548fa16a24b28 |
+88 | LINK | LINK | 0xa91135b56a2e6531e97d8ed9654a985ae431dc19 |
+89 | XIN | XIN | 0xdca0f8346958f6c3c67845279ffd84ccffec6913 |
+90 | HPT | HPT | 0x679697d9ff1ce5a3eec5edd8e2628861b9f0a6e4 |
+91 | INB | INB | 0xf5ed880319faf96da801fcbd4d4c97f4046c36ca |
+92 | ODEM | ODEM | 0x02498d5a45ea50e9ace1da35d8c0a2aaf71c0ad8 |
+93 | Crypto.com Chain | CRO | 0x876d7ee0f869e22103881404d730de78c06a829b |
+94 | Dentacoin | DCN | 0x5cccaa9165bf67101a92b1e31a8beabfb8dabcd0 |
+95 | MXM | MXM | 0xcb2dca3750bb65f8fbc29206453d3d2ccb9b41bd |
+96 | TCT | TCT | 0xf9c8fb263683734a64ae0f48de186968016c402b |
+97 | INO | INO | 0x2694de3c02ac90c123ae646181de18e0a4bbeeb8 |
+98 | HEDG | HEDG | 0x5fdb06b8c3db44c850e152503cec55cd7bd5ac8b |
+99 | BNB | BNB | 0xcf2851b1ad63d093238ea296524be8d7cd920e0b |
 
 
 You can download the JSON file containing the contract addresses from [here](/developers/topTokensList.json).
