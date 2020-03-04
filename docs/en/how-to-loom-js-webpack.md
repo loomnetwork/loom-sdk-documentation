@@ -1,12 +1,12 @@
 ---
 id: loom-js-webpack
-title: How to Set up loom-js with Webpack
-sidebar_label: How to Set up loom-js with Webpack
+title: How to Use loom-js with Webpack
+sidebar_label: How to Use loom-js with Webpack
 ---
 
 ## Purpose
 
-This document shows how to set up `loom-js` with a bundler. For the scope of this tutorial, we'll be using [Webpack](https://webpack.js.org/) but it should work with any other bundler.
+This document shows how to use `loom-js` with a bundler. In this tutorial, we'll be using [Webpack](https://webpack.js.org/), but it should work similarly with any other bundler.
 
 Note that this tutorial is based on the [Getting Started with Webpack](https://webpack.js.org/guides/getting-started/) example. However, we tweaked it a bit and added a couple of things to fit our purpose.
 
