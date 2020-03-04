@@ -705,20 +705,6 @@
       }
     },
     {
-      "filename": "LOOMToken",
-      "name": "Loom Network",
-      "decimal": 18,
-      "symbol": "LOOM",
-      "address": {
-        "1": "0xA4e8C3Ec456107eA67d3075bF9e3DF3A75823DB0",
-        "asia1": "0xae1b74376dcd7d21a2c25bd8e564265ae3944eb2",
-        "rinkeby-asia1": "0xc4401163b0e39718b0369195970d172842d9b43a",
-        "stage": "0x82250ba4f6111da312e1f6dbbf01c3e9475c4c23",
-        "rinkeby-us1": "0xda43bcfb07111c049809aea9165e27bbedbed59c",
-        "basechain": "0xcff6aba6d90012ad6e673dd8536a5126432aa9ce"
-      }
-    },
-    {
       "filename": "STORJToken",
       "name": "STORJ",
       "decimal": 8,
