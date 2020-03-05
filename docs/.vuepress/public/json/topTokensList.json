@@ -31,6 +31,17 @@
       }
     },
     {
+      "filename": "DAITokenv2",
+      "name": "Dai Stablecoin v2.0",
+      "decimal": 18,
+      "pricePerCent": 1,
+      "symbol": "DAI",
+      "address": {
+        "1": "0x6b175474e89094c44da98b954eedeac495271d0f",
+        "basechain": "0xbCb143882B5966AE619865763B0c386c9e8f6DC6"
+      }
+    },
+    {
       "filename": "USDCToken",
       "name": "USD Coin",
       "decimal": 6,
