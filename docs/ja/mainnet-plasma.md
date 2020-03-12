@@ -19,7 +19,7 @@ This page provides information on where and how to access the Basechain network.
 - **readUrl**: https://basechain.dappchains.com/query
 - **writeUrl**: https://basechain.dappchains.com/rpc
 - Max Contract Size: **24,576 bytes**
-- Max Gas Limit per transaction: **4,915,200**
+- Max Gas Limit per transaction: **8,000,000**
 
 ### Truffle Configuration File
 
