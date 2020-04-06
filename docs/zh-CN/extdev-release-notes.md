@@ -8,6 +8,43 @@ sidebar_label: Extdev
 
 Reverse chronology order of release notes.
 
+## Extdev Build 1376 Hard Fork - 2020/04/06
+
+**New features:**
+- Disable SHA3 preimage recording in EVM.
+- Add new config settings to allow disabling of some unecessary key sorting in the EVM.
+  ```yaml
+  Geth:
+    EnableStateObjectDirtyStorageKeysSorting: false
+    EnableTrieDatabasePreimageKeysSorting: false
+  ```
+  In this build this key sorting is still enabled by default, but it'll likely be disabled in the
+  next release.
+- Disable a cache used for speeding up client queries, the caching is of no benefit to nodes that
+  aren't queried by clients. Since the vast majority of nodes, regardless of whether or not they're
+  validators don't respond to client queries it makes more sense to disable the caching by default.
+  Caching can be re-enabled on nodes via the config:
+  ```yaml
+  CachingStoreConfig:
+    CachingEnabled: true
+  ```
+- Nodes now support a new `canonical_tx_hash` RPC method on the `/query` interface that can be used
+  to obtain a canonical tx hash from an EVM tx hash (which is just a hash of the tx receipt).
+- Add the ability to strip voting power from jailed validators while they remain jailed. This is to
+  ensure that if a validator with a significant chunk of the voting power is offline for a long time
+  the remaining validators can continue to swiftly reach consensus without it. Once a jailed
+  validator is unjailed all its voting power is restored. This feature can be activated by the
+  `dpos:v3.8` feature flag.
+
+**Bug fixes:**
+- Update `dpos_total_staked` RPC method to exclude delegations from the bootstrap nodes.
+- Update `DPOS.ClaimRewardsFromAllValidators` to claim rewards from all validators, previously it only
+  claimed rewards from active validators. This fix can be enabled via the `dpos:v3.6` feature flag.
+- Update default Infura URI used by the `gateway withdraw-funds` command, in case Infura decides to
+  change the URI format again the default value can be overriden with the new `eth-uri` flag.
+- Nodes will now load the last block header on startup before responding to queries.
+
+
 ## Extdev build 1344 Hard Fork - 2019/11/21
 
 **New features:**
