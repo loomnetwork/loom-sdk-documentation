@@ -8,6 +8,26 @@ sidebar_label: Basechain
 
 Reverse chronology order of release notes.
 
+## Basechain Build 1385 Hard Fork - 2020/04/28
+
+**New features:**
+
+- Disable unecessary key sorting in the EVM.
+- Add new `coin allowance` CLI command that can be used to check the amount of LOOM previously approved for transfer to a particular spender.
+- Add new `redelegate-all` CLI command that can be used to randomly redistribute delegations from former validators to active validators.
+- Extend `chain-cfg list-validators` CLI command to show individual validator powers. The power displayed by this command for each validator is the percentage of the validators current voting power out of the total voting power.
+
+**Upgrade instructions:**
+
+1) Download Basechain build 1385
+
+```bash
+wget https://downloads.loomx.io/loom/linux/stable/basechain
+chmod 755 basechain
+```
+
+2) Restart the node on the new build.
+
 ## Basechain Build 1376 Hard Fork - 2020/04/06
 
 **New features:**
