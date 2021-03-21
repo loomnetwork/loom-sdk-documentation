@@ -65,8 +65,8 @@ If you want to use [Universal Signing](https://medium.com/loom-network/universal
 
 **Contracts deployed on Ethereum**
 
-- **Transfer Gateway**: 0xe080079ac12521d57573f39543e1725ea3e16dcc (use this for Eth, ERC721, and ERC20 assets)
-- **Loom Transfer Gateway**: 0x8f8E8b3C4De76A31971Fe6a87297D8f703bE8570
+- **Transfer Gateway**: `0xe080079ac12521d57573f39543e1725ea3e16dcc` (use this for Eth, ERC721, and ERC20 assets)
+- **Loom Transfer Gateway**: `0xfcF1E3fA575A313fd81feA2caA06269B49F1A528`
 
 **Contracts deployed on Basechain**
 
