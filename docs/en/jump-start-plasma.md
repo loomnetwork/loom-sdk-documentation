@@ -61,7 +61,7 @@ cd ../loom-jump-start
 ## Start the Node
 
 ```bash
-../basechain run --persistent-peers tcp://580a760af842657125f012c35fc486206b06de1e@18.223.135.245:46656,tcp://0b4989d8349a4a8eb0a901bfdad42336818e1687@18.223.124.100:46656,tcp://527692dde372f2e04870d5b24f9f7e80a573556c@3.16.45.215:46656
+../basechain run --persistent-peers tcp://1f3dde151c0268fce847078e6143c820fe05e556@18.216.232.21:46656
 ```
 
 ## Finally
@@ -81,7 +81,7 @@ After=network.target
 Type=simple
 User=<user that runs loom>
 WorkingDirectory=<working directory of loom>
-ExecStart=<path to loom>/basechain run --persistent-peers tcp://580a760af842657125f012c35fc486206b06de1e@18.223.135.245:46656,tcp://0b4989d8349a4a8eb0a901bfdad42336818e1687@18.223.124.100:46656,tcp://527692dde372f2e04870d5b24f9f7e80a573556c@3.16.45.215:46656
+ExecStart=<path to loom>/basechain run --persistent-peers tcp://1f3dde151c0268fce847078e6143c820fe05e556@18.216.232.21:46656
 Restart=always
 RestartSec=2
 StartLimitInterval=0
