@@ -8,6 +8,27 @@ sidebar_label: Extdev
 
 Reverse chronology order of release notes.
 
+## Extdev Build 1411 Hard Fork - 2021/04/22
+
+This build includes all the necessary parts to support LOOM transfers between Extdev and
+Binance Smart Chain Testnet through the BSC Transfer Gateway.
+
+**New features:**
+- Update build config to support Golang `1.16.2`
+- Add new `bsc-gateway` Go contract to handle LOOM BEP20 deposits and withdrawals on the Basechain side.
+- Add new `tg:v1.7` feature flag to enable the `bsc-gateway` contract.
+
+**Upgrade instructions:**
+
+1) Download Extdev build 1411
+
+```bash
+wget https://downloads.loomx.io/loom/linux/extdev-stable/loom
+chmod 755 loom
+```
+
+2) Restart the node on the new build.
+
 ## Extdev Build 1376 Hard Fork - 2020/04/06
 
 **New features:**

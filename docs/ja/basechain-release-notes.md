@@ -8,6 +8,27 @@ sidebar_label: Basechain
 
 Reverse chronology order of release notes.
 
+## Basechain Build 1411 Hard Fork - 2021/04/22
+
+This build includes all the necessary parts to support LOOM transfers between Basechain and
+Binance Smart Chain through the BSC Transfer Gateway.
+
+**New features:**
+- Update build config to support Golang `1.16.2`
+- Add new `bsc-gateway` Go contract to handle LOOM BEP20 deposits and withdrawals on the Basechain side.
+- Add new `tg:v1.7` feature flag to enable the `bsc-gateway` contract.
+
+**Upgrade instructions:**
+
+1) Download Basechain build 1411
+
+```bash
+wget https://downloads.loomx.io/loom/linux/stable/basechain
+chmod 755 basechain
+```
+
+2) Restart the node on the new build.
+
 ## Basechain Build 1385 Hard Fork - 2020/04/28
 
 **New features:**
