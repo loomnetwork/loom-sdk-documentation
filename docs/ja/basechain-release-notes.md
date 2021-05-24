@@ -8,6 +8,41 @@ sidebar_label: Basechain
 
 Reverse chronology order of release notes.
 
+## Basechain Build 1426 Hard Fork - 2021/05/24
+
+This build makes it possible to downsize the `app.db` on Basechain nodes by over `700x`.
+The downsizing works by copying out the subset of the data representing the current on-chain state
+to a new DB (`app_v2.db`). The new DB is a lot smaller than the original because a huge portion
+of the old `app.db` is taken up by data that was previously migrated to separate databases
+(`evm.db` and `receipts_db`). This downsizing can be triggered at a specific chain height by setting
+the new `AppStore.CloneStateAtHeight` setting in the on-chain config once all nodes are running the
+new build.
+
+Any node running this build will now check whether `app.db` or `app_v2.db` contains the most recent
+on-chain state upon startup, if `app_v2.db` has the most recent state then it will be swapped with
+`app.db` like so:
+- Rename `app.db` -> `old_app_timestamp.db`
+- Rename `app_v2.db` -> `app.db`
+
+Once the swap is complete the node will then proceed to load and use `app.db` as usual.
+
+Node operators can safely delete `old_app_timestamp.db` to free up a whole bunch of space on their
+nodes.
+
+Such a significant reduction to the size of the `app.db` should also help reduce the memory usage
+of Basechain nodes.
+
+**Upgrade instructions:**
+
+1) Download Basechain build 1426
+
+```bash
+wget https://downloads.loomx.io/loom/linux/stable/basechain
+chmod 755 basechain
+```
+
+2) Restart the node on the new build.
+
 ## Basechain Build 1411 Hard Fork - 2021/04/22
 
 This build includes all the necessary parts to support LOOM transfers between Basechain and
