@@ -4,7 +4,17 @@ title: Basechain Jump Start
 sidebar_label: Basechain Jump Start
 ---
 
-Follow the instructions below to launch a Basechain node from the jump start
+A Basechain node with all historical state from the genesis block onwards takes up around 500GB of
+disk space, it's not practical to sync a new node from the genesis block (it would take forever).
+New nodes can be spun up using one of the jump start archives that we provide, these contain recent
+state, so a node can sync up with the chain in a few hours.
+
+We provide two kinds of jump starts, a full size one, and a minimal one. The full size jump start
+contains a lot of historical data, you would generally only need it if you wanted to index all the
+historical state. If you just want to spin up a new validator node, or a sentry node, then
+you're better off using the minimal jump start, which only contains recent state.
+
+Follow the instructions below to launch a Basechain node from a jump start archive.
 
 ## Hardware Requirements
 
@@ -25,27 +35,27 @@ In each location, there are two different archives. One is full and another is t
 
 ### United States
 
-* Full image:
-  * Archive: <http://loom-share.s3-website.us-east-2.amazonaws.com/plasma-jump-start.tar.gz>
-  * MD5: <http://loom-share.s3-website.us-east-2.amazonaws.com/plasma-jump-start.tar.gz.md5sum>
-* Smaller image:
+* Minimal jump start:
   * Archive: <http://loom-share.s3-website.us-east-2.amazonaws.com/plasma-jump-start-min.tar.gz>
   * MD5: <http://loom-share.s3-website.us-east-2.amazonaws.com/plasma-jump-start-min.tar.gz.md5sum>
-  * Receipts DB
+  * **[OPTIONAL]** Receipts DB (not necessary for most new nodes)
     * Archive: <http://loom-share.s3-website.us-east-2.amazonaws.com/plasma-jump-start-min-receipts_db.tar.gz>
     * MD5: <http://loom-share.s3-website.us-east-2.amazonaws.com/plasma-jump-start-min-receipts_db.tar.gz.md5sum>
+* Full jump start:
+  * Archive: <http://loom-share.s3-website.us-east-2.amazonaws.com/plasma-jump-start.tar.gz>
+  * MD5: <http://loom-share.s3-website.us-east-2.amazonaws.com/plasma-jump-start.tar.gz.md5sum>
 
 ### Singapore
 
-* Full image:
-  * Archive: <http://loom-share-sg.s3-website.ap-southeast-1.amazonaws.com/plasma-jump-start.tar.gz>
-  * MD5: <http://loom-share-sg.s3-website.ap-southeast-1.amazonaws.com/plasma-jump-start.tar.gz.md5sum>
-* Smaller image:
+* Minimal jump start:
   * Archive: <http://loom-share-sg.s3-website.ap-southeast-1.amazonaws.com/plasma-jump-start-min.tar.gz>
   * MD5: <http://loom-share-sg.s3-website.ap-southeast-1.amazonaws.com/plasma-jump-start-min.tar.gz.md5sum>
-  * Receipts DB
+  * **[OPTIONAL]** Receipts DB (not necessary for most new nodes)
     * Archive: <http://loom-share-sg.s3-website.ap-southeast-1.amazonaws.com/plasma-jump-start-min-receipts_db.tar.gz>
     * MD5: <http://loom-share-sg.s3-website.ap-southeast-1.amazonaws.com/plasma-jump-start-min-receipts_db.tar.gz.md5sum>
+* Full jump start:
+  * Archive: <http://loom-share-sg.s3-website.ap-southeast-1.amazonaws.com/plasma-jump-start.tar.gz>
+  * MD5: <http://loom-share-sg.s3-website.ap-southeast-1.amazonaws.com/plasma-jump-start.tar.gz.md5sum>
 
 ## Extract the Archive
 
