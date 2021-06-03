@@ -31,6 +31,9 @@ In each location, there are two different archives. One is full and another is t
 * Smaller image:
   * Archive: <http://loom-share.s3-website.us-east-2.amazonaws.com/plasma-jump-start-min.tar.gz>
   * MD5: <http://loom-share.s3-website.us-east-2.amazonaws.com/plasma-jump-start-min.tar.gz.md5sum>
+  * Receipts DB
+    * Archive: <http://loom-share.s3-website.us-east-2.amazonaws.com/plasma-jump-start-min-receipts_db.tar.gz>
+    * MD5: <http://loom-share.s3-website.us-east-2.amazonaws.com/plasma-jump-start-min-receipts_db.tar.gz.md5sum>
 
 ### Singapore
 
@@ -40,6 +43,9 @@ In each location, there are two different archives. One is full and another is t
 * Smaller image:
   * Archive: <http://loom-share-sg.s3-website.ap-southeast-1.amazonaws.com/plasma-jump-start-min.tar.gz>
   * MD5: <http://loom-share-sg.s3-website.ap-southeast-1.amazonaws.com/plasma-jump-start-min.tar.gz.md5sum>
+  * Receipts DB
+    * Archive: <http://loom-share-sg.s3-website.ap-southeast-1.amazonaws.com/plasma-jump-start-min-receipts_db.tar.gz>
+    * MD5: <http://loom-share-sg.s3-website.ap-southeast-1.amazonaws.com/plasma-jump-start-min-receipts_db.tar.gz.md5sum>
 
 ## Extract the Archive
 
@@ -61,7 +67,7 @@ cd ../loom-jump-start
 ## Start the Node
 
 ```bash
-../basechain run --persistent-peers tcp://1f3dde151c0268fce847078e6143c820fe05e556@18.216.232.21:46656
+../basechain run --persistent-peers tcp://1f3dde151c0268fce847078e6143c820fe05e556@18.117.58.75:46656
 ```
 
 ## Finally
@@ -81,7 +87,7 @@ After=network.target
 Type=simple
 User=<user that runs loom>
 WorkingDirectory=<working directory of loom>
-ExecStart=<path to loom>/basechain run --persistent-peers tcp://1f3dde151c0268fce847078e6143c820fe05e556@18.216.232.21:46656
+ExecStart=<path to loom>/basechain run --persistent-peers tcp://1f3dde151c0268fce847078e6143c820fe05e556@18.117.58.75:46656
 Restart=always
 RestartSec=2
 StartLimitInterval=0
