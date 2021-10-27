@@ -119,7 +119,7 @@ To deploy to Ganache we will have to create something called a migration.
 
 Migrations are JavaScript files that help Truffle deploy the code to the blockchain. Note that `truffle init` created a special contract called `Migrations.sol`. Its role is to keep track of the changes you're making to your code. If you've ever used Rails, the concept should be familiar to you.
 
-We'll start from the file `truffle init` already created for us- `./contracts/1_initial_migration.js`. Let's take a look at what's inside:
+We'll start from the file `truffle init` already created for us- `./migrations/1_initial_migration.js`. Let's take a look at what's inside:
 
 ```js
 const Migrations = artifacts.require("Migrations");
@@ -132,10 +132,10 @@ module.exports = function(deployer) {
 To get ready for deployment, do:
 
 ```bash
-cp ./contracts/1_initial_migration.js ./contracts/2_simple_store.js
+cp ./migrations/1_initial_migration.js ./migrations/2_simple_store.js
 ```
 
-Next, let's modify `./contracts/2_simple_store.js` to this:
+Next, let's modify `./migrations/2_simple_store.js` to this:
 
 ```js
 var SimpleStore = artifacts.require("./SimpleStore.sol");
