@@ -300,6 +300,64 @@ node ./gateway-cli.js coin-balance
 node ./gateway-cli.js coin-balance -a gateway -c eth
 ```
 
+### Events
+
+The Ethereum Transfer Gateway emits the following events when you transfer assets between Basechain and Ethereum:
+
+```JavaScript
+/// @notice Event to log the withdrawal of a token from the Gateway.
+/// @param  owner Address of the entity that made the withdrawal.
+/// @param  kind The type of token withdrawn (ERC20/ERC721/ETH).
+/// @param  contractAddress Address of token contract the token belong to.
+/// @param  value For ERC721 this is the uid of the token, for ETH/ERC20 this is the amount.
+event TokenWithdrawn(address indexed owner, TokenKind kind, address contractAddress, uint256 value);
+
+/// @notice Event to log the deposit of a LOOM to the Gateway.
+/// @param  from Address of the entity that made the withdrawal.
+/// @param  amount The LOOM token amount that was deposited
+/// @param  loomCoinAddress Address of the LOOM token
+event LoomCoinReceived(address indexed from, uint256 amount, address loomCoinAddress);
+
+/// @notice Event to log the deposit of a ERC20 to the Gateway.
+/// @param  from Address of the entity that made the withdrawal.
+/// @param  amount The ERC20 token amount that was deposited
+/// @param  contractAddress Address of the ERC20 token
+event ERC20Received(address from, uint256 amount, address contractAddress);
+
+/// @notice Event to log the deposit of ETH to the Gateway.
+/// @param  from Address of the entity that made the withdrawal.
+/// @param  amount The ETH amount that was deposited
+event ETHReceived(address from, uint256 amount);
+
+/// @notice Event to log the deposit of an ERC721 to the Gateway.
+/// @param  operator Address of the operator accordingto the erc721 standard
+/// @param  from Address of the entity that made the withdrawal.
+/// @param  tokenId The ERC721 token ID that was deposited
+/// @param  contractAddress Address of the ERC721 token
+/// @param  data Any extra data that was provided during the deposit
+event ERC721Received(address operator, address from, uint256 tokenId, address contractAddress, bytes data);
+
+/// @notice Event to log the deposit of an ERC721x to the Gateway.
+/// @param  operator Address of the operator accordingto the erc721 standard
+/// @param  from Address of the entity that made the withdrawal.
+/// @param  tokenId The ERC721x token ID that was deposited
+/// @param  amount The ERC721x amount that was deposited
+/// @param  contractAddress Address of the ERC721 token
+/// @param  data Any extra data that was provided during the deposit
+event ERC721XReceived(address operator, address from, uint256 tokenId, uint256 amount, address contractAddress, bytes data);
+
+/// @notice Event to log the batch deposit of multiple ERC721x to the Gateway.
+/// @param  operator Address of the operator according to the erc721 standard
+/// @param  to Address of the entity that made the withdrawal.
+/// @param  tokenTypes The ERC721x token IDs that were deposited
+/// @param  amounts The ERC721x token amounts that were deposited
+/// @param  contractAddress Address of the ERC721 token
+/// @param  data Any extra data that was provided during the deposit
+event ERC721XBatchReceived(address operator, address to, uint256[] tokenTypes, uint256[] amounts, address contractAddress, bytes data);
+```
+
+>Note: If you withdraw ETH, the token address will be set to `address(0)`.
+
 ### Troubleshooting
 
 Sometimes the withdrawal process may error out due to network issues or because gas ran out. If that happens, you can try to complete the interrupted withdrawal using the `resume-withdrawal` command.
