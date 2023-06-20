@@ -28,13 +28,18 @@ Not only are we interoperable with the major blockchains of today, but we will a
 
 Don't get locked in or build in a silo. Future-proof your dapp with Loom Network — deploy once and get multichain usability.
 
+## What is zkLoom?
+
+zkLoom is an Ethereum scaling solution that utilizes zero-knowledge rollups. Rollups help reduce the load on Ethereum by moving some of the work off-chain, and rolling up transactions into batches,
+this can result in a significant reduction of transaction processing times and fees. The zkLoom Testnet is based on the same core architecture as zkSync Era.
+
+Loom Network is currently working on launching a production ready zkLoom mainnet, but if you're a developer you can start experimenting with the zkLoom testnet today :)
+
 ## Jump to the Essentials
 
-[Deploy to Loom Testnet](deploy-loom-testnet.html)
+[Deploy to zkLoom Testnet](deploy-zkloom-testnet.html)
 
-[Use the Transfer Gateway Testnet](extdev-transfer-gateway.html)
-
-[Deploy to Loom Mainnet](deploy-loom-mainnet.html)
+[Deploy to Basechain](deploy-loom-mainnet.html)
 
 [Get started with Solidity + Truffle](deploy-loom-testnet.html)
 

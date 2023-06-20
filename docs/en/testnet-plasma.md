@@ -4,6 +4,9 @@ title: Extdev Testnet
 sidebar_label: Extdev Testnet
 ---
 
+> The Extdev Testnet has been deprecated and will be shut down in the near future.
+> Please use the [zkLoom Testnet](testnet-zkloom.html) for any future development and testing.
+
 This page provides information on where and how to access Extdev Testnet. If you want more details, see our [guide](deploy-loom-testnet.html) on deploying to Extdev Testnet.
 
 ## Extdev Testnet
