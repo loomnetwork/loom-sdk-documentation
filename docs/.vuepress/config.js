@@ -1,7 +1,7 @@
 module.exports = {
     base: '/developers/',
     SEARCH_MAX_SUGGESTIONS: 10,
-    plugins: ['vuepress-plugin-nprogress', '@vuepress/active-header-links'],
+    plugins: ['@vuepress/active-header-links'],
     head: [
         [
             'link',
@@ -65,8 +65,7 @@ module.exports = {
                 sidebarDepth: 1,
                 children: [
                     ['/intro-to-loom', 'Intro to Loom Network'],
-                    ['/deploy-loom-testnet', 'Deploying to Extdev Testnet'],
-                    ['/extdev-transfer-gateway', 'Transfer Gateway Tutorial'],
+                    ['/deploy-zkloom-testnet', 'Deploying to zkLoom Testnet'],
                     ['/deploy-loom-mainnet', 'Deploying to Basechain'],
                     ['/basic-install-all', 'Setup Local Loom Chain'],
                     ['/how-to-develop-locally', 'How to Develop Locally']
@@ -166,6 +165,7 @@ module.exports = {
                 collapsable: true,
                 sidebarDepth: 1,
                 children: [
+                    ['/testnet-zkloom', 'zkLoom Testnet'],
                     ['/testnet-plasma', 'Extdev Testnet'],
                     ['/mainnet-plasma', 'Basechain'],
                     ['/validator', 'Become Validator'],
