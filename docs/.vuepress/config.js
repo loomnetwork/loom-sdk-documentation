@@ -76,7 +76,8 @@ module.exports = {
                 collapsable: true,
                 sidebarDepth: 1,
                 children: [
-                    ['/loom-js-quickstart', 'NodeJS & Browser Quick Start'],
+                    ['/zkloom-js-quickstart', 'zkLoom Quick Start'],
+                    ['/loom-js-quickstart', 'Loom Quick Start'],
                     ['/web3js-loom-provider-truffle', 'Web3, LoomProvider and Truffle'],
                 ],
             },
