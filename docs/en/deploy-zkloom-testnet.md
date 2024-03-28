@@ -59,10 +59,11 @@ they'll be used again during deployment.
 Before you can deploy the Solidity contract you just compiled you'll need to generate a private key.
 You'll need a standard hex encoded ECDSA key, same kind of key you'd use for signing any Ethereum transactions.
 If you have Metamask you can use it to create a new account and export the private key.
-Once you have the private key set it in the `WALLET_PRIVATE_KEY` env var.
-```bash
-export WALLET_PRIVATE_KEY=0x...
-```
+
+Copy the `.env.default` file to `.env` and set the `WALLET_PRIVATE_KEY` to the hex-encoded ECDSA
+private key of the wallet you want to use to deploy the contract.
+
+NOTE: The deployer wallet will need to have some ETH on zkLoom Sepolia.
 
 ## Fund the deployer account
 
