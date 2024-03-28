@@ -6,18 +6,18 @@ sidebar_label: Deploy to zkLoom Testnet
 
 ## Overview
 
-If you have previous experience deploying contracts using **Hardhat** then you'll find deploying to Loom Network’s zkLoom Testnet quite straightforward.
+If you have previous experience deploying contracts using **Hardhat** then you'll find deploying to Loom Network’s zkLoom Sepolia Testnet quite straightforward.
 
-The zkLoom Testnet is a zkRollup that operates a bit differently from an Ethereum Testnet, but thanks to a few Hardhat plugins built by zkSync,
-building, testing, and deploying smart contracts to the zkLoom Testnet should be as easy as working with an Ethereum or Ethereum-like Testnet.
+The zkLoom Sepolia Testnet is a zkRollup that operates a bit differently from an Ethereum Testnet, but thanks to a few Hardhat plugins built by zkSync,
+building, testing, and deploying smart contracts to the zkLoom Sepolia Testnet should be as easy as working with an Ethereum-like Testnet.
 
-In this particular example we'll show you how to compile and deploy a simple Solidity smart contract to the zkLoom Testnet.
+In this particular example we'll show you how to compile and deploy a simple Solidity smart contract to the zkLoom Sepolia Testnet.
 
 ## Requirements
 
 Make sure the following requirements are met before proceeding to the next section.
 
-- NodeJS `v16.9.0` (or later v16), you should probably also install [nvm](https://github.com/nvm-sh/nvm#installing-and-updating) to manage NodeJS versions.
+- NodeJS `v18.20.0`, we recommend using [nvm](https://github.com/nvm-sh/nvm#installing-and-updating) to make it easier to switch between NodeJS versions.
 - yarn `v1.22.19`, if you don't have it installed already the easiest way to do so is probably via `npm i -g yarn`, then just run `yarn set version 1.22.19`
 
 Newer versions of NodeJS and Yarn may also work.
@@ -43,7 +43,8 @@ yarn hardhat compile
 
 The first time you compile the contract you should see output similar to this:
 ```
-zksolc version 1.3.10 successfully downloaded
+zksolc version 1.4.0 successfully downloaded
+...
 Compiling 1 Solidity file
 --> contracts/SimpleStore.sol
 
@@ -71,9 +72,11 @@ to pay for the deployment transaction.
 You can get testnet `ETH` by popping into the [Loom Network - Developer Chat](https://t.me/loomnetworkdev)
 on Telegram and asking for some, just mention your account address and we'll send some your way ASAP.
 
-## Deploy the contract to zkLoom Testnet
+Soon we'll launch a bridge that will allow you to deposit ETH from Sepolia to the zkLoom Sepolia Testnet.
 
-Contracts can be deployed to the zkLoom Testnet using the `hardhat deploy-zksync` command:
+## Deploy the contract to zkLoom Sepolia Testnet
+
+Contracts can be deployed to the zkLoom Sepolia Testnet using the `hardhat deploy-zksync` command:
 
 ```bash
 yarn hardhat deploy-zksync --script deploy-simple-store.ts
@@ -86,5 +89,5 @@ Contract deployment fee estimate: 0.00012952175 ETH
 SimpleStore was deployed at 0xfb6c71bDFaddC830443b0c5157782Cae4E6a426f
 ```
 
-And that's a wrap! Now that you understand how to deploy a Solidity contract to the zkLoom Testnet
+And that's a wrap! Now that you understand how to deploy a Solidity contract to the zkLoom Sepolia Testnet
 the next step is to interact with it. We'll cover that in the next example... coming soon!
