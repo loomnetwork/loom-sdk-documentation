@@ -31,9 +31,9 @@ Don't get locked in or build in a silo. Future-proof your dapp with Loom Network
 ## What is zkLoom?
 
 zkLoom is an Ethereum scaling solution that utilizes zero-knowledge rollups. Rollups help reduce the load on Ethereum by moving some of the work off-chain, and rolling up transactions into batches,
-this can result in a significant reduction of transaction processing times and fees. The zkLoom Testnet is based on the same core architecture as zkSync Era.
+this can result in a significant reduction of transaction processing times and fees. The zkLoom Sepolia Testnet is based on the same core architecture as zkSync Era.
 
-Loom Network is currently working on launching a production ready zkLoom mainnet, but if you're a developer you can start experimenting with the zkLoom testnet today :)
+Loom Network is currently working on launching a production ready zkLoom mainnet, but if you're a developer you can start experimenting with the zkLoom Sepolia Testnet today :)
 
 ## Jump to the Essentials
 
