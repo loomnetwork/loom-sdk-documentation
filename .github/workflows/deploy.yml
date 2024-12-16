@@ -1,0 +1,43 @@
+name: Deploy to loomx.io/developers AWS S3 bucket
+
+on:
+  workflow_dispatch: # Allows manual triggering
+  #push: # Auto-deploy on push
+  #  branches:
+  #    - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Install Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 8.16.0
+        cache: 'yarn'
+
+    - name: Install dependencies
+      run: |
+        yarn install
+
+    - name: Build docs
+      run: |
+        yarn run build
+        cp -R docs/.vuepress/public/json/topTokensList.json docs/.vuepress/dist/topTokensList.json
+
+#    - name: Configure AWS credentials
+#      uses: aws-actions/configure-aws-credentials@v3
+#      with:
+#        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+#        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+#        aws-region: us-east-1
+#
+#    - name: Upload to S3 (loomx.io/developers)
+#      if: github.ref_name == 'master'
+#      run: |
+#        aws s3 cp docs/.vuepress/dist s3://loomx.io/developers --recursive --cache-control 'max-age=86400'
+      
